@@ -1,0 +1,51 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con 5 campos</title>
+  </head>
+    <style>
+        #formulario_perron {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        }
+        #formulario_perron label {
+        font-size: 18px;
+        }
+        #formulario_perron input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        }
+        #formulario_perron input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        }
+        #formulario_perron input[type="submit"]:hover {
+        background-color: #45a049;
+        }
+    </style>
+  <body>
+    <form id="formulario_perron">
+      <label for="id1">Campo 1:</label><br />
+      <input type="text" id="id1" name="id1" /><br />
+      <label for="id2">Campo 2:</label><br />
+      <input type="text" id="id2" name="id2" /><br />
+      <label for="id3">Campo 3:</label><br />
+      <input type="text" id="id3" name="id3" /><br />
+      <label for="id4">Campo 4:</label><br />
+      <input type="text" id="id4" name="id4" /><br />
+      <label for="id5">Campo 5:</label><br />
+      <input type="text" id="id5" name="id5" /><br /><br />
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+  <button onclick="window.location.href = '../../view/ejemplo/ejemplo_tabla.html';">Mostrar</button>
+  <script src="../../controller/ejemplo/js/reg_ejemplo.js"></script>
+</html>
