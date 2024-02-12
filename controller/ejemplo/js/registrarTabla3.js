@@ -9,7 +9,7 @@ formulario.addEventListener('submit', function (e)
 
     var datos= new FormData(formulario);
     //C:\version7\htdocs\Huitzila\Proyecto_Huitzila\controller\ejemplo\registro_ejemplo.php
-    fetch('../../controller/ejemplo/', {
+    fetch('../../controller/ejemplo/registra_tabla3.php', {
         method: 'POST',
         body: datos
     })

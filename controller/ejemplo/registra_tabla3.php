@@ -1,6 +1,6 @@
 <?php
 // Recoger los valores de los campos del formulario
-include_once('../../model/ejemplo/registros/registro_ejemplo.php');
+include_once('../../model/ejemplo/registros/registroE3.php');
 $c1 = $_POST["id1"];
 $c2 = $_POST["id2"];
 $c3 = $_POST["id3"];
