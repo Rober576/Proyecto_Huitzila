@@ -1,6 +1,5 @@
 <?php
-include('../../../config/Crud_bd.php'); 
-
+include('../../../../config/Crud_bd.php');
 class MostrarCampos{
     private $base;
 
@@ -10,16 +9,17 @@ class MostrarCampos{
     }
     //hace la consulta principal de los datos de las certificaciones
     function getEjemplo(){
-        $querry = "SELECT * FROM campos";
-        $resultados = $this->base->mostrar($querry);
+        $query = "SELECT * FROM tabla4";
+        $resultados = $this->base->mostrar($query);
         $this->base->cerrar_conexion();
         return $resultados;
     }
     function buscador($busqueda){
-        $querry = "SELECT * FROM campos WHERE c1 LIKE :busqueda OR c2 LIKE :busqueda";
-        $resultados = $this->base->mostrar($querry, [":busqueda" => "%".$busqueda."%"]);
+        $query = "SELECT * FROM tabla4 WHERE campo1 LIKE :busqueda OR campo2 LIKE :busqueda OR campo3 LIKE :busqueda OR campo4 LIKE :busqueda OR campo5 LIKE :busqueda";
+        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
         return $resultados;
+        echo $resultados;
     }
 }
 
