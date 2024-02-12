@@ -40,13 +40,6 @@
           <li><a href="#" id="mostrar4">Mostrar</a></li>
         </ul>
       </li>
-      <li class="submenu">
-        <a href="#">Opcion 5</a>
-        <ul>
-          <li><a href="#" id="registrar5">Registrar</a></li>
-          <li><a href="#" id="mostrar5">Mostrar</a></li>
-        </ul>
-      </li>
     </ul>
   </nav>
 </header>
@@ -55,18 +48,7 @@
   <iframe id="frame" src="about:blank" frameborder="0"></iframe>
 </div>
 
-<script>
-  // Agrega un listener a cada enlace de registrar para cambiar el src del iframe
-  for (let i = 1; i <= 5; i++) {
-    document.getElementById(`registrar${i}`).addEventListener('click', function() {
-      document.getElementById('frame').src = 'formulario.html';
-    });
-    document.getElementById(`mostrar${i}`).addEventListener('click', function() {
-      document.getElementById('frame').src = `tabla${i}.html`;
-    });
-  }
-
-</script>
+<script src="/controller/ejemplo/js/indexscrip.js"></script>
 
 </body>
 </html>
