@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<link rel="stylesheet" href="/view/css/cssFormulario.css">
+
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li class="submenu">
+        <a href="#">Opcion 1</a>
+        <ul>
+          <li><a href="#" id="registrar1">Registrar</a></li>
+          <li><a href="#" id="mostrar1">Mostrar</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Opcion 2</a>
+        <ul>
+          <li><a href="#" id="registrar2">Registrar</a></li>
+          <li><a href="#" id="mostrar2">Mostrar</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Opcion 3</a>
+        <ul>
+          <li><a href="#" id="registrar3">Registrar</a></li>
+          <li><a href="#" id="mostrar3">Mostrar</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Opcion 4</a>
+        <ul>
+          <li><a href="#" id="registrar4">Registrar</a></li>
+          <li><a href="#" id="mostrar4">Mostrar</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Opcion 5</a>
+        <ul>
+          <li><a href="#" id="registrar5">Registrar</a></li>
+          <li><a href="#" id="mostrar5">Mostrar</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <iframe id="frame" src="about:blank" frameborder="0"></iframe>
+</div>
+
+<script>
+  // Agrega un listener a cada enlace de registrar para cambiar el src del iframe
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById(`registrar${i}`).addEventListener('click', function() {
+      document.getElementById('frame').src = 'formulario.html';
+    });
+  }
+</script>
+
+</body>
+</html>
