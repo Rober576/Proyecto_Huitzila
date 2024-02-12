@@ -1,5 +1,5 @@
 <?php
-include('../../../../config/Crud_bd.php');
+include('../../config/Crud_bd.php');
 class MostrarCampos{
     private $base;
 
@@ -18,6 +18,7 @@ class MostrarCampos{
         $query = "SELECT * FROM tabla4 WHERE campo1 LIKE :busqueda OR campo2 LIKE :busqueda OR campo3 LIKE :busqueda OR campo4 LIKE :busqueda OR campo5 LIKE :busqueda";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
+        echo $_POST['consulta'];
         return $resultados;
         echo $resultados;
     }

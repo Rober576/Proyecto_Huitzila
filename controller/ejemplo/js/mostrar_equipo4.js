@@ -1,7 +1,7 @@
+
 $(buscar_datos());
 function buscar_datos(consulta){
     $.ajax({
-        
         url: '../../controller/ejemplo/mostrar_equipo4.php',
         type: 'POST',
         dataType: 'html',
