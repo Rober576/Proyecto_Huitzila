@@ -1,15 +1,28 @@
 <?php
-require_once("../../../config/Crud_bd.php");
+include('../../../config/Crud_bd.php'); 
 
-$crud = new Crud_bd();
-$conexion = $crud->conexion_bd();
+class MostrarCampos{
+    private $base;
 
-// Ejemplo de consulta para obtener los datos (ajusta según tu estructura de base de datos)
-$consulta = "SELECT campo1, campo2, campo3, campo4, campo5 FROM tu_tabla WHERE tu_condicion";
-$resultados = $crud->mostrar($consulta);
+    function instancias(){
+        $this->base = new Crud_bd();
+        $this->base->conexion_bd();
+    }
+    //hace la consulta principal de los datos de las certificaciones
+    function getEjemplo(){
+        $querry = "SELECT * FROM campos";
+        $resultados = $this->base->mostrar($querry);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
+    function buscador($busqueda){
+        $querry = "SELECT * FROM campos WHERE c1 LIKE :busqueda OR c2 LIKE :busqueda";
+        $resultados = $this->base->mostrar($querry, [":busqueda" => "%".$busqueda."%"]);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
+}
 
-// Envía los resultados al script JavaScript
-echo json_encode($resultados);
-
-$crud->cerrar_conexion();
+$obj = new MostrarCampos();
+$obj->instancias();
 ?>
