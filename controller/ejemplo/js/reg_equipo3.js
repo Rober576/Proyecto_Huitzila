@@ -4,7 +4,7 @@ var submitButton = document.getElementById("submitButton");
 
 console.log('hola mundo3');
 
-submitButton.addEventListener("click", function(event) {
+formulario.addEventListener("submit", function(event) {
     // Detenemos la acción por defecto del botón
     event.preventDefault();
 
