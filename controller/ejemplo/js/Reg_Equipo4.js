@@ -1,12 +1,12 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo4');
-var submitButton = document.getElementById("submitButton");
+
 
 console.log('hola mundo4');
 
-submitButton.addEventListener("click", function(event) {
-    // Detenemos la acción por defecto del botón
-    event.preventDefault();
+formulario.addEventListener('submit', function (e)
+{
+    e.preventDefault();
 
 
     var datos= new FormData(formulario);
