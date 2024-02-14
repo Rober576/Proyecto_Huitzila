@@ -23,7 +23,7 @@ const expresion = {
 }
 
 //se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-formulario.campo1.addEventListener('keyup', (e) => {
+formulario.campo1.addEventListener('keyup', (e) => {5
     let valorInput = e.target.value;
     formulario.campo1.value = valorInput
 
