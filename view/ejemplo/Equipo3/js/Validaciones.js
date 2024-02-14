@@ -1,9 +1,9 @@
-document.getElementById('Equipo3').addEventListener('submit', function (event) {
+document.getElementById('Equipo3').addEventListener('keyup', function (event) {
     if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
-        alertUser('Registro fallido. Por favor, revise los campos resaltados.');
+        console.log('Registro fallido. Por favor, revise los campos resaltados.');
         event.preventDefault();
     } else {
-        alertUser('Registro exitoso');
+        console.log('Registro exitoso');
     }
 });
 
@@ -12,6 +12,10 @@ let bandera = false;
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
+    if(val_Nombre() == true){
+        bandera = true;
+    }
+
     if(bandera == true){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
@@ -44,10 +48,24 @@ function val_ID() {
         return true;
     }
 }
+const expresion = {
+    campo4: /^[A-Za-z0-9]{3,400}$/,
+}
 
 
 function val_Nombre() {
-    
+    console.log("nombre")
+    var nombre = document.getElementById("campo4").value;
+    let regex = /^[A-Za-z\s]{0,400}$/;
+    if(!expresion.campo4.test(nombre)){
+        campo4.style.border = "5px solid red";
+        console.log("El nombre es obligatorio");
+        return false;
+    }else{
+        campo4.removeAttribute("style");
+        console.log("Nombre correctamente ingresado");
+        return true;
+    }
 }
 
 function val_clave() {
