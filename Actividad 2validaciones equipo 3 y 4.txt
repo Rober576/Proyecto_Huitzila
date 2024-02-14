@@ -71,8 +71,7 @@ Objetivo: Asegurar que el usuario ingrese una dirección correcta.
 
 Pasos:
 
--Validar la longitud: El código postal debe tener 5 digitos.
--Validar el formato: Debe contener solo números.
+-Validar que ingrese solo letras, puntos, números, espacios y #.
 
 
 4. Validación de un apellido:
