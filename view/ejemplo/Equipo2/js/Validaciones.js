@@ -16,6 +16,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
     else{
         //si no es válida se cancela el envío
+        console.log(bandera,bandera2,bandera3,bandera4,bandera5);
         console.log("Envío cancelado");
         e.preventDefault();
     }
@@ -59,7 +60,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
     Equipo2.campo2.value = valorInput;
 
     // Verifica que se cumpla con la expresión correspondiente
-    if (!expresion.campo2.test(valorInput) || valorInput.length > 20) {
+    if (valorInput.trim() === '' || valorInput.length > 20) {
         campo2.style.border = "5px solid red";
         bandera2 = false;
     } else {
