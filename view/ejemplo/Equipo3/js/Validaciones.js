@@ -1,4 +1,4 @@
-document.getElementById('formulario').addEventListener('submit', function (event) {
+document.getElementById('Equipo3').addEventListener('submit', function (event) {
     if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
         alertUser('Registro fallido. Por favor, revise los campos resaltados.');
         event.preventDefault();
@@ -33,7 +33,16 @@ function val_Password() {
 }
 
 function val_ID() {
-    
+    const idInput = document.getElementById('id');
+    const idRegex = /^[0-9]{2}[A-Za-z]{5}$/;
+
+    if (!idRegex.test(idInput.value)) {
+        highlightElement(idInput);
+        return false;
+    } else {
+        unhighlightElement(idInput);
+        return true;
+    }
 }
 
 
