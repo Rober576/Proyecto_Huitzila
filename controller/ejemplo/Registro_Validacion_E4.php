@@ -72,7 +72,7 @@ class RegistroValidaciones{
         $cadena4 = $_POST['campo4'];
         $cadena5 = $_POST['campo5'];
 
-        if (empty($cadena1) && empty($cadena2) && empty($cadena3) && empty($cadena4) && !empty($cadena5)) {
+        if (empty($cadena1) && empty($cadena2) && empty($cadena3) && empty($cadena4)) {
             if($this->revision1($cadena1) == true){
                 if($this->revision2($cadena2) == true){
                     if($this->revision3($cadena3) == true){
