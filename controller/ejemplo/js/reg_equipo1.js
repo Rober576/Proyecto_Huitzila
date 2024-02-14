@@ -1,7 +1,7 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo1');
 
-console.log('hola mundo3');
+console.log('hola mundo1');
 
 formulario.addEventListener('submit', function (e)
 {
