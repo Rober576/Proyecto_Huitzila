@@ -49,7 +49,7 @@ formulario.campo1.addEventListener('keyup', (e) => {5
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
         campo1.style.border = "5px solid red";
-        bandera = false
+        bandera = false;
     }
 
     else {
