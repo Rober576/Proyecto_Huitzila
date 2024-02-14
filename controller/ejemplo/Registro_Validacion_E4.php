@@ -72,13 +72,17 @@ class RegistroValidaciones{
         $cadena4 = $_POST['campo4'];
         $cadena5 = $_POST['campo5'];
 
-        if (!empty($cadena1) && !empty($cadena2) && !empty($cadena3) && !empty($cadena4) && !empty($cadena5)) {
-        if($this->revision1($cadena1) == true){
-            if($this->revision2($cadena2) == true){
-                if($this->revision3($cadena3) == true){
-                    if($this->revision4($cadena4) == true){
-                        if($this->revision5($cadena5) == true){
-                            echo json_encode("exito");
+        if (empty($cadena1) && empty($cadena2) && empty($cadena3) && empty($cadena4) && !empty($cadena5)) {
+            if($this->revision1($cadena1) == true){
+                if($this->revision2($cadena2) == true){
+                    if($this->revision3($cadena3) == true){
+                        if($this->revision4($cadena4) == true){
+                            if($this->revision5($cadena5) == true){
+                                echo json_encode("exito");
+                            }
+                            else{
+                                echo json_encode("errores");
+                            }
                         }
                         else{
                             echo json_encode("errores");
@@ -87,24 +91,20 @@ class RegistroValidaciones{
                     else{
                         echo json_encode("errores");
                     }
+
                 }
                 else{
                     echo json_encode("errores");
                 }
-
             }
+            
             else{
                 echo json_encode("errores");
             }
         }
-        
         else{
             echo json_encode("errores");
         }
-    }
-    else{
-        echo json_encode("errores");
-    }
 
 
 
