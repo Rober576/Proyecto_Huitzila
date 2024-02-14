@@ -19,6 +19,8 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
+
+
 const expresion = {
     telefono: /^\d{10}$/, 
     otraFuncion: /^\d{5}$/ 
@@ -55,16 +57,19 @@ expresion.codigoPostal = /^\d{5}$/;
 
 
 
+Equipo4.campo3.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
 
+    if (!expresion.direccion.test(valorInput)) {
+        Equipo4.campo3.style.border = "5px solid red"; 
+        bandera3 = false;
+    } else {
+        Equipo4.campo3.removeAttribute("style"); 
+        bandera3 = true; 
+    }
+});
 
-
-
-
-
-
-
-
-
+expresion.direccion = /^[a-zA-Z0-9\s.#]*$/;
 
 
 
@@ -81,6 +86,8 @@ Equipo4.campo4.addEventListener('keyup', (e) => {
 });
 
 expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
+
+
 
 Equipo4.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
