@@ -1,4 +1,5 @@
 
+EQUIPO 3
 1. Validación de correo electrónico:
 
 Objetivo: Asegurar que el usuario ingrese un correo electrónico con un formato válido.
@@ -43,6 +44,7 @@ Pasos:
 -Valida que ingrese mínimo 3 letras sin caracteres especiales ni números; no es obligatorio
 
 -----------------------------------------------------------------------------------------------------------------------------
+EQUIPO 4
 
 1. Validación de número de teléfono:
 

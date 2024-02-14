@@ -24,7 +24,6 @@ campo 4: id (dos números y 5 letras (sin acentos))
 campo 5: descripción (cualquier caracter excepto @, ~, `; no es obligatorio)
 
 ---------------------------------------------
-Equipo 2
 
 campo 1: código postal (solo números; 5 caracteres)
 
@@ -37,7 +36,6 @@ campo 4: apellido (solo letras y espacios; máximo 20 caracteres)
 campo 5: clave: (mínimo 3 letras sin caracteres especiales ni números; no es obligatorio)
 
 ---------------------------------------------
-Equipo 3
 
 campo 1: contraseña (mínimo 8 y máximo 16 caracteres; debe incluir mayúsculas, minúsculas, almemos un número y un simbolo especial)
 
@@ -50,7 +48,7 @@ campo 4: nombre (solo letras, espacios y puntos; máximo 40 caracteres)
 campo 5: motivo: (cualquier caracter excepto operadores aritméticos; no es obligatorio)
 
 -----------------------------------------
-Equipo 4
+Equipo 2
 
 campo 1: teléfono (solo números; 10 caracteres)
 
