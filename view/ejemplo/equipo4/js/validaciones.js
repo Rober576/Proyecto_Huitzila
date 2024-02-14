@@ -19,8 +19,6 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
-
-
 const expresion = {
     telefono: /^\d{10}$/, 
     otraFuncion: /^\d{5}$/ 
@@ -57,27 +55,28 @@ expresion.codigoPostal = /^\d{5}$/;
 
 
 
+expresion.direccion = /^[a-zA-Z0-9\s.#]+$/;
+
 Equipo4.campo3.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.direccion.test(valorInput)) {
+    if (!expresion.direccion.test(valorInput) || valorInput.trim() === '') {
         Equipo4.campo3.style.border = "5px solid red"; 
-        bandera3 = false;
+        bandera3 = false; 
     } else {
-        Equipo4.campo3.removeAttribute("style"); 
+        Equipo4.campo3.removeAttribute("style");
         bandera3 = true; 
     }
 });
 
-expresion.direccion = /^[a-zA-Z0-9\s.#]*$/;
 
+expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
 
-
-Equipo4.campo4.addEventListener('keyup', (e) => {
+Equipo4.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.apellido.test(valorInput)) {
-        Equipo4.campo4.style.border = "5px solid red"; 
+    if (!expresion.apellido.test(valorInput) || valorInput.trim() === '') {
+        Equipo4.campo4.style.border = "5px solid red";
         bandera4 = false; 
     } else {
         Equipo4.campo4.removeAttribute("style"); 
@@ -85,20 +84,17 @@ Equipo4.campo4.addEventListener('keyup', (e) => {
     }
 });
 
-expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
 
+expresion.descripcion = /^[^@~`;]+$/;
 
-
-Equipo4.campo5.addEventListener('keyup', (e) => {
+Equipo4.campo5.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.descripcion.test(valorInput)) {
-        Equipo4.campo5.style.border = "5px solid red"; 
-        bandera5 = false;
+    if (!expresion.descripcion.test(valorInput) || valorInput.trim() === '') {
+        Equipo4.campo5.style.border = "5px solid red";
+        bandera5 = false; 
     } else {
-        Equipo4.campo5.removeAttribute("style");
-        bandera5 = true; 
+        Equipo4.campo5.removeAttribute("style"); 
+        bandera5 = true;
     }
 });
-
-expresion.descripcion = /^[^@~`;]*$/;
