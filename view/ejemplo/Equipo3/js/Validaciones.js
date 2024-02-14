@@ -33,7 +33,16 @@ function val_Password() {
 }
 
 function val_ID() {
-    
+    const idInput = document.getElementById('id');
+    const idRegex = /^[0-9]{2}[A-Za-z]{5}$/;
+
+    if (!idRegex.test(idInput.value)) {
+        highlightElement(idInput);
+        return false;
+    } else {
+        unhighlightElement(idInput);
+        return true;
+    }
 }
 
 
