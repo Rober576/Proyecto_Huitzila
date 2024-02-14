@@ -1,11 +1,13 @@
-//se declara una bandera para saber si la entrada es válida
-let bandera = false;
+let bandera1 = false;
+let bandera2 = false;
+let bandera3 = false;
+let bandera4 = false;
+let bandera5 = false;
 
-//se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(bandera == true){
+    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
@@ -17,97 +19,79 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
-//definición de la expresión regular para el campo
 const expresion = {
-    campo1: /^[A-Za-z0-9]{3,5}$/,
-}
+    telefono: /^\d{10}$/, 
+    otraFuncion: /^\d{5}$/ 
+};
 
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo4.campo1.addEventListener('keyup', (e) => {5
+
+Equipo4.campo1.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    Equipo4.campo1.value = valorInput
-
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
-        bandera = false
+   
+    if (!expresion.telefono.test(valorInput)) {
+        Equipo4.campo1.style.border = "5px solid red"; 
+        bandera1 = false; 
+    } else {
+        Equipo4.campo1.removeAttribute("style"); 
+        bandera1 = true; 
     }
+});
 
-    else {
-        campo1.removeAttribute("style");
-        bandera = true;
-    }
-})
 
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo4.campo2.addEventListener('keyup', (e) => {5
+Equipo4.campo2.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    Equipo4.campo2.value = valorInput
 
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
-        bandera = false
+    
+    if (!expresion.codigoPostal.test(valorInput)) {
+        Equipo4.campo2.style.border = "5px solid red";
+        bandera2 = false; 
+    } else {
+        Equipo4.campo2.removeAttribute("style");
+        bandera2 = true; 
     }
+});
 
-    else {
-        campo1.removeAttribute("style");
-        bandera = true;
-    }
-})
+expresion.codigoPostal = /^\d{5}$/;
 
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo4.campo3.addEventListener('keyup', (e) => {5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Equipo4.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    Equipo4.campo3.value = valorInput
 
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
-        bandera = false
+    if (!expresion.apellido.test(valorInput)) {
+        Equipo4.campo4.style.border = "5px solid red"; 
+        bandera4 = false; 
+    } else {
+        Equipo4.campo4.removeAttribute("style"); 
+        bandera4 = true; 
     }
+});
 
-    else {
-        campo1.removeAttribute("style");
-        bandera = true;
-    }
-})
+expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
 
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo4.campo4.addEventListener('keyup', (e) => {5
+Equipo4.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    Equipo4.campo4.value = valorInput
 
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
-        bandera = false
+    if (!expresion.descripcion.test(valorInput)) {
+        Equipo4.campo5.style.border = "5px solid red"; 
+        bandera5 = false;
+    } else {
+        Equipo4.campo5.removeAttribute("style");
+        bandera5 = true; 
     }
+});
 
-    else {
-        campo1.removeAttribute("style");
-        bandera = true;
-    }
-})
-
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo4.campo5.addEventListener('keyup', (e) => {5
-    let valorInput = e.target.value;
-    Equipo4.campo5.value = valorInput
-
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
-        bandera = false
-    }
-
-    else {
-        campo1.removeAttribute("style");
-        bandera = true;
-    }
-})
+expresion.descripcion = /^[^@~`;]*$/;
