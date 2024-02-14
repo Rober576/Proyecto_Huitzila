@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../public/css/cssFormulario.css">
+<title>Formulario de Registro</title>
+</head>
+<body>
+
+<form id="formulario">
+    <label >En este campo, se deben admitir únicamente letras (sin acentos) y números, teneiendo un mínimo de 3 y un máximo 
+        de 5 caracteres permitidos, si la entrada dada por el usuario cumple con esto, aparecerá una alerta de "Registro
+        exitoso", pero no se agregará nada a la base; de lo contrario, se mostrará el borde de la caja en rojo,
+        no se debe hacer el envío de datos, por lo que de hacerse el envío, se mostrará una alerta de "Registro fallido". 
+    </label>
+    </label>
+    <h1>Tabla Ejemplo</h1>
+    <label for="campo1">Campo 1:</label><br><br>
+    <input type="text" id="campo1" name="campo1" maxlength="5">
+     
+    <input type="submit" value="Enviar" id="registrar">
+</form>
+
+<script src="js/Validaciones_Ejemplo.js"></script>
+<script src="../../controller/ejemplo/js/Registro_Validaciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+cada equipo deberá hacer que los campos de sus respectivos formularios de registro validen los campos siguiendo las condiciones 
+que se indican aquí.
+
+Para los casos de los campos que no admiten ciertos caracteres, estos se deben borrar al momento de
+escribirlos, igual con los que tienen una limitación máxima, el sistema no debe permitirme exeder el límite de caracteres;
+para el resto de condiciones, cuando no se cumplen, el borde de la caja de texto correspondiente se debe poner de color rojo.
+
+En el caso de los campos que no son obligatorios, el envío debe poder hacerse si el campo esta en blanco, pero debe cancelarse
+si hay algún error, y tambien debe ponerse el borde rojo
+
+Pueden basarse en el ejemplo que dejé, pero no es necesario validar de nuevo desdde php, solo fue una comprobación para 
+fines prácticos
+
+Equipo 1
+
+campo 1: nombre (solo letras, espacios y puntos; máximo 40 caracteres)
+
+campo 2: teléfono (solo números; 10 caracteres)
+
+campo 3: correo (letras (sin acentos), "@_-." y números; máximo 60 caracteres; debe seguir el formato [nombre@dominio1.dominio2])
+
+campo 4: id (dos números y 5 letras (sin acentos))
+
+campo 5: descripción (cualquier caracter excepto @, ~, `; no es obligatorio)
+
+---------------------------------------------
+
+campo 1: código postal (solo números; 5 caracteres)
+
+campo 2: precio (solo números y un punto decimal; el punto no puede ser ni el primer ni el último caracter y después del punto se admite un máximo de dos números)
+
+campo 3: direción (solo letras, puntos, números, espacios y #)
+
+campo 4: apellido (solo letras y espacios; máximo 20 caracteres)
+
+campo 5: clave: (mínimo 3 letras sin caracteres especiales ni números; no es obligatorio)
+
+---------------------------------------------
+
+campo 1: contraseña (mínimo 8 y máximo 16 caracteres; debe incluir mayúsculas, minúsculas, almemos un número y un simbolo especial)
+
+campo 2: RFC (13 caracteres; solo letras mayúsculas y números; debe cumplir con la expresión AAAA000000###, siendo las A letras y los 0 números, los # pueden ser letra o número)
+
+campo 3: usuario (solo letras (sin acentos); máximo 15 caracteres)
+
+campo 4: nombre (solo letras, espacios y puntos; máximo 40 caracteres)
+
+campo 5: motivo: (cualquier caracter excepto operadores aritméticos; no es obligatorio)
+
+-----------------------------------------
+Equipo 2
+
+campo 1: teléfono (solo números; 10 caracteres)
+
+campo 2: apellido (solo letras y espacios; máximo 20 caracteres)
+
+campo 3: CURP (solo letras mayúsculas y números; 18 caracteres; debe cumplir con la expresión AAAA000000AAAAAA##, siendo las A letras y los 0 números, los # pueden ser letra o número)
+
+campo 4: marca (solo létras; mínimo 5 caracteres)
+
+campo 5: comentario (cualquier tipo de caracter; no es obligatorio; debe admitir saltos de línea)
