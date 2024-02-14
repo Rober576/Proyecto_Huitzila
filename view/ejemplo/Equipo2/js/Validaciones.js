@@ -38,7 +38,7 @@ Equipo2.campo1.addEventListener('keyup', (e) => {
     Equipo2.campo1.value = valorInput;
 
     // Verifica que se cumpla con la expresión correspondiente
-    if (!expresion.campo1.test(valorInput) || valorInput.length !== 10) {
+    if (valorInput.length !== 10) {
         campo1.style.border = "5px solid red";
         bandera = false;
     } else {
