@@ -1,4 +1,4 @@
-document.getElementById('formulario').addEventListener('submit', function (event) {
+document.getElementById('Equipo3').addEventListener('submit', function (event) {
     if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
         alertUser('Registro fallido. Por favor, revise los campos resaltados.');
         event.preventDefault();
