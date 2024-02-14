@@ -29,7 +29,7 @@ const expresion = {
     campo3: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     campo4: /^\d{2}[A-Za-z]{5}$/,
     campo5:/^([^@~`;]{0,}|)$/,
-};
+}
 
 
 //se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
@@ -49,14 +49,14 @@ formulario.campo1.addEventListener('keyup', (e) => {5
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
         campo1.style.border = "5px solid red";
-        bandera = false
+        bandera = false;
     }
 
     else {
         campo1.removeAttribute("style");
         bandera = true;
     }
-})
+});
 
 // Escuchador de eventos para el campo de teléfono
 formulario.campo2.addEventListener('keyup', (e) => {
@@ -79,7 +79,7 @@ formulario.campo2.addEventListener('keyup', (e) => {
         campo2.removeAttribute("style");
         bandera = true;
     }
-})
+});
 
 // Escuchador de eventos para el campo de correo electrónico
 formulario.campo3.addEventListener('keyup', (e) => {
@@ -99,7 +99,7 @@ formulario.campo3.addEventListener('keyup', (e) => {
         campo3.removeAttribute("style");
         bandera = true;
     }
-})
+});
 
 formulario.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
@@ -118,7 +118,7 @@ formulario.campo4.addEventListener('keyup', (e) => {
         campo4.removeAttribute("style");
         bandera = true;
     }
-})
+});
 
 // Escuchador de eventos para el campo de descripción
 formulario.campo5.addEventListener('keyup', (e) => {
