@@ -1,5 +1,5 @@
 document.getElementById('formulario').addEventListener('submit', function (event) {
-    if (!validateNombre() || !validateTelefono() || !validateCorreo() || !validateId()) {
+    if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
         alertUser('Registro fallido. Por favor, revise los campos resaltados.');
         event.preventDefault();
     } else {
@@ -24,23 +24,26 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
-
-function val_Password(){
-
-}
-
-function val_Nombre() {
-    
-}
-
-function val_Telefono() {
-    
-}
-
 function val_Correo() {
     
+}
+
+function val_Password() {
+
 }
 
 function val_ID() {
     
 }
+
+
+function val_Nombre() {
+    
+}
+
+function val_clave() {
+    
+}
+
+
+
