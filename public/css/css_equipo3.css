@@ -1,0 +1,32 @@
+
+th {
+    background-color: #c0d9e0;
+  }
+  
+ 
+  body {
+    background-image: url('imagen_fondo.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%; 
+    border-radius: 10px; 
+    overflow: hidden; 
+  }
+  
+  th, td {
+    border: 1px solid black; 
+    padding: 8px; 
+    text-align: center; 
+    background-color: #f0f8ff;
+  }
+  
+  th {
+    background-color: #c0d9e0; 
+  }
+  
