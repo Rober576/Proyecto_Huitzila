@@ -18,11 +18,11 @@ if ($resultado) {
         <table border="1">
             <thead>
                 <tr>
-                    <th>Campo 1</th>
-                    <th>Campo 2</th>
-                    <th>Campo 3</th>
-                    <th>Campo 4</th>
-                    <th>Campo 5</th>
+                    <th>Teléfono</th>
+                    <th>Código postal</th>
+                    <th>Dirección</th>
+                    <th>Apellido</th>
+                    <th>Descripción</th>
                 </tr>
             </thead>
             <tbody>';
