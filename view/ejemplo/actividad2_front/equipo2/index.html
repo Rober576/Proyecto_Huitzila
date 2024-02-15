@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4dd83b2672.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/public\css\cssAct2equipo2.css">
+    <title>Actividad 2</title>
+</head>
+<body>
+    <header>
+        <img src="/public\css\Logo huitzila.png" alt="Logo Huitzila">
+        <h1>Equipo 2</h1>
+    </header>
+    
+    <div class="menu">
+        <div class="opcion">
+            <i class="fa-regular fa-user"></i>
+            <span>SUBMENU 1</span>
+            <div class="submenu">
+                <a href="#">OPCION 1</a>
+                <a href="#">OPCION 2</a>
+            </div>
+        </div>
+
+        <div class="opcion">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>SUBMENU 2</span>
+            <div class="submenu">
+                <a href="#">OPCION 1</a>
+                <a href="#">OPCION 2</a>
+            </div>
+        </div>
+
+        <div class="opcion">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>SUBMENU 3</span>
+            <div class="submenu">
+                <a href="#">OPCION 1</a>
+                <a href="#">OPCION 2</a>
+            </div>
+        </div>
+
+        <div class="opcion">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>SUBMENU 4</span>
+            <div class="submenu">
+                <a href="#">OPCION 1</a>
+                <a href="#">OPCION 2</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="contenido">
+        <h1>Registro</h1>
+        <h3>Datos generales</h3>
+    
+            <section class="radio_button">
+                <form action="#" method="post">
+                    <h4>Tipo</h4>                
+                    <div class="radio_group">
+                        <label><input type="radio" name="tipo" value="opcion1_tipo">Opción 1</label>
+                        <label><input type="radio" name="tipo" value="opcion2_tipo">Opción 2</label>
+                        <label><input type="radio" name="tipo" value="opcion3_tipo">Opción 3</label>
+                    </div>
+                </form>
+            </section>        
+
+        <div class="grid">
+            <section class="campo_nombre">
+                <h4>Nombre*</h4>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Ingrese el nombre" id="nombre" ><br>
+                </form>
+            </section>
+            
+            <section class="campo_fecha">
+                <h4>Fecha*</h4>
+                <form action="#" method="post">
+                    <input type="date" name="fecha" id="fecha"><br>
+                </form>
+            </section>
+            
+            <section class="campo_monto">
+                <h4>Monto*</h4>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Ingrese el monto" id="monto" ><br>
+                </form>
+            </section>
+
+            <section class="combo_box">
+                <h4>Servicio*</h4>
+                <form action="#" method="post">
+                    <select id="servicio" name="servicio">
+                        <option value="opcion1_servicio">Opción 1</option>
+                        <option value="opcion2_servicio">Opción 2</option>
+                        <option value="opcion3_servicio">Opción 3</option>
+                        <option value="opcion4_servicio">Opción 4</option>
+                    </select>                
+                </form>
+
+            </section>
+
+            <section class="check_list">
+                <h4>Dias Laborales*</h4>
+                <form action="#" method="post">
+                    <label><input type="checkbox" name="tarea1" value="opcion1_laboral">Opción 1</label>
+                    <label><input type="checkbox" name="tarea2" value="opcion2_laboral">Opción 2</label>
+                    <label><input type="checkbox" name="tarea3" value="opcion3_laboral">Opción 3</label>
+                    <label><input type="checkbox" name="tarea4" value="opcion3_laboral">Opción 4</label>
+                </form>    
+            </section>
+        </div>
+        
+    </div>
+    <br>
+    <section class="boton">
+        <button>Registrar</button>
+    </section>
+
+
+</body>
+</html>
