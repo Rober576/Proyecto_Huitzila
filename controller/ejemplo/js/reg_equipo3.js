@@ -19,10 +19,17 @@ formulario.addEventListener("submit", function(event) {
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('Equipo3');
-            form.reset();
             alert("Registro exitoso");
-            
+        }
+
+        //los datos no pasaron alguna validacion
+        else if(data === 'errores'){
+            alert("Registro fallido");
+        }
+
+        //algo salió mal
+        else {
+            alert(data);
         }
     })
 })

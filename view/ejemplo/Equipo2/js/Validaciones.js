@@ -16,6 +16,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
     else{
         //si no es válida se cancela el envío
+        console.log(bandera,bandera2,bandera3,bandera4,bandera5);
         console.log("Envío cancelado");
         e.preventDefault();
     }
@@ -38,7 +39,7 @@ Equipo2.campo1.addEventListener('keyup', (e) => {
     Equipo2.campo1.value = valorInput;
 
     // Verifica que se cumpla con la expresión correspondiente
-    if (!expresion.campo1.test(valorInput) || valorInput.length !== 10) {
+    if (valorInput.length !== 10) {
         campo1.style.border = "5px solid red";
         bandera = false;
     } else {
@@ -52,7 +53,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
     // Elimina todos los caracteres no alfabéticos y espacios adicionales
-    valorInput = valorInput.replace(/[^a-zA-Z\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜ\s]/g, '');
 
     // Limita la longitud a 20 caracteres
     valorInput = valorInput.slice(0, 20);
@@ -60,7 +61,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
     Equipo2.campo2.value = valorInput;
 
     // Verifica que se cumpla con la expresión correspondiente
-    if (!expresion.campo2.test(valorInput) || valorInput.length > 20) {
+    if (valorInput.trim() === '' || valorInput.length > 20) {
         campo2.style.border = "5px solid red";
         bandera2 = false;
     } else {
@@ -71,7 +72,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
 
 // Agrega una expresión regular para campo3 (CURP)
 const expresion2 = {
-    campo3: /^[A-Z]{4}\d{6}[A-Z\d]{6}[A-Z\d]{2}$/, // CURP pattern
+    campo3: /^[A-Z]{4}\d{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
 }
 
 Equipo2.campo3.addEventListener('input', (e) => {
@@ -87,13 +88,15 @@ Equipo2.campo3.addEventListener('input', (e) => {
 
     // Verifica que se cumpla con la expresión correspondiente
     if (!expresion2.campo3.test(valorInput) || valorInput.length !== 18) {
-        campo3.style.border = "5px solid red";
+        Equipo2.campo3.style.border = "5px solid red";
         bandera3 = false;
     } else {
-        campo3.removeAttribute("style");
+        Equipo2.campo3.removeAttribute("style");
         bandera3 = true;
     }
 });
+
+
 
 // Agrega una expresión regular para campo4 (marca)
 const expresion4 = {
