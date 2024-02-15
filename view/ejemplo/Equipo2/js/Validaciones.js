@@ -71,7 +71,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
 });
 
 // Agrega una expresión regular para campo3 (CURP)
-const expresion2 = {
+/*const expresion2 = {
     campo3: /^[A-Z]{4}\d{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
 }
 
@@ -94,7 +94,42 @@ Equipo2.campo3.addEventListener('input', (e) => {
         Equipo2.campo3.removeAttribute("style");
         bandera3 = true;
     }
+});*/
+
+const expresion2 = {
+    campo3: /^[A-Z]{4}[A-Z\d]{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
+};
+
+Equipo2.campo3.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Elimina todos los caracteres no alfabéticos y numéricos adicionales
+    valorInput = valorInput.replace(/[^A-Z\d]/g, '');
+
+    // Limita la longitud a 18 caracteres
+    valorInput = valorInput.slice(0, 18);
+
+    // Verifica si los primeros cuatro caracteres son letras
+    if (/^[A-Z]{1,4}/.test(valorInput)) {
+        // Actualiza el campo solo con los primeros cuatro caracteres
+        valorInput = valorInput.slice(0, 18);
+    } else {
+        // Elimina los números al principio
+        valorInput = valorInput.replace(/^\d+/, '');
+    }
+
+    Equipo2.campo3.value = valorInput;
+
+    // Verifica que se cumpla con la expresión correspondiente
+    if (!expresion2.campo3.test(valorInput) || valorInput.length !== 18) {
+        Equipo2.campo3.style.border = "5px solid red";
+        bandera3 = false;
+    } else {
+        Equipo2.campo3.removeAttribute("style");
+        bandera3 = true;
+    }
 });
+
 
 
 
