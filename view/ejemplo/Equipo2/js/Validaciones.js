@@ -43,6 +43,7 @@ Equipo2.campo1.addEventListener('keyup', (e) => {
         campo1.style.border = "5px solid red";
         bandera = false;
     } else {
+       
         campo1.removeAttribute("style");
         bandera = true;
     }
@@ -52,7 +53,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
     // Elimina todos los caracteres no alfabéticos y espacios adicionales
-    valorInput = valorInput.replace(/[^a-zA-Z\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜ\s]/g, '');
 
     // Limita la longitud a 20 caracteres
     valorInput = valorInput.slice(0, 20);
@@ -71,7 +72,7 @@ Equipo2.campo2.addEventListener('input', (e) => {
 
 // Agrega una expresión regular para campo3 (CURP)
 const expresion2 = {
-    campo3: /^[A-Z]{4}\d{6}[A-Z\d]{6}[A-Z\d]{2}$/, // CURP pattern
+    campo3: /^[A-Z]{4}\d{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
 }
 
 Equipo2.campo3.addEventListener('input', (e) => {
@@ -87,13 +88,15 @@ Equipo2.campo3.addEventListener('input', (e) => {
 
     // Verifica que se cumpla con la expresión correspondiente
     if (!expresion2.campo3.test(valorInput) || valorInput.length !== 18) {
-        campo3.style.border = "5px solid red";
+        Equipo2.campo3.style.border = "5px solid red";
         bandera3 = false;
     } else {
-        campo3.removeAttribute("style");
+        Equipo2.campo3.removeAttribute("style");
         bandera3 = true;
     }
 });
+
+
 
 // Agrega una expresión regular para campo4 (marca)
 const expresion4 = {
