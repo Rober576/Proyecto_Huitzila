@@ -38,7 +38,7 @@ formulario.campo1.addEventListener('keyup', (e) => {5
     formulario.campo1.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
@@ -83,7 +83,10 @@ formulario.campo3.addEventListener('keyup', (e) => {
     valorInput = valorInput.slice(0, 60);
 
     // Asigna el valor al campo
-    formulario.campo3.value = valorInput;
+    formulario.campo3.value = valorInput
+
+    //elimina caracteres especiales
+    .replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
@@ -102,7 +105,10 @@ formulario.campo4.addEventListener('keyup', (e) => {
     valorInput = valorInput.slice(0, 7);
 
     // Asigna el valor al campo
-    formulario.campo4.value = valorInput;
+    formulario.campo4.value = valorInput
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
