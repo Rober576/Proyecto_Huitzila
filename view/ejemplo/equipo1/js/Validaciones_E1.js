@@ -37,14 +37,8 @@ formulario.campo1.addEventListener('keyup', (e) => {5
     let valorInput = e.target.value;
     formulario.campo1.value = valorInput
 
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
-    
-    //elimina el ultimo espacio en blanco
-    .trim()
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
