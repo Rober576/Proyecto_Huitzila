@@ -42,6 +42,7 @@ Equipo2.campo1.addEventListener('keyup', (e) => {
         campo1.style.border = "5px solid red";
         bandera = false;
     } else {
+       
         campo1.removeAttribute("style");
         bandera = true;
     }
