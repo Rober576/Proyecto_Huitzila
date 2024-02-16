@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background-color: #F0EDE8;
+  }
+  
+  header {
+    background-color: #00210F;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  /* Estilos para el menú */
+/* Estilos para el menú */
+nav {
+    text-align: center; /* Centra el contenido del nav */
+    background-color: #c3c2c2;
+    padding: 20px;
+  }
+  
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block; /* Hace que el ul se comporte como un bloque en línea */
+  }
+  
+  .menu li {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .menu li a {
+    color: #000000;
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+  }
+  
+  .menu li.submenu .submenu-options {
+    display: none; /* Oculta las opciones del submenú por defecto */
+    position: absolute;
+    background-color: #c3c2c2;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .menu li.submenu:hover .submenu-options {
+    display: block; /* Muestra las opciones del submenú al pasar el cursor sobre el elemento del menú */
+  }
+  
+  .menu li.submenu .submenu-options li {
+    display: block;
+  }
+  
+  
+  
+  #logo {
+    padding-left: 10px;
+    width: 8em;
+    height: 4.5em;
+  }
+  main{
+    
+    max-width: 90%;
+    margin: 0% 10%;
+    background-color: none;
+    padding: 10px 10px 10px 20px;
+  }
+
+  h4 {
+    margin-bottom: 2%;
+    font-size: 150%;
+  }
+  .centrar {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  hr {
+    border: none; /* Quita el borde predeterminado */
+    height: 2px; /* Establece la altura de la línea */
+    background-color: gray; /* Cambia el color de fondo de la línea */
+    margin: 20px 0; /* Ajusta el margen superior e inferior */
+}
+
+section{
+    padding-top: 20px;
+}
+section label{
+    padding-bottom: 10px;
+
+}
+  /* Estilos para el formulario */
+.datosgenerales{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    gap: 10px;
+}
+.radiobuton{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+}
+
+
+.C_Nombre input{
+    width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+}
+.Fecha input{
+    width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+}
+.Monto input{
+    width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+}
+.servico select{
+    width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+}
+.laborales label{
+    display: block;
+    font-size: 15px;
+}
+  
+.boton {
+    display: flex;
+    justify-content: center;
+    button {
+        background-color: #213946;
+        color: #fff;
+        font-size: medium;
+        padding: 10px  20px;
+        border-radius: 5px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    button:hover {
+        background-color: #434645;
+    }
+}  

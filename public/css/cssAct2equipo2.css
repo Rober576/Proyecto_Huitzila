@@ -1,0 +1,141 @@
+  body {
+    background-color: #e3e7eb;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  header {
+    background-color: #143419;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+
+    img {
+    width: 10%;
+    height: auto;
+    }
+
+    h1 {
+        padding-left: 10px;
+    }
+  }
+  .menu {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    padding: 2%;
+  }
+
+.opcion {
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.opcion:hover .submenu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.submenu {
+    display: none;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.submenu a {
+    display: block;
+    padding: 5px 0;
+    color: #333;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    background-color: #f0f0f0;
+}
+
+  .contenido {
+    max-width: 80%;
+    margin: 0% 10%;
+
+  }
+
+  h4 {
+    margin-bottom: 2%;
+  }
+  
+
+.radio_group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+}
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .campo_nombre {
+    input {
+        width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+    }
+  }
+
+  .campo_fecha {
+    input {
+        width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+    }
+  }
+
+  .campo_monto {
+    input {
+        width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+    }
+  }
+
+  .combo_box {
+    select {
+        width: 95%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+    }
+  }
+
+  .check_list label {
+    display: block;
+
+  }
+
+   .boton {
+        display: flex;
+        justify-content: center;
+        button {
+            background-color: #213946;
+            color: #fff;
+            font-size: medium;
+            padding: 5px  10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #434645;
+        }
+    }  

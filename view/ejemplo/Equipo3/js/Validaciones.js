@@ -1,4 +1,10 @@
-document.getElementById('Equipo3').addEventListener('keyup', function (event) {
+let bandera1 = false;
+let bandera2 = false;
+let bandera3 = false;
+let bandera4 = false; 
+let bandera5 = false;
+
+document.getElementById('Equipo3').addEventListener('sumnit', function (event) {
     if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
         console.log('Registro fallido. Por favor, revise los campos resaltados.');
         event.preventDefault();
@@ -7,16 +13,14 @@ document.getElementById('Equipo3').addEventListener('keyup', function (event) {
     }
 });
 
-let bandera = false;
+
 
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(val_Nombre() == true){
-        bandera = true;
-    }
+    
 
-    if(bandera == true){
+    if(bandera4 == true){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
@@ -48,29 +52,56 @@ function val_ID() {
         return true;
     }
 }
-const expresion = {
-    campo4: /^[A-Za-z0-9]{3,400}$/,
-}
 
 
-function val_Nombre() {
-    console.log("nombre")
-    var nombre = document.getElementById("campo4").value;
-    let regex = /^[A-Za-z\s]{0,400}$/;
-    if(!expresion.campo4.test(nombre)){
-        campo4.style.border = "5px solid red";
-        console.log("El nombre es obligatorio");
-        return false;
-    }else{
-        campo4.removeAttribute("style");
-        console.log("Nombre correctamente ingresado");
-        return true;
-    }
-}
+
 
 function val_clave() {
     
 }
 
+// Se declara una bandera para saber si la entrada es válida
+botonRegistrar.addEventListener("click", (e) => {
+    // Se revisa si la entrada es válida
+    if (bandera4) {
+        // Si es válida se muestra un mensaje de éxito
+        console.log("Registro exitoso");
+    } else {
+        // Si no es válida se cancela el envío
+        console.log("Envío cancelado");
+        e.preventDefault();
+    }
+});
+
+// Definición de la expresión regular para el campo
+const expresion = {
+    nombre: /^[a-zA-Z\s]{1,400}$/ // Solo letras y espacios, máximo 400 caracteres
+};
+
+// Se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
+campo4.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Elimina los caracteres no deseados y limita la longitud
+    valorInput = valorInput.replace(/[^a-zA-Z\s]/g, '').substr(0, 400);
+
+    // Actualiza el valor del campo con el texto modificado
+    campo4.value = valorInput;
+
+    // Verifica si el campo está vacío
+    if (valorInput.trim() === '') {
+        campo4.style.border = "5px solid red"; // Aplica estilo si el campo está vacío
+        bandera4 = false;
+    } else {
+        // Verifica que se cumpla con la expresión correspondiente
+        if (!expresion.nombre.test(valorInput)) {
+            campo4.style.border = "5px solid red"; // Aplica estilo si no se cumple la expresión
+            bandera4 = false;
+        } else {
+            campo4.removeAttribute("style");
+            bandera4 = true;
+        }
+    }
+});
 
 
