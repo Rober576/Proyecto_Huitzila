@@ -1,16 +1,176 @@
 @media only screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-    }
+  body{
+      width: 90%;
+  }
 }
 
 header {
-    background-color: rgb(20, 60, 0);
     color: white;
-    padding: 10px;
   }
   
-  header h1 {
-    margin-top: 0;
-    margin-bottom: 5px;
-  } 
+header h1 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+body{
+  margin: 0;
+  background-color: rgb(228, 228, 228);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+main{
+  margin-left: 200px;
+  margin-right: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover{
+  background-color: #804000;
+  color: #fff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown-content a:hover {
+  background-color: #804000;
+  color: #fff;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logohuitzila {
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+}
+
+.head1{
+  background-color: rgb(20, 60, 0);
+  display: flex;
+  align-items: center;
+}
+
+.head2{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  box-shadow:  0px 3px 20px grey;
+}
+
+.icono {
+  width: 16px;
+  float: left;
+  margin-right: 10px;
+}
+
+hr{
+  height: 3px;
+  border-bottom-width: 0;
+  background-color: gray;
+}
+
+.Section-Radio{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.diasIn label{
+  display: block;
+}
+
+.botonReg{
+  display: flex;
+  justify-content: center;
+  input[type="submit"]{
+    background-color: #804000;
+    color: #fff;
+    font-size: medium;
+    padding: 5px  10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: #804000;
+  }
+  input[type="submit"]:hover{
+    background-color: transparent;
+    color: #804000;
+    border-color: #804000;
+  }
+}
+
+.nombreIn{
+  input{
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.fechaIn{
+  input{
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.montoIn{
+  input{
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.servicioIn{
+  select{
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+  }
+}
