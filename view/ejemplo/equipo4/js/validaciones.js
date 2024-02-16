@@ -93,7 +93,8 @@ Equipo4.campo3.addEventListener('input', (e) => {
 
 
 
-expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
+const expresionApellido = /^[a-zA-Z\s]{1,20}$/;
+
 Equipo4.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
@@ -111,7 +112,8 @@ Equipo4.campo4.addEventListener('input', (e) => {
 });
 
 
-expresion.descripcion = /^[^@~`;]+$/;
+
+const expresionDescripcion = /^[^@~`;]+$/;
 
 Equipo4.campo5.addEventListener('input', (e) => {
     let valorInput = e.target.value;
