@@ -55,8 +55,17 @@ function val_Nombre() {
 }
 
 function val_clave() {
-    // Aquí puedes implementar la lógica para validar el campo 5 (campo clave)
-    return true; // Por ahora, solo se devuelve true para permitir el envío del formulario
+    const claveInput = document.getElementById('campo5');
+    const claveRegex = /^[A-Za-z]{3,}$/;
+
+    if(!claveRegex.test(claveInput.value)){
+        highlightElement(claveInput);
+        alert("Clave inválida. Ingrese mínimo 3 letras sin caracteres especiales ni números ");
+    }
+    else {
+        unhighlightElement(nombreInput);
+        return true;
+    }  
 }
 
 function highlightElement(element) {
