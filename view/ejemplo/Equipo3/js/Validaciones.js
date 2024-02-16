@@ -1,51 +1,38 @@
-let bandera1 = false;
-let bandera2 = false;
-let bandera3 = false;
-let bandera4 = false; 
-let bandera5 = false;
-
-document.getElementById('Equipo3').addEventListener('sumnit', function (event) {
-    if (!val_Correo() || !val_Password() || !val_ID() || !val_Nombre() || !val_clave()) {
-        console.log('Registro fallido. Por favor, revise los campos resaltados.');
-        event.preventDefault();
-    } else {
-        console.log('Registro exitoso');
-    }
-});
-
-
-
-let botonRegistrar = document.getElementById("registrar");
-botonRegistrar.addEventListener("click", (e) =>{
-    //se revisa si la entrada es válida
-    
-
-    if(bandera4 == true){
-        //si es válida se muestra un mensaje de éxito
-        console.log("Registro exitoso");
-    }
-
-    else{
-        //si no es válida se cancela el envío
-        console.log("Envío cancelado");
-        e.preventDefault();
-    }
-})
-
 function val_Correo() {
-    
+    const correoInput = document.getElementById('campo1');
+    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (correoInput.value.length < 7 || correoInput.value.length > 320 || !correoRegex.test(correoInput.value)) {
+        highlightElement(correoInput);
+        alert("El correo electrónico es inválido. Asegúrate de introducir una dirección de correo válida.");
+        return false;
+    } else {
+        unhighlightElement(correoInput);
+        return true;
+    }
 }
 
 function val_Password() {
+    const passwordInput = document.getElementById('campo2');
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+    if (passwordInput.value.length < 8 || !passwordRegex.test(passwordInput.value)) {
+        highlightElement(passwordInput);
+        alert("La contraseña es inválida. Debe contener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial.");
+        return false;
+    } else {
+        unhighlightElement(passwordInput);
+        return true;
+    }
 }
 
 function val_ID() {
-    const idInput = document.getElementById('id');
+    const idInput = document.getElementById('campo3');
     const idRegex = /^[0-9]{2}[A-Za-z]{5}$/;
 
     if (!idRegex.test(idInput.value)) {
         highlightElement(idInput);
+        alert("El ID es inválido. Debe tener 2 números seguidos de 5 letras.");
         return false;
     } else {
         unhighlightElement(idInput);
@@ -53,55 +40,29 @@ function val_ID() {
     }
 }
 
+function val_Nombre() {
+    const nombreInput = document.getElementById('campo4');
+    const nombreRegex = /^[a-zA-Z\s]{1,400}$/;
 
-
-
-function val_clave() {
-    
+    if (!nombreRegex.test(nombreInput.value)) {
+        highlightElement(nombreInput);
+        alert("El nombre es inválido. Solo se permiten letras y espacios.");
+        return false;
+    } else {
+        unhighlightElement(nombreInput);
+        return true;
+    }
 }
 
-// Se declara una bandera para saber si la entrada es válida
-botonRegistrar.addEventListener("click", (e) => {
-    // Se revisa si la entrada es válida
-    if (bandera4) {
-        // Si es válida se muestra un mensaje de éxito
-        console.log("Registro exitoso");
-    } else {
-        // Si no es válida se cancela el envío
-        console.log("Envío cancelado");
-        e.preventDefault();
-    }
-});
+function val_clave() {
+    // Aquí puedes implementar la lógica para validar el campo 5 (campo clave)
+    return true; // Por ahora, solo se devuelve true para permitir el envío del formulario
+}
 
-// Definición de la expresión regular para el campo
-const expresion = {
-    nombre: /^[a-zA-Z\s]{1,400}$/ // Solo letras y espacios, máximo 400 caracteres
-};
+function highlightElement(element) {
+    element.style.border = "5px solid red";
+}
 
-// Se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-campo4.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
-
-    // Elimina los caracteres no deseados y limita la longitud
-    valorInput = valorInput.replace(/[^a-zA-Z\s]/g, '').substr(0, 400);
-
-    // Actualiza el valor del campo con el texto modificado
-    campo4.value = valorInput;
-
-    // Verifica si el campo está vacío
-    if (valorInput.trim() === '') {
-        campo4.style.border = "5px solid red"; // Aplica estilo si el campo está vacío
-        bandera4 = false;
-    } else {
-        // Verifica que se cumpla con la expresión correspondiente
-        if (!expresion.nombre.test(valorInput)) {
-            campo4.style.border = "5px solid red"; // Aplica estilo si no se cumple la expresión
-            bandera4 = false;
-        } else {
-            campo4.removeAttribute("style");
-            bandera4 = true;
-        }
-    }
-});
-
-
+function unhighlightElement(element) {
+    element.style.border = ""; 
+}
