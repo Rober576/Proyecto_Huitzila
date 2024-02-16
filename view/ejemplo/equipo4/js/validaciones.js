@@ -94,16 +94,19 @@ Equipo4.campo3.addEventListener('input', (e) => {
 
 
 expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
-
 Equipo4.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.apellido.test(valorInput) || valorInput.trim() === '') {
+    if (!expresionApellido.test(valorInput)) {
+        e.target.value = valorInput.replace(/[^a-zA-Z\s]/g, '').substring(0, 20);
+    }
+
+    if (!expresionApellido.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo4.style.border = "5px solid red";
-        bandera4 = false; 
+        bandera4 = false;
     } else {
-        Equipo4.campo4.removeAttribute("style"); 
-        bandera4 = true; 
+        Equipo4.campo4.removeAttribute("style");
+        bandera4 = true;
     }
 });
 
@@ -113,11 +116,15 @@ expresion.descripcion = /^[^@~`;]+$/;
 Equipo4.campo5.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.descripcion.test(valorInput) || valorInput.trim() === '') {
+    if (!expresionDescripcion.test(valorInput)) {
+        e.target.value = valorInput.replace(/[@~`;]/g, '');
+    }
+
+    if (!expresionDescripcion.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo5.style.border = "5px solid red";
-        bandera5 = false; 
+        bandera5 = false;
     } else {
-        Equipo4.campo5.removeAttribute("style"); 
+        Equipo4.campo5.removeAttribute("style");
         bandera5 = true;
     }
 });
