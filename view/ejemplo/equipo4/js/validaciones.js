@@ -27,6 +27,14 @@ const expresion = {
 
 Equipo4.campo1.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+
+    // Elimina todos los caracteres no numéricos
+    valorInput = valorInput.replace(/\D/g, '');
+
+    // Limita la longitud a 10 caracteres
+    valorInput = valorInput.slice(0, 10);
+
+    Equipo4.campo1.value = valorInput;
    
     if (!expresion.telefono.test(valorInput)) {
         Equipo4.campo1.style.border = "5px solid red"; 
@@ -40,6 +48,14 @@ Equipo4.campo1.addEventListener('keyup', (e) => {
 
 Equipo4.campo2.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+
+    // Elimina todos los caracteres no numéricos
+    valorInput = valorInput.replace(/\D/g, '');
+
+    // Limita la longitud a 10 caracteres
+    valorInput = valorInput.slice(0, 5);
+
+    Equipo4.campo2.value = valorInput;
 
     
     if (!expresion.codigoPostal.test(valorInput)) {
@@ -55,12 +71,18 @@ expresion.codigoPostal = /^\d{5}$/;
 
 
 
-expresion.direccion = /^[a-zA-Z0-9\s.#]+$/;
+const expresionDireccion = /^[a-zA-Z0-9\s.#]+$/;
 
 Equipo4.campo3.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.direccion.test(valorInput) || valorInput.trim() === '') {
+    // Si la entrada no coincide con la expresión regular, eliminar los caracteres no válidos
+    if (!expresionDireccion.test(valorInput)) {
+        e.target.value = valorInput.replace(/[^a-zA-Z0-9\s.#]/g, '');
+    }
+
+    // Verificar si la entrada es una cadena vacía o no cumple con la expresión regular
+    if (!expresionDireccion.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo3.style.border = "5px solid red"; 
         bandera3 = false; 
     } else {
@@ -70,31 +92,41 @@ Equipo4.campo3.addEventListener('input', (e) => {
 });
 
 
-expresion.apellido = /^[a-zA-Z\s]{1,20}$/;
+
+const expresionApellido = /^[a-zA-Z\s]{1,20}$/;
 
 Equipo4.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.apellido.test(valorInput) || valorInput.trim() === '') {
+    if (!expresionApellido.test(valorInput)) {
+        e.target.value = valorInput.replace(/[^a-zA-Z\s]/g, '').substring(0, 20);
+    }
+
+    if (!expresionApellido.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo4.style.border = "5px solid red";
-        bandera4 = false; 
+        bandera4 = false;
     } else {
-        Equipo4.campo4.removeAttribute("style"); 
-        bandera4 = true; 
+        Equipo4.campo4.removeAttribute("style");
+        bandera4 = true;
     }
 });
 
 
-expresion.descripcion = /^[^@~`;]+$/;
+
+const expresionDescripcion = /^[^@~`;]+$/;
 
 Equipo4.campo5.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    if (!expresion.descripcion.test(valorInput) || valorInput.trim() === '') {
+    if (!expresionDescripcion.test(valorInput)) {
+        e.target.value = valorInput.replace(/[@~`;]/g, '');
+    }
+
+    if (!expresionDescripcion.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo5.style.border = "5px solid red";
-        bandera5 = false; 
+        bandera5 = false;
     } else {
-        Equipo4.campo5.removeAttribute("style"); 
+        Equipo4.campo5.removeAttribute("style");
         bandera5 = true;
     }
 });

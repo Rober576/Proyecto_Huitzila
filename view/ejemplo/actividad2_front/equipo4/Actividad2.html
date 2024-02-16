@@ -9,7 +9,98 @@
 </head>
 <body>
     <header>
+      <div class="head1">
+        <img class="logohuitzila" src="/public/css/Logo huitzila.png" alt="Logo Huitzila">
         <h1>Huitzila</h1>
-      </header>
+      </div>
+      <div class="head2">
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn"><img class="icono" src="/public/css/house-solid.svg"alt="Icono">submenu 1</button>
+                <div class="dropdown-content">
+                  <a href="#">Submenú 1</a>
+                  <a href="#">Submenú 2</a>
+                  <a href="#">Submenú 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn"><img class="icono" src="/public/css/envelope-solid.svg"alt="Icono">submenu 2</button>
+                <div class="dropdown-content">
+                  <a href="#">Submenú 1</a>
+                  <a href="#">Submenú 2</a>
+                  <a href="#">Submenú 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn"><img class="icono" src="/public/css/user-solid.svg"alt="Icono">submenu 3</button>
+                <div class="dropdown-content">
+                  <a href="#">Submenú 1</a>
+                  <a href="#">Submenú 2</a>
+                  <a href="#">Submenú 3</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn"><img class="icono" src="/public/css/star-solid.svg"alt="Icono">submenu 4</button>
+                <div class="dropdown-content">
+                  <a href="#">Submenú 1</a>
+                  <a href="#">Submenú 2</a>
+                  <a href="#">Submenú 3</a>
+                </div>
+              </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h2>Registro</h2>
+      <h3>Datos generales</h3>
+      <hr>
+      <form action="#">
+        <h4>Tipo</h4>
+        <div class="Section-Radio">
+          <label><input type="radio" id="radio1" name="radioA">Opcion 1</label>
+          <label><input type="radio" id="radio2" name="radioA">Opcion 2</label>
+          <label><input type="radio" id="radio3" name="radioA">Opcion 3</label>
+        </div>
+        
+        <div class="grid">
+          <div class="nombreIn">
+            <h4>Nombre</h4>
+            <input type="text" placeholder="Ingrese su nombre">
+          </div>
+
+          <div class="fechaIn">
+            <h4>Fecha</h4>
+            <input type="date">
+          </div>
+          
+          <div class="montoIn">
+            <h4>Monto</h4>
+            <input type="number" placeholder="Ingrese el monto">
+          </div>
+
+          <div class="servicioIn">
+            <h4>Servicio</h4>
+            <select id="servicio" name="servicio">
+              <option value="opServ1">opcion 1</option>
+              <option value="opServ2">opcion 2</option>
+              <option value="opServ3">opcion 3</option>
+            </select>
+          </div>
+
+          <div class="diasIn">
+            <h4>Dias laborales</h4>
+            <label><input type="checkbox" value="opcion1" name="group1">Opcion 1</label>
+            <label><input type="checkbox" value="opcion2" name="group1">Opcion 2</label>
+            <label><input type="checkbox" value="opcion3" name="group1">Opcion 3</label>
+            <label><input type="checkbox" value="opcion4" name="group1">Opcion 4</label>
+          </div>
+        </div>
+
+        <div class="botonReg">
+          <input type="submit" value="Registrar">
+        </div>
+      </form>
+    </main>
+
 </body>
 </html>
