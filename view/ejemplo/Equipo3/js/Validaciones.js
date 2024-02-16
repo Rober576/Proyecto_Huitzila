@@ -61,9 +61,10 @@ function val_clave() {
     if(!claveRegex.test(claveInput.value)){
         highlightElement(claveInput);
         alert("Clave inválida. Ingrese mínimo 3 letras sin caracteres especiales ni números ");
+        return false;
     }
     else {
-        unhighlightElement(nombreInput);
+        unhighlightElement(claveInput);
         return true;
     }  
 }
