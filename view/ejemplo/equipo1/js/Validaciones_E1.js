@@ -43,12 +43,12 @@ formulario.campo1.addEventListener('keyup', (e) => {5
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
         campo1.style.border = "5px solid red";
-        bandera = false;
+        bandera1 = false;
     }
 
     else {
         campo1.removeAttribute("style");
-        bandera = true;
+        bandera1 = true;
     }
 });
 
@@ -68,10 +68,10 @@ formulario.campo2.addEventListener('keyup', (e) => {
     // Verifica si cumple con la expresión regular
     if (!expresion.campo2.test(valorInput)) {
         campo2.style.border = "5px solid red";
-        bandera = false;
+        bandera2 = false;
     } else {
         campo2.removeAttribute("style");
-        bandera = true;
+        bandera2 = true;
     }
 });
 
@@ -86,15 +86,15 @@ formulario.campo3.addEventListener('keyup', (e) => {
     formulario.campo3.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '')
+    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:!?+-*/=$€£¥#%^()[{}|<>=]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
         campo3.style.border = "5px solid red";
-        bandera = false;
+        bandera3 = false;
     } else {
         campo3.removeAttribute("style");
-        bandera = true;
+        bandera3 = true;
     }
 });
 
@@ -113,10 +113,10 @@ formulario.campo4.addEventListener('keyup', (e) => {
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
         campo4.style.border = "5px solid red";
-        bandera = false;
+        bandera4 = false;
     } else {
         campo4.removeAttribute("style");
-        bandera = true;
+        bandera4 = true;
     }
 });
 
@@ -133,9 +133,9 @@ formulario.campo5.addEventListener('keyup', (e) => {
     // Verifica si cumple con la expresión regular
     if (!expresion.campo5.test(valorInput)) {
         campo5.style.border = "5px solid red";
-        bandera = false;
+        bandera5 = false;
     } else {
         campo5.removeAttribute("style");
-        bandera = true;
+        bandera5 = true;
     }
 });
