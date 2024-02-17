@@ -49,6 +49,8 @@ Equipo2.campo1.addEventListener('keyup', (e) => {
     }
 });
 
+
+
 Equipo2.campo2.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
@@ -133,16 +135,15 @@ Equipo2.campo3.addEventListener('input', (e) => {
 
 
 
-// Agrega una expresión regular para campo4 (marca)
 const expresion4 = {
-    campo4: /^[A-Za-zñÑ]{5,}$/, // Solo letras; mínimo 5 caracteres
+    campo4: /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]{5,}$/, // Solo letras y acentos; mínimo 5 caracteres
 }
 
 Equipo2.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todos los caracteres no alfabéticos
-    valorInput = valorInput.replace(/[^A-Za-zñÑ]/g, '');
+    // Elimina todos los caracteres no alfabéticos, incluyendo acentos
+    valorInput = valorInput.replace(/[^A-Za-zñÑáéíóúÁÉÍÓÚüÜ]/g, '');
 
     // Limita la longitud a 5 caracteres como mínimo
     valorInput = valorInput.slice(0, Math.max(5, valorInput.length));
