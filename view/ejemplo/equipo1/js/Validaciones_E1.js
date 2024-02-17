@@ -10,7 +10,7 @@ let bandera5 = false;
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(bandera == true){
+    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true & bandera5 == true){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
@@ -33,7 +33,7 @@ const expresion = {
 
 
 //se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-formulario.campo1.addEventListener('keyup', (e) => {5
+formulario.campo1.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     formulario.campo1.value = valorInput
 
@@ -86,7 +86,7 @@ formulario.campo3.addEventListener('keyup', (e) => {
     formulario.campo3.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:!?+-*/=$€£¥#%^()[{}|<>=]/g, '')
+    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:!?+\-*/=$€£¥#%^()[{}|<>=]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
