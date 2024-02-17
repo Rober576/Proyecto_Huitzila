@@ -128,7 +128,9 @@ formulario.campo5.addEventListener('keyup', (e) => {
     valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
 
     // Asigna el valor al campo
-    formulario.campo5.value = valorInput;
+    formulario.campo5.value = valorInput
+
+    .replace(/[@~`;]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo5.test(valorInput)) {
