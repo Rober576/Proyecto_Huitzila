@@ -65,8 +65,6 @@
 
     <h3>Tipo</h3>
     
-    
-
 
     <section class="Opciones1">
       <label for="">
@@ -85,7 +83,7 @@
 
     <section class="Opciones2">
       <label for="Nombre">Nombre*<br><br>
-        <input class="Nombre" type="text" placeholder="Ingrese el nombre" required>
+        <input type="text" placeholder="Ingrese el nombre" required>
       </label>
 
       <label for="Fecha">Fecha*<br><br>
@@ -104,28 +102,30 @@
         </select>
       </label>
 
-      <label for="DiasLaborales">Días Laborales*<br>
-      <ul class="checkbox-list">
-          <li>
-              <label for="opcion1">
-                  <input type="checkbox" id="opcion1" name="DiaLaboral" value="opcion1" required>Opción 1
-              </label>
-          
-              <label for="opcion2">
-                  <input type="checkbox" id="opcion2" name="DiaLaboral" value="opcion2" required>Opción 2
-              </label>
-         
-              <label for="opcion3">
-                  <input type="checkbox" id="opcion3" name="DiaLaboral" value="opcion3" required>Opción 3
-              </label>
-
-              <label for="opcion4">
-                <input type="checkbox" id="opcion4" name="DiaLaboral" value="opcion4" required>Opción 4
-            </label>
-          </li>
-      </ul>
+      <label for="DiasLaborales1">Días Laborales*<br>
+        <section class="DiasLaborales">
+          <div class="checkbox-container">
+              <input type="checkbox" id="opcion1" name="DiaLaboral" value="opcion1" required>
+              <label for="opcion1">Opción 1</label>
+          </div>
+          <div class="checkbox-container">
+              <input type="checkbox" id="opcion2" name="DiaLaboral" value="opcion2" required>
+              <label for="opcion2">Opción 2</label>
+          </div>
+          <div class="checkbox-container">
+              <input type="checkbox" id="opcion3" name="DiaLaboral" value="opcion3" required>
+              <label for="opcion3">Opción 3</label>
+          </div>
+          <div class="checkbox-container">
+              <input type="checkbox" id="opcion4" name="DiaLaboral" value="opcion4" required>
+              <label for="opcion4">Opción 4</label>
+          </div>
+      </section>
+      
+      
+      
       </label>
-
+      
 
     
       
