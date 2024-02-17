@@ -25,17 +25,21 @@ const expresion = {
 };
 
 
-Equipo4.campo1.addEventListener('keyup', (e) => {
+Equipo4.campo1.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todos los caracteres no numéricos
+    // Eliminar todos los caracteres no numéricos
     valorInput = valorInput.replace(/\D/g, '');
 
-    // Limita la longitud a 10 caracteres
-    valorInput = valorInput.slice(0, 10);
+    // Limitar la longitud a 10 caracteres
+    if (valorInput.length > 10) {
+        valorInput = valorInput.slice(0, 10);
+    }
 
-    Equipo4.campo1.value = valorInput;
+    // Actualizar el valor del campo con los cambios realizados
+    e.target.value = valorInput;
    
+    // Validar si la entrada coincide con la expresión regular para el teléfono
     if (!expresion.telefono.test(valorInput)) {
         Equipo4.campo1.style.border = "5px solid red"; 
         bandera1 = false; 
@@ -46,26 +50,31 @@ Equipo4.campo1.addEventListener('keyup', (e) => {
 });
 
 
-Equipo4.campo2.addEventListener('keyup', (e) => {
+
+Equipo4.campo2.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todos los caracteres no numéricos
+    // Eliminar todos los caracteres no numéricos
     valorInput = valorInput.replace(/\D/g, '');
 
-    // Limita la longitud a 10 caracteres
-    valorInput = valorInput.slice(0, 5);
+    // Limitar la longitud a 10 caracteres
+    if (valorInput.length > 5) {
+        valorInput = valorInput.slice(0, 5);
+    }
 
-    Equipo4.campo2.value = valorInput;
-
-    
-    if (!expresion.codigoPostal.test(valorInput)) {
-        Equipo4.campo2.style.border = "5px solid red";
+    // Actualizar el valor del campo con los cambios realizados
+    e.target.value = valorInput;
+   
+    // Validar si la entrada coincide con la expresión regular para el teléfono
+    if (!expresion.otraFuncion.test(valorInput)) {
+        Equipo4.campo2.style.border = "5px solid red"; 
         bandera2 = false; 
     } else {
-        Equipo4.campo2.removeAttribute("style");
+        Equipo4.campo2.removeAttribute("style"); 
         bandera2 = true; 
     }
 });
+
 
 expresion.codigoPostal = /^\d{5}$/;
 
