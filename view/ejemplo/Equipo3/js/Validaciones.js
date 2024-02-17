@@ -1,78 +1,133 @@
-function val_Correo() {
-    const correoInput = document.getElementById('campo1');
-    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+// se declara una bandera para saber si la entrada es válida para cada campo
+let bandera1 = false;
+let bandera2 = false;
+let bandera3 = false;
+let bandera4 = false;
+let bandera5 = false;
 
-    if (correoInput.value.length < 7 || correoInput.value.length > 320 || !correoRegex.test(correoInput.value)) {
-        highlightElement(correoInput);
-        alert("El correo electrónico es inválido. Asegúrate de introducir una dirección de correo válida.");
-        return false;
+// se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
+let botonRegistrar = document.getElementById("registrar");
+botonRegistrar.addEventListener("click", (e) => {
+    // se revisa si todas las entradas son válidas
+    if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5) {
+        // si todas son válidas se muestra un mensaje de éxito
+        console.log("Registro exitoso");
     } else {
-        unhighlightElement(correoInput);
-        return true;
+        // si alguna no es válida se cancela el envío
+        console.log("Envío cancelado");
+        e.preventDefault();
     }
+});
+
+// definición de la expresión regular para cada campo
+const expresion = {
+    campo1: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,/////correo
+    campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,///////////////contraseña
+    campo3: /^[0-9]{2}[A-Za-z]{5}$/,//ID
+    campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
+    campo5: /^[A-Za-z]{3,}$/,////////clave
 }
 
-function val_Password() {
-    const passwordInput = document.getElementById('campo2');
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+// se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
+Equipo3.campo1.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
 
-    if (passwordInput.value.length < 8 || !passwordRegex.test(passwordInput.value)) {
-        highlightElement(passwordInput);
-        alert("La contraseña es inválida. Debe contener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial.");
-        return false;
+    // elimina caracteres especiales
+    valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
+
+    // verifica que se cumpla con la expresion correpondiente
+    if (!expresion.campo1.test(valorInput)) {
+        Equipo3.campo1.style.border = "5px solid red";
+        bandera1 = false;
     } else {
-        unhighlightElement(passwordInput);
-        return true;
+        Equipo3.campo1.removeAttribute("style");
+        bandera1 = true;
     }
-}
+});
 
-function val_ID() {
-    const idInput = document.getElementById('campo3');
-    const idRegex = /^[0-9]{2}[A-Za-z]{5}$/;
+// Escuchador de eventos para el campo de teléfono
+Equipo3.campo2.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
 
-    if (!idRegex.test(idInput.value)) {
-        highlightElement(idInput);
-        alert("El ID es inválido. Debe tener 2 números seguidos de 5 letras.");
-        return false;
+    // Elimina todo excepto los números
+
+    // Limita la longitud a 10 caracteres
+    valorInput = valorInput.slice(0, 8);
+
+    // Asigna el valor al campo
+    Equipo3.campo2.value = valorInput;
+
+    // Verifica si cumple con la expresión regular
+    if (!expresion.campo2.test(valorInput)) {
+        Equipo3.campo2.style.border = "5px solid red";
+        bandera2 = false;
     } else {
-        unhighlightElement(idInput);
-        return true;
+        Equipo3.campo2.removeAttribute("style");
+        bandera2 = true;
     }
-}
+});
 
-function val_Nombre() {
-    const nombreInput = document.getElementById('campo4');
-    const nombreRegex = /^[a-zA-Z\s]{1,400}$/;
+// Escuchador de eventos para el campo de correo electrónico
+Equipo3.campo3.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
 
-    if (!nombreRegex.test(nombreInput.value)) {
-        highlightElement(nombreInput);
-        alert("El nombre es inválido. Solo se permiten letras y espacios.");
-        return false;
+    // Limita la longitud a 60 caracteres
+    valorInput = valorInput.slice(0, 7);
+
+    // Asigna el valor al campo
+    Equipo3.campo3.value = valorInput
+
+    // elimina caracteres especiales
+    valorInput = valorInput.replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '');
+
+    // Verifica si cumple con la expresión regular
+    if (!expresion.campo3.test(valorInput)) {
+        Equipo3.campo3.style.border = "5px solid red";
+        bandera3 = false;
     } else {
-        unhighlightElement(nombreInput);
-        return true;
+        Equipo3.campo3.removeAttribute("style");
+        bandera3 = true;
     }
-}
+});
 
-function val_clave() {
-    const claveInput = document.getElementById('campo5');
-    const claveRegex = /^[A-Za-z]{3,}$/;
+Equipo3.campo4.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
 
-    if(!claveRegex.test(claveInput.value)){
-        highlightElement(claveInput);
-        alert("Clave inválida. Ingrese mínimo 3 letras sin caracteres especiales ni números ");
-        return false;
+    // Limita la longitud a 7 caracteres (2 números + 5 letras)
+    valorInput = valorInput.slice(0, 400);
+
+    // Asigna el valor al campo
+    Equipo3.campo4.value = valorInput
+
+    // elimina caracteres especiales
+    valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
+
+    // Verifica si cumple con la expresión regular
+    if (!expresion.campo4.test(valorInput)) {
+        Equipo3.campo4.style.border = "5px solid red";
+        bandera4 = false;
+    } else {
+        Equipo3.campo4.removeAttribute("style");
+        bandera4 = true;
     }
-    else {
-        unhighlightElement(claveInput);
-        return true;
-    }  
-}
+});
 
-function highlightElement(element) {
-    element.style.border = "5px solid red";
-}
+// Escuchador de eventos para el campo de descripción
+Equipo3.campo5.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
 
-function unhighlightElement(element) {
-    element.style.border = ""; 
-}
+    // Limita la longitud a un máximo (opcional)
+    valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
+
+    // Asigna el valor al campo
+    Equipo3.campo5.value = valorInput;
+
+    // Verifica si cumple con la expresión regular
+    if (!expresion.campo5.test(valorInput)) {
+        Equipo3.campo5.style.border = "5px solid red";
+        bandera5 = false;
+    } else {
+        Equipo3.campo5.removeAttribute("style");
+        bandera5 = true;
+    }
+});
