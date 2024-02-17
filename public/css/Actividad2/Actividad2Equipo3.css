@@ -43,7 +43,7 @@ nav {
   .menu li.submenu .submenu-options {
     display: none; /* Oculta las opciones del submenú por defecto */
     position: absolute;
-    background-color: #c3c2c2;
+    background-color: #804000;
     padding: 10px;
     z-index: 1;
   }
@@ -56,6 +56,17 @@ nav {
     display: block;
   }
   
+  /* Cambia el color del enlace del menú al pasar el cursor sobre él */
+.menu li a:hover {
+
+  color: #ffffff; /* Cambia el color del texto al pasar el cursor sobre el enlace */
+}
+
+/* Cambia el color de fondo del enlace del menú al pasar el cursor sobre él */
+.menu li a:hover {
+  background-color: #804000; /* Cambia el color de fondo del enlace al pasar el cursor sobre él */
+}
+
   
   
   #logo {
@@ -73,7 +84,7 @@ nav {
 
   h4 {
     margin-bottom: 2%;
-    font-size: 150%;
+    
   }
   .centrar {
     text-align: center;
@@ -88,8 +99,15 @@ nav {
 }
 
 section{
-    padding-top: 20px;
+    padding: 20px;
 }
+
+/* Añadir separación entre los títulos y las secciones */
+.datosgenerales h4,
+.datosgenerales section {
+    margin-bottom: 5px; /* Ajusta el valor según sea necesario */
+}
+
 section label{
     padding-bottom: 10px;
 
@@ -100,6 +118,9 @@ section label{
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     gap: 10px;
 }
+
+/* Establece un ancho máximo para los elementos dentro de .datosgenerales */
+
 .radiobuton{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -112,32 +133,27 @@ section label{
         height: 30px;
         border: none;
         border-radius: 5px;
-        font-size: 15px;
 }
 .Fecha input{
     width: 95%;
         height: 30px;
         border: none;
         border-radius: 5px;
-        font-size: 15px;
 }
 .Monto input{
     width: 95%;
         height: 30px;
         border: none;
         border-radius: 5px;
-        font-size: 15px;
 }
 .servico select{
     width: 95%;
         height: 30px;
         border: none;
         border-radius: 5px;
-        font-size: 15px;
 }
 .laborales label{
     display: block;
-    font-size: 15px;
 }
   
 .boton {
