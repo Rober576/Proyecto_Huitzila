@@ -24,7 +24,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 //definición de la expresión regular para el campo
 const expresion = {
-    campo1: /^[A-Za-záéíóúÁÉÍÓÚüâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ .]{1,40}$/,
+    campo1: /^[A-Za-zñáéíóúÁÉÍÓÚüâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ .]{1,40}$/,
     campo2: /^\d{10}$/,
     campo3: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     campo4: /^\d{2}[A-Za-z]{5}$/,
@@ -38,7 +38,7 @@ formulario.campo1.addEventListener('keyup', (e) => {
     formulario.campo1.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
@@ -86,7 +86,7 @@ formulario.campo3.addEventListener('keyup', (e) => {
     formulario.campo3.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:!?+\-*/=$€£¥#%^()[{}|<>=]/g, '')
+    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:""''!?+\*/=&$€£¥#%^()[{}|<>=]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
@@ -108,7 +108,7 @@ formulario.campo4.addEventListener('keyup', (e) => {
     formulario.campo4.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·.¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
