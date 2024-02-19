@@ -100,3 +100,22 @@ body {
     background-color: #555;
   }
   
+  button{
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover{
+    background-color: #555;
+    color: #fff;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
