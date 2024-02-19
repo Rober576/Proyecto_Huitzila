@@ -37,12 +37,11 @@ if ($resultado) {
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
 
-        $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="../../view/ejemplo/modificar_equipo2.html" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
-        $salida .= '</td>';
-
+        $salida .= '<td><a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>
+                        <a href="#" class="table_item__link2 eliminar-elemento" data-id="' . $id . '">Editar</a>
+        
+        </td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'
+        
         $salida .= '</tr>';
     }
 
