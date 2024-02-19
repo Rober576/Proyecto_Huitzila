@@ -20,7 +20,7 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('Equipo4');
+            const form= document.getElementById('mod_equipo4');
             form.reset();
             alert("Registro exitoso");
             
