@@ -14,6 +14,7 @@ if (isset($_POST['consulta'])) {
 $salida = '';
 
 if ($resultado) {
+
     $salida .= '
         <table border="1">
             <thead>
@@ -23,17 +24,27 @@ if ($resultado) {
                     <th>Campo 3</th>
                     <th>Campo 4</th>
                     <th>Campo 5</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>';
 
     foreach ($resultado as $fila) {
+        $id = $fila['id'];
         $salida .= '<tr>';
         $salida .= '<td>' . $fila["campo1"] . '</td>';
         $salida .= '<td>' . $fila["campo2"] . '</td>';
         $salida .= '<td>' . $fila["campo3"] . '</td>';
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
+
+        // Aquí se combinan los enlaces en una sola columna
+        $salida .= '<td>';
+        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
+        $salida .= ' | ';
+        $salida .= '<a href="#" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
+        $salida .= '</td>';
+        
         $salida .= '</tr>';
     }
 
@@ -44,3 +55,6 @@ if ($resultado) {
 
 echo $salida;
 ?>
+
+<script src="../../controller/ejemplo/js/Eliminar_Equipo1.js"></script>
+<script src="../../controller/ejemplo/js/Editar_Equipo1.js"></script>
