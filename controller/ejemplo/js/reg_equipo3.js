@@ -1,13 +1,18 @@
 document.getElementById('Equipo3').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    var correoValido = val_Correo();
-    var passwordValido = val_Password();
-    var idValido = val_ID();
-    var nombreValido = val_Nombre();
-    var claveValida = val_clave();
+    function todasBanderasAceptadas() {
+        if((bandera1 && bandera2 && bandera3 && bandera4 && bandera5)==true){
+            return true; 
+        }else{
+            return false;
+        }
+        
+        
+    }
+    
 
-    if (correoValido && passwordValido && idValido && nombreValido && claveValida) {
+    if (todasBanderasAceptadas()) {
         var datos = new FormData(this);
         fetch('../../controller/ejemplo/registro_equipo3.php', {
             method: 'POST',
@@ -30,4 +35,5 @@ document.getElementById('Equipo3').addEventListener('submit', function (event) {
         console.log("Registro fallido. Por favor, revise los campos resaltados.");
         alert("Registro fallido. Por favor, revise los campos resaltados.");
     }
-});
+    }
+) ;
