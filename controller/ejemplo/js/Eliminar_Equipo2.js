@@ -8,9 +8,9 @@ function confirmacion(e){
         e.preventDefault();
         var id = $(this).data('id');
 
-        fetch('../../controller/ejemplo/Eliminar_Equipo3.php?id='+id, {
+        fetch('../../controller/ejemplo/Eliminar_Equipo2.php?id='+id, {
             method: 'GET',
-            id: id
+    
         })
 
         //recibe la respuesta para mandar la alerta

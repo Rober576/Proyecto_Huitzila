@@ -18,22 +18,31 @@ if ($resultado) {
         <table border="1">
             <thead>
                 <tr>
-                    <th>Teléfono</th>
-                    <th>Código postal</th>
-                    <th>Dirección</th>
-                    <th>Apellido</th>
-                    <th>Descripción</th>
+                <th>Campo 1</th>
+                <th>Campo 2</th>
+                <th>Campo 3</th>
+                <th>Campo 4</th>
+                <th>Campo 5</th>
+                <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>';
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
+        $id = $fila['id'];
         $salida .= '<td>' . $fila["campo1"] . '</td>';
         $salida .= '<td>' . $fila["campo2"] . '</td>';
         $salida .= '<td>' . $fila["campo3"] . '</td>';
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
+
+        $salida .= '<td>';
+        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
+        $salida .= ' | ';
+        $salida .= '<a href="#" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
+        $salida .= '</td>';
+
         $salida .= '</tr>';
     }
 
@@ -44,3 +53,4 @@ if ($resultado) {
 
 echo $salida;
 ?>
+
