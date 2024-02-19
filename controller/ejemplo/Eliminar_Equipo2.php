@@ -1,5 +1,5 @@
 <?php
-include_once('../../model/ejemplo/eliminar/Eliminar_Equipo3.php');
+include_once('../../model/ejemplo/eliminar/Eliminar_Equipo2.php');
 
 $base = new EliminarCampos();
 $base->instancias();
@@ -8,6 +8,8 @@ $base->instancias();
 en particular y en base a los requierimientos hacer las acciones necesarias, como en este caso no hay,
 el registro se elimina directamente*/
 
-$base->eliminar($_GET['id']);
+// Utiliza $_GET para obtener el valor del ID desde la URL
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$base->eliminar($id);
 echo json_encode('Eliminado con éxito');
 ?>
