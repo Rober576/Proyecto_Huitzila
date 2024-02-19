@@ -57,4 +57,5 @@ echo $salida;
 ?>
 
 <script src="../../controller/ejemplo/js/Eliminar_Equipo2.js"></script>
+<script src="../../controller/ejemplo/js/Editar_Equipo2.js"></script>
 
