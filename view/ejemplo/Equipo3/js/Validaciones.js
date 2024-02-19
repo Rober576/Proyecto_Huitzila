@@ -1,86 +1,108 @@
-// se declara una bandera para saber si la entrada es válida para cada campo
 let bandera1 = false;
 let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
 let bandera5 = false;
 
-// se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
+
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) => {
-    // se revisa si todas las entradas son válidas
+    
     if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5) {
-        // si todas son válidas se muestra un mensaje de éxito
+        
         console.log("Registro exitoso");
     } else {
-        // si alguna no es válida se cancela el envío
+       
         console.log("Envío cancelado");
         e.preventDefault();
     }
 });
 
-// definición de la expresión regular para cada campo
+//Expresiones regulares
 const expresion = {
-    campo1: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,/////correo
-    campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,///////////////contraseña
-    campo3: /^[0-9]{2}[A-Za-z]{5}$/,//ID
-    campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
-    campo5: /^[A-Za-z]{3,}$/,////////clave
-}
+    campo1: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, //Correo electrónico
+    campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/, //Contraseña
+    campo3: /^[0-9]{2}[A-Za-z]{5}$/, //ID
+    campo4: /^[a-zA-Z\s]{1,400}$/, //Nombre
+    campo5: /^[A-Za-z]{3,}$/, //Clave
+};
 
-// se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
-Equipo3.campo1.addEventListener('keyup', (e) => {
+
+
+//Correo electrónico
+Equipo3.campo1.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // elimina caracteres especiales
-    valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
+    //Elimina caracteres especiales excepto '@'
+    valorInput = valorInput.replace(/[^a-zA-Z0-9@.]/g, '');
 
-    // verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        Equipo3.campo1.style.border = "5px solid red";
+    //Elimina espacios
+    valorInput = valorInput.replace(/\s/g, '');
+
+
+    Equipo3.campo1.value = valorInput;
+
+    // Verificar longitud mínima y máxima
+    if (valorInput.length < 7 || valorInput.length > 320) {
+        Equipo3.campo1.style.border = "5px solid red"; // Aplicar estilo si la longitud es inválida
         bandera1 = false;
     } else {
-        Equipo3.campo1.removeAttribute("style");
-        bandera1 = true;
+        // Verificar el formato usando expresión regular
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(valorInput)) {
+            Equipo3.campo1.style.border = "5px solid red"; 
+            bandera1 = false;
+        } else {
+            Equipo3.campo1.removeAttribute("style");
+            bandera1 = true;
+        }
     }
 });
 
-// Escuchador de eventos para el campo de teléfono
-Equipo3.campo2.addEventListener('keyup', (e) => {
+
+
+//Contraseña
+Equipo3.campo2.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todo excepto los números
+    const tieneMinimo8Caracteres = /.{8,}/.test(valorInput);
+    const tieneLetraMayuscula = /[A-Z]/.test(valorInput);
+    const tieneLetraMinuscula = /[a-z]/.test(valorInput);
+    const tieneNumero = /\d/.test(valorInput);
+    const tieneCaracterEspecial = /[@$!%*?&]/.test(valorInput);
 
-    // Limita la longitud a 10 caracteres
-    valorInput = valorInput.slice(0, 8);
-
-    // Asigna el valor al campo
-    Equipo3.campo2.value = valorInput;
-
-    // Verifica si cumple con la expresión regular
-    if (!expresion.campo2.test(valorInput)) {
-        Equipo3.campo2.style.border = "5px solid red";
-        bandera2 = false;
-    } else {
+   
+    if (
+        tieneMinimo8Caracteres &&
+        tieneLetraMayuscula &&
+        tieneLetraMinuscula &&
+        tieneNumero &&
+        tieneCaracterEspecial
+    ) {
+        
         Equipo3.campo2.removeAttribute("style");
         bandera2 = true;
+    } else {
+        
+        Equipo3.campo2.style.border = "5px solid red";
+        bandera2 = false;
     }
 });
 
-// Escuchador de eventos para el campo de correo electrónico
+
+//ID
 Equipo3.campo3.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a 60 caracteres
+    //Limita la longitud a 60 caracteres
     valorInput = valorInput.slice(0, 7);
 
-    // Asigna el valor al campo
+    //Asigna el valor al campo
     Equipo3.campo3.value = valorInput
 
-    // elimina caracteres especiales
+    //Elimina caracteres especiales
     valorInput = valorInput.replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '');
 
-    // Verifica si cumple con la expresión regular
+
     if (!expresion.campo3.test(valorInput)) {
         Equipo3.campo3.style.border = "5px solid red";
         bandera3 = false;
@@ -90,19 +112,20 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     }
 });
 
+//Nombre
 Equipo3.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a 7 caracteres (2 números + 5 letras)
+    //Limita la longitud a 7 caracteres (2 números + 5 letras)
     valorInput = valorInput.slice(0, 400);
 
-    // Asigna el valor al campo
+    //Asigna el valor al campo
     Equipo3.campo4.value = valorInput
 
-    // elimina caracteres especiales
+    //Elimina caracteres especiales
     valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
 
-    // Verifica si cumple con la expresión regular
+    
     if (!expresion.campo4.test(valorInput)) {
         Equipo3.campo4.style.border = "5px solid red";
         bandera4 = false;
@@ -112,17 +135,16 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
     }
 });
 
-// Escuchador de eventos para el campo de descripción
+//Clave
 Equipo3.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a un máximo (opcional)
-    valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
+    // Limita la longitud a un máximo de 255 caracteres
+    valorInput = valorInput.slice(0, 255); 
 
-    // Asigna el valor al campo
     Equipo3.campo5.value = valorInput;
 
-    // Verifica si cumple con la expresión regular
+    
     if (!expresion.campo5.test(valorInput)) {
         Equipo3.campo5.style.border = "5px solid red";
         bandera5 = false;
