@@ -1,108 +1,93 @@
+// se declara una bandera para saber si la entrada es válida para cada campo
 let bandera1 = false;
 let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
 let bandera5 = false;
 
-
+// se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) => {
-    
+    // se revisa si todas las entradas son válidas
     if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5) {
-        
+        // si todas son válidas se muestra un mensaje de éxito
         console.log("Registro exitoso");
     } else {
-       
+        // si alguna no es válida se cancela el envío
         console.log("Envío cancelado");
         e.preventDefault();
     }
 });
 
-//Expresiones regulares
+// definición de la expresión regular para cada campo
 const expresion = {
-    campo1: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, //Correo electrónico
-    campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/, //Contraseña
-    campo3: /^[0-9]{2}[A-Za-z]{5}$/, //ID
-    campo4: /^[a-zA-Z\s]{1,400}$/, //Nombre
-    campo5: /^[A-Za-z]{3,}$/, //Clave
-};
+    campo1: /^(?=.{10,40}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,/////correo
+    campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
+    campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
+    campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
+    campo5: /^[A-Za-z]{3,}$/,////////clave
+}
 
-
-
-//Correo electrónico
-Equipo3.campo1.addEventListener('input', (e) => {
+// se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
+Equipo3.campo1.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    //Elimina caracteres especiales excepto '@'
-    valorInput = valorInput.replace(/[^a-zA-Z0-9@.]/g, '');
 
-    //Elimina espacios
-    valorInput = valorInput.replace(/\s/g, '');
+    // Asigna el valor al campo
+    Equipo3.campo1.value = valorInput
 
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
 
-    Equipo3.campo1.value = valorInput;
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
 
-    // Verificar longitud mínima y máxima
-    if (valorInput.length < 7 || valorInput.length > 320) {
-        Equipo3.campo1.style.border = "5px solid red"; // Aplicar estilo si la longitud es inválida
+    // verifica que se cumpla con la expresion correpondiente
+    if (!expresion.campo1.test(valorInput)) {
+        Equipo3.campo1.style.border = "5px solid red";
         bandera1 = false;
     } else {
-        // Verificar el formato usando expresión regular
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(valorInput)) {
-            Equipo3.campo1.style.border = "5px solid red"; 
-            bandera1 = false;
-        } else {
-            Equipo3.campo1.removeAttribute("style");
-            bandera1 = true;
-        }
+        Equipo3.campo1.removeAttribute("style");
+        bandera1 = true;
     }
 });
 
-
-
-//Contraseña
-Equipo3.campo2.addEventListener('input', (e) => {
+// Escuchador de eventos para el campo de teléfono
+Equipo3.campo2.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    const tieneMinimo8Caracteres = /.{8,}/.test(valorInput);
-    const tieneLetraMayuscula = /[A-Z]/.test(valorInput);
-    const tieneLetraMinuscula = /[a-z]/.test(valorInput);
-    const tieneNumero = /\d/.test(valorInput);
-    const tieneCaracterEspecial = /[@$!%*?&]/.test(valorInput);
 
-   
-    if (
-        tieneMinimo8Caracteres &&
-        tieneLetraMayuscula &&
-        tieneLetraMinuscula &&
-        tieneNumero &&
-        tieneCaracterEspecial
-    ) {
-        
-        Equipo3.campo2.removeAttribute("style");
-        bandera2 = true;
-    } else {
-        
+
+    // Asigna el valor al campo
+    Equipo3.campo2.value = valorInput;
+
+    // Verifica si cumple con la expresión regular
+    if (!expresion.campo2.test(valorInput)) {
         Equipo3.campo2.style.border = "5px solid red";
         bandera2 = false;
+    } else {
+        Equipo3.campo2.removeAttribute("style");
+        bandera2 = true;
     }
 });
 
-
-//ID
+// Escuchador de eventos para el campo de correo electrónico
 Equipo3.campo3.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    //Limita la longitud a 60 caracteres
+    // Limita la longitud a 60 caracteres
     valorInput = valorInput.slice(0, 7);
 
-    //Asigna el valor al campo
+    // Asigna el valor al campo
     Equipo3.campo3.value = valorInput
 
-    //Elimina caracteres especiales
+    // elimina caracteres especiales
     valorInput = valorInput.replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '');
 
-
+    // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
         Equipo3.campo3.style.border = "5px solid red";
         bandera3 = false;
@@ -112,20 +97,19 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     }
 });
 
-//Nombre
 Equipo3.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    //Limita la longitud a 7 caracteres (2 números + 5 letras)
+    // Limita la longitud a 7 caracteres (2 números + 5 letras)
     valorInput = valorInput.slice(0, 400);
 
-    //Asigna el valor al campo
+    // Asigna el valor al campo
     Equipo3.campo4.value = valorInput
 
-    //Elimina caracteres especiales
+    // elimina caracteres especiales
     valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
 
-    
+    // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
         Equipo3.campo4.style.border = "5px solid red";
         bandera4 = false;
@@ -135,16 +119,26 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
     }
 });
 
-//Clave
+// Escuchador de eventos para el campo de descripción
 Equipo3.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a un máximo de 255 caracteres
-    valorInput = valorInput.slice(0, 255); 
+    // Limita la longitud a un máximo (opcional)
+    valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
 
-    Equipo3.campo5.value = valorInput;
+    // Asigna el valor al campo
+    Equipo3.campo5.value = valorInput
 
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
     
+    //elimina el ultimo espacio en blanco
+    .trim()
+
+    // Verifica si cumple con la expresión regular
     if (!expresion.campo5.test(valorInput)) {
         Equipo3.campo5.style.border = "5px solid red";
         bandera5 = false;
