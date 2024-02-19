@@ -37,7 +37,13 @@ if ($resultado) {
         $salida .= '<td>' . $fila["campo3"] . '</td>';
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
-        $salida .= '<td><a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a></td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'
+        
+        // Aquí se combinan los enlaces en una sola columna
+        $salida .= '<td>';
+        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
+        $salida .= ' | ';
+        $salida .= '<a href="#" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
+        $salida .= '</td>';
         
         $salida .= '</tr>';
     }
@@ -50,4 +56,5 @@ if ($resultado) {
 echo $salida;
 ?>
 
-<script src="../../controller/ejemplo/js/Eliminar_Equipo3.js"></script>
+<script src="../../controller/ejemplo/js/Eliminar_Equipo2.js"></script>
+<script src="../../controller/ejemplo/js/Editar_Equipo2.js"></script>
