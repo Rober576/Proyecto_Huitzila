@@ -11,7 +11,7 @@ class EliminarCampos{
 
     function eliminar($id){
         
-        $query = "DELETE FROM tabla3 WHERE id = :id";
+        $query = "DELETE FROM tabla2 WHERE id = :id";
         $this->base->insertar_eliminar_actualizar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
         
