@@ -38,7 +38,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["campo5"] . '</td>';
 
         $salida .= '<td><a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>
-                        <a href="#" class="table_item__link2 eliminar-elemento" data-id="' . $id . '">Editar</a>
+                        <a href="view\ejemplo\modificar_equipo2.html" class="table_item__link2 eliminar-elemento" data-id="' . $id . '">Editar</a>
         
         </td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'
         
