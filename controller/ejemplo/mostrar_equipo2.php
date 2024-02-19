@@ -1,5 +1,7 @@
+
 <?php
 include_once('../../model/ejemplo/mostrar/equipo2/mostrar.php');
+
 
 $base = new MostrarCampos();
 $base->instancias();
@@ -12,7 +14,6 @@ if (isset($_POST['consulta'])) {
 }
 
 $salida = '';
-
 if ($resultado) {
     $salida .= '
         <table border="1">
@@ -28,23 +29,24 @@ if ($resultado) {
             </thead>
             <tbody>';
 
-    foreach ($resultado as $fila) {
-        $salida .= '<tr>';
-        $id = $fila['id'];
-        $salida .= '<td>' . $fila["campo1"] . '</td>';
-        $salida .= '<td>' . $fila["campo2"] . '</td>';
-        $salida .= '<td>' . $fila["campo3"] . '</td>';
-        $salida .= '<td>' . $fila["campo4"] . '</td>';
-        $salida .= '<td>' . $fila["campo5"] . '</td>';
-
-        $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="/view/ejemplo/modificar_equipo2.html" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
-        $salida .= '</td>';
-
-        $salida .= '</tr>';
-    }
+            foreach ($resultado as $fila) {
+                $salida .= '<tr>';
+                $id = $fila['id'];
+                $salida .= '<td>' . $fila["campo1"] . '</td>';
+                $salida .= '<td>' . $fila["campo2"] . '</td>';
+                $salida .= '<td>' . $fila["campo3"] . '</td>';
+                $salida .= '<td>' . $fila["campo4"] . '</td>';
+                $salida .= '<td>' . $fila["campo5"] . '</td>';
+                
+                // Celda para los botones de eliminar y editar
+                $salida .= '<td>';
+                $salida .= '<a onclick="confirmacion(event)" href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
+                $salida .= ' | ';
+                $salida .= '<a href="..\..\view\ejemplo\modificar_equipo2.html" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
+                $salida .= '</td>';
+                
+                $salida .= '</tr>';
+            }
 
     $salida .= '</tbody></table>';
 } else {
@@ -53,5 +55,9 @@ if ($resultado) {
 
 echo $salida;
 ?>
+<script src="../../controller/ejemplo/js/Eliminar_Equipo3.js"></script>
 
-<script src="../../controller/ejemplo/js/Eliminar_Equipo2.js"></script>
+
+
+
+
