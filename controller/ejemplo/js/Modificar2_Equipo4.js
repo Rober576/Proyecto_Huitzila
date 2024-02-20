@@ -18,13 +18,10 @@ for (var i = 0; i < linkObtenerInfo.length; i++) {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json(); // Parsea la respuesta como JSON
+            return response.json(); 
         })
         .then(function(data) {
-            // Maneja la respuesta del PHP
             console.log(data);
-            // Aquí puedes hacer lo que necesites con la respuesta
-            // Por ejemplo, redirigir a otra página o mostrar información en el DOM
         })
         .catch(function(error) {
             console.error('There has been a problem with your fetch operation:', error);
