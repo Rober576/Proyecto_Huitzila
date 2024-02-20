@@ -14,4 +14,3 @@ $obj->insertar($c1,$c2, $c3, $c4, $c5);
 echo json_encode('exito');
 ?>
 
-
