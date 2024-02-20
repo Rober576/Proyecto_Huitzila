@@ -9,6 +9,8 @@ class ObtenerInformacion {
         $this->base->conexion_bd();
     }
 
+
+    
     function obtenerInformacion($id) {
         $query = "SELECT * FROM tabla4 WHERE id = :id";
         $resultado = $this->base->mostrar($query, [":id" => $id]);
