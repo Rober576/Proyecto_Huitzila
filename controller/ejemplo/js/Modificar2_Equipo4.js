@@ -1,7 +1,6 @@
 // Selecciona todos los enlaces de obtener información
 var linkObtenerInfo = document.querySelectorAll(".table_item__link.obtener-informacion");
 
-
 console.log(linkObtenerInfo);
 
 // Agrega el evento click a cada enlace de obtener información
@@ -10,23 +9,25 @@ for (var i = 0; i < linkObtenerInfo.length; i++) {
         e.preventDefault();
         var id = this.getAttribute('data-id');
         console.log(id);
-        window.location.href = "../../view/ejemplo/Mod_Equipo4.html";
 
+        // Realiza una solicitud fetch para enviar el ID a un script PHP
         fetch('../../controller/ejemplo/Modificar2_Equipo4.php?id=' + id, {
             method: 'GET',
         })
-
-        .then(res => res.json())
-        .then(data => {
-            // Establece los valores de los campos del formulario con la información obtenida
-            document.getElementById('campo1').value = data.campo1;
-            document.getElementById('campo2').value = data.campo2;
-            document.getElementById('campo3').value = data.campo3;
-            document.getElementById('campo4').value = data.campo4;
-            document.getElementById('campo5').value = data.campo5;
-
-            // Redirige al formulario de modificación
-            window.location.href = "../../view/ejemplo/Mod_Equipo4.html";
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parsea la respuesta como JSON
+        })
+        .then(function(data) {
+            // Maneja la respuesta del PHP
+            console.log(data);
+            // Aquí puedes hacer lo que necesites con la respuesta
+            // Por ejemplo, redirigir a otra página o mostrar información en el DOM
+        })
+        .catch(function(error) {
+            console.error('There has been a problem with your fetch operation:', error);
         });
     });
 }
