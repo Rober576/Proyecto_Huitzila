@@ -1,5 +1,7 @@
 //declara las variables globales
 var formulario = document.getElementById('mod_equipo1');
+var enlace = document.querySelector('a');
+var id = enlace.getAttribute('data-id');
 
 
 console.log('hola mundo1');

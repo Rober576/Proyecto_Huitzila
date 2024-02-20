@@ -14,8 +14,7 @@
         //manda las consultas para insertar en las tablas de certificaciones internas e historicos
         function insertar($c1,$c2, $c3, $c4, $c5){
             //consultas para la tabla de certificaciones internas
-            $q1 = "INSERT INTO Tabla1 (campo1 ,campo2, campo3, campo4, campo5)
-            VALUES(:c1, :c2, :c3 ,:c4 ,:c5)";
+            $q1 = "UPDATE Tabla1 SET campo1 = :c1, campo2 = :c2, campo3 = :c3, campo4 = :c4, campo5 = :c5 WHERE id = :id";
             $a1= [":c1"=>$c1, ":c2"=>$c2, ":c3"=>$c3, ":c4"=>$c4, ":c5"=>$c5];
             //acomoda todo en arreglos para mandarlos al CRUD, Puedes meter varios arreglos en un solo arreglo
             /*$q2="INSERT INTO tratipousua (IdUsua,RFCT)
