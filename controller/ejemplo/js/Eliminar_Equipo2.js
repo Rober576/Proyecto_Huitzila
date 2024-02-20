@@ -29,6 +29,6 @@ for (var j = 0; j < linkEdit.length; j++) {
         // Agrega el código necesario para manejar la acción de editar
         // Puedes redirigir a la página de edición o realizar otras acciones
         // Por ejemplo:
-        window.location.href = "../../../view/ejemplo/modificar_equipo2.html";
+        window.location.href = "../../../view/ejemplo/Mod_equipo2.html";
     });
 }
