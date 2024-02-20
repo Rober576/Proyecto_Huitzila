@@ -12,7 +12,6 @@ if (isset($_POST['consulta'])) {
 }
 
 $salida = '';
-
 if ($resultado) {
     $salida .= '
         <table border="1">
@@ -36,13 +35,14 @@ if ($resultado) {
         $salida .= '<td>' . $fila["campo3"] . '</td>';
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
-
+        
+        // Celda para los botones de eliminar y editar
         $salida .= '<td>';
         $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="/view/ejemplo/modificar_equipo2.html" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
+        $salida .= '<a href="#" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
         $salida .= '</td>';
-
+        
         $salida .= '</tr>';
     }
 

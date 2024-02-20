@@ -55,3 +55,4 @@ echo $salida;
 ?>
 
 <script src="../../controller/ejemplo/js/Eliminar_Equipo4.js"></script>
+<script src="../../controller/ejemplo/js/Modificar2_Equipo4.js"></script>
