@@ -1,13 +1,14 @@
 <?php
 include_once('../../model/ejemplo/modificar/Obtener_InfoE4.php');
 
-$base = new ObtenerInformacion();
+$base = new ObtenerCampos();
 $base->instancias();
 
 // Utiliza $_GET para obtener el valor del ID desde la URL
 $id = isset($_GET['id']) ? $_GET['id'] : null;
-$info = $base->obtenerInformacion($id);
+$info = $base->obtener($id);
 
-// Devuelve la información obtenida como JSON
+// Devolver la información como JSON
+header('Content-Type: application/json');
 echo json_encode($info);
 ?>

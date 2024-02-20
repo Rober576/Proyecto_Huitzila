@@ -1,21 +1,19 @@
 <?php
 include_once('../../config/Crud_bd.php');
 
-class ObtenerInformacion {
+class ObtenerCampos{
     private $base;
 
-    function instancias() {
+    function instancias(){
         $this->base = new Crud_bd();
         $this->base->conexion_bd();
     }
 
-
-    
-    function obtenerInformacion($id) {
+    function obtener($id){
         $query = "SELECT * FROM tabla4 WHERE id = :id";
         $resultado = $this->base->mostrar($query, [":id" => $id]);
-        // Devuelve la fila obtenida como un arreglo asociativo
-        return $resultado[0]; // Devuelve solo la primera fila encontrada
+        $this->base->cerrar_conexion();
+        return $resultado;
     }
 }
 ?>
