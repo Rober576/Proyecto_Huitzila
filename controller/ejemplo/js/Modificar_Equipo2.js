@@ -1,15 +1,15 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo2');
 
-console.log("Hola")
+
+
 
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
 
-
     var datos= new FormData(formulario);
-
+    
     fetch('../../controller/ejemplo/Modificar_Equipo2.php', {
         method: 'POST',
         body: datos
@@ -19,9 +19,9 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('mod_equipo2');
+            const form= document.getElementById('Equipo2');
             form.reset();
-            alert("Registro exitoso");
+            
             
         }
     })
