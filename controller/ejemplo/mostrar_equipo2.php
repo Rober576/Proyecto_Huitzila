@@ -55,7 +55,7 @@ if ($resultado) {
 
 echo $salida;
 ?>
-<script src="../../controller/ejemplo/js/Eliminar_Equipo3.js"></script>
+
 
 
 
