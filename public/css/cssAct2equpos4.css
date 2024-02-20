@@ -1,9 +1,3 @@
-@media only screen and (max-width: 600px) {
-  body{
-      width: 90%;
-  }
-}
-
 header {
     color: white;
   }
@@ -177,7 +171,7 @@ hr{
 
 @media only screen and (max-width: 600px) {
   body {
-    width: 90%;
+    width: 100%;
   }
 
   header {
@@ -216,4 +210,60 @@ hr{
   .nombreIn, .fechaIn, .montoIn, .servicioIn, .diasIn {
     width: 100%;
   }
+
+  .head1 h1 {
+    font-size: 18px;
+  }
+
+  .Section-Radio{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    width: 100%;
+  }
+
+  header {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .head1 {
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+  }
+
+  .head2 {
+    flex-direction: column;
+    margin: 0px;
+  }
+
+  .logohuitzila {
+    width: 100px;
+    height: auto;
+  }
+
+  main {
+    margin: 0 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .botonReg {
+    justify-content: center;
+  }
+
+  .nombreIn, .fechaIn, .montoIn, .servicioIn, .diasIn {
+    width: 100%;
+  }
+
+
 }
