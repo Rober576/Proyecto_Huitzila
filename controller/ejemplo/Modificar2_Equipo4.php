@@ -1,5 +1,5 @@
 <?php
-include_once('../../model/ejemplo/modificar/Obtener_Info4.php');
+include_once('../../model/ejemplo/modificar/Obtener_InfoE4.php');
 
 $base = new ObtenerInformacion();
 $base->instancias();

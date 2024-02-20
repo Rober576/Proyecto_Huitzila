@@ -40,7 +40,8 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="../../view/ejemplo/Mod_Equipo4.html" class=".table_item__link.obtener-informacion" data-id="' . $id . '">Editar</a>';
+        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $id . '">Editar</a>';
+
         $salida .= '</td>';
 
         $salida .= '</tr>';
@@ -54,5 +55,5 @@ if ($resultado) {
 echo $salida;
 ?>
 
-<script src="../../controller/ejemplo/js/Eliminar_Equipo4.js"></script>
+
 <script src="../../controller/ejemplo/js/Modificar2_Equipo4.js"></script>

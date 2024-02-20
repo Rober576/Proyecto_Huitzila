@@ -1,6 +1,7 @@
 // Selecciona todos los enlaces de obtener información
 var linkObtenerInfo = document.querySelectorAll(".table_item__link.obtener-informacion");
 
+
 console.log(linkObtenerInfo);
 
 // Agrega el evento click a cada enlace de obtener información
@@ -9,6 +10,7 @@ for (var i = 0; i < linkObtenerInfo.length; i++) {
         e.preventDefault();
         var id = this.getAttribute('data-id');
         console.log(id);
+        window.location.href = "../../view/ejemplo/Mod_Equipo4.html";
 
         fetch('../../controller/ejemplo/Modificar2_Equipo4.php?id=' + id, {
             method: 'GET',
