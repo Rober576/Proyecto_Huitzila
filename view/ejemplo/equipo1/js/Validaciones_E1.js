@@ -10,7 +10,7 @@ let bandera5 = false;
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true & bandera5 == true){
+    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true ){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
@@ -38,7 +38,7 @@ formulario.campo1.addEventListener('keyup', (e) => {
     formulario.campo1.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_ñÑ+\-=\[\]{};':"\\|,<>\/?]/g, '')
 
     //verifica que se cumpla con la expresion correpondiente
     if (!expresion.campo1.test(valorInput)) {
@@ -86,7 +86,7 @@ formulario.campo3.addEventListener('keyup', (e) => {
     formulario.campo3.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:""''!?+\*/=&$€£¥#%^()[{}|<>=]/g, '')
+    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:""''!?+\*/=&$€£¥#%^()ñÑ`~[{}|<>=]/g, '')
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
@@ -125,7 +125,7 @@ formulario.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     // Limita la longitud a un máximo (opcional)
-    valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
+    valorInput = valorInput.slice(0); // Por ejemplo, se limita a 255 caracteres
 
     // Asigna el valor al campo
     formulario.campo5.value = valorInput
