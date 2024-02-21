@@ -33,9 +33,9 @@ const expresion = {
 
 
 //se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-formulario.campo1.addEventListener('keyup', (e) => {
+Equipo1.campo1.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    formulario.campo1.value = valorInput
+    Equipo1.campo1.value = valorInput
 
     //elimina caracteres especiales
     .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_ñÑ+\-=\[\]{};':"\\|,<>\/?]/g, '')
@@ -53,7 +53,7 @@ formulario.campo1.addEventListener('keyup', (e) => {
 });
 
 // Escuchador de eventos para el campo de teléfono
-formulario.campo2.addEventListener('keyup', (e) => {
+Equipo1.campo2.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     // Elimina todo excepto los números
@@ -63,7 +63,7 @@ formulario.campo2.addEventListener('keyup', (e) => {
     valorInput = valorInput.slice(0, 10);
 
     // Asigna el valor al campo
-    formulario.campo2.value = valorInput;
+    Equipo1.campo2.value = valorInput;
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo2.test(valorInput)) {
@@ -76,14 +76,14 @@ formulario.campo2.addEventListener('keyup', (e) => {
 });
 
 // Escuchador de eventos para el campo de correo electrónico
-formulario.campo3.addEventListener('keyup', (e) => {
+Equipo1.campo3.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     // Limita la longitud a 60 caracteres
     valorInput = valorInput.slice(0, 60);
 
     // Asigna el valor al campo
-    formulario.campo3.value = valorInput
+    Equipo1.campo3.value = valorInput
 
     //elimina caracteres especiales
     .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:""''!?+\*/=&$€£¥#%^()ñÑ`~[{}|<>=]/g, '')
@@ -98,14 +98,14 @@ formulario.campo3.addEventListener('keyup', (e) => {
     }
 });
 
-formulario.campo4.addEventListener('keyup', (e) => {
+Equipo1.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     // Limita la longitud a 7 caracteres (2 números + 5 letras)
     valorInput = valorInput.slice(0, 7);
 
     // Asigna el valor al campo
-    formulario.campo4.value = valorInput
+    Equipo1.campo4.value = valorInput
 
     //elimina caracteres especiales
     .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·.¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
@@ -121,14 +121,14 @@ formulario.campo4.addEventListener('keyup', (e) => {
 });
 
 // Escuchador de eventos para el campo de descripción
-formulario.campo5.addEventListener('keyup', (e) => {
+Equipo1.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     // Limita la longitud a un máximo (opcional)
     valorInput = valorInput.slice(0); // Por ejemplo, se limita a 255 caracteres
 
     // Asigna el valor al campo
-    formulario.campo5.value = valorInput
+    Equipo1.campo5.value = valorInput
 
     .replace(/[@~`;]/g, '')
 
