@@ -119,3 +119,54 @@ body {
     color: inherit;
   }
   
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .modal-content p {
+    margin-bottom: 20px;
+  }
+  
+  #siBtn {
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  #noBtn{
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #siBtn:hover{
+    background-color: #45a049;
+  }
+
+  #noBtn:hover{
+    background-color: #ad3636;
+    color: #fff;
+  }
+  
