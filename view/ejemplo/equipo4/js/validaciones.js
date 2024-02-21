@@ -79,16 +79,26 @@ Equipo4.campo2.addEventListener('input', (e) => {
 expresion.codigoPostal = /^\d{5}$/;
 
 
-
-const expresionDireccion = /^[a-zA-Z0-9\s.#áéíóúÁÉÍÓÚ]+$/;
-
+const expresionDireccion = /^[a-zA-Z0-9\s.#áéíóúÁÉÍÓÚüÜñÑ]+$/;
 
 Equipo4.campo3.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
     // Si la entrada no coincide con la expresión regular, eliminar los caracteres no válidos
     if (!expresionDireccion.test(valorInput)) {
-        e.target.value = valorInput.replace(/[^a-zA-Z0-9\s.#]/g, '');
+        // Guardar el valor antes de la limpieza
+        let valorAnterior = e.target.value;
+        // Limpiar el valor solo para detectar los caracteres no válidos
+        valorInput = valorInput.replace(/[^a-zA-Z0-9\s.#]/g, '');
+        // Restaurar los caracteres que se eliminaron incorrectamente
+        valorInput = valorAnterior.split('').map((char, index) => {
+            if (!expresionDireccion.test(char)) {
+                return '';
+            }
+            return char;
+        }).join('');
+        // Actualizar el valor del campo
+        e.target.value = valorInput;
     }
 
     // Verificar si la entrada es una cadena vacía o no cumple con la expresión regular
@@ -103,15 +113,34 @@ Equipo4.campo3.addEventListener('input', (e) => {
 
 
 
-const expresionApellido = /^[a-zA-Z\s.áéíóúÁÉÍÓÚ]{1,20}$/;
+const expresionApellido = /^[a-zA-Z\s.áéíóúÁÉÍÓÚüÜñÑ]{1,20}$/;
 
 Equipo4.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
+    // Si la entrada no coincide con la expresión regular, eliminar los caracteres no válidos
     if (!expresionApellido.test(valorInput)) {
-        e.target.value = valorInput.replace(/[^a-zA-Z\s]/g, '').substring(0, 20);
+        // Guardar el valor antes de la limpieza
+        let valorAnterior = e.target.value;
+        // Limpiar el valor solo para detectar los caracteres no válidos
+        valorInput = valorInput.replace(/[^a-zA-Z\s.áéíóúÁÉÍÓÚüÜñÑ]/g, '');
+        // Restaurar los caracteres que se eliminaron incorrectamente
+        valorInput = valorAnterior.split('').map((char, index) => {
+            if (!expresionApellido.test(char)) {
+                return '';
+            }
+            return char;
+        }).join('');
+        // Actualizar el valor del campo
+        e.target.value = valorInput;
     }
 
+    // Limitar la longitud a 20 caracteres
+    if (valorInput.length > 20) {
+        e.target.value = valorInput.slice(0, 20);
+    }
+
+    // Verificar si la entrada es una cadena vacía o no cumple con la expresión regular
     if (!expresionApellido.test(e.target.value) || e.target.value.trim() === '') {
         Equipo4.campo4.style.border = "5px solid red";
         bandera4 = false;
@@ -120,6 +149,7 @@ Equipo4.campo4.addEventListener('input', (e) => {
         bandera4 = true;
     }
 });
+
 
 
 
