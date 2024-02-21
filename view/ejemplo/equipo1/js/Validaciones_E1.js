@@ -7,7 +7,7 @@ let bandera5 = false;
 
 
 //se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
-let botonRegistrar = document.getElementById("registrar");
+let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
     if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true ){
