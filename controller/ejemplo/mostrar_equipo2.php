@@ -17,31 +17,28 @@ if ($resultado) {
         <table border="1">
             <thead>
                 <tr>
-                <th>Campo 1</th>
-                <th>Campo 2</th>
-                <th>Campo 3</th>
-                <th>Campo 4</th>
-                <th>Campo 5</th>
-                <th>Acciones</th>
+                    <th>Campo 1</th>
+                    <th>Campo 2</th>
+                    <th>Campo 3</th>
+                    <th>Campo 4</th>
+                    <th>Campo 5</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>';
 
     foreach ($resultado as $fila) {
-        $salida .= '<tr>';
         $id = $fila['id'];
+        $salida .= '<tr>';
         $salida .= '<td>' . $fila["campo1"] . '</td>';
         $salida .= '<td>' . $fila["campo2"] . '</td>';
         $salida .= '<td>' . $fila["campo3"] . '</td>';
         $salida .= '<td>' . $fila["campo4"] . '</td>';
         $salida .= '<td>' . $fila["campo5"] . '</td>';
+        $salida .= '<td><a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>
+                        <a href="../../view/ejemplo/Mod_equipo2.html?id=' . $id . '" class="table_item__link2 eliminar-elemento" data-id="' . $id . '">Editar</a>
         
-        // Celda para los botones de eliminar y editar
-        $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link editar-elemento" data-id="' . $id . '">Editar</a>';
-        $salida .= '</td>';
+        </td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'
         
         $salida .= '</tr>';
     }
@@ -55,4 +52,3 @@ echo $salida;
 ?>
 
 <script src="../../controller/ejemplo/js/Eliminar_Equipo2.js"></script>
-<script src="../../controller/ejemplo/js/Modificar_Mostrar2_Equipo2.js"></script>

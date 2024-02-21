@@ -1,14 +1,18 @@
 <?php
-include_once('../../model/ejemplo/modificar/Obtener_InfoE2.php');
+// Recoger los valores de los campos del formulario
+include_once('../../model/ejemplo/modificar/modificar_Equipo2.php');
+$id= $_POST["id"];
+$c1 = $_POST["campo1"];
+$c2 = $_POST["campo2"];
+$c3 = $_POST["campo3"];
+$c4 = $_POST["campo4"];
+$c5 = $_POST["campo5"];
 
-$base = new ObtenerCampos();
-$base->instancias();
-
-// Utiliza $_GET para obtener el valor del ID desde la URL
-$id = isset($_GET['id']) ? $_GET['id'] : null;
-$info = $base->obtener($id);
-
-// Devolver la información como JSON
-header('Content-Type: application/json');
-echo json_encode($info);
+//instanciar la clase y llamar la funcion para insertar
+$obj = new NuevosCampos();
+$obj->conexion();
+$obj->insertar($id, $c1,$c2, $c3, $c4, $c5);
+echo json_encode('exito');
 ?>
+
+
