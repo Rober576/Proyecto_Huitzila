@@ -10,7 +10,7 @@ let bandera5 = false;
 let botonRegistrar = document.getElementById("registrar");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true & bandera5 == true){
+    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true ){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
