@@ -17,21 +17,21 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
 
-    var datos= new FormData(formulario);
-    //C:\version7\htdocs\Huitzila\Proyecto_Huitzila\controller\ejemplo\registro_ejemplo.php
-    fetch('../../controller/ejemplo/Modificar_Equipo1.php', {
-        method: 'POST',
-        body: datos
-    })
+    if (e.submitter.id === 'submitButton') {
+        var datos = new FormData(formulario);
 
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        if (data === 'exito') {
-            const form= document.getElementById('mod_equipo1');
-            form.reset();
-            alert("Registro exitoso");
-            
-        }
-    })
+        fetch('../../controller/ejemplo/Modificar_Equipo1.php', {
+            method: 'POST',
+            body: datos
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data === 'exito') {
+                const form = document.getElementById('mod_equipo1');
+                form.reset();
+                alert("Registro exitoso");
+            }
+        });
+    }
 })
