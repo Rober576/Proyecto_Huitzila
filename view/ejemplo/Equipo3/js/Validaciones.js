@@ -84,8 +84,15 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     // Asigna el valor al campo
     Equipo3.campo3.value = valorInput
 
-    // elimina caracteres especiales
-    valorInput = valorInput.replace(/[àèìÉòáéíóúÁÉÍÓÚù´]/g, '');
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
+
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo3.test(valorInput)) {
@@ -106,8 +113,14 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
     // Asigna el valor al campo
     Equipo3.campo4.value = valorInput
 
-    // elimina caracteres especiales
-    valorInput = valorInput.replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
