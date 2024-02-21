@@ -5,7 +5,6 @@ let bandera3 = false;
 let bandera4 = false;
 let bandera5 = false;
 
-
 //se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("ssubmitButton");
 botonRegistrar.addEventListener("click", (e) =>{
