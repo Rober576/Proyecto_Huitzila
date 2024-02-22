@@ -2,7 +2,7 @@ document.getElementById('Equipo3').addEventListener('submit', function (event) {
     event.preventDefault();
 
     function todasBanderasAceptadas() {
-        if((bandera1 && bandera2 && bandera3 && bandera4 && bandera5)==true){
+        if((bandera1 && bandera2 && bandera3 && bandera4)==true){
             return true; 
         }else{
             return false;

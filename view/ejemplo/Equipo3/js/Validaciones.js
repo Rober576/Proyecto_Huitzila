@@ -24,7 +24,7 @@ const expresion = {
     campo1: /^(?=.{10,40}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,/////correo
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
-    campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
+    campo4: /^[a-zA-Z\sáéíóúÁÉÍÓÚü.Ü]{1,400}$/, // Permitir letras con acentos y espacios en blanco
     campo5: /^[A-Za-z]{3,}$/,////////clave
 }
 
@@ -88,7 +88,7 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    .replace(/[-☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´._-·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
     
     //elimina el ultimo espacio en blanco
     .trim()
@@ -107,17 +107,17 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
 Equipo3.campo4.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a 7 caracteres (2 números + 5 letras)
+    // Limita la longitud
     valorInput = valorInput.slice(0, 400);
 
     // Asigna el valor al campo
     Equipo3.campo4.value = valorInput
 
     //elimina los espacios en blanco
-    .replace(/\s+/g, '')
+    //.replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
     
     //elimina el ultimo espacio en blanco
     .trim()
@@ -136,27 +136,32 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
 Equipo3.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    // Verifica si el campo está vacío
+    if (valorInput.trim() === '') {
+        Equipo3.campo5.removeAttribute("style"); // Eliminar el borde rojo si se muestra
+        bandera5 = true; // Establecer la bandera en true
+        return; // Salir de la función
+    }
+
     // Limita la longitud a un máximo (opcional)
     valorInput = valorInput.slice(0, 255); // Por ejemplo, se limita a 255 caracteres
 
-    // Asigna el valor al campo
-    Equipo3.campo5.value = valorInput
-
     //elimina los espacios en blanco
-    .replace(/\s+/g, '')
+    valorInput = valorInput.replace(/\s+/g, '');
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
-    
-    //elimina el ultimo espacio en blanco
-    .trim()
+    valorInput = valorInput.replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '');
+
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo5.test(valorInput)) {
         Equipo3.campo5.style.border = "5px solid red";
         bandera5 = false;
-    } else {
-        Equipo3.campo5.removeAttribute("style");
-        bandera5 = true;
+    } 
+    else {
+    Equipo3.campo5.removeAttribute("style");
+    bandera5 = true; 
     }
+
+
 });
