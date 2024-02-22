@@ -1,5 +1,5 @@
 //declara las variables globales
-var formulario = document.getElementById('mod_equipo1');
+var formulario = document.getElementById('Equipo1');
 
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -28,7 +28,7 @@ formulario.addEventListener('submit', function (e)
         .then(data => {
             console.log(data);
             if (data === 'exito') {
-                const form = document.getElementById('mod_equipo1');
+                const form = document.getElementById('Equipo1');
                 form.reset();
                 alert("Registro exitoso");
             }
