@@ -14,12 +14,21 @@ document.getElementById('input_modificar').value = idFromURL;
 
 
 
-formulario.getElementById.getElementById("cancelButton");
-botonCancelar.addEventListener("click", (e) => {
-    //window.history.back();
-    //window.location.href ="../../../view/index.html";
-    location.reload(true);
+document.getElementById('cancelarButton').addEventListener('click', function() {
+    // Muestra una alerta de confirmación
+    if (confirm("¿Estás seguro de que deseas cancelar?")) {
+        // Si el usuario confirma, ejecuta la función Regresa() o cualquier otra acción que desees
+        Regresa(); // Esta es la función que redirige al usuario a "tabla3.html"
+    } else {
+        // Si el usuario cancela, no hagas nada
+    }
 });
+
+// Función para redireccionar al usuario
+function Regresa() {
+    // Redirige al usuario a "tabla3.html"
+    window.location.href = "tabla3.html";
+}
 
 
 
