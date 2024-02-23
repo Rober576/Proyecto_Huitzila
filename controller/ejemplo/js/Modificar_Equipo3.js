@@ -63,10 +63,10 @@ formulario.addEventListener('submit', function (e)
     })
 })
 // se declara una bandera para saber si la entrada es válida para cada campo
-let bandera1 = false;
-let bandera2 = false;
-let bandera3 = false;
-let bandera4 = false;
+let bandera1 = true;
+let bandera2 = true;
+let bandera3 = true;
+let bandera4 = true;
 let bandera5 = true;
 
 
@@ -75,7 +75,7 @@ let bandera5 = true;
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) => {
     // se revisa si todas las entradas son válidas
-    if (bandera1 && bandera2 && bandera3 && bandera4 && banderacanselada) {
+    if (bandera1 && bandera2 && bandera3 && bandera4 ) {
         // si todas son válidas se muestra un mensaje de éxito
         console.log("Registro exitoso");
         alert("Registro exitoso")
@@ -83,6 +83,7 @@ botonRegistrar.addEventListener("click", (e) => {
     } else {
         // si alguna no es válida se cancela el envío
         console.log("Envío cancelado");
+        alert("Registro cancelado");
         e.preventDefault();
         
     }
