@@ -149,7 +149,7 @@ Equipo3.campo5.addEventListener('keyup', (e) => {
     valorInput = valorInput.replace(/\s+/g, '');
 
     //elimina caracteres especiales
-    valorInput = valorInput.replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
+    valorInput = valorInput.replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '');
 
 
     // Verifica si cumple con la expresión regular
