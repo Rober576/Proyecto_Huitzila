@@ -21,38 +21,46 @@ botonRegistrar.addEventListener("click", (e) =>{
         e.preventDefault();
     }
 })
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //definición de la expresión regular para el campo
 const expresion = {
     campo1: /^[A-Za-z0-9]{3,5}$/,
 }
 
-Equipo2.campo1.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
+// Define una función para validar el campo1 de Equipo2
+function validarCampo1() {
+    let valorInput = Equipo2.campo1.value;
 
-    // Elimina todos los caracteres no numéricos
+    // Eliminar todos los caracteres no numéricos
     valorInput = valorInput.replace(/\D/g, '');
 
-    // Limita la longitud a 10 caracteres
-    valorInput = valorInput.slice(0, 10);
+    // Limitar la longitud a 10 caracteres
+    if (valorInput.length > 10) {
+        valorInput = valorInput.slice(0, 10);
+    }
 
+    // Actualizar el valor del campo con los cambios realizados
     Equipo2.campo1.value = valorInput;
 
-    // Verifica que se cumpla con la expresión correspondiente
+    // Validar si la entrada coincide con la expresión regular para el teléfono
     if (valorInput.length !== 10) {
-        campo1.style.border = "5px solid red";
-        bandera = false;
+        Equipo2.campo1.style.border = "5px solid red"; 
+        bandera = false; 
     } else {
-       
-        campo1.removeAttribute("style");
-        bandera = true;
+        Equipo2.campo1.removeAttribute("style"); 
+        bandera = true; 
     }
-});
+}
+// Agrega un listener para el evento keyup del campo1 de Equipo2
+Equipo2.campo1.addEventListener('keyup', validarCampo1);
+// Llama a la función de validación cuando la página se carga
+window.addEventListener('load', validarCampo1);
 
 
-
-Equipo2.campo2.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Define una función para validar el campo2 de Equipo2
+function validarCampo2() {
+    let valorInput = Equipo2.campo2.value;
 
     // Elimina todos los caracteres no alfabéticos y espacios adicionales
     valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, '');
@@ -64,46 +72,26 @@ Equipo2.campo2.addEventListener('input', (e) => {
 
     // Verifica que se cumpla con la expresión correspondiente
     if (valorInput.trim() === '' || valorInput.length > 20) {
-        campo2.style.border = "5px solid red";
+        Equipo2.campo2.style.border = "5px solid red";
         bandera2 = false;
     } else {
-        campo2.removeAttribute("style");
+        Equipo2.campo2.removeAttribute("style");
         bandera2 = true;
     }
-});
-
-// Agrega una expresión regular para campo3 (CURP)
-/*const expresion2 = {
-    campo3: /^[A-Z]{4}\d{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
 }
+// Agrega un listener para el evento input del campo2 de Equipo2
+Equipo2.campo2.addEventListener('input', validarCampo2);
+// Llama a la función de validación cuando la página se carga
+window.addEventListener('load', validarCampo2);
 
-Equipo2.campo3.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
-
-    // Elimina todos los caracteres no alfabéticos y numéricos adicionales
-    valorInput = valorInput.replace(/[^A-Z\d]/g, '');
-
-    // Limita la longitud a 18 caracteres
-    valorInput = valorInput.slice(0, 18);
-
-    Equipo2.campo3.value = valorInput;
-
-    // Verifica que se cumpla con la expresión correspondiente
-    if (!expresion2.campo3.test(valorInput) || valorInput.length !== 18) {
-        Equipo2.campo3.style.border = "5px solid red";
-        bandera3 = false;
-    } else {
-        Equipo2.campo3.removeAttribute("style");
-        bandera3 = true;
-    }
-});*/
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const expresion2 = {
     campo3: /^[A-Z]{4}[A-Z\d]{6}[A-Z]{6}[A-Z\d]{2}$/, // CURP pattern
 };
 
-Equipo2.campo3.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
+// Define una función para validar el campo3 de Equipo2
+function validarCampo3() {
+    let valorInput = Equipo2.campo3.value;
 
     // Elimina todos los caracteres no alfabéticos y numéricos adicionales
     valorInput = valorInput.replace(/[^A-Z\d]/g, '');
@@ -130,17 +118,22 @@ Equipo2.campo3.addEventListener('input', (e) => {
         Equipo2.campo3.removeAttribute("style");
         bandera3 = true;
     }
-});
+}
+
+// Agrega un listener para el evento input del campo3 de Equipo2
+Equipo2.campo3.addEventListener('input', validarCampo3);
+// Llama a la función de validación cuando la página se carga
+window.addEventListener('load', validarCampo3);
 
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const expresion4 = {
     campo4: /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]{5,}$/, // Solo letras y acentos; mínimo 5 caracteres
 }
-
-Equipo2.campo4.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
+// Define una función para validar el campo4 de Equipo2
+function validarCampo4() {
+    let valorInput = Equipo2.campo4.value;
 
     // Elimina todos los caracteres no alfabéticos, incluyendo acentos
     valorInput = valorInput.replace(/[^A-Za-zñÑáéíóúÁÉÍÓÚüÜ]/g, '');
@@ -152,21 +145,26 @@ Equipo2.campo4.addEventListener('input', (e) => {
 
     // Verifica que se cumpla con la expresión correspondiente
     if (!expresion4.campo4.test(valorInput) || valorInput.length < 5) {
-        campo4.style.border = "5px solid red";
+        Equipo2.campo4.style.border = "5px solid red";
         bandera4 = false;
     } else {
-        campo4.removeAttribute("style");
+        Equipo2.campo4.removeAttribute("style");
         bandera4 = true;
     }
-});
+}
+// Agrega un listener para el evento input del campo4 de Equipo2
+Equipo2.campo4.addEventListener('input', validarCampo4);
+// Llama a la función de validación cuando la página se carga
+window.addEventListener('load', validarCampo4);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Agrega una expresión regular para campo1 (comentario)
 const expresion5 = {
     campo5: /.*/, // Cualquier tipo de caracter; no es obligatorio; admite saltos de línea
 }
-
-Equipo2.campo5.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
+// Define una función para validar el campo5 de Equipo2
+function validarCampo5() {
+    let valorInput = Equipo2.campo5.value;
 
     // Limita la longitud a lo que se haya ingresado
     valorInput = valorInput.slice(0);
@@ -175,11 +173,14 @@ Equipo2.campo5.addEventListener('input', (e) => {
 
     // Verifica que se cumpla con la expresión correspondiente
     if (!expresion5.campo5.test(valorInput)) {
-        campo5.style.border = "5px solid red";
+        Equipo2.campo5.style.border = "5px solid red";
         bandera5 = false;
     } else {
-        campo5.removeAttribute("style");
+        Equipo2.campo5.removeAttribute("style");
         bandera5 = true;
     }
-});
-
+}
+// Agrega un listener para el evento input del campo5 de Equipo2
+Equipo2.campo5.addEventListener('input', validarCampo5);
+// Llama a la función de validación cuando la página se carga
+window.addEventListener('load', validarCampo5);

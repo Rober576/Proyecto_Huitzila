@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/cssFormulario.css">
-    <title>Modificar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../public/css/cssFormulario.css">
+<title>Modificar</title>
 </head>
 <body>
     <form id="Equipo2">
@@ -25,6 +25,14 @@
         <!--<input type="submit" value="registrar" id="submitButton">-->
         <button><a href="tabla2.html">Cancelar</a></button>
     </form>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <p>¿Desea aplicar los cambios?</p>
+          <button id="siBtn">Sí</button>
+          <button id="noBtn">No</button>
+        </div>
+      </div>
 
     <script src="../ejemplo/Equipo2/js/Validaciones.js"></script> 
     <script src="../../controller/ejemplo/js/Modificar_Equipo2.js"></script>

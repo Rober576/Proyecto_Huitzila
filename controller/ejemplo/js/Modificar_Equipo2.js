@@ -1,37 +1,43 @@
-//declara las variables globales
+var id = localStorage.getItem('id');
 var formulario = document.getElementById('Equipo2');
+var modal = document.getElementById('modal');
+var siBtn = document.getElementById('siBtn');
+var noBtn = document.getElementById('noBtn');
 
-function getParameterByName(name) {
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(window.location.href);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-var idFromURL = getParameterByName('id');
-document.getElementById('input_modificar').value = idFromURL;
-
-formulario.addEventListener('submit', function (e)
-{
+formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    // Mostrar el modal de confirmación
+    modal.style.display = 'block';
 
-    var datos= new FormData(formulario);
-    //C:\version7\htdocs\Huitzila\Proyecto_Huitzila\controller\ejemplo\registro_ejemplo.php
-    fetch('../../controller/ejemplo/Modificar_Equipo2.php', {
-        method: 'POST',
-        body: datos
-    })
+    // Al hacer clic en "Sí" en el modal
+    siBtn.onclick = function() {
+        // Ocultar el modal
+        modal.style.display = 'none';
 
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        if (data === 'exito') {
-            const form= document.getElementById('Equipo2');
-            form.reset();
-            alert("Registro exitoso");
-            
-        }
-    })
-})
+        var datos = new FormData(formulario);
+        // Agregar el id al objeto FormData
+        datos.append('id', id);
+
+        fetch('../../controller/ejemplo/Modificar_Equipo2.php', {
+            method: 'POST',
+            body: datos
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data === 'exito') {
+                // Manejar la confirmación de éxito
+                // Por ejemplo, redirigir a otra página
+                window.location.href = '../../view/ejemplo/tabla2.html';
+            }
+        });
+    };
+
+    // Al hacer clic en "No" en el modal
+    noBtn.onclick = function() {
+        // Ocultar el modal
+        modal.style.display = 'none';
+        // Puedes realizar alguna acción adicional si el usuario decide no continuar
+    };
+});
