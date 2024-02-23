@@ -25,7 +25,7 @@ const expresion = {
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
     campo4: /^[a-zA-Z\sáéíóúÁÉÍÓÚü.Ü]{1,400}$/, // Permitir letras con acentos y espacios en blanco
-    campo5: /^[A-Za-z]{3,}$/,////////clave
+    campo5: /^[A-Za-z]{0,3}$/,////////clave
 }
 
 // se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función

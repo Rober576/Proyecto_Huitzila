@@ -12,6 +12,17 @@ function getParameterByName(name) {
 var idFromURL = getParameterByName('id');
 document.getElementById('input_modificar').value = idFromURL;
 
+
+
+formulario.getElementById.getElementById("cancelButton");
+botonCancelar.addEventListener("click", (e) => {
+    //window.history.back();
+    //window.location.href ="../../../view/index.html";
+    location.reload(true);
+});
+
+
+
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
@@ -30,8 +41,9 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('mod_equipo3');
             form.reset();
-            alert("Registro exitoso");
-            window.location.href = "tabla3.html";
+            //alert("Registro exitoso");
+            //window.location.href = "tabla3.html";
+           
             
         }
     })
@@ -42,6 +54,8 @@ let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
 let bandera5 = false;
+
+
 
 // se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("submitButton");
@@ -54,6 +68,7 @@ botonRegistrar.addEventListener("click", (e) => {
         // si alguna no es válida se cancela el envío
         console.log("Envío cancelado");
         e.preventDefault();
+        
     }
 });
 
@@ -63,7 +78,7 @@ const expresion = {
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
     campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
-    campo5: /^[A-Za-z]{3,}$/,////////clave
+    campo5: /^[A-Za-z]{0,3}$/,////////clave
 }
 
 // se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
@@ -152,14 +167,10 @@ mod_equipo3.campo4.addEventListener('keyup', (e) => {
     // Asigna el valor al campo
     mod_equipo3.campo4.value = valorInput
 
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
     //elimina caracteres especiales
     .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+    
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
