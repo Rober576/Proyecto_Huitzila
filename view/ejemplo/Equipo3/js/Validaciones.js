@@ -88,8 +88,9 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[-☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´._-·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
-    
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`@.´¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?.-]/g, '')
+    .replace(/[_]/g,'')
+
     //elimina el ultimo espacio en blanco
     .trim()
 
