@@ -61,7 +61,7 @@ function validarCampo1() {
 Equipo4.campo1.addEventListener('input', validarCampo1);
 
 // Llama a la función de validación cuando la página se carga
-window.addEventListener('load', validarCampo1);
+//window.addEventListener('load', validarCampo1);
 
 
 
@@ -96,7 +96,7 @@ expresion.codigoPostal = /^\d{5}$/;
 Equipo4.campo2.addEventListener('input', validarCampo2);
 
 // Llama a la función de validación cuando la página se carga
-window.addEventListener('load', validarCampo2);
+//window.addEventListener('load', validarCampo2);
 
 
 
@@ -137,7 +137,7 @@ function validarCampo3() {
 Equipo4.campo3.addEventListener('input', validarCampo3);
 
 // Llama a la función de validación cuando la página se carga
-window.addEventListener('load', validarCampo3);
+//window.addEventListener('load', validarCampo3);
 
 
 
@@ -184,7 +184,7 @@ function validarCampo4() {
 Equipo4.campo4.addEventListener('input', validarCampo4);
 
 // Llama a la función de validación cuando la página se carga
-window.addEventListener('load', validarCampo4);
+//window.addEventListener('load', validarCampo4);
 
 
 
