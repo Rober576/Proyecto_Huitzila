@@ -11,17 +11,17 @@
         }
 
 
-        function editar($c1, $c2, $c3, $c4, $id) {
+        function editar($c1, $c2, $c4, $c5, $id) {
             $query = "UPDATE tabla2 
-                      SET campo1 = :c1, campo2 = :c2, campo3 = :c3, campo4 = :c4 
+                      SET campo1 = :c1, campo2 = :c2, campo4 = :c4, campo5 = :c5 
                       WHERE id = :id";
                       
             $params = [
                 ":id" => $id,
                 ":c1" => $c1,
                 ":c2" => $c2,
-                ":c3" => $c3,
-                ":c4" => $c4
+                ":c4" => $c4,
+                ":c5" => $c5
             ];
         
             $this->base->insertar_eliminar_actualizar($query, $params);
