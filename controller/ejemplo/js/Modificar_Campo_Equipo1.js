@@ -4,7 +4,7 @@
         const id = urlParams.get('id');
 
         // Imprimir el valor obtenido
-        console.log('ID:', id)
+        console.log('4')
                 
         // Hacer la solicitud utilizando fetch
         fetch(`../../controller/ejemplo/Obtener_RegistroE1.php?id=${id}`)

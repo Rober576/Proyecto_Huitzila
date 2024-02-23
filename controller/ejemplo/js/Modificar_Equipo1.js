@@ -1,7 +1,7 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo1');
 var mod=true;
-
+console.log("si")
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -32,7 +32,8 @@ formulario.addEventListener('submit', function (e)
                 const form = document.getElementById('Equipo1');
                 form.reset();
                 alert("Se han modificado los datos");
-                window.location.href = '../../../view/ejemplo/tabla1.html';
+                
+                window.location.href = 'http://localhost/Proyecto_Huitzila/view/ejemplo/tabla1.html';
             }
         });
     }
