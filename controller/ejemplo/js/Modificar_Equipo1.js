@@ -1,5 +1,6 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo1');
+var mod=true;
 
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -30,7 +31,8 @@ formulario.addEventListener('submit', function (e)
             if (data === 'exito') {
                 const form = document.getElementById('Equipo1');
                 form.reset();
-                alert("Registro exitoso");
+                alert("Se han modificado los datos");
+                window.location.href = '../../../view/ejemplo/tabla1.html';
             }
         });
     }

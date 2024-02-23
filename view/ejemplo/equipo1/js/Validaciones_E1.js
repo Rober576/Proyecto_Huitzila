@@ -1,15 +1,28 @@
 //se declara una bandera para saber si la entrada es válida
-let bandera1 = false;
-let bandera2 = false;
-let bandera3 = false;
-let bandera4 = false;
-let bandera5 = false;
+let bandera1;
+let bandera2;
+let bandera3;
+let bandera4;
+let bandera5;
+if(mod) {
+    bandera1 = true;
+    bandera2 = true;
+    bandera3 = true;
+    bandera4 = true;
+    bandera5 = true; 
+} else {
+    bandera1 = false;
+    bandera2 = false;
+    bandera3 = false;
+    bandera4 = false;
+    bandera5 = false;
+}
 
 //se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
     //se revisa si la entrada es válida
-    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true ){
+    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true){
         //si es válida se muestra un mensaje de éxito
         console.log("Registro exitoso");
     }
@@ -23,7 +36,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 //definición de la expresión regular para el campo
 const expresion = {
-    campo1: /^[A-Za-záéíóúÁÉÍÓÚüâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ .]{1,40}$/,
+    campo1: /^[A-Za-zñÑáéíóúÁÉÍÓÚüâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ .]{1,40}$/,
     campo2: /^\d{10}$/,
     campo3: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     campo4: /^\d{2}[A-Za-z]{5}$/,

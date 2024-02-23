@@ -1,5 +1,6 @@
 //declara las variables globales
 var formulario = document.getElementById('Equipo1');
+var mod=false;
 
 console.log('hola mundo1');
 
