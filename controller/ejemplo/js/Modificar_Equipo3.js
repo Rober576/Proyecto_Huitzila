@@ -62,7 +62,7 @@ let bandera1 = false;
 let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
-let bandera5 = false;
+let bandera5 = true;
 
 
 
@@ -87,7 +87,7 @@ const expresion = {
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
     campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
-    campo5: /^[A-Za-z]{0,3}$/,////////clave
+    campo5: /^[A-Za-z]{0}|.{3,}$/,////////clave
 }
 
 // se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
