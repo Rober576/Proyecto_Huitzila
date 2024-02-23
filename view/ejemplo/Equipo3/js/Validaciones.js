@@ -3,7 +3,7 @@ let bandera1 = false;
 let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
-let bandera5 = false;
+let bandera5 = true;
 
 // se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("registrar");
@@ -25,7 +25,7 @@ const expresion = {
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
     campo4: /^[a-zA-Z\sáéíóúÁÉÍÓÚü.Ü]{1,400}$/, // Permitir letras con acentos y espacios en blanco
-    campo5: /^[A-Za-z]{3,}$/,////////clave
+    campo5: /^[A-Za-z].{0}|.{3,}$/,////////clave
 }
 
 // se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
@@ -88,8 +88,9 @@ Equipo3.campo3.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[-☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´._-·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
-    
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`@.´¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?.-]/g, '')
+    .replace(/[_]/g,'')
+
     //elimina el ultimo espacio en blanco
     .trim()
 
@@ -117,10 +118,9 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
     //.replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+    
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {

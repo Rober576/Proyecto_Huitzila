@@ -1,5 +1,6 @@
 //declara las variables globales
 var formulario = document.getElementById('mod_equipo3');
+var banderacanselada = true;
 
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -11,6 +12,30 @@ function getParameterByName(name) {
 }
 var idFromURL = getParameterByName('id');
 document.getElementById('input_modificar').value = idFromURL;
+
+
+let botoncanselar = document.getElementById("cancelarButton");
+botoncanselar.addEventListener('click', function(e) {
+    // Muestra una alerta de confirmación
+    if (confirm("¿Estás seguro de que deseas cancelar?")) {
+        // Si el usuario confirma, ejecuta la función Regresa() o cualquier otra acción que desees
+        e.preventDefault();
+        Regresa(); // Esta es la función que redirige al usuario a "tabla3.html"
+    } else {
+        var a = 0;
+        banderacanselada = false;
+        e.preventDefault();
+        // Si el usuario cancela, no hagas nada
+    }
+});
+
+// Función para redireccionar al usuario
+function Regresa() {
+    // Redirige al usuario a "tabla3.html"
+    window.location.href = "tabla3.html";
+}
+
+
 
 formulario.addEventListener('submit', function (e)
 {
@@ -30,8 +55,9 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('mod_equipo3');
             form.reset();
-            alert("Registro exitoso");
-            window.location.href = "tabla3.html";
+            //alert("Registro exitoso");
+            //window.location.href = "tabla3.html";
+           
             
         }
     })
@@ -41,19 +67,24 @@ let bandera1 = false;
 let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
-let bandera5 = false;
+let bandera5 = true;
+
+
 
 // se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) => {
     // se revisa si todas las entradas son válidas
-    if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5) {
+    if (bandera1 && bandera2 && bandera3 && bandera4 && banderacanselada) {
         // si todas son válidas se muestra un mensaje de éxito
         console.log("Registro exitoso");
+        alert("Registro exitoso")
+        Regresa();
     } else {
         // si alguna no es válida se cancela el envío
         console.log("Envío cancelado");
         e.preventDefault();
+        
     }
 });
 
@@ -63,7 +94,7 @@ const expresion = {
     campo2: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,20}$/,///////////////contraseña
     campo3: /^\d{2}[a-zA-ZÑñ]{5}$/,//ID
     campo4: /^[a-zA-Z\s]{1,400}$/,////Nombre
-    campo5: /^[A-Za-z]{3,}$/,////////clave
+    campo5: /^[A-Za-z]{0}|.{3,}$/,////////clave
 }
 
 // se pone un escuchador de eventos para cada campo, para que cuando se escriba se ejecute la función
@@ -127,8 +158,9 @@ mod_equipo3.campo3.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
-    
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`@.´¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?.-]/g, '')
+    .replace(/[_]/g,'')
+
     //elimina el ultimo espacio en blanco
     .trim()
 
@@ -152,14 +184,10 @@ mod_equipo3.campo4.addEventListener('keyup', (e) => {
     // Asigna el valor al campo
     mod_equipo3.campo4.value = valorInput
 
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':"\\|,<>\/?]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+    
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
