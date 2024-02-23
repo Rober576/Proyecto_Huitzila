@@ -177,7 +177,7 @@ mod_equipo3.campo4.addEventListener('keyup', (e) => {
     mod_equipo3.campo4.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':"\\|,<>\/?]/g, '')
     
     
 
@@ -205,7 +205,7 @@ mod_equipo3.campo5.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
     
     //elimina el ultimo espacio en blanco
     .trim()

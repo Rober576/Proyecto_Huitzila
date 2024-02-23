@@ -117,10 +117,9 @@ Equipo3.campo4.addEventListener('keyup', (e) => {
     //.replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+    
 
     // Verifica si cumple con la expresión regular
     if (!expresion.campo4.test(valorInput)) {
@@ -150,7 +149,7 @@ Equipo3.campo5.addEventListener('keyup', (e) => {
     valorInput = valorInput.replace(/\s+/g, '');
 
     //elimina caracteres especiales
-    valorInput = valorInput.replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '');
+    valorInput = valorInput.replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´.·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '');
 
 
     // Verifica si cumple con la expresión regular
