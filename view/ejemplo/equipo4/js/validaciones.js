@@ -198,7 +198,7 @@ function validarCampo5()  {
     }
 
     if (!expresionDescripcion.test(Equipo4.campo5.value) || Equipo4.campo5.value.trim() === '') {
-        Equipo4.campo5.style.border = "5px solid red";
+        //Equipo4.campo5.style.border = "5px solid red";
         bandera5 = false;
     } else {
         Equipo4.campo5.removeAttribute("style");
