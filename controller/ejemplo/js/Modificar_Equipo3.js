@@ -1,5 +1,6 @@
 //declara las variables globales
 var formulario = document.getElementById('mod_equipo3');
+var banderacanselada = true;
 
 function getParameterByName(name) {
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -13,13 +14,17 @@ var idFromURL = getParameterByName('id');
 document.getElementById('input_modificar').value = idFromURL;
 
 
-
-document.getElementById('cancelarButton').addEventListener('click', function() {
+let botoncanselar = document.getElementById("cancelarButton");
+botoncanselar.addEventListener('click', function(e) {
     // Muestra una alerta de confirmación
     if (confirm("¿Estás seguro de que deseas cancelar?")) {
         // Si el usuario confirma, ejecuta la función Regresa() o cualquier otra acción que desees
+        e.preventDefault();
         Regresa(); // Esta es la función que redirige al usuario a "tabla3.html"
     } else {
+        var a = 0;
+        banderacanselada = false;
+        e.preventDefault();
         // Si el usuario cancela, no hagas nada
     }
 });
@@ -70,9 +75,11 @@ let bandera5 = true;
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) => {
     // se revisa si todas las entradas son válidas
-    if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5) {
+    if (bandera1 && bandera2 && bandera3 && bandera4 && banderacanselada) {
         // si todas son válidas se muestra un mensaje de éxito
         console.log("Registro exitoso");
+        alert("Registro exitoso")
+        Regresa();
     } else {
         // si alguna no es válida se cancela el envío
         console.log("Envío cancelado");
@@ -151,8 +158,9 @@ mod_equipo3.campo3.addEventListener('keyup', (e) => {
     .replace(/\s+/g, '')
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?]/g, '')
-    
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`@.´¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':" \\|,<>\/?.-]/g, '')
+    .replace(/[_]/g,'')
+
     //elimina el ultimo espacio en blanco
     .trim()
 
