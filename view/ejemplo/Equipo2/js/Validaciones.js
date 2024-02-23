@@ -4,6 +4,19 @@ let bandera2 = false;
 let bandera3 = false;
 let bandera4 = false;
 let bandera5 = false;
+if(mod) {
+    bandera1 = true;
+    bandera2 = true;
+    bandera3 = true;
+    bandera4 = true;
+    bandera5 = true; 
+} else {
+    bandera1 = false;
+    bandera2 = false;
+    bandera3 = false;
+    bandera4 = false;
+    bandera5 = false;
+}
 
 // se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("registrar");
