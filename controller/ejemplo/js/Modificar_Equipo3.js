@@ -186,7 +186,7 @@ mod_equipo3.campo4.addEventListener('keyup', (e) => {
     mod_equipo3.campo4.value = valorInput
 
     //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':"\\|,<>\/?]/g, '')
+    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡#$%^&^*()+\=\[\]{};':"\\|,<>\/?@]/g, '')
     
     
 
