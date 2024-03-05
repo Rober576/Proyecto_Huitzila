@@ -1,9 +1,11 @@
 // se declara una bandera para saber si la entrada es válida
-let bandera = false;
-let bandera2 = false;
-let bandera3 = false;
-let bandera4 = false;
-let bandera5 = false;
+let bandera = true;
+let bandera2 = true;
+let bandera3 = true;
+let bandera4 = true;
+let bandera5 = true;
+
+   
 
 // se pone un escuchador de eventos para el botón, para que cuando se haga click se ejecute la función
 let botonRegistrar = document.getElementById("registrar");
@@ -98,7 +100,7 @@ const expresion4 = {
 Equipo2.campo4.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todos los caracteres no alfabéticos, incluyendo acentos
+    // Elimina todos los caracteres no alfabéticos, incluyendo acentos y números
     valorInput = valorInput.replace(/[^A-Za-zñÑáéíóúÁÉÍÓÚüÜ]/g, '');
 
     // Verifica que se cumpla con la expresión correspondiente
@@ -109,6 +111,9 @@ Equipo2.campo4.addEventListener('input', (e) => {
         Equipo2.campo4.removeAttribute("style");
         bandera4 = true;
     }
+
+    // Asignar el valor modificado al campo de entrada
+    e.target.value = valorInput;
 });
 
 // validación del campo5

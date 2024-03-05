@@ -9,6 +9,50 @@
 <body>
     <form id="Equipo2">
         <h1>Equipo 2</h1>
+
+        <label for="campo1">Teléfono</label><br>
+        <input type="text" id="campo1" name="campo1"><br>
+        <label for="campo2">Apellido</label><br>
+        <input type="text" id="campo2" name="campo2"><br>
+        <label for="campo3">CURP</label><br>
+        <input type="text" id="campo3" name="campo3"  readonly ><br>
+        <label for="campo4">Marca (solo létras; mínimo 5 caracteres)</label><br>
+        <input type="text" id="campo4" name="campo4"><br>
+        <label for="campo5">Comentario</label><br>
+        <textarea id="campo5" name="campo5"></textarea><br>
+
+        <input type="submit" id="registrar" value="Enviar">
+        <button><a href="tabla2.html">Cancelar</a></button>
+    </form>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <p>¿Desea aplicar los cambios?</p>
+          <button id="siBtn">Sí</button>
+          <button id="noBtn">No</button>
+        </div>
+      </div>
+
+    <script src="../ejemplo/Equipo2/js/Validaciones.js"></script>
+    <script src="../../controller/ejemplo/js/Modificar_Equipo2.js"></script>
+    <script src="../../controller/ejemplo/js/Modificar_Mostrar_Equipo2.js"></script>
+
+
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../public/css/cssFormulario.css">
+<title>Modificar</title>
+</head>
+<body>
+    <form id="Equipo2">
+        <h1>Equipo 2</h1>
         
         <label for="campo1">Teléfono</label><br>
         <input type="text" id="campo1" name="campo1"><br>
@@ -22,7 +66,7 @@
         <textarea id="campo5" name="campo5"></textarea><br>
         
         <input type="submit" id="registrar" value="Enviar">
-        <!--<input type="submit" value="registrar" id="submitButton">-->
+        <input type="submit" value="registrar" id="submitButton">
         <button><a href="tabla2.html">Cancelar</a></button>
     </form>
 
@@ -41,4 +85,4 @@
    
    
 </body>
-</html>
+</html>-->
