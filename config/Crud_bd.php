@@ -4,7 +4,7 @@
 * Este archivo crea las consultas para una base de datos en phpmyadmin
 */
 define("HOST", "mysql:host=localhost;");
-define("DBNAME", "dbname=baseejemplo");
+define("DBNAME", "dbname=proyhuitzila");
 define("USUARIO", "practicamvc");
 define("PASSWORD", 'Leo1234@');
 
