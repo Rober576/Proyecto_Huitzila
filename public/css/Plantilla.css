@@ -1,0 +1,163 @@
+/* Estilos generales */
+
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+
+
+body {
+    font-family: 'FuentePrincipal', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0EDE8;
+    
+}
+
+.container {
+    width: 80%;
+    color: #B37E56;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #143419;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+section {
+    background-color: #E9E0D1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button[type="submit"] {
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d4d25;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos para la tabla */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000000; /* Borde alrededor de la tabla */
+    background-color: #C7B392;
+    color: #000000;
+}
+
+th, td {
+    border: 1px solid #080808; /* Borde de las celdas */
+    padding: 12px; /* Espaciado interno de las celdas */
+    text-align: left; /* Alineación del texto en las celdas */
+    
+}
+
+th {
+    background-color: #C7B392; /* Color de fondo de las celdas de encabezado */
+}
+
+/* Hover sobre las filas */
+tr:hover {
+    background-color: #f5f5f5; /* Color de fondo al pasar el mouse sobre las filas */
+}
+
+
+/* Estilos para la imagen de marca de agua */
+
+/* Estilos para pantallas de 600px o menos */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+}
+
+/* Estilos para pantallas de 1100px o menos */
+@media screen and (max-width: 1100px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
