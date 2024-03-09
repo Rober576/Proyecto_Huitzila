@@ -5,47 +5,77 @@
     src: url('../Amethysta-Regular.ttf') format('truetype'); 
 }
 
-
-
 body {
     font-family: 'FuentePrincipal', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #F0EDE8;
-    
 }
 
 .container {
     width: 80%;
     color: #B37E56;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
-header {
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.header_superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #143419;
     color: #fff;
-    padding: 20px;
-    text-align: center;
+}
+
+.header_superior .titulo {
+    display: flex;
+    align-items: center;
+}
+
+.header_superior .titulo .nombre_ventana {
+    display: flex;
+    align-items: center;
+}
+
+.container_menu {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px 20px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+img.logo_ciscig {
+    padding-right: 10px;
+    width: 200px;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    padding-right: 20px;
 }
 
 nav ul li a {
-    color: #333;
     text-decoration: none;
-}
-
-nav ul li a:hover {
-    color: #fff;
+    color: #000000;
+    font-size: 18px;
 }
 
 section {
@@ -54,7 +84,6 @@ section {
     margin-top: 20px;
     border-radius: 30px;
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
-    
 }
 
 form {
@@ -115,29 +144,72 @@ footer {
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #000000; /* Borde alrededor de la tabla */
+    border: 1px solid #000000;
     background-color: #C7B392;
     color: #000000;
 }
 
 th, td {
-    border: 1px solid #080808; /* Borde de las celdas */
-    padding: 12px; /* Espaciado interno de las celdas */
-    text-align: left; /* Alineación del texto en las celdas */
-    
+    border: 1px solid #080808;
+    padding: 12px;
+    text-align: left;
 }
 
 th {
-    background-color: #C7B392; /* Color de fondo de las celdas de encabezado */
+    background-color: #C7B392;
 }
 
 /* Hover sobre las filas */
 tr:hover {
-    background-color: #f5f5f5; /* Color de fondo al pasar el mouse sobre las filas */
+    background-color: #f5f5f5;
 }
 
+/* Estilos para inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #143419;
+    box-shadow: 0 0 5px #143419;
+}
 
-/* Estilos para la imagen de marca de agua */
+/* Estilos para botones de envío */
+button[type="submit"] {
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d4d25;
+}
+
+/* Estilos para el hover de inputs */
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover,
+select:hover {
+    border-color: #143419;
+}
+
+.styled-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: #143419;
+    box-shadow: 0 0 5px #143419;
+}
+
+.styled-input:hover {
+    border-color: #143419;
+}
 
 /* Estilos para pantallas de 600px o menos */
 @media screen and (max-width: 600px) {
@@ -151,6 +223,37 @@ tr:hover {
 
     form {
         max-width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu-toggle i {
+        font-size: 24px;
+    }
+
+    #check__menu:checked ~ nav {
+        display: block;
     }
 }
 
