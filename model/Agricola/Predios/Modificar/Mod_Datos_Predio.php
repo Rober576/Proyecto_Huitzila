@@ -4,7 +4,6 @@
     class NuevosCampos{
         private $base;
 
-        //crea un objeto del CRUD para hacer las consultas
         function conexion(){
             $this->base = new Crud_bd();
             $this->base->conexion_bd();
