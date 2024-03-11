@@ -1,0 +1,466 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    font-family: 'FuentePrincipal', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0EDE8;
+}
+
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13rem;
+}
+
+/* Main y section */
+.section-main{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.cabezera{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+h1.nombre_Ventana{
+    color: #FFFF;
+    font-weight: 900;
+    font-size: 48px;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+}
+
+img.logo_mezcal{
+    padding-right: 10px;
+    padding-bottom: 25px;
+    width: 150px;
+}
+
+.nombre_ventana{
+    display: flex;
+    align-items: center;
+}
+
+/*HEADER SUPERIOR*/
+
+.header_superior{
+    background-color: #143419;
+    height: 125px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+
+}
+.titulo{
+    font-size: 12px;
+    padding: 0px 50px;
+}
+
+.logo{
+    width: 150px;
+}
+.logo:hover{
+    cursor: pointer;
+}
+
+/*Barra de busqueda*/
+.input-buscar{
+    padding:0 50px 0 50px;
+    display: flex;
+}
+.barra-busqueda{
+    background-color: #fff;
+    width: fit-content;
+    border: 1px solid silver;
+    border-radius: 30px;
+}
+  
+  .input-buscar input {
+    width: 240px;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 12px;
+    color: #222;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 30px;
+  }
+
+/*Barra Menu*/
+.container_menu{
+    width: 100%;
+    height: 70px;
+    background: #E9E0D1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px 20px;
+    
+  }
+
+.menu{
+    height: 100%;
+}
+
+nav{
+    height: 100%;
+}
+
+nav > ul{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+}
+
+nav  ul  li{
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav > ul > li > a{
+    text-decoration: none;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    transition: all 300ms ease;
+    color: #000000;
+}
+i{
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+nav > ul > li > a:hover{
+    color: #a67651;
+    box-shadow: 0px 0px px 1px #a67651;
+}
+
+/*SUBMENU*/
+
+nav ul li ul{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    background: #f5efe2;
+    position: absolute;
+    top: 100px;
+    left: -5px;
+    padding: 14px 10px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul{
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+nav ul li ul::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-left:12px solid transparent ;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #f5efe2;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul li a{
+    text-decoration: none;
+    display: block;
+    color: #000000;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul li a:hover{
+    color: #a67651;
+    padding-left: 20px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/*Responsive*/
+.icon__menu{
+    font-size: 34px;
+    color: #000000;
+    cursor: pointer;
+    width: 26px;
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+.label__check{
+    width: 26px;
+    height: 100%;
+    display: none;
+}
+
+#check__menu{
+    display: none;
+}
+
+.ti-info-circle-filled{
+    color: white;
+    font-size: 2.2rem;
+}
+
+.info{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1250px){
+    main{
+        margin-top: 8.5rem;
+    }
+    li.logo_menu{
+        display: none;
+    }
+    h1.nombre_Ventana{
+        color: #FFFF;
+        font-weight: 900;
+        font-size: 30px;
+    }
+    .container_menu{
+        height: fit-content;
+    }
+    .btn-cerrar-session{
+        display: flex;
+    }
+
+    .header_superior{
+        padding: 5px;
+    }
+    .titulo{
+        font-size: 8px;
+    }
+    .logo{
+        width: 125px;
+    }
+    .cabezera{
+        margin-top: 50px;
+    }
+
+    nav > ul{
+        font-size: 12px;
+        flex-direction: column;
+        background-color: #fff;
+        position: fixed;
+        left: 0;
+        top: 169px;
+        width: 100%;
+        height: 0px;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        *visibility: hidden;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    }
+    
+    nav > ul > li > a:hover{
+        transform: scale(1);
+    }
+    
+    nav ul li ul{
+        left: 100px;
+    }
+
+    nav > ul > li:hover ul{
+        top: 20px;
+    }
+
+    nav > ul > li:first-child a{
+        background-position: 20px;
+    }
+
+    #selected{
+        transform: scale(1);
+
+    }
+
+    .icon__menu{
+        display: flex;
+    }
+
+    #check__menu:checked ~ nav > ul{
+        height: 70%;
+        visibility: visible;
+        opacity: 1;
+    }
+    .contePlantilla{
+        margin: 8em auto; 
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .nombre_Ventana{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px){
+
+    main{
+        margin-top: 10.5rem;
+    }
+    img.logo_mezcal{
+        padding-right: 10px;
+        width: 54px;
+    }
+
+    .titulo{
+        padding: 0 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 1250px){
+    main{
+        margin-top: 8.5rem;
+    }
+    li.logo_menu{
+        display: none;
+    }
+    h1.nombre_Ventana{
+        color: #FFFF;
+        font-weight: 900;
+        font-size: 30px;
+    }
+    .container_menu{
+        height: fit-content;
+    }
+    .btn-cerrar-session{
+        display: flex;
+    }
+
+    .header_superior{
+        padding: 5px;
+    }
+    .titulo{
+        font-size: 8px;
+    }
+    .logo{
+        width: 125px;
+    }
+    .cabezera{
+        margin-top: 50px;
+    }
+
+    nav > ul{
+        font-size: 12px;
+        flex-direction: column;
+        background-color: #fff;
+        position: fixed;
+        left: 0;
+        top: 169px;
+        width: 100%;
+        height: 0px;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        *visibility: hidden;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    }
+    
+    nav > ul > li > a:hover{
+        transform: scale(1);
+    }
+    
+    nav ul li ul{
+        left: 100px;
+    }
+
+    nav > ul > li:hover ul{
+        top: 20px;
+    }
+
+    nav > ul > li:first-child a{
+        background-position: 20px;
+    }
+
+    #selected{
+        transform: scale(1);
+
+    }
+
+    .icon__menu{
+        display: flex;
+    }
+
+    #check__menu:checked ~ nav > ul{
+        height: 70%;
+        visibility: visible;
+        opacity: 1;
+    }
+    .contePlantilla{
+        margin: 8em auto; 
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .nombre_Ventana{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 650px){
+
+    main{
+        margin-top: 10.5rem;
+    }
+    img.logo_ciscig{
+        padding-right: 10px;
+        width: 54px;
+    }
+
+    .titulo{
+        padding: 0 1rem;
+    }
+    
+}
