@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de predios</title>
+    <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
+    <link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css"
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Agricola</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Trabajadores
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Certificaciones
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Cursos
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+	
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <h1 class="titulo_form">Registro de Predios</h1>
+    <hr>
+
+    <section class="container">
+        <div class="column">
+            <form id="advanced-form">
+                <div>
+                    <label for="codArea">Calve del predio:</label>
+                    <input type="text" id="codArea" name="codArea" required>
+                </div>
+                <div>
+                    <label for="nomPred">Nombre del predio:</label>
+                    <input type="text" id="nomPred" name="nomPred" required>
+                </div>
+                <div>
+                <label for="superfPre">Superficie:</label>
+                    <input type="number" id="superfPre" name="superfPre" class="styled-input"  step="0.01" min="0.00" max="999999.99" required>
+                </div>
+                <div>
+                    <label for="descPre">Descripcion:</label>
+                    <textarea id="descPre" name="desdescPrec" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+</html>
