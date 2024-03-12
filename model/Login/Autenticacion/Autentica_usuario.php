@@ -25,6 +25,16 @@ class Autentica {
         }
     }
 
+    public function getArea($username) {
+        $consulta = "SELECT nombrearea, Tipo FROM tipoareas, usuarios, tipousuario WHERE Nombre = :username AND 
+        tipoareas.IdentificadorArea = usuarios.IdentificadorArea AND tipousuario.IdentificadorTipo = usuarios.IdentificadorTipo";
+        $parametros = array(':username' => $username);
+
+        $area = $this->crud_bd->mostrar($consulta, $parametros);
+
+        return $area;
+    }
+
     public function obtener_informacion_usuario($username) {
         // Realiza las consultas para obtener información adicional del usuario (tipo y área)
         $consulta = "SELECT area, tipo FROM usuarios WHERE username = :username";
