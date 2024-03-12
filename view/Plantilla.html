@@ -4,62 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto</title>
+
     <link rel="stylesheet" href="../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../public/css/Plantilla_Menu.css">
 </head>
 <body>
     <header>
-        <div class="header_superior">
-            <div class="titulo">
-                <div class="nombre_ventana">
-                    <img class="logo_ciscig" src="../public/mezcal-logo.webp" width="10px" alt="">
-                    <h1 class="nombre_Ventana">Plantilla</h1>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Menu Desplegable -->
-        <div class="container_menu">
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="">MENU 1</a></li>
-                        <li><a href="">MENU 2</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+		<div class="header_superior">
+			<div class="titulo">
 
-    <section class="container">
-        <div class="column">
-            <h2>Formulario</h2>
-            <form id="advanced-form">
-                <div>
-                    <label for="nombre">Nombre:</label>
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Menú</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Trabajadores
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Certificaciones
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Cursos
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Registro</h4>
+            </div>
+              <br>
+              <p class="subtitulo-1"> Datos generales</p>
+              <hr>
+            <br>
+            <form class="formulario-datos" id="advanced-form">
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
                 </div>
-                <div>
-                    <label for="apellido">Apellido:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="apellido">Apellido:</label>
                     <input type="text" id="apellido" name="apellido" required>
                 </div>
-                <div>
-                    <label for="email">Email:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <div>
-                    <label for="telefono">Teléfono:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="telefono">Teléfono:</label>
                     <input type="tel" id="telefono" name="telefono" class="styled-input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Formato: 123-456-7890" required>
                 </div>
-                <div>
-                    <label for="mensaje">Mensaje:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
                 </div>
-                <div>
-                    <label for="edad">Edad:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="edad">Edad:</label>
                     <input type="number" id="edad" name="edad" class="styled-input" min="18" max="100" required>
                 </div>
-                <div>
-                    <label for="genero">Género:</label>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="genero">Género:</label>
                     <select id="genero" name="genero" required>
                         <option value="">Selecciona</option>
                         <option value="masculino">Masculino</option>
@@ -67,30 +137,50 @@
                         <option value="otro">Otro</option>
                     </select>
                 </div>
-                <button type="submit">Enviar</button>
+
+                
+                <div class="grupo1">
+                    <label class="label_datos">Preferencias:</label>
+                    <div class="grupo-checks">
+                        <input type="checkbox" id="preferencia1" name="preferencia1">
+                        <label class="label_datos" for="preferencia1">Preferencia 1</label>
+                    </div>
+                    <div class="grupo-checks">
+                        <input type="checkbox" id="preferencia2" name="preferencia2">
+                        <label class="label_datos" for="preferencia2">Preferencia 2</label>
+                    </div>
+                    
+                </div>
+
+                <div>
+                    <label class="label_datos">Tipo:</label>
+                    <div class="grupo-checks">
+                        <input type="radio" id="internet" name="conocimiento" value="internet" required>
+                        <label class="label_datos" for="internet">UNO</label>
+                    </div>
+
+                    <div class="grupo-checks">
+                        <input type="radio" id="amigo" name="conocimiento" value="amigo">
+                        <label class="label_datos" for="amigo">DOS</label>
+                    </div>
+
+                    <div class="grupo-checks">
+                        <input type="radio" id="publicidad" name="conocimiento" value="publicidad">
+                        <label class="label_datos" for="publicidad">TRES</label>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            
             </form>
-        </div>
-        <div class="column">
-            <h3>Formulario 2</h3>
-            <div>
-                <label>Preferencias:</label>
-                <input type="checkbox" id="preferencia1" name="preferencia1">
-                <label for="preferencia1">Preferencia 1</label>
-                <input type="checkbox" id="preferencia2" name="preferencia2">
-                <label for="preferencia2">Preferencia 2</label>
-            </div>
-            <h3>Formulario 3</h3>
-            <div>
-                <label>checkbox</label>
-                <input type="radio" id="internet" name="conocimiento" value="internet" required>
-                <label for="internet">UNO</label>
-                <input type="radio" id="amigo" name="conocimiento" value="amigo">
-                <label for="amigo">DOS</label>
-                <input type="radio" id="publicidad" name="conocimiento" value="publicidad">
-                <label for="publicidad">TRES</label>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <section class="container">
         <h2>Tabla de Ejemplo</h2>

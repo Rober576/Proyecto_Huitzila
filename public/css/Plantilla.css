@@ -25,57 +25,11 @@ body {
     margin-right: 20px;
 }
 
-.header_superior {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #143419;
-    color: #fff;
-}
 
-.header_superior .titulo {
-    display: flex;
-    align-items: center;
-}
-
-.header_superior .titulo .nombre_ventana {
-    display: flex;
-    align-items: center;
-}
-
-.container_menu {
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 0px 20px;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
 img.logo_ciscig {
     padding-right: 10px;
     width: 200px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    padding-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 18px;
 }
 
 section {
@@ -85,16 +39,35 @@ section {
     border-radius: 30px;
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
 }
-
-form {
-    max-width: 500px;
-    margin: 0 auto;
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13rem;
+    padding-bottom: 2rem;
 }
 
-label {
+/* Main y section */
+.section-main{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.formulario-datos{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.label_datos {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+}
+.grupo-checks{
+    display: flex;
 }
 
 input[type="text"],
@@ -113,6 +86,13 @@ input[type="checkbox"],
 input[type="radio"] {
     margin-right: 5px;
 }
+.grupo-boton-reg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 3;
+}
+
 
 button[type="submit"] {
     background-color: #143419;
@@ -122,6 +102,11 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+.h4{
+    color: ;
+    font-size: 2.5rem;
+    font-weight: 800;
 }
 
 button[type="submit"]:hover {
