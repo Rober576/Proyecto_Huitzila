@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro mezcal</title>
+
+    <link rel="stylesheet" href="..\../public/css/Plantilla.css">
+    <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Registro de mezcal</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Trabajadores
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Certificaciones
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Cursos
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Registro</h4>
+            </div>
+              <br>
+              <p class="subtitulo-1"> Datos generales</p>
+              <hr>
+            <br>
+            <form class="formulario-datos" id="form_datos">
+                <div class="grupo1">
+                    <label class="label_datos" for="lote">Lote:</label>
+                    <input type="text" id="lote" name="lote" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos"for="tanque">Tanque:</label>
+                    <input type="text" id="tanque" name="tanque" class="styled-input" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="categoria">Categoría: </label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="mezcal">Mezcal</option>
+                        <option value="artesanal">Mezcal artesanal</option>
+                        <option value="ancestral">Mezcal ancestral</option>
+                    </select>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="especie">Especie: </label>
+                    <select id="especie" name="especie" required>
+                        <option value="blanco">Agave tequilana</option>
+                        <option value="reposado">Agave guadalajarana</option>
+                        <option value="anejo">Agave angustifolia</option>
+                        <option value="anejo">Agave salmiana</option>
+                        <option value="anejo">Agave americana</option>
+                        <option value="anejo">Agave sisalana</option>
+                    </select>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="clase">Clase: </label>
+                    <select id="clase" name="clase" required>
+                        <option value="blanco">Blanco</option>
+                        <option value="reposado">Reposado</option>
+                        <option value="anejo">Añejo</option>
+                    </select>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos"for="edad">Edad:</label>
+                    <input type="text" id="edad" name="edad" class="styled-input" required>
+                </div>
+            </form>
+        </section>
+        <section class="section-main">
+            <br>
+            <p class="subtitulo-1"> Producción inicial</p>
+            <hr>
+          <br>
+          <form class="formulario-datos" id="form_datos">
+            <div class="grupo1">
+            <label class="label_datos" for="concentracion">Concentracion de alcohol inicial en %:</label>
+            <input type="text" id="concentracion" name="concentracion" required>
+        </div>
+        <div class="grupo1">
+            <label class="label_datos"for="volumen">Volumen inicial:</label>
+            <input type="text" id="volumen" name="volumen" class="styled-input" required>
+        </div>
+              <div class="grupo-boton-reg">
+                  <div class="boton_registrar">
+                      <button type="submit">Registrar</button>
+                      <button type="submit">Cancelar</button>
+                  </div>
+              </div>
+              
+          </form>
+      </section>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+</html>
