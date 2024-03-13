@@ -12,7 +12,6 @@ formulario.addEventListener('submit', function (e) {
         modal.style.display = 'none';
 
         var datos = new FormData(formulario);
-        datos.append('id', id);
 
         fetch('../../controller/Agricola/Predios/php/Modificar_Datos_Predio.php', {
             method: 'POST',
