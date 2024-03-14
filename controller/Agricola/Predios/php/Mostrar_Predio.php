@@ -41,7 +41,6 @@ if ($resultado) {
         $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $CodigoA . '">Editar</a>';
         $salida .= '</td>';
         $salida .= '</tr>';
-        echo '<script>console.log("CodigoA: '.$CodigoA.'");</script>';
     }
 
     $salida .= '</tbody></table>';
