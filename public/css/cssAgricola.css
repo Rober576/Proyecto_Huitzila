@@ -23,3 +23,26 @@ h1.titulo_form{
     font-size: 48;
     color: #B37E56;
 }
+
+header{
+    position: relative;
+    margin-bottom: 50px;
+}
+
+hr{
+    margin: 20px;
+    border: none; 
+    height: 3px; /* Set the hr color */ 
+    color: #B37E56; /* old IE */ 
+    background-color: #B37E56; /* Modern Browsers */
+}
+
+button.Boton_cancelar{
+    background-color: #C7B392;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
