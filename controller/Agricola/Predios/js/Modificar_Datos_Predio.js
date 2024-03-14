@@ -22,7 +22,7 @@ formulario.addEventListener('submit', function (e) {
             console.log(data);
             if (data === 'exito') {
 
-                window.location.href = '../../view/ejemplo/tabla4.html'; //Cambiar por el html de modificar los datos
+                window.location.href = '../../view/Agricola/Predios/Registro_Predios.html'; 
             }
         });
     };

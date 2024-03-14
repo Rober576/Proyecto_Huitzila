@@ -1,5 +1,5 @@
 <?php
-    include('../../../../config/Crud_bd.php');
+    include('C:\xampp\htdocs\sprint1Rama\Proyecto_Huitzila\config\Crud_bd.php');
 
     class NuevosCampos{
         private $base;
