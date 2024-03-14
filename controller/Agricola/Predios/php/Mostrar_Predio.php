@@ -43,6 +43,7 @@ if ($resultado) {
         $salida .= '</tr>';
     }
 
+
     $salida .= '</tbody></table>';
 } else {
     $salida .= 'No se encontraron resultados';
@@ -50,3 +51,5 @@ if ($resultado) {
 
 echo $salida;
 ?>
+
+<script ></script>
