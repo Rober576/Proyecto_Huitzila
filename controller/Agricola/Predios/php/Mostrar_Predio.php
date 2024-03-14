@@ -38,7 +38,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $CodigoA . '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $CodigoA . '">Editar</a>';
+        $salida .= '<a href="Registro_Predios.html" class="table_item__link obtener-informacion" data-id="' . $CodigoA . '">Editar</a>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
