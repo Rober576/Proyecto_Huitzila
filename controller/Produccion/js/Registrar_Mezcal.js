@@ -1,4 +1,4 @@
-var formulario = document.getElementById('form_datos');
+var formulario = document.getElementById('form_ingreso_agave');
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
