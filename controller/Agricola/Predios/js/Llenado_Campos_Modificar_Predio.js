@@ -6,11 +6,8 @@ if (dataString) {
 }
 
 
-console.log('ID:', id);
-console.log('Datos:', data);
-
-document.getElementById('codArea').value = data[0].campo1;
-document.getElementById('nomPred').value = data[0].campo2;
-document.getElementById('superfPre').value = data[0].campo3;
-document.getElementById('descPrec').value = data[0].campo4;
+document.getElementById('codArea').value = data[0].CodigoArea;
+document.getElementById('nomPred').value = data[0].Nombre;
+document.getElementById('superfPre').value = data[0].Superficie;
+document.getElementById('descPre').value = data[0].DescripcionArea;
 

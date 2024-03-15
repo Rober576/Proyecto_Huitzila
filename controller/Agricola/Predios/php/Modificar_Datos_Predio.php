@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Agricola/Predios/Modificar/Obtener_Info_Predios.php');
+include_once('../../../../model/Agricola/Predios/Modificar/Obtener_Info_Predios.php');
 
 $base = new ObtenerCampos();
 $base->instancias();
