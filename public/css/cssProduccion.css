@@ -10,8 +10,10 @@
 }
 
 hr {
-    grid-column: 1/-1;
-    border: none;
+    grid-column: 1 / -1;
+    border-color: #B37E56;
+    margin-top: -19px; /* Ajustar el margen superior en píxeles */
+    height: 1px; /* Establecer la altura del hr en 1 píxel */
 }
 
 .boton_registrar {
