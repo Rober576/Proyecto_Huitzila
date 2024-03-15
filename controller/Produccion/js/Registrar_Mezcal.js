@@ -17,12 +17,14 @@ formulario.addEventListener('submit', function (e) {
     })
     .then(data => {
         if (data === 'exito') {
-            const form = document.getElementById('form_datos');
-            form.reset();
-            alert("Registro exitoso");
-        } else {
             console.error('Error al registrar:', data);
             alert("Error al registrar: " + data); 
+        } else {
+            alert("Registro exitoso");
+            // Recargar la página después de
+            setTimeout(function() {
+                window.location.reload();
+            }, 100);
         }
     })
     .catch(error => {
