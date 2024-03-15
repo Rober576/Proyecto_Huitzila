@@ -1,5 +1,5 @@
 <?php
-include_once('../../config/Crud_bd.php');
+include_once('../../../config/Crud_bd.php');
 
 class ObtenerCampos{
     private $base;
@@ -10,7 +10,7 @@ class ObtenerCampos{
     }
 
     function obtener($id){
-        $query = "SELECT * FROM predios WHERE  = CodigoArea:id";
+        $query = "SELECT * FROM predios WHERE CodigoArea = :id";
         $resultado = $this->base->mostrar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
         return $resultado;

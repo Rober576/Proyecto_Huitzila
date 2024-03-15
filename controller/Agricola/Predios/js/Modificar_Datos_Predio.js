@@ -1,8 +1,5 @@
 var id = localStorage.getItem('id');
-var formulario = document.getElementById('Equipo4');
-var modal = document.getElementById('modal');
-var siBtn = document.getElementById('siBtn');
-var noBtn = document.getElementById('noBtn');
+var formulario = document.getElementById('advanced-form');
 
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -13,7 +10,7 @@ formulario.addEventListener('submit', function (e) {
 
         var datos = new FormData(formulario);
 
-        fetch('../../controller/Agricola/Predios/php/Modificar_Datos_Predio.php', {
+        fetch('../../../controller/Agricola/Predios/php/Modificar_Datos_Predio.php', {
             method: 'POST',
             body: datos
         })
@@ -21,8 +18,7 @@ formulario.addEventListener('submit', function (e) {
         .then(data => {
             console.log(data);
             if (data === 'exito') {
-
-                window.location.href = '../../view/Agricola/Predios/Registro_Predios.html'; 
+                window.location.href = '../../../view/Agricola/Predios/Editar_Predios.html'; 
             }
         });
     };
