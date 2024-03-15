@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Bitácora</title>
+
+    <link rel="stylesheet" href="..\../public/css/Plantilla.css">
+    <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
+    <link rel="stylesheet" href="..\../public/css/cssProduccion.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Bitácora</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Bitácora
+							</a>
+				
+							<ul>
+                                <li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Trabajadores
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Certificaciones
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Cursos
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <form class="section-main" id="form_ingreso_agave">
+            <section class="section-form">
+                <div class="cabezera">
+                    <h4 class="h4">Modificar</h4>
+                </div>
+                <br>
+                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="lote">Lote:</label>
+                    <select id="lote" name="lote" required>
+                        <option value="">Selecciona</option>
+                        <option value="lote1">Lote 1</option>
+                        <option value="lote2">Lote 2</option>
+                    </select>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="procedencia">Procedencia:</label>
+                    <select id="procedencia" name="procedencia" required>
+                        <option value="">Selecciona</option>
+                        <option value="procedencia1">Procedencia 1</option>
+                        <option value="procedencia2">Procedencia 2</option>
+                    </select>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="costo">Costo:</label>
+                    <input type="text" id="costo" name="costo" required>
+                </div>
+            </section>
+
+            <section class="section-form">
+            <br>
+              <p class="subtitulo-1">Registro en Bitácora</p>
+              <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="guia">No. de guía:</label>
+                    <input type="text" id="guia" name="guia" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="especie">Especie:</label>
+                    <select id="especie" name="especie" required>
+                        <option value="">Selecciona</option>
+                        <option value="especie1">Especie 1</option>
+                        <option value="especie2">Especie 2</option>
+                    </select>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="agave">Agave (kg):</label>
+                    <input type="text" id="agave" name="agave" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="brix">Brix:</label>
+                    <input type="text" id="brix" name="brix" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="art">Art (kg):</label>
+                    <input type="text" id="art" name="art" required>
+                </div>
+            </section>
+
+            <section class="section-form">
+                <br>
+                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="coccion">Cocción:</label>
+                    <input type="text" id="coccion" name="coccion" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha_inicio">Fecha de inicio:</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha_fin">Fecha de fin:</label>
+                    <input type="date" id="fecha_fin" name="fecha_fin" required>
+                </div>
+                
+                <div class="grupo1">
+                    <label class="label_datos" for="art">Art (kg):</label>
+                    <input type="text" id="art" name="art" required>
+                </div>
+            </section>
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button type="submit">Guardar</button>
+                        <button type="submit">Cancelar</button>
+                    </div>
+                </div>
+                
+        </form>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+
+    
+</body>
+</html>

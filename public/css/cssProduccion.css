@@ -11,7 +11,7 @@
 
 hr {
     grid-column: 1/-1;
-    border-left: none;
+    border: none;
 }
 
 .boton_registrar {
