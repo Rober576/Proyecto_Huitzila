@@ -40,6 +40,7 @@ if ($resultado) {
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
         $Guia= $fila['NoGuia'];
+        
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["Procedencia"] . '</td>';
         $salida .= '<td>' . $fila["Costo"] . '</td>';
@@ -71,3 +72,4 @@ if ($resultado) {
 
 echo $salida;
 ?>
+<script src="../../../controller/Produccion/js/Eliminar_Bitacora.js"></script>
