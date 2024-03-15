@@ -13,7 +13,7 @@ formulario.addEventListener('submit', function (e) {
         if (!response.ok) {
             throw new Error('Hubo un problema al procesar la solicitud.');
         }
-        return response.text(); // Leemos la respuesta como texto
+        return response.text();
     })
     .then(data => {
         if (data === 'exito') {
@@ -22,11 +22,42 @@ formulario.addEventListener('submit', function (e) {
             alert("Registro exitoso");
         } else {
             console.error('Error al registrar:', data);
-            // Mostrar el mensaje de error del servidor en la consola
-            alert("Error al registrar: " + data); // También podemos mostrar el mensaje de error en una alerta
+            alert("Error al registrar: " + data); 
         }
     })
     .catch(error => {
         console.error('Error:', error.message);
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var selectCategoria = document.getElementById('categoria');
+    var selectClase = document.getElementById('clase');
+
+    fetch('../../controller/Produccion/php/Obtener_Categorias_Clase.php')
+    .then(response => response.json())
+    .then(data => {
+
+        data.forEach(categoria => {
+            var option = document.createElement('option');
+            option.value = categoria;
+            option.textContent = categoria;
+            selectCategoria.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error al obtener las categorías:', error));
+
+    fetch('../../controller/Produccion/php/Obtener_Categorias_Clase.php?tipo=clases')
+    .then(response => response.json())
+    .then(data => {
+
+        data.forEach(clase => {
+            var option = document.createElement('option');
+            option.value = clase;
+            option.textContent = clase;
+            selectClase.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error al obtener las clases:', error));
 });
