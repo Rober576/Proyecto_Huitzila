@@ -39,7 +39,7 @@ if ($resultado) {
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-        $Lote= $fila['Lote'];
+        $Guia= $fila['NoGuia'];
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["Procedencia"] . '</td>';
         $salida .= '<td>' . $fila["Costo"] . '</td>';
@@ -56,9 +56,9 @@ if ($resultado) {
 
 
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $Lote. '">Eliminar</a>';
+        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $Guia. '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $Lote . '">Editar</a>';
+        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $Guia . '">Editar</a>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
