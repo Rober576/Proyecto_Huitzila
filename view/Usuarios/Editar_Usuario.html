@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto</title>
 
-    <link rel="stylesheet" href="../public/css/Editar_Usuario.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
 			<div class="titulo">
 
 				<div class="nombre_ventana">
-					<img class="logo_mezcal" src="../public/mezcal-logo.webp" width="30px" alt="">
+					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
 					<h1 class="nombre_Ventana">Menú</h1>
 				</div>
 
@@ -90,68 +91,61 @@
     <main>
         <section class="section-main">
             <div class="cabezera">
-                <h4 class="h4">Editar Usuario</h4>
+                <h4 class="h4">Edición de usuario</h4>
             </div>
               <br>
-              <p class="subtitulo-1"> Datos generales</p>
+              <p class="subtitulo-1"> Datos del usuario</p>
               <hr>
             <br>
             <form class="formulario-datos" id="advanced-form">
                 <div class="grupo1">
-                    <label class="label_datos" for="clave">Clave:</label>
-                    <input type="text" id="clave" name="clave" required>
+                    <label class="label_datos" for="nombre">Clave de usuario</label>
+                    <input type="text" id="clave_us" name="clave_us" required readonly>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <label class="label_datos" for="nombre">Nombre</label>
+                    <input type="text" id="nombre_us" name="nombre_us" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="apellidoP">Apellido patero:</label>
-                    <input type="text" id="apellidoP" name="apellidoP" required>
-                </div>
-                
-                <div class="grupo1">
-                    <label class="label_datos" for="apellidoM">Apellido materno:</label>
-                    <input type="text" id="apellidoM" name="apellidoM" required>
+                    <label class="label_datos" for="apellido">Apellido paterno</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label class="label_datos" for="apellido">Apellido materno</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" class="styled-input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Formato: 123-456-7890" required>
+                    <label class="label_datos" for="email">Email</label>
+                    <input type="email" id="email_us" name="email_us" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="genero">Área de trabajo:</label>
-                    <select id="genero" name="genero" required>
-                        <option value="">Selecciona</option>
-                        <option value="Area1">Área 1</option>
-                        <option value="Area2">Área 2</option>
-                        <option value="Area3">Área 3</option>
+                    <label class="label_datos" for="email">Contraseña</label>
+                    <input type="password" id="email" name="email" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="area_us">Área</label>
+                    <select id="area_us" name="area_us" required>
+                        <option value="agricola">Agrícola</option>
+                        <option value="prod">Producción</option>
+                        <option value="calidad">Calidad</option>
+                        <option value="envasado">Envasado</option>
+                        <option value="ventas">Ventas</option>
                     </select>
                 </div>
 
-                
                 <div class="grupo1">
-                    <label class="label_datos">Dias laborales:</label>
-                    <div class="grupo-checks">
-                        <input type="checkbox" id="preferencia1" name="preferencia1">
-                        <label class="label_datos" for="preferencia1">Preferencia 1</label>
-                    </div>
-                    <div class="grupo-checks">
-                        <input type="checkbox" id="preferencia2" name="preferencia2">
-                        <label class="label_datos" for="preferencia2">Preferencia 2</label>
-                    </div>
-                    
+                    <label class="label_datos" for="tipo_us">Tipo de usuario</label>
+                    <select id="tipo_us" name="tipo_us" required>
+                        <option value="us_normal">Usuario normal</option>
+                        <option value="jefe_area">Jefe de área</option>
+                    </select>
                 </div>
-
-                
 
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
@@ -162,8 +156,6 @@
             </form>
         </section>
     </main>
-
-    
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
