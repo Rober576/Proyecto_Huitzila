@@ -66,6 +66,11 @@ main{
     margin-bottom: 5px;
     font-weight: bold;
 }
+.subtitulo-1{
+    color: var(--color-black);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
 .grupo-checks{
     display: flex;
 }
@@ -73,6 +78,7 @@ main{
 input[type="text"],
 input[type="email"],
 input[type="date"],
+input[type="password"],
 textarea,
 select {
     width: 100%;
@@ -84,7 +90,8 @@ select {
 }
 
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+input[type="password"] {
     margin-right: 5px;
 }
 .grupo-boton-reg{
@@ -105,9 +112,11 @@ button[type="submit"] {
     font-size: 16px;
 }
 .h4{
-    color: ;
     font-size: 2.5rem;
     font-weight: 800;
+}
+hr{
+    border-color: #B37E56;
 }
 
 button[type="submit"]:hover {
@@ -153,6 +162,7 @@ tr:hover {
 /* Estilos para inputs */
 input[type="text"]:focus,
 input[type="email"]:focus,
+input[type="password"]:focus,
 textarea:focus,
 select:focus {
     outline: none;
@@ -172,6 +182,7 @@ button[type="submit"]:hover {
 /* Estilos para el hover de inputs */
 input[type="text"]:hover,
 input[type="email"]:hover,
+input[type="password"]:focus,
 textarea:hover,
 select:hover {
     border-color: #143419;

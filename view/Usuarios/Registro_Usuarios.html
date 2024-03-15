@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto</title>
+
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Menú</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Trabajadores
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Certificaciones
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Cursos
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Registro</h4>
+            </div>
+              <br>
+              <p class="subtitulo-1"> Datos del usuario</p>
+              <hr>
+            <br>
+            <form class="formulario-datos" id="advanced-form">
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Clave de usuario</label>
+                    <input type="text" id="clave_us" name="clave_us" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Nombre</label>
+                    <input type="text" id="nombre_us" name="nombre_us" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="apellido">Apellido paterno</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="apellido">Apellido materno</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Email</label>
+                    <input type="email" id="email_us" name="email_us" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Contraseña</label>
+                    <input type="password" id="email" name="email" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="tipo_us">Tipo de usuario</label>
+                    <select id="tipo_us" name="tipo_us" required>
+                        <option value="">Selecciona</option>
+                        <option value="us_normal">Usuario normal</option>
+                        <option value="jefe_area">Jefe de área</option>
+                    </select>
+                </div>
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+</html>
