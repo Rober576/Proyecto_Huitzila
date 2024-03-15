@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora</title>
+    <title>Registrar Bitácora</title>
 
     <link rel="stylesheet" href="..\../public/css/Plantilla.css">
     <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
@@ -40,11 +40,12 @@
 						<li>
 							<a href="#">
 								<i ></i>
-								Usuarios
+								Bitácora
 							</a>
 				
 							<ul>
-								<li><a >Mostrar</a></li>
+                                <li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -90,15 +91,14 @@
 	</header>
 
     <main>
-        <section class="section-main">
-            <div class="cabezera">
-                <h4 class="h4">Registro</h4>
-            </div>
-              <br>
-              <p class="subtitulo-1"> Ingreso de Agave</p>
-              <hr>
-            <br>
-            <form class="formulario-datos" id="form_ingreso_agave">
+        <form class="section-main" id="form_ingreso_agave">
+            <section class="section-form">
+                <div class="cabezera">
+                    <h4 class="h4">Registro</h4>
+                </div>
+                <br>
+                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="lote">Lote:</label>
                     <select id="lote" name="lote" required>
@@ -121,15 +121,12 @@
                     <label class="label_datos" for="costo">Costo:</label>
                     <input type="text" id="costo" name="costo" required>
                 </div>
-            </form>
-        </section>
+            </section>
 
-        <section class="section-main">
+            <section class="section-form">
             <br>
               <p class="subtitulo-1">Registro en Bitácora</p>
               <hr>
-            <br>
-            <form class="formulario-datos" id="form_registro_bitacora">
                 <div class="grupo1">
                     <label class="label_datos" for="fecha">Fecha:</label>
                     <input type="date" id="fecha" name="fecha" required>
@@ -163,15 +160,16 @@
                     <label class="label_datos" for="art">Art (kg):</label>
                     <input type="text" id="art" name="art" required>
                 </div>
-            </form>
-        </section>
+            </section>
 
-        <section class="section-main">
-              <br>
-              <p class="subtitulo-1"> Registro de Movimientos de Agave</p>
-              <hr>
-            <br>
-            <form class="formulario-datos" id="form_registro_movimientos">
+            <section class="section-form">
+                <br>
+                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="coccion">Cocción:</label>
+                    <input type="text" id="coccion" name="coccion" required>
+                </div>
                 <div class="grupo1">
                     <label class="label_datos" for="fecha_inicio">Fecha de inicio:</label>
                     <input type="date" id="fecha_inicio" name="fecha_inicio" required>
@@ -180,14 +178,13 @@
                     <label class="label_datos" for="fecha_fin">Fecha de fin:</label>
                     <input type="date" id="fecha_fin" name="fecha_fin" required>
                 </div>
-                <div class="grupo1">
-                    <label class="label_datos" for="coccion">Cocción:</label>
-                    <input type="text" id="coccion" name="coccion" required>
-                </div>
+                
                 <div class="grupo1">
                     <label class="label_datos" for="art">Art (kg):</label>
                     <input type="text" id="art" name="art" required>
                 </div>
+            </section>
+
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
                         <button type="submit">Registrar</button>
@@ -195,34 +192,8 @@
                     </div>
                 </div>
                 
-            </form>
-        </section>
+        </form>
     </main>
-
-    <section class="container">
-        <h2>Tabla de Ejemplo</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Juan</td>
-                    <td>25</td>
-                    <td>juan@example.com</td>
-                </tr>
-                <tr>
-                    <td>Maria</td>
-                    <td>30</td>
-                    <td>maria@example.com</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
