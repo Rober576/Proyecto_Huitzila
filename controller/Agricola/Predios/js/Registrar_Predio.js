@@ -18,6 +18,8 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data === 'codigoUsado') {
+            Formulario = document.getElementById("advanced-form");
+            Formulario.codArea.style.border = "5px solid red"; 
             alert("La clave del predio ya fue registrada anteriormente");     
         }
         //si el codigo de predio no esta siendo utilizado se procede con el registro
@@ -34,6 +36,8 @@ formulario.addEventListener('submit', function (e)
                     const form= document.getElementById('advanced-form');
                     form.reset();
                     alert("Registro de predio exitoso");
+                    window.location.href = "../../../../view/Agricola/Predios/Vista_Predios.html";
+
                     
                 }
             })
