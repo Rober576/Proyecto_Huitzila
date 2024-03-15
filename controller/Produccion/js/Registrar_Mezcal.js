@@ -1,31 +1,32 @@
-//declara las variables globales
 var formulario = document.getElementById('form_datos');
 
-
-console.log('hola mundo4');
-
-formulario.addEventListener('submit', function (e)
-{
-    
-    console.log('holaasdassda');
+formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    var datos = new FormData(formulario);
 
-    var datos= new FormData(formulario);
-    //C:\version7\htdocs\Huitzila\Proyecto_Huitzila\controller\ejemplo\registro_ejemplo.php
-    fetch('../../../controller/Produccion/php/Registrar_Mezcal.php', {
+    fetch('../../controller/Produccion/php/Registrar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
-
-    .then(res => res.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Hubo un problema al procesar la solicitud.');
+        }
+        return response.text(); // Leemos la respuesta como texto
+    })
     .then(data => {
-        console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('form_datos');
+            const form = document.getElementById('form_datos');
             form.reset();
             alert("Registro exitoso");
-            
+        } else {
+            console.error('Error al registrar:', data);
+            // Mostrar el mensaje de error del servidor en la consola
+            alert("Error al registrar: " + data); // También podemos mostrar el mensaje de error en una alerta
         }
     })
-})
+    .catch(error => {
+        console.error('Error:', error.message);
+    });
+});

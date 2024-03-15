@@ -1,6 +1,7 @@
 <?php
-include_once('C:\xampp\htdocs\sprint1Rama\Proyecto_Huitzila\model\Produccion\Registrar\Registrar_Mezcal.php');
+include_once('../../../model/Produccion/Registrar/Registrar_Mezcal.php');
 
+// Obtener datos del formulario
 $lote = $_POST['lote'];
 $tanque = $_POST['tanque'];
 $categoria = $_POST['categoria'];
@@ -10,22 +11,9 @@ $edad = $_POST['edad'];
 $concentracion = $_POST['concentracion'];
 $volumen = $_POST['volumen'];
 
-
-// Mostrar los valores en consola
-echo "Lote: " . $lote . "<br>";
-echo "Tanque: " . $tanque . "<br>";
-echo "Categoria: " . $categoria . "<br>";
-echo "Especie: " . $especie . "<br>";
-echo "Clase: " . $clase . "<br>";
-echo "Edad: " . $edad . "<br>";
-echo "Concentración: " . $concentracion . "<br>";
-echo "Volumen: " . $volumen . "<br>";
-
+//instanciar la clase y llamar la funcion para insertar
 $obj = new NuevosCampos();
 $obj->conexion();
 $obj->insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen);
 echo json_encode('exito');
-
 ?>
-
-
