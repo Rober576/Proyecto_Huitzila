@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar insumos</title>
+    <title>Registro insumos</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -91,27 +91,25 @@
     <main>
         <section class="container">
             <div class="column">
-                <h2></h2>
+                <h2>Reguistro de insumos</h2>
                 <form id="advanced-form">
-					<input type="hidden" name="id" value="">
                     <div>
-                        <label for="Compras">COMPRAS:</label>
+                        <label for="Compras">Compras:</label>
                         <input type="text" id="COMPRAS" name="COMPRAS" required>
                     </div>
                     <div>
-                        <label for="Produccion">PRODUCCION (INVENTARIO DE GRANELES):</label>
+                        <label for="Produccion">Producción (inventario de gráneles):</label>
                         <input type="text" id="Produccion" name="Produccion" required>
                     </div>
                     <div>
-                        <label for="Devoluciones">DEVOLUCIONES DE PRODUCCION:</label>
+                        <label for="Devoluciones">Devoluciones de producción:</label>
                         <input type="text" id="Devoluciones" name="Devoluciones" required>
                     </div>
                     <div>
-                        <label for="A_Inventario">AJUSTES DE INVENTARIO:</label>
+                        <label for="A_Inventario">Ajustes de inventario:</label>
                         <input type="text" id="A_Inventario" name="A_Inventario" required>
                     </div>
-                    <button type="submit" id="editar">Enviar</button>
-					<button type="submit" id="cancelar" class="Boton_cancelar">Cancelar</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
             
@@ -121,18 +119,25 @@
     </main>
 
     <section class="container">
-        
         <table>
             <thead>
                 <tr>
-
+                    <th>Compras</th>
+                    <th>Producción (inventario de gráneles)</th>
+                    <th>Devoluciones de producción</th>
+					<th>Ajustes de inventario</th>
+					<th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+
                 </tr>
                 <tr>
+					
                 </tr>
+				<tr>
+				</tr>
             </tbody>
         </table>
     </section>
@@ -141,16 +146,4 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
-<style>
-	
-button.Boton_cancelar{
-    background-color: #C7B392;
-    color: black;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-</style>
 </html>
