@@ -9,26 +9,25 @@ class Controla_Login {
 
     public function login() {
         if(isset($_SESSION['user_id'])) {
-            header("Location: index.html"); //Pendiente de conectar con el principal del usuario correspondiente
+            header("Location: index.html");  //Devuelve al inicio si no hay una sesión
             exit();
         }
 
         if(isset($_POST['submit'])) {
-            $username = $_POST['username'];
+            $correo = $_POST['correo'];
             $password = $_POST['password'];
             
             // Instanciar el modelo de Login
             $login_model = new Autentica();
 
             // Autenticar al usuario
-            if($login_model->autenticar_user($username, $password)) {
-                // Obtener el ID del usuario autenticado (si es necesario)
+            if($login_model->autenticar_user($correo, $password)) {
                 // En este ejemplo, asumimos que la consulta SQL devuelve un solo usuario
-                $usuario_autenticado = $login_model->obtener_informacion_usuario($username);
+                $usuario_autenticado = $login_model->obtener_informacion_usuario($correo);
                 $_SESSION['user_id'] = $usuario_autenticado['id']; // Cambiar 'id' por el nombre correcto de la columna en tu tabla de usuarios
                 header("Location: index.php");  //Pendiente de conectar con el principal del usuario correspondiente
 
-                $info = $login_model->getArea($username);
+                $info = $login_model->obtener_Area($correo);
 
                 $area = $info[0]["nombrearea"];
                 $tipo = $info[0]["Tipo"];

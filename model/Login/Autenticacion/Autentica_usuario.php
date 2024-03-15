@@ -8,16 +8,16 @@ class Autentica {
         $this->crud_bd = new Crud_bd();
     }
 
-    public function autenticar_user($username, $password) {
-        $consulta = "SELECT * FROM usuarios WHERE username = :username AND password = :password";
-        $parametros = array(':username' => $username, ':password' => $password);
+    public function autenticar_user($correo, $password) {
+        $consulta = "SELECT * FROM usuarios WHERE Correo = :correo AND password = :password";
+        $parametros = array(':correo' => $correo, ':password' => $password);
 
         $usuario_autenticado = $this->crud_bd->mostrar($consulta, $parametros);
 
         // Verificar si se encontró un usuario con las credenciales proporcionadas
         if (!empty($usuario_autenticado)) {
             // Llamar a la función para obtener información adicional del usuario (tipo y área)
-            $this->obtener_informacion_usuario($username);
+            $this->obtener_informacion_usuario($correo);
             return true; // Usuario autenticado correctamente
 
         } else {
@@ -25,28 +25,29 @@ class Autentica {
         }
     }
 
-    public function getArea($username) {
-        $consulta = "SELECT nombrearea, Tipo FROM tipoareas, usuarios, tipousuario WHERE Nombre = :username AND 
+    public function obtener_Area($correo) {
+        $consulta = "SELECT IdentificadorTipo,IdentficadorArea FROM usuarios WHERE Correo = :correo AND 
         tipoareas.IdentificadorArea = usuarios.IdentificadorArea AND tipousuario.IdentificadorTipo = usuarios.IdentificadorTipo";
-        $parametros = array(':username' => $username);
+        $parametros = array(':correo' => $correo);
 
         $area = $this->crud_bd->mostrar($consulta, $parametros);
 
         return $area;
     }
 
-    public function obtener_informacion_usuario($username) {
+    
+    public function obtener_informacion_usuario($correo) {
         // Realiza las consultas para obtener información adicional del usuario (tipo y área)
-        $consulta = "SELECT area, tipo FROM usuarios WHERE username = :username";
-        $parametros = array(':username' => $username);
+        $consulta = "SELECT IdentidicadorArea, IdentidicadorTipo FROM usuarios WHERE Correo = :correo";
+        $parametros = array(':correo' => $correo);
 
         $informacion_usuario = $this->crud_bd->mostrar($consulta, $parametros);
 
         // Procesar la información obtenida
         if (!empty($informacion_usuario)) {
          
-            // Aquí puedes realizar cualquier procesamiento adicional con la información del usuario
-            // Por ejemplo, asignar valores a variables de sesión para utilizar en otras partes de la aplicación
+            // Aquí puede realizar cualquier procesamiento adicional con la información del usuario
+            
         }
     }
 }
