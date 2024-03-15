@@ -35,7 +35,7 @@ class NuevosCampos{
         }
     }
 
-    function insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen){
+    function insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie){
 
         $IDClase = $this->obtenerIDClase($clase);
         
@@ -45,8 +45,8 @@ class NuevosCampos{
 
         if ($IDClase !== false && $IDCategoria !== false) {
 
-            $q1 = "INSERT INTO registromezcal (Lote, Tanque, IDCategoria, IDClase, Edad, Concentracion, Volumen) 
-                    VALUES (:lote, :tanque, :IDCategoria, :IDClase, :edad, :concentracion, :volumen)";
+            $q1 = "INSERT INTO registromezcal (Lote, Tanque, IDCategoria, IDClase, Edad, Concentracion, Volumen, NombrePlanta) 
+                    VALUES (:lote, :tanque, :IDCategoria, :IDClase, :edad, :concentracion, :volumen, :especie)";
             
             $params = array(
                 ":lote" => $lote,
@@ -55,7 +55,8 @@ class NuevosCampos{
                 ":IDClase" => $IDClase,
                 ":edad" => $edad,
                 ":concentracion" => $concentracion,
-                ":volumen" => $volumen
+                ":volumen" => $volumen,
+                ":especie" => $especie
             );
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
@@ -64,7 +65,8 @@ class NuevosCampos{
         } else {
             // Si no se encuentran ambos IDClase e IDCategoria, devolvemos false
             return false;
-        }
+        } 
+
     }
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 include_once('../../../config/Crud_bd.php');
 
-class ControladorCategorias {
+class ControladorDatos {
     private $base;
 
     function __construct() {
@@ -32,13 +32,33 @@ class ControladorCategorias {
 
         return json_encode($clases);
     }
+
+    function obtenerEspecies() {
+        $query = "SELECT NombrePlanta FROM plantas";
+        $result = $this->base->mostrar($query);
+
+        $especies = array();
+        foreach ($result as $row) {
+            $especies[] = $row['NombrePlanta'];
+        }
+
+        return json_encode($especies);
+    }
 }
 
-$controlador = new ControladorCategorias();
+$controlador = new ControladorDatos();
 
-if(isset($_GET['tipo']) && $_GET['tipo'] === 'clases') {
-    echo $controlador->obtenerClases();
-} else {
-    echo $controlador->obtenerCategorias();
+$tipo = isset($_GET['tipo']) ? $_GET['tipo'] : '';
+
+switch ($tipo) {
+    case 'clases':
+        echo $controlador->obtenerClases();
+        break;
+    case 'especies':
+        echo $controlador->obtenerEspecies();
+        break;
+    default:
+        echo $controlador->obtenerCategorias();
+        break;
 }
 ?>
