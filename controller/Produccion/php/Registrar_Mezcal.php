@@ -14,6 +14,6 @@ $volumen = $_POST['volumen'];
 //instanciar la clase y llamar la funcion para insertar
 $obj = new NuevosCampos();
 $obj->conexion();
-$obj->insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen);
+$obj->insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie);
 echo json_encode('exito');
 ?>
