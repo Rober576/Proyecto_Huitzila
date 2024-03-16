@@ -20,10 +20,9 @@ hr {
     margin: 10px;
 }
 
-
-
-
-
+td,th{
+    width: calc(100% / 14);
+}
 .tabla_titulo {
     width: 80%;
     margin: 0 auto;
