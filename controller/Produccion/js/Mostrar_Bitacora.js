@@ -1,7 +1,7 @@
 
 function buscar_datos(consulta) {
 
-    var url = '../../../controller/Produccion/php/Mostrar_Bitacora.php';
+    var url = '../../controller/Produccion/php/Mostrar_Bitacora.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
@@ -45,7 +45,7 @@ function agregarEventosEliminar() {
             console.log("Valor de Guia:", Guia);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../../controller/Produccion/php/Eliminar.Bitacora.php?id=' + Guia, {
+                fetch('../../controller/Produccion/php/Eliminar.Bitacora.php?id=' + Guia, {
                         method: 'GET',
                     })
                     .then(res => res.json())
