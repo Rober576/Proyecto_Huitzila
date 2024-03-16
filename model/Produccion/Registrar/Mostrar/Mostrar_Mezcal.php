@@ -17,7 +17,7 @@ class MostrarBit {
     }
 
     function buscador($busqueda){
-        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR NombrePlanta LIKE :busqueda OR Tanque LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda OR IDMovimiento LIKE :busqueda OR Volumen LIKE :busqueda OR Concentracion LIKE :busqueda OR DestinoSalida LIKE :busqueda OR IDCategoria LIKE :busqueda ";
+        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR Tanque LIKE :busqueda OR IDCategoria LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda ";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
         return $resultados;
