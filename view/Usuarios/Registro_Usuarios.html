@@ -115,7 +115,7 @@
 
                 <div class="grupo1">
                     <label class="label_datos" for="apellido">Apellido materno</label>
-                    <input type="text" id="apellido_pat" name="apellido_pat" required>
+                    <input type="text" id="apellido_mat" name="apellido_mat" required>
                 </div>
 
                 <div class="grupo1">
@@ -131,19 +131,21 @@
                 <div class="grupo1">
                     <label class="label_datos" for="area_us">Área</label>
                     <select id="area_us" name="area_us" required>
-                        <option value="agricola">Agrícola</option>
-                        <option value="prod">Producción</option>
-                        <option value="calidad">Calidad</option>
-                        <option value="envasado">Envasado</option>
-                        <option value="ventas">Ventas</option>
+                        <option value="1">Agrícola</option>
+                        <option value="2">Producción</option>
+                        <option value="3">Envasado</option>
+                        <option value="4">Calidad</option>
+                        <option value="5">Ventas</option>
+                        <option value="6">Administrativo</option>
+                        <option value="7">Usuarios</option>
                     </select>
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="tipo_us">Tipo de usuario</label>
                     <select id="tipo_us" name="tipo_us" required>
-                        <option value="us_normal">Usuario normal</option>
-                        <option value="jefe_area">Jefe de área</option>
+                        <option value="1">Jefe de área</option>
+                        <option value="2">Usuario normal</option>
                     </select>
                 </div>
 
@@ -160,5 +162,6 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+    <script src="../../controller/Usuarios/js/Registro_Usuario.js"></script>
 </body>
 </html>

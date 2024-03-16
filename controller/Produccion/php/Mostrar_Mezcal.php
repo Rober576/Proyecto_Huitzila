@@ -16,47 +16,62 @@ $salida = '';
 
 if ($resultado) {
     $salida .= '
-    <table border="1">
+    <table>
     <thead>
         <tr>
-        <th>Lote</th>
-        <th>Nombre Plata</th>
-        <th>Tanque</th>
-        <th>ID Clase</th>
-        <th>Edad</th>
-        <th>ID Movimiento</th>
-        <th>Volumen</th>
-        <th>Concentración</th>
-        <th>Destino Salida</th>
-        <th>ID Categoría</th>
-        <th>Acciones</th>
+            <th>Fecha</th>
+            <th>No. de lote</th>
+            <th>Análisis fisicoquímico</th>
+            <th>Categoría</th>
+            <th>Clase</th>
+            <th>Tanque</th>
+            <th>Acciones</th>
         </tr>
     </thead>
-        <tbody>';
+    <tbody>';
+
+    /*$salida.='
+    <table>
+    <thead>
+        <tr>
+            
+            <th>Lote</th>
+            <th>Tanque</th>
+            <th>Categoria</th>
+            <th>Clase</th>
+            <th>Edad</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>';*/
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-        $Guia= $fila['IDMovimiento'];
-        
+
+        $id= $fila['IDClase'];
+        $salida .= '<td>' . '</td>';
         $salida .= '<td>' . $fila["Lote"] . '</td>';
-        $salida .= '<td>' . $fila["NombrePlanta"] . '</td>';
-        $salida .= '<td>' . $fila["Tanque"] . '</td>';
-        $salida .= '<td>' . $fila["IDClase"] . '</td>';
-        $salida .= '<td>' . $fila["Edad"] . '</td>';
-        $salida .= '<td>' . $fila["IDMovimiento"] . '</td>';
-        $salida .= '<td>' . $fila["Volumen"] . '</td>';
-        $salida .= '<td>' . $fila["Concentracion"] . '</td>';
-        $salida .= '<td>' . $fila["DestinoSalida"] . '</td>';
+        $salida .= '<td>' . '</td>';
         $salida .= '<td>' . $fila["IDCategoria"] . '</td>';
+        $salida .= '<td>' . $fila["IDClase"] . '</td>';
+        $salida .= '<td>' . $fila["Tanque"] . '</td>';
+      
+        
+       
+       
+
+        
         
 
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $Guia. '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $Guia . '">Editar</a>';
+        $salida .= '<button class="boton-modificar" type="submit">Modificar</button>';
+        $salida .= ' <button class="boton-eliminar" type="submit">Eliminar</button>' ;
         $salida .= '</td>';
         $salida .= '</tr>';
     }
+    
+                       
 
 
     $salida .= '</tbody></table>';
