@@ -18,8 +18,8 @@ function buscar_datos(consulta) {
 
             document.getElementById("tabla_Bit").innerHTML = xhr.responseText;
 
-            agregarEventosEliminar();
-            agregarEventosEditar();
+            //agregarEventosEliminar();
+            //agregarEventosEditar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
@@ -33,37 +33,36 @@ function buscar_datos(consulta) {
     xhr.send();
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    buscar_datos("");
+});
+
+function confirmarEliminacion(formulario) {
+    if (confirm('¿Estás seguro que deseas eliminar el registro?')) {
+        // Establece el valor del campo "confirmacion" en "si"
+        formulario.querySelector('input[name="confirmacion"]').value = 'si';
+        formulario.submit();
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos("");
 });
 
-function agregarEventosEliminar() {
-    // Selecciona todos los botones con la clase "boton-eliminar"
-    var botonesEliminar = document.querySelectorAll(".boton-eliminar");
-
-
-    // Agrega el evento click a cada enlace de eliminar
-    for (var i = 0; i < linkDelete.length; i++) {
-        linkDelete[i].addEventListener('click', function(e) {
-            e.preventDefault();
-            var Lote = this.dataset.Lote;
-            console.log("Valor de Lote:", Lote);
-
-            if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../../controller/Produccion/php/Eliminar_Mezcal.php?Lote=' + Lote, {
-                        method: 'GET',
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        alert(data);
-                        location.reload();
-                    });
-            }
-        });
+document.addEventListener('keyup', function(event) {
+    if (event.target.Lote === 'busqueda') {
+        var valorBusqueda = event.target.value.trim(); 
+        buscar_datos(valorBusqueda);
     }
-}
+});
 
+// Obtener el mensaje del parámetro de la URL y mostrarlo como una alerta
+window.onload = function() {
+    var mensaje = new URLSearchParams(window.location.search).get('mensaje');
+    if (mensaje) {
+        alert(mensaje);
+    }
+};
 
 document.addEventListener('keyup', function(event) {
 

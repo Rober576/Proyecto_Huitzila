@@ -1,22 +1,51 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Eliminar/Eliminar_Mezcal.php');
+include_once('../../../config/Crud_bd.php');
 
-$base = new EliminarCampos();
-$base->instancias();
+class EliminarCampos {
+    private $base;
 
-// Utiliza $_GET para obtener el valor del Lote desde la URL
-$Lote = isset($_GET['Lote']) ? $_GET['Lote'] : null;
+    function instancias() {
+        $this->base = new Crud_bd();
+        return $this->base->conexion_bd(); // Asegurémonos de que la conexión se haya establecido correctamente
+    }
 
-if ($Lote !== null) {
-    // Intenta eliminar el registro
-    $eliminado = $base->eliminar($Lote);
+    function eliminar($Lote) {
+        // Verificamos la conexión antes de intentar eliminar
+        if ($this->instancias()) {
+            $query = "DELETE FROM registromezcal WHERE Lote = :Lote";
+            $eliminado = $this->base->insertar_eliminar_actualizar($query, [":Lote" => $Lote]);
 
-    if ($eliminado) {
-        echo json_encode('Eliminado con éxito');
+            // Cerramos la conexión después de realizar la operación
+            $this->base->cerrar_conexion();
+
+            return $eliminado; // Devolvemos el resultado de la eliminación
+        } else {
+            return false; // Si la conexión no se pudo establecer, retornamos false
+        }
+    }
+}
+
+// Procesamiento del formulario para eliminar el registro
+if(isset($_POST['Lote'])) {
+    $Lote = $_POST['Lote'];
+
+    if (isset($_POST['confirmacion']) && $_POST['confirmacion'] === 'si') {
+        $eliminarCampos = new EliminarCampos();
+        $resultado = $eliminarCampos->eliminar($Lote);
+
+        if($resultado) {
+            // Retornar el mensaje de éxito
+            echo "Registro eliminado exitosamente.";
+        } else {
+            // Retornar el mensaje de error
+            echo "Error al eliminar el registro.";
+        }
     } else {
-        echo json_encode('Error al eliminar el registro');
+        // Retornar el mensaje de cancelación
+        echo "Eliminación cancelada por el usuario.";
     }
 } else {
-    echo json_encode('Lote no proporcionado');
+    // Retornar el mensaje de error si no se proporcionó el identificador del registro
+    echo "Error: No se proporcionó el identificador del registro.";
 }
-?> 
+?>
