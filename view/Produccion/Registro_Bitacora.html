@@ -36,7 +36,6 @@
 				</label>
 				<nav>
 					<ul>
-		
 						<li>
 							<a href="#">
 								<i ></i>
@@ -44,8 +43,8 @@
 							</a>
 				
 							<ul>
-                                <li><a >Registrar</a></li>
-								<li><a >Consultar</a></li>
+                                <li><a href="..\../view/Produccion/Registro_Bitacora.html">Registrar</a></li>
+								<li><a href="..\../view/Produccion/Mostrar_Bitacora.html">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -56,34 +55,10 @@
 							</a>
 			
 							<ul>
-							<li><a >Registrar</a></li>
-							<li><a >Consultar</a></li>
+							<li><a href="..\../view/Produccion/Registro_Mezcal.html">Registrar</a></li>
+							<li><a href="..\../view/Produccion/Mostrar_Mezcal.html">Consultar</a></li>
 							</ul>
 						</li>
-		
-						<!-- <li>
-							<a href="#">
-								<i ></i>
-								Certificaciones
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#">
-								<i ></i>
-								Cursos
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li> -->
 					</ul>
         		</nav>
       		</div>
@@ -97,23 +72,19 @@
                     <h4 class="h4">Registrar</h4>
                 </div>
                 <br>
-                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <p class="subtitulo-1"> Ingreso de agave</p>
                 <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="lote">Lote:</label>
-                    <select id="lote" name="lote" required>
-                        <option value="">Selecciona</option>
-                        <option value="lote1">Lote 1</option>
-                        <option value="lote2">Lote 2</option>
-                    </select>
+                    <input type="text" id="lote" name="lote" required>
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="procedencia">Procedencia:</label>
                     <select id="procedencia" name="procedencia" required>
                         <option value="">Selecciona</option>
-                        <option value="procedencia1">Procedencia 1</option>
-                        <option value="procedencia2">Procedencia 2</option>
+                        <option value="procedencia1">Interno</option>
+                        <option value="procedencia2">Externo</option>
                     </select>
                 </div>
 
@@ -125,7 +96,7 @@
 
             <section class="section-form">
             <br>
-              <p class="subtitulo-1">Registro en Bitácora</p>
+              <p class="subtitulo-1">Registro en bitácora</p>
               <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="fecha">Fecha:</label>
@@ -164,7 +135,7 @@
 
             <section class="section-form">
                 <br>
-                <p class="subtitulo-1"> Ingreso de Agave</p>
+                <p class="subtitulo-1"> Ingreso de agave</p>
                 <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="coccion">Cocción:</label>
