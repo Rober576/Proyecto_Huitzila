@@ -23,6 +23,3 @@ class MostrarBit {
         return $resultados;
     }
 }
-
-$obj = new MostrarBit();
-$obj->instancias();
