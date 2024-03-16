@@ -1,7 +1,6 @@
 <?php
 include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_BitacoraM.php');
 
-
 $base = new MostrarBit();
 $base->instancias();
 
@@ -19,28 +18,28 @@ if ($resultado) {
     <table border="1">
     <thead>
         <tr>
-        <th>Lote</th>
-        <th>Procedencia</th>
-        <th>Costo</th>
-        <th>Fecha</th>
-        <th>No de guía</th>
-        <th>Especie</th>
-        <th>Agave (kg)</th>
-        <th>Brix</th>
-        <th>Art (kg)</th>
-        <th>Cocción (kg)</th>
-        <th>Fecha de incio</th>
-        <th>Fecha de fin</th>
-        <th>Art (kg)</th>
-        <th>Acciones</th>
+            <th>Lote</th>
+            <th>Procedencia</th>
+            <th>Costo</th>
+            <th>Fecha</th>
+            <th>No de guía</th>
+            <th>Especie</th>
+            <th>Agave (kg)</th>
+            <th>Brix</th>
+            <th>Art (kg)</th>
+            <th>Cocción (kg)</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de fin</th>
+            <th>Art (kg)</th>
+            <th>Acciones</th>
         </tr>
     </thead>
-        <tbody>';
+    <tbody>';
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-        $Guia= $fila['NoGuia'];
-        
+        $Guia = $fila['NoGuia'];
+
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["Procedencia"] . '</td>';
         $salida .= '<td>' . $fila["Costo"] . '</td>';
@@ -55,15 +54,13 @@ if ($resultado) {
         $salida .= '<td>' . $fila["FechaFinal"] . '</td>';
         $salida .= '<td>' . $fila["KgArtCoccion"] . '</td>';
 
-
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $Guia. '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $Guia . '">Editar</a>';
+        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Guia . '">Eliminar</button>';
+        $salida .= ' ';
+        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
-
 
     $salida .= '</tbody></table>';
 } else {
