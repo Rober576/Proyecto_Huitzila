@@ -1,51 +1,12 @@
 <?php
-include_once('../../../config/Crud_bd.php');
+include_once('../../../model/Produccion/Registrar/Eliminar/Eliminar_Mezcal.php');
 
-class EliminarCampos {
-    private $base;
+$base = new EliminarCampos();
+$base->instancias();
 
-    function instancias() {
-        $this->base = new Crud_bd();
-        return $this->base->conexion_bd(); // Asegurémonos de que la conexión se haya establecido correctamente
-    }
 
-    function eliminar($Lote) {
-        // Verificamos la conexión antes de intentar eliminar
-        if ($this->instancias()) {
-            $query = "DELETE FROM registromezcal WHERE Lote = :Lote";
-            $eliminado = $this->base->insertar_eliminar_actualizar($query, [":Lote" => $Lote]);
-
-            // Cerramos la conexión después de realizar la operación
-            $this->base->cerrar_conexion();
-
-            return $eliminado; // Devolvemos el resultado de la eliminación
-        } else {
-            return false; // Si la conexión no se pudo establecer, retornamos false
-        }
-    }
-}
-
-// Procesamiento del formulario para eliminar el registro
-if(isset($_POST['Lote'])) {
-    $Lote = $_POST['Lote'];
-
-    if (isset($_POST['confirmacion']) && $_POST['confirmacion'] === 'si') {
-        $eliminarCampos = new EliminarCampos();
-        $resultado = $eliminarCampos->eliminar($Lote);
-
-        if($resultado) {
-            // Retornar el mensaje de éxito
-            echo "Registro eliminado exitosamente.";
-        } else {
-            // Retornar el mensaje de error
-            echo "Error al eliminar el registro.";
-        }
-    } else {
-        // Retornar el mensaje de cancelación
-        echo "Eliminación cancelada por el usuario.";
-    }
-} else {
-    // Retornar el mensaje de error si no se proporcionó el identificador del registro
-    echo "Error: No se proporcionó el identificador del registro.";
-}
+// Utiliza $_GET para obtener el valor del Lote desde la URL
+$Lote = isset($_GET['id']) ? $_GET['id'] : null;
+$base->eliminar($Lote);
+echo json_encode('Eliminado con éxito');
 ?>

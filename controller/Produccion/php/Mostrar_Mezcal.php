@@ -57,20 +57,10 @@ if ($resultado) {
         $salida .= '<td>' . $fila["IDClase"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
       
-        
-       
-       
-
-        
-        
         $salida .= '<td>';
-        $salida .= '<form method="POST" action="../../controller/Produccion/php/Eliminar_Mezcal.php">';
-        $salida .= '<input type="hidden" name="Lote" value="' . $Lote . '">';
-        $salida .= '<input type="hidden" name="confirmacion" value="">';
-        $salida .= '<button type="submit" class="boton-eliminar" onclick="confirmarEliminacion(this.form)">Eliminar</button>';
-        $salida .= '</form>';
+        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-Lote="' . $Lote . '">Modifica</button>';
+        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
@@ -85,3 +75,4 @@ if ($resultado) {
 
 echo $salida;
 ?>
+<script src="../../../controller/Produccion/js/Eliminar_Lote.js"></script>
