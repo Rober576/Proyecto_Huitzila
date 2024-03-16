@@ -1,7 +1,7 @@
 
 function buscar_datos(consulta) {
 
-    var url = '../../../controller/Produccion/php/Mostrar_Bitacora.php';
+    var url = '../../controller/Produccion/php/Mostrar_Bitacora.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
