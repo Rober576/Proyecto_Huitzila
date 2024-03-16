@@ -1,5 +1,6 @@
 <?php
-require_once('../../../config/Crud_bd.php');
+
+require_once("../../../config/Crud_bd.php");
 
 class Autentica {
     private $crud_bd;

@@ -33,25 +33,19 @@ function buscar_datos(consulta) {
     xhr.send();
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    buscar_datos("");
-});
-
 function agregarEventosEliminar() {
     // Selecciona todos los botones con la clase "boton-eliminar"
     var botonesEliminar = document.querySelectorAll(".boton-eliminar");
 
 
-    // Agrega el evento click a cada enlace de eliminar
-    for (var i = 0; i < linkDelete.length; i++) {
-        linkDelete[i].addEventListener('click', function(e) {
+    for (var i = 0; i < botonesEliminar.length; i++) {
+        botonesEliminar[i].addEventListener('click', function(e) {
             e.preventDefault();
-            var Lote = this.dataset.Lote;
+            var Lote = this.dataset.id;
             console.log("Valor de Lote:", Lote);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../../controller/Produccion/php/Eliminar_Mezcal.php?Lote=' + Lote, {
+                fetch('../../controller/Produccion/php/Eliminar_Mezcal.php?id=' + Lote, {
                         method: 'GET',
                     })
                     .then(res => res.json())
@@ -64,13 +58,30 @@ function agregarEventosEliminar() {
     }
 }
 
+function agregarEventosEditar() {
+
+    var botonesModificar = document.querySelectorAll(".boton-modificar");
+
+    // Agrega el evento click a cada botón de modificar
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+
+            window.location.href = "#";
+        });
+    }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    buscar_datos("");
+});
+
 
 document.addEventListener('keyup', function(event) {
 
-    if (event.target.Lote === 'busqueda') {
+    if (event.target.id === 'busqueda') {
         var valorBusqueda = event.target.value.trim(); 
         buscar_datos(valorBusqueda);
     }
 });
-
-

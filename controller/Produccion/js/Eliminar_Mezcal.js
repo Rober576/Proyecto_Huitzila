@@ -6,11 +6,11 @@ function agregarEventosEliminar() {
     for (var i = 0; i < linkDelete.length; i++) {
         linkDelete[i].addEventListener('click', function(e) {
             e.preventDefault();
-            var Lote = this.dataset.Lote;
+            var Lote = this.dataset.id;
             console.log("Valor de Lote:", Lote);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../../controller/Produccion/php/Eliminar_Mezcal.php?Lote=' + Lote, {
+                fetch('../../../controller/Produccion/php/Eliminar_Mezcal.php?id=' + Lote, {
                         method: 'GET',
                     })
                     .then(res => res.json())

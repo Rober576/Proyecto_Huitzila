@@ -14,12 +14,14 @@
             
             <div class="content">
                  <!-- <h1>Bienvenido</h1>-->
-                 <div class="input-group">
-                    <input type="text" placeholder="Usuario"> 
-                    <input type="password" placeholder="Contraseña">
-                    <a href="#">¿Olvidaste tu<br>contraseña?</a>
-                    <button>ENTRAR</button>
-                </div>
+                 <form action="/controller/Login/Login_Control.php">
+                    <div class="input-group">
+                        <input type="text" placeholder="Usuario" name="correo"> 
+                        <input type="password" placeholder="Contraseña" name="password">
+                        <a href="#">¿Olvidaste tu<br>contraseña?</a>
+                        <button>ENTRAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
