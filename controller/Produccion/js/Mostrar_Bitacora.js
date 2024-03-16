@@ -45,7 +45,7 @@ function agregarEventosEliminar() {
             console.log("Valor de Guia:", Guia);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../../controller/Produccion/php/Eliminar.Bitacora.php?id=' + Guia, {
+                fetch('../../controller/Produccion/php/Eliminar.Bitacora.php?id=' + Guia, {
                         method: 'GET',
                     })
                     .then(res => res.json())
