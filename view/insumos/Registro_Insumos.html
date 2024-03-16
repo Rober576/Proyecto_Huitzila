@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+    <link rel="stylesheet" href="../../public/css/insumos.css">
 </head>
 <body>
     <header>
@@ -94,22 +95,40 @@
                 <h2>Registro de insumos</h2>
                 <form id="advanced-form">
                     <div>
-                        <label for="Compras">Compras:</label>
-                        <input type="text" id="COMPRAS" name="COMPRAS" required>
+                        <label for="Compras">Identificador: </label>
+                        <input type="text" id="Identificador" name="Identificador" required>
                     </div>
                     <div>
-                        <label for="Produccion">Producción (inventario de gráneles):</label>
-                        <input type="text" id="Produccion" name="Produccion" required>
+                        <label for="Nombre">Nombre: </label>
+                        <input type="text" id="Nombre" name="Nombre" required>
                     </div>
-                    <div>
-                        <label for="Devoluciones">Devoluciones de producción:</label>
-                        <input type="text" id="Devoluciones" name="Devoluciones" required>
+					<div>
+                        <label for="Nombre">Descripción: </label>
+                        <textarea name="Descripción" id="Descripción" cols="30" rows="10"></textarea>
                     </div>
-                    <div>
-                        <label for="A_Inventario">Ajustes de inventario:</label>
-                        <input type="text" id="A_Inventario" name="A_Inventario" required>
+					<div>
+                        <label for="Unidades">Unidades: </label>
+                        <input type="text" id="Unidades" name="Unidades" required>
                     </div>
+					<div>
+                        <label for="Exitencia">Exitencia: </label>
+                        <input type="date" id="Exitencia" name="Exitencia" required>
+                    </div>
+					<div>
+                        <label for="Stockmi">Stock minimo: </label>
+                        <input type="number" id="Stockmi" name="Stockmi" required>
+                    </div>
+					<div>
+                        <label for="Stockma">Stock máximo: </label>
+                        <input type="number" id="Stockma" name="Stockma" required>
+                    </div>
+					<div>
+                        <label for="Costo">Costo: </label>
+                        <input type="number" id="Costo" name="Costo" required>
+                    </div>
+
                     <button type="submit">Enviar</button>
+					<button type="submit" class="Boton_cancelar">Cancelar</button>
                 </form>
             </div>
             
@@ -122,22 +141,25 @@
         <table>
             <thead>
                 <tr>
-                    <th>Compras</th>
-                    <th>Producción (inventario de gráneles)</th>
-                    <th>Devoluciones de producción</th>
-					<th>Ajustes de inventario</th>
+                    <th>Identificador</th>
+                    <th>Descripción</th>
+                    <th>Unidades</th>
+					<th>Exitencia</th>
+					<th>Stock minimo</th>
+					<th>Stock máximo</th>
+					<th>Costo</th>
 					<th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-
-                </tr>
-                <tr>
-					
-                </tr>
-				<tr>
-				</tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><button type="submit">Editar</button> <button type="submit">Eliminar</button></td>
             </tbody>
         </table>
     </section>
