@@ -48,8 +48,8 @@ if ($resultado) {
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-
-        $id= $fila['IDClase'];
+        $Lote= $fila['Lote'];
+        
         $salida .= '<td>' . '</td>';
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . '</td>';
@@ -63,10 +63,10 @@ if ($resultado) {
 
         
         
-
         $salida .= '<td>';
-        $salida .= '<button class="boton-modificar" type="submit">Modificar</button>';
-        $salida .= ' <button class="boton-eliminar" type="submit">Eliminar</button>' ;
+        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-Lote="' . $Lote . '">Eliminar</button>';
+        $salida .= ' ';
+        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-Lote="' . $Lote . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
