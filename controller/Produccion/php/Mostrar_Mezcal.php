@@ -16,44 +16,36 @@ $salida = '';
 
 if ($resultado) {
     $salida .= '
-    <table border="1">
+    <table>
     <thead>
         <tr>
-        <th>Lote</th>
-        <th>Nombre Plata</th>
-        <th>Tanque</th>
-        <th>ID Clase</th>
-        <th>Edad</th>
-        <th>ID Movimiento</th>
-        <th>Volumen</th>
-        <th>Concentración</th>
-        <th>Destino Salida</th>
-        <th>ID Categoría</th>
-        <th>Acciones</th>
+            <th>Fecha</th>
+            <th>No. de lote</th>
+            <th>Análisis fisicoquímico</th>
+            <th>Categoría</th>
+            <th>Clase</th>
+            <th>Tanque</th>
+            <th>Acciones</th>
         </tr>
     </thead>
-        <tbody>';
+    <tbody>';
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-        $Guia= $fila['IDMovimiento'];
+        $ID= $fila['id'];
         
-        $salida .= '<td>' . $fila["Lote"] . '</td>';
-        $salida .= '<td>' . $fila["NombrePlanta"] . '</td>';
+        $salida .= '<td>' . $fila["Fecha"] . '</td>';
+        $salida .= '<td>' . $fila["No. de lote"] . '</td>';
+        $salida .= '<td>' . $fila["Análisis fisicoquímico"] . '</td>';
+        $salida .= '<td>' . $fila["Categoria"] . '</td>';
+        $salida .= '<td>' . $fila["Clase"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
-        $salida .= '<td>' . $fila["IDClase"] . '</td>';
-        $salida .= '<td>' . $fila["Edad"] . '</td>';
-        $salida .= '<td>' . $fila["IDMovimiento"] . '</td>';
-        $salida .= '<td>' . $fila["Volumen"] . '</td>';
-        $salida .= '<td>' . $fila["Concentracion"] . '</td>';
-        $salida .= '<td>' . $fila["DestinoSalida"] . '</td>';
-        $salida .= '<td>' . $fila["IDCategoria"] . '</td>';
         
 
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $Guia. '">Eliminar</a>';
+        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $ID. '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $Guia . '">Editar</a>';
+        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $ID . '">Modificar</a>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
