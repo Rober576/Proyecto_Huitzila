@@ -105,15 +105,6 @@ class Crud_bd{
 
     }
 
-    public function sanitizar($datos) {
-        $sanitized = array();
-        foreach ($datos as $key => $value) {
-            $sanitized[$key] = $this->conexion->quote($value);;
-        }
-        return $sanitized;
-    }
-
-
 
     public function cerrar_conexion()
     {
