@@ -1,23 +1,38 @@
 var id = localStorage.getItem('id');
 var formulario = document.getElementById('advanced-form');
+
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var datos = new FormData(formulario);
-    datos.append('id', id);
-    fetch('../../../controller/Agricola/Predios/php/Actualizar_Datos_Predio.php', {
-        method: 'POST',
-        body: datos
-        
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        if (data === 'exito') {
-            window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
-        }
-    });
+    // Confirmación antes de enviar
+    if (confirm("¿Estás seguro de que deseas enviar el formulario?")) {
+        var datos = new FormData(formulario);
+        datos.append('id', id);
+        fetch('../../../controller/Agricola/Predios/php/Actualizar_Datos_Predio.php', {
+            method: 'POST',
+            body: datos
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data === 'exito') {
+                // Alerta de éxito
+                alert("¡Los datos se han guardado exitosamente!");
+                // Redirigir después de aceptar la alerta
+                window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Manejo de errores si la solicitud falla
+            alert("Se produjo un error al guardar los datos. Inténtalo de nuevo más tarde.");
+        });
+    }
+});
 
-
-
+// Agregar evento de clic al botón "Cancelar"
+document.getElementById('cancelButton').addEventListener('click', function() {
+    // Código para ejecutar cuando se hace clic en el botón "Cancelar"
+    // Por ejemplo, redirigir a otra página
+    window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
 });

@@ -1,5 +1,5 @@
 // Selecciona todos los enlaces de obtener información
-var linkObtenerInfo = document.querySelectorAll(".table_item__link.obtener-informacion");
+var linkObtenerInfo = document.querySelectorAll(".Boton_Tabla.obtener-informacion");
 
 // Agrega el evento click a cada enlace de obtener información
 for (var i = 0; i < linkObtenerInfo.length; i++) {
