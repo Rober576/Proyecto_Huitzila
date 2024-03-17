@@ -8,25 +8,51 @@
             $this->base = new Crud_bd();
             $this->base->conexion_bd();
         }
-
-        function editar($cLote,$cNomPlanta,$cTanque,$cIdClase,$cEdad,$cIdMovimiento,$cIdVolomen,$cConcentracion,$cDestinoSalida,$cIdcategoria,$id) {
+        function obtenerIDClase($clase) {
+            $q = "SELECT IDClase FROM clasemezcal WHERE Clase_Mezcal = :clase";
+            $params = array(":clase" => $clase);
+            
+            $resultado = $this->base->mostrar($q, $params);
+    
+            if ($resultado) {
+                return $resultado[0]['IDClase'];
+            } else {
+                return false;
+            }
+        }
+    
+        function obtenerIDCategoria($categoria) {
+            $q = "SELECT IDCategoria FROM categoriamezcal WHERE Categoria = :categoria";
+            $params = array(":categoria" => $categoria);
+            
+            $resultado = $this->base->mostrar($q, $params);
+    
+            if ($resultado) {
+                return $resultado[0]['IDCategoria'];
+            } else {
+                return false;
+            }
+        }
+    
+        function editar($lote,$tanque,$clase,$edad,$categoria,$id) {
+            $IDClase = $this->obtenerIDClase($clase);
+        
+  
+            $IDCategoria = $this->obtenerIDCategoria($categoria);
+    
             $query = "UPDATE registromezcal
-                      SET Lote = :cLote, NombrePlanta = :cnomPlata, Tanque = :cTanque, IDClase = :cidclase,Edad =:cedad,IDMovimiento =:cidmovimiento,Volumen=:cvolumen,concentracion=:cconcetracion,DestinoSalida=:cdestinoSalida,Categoria=:ccategoria,
-                      WHERE CodigoArea = :id";
+                      SET Lote = :lote, Tanque = :tanque, IDClase = :clase ,Edad =:edad, Categoria=:ccategoria,
+                      WHERE lote = :id";
                       
             $params = [
                 
                 ":id"=>$id,
-                ":clote" =>$cLote,
-                ":cnomPlanta"=>$cNomPlanta,
-                ":ctanque"=>$cTanque,
-                ":cidclase"=>$cIdClase,
-                ":cedad"=>$cEdad,
-                ":cidmovimiento"=>$cIdMovimiento,
-                ":cvolumen"=>$cIdVolomen,
-                "cconcentracion"=>$cConcentracion,
-                ":cdestinoSalida"=>$cDestinoSalida,
-                "cidcategoria"=>$cIdcategoria,
+                ":lote" =>$lote,
+                ":tanque"=>$tanque,
+                ":clase"=>$IDClase,
+                ":edad"=>$edad,
+                "categoria"=>$IDCategoria,
+            
 
             ];
         
