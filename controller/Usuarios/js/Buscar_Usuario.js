@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Usuarios/Registro_Usuario.php', {
+    fetch('../../controller/Usuarios/Buscar_Usuario.php', {
         method: 'POST',
         body: datos
     })
@@ -14,7 +14,7 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('advanced-form');
+            const form= document.getElementById('clave');
             form.reset();
             alert("Registro exitoso");
             
