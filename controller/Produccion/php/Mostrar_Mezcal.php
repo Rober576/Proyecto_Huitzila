@@ -48,8 +48,8 @@ if ($resultado) {
 
     foreach ($resultado as $fila) {
         $salida .= '<tr>';
-
-        $id= $fila['IDClase'];
+        $Lote= $fila['Lote'];
+        
         $salida .= '<td>' . '</td>';
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . '</td>';
@@ -57,16 +57,10 @@ if ($resultado) {
         $salida .= '<td>' . $fila["IDClase"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
       
-        
-       
-       
-
-        
-        
-
         $salida .= '<td>';
-        $salida .= '<button class="boton-modificar" type="submit">Modificar</button>';
-        $salida .= ' <button class="boton-eliminar" type="submit">Eliminar</button>' ;
+        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
+        $salida .= ' ';
+        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
@@ -81,4 +75,4 @@ if ($resultado) {
 
 echo $salida;
 ?>
-<script src="../../../controller/Produccion/js/Eliminar_Mezcal.js"></script>
+<script src="../../../controller/Produccion/js/Eliminar_Lote.js"></script>

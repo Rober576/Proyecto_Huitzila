@@ -33,6 +33,45 @@ function buscar_datos(consulta) {
     xhr.send();
 }
 
+function agregarEventosEliminar() {
+    // Selecciona todos los botones con la clase "boton-eliminar"
+    var botonesEliminar = document.querySelectorAll(".boton-eliminar");
+
+
+    for (var i = 0; i < botonesEliminar.length; i++) {
+        botonesEliminar[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            var Lote = this.dataset.id;
+            console.log("Valor de Lote:", Lote);
+
+            if (confirm('¿Estás seguro de eliminar el registro?')) {
+                fetch('../../controller/Produccion/php/Eliminar_Mezcal.php?id=' + Lote, {
+                        method: 'GET',
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert(data);
+                        location.reload();
+                    });
+            }
+        });
+    }
+}
+
+function agregarEventosEditar() {
+
+    var botonesModificar = document.querySelectorAll(".boton-modificar");
+
+    // Agrega el evento click a cada botón de modificar
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+
+            window.location.href = "#";
+        });
+    }
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos("");
