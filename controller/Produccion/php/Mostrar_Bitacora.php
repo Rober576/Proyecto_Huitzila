@@ -43,7 +43,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["Procedencia"] . '</td>';
         $salida .= '<td>' . $fila["Costo"] . '</td>';
-        $salida .= '<td>' . $fila["Fecha"] . '</td>';
+        $salida .= '<td>' . $fila["FechaEntrada"] . '</td>';
         $salida .= '<td>' . $fila["NoGuia"] . '</td>';
         $salida .= '<td>' . $fila["NombrePlanta"] . '</td>';
         $salida .= '<td>' . $fila["KgAgave"] . '</td>';
