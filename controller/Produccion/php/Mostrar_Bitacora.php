@@ -57,7 +57,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Guia . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modifica</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Bitacora.php?id='.$Guia.'\'"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

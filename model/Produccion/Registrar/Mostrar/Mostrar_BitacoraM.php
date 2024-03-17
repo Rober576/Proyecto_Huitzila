@@ -1,7 +1,7 @@
 <?php
 include('../../../config/Crud_bd.php');
 
-class MostrarBit {
+class MostrarBit extends Crud_bd{
     private $base;
 
     function instancias(){
@@ -20,6 +20,14 @@ class MostrarBit {
         $query = "SELECT * FROM bitacoramezcal WHERE Fecha LIKE :busqueda OR Procedencia LIKE :busqueda OR Costo LIKE :busqueda OR Lote LIKE :busqueda OR KgEntrada LIKE :busqueda OR FechaEntrada LIKE :busqueda OR NoGuia LIKE :busqueda OR NombrePlanta LIKE :busqueda OR KgAgave LIKE :busqueda OR Brix LIKE :busqueda OR KgArt LIKE :busqueda OR KgCoccion LIKE :busqueda OR FechaInicio LIKE :busqueda OR FechaFinal LIKE :busqueda OR KgArtCoccion LIKE :busqueda";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
+        return $resultados;
+    }
+
+    function buscar_datos($id){
+        $this->conexion_bd();
+        $consulta = "SELECT * FROM bitacoramezcal WHERE NoGuia='$id'";
+        $resultados = $this->mostrar($consulta);
+        $this->cerrar_conexion();
         return $resultados;
     }
 }
