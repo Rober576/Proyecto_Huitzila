@@ -7,7 +7,7 @@ formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
     var datos= new FormData(formulario);
-    fetch('../../controller/Produccion/php/Registro_Bitacora.php', {
+    fetch('../php/Modificar_Bitacora.php', {
         method: 'POST',
         body: datos
     })
@@ -15,8 +15,8 @@ formulario.addEventListener('submit', function (e)
     .then(res => res.json())
     .then(data => {
         if (data === 'exito') {
-            alert("Registro exitoso");
-            location.href="../../view/Produccion/Registro_Bitacora.html";
+            alert("Actualización exitosa");
+            location.href="../../../view/Produccion/Mostrar_Bitacora.html";
         }
         //los datos no pasaron alguna validacion
         else if (data === 'no exito'){
@@ -27,25 +27,6 @@ formulario.addEventListener('submit', function (e)
     })
 })
 
-document.addEventListener('DOMContentLoaded', function() {
-    var selectEspecie = document.getElementById('especie');
-
-    fetch('../../controller/Produccion/php/Obtener_Categorias_Clase_Especie.php?tipo=especies')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-
-            if (selectEspecie) {
-                selectEspecie.appendChild(option);
-            }
-        });
-    })
-    .catch(error => console.error('Error al obtener especies:', error));
-});
-
 //responde cuando hay un click en el boton cancelar
 formulario.cancelar.addEventListener('click', function (e){
     e.preventDefault();
@@ -53,7 +34,7 @@ formulario.cancelar.addEventListener('click', function (e){
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='Mostrar_Bitacora.html';
+      window.location.href='../../../view/Produccion/Mostrar_Bitacora.html';
     }
 
     

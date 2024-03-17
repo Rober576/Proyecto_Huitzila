@@ -41,3 +41,17 @@ button.Boton_cancelar{
     cursor: pointer;
     font-size: 16px;
 }
+
+button.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.Boton_Tabla:hover{
+    background-color: #1d4d25;
+}

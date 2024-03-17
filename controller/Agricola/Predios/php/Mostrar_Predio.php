@@ -36,9 +36,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["DescripcionArea"] . '</td>';
 
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $CodigoA . '">Eliminar</a>';
+        $salida .= '<button class="Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
         $salida .= ' | ';
-        $salida .= '<a href="#" class="table_item__link obtener-informacion" data-id="' . $CodigoA . '">Editar</a>';
+        $salida .= '<button class="Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Editar</Button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

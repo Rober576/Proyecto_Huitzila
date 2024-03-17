@@ -93,7 +93,7 @@
         <section class="container">
             <div class="column">
                 <h2>Registro de insumos</h2>
-                <form id="advanced-form">
+                <form id="insumos_form">
                     <div>
                         <label for="Compras">Identificador: </label>
                         <input type="text" id="Identificador" name="Identificador" required>
@@ -104,15 +104,15 @@
                     </div>
 					<div>
                         <label for="Nombre">Descripción: </label>
-                        <textarea name="Descripción" id="Descripción" cols="30" rows="10"></textarea>
+                        <textarea name="Descripcion" id="Descripción" cols="30" rows="10"></textarea>
                     </div>
 					<div>
                         <label for="Unidades">Unidades: </label>
                         <input type="text" id="Unidades" name="Unidades" required>
                     </div>
 					<div>
-                        <label for="Exitencia">Exitencia: </label>
-                        <input type="date" id="Exitencia" name="Exitencia" required>
+                        <label for="Exitencia">Existencia: </label>
+                        <input type="date" id="Existencia" name="Existencia" required>
                     </div>
 					<div>
                         <label for="Stockmi">Stock minimo: </label>
@@ -127,7 +127,7 @@
                         <input type="number" id="Costo" name="Costo" required>
                     </div>
 
-                    <button type="submit">Enviar</button>
+                    <button type="submit" id="registrar">Enviar</button>
 					<button type="submit" class="Boton_cancelar">Cancelar</button>
                 </form>
             </div>
