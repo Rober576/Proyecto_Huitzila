@@ -1,7 +1,7 @@
 
 function buscar_datos(consulta) {
 
-    var url = '../../../controller/Produccion/php/Mostrar_Mezcal.php';
+    var url = '../../controller/Produccion/php/Mostrar_Mezcal.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
@@ -66,7 +66,9 @@ function agregarEventosEditar() {
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
 
-            window.location.href = "#";
+            window.location.href = "../../view/Produccion/Modificar_Mezcal.html";
+
+           
         });
     }
 }
