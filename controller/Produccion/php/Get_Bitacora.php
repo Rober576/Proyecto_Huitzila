@@ -6,11 +6,9 @@ $id=$_GET["id"];
 
 $objeto=new MostrarBit();
 $resultado=$objeto->buscar_datos($id);
-$fechaC=$resultado[0]['Fecha'];
 $procedencia=$resultado[0]['Procedencia'];
 $costo=$resultado[0]['Costo'];
 $lote=$resultado[0]['Lote'];
-$kgEntrada=$resultado[0]['KgEntrada'];
 $fecha=$resultado[0]['FechaEntrada'];
 $guia=$resultado[0]['NoGuia'];
 $agave=$resultado[0]['NombrePlanta'];
