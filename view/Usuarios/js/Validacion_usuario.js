@@ -7,26 +7,23 @@ let bandera6=false;
 
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
-    //se revisa si la entrada es válida
-    if(bandera1 == true & bandera2 == true & bandera3 == true & bandera4 == true){
-        //si es válida se muestra un mensaje de éxito
+    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true){
         console.log("Registro exitoso");
     }
 
     else{
-        //si no es válida se cancela el envío
         console.log("Envío cancelado");
         e.preventDefault();
     }
 })
 
-//definición de la expresión regular para el campo
 const expresion = {
-    campo1: /^[A-Za-zñÑáéíóúÁÉÍÓÚüâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ .]{1,40}$/,
+    campo1: /^[A-Za-z0-9]{1,7}$/,
     campo2: /^\d{10}$/,
     campo3: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     campo4: /^\d{2}[A-Za-z]{5}$/,
     campo5:/^([^@~`;]{0,}|)$/,
+    campo6:/^([^@~`;]{0,}|)$/,
 }
 
 
