@@ -133,11 +133,15 @@ footer {
 
 /* Estilos para la tabla */
 .table-container {
+    width: 80%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
     overflow-x: auto;
 }
 
 table {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
     border: 1px solid #000000;
     background-color: #C7B392;
@@ -145,11 +149,12 @@ table {
 }
 
 th, td {
+    width: auto;
     border: 1px solid #080808;
     padding: 12px;
-    text-align: left;
+    position: sticky; 
+    text-align: center;
 }
-
 th {
     background-color: #C7B392;
 }

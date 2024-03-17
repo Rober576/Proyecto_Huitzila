@@ -1,12 +1,11 @@
-var formulario = document.getElementById('');
+var formulario = document.getElementById('advanced-form');
 
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    //C:\version7\htdocs\Huitzila\Proyecto_Huitzila\controller\ejemplo\registro_ejemplo.php
-    fetch('../../controller/Registro/Registro_Usuario.php', {
+    fetch('../../controller/Usuarios/Registro_Usuario.php', {
         method: 'POST',
         body: datos
     })
@@ -15,7 +14,7 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('');
+            const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro exitoso");
             

@@ -1,129 +1,102 @@
-let bandera1 = false;
-let bandera2 = false;
-let bandera3 = false;
-let bandera4 = false;
-let bandera5 = false;
-let bandera6 = false;
+let banderaLote = false;
+let banderaTanque = false;
+let banderaEdad = false;
 
 let botonRegistrar = document.getElementById("submitButton");
 
 botonRegistrar.addEventListener("click", (e) => {
+    // Se revisa si la entrada es válida
+    validarLote();
+    validarTanque();
+    validarEdad();
 
-    Validar_Lote();
-    Validar_Tanque();
-    Validar_Categoria();
-    Validar_Especie();
-    Validar_Clase();
-    Validar_Edad();
-    Validar_Concentracion();
-    Validar_Volumen();
-
-    if (bandera1 && bandera2 && bandera3 && bandera4 && bandera5 && bandera6) {
-
-        console.log("Registro exitoso");
+    if (banderaLote == true && banderaTanque == true && banderaEdad == true) {
+        // Si es válida se muestra un mensaje de éxito
+        console.log("Registro exitosoa");
     } else {
         // Si no es válida se cancela el envío
         console.log("Envío cancelado");
         e.preventDefault();
-    }
-});
 
+        if (!banderaLote) {
+            Formulario.lote.style.border = "5px solid red"; 
+        }
+        if (!banderaTanque) {
+            Formulario.tanque.style.border = "5px solid red"; 
+        }
+        if (!banderaEdad) {
+            Formulario.edad.style.border = "5px solid red"; 
+        }
+    }
+})
+
+// Expresiones regulares para validar los campos
 const expresion = {
-    numeros: /^\d+$/,
-    letras: /^[a-zA-Z]+$/,
-    letrasNumeros: /^[a-zA-Z0-9]+$/
+    lote: /^[a-zA-Z0-9]+$/, // Lote y Tanque: No aceptan caracteres especiales, campos vacíos o llenados con espacio
+    tanque: /^[a-zA-Z0-9]+$/,
+    edad: /^\d{1,3}$/ // Edad: Solo acepta números del 0 al 999
 };
 
-// Función para validar el campo Lote
-function Validar_Lote() {
-    let valorInput = document.getElementById("lote").value;
+// Función para validar el campo de lote
+function validarLote() {
+    let valorInput = Formulario.lote.value;
 
-    // Validar si la entrada coincide con la expresión regular para letras y números
-    if (!expresion.letrasNumeros.test(valorInput)) {
-        document.getElementById("lote").style.border = "5px solid red";
-        bandera1 = false;
+    // Eliminar todos los caracteres no numéricos
+    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
+
+    Formulario.lote.value = valorInput;
+
+    // Validar si la entrada coincide con la expresión regular para LA CLAVE
+    if (!expresion.lote.test(valorInput)) {
+        Formulario.lote.style.border = "5px solid red"; 
+        banderaLote = false; 
     } else {
-        document.getElementById("lote").removeAttribute("style");
-        bandera1 = true;
+        Formulario.lote.removeAttribute("style"); 
+        banderaLote = true; 
     }
 }
 
-// Función para validar el campo Tanque
-function Validar_Tanque() {
-    let valorInput = document.getElementById("tanque").value;
+// Función para validar el campo de tanque
+function validarTanque() {
+    let valorInput = Formulario.tanque.value;
 
-    // Validar si la entrada coincide con la expresión regular para letras y números
-    if (!expresion.letrasNumeros.test(valorInput)) {
-        document.getElementById("tanque").style.border = "5px solid red";
-        bandera2 = false;
+    // Eliminar todos los caracteres no numéricos
+    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
+
+    Formulario.tanque.value = valorInput;
+
+    // Validar si la entrada coincide con la expresión regular para LA CLAVE
+    if (!expresion.tanque.test(valorInput)) {
+        Formulario.tanque.style.border = "5px solid red"; 
+        banderaTanque = false; 
     } else {
-        document.getElementById("tanque").removeAttribute("style");
-        bandera2 = true;
+        Formulario.tanque.removeAttribute("style"); 
+        banderaTanque = true; 
     }
 }
 
-// Función para validar el campo Categoría (se asume que se cargará dinámicamente)
-function Validar_Categoria() {
-    let valorInput = document.getElementById("categoria").value;
+// Función para validar el campo de edad
+function validarEdad() {
+    let valorInput = Formulario.edad.value;
 
-    // No se aplica validación específica aquí, ya que es un campo de selección y se asume que tendrá opciones válidas
-    bandera3 = true;
-}
+    // Eliminar todos los caracteres no numéricos
+    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
 
-// Función para validar el campo Especie (se asume que se cargará dinámicamente)
-function Validar_Especie() {
-    let valorInput = document.getElementById("especie").value;
+    Formulario.edad.value = valorInput;
 
-    // No se aplica validación específica aquí, ya que es un campo de selección y se asume que tendrá opciones válidas
-    bandera4 = true;
-}
-
-// Función para validar el campo Clase (se asume que se cargará dinámicamente)
-function Validar_Clase() {
-    let valorInput = document.getElementById("clase").value;
-
-    // No se aplica validación específica aquí, ya que es un campo de selección y se asume que tendrá opciones válidas
-    bandera5 = true;
-}
-
-// Función para validar el campo Edad
-function Validar_Edad() {
-    let valorInput = document.getElementById("edad").value;
-
-    // Validar si la entrada es un número positivo
-    if (!expresion.numeros.test(valorInput) || parseInt(valorInput) <= 0) {
-        document.getElementById("edad").style.border = "5px solid red";
-        bandera6 = false;
+    // Validar si la entrada coincide con la expresión regular para LA CLAVE
+    if (!expresion.edad.test(valorInput)) {
+        Formulario.edad.style.border = "5px solid red"; 
+        banderaEdad = false; 
     } else {
-        document.getElementById("edad").removeAttribute("style");
-        bandera6 = true;
+        Formulario.edad.removeAttribute("style"); 
+        banderaEdad = true; 
     }
 }
 
-// Función para validar el campo Concentración
-function Validar_Concentracion() {
-    let valorInput = document.getElementById("concentracion").value;
 
-    // Validar si la entrada es un número positivo
-    if (!expresion.numeros.test(valorInput) || parseInt(valorInput) <= 0) {
-        document.getElementById("concentracion").style.border = "5px solid red";
-        bandera7 = false;
-    } else {
-        document.getElementById("concentracion").removeAttribute("style");
-        bandera7 = true;
-    }
-}
-
-// Función para validar el campo Volumen
-function Validar_Volumen() {
-    let valorInput = document.getElementById("volumen").value;
-
-    // Validar si la entrada es un número positivo
-    if (!expresion.numeros.test(valorInput) || parseInt(valorInput) <= 0) {
-        document.getElementById("volumen").style.border = "5px solid red";
-        bandera8 = false;
-    } else {
-        document.getElementById("volumen").removeAttribute("style");
-        bandera8 = true;
-    }
-}
+// Agrega los listener para los eventos input de cada campo
+Formulario = document.getElementById("form_datos");
+Formulario.lote.addEventListener('input', validarLote);
+Formulario.tanque.addEventListener('input', validarTanque);
+Formulario.edad.addEventListener('input', validarEdad);

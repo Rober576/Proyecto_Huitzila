@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="..\../public/css/Plantilla.css">
     <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
     <link rel="stylesheet" href="..\../public/css/cssProduccion.css">
+    <script src="../../controller/Produccion/js/Mostrar_Mezcal.js"></script>
 </head>
 <body>
     <header>
@@ -59,6 +60,38 @@
 							<li><a href="..\../view/Produccion/Mostrar_Mezcal.html">Consultar</a></li>
 							</ul>
 						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							Movimientos de mezcal
+							</a>
+			
+							<ul>
+							<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							 Cremas, destilados y licores
+							</a>
+							<ul>
+							<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							Movimientos de cremas, destilados y licores
+							</a>
+			
+							<ul>
+							<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
 					</ul>
         		</nav>
       		</div>
@@ -70,7 +103,7 @@
 
     <div class="tabla_titulo"><h2>Mostrar mezcal</h2>
         <br></div>    
-    <section class="container" id="tabla_Bit">
+    <section class="table-container" id="tabla_Bit">
         <table>
             <thead>
                 <tr>
@@ -80,15 +113,27 @@
                     <th>Categoría</th>
                     <th>Clase</th>
                     <th>Tanque</th>
-                    <th>Clase</th>
-                    <th>Tanque</th>
-                    <th>Concentracion de alcohol inicial en %</th>
-                    <th>Volumen inicial</th>
+
                     <th>Acciones</th>
+
+                    <!--<th>Lote</th>
+                    <th>Tanque</th>
+                    <th>Categoria</th>
+                    <th>Clase</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>-->
+                   
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <!--<td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>-->
                     <td></td>
                     <td></td>
                     <td></td>
@@ -96,9 +141,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    
                     <td><div class="acciones">
                         <button class="boton-modificar" type="submit">Modificar</button>
                         <button class="boton-eliminar" type="submit">Eliminar</button>
@@ -112,5 +155,7 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+    
+	<script src="../../view\Produccion\js\Rutas_de_Interfaz.js"> </script>
 </body>
 </html>
