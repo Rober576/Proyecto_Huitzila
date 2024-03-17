@@ -18,7 +18,7 @@ botonRegistrar.addEventListener("click", (e) => {
         console.log("Registro exitoso");
     } else {
         // si alguna no es válida se cancela el envío
-        alert("Uno o más campos están vacios o son incorrectos \nPor favor verifique nuevamente.")
+        //alert("Uno o más campos están vacios o son incorrectos \nPor favor verifique nuevamente.")
         console.log("Envío cancelado");
         e.preventDefault();
     }
