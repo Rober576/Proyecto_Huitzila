@@ -108,7 +108,7 @@ class Crud_bd{
     public function sanitizar($datos) {
         $sanitized = array();
         foreach ($datos as $key => $value) {
-            $sanitized[$key] = mysqli_real_escape_string($this->conexion, $value);
+            $sanitized[$key] = $this->conexion->quote($value);;
         }
         return $sanitized;
     }

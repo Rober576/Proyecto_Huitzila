@@ -15,7 +15,7 @@
             VALUES(:Clave, :Nombre, :ApellidoPaterno, :ApellidoMaterno, :Correo, :Password, :IdentificadorTipo, :IdentificadorArea)";
             $a1= [":Clave"=>$Clave, ":Nombre"=>$Nombre, ":ApellidoPaterno"=>$ApellidoPaterno, ":ApellidoMaterno"=>$ApellidoMaterno, ":Correo"=>$Correo, ":Password"=>$Password, ":IdentificadorTipo"=>$IdentificadorTipo, ":IdentificadorArea"=>$IdentificadorArea];
             $querry = $q1;
-            $parametros = $this->base->sanitizar($a1);           
+            $parametros = $a1;           
             
 
             $this->base->insertar_eliminar_actualizar($querry, $parametros);
