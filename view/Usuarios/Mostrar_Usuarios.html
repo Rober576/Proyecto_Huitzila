@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/cssMostrar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../controller/Usuarios/js/Mostrar_Usuarios.js"></script>
+
+    <title>Mi Proyecto</title>
+
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+</head>
+
+<body>
+    <header>
+        <div class="header_superior">
+            <div class="titulo">
+
+                <div class="nombre_ventana">
+                    <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+                    <h1 class="nombre_Ventana">Menú</h1>
+                </div>
+
+            </div>
+
+            <div class="boton-cerrar-session">
+
+            </div>
+        </div>
+
+        <!-- Menu Desplegable -->
+        <div class="container_menu">
+            <div class="menu">
+                <input type="checkbox" id="check__menu">
+
+                <label id="label__check" for="check__menu">
+                    <i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                Usuarios
+                            </a>
+
+                            <ul>
+                                <li><a>Mostrar</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                Trabajadores
+                            </a>
+
+                            <ul>
+                                <li><a>Registrar</a></li>
+                                <li><a>Mostrar</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                Certificaciones
+                            </a>
+
+                            <ul>
+                                <li><a>Registrar</a></li>
+                                <li><a>Mostrar</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                Cursos
+                            </a>
+
+                            <ul>
+                                <li><a>Registrar</a></li>
+                                <li><a>Mostrar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Usuarios</h4>
+            </div>
+            <br>
+            <p class="subtitulo-1"> Vista de usuario</p>
+            <hr>
+            <br>
+
+            <div class="tablas">
+                <section class="header_table" id="tablaResultado">
+
+                    <table border="1">
+                        <tr>
+                            <th colspan="7">Datos de los usuarios</th>
+                        </tr>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Nombre</th>
+                            <th>Apellido paterno</th>
+                            <th>Apellido materno</th>
+                            <th>Correo</th>
+                            <th>Identificador tipo</th>
+                            <th>Identificador area</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
