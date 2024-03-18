@@ -124,3 +124,9 @@ body, html {
 .input-group button {
     border: 2px solid black; /* Borde negro */
 }
+
+.error-message {
+    color: black;
+    display: block;
+    text-align: center;
+}
