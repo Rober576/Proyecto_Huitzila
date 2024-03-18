@@ -1,5 +1,5 @@
 <?php
-include_once('../../../../model/Agricola/Predios/Mostrar/Mostrar_Predio_M.php');
+include_once('../../../../model/Agricola/Predios/Mostrar/Consultar_Predio_M.php');
 
 $base = new Mostrar();
 $base->instancias();

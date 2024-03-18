@@ -36,7 +36,7 @@ formulario.addEventListener('submit', function (e)
                     const form= document.getElementById('advanced-form');
                     form.reset();
                     alert("Registro de predio exitoso");
-                    window.location.href = "../../../../view/Agricola/Predios/Vista_Predios.html";
+                    window.location.href = "../../../view/Agricola/Predios/Vista_Predios.html";
 
                     
                 }
