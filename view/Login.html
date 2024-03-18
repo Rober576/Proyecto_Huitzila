@@ -14,12 +14,12 @@
             
             <div class="content">
                  <!-- <h1>Bienvenido</h1>-->
-                 <form action="/controller/Login/Login_Control.php">
+                 <form id="login_form" action="/controller/Login/Login_Control.php">
                     <div class="input-group">
-                        <input type="text" placeholder="Usuario" name="correo"> 
-                        <input type="password" placeholder="Contraseña" name="password">
+                        <input type="text" placeholder="Usuario" name="Correo" id="Correo"> 
+                        <input type="password" placeholder="Contraseña" name="Password" id="Password">
                         <a href="#">¿Olvidaste tu<br>contraseña?</a>
-                        <button>ENTRAR</button>
+                        <button type="submit" id="ingresar">ENTRAR</button>
                     </div>
                 </form>
             </div>
@@ -28,5 +28,8 @@
     <div class="overlay-custom">
         <img src="../public/mezcal-logo.webp" alt="Imagen personalizada" class="custom-img"> <!-- Ajusta la ruta de la imagen personalizada -->
     </div>
+
+    <script src="../controller/Login/js/Login.js"></script>
+    <script src="js/Valida_Login.js"></script>
 </body>
 </html>
