@@ -12,24 +12,29 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 
     else{
-        console.log("Envío cancelado");
+        alert("Datos incorrectos");
         e.preventDefault();
     }
 })
 
 const expresion = {
     clave: /^[A-Za-z0-9]{1,7}$/,
-    nombre: /^[A-Za-z. ]{1,40}$/,
-    paterno: /^[A-Za-z. ]{1,20}$/,
-    materno: /^[A-Za-z. ]{0,20}$/,
+    nombre: /^[A-Za-záéíóúÁÉÍÓÚüÜ. ]{1,40}$/,
+    paterno: /^[A-Za-záéíóúÁÉÍÓÚüÜ. ]{1,20}$/,
+    materno: /^[A-Za-záéíóúÁÉÍÓÚüÜ. ]{0,20}$/,
     email:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
 }
 
-var registro = document.getElementById('registro');
-registro.clave_us.addEventListener('keyup', (e) => {
+var clave_us = document.getElementById('clave_us');
+var nombre_us = document.getElementById('nombre_us');
+var apellido_pat = document.getElementById('apellido_pat');
+var apellido_mat = document.getElementById('apellido_mat');
+var email_us = document.getElementById('email_us');
+var email = document.getElementById('email');
+clave_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    registro.clave_us.value = valorInput
+    clave_us.value = valorInput
 
     if (!expresion.clave.test(valorInput)) {
         clave_us.style.border = "5px solid red";
@@ -42,10 +47,10 @@ registro.clave_us.addEventListener('keyup', (e) => {
     }
 });
 
-registro.nombre_us.addEventListener('keyup', (e) => {
+nombre_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.nombre_us.value = valorInput;
+    nombre_us.value = valorInput;
 
     if (!expresion.nombre.test(valorInput)) {
         nombre_us.style.border = "5px solid red";
@@ -56,10 +61,10 @@ registro.nombre_us.addEventListener('keyup', (e) => {
     }
 });
 
-registro.apellido_pat.addEventListener('keyup', (e) => {
+apellido_pat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.apellido_pat.value = valorInput
+    apellido_pat.value = valorInput
 
     if (!expresion.paterno.test(valorInput)) {
         apellido_pat.style.border = "5px solid red";
@@ -70,10 +75,10 @@ registro.apellido_pat.addEventListener('keyup', (e) => {
     }
 });
 
-registro.apellido_mat.addEventListener('keyup', (e) => {
+apellido_mat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.apellido_mat.value = valorInput
+    apellido_mat.value = valorInput
     if (!expresion.materno.test(valorInput)) {
         apellido_mat.style.border = "5px solid red";
         bandera4 = false;
@@ -83,10 +88,10 @@ registro.apellido_mat.addEventListener('keyup', (e) => {
     }
 });
 
-registro.email_us.addEventListener('keyup', (e) => {
+email_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.email_us.value = valorInput
+    email_us.value = valorInput
 
     if (!expresion.email.test(valorInput)) {
         email_us.style.border = "5px solid red";
@@ -97,10 +102,10 @@ registro.email_us.addEventListener('keyup', (e) => {
     }
 });
 
-registro.email.addEventListener('keyup', (e) => {
+email.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.email.value = valorInput
+    email.value = valorInput
 
     if (!expresion.password.test(valorInput)) {
         email.style.border = "5px solid red";
