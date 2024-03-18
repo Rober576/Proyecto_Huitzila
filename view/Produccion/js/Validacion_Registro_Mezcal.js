@@ -30,6 +30,48 @@ botonRegistrar.addEventListener("click", (e) => {
     }
 })
 
+let botonCancelar = document.getElementById("cancelButton");
+
+botonCancelar.addEventListener("click", (e) => {
+    limpiarCampos();
+});
+
+function limpiarCampos() {
+    document.getElementById("lote").value = "";
+    document.getElementById("tanque").value = "";
+    document.getElementById("categoria").selectedIndex = 0;
+    document.getElementById("especie").selectedIndex = 0;
+    document.getElementById("clase").selectedIndex = 0;
+    document.getElementById("edad").value = "";
+}
+
+
+botonRegistrar.addEventListener("click", (e) => {
+    // Se revisa si la entrada es válida
+    validarLote();
+    validarTanque();
+    validarEdad();
+
+    if (banderaLote == true && banderaTanque == true && banderaEdad == true) {
+        // Si es válida se muestra un mensaje de éxito
+        console.log("Registro exitoso");
+    } else {
+        // Si no es válida se cancela el envío
+        console.log("Envío cancelado");
+        e.preventDefault();
+
+        if (!banderaLote) {
+            document.getElementById("lote").style.border = "5px solid red"; 
+        }
+        if (!banderaTanque) {
+            document.getElementById("tanque").style.border = "5px solid red"; 
+        }
+        if (!banderaEdad) {
+            document.getElementById("edad").style.border = "5px solid red"; 
+        }
+    }
+});
+
 // Expresiones regulares para validar los campos
 const expresion = {
     lote: /^[a-zA-Z0-9]+$/, // Lote y Tanque: No aceptan caracteres especiales, campos vacíos o llenados con espacio
