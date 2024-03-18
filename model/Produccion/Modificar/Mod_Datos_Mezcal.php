@@ -1,66 +1,60 @@
 <?php
-    include('../../../../config/Crud_bd.php');
- 
-    class NuevosCampos{
-        private $base;
+include('../../../config/Crud_bd.php');
 
-        function conexion(){
-            $this->base = new Crud_bd();
-            $this->base->conexion_bd();
-        }
-        function obtenerIDClase($clase) {
-            $q = "SELECT IDClase FROM clasemezcal WHERE Clase_Mezcal = :clase";
-            $params = array(":clase" => $clase);
-            
-            $resultado = $this->base->mostrar($q, $params);
-    
-            if ($resultado) {
-                return $resultado[0]['IDClase'];
-            } else {
-                return false;
-            }
-        }
-    
-        function obtenerIDCategoria($categoria) {
-            $q = "SELECT IDCategoria FROM categoriamezcal WHERE Categoria = :categoria";
-            $params = array(":categoria" => $categoria);
-            
-            $resultado = $this->base->mostrar($q, $params);
-    
-            if ($resultado) {
-                return $resultado[0]['IDCategoria'];
-            } else {
-                return false;
-            }
-        }
-    
-        function editar($lote,$tanque,$clase,$edad,$categoria,$id) {
-            $IDClase = $this->obtenerIDClase($clase);
+class ModificarMezcal extends Crud_bd{
+    public function obtenerIDClase($clase) {
+        $q = "SELECT IDClase FROM clasemezcal WHERE Clase_Mezcal = :clase";
+        $params = array(":clase" => $clase);
         
-  
-            $IDCategoria = $this->obtenerIDCategoria($categoria);
-    
-            $query = "UPDATE registromezcal
-                      SET Lote = :lote, Tanque = :tanque, IDClase = :clase ,Edad =:edad, Categoria=:ccategoria,
-                      WHERE lote = :id";
-                      
-            $params = [
-                
-                ":id"=>$id,
-                ":lote" =>$lote,
-                ":tanque"=>$tanque,
-                ":clase"=>$IDClase,
-                ":edad"=>$edad,
-                "categoria"=>$IDCategoria,
-            
+        $resultado = $this->mostrar($q, $params);
 
-            ];
-        
-            $this->base->insertar_eliminar_actualizar($query, $params);
-            $this->base->cerrar_conexion();
+        if ($resultado) {
+            return $resultado[0]['IDClase'];
+        } else {
+            return false;
         }
-        
-        
     }
 
+    public function obtenerIDCategoria($categoria) {
+        $q = "SELECT IDCategoria FROM categoriamezcal WHERE Categoria = :categoria";
+        $params = array(":categoria" => $categoria);
+        
+        $resultado = $this->mostrar($q, $params);
+
+        if ($resultado) {
+            return $resultado[0]['IDCategoria'];
+        } else {
+            return false;
+        }
+    }
+
+    public function actualizar($lote, $tanque, $clase, $edad, $especie, $categoria){
+        $this->conexion_bd();
+        
+        // Obtener los IDs de clase y categoría
+        $IDClase = $this->obtenerIDClase($clase);
+        $IDCategoria = $this->obtenerIDCategoria($categoria);
+
+        // Verificar que se hayan obtenido los IDs correctamente
+        if ($IDClase !== false && $IDCategoria !== false) {
+            $consulta = "UPDATE registromezcal SET Lote=:lote, Tanque=:tanque, IDClase=:IDClase, Edad=:edad, Especie=:especie, IDCategoria=:categoria 
+                         WHERE Lote=:lote";
+            $parametros = [
+                ":lote" => $lote, 
+                ":tanque" => $tanque,
+                ":IDClase" => $IDClase,
+                ":edad" => $edad,
+                ":especie" => $especie,
+                ":categoria" => $IDCategoria,
+            ];
+
+            $datos = $this->insertar_eliminar_actualizar($consulta, $parametros);
+            $this->cerrar_conexion();
+            return $datos;
+        } else {
+            // Manejar el caso donde no se puedan obtener los IDs
+            return false;
+        }
+    }
+}
 ?>
