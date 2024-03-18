@@ -17,6 +17,7 @@
             $querry = $q1;
             $parametros = $a1;           
             
+
             $this->base->insertar_eliminar_actualizar($querry, $parametros);
             $this->base->cerrar_conexion();
         }

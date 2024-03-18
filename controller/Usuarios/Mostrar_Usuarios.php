@@ -1,6 +1,5 @@
 <?php
-//$mensaje = "Este es un mensaje de alerta generado desde PHP";
-//echo "<script>alert('" . $mensaje . "');</script>";
+
 include_once('../../model/Usuarios/Mostrar_Usuario.php');
 
 $base = new MostrarCampos();
@@ -11,7 +10,7 @@ if (isset($_POST['consulta'])) {
     $resultado = $base->buscador($busqueda);
 } else {
     $resultado = $base->getEjemplo();
-    echo "No se envio";
+    //echo "No se envio";
 }
 
 $salida = '';
@@ -59,3 +58,5 @@ if ($resultado) {
 }
 
 echo $salida;
+?>
+<script src="../../controller/Usuarios/js/Eliminar_Usuarios.js"></script>

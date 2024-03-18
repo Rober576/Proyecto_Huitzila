@@ -2,11 +2,9 @@
 require_once('../../../model/Produccion/Registrar/Registro_Bitacora.php');
 $objeto=new Bitacora();
 
-$fechaC=2000-12-27;
 $procedencia=$_POST["procedencia"];
 $costo=$_POST["costo"];
 $lote=$_POST["lote"];
-$kgEntrada=10;
 
 $fecha=$_POST["fecha"];
 $guia=$_POST["guia"];
@@ -26,7 +24,7 @@ if ($procedencia=="procedencia1"){
     $proce="Externo";
 }
 
-$u=$objeto->insertar_bitacora($fechaC, $proce, $costo, $lote, $kgEntrada, $fecha, $guia, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
+$u=$objeto->insertar_bitacora($proce, $costo, $lote, $fecha, $guia, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
 if($u==true){
     echo json_encode('exito');
     

@@ -106,7 +106,6 @@ class Crud_bd{
     }
 
 
-
     public function cerrar_conexion()
     {
         $this->conexion = null;

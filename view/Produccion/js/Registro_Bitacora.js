@@ -6,25 +6,34 @@ var respuesta = document.getElementById('respuesta');
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
-    var datos= new FormData(formulario);
-    fetch('../../controller/Produccion/php/Registro_Bitacora.php', {
-        method: 'POST',
-        body: datos
-    })
+    let fechaI=document.getElementById("fecha_inicio").value;
+    let fechaF=document.getElementById("fecha_fin").value;
+    console.log(fechaI);
+    console.log(fechaF);
 
-    .then(res => res.json())
-    .then(data => {
-        if (data === 'exito') {
-            alert("Registro exitoso");
-            location.href="../../view/Produccion/Registro_Bitacora.html";
-        }
-        //los datos no pasaron alguna validacion
-        else if (data === 'no exito'){
-            alert("Hubo un error");
-        }else{
-            alert (data)
-        }
-    })
+    if (fechaI>fechaF){
+        alert("La fecha inicio no debe ser mayor que la fecha final");
+    }else{
+        var datos= new FormData(formulario);
+        fetch('../../controller/Produccion/php/Registro_Bitacora.php', {
+            method: 'POST',
+            body: datos
+        })
+
+        .then(res => res.json())
+        .then(data => {
+            if (data === 'exito') {
+                alert("Registro exitoso");
+                location.href="../../view/Produccion/Registro_Bitacora.html";
+            }
+            //los datos no pasaron alguna validacion
+            else if (data === 'no exito'){
+                alert("Hubo un error");
+            }else{
+                alert (data)
+            }
+        })
+    }  
 })
 
 document.addEventListener('DOMContentLoaded', function() {
