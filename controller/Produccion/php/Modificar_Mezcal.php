@@ -1,15 +1,21 @@
 <?php
-include_once('../../../../model/Produccion/Modificar/Obtener_Info_Mezcal.php');
+require_once('../../../model/Produccion/Modificar/Mod_Datos_Mezcal.php');
+$objeto=new modificarMezcal();
 
-$base = new ObtenerCampos();
-$base->instancias();
 
-// Utiliza $_GET para obtener el valor del ID desde la URL
-$id = isset($_GET['id']) ? $_GET['id'] : null;
-$info = $base->obtener($id);
-echo json_encode($info);
+$lote=$_POST["lote"];
+$tanque=$_POST["tanque"];
+$IDClase=$_POST["IDClase"];
+$edad=$_POST["edad"];
+$especie=$_POST["especie"];
+$IDCategoria=$_POST["categoria"];
 
-// Devolver la información como JSON
-header('Content-Type: application/json');
+$u=$objeto->actualizar($lote, $tanque, $IDClase, $edad, $especie, $IDCategoria);
+
+if ($u==true){
+    echo json_encode('exito');
+}else{
+    echo json_encode('fechas');
+}
 
 ?>

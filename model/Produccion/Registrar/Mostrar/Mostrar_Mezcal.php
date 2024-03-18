@@ -1,7 +1,7 @@
 <?php
 include('../../../config/Crud_bd.php');
 
-class MostrarBit {
+class MostrarMez extends Crud_bd {
     private $base;
 
     function instancias(){
@@ -22,7 +22,11 @@ class MostrarBit {
         $this->base->cerrar_conexion();
         return $resultados;
     }
+    function buscar_datos($lote){
+        $this->conexion_bd();
+        $consulta = "SELECT * FROM registromezcal WHERE Lote='$lote'";
+        $resultados = $this->mostrar($consulta);
+        $this->cerrar_conexion();
+        return $resultados;
+    }
 }
-
-$obj = new MostrarBit();
-$obj->instancias();

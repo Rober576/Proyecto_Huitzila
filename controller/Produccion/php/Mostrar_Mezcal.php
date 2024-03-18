@@ -2,7 +2,7 @@
 include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_Mezcal.php');
 
 
-$base = new MostrarBit();
+$base = new MostrarMez();
 $base->instancias();
 
 if (isset($_POST['consulta'])) {
@@ -57,10 +57,12 @@ if ($resultado) {
         $salida .= '<td>' . $fila["IDClase"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
       
+      
+
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  href="#"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modifica</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

@@ -1,14 +1,11 @@
 <?php
 include('../../../config/Crud_bd.php');
-
 class NuevosCampos{
     private $base;
-
     function conexion(){
         $this->base = new Crud_bd();
         $this->base->conexion_bd();
     }
-
     function obtenerIDClase($clase) {
         $q = "SELECT IDClase FROM clasemezcal WHERE Clase_Mezcal = :clase";
         $params = array(":clase" => $clase);
@@ -21,7 +18,6 @@ class NuevosCampos{
             return false;
         }
     }
-
     function obtenerIDCategoria($categoria) {
         $q = "SELECT IDCategoria FROM categoriamezcal WHERE Categoria = :categoria";
         $params = array(":categoria" => $categoria);
@@ -38,8 +34,6 @@ class NuevosCampos{
     function insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie){
 
         $IDClase = $this->obtenerIDClase($clase);
-        
-  
         $IDCategoria = $this->obtenerIDCategoria($categoria);
 
 
