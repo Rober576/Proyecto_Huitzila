@@ -1,8 +1,6 @@
 <?php
 require_once('../../../model/Produccion/Modificar/Mod_Datos_Mezcal.php');
 $objeto=new modificarMezcal();
-
-
 $lote=$_POST["lote"];
 $tanque=$_POST["tanque"];
 $IDClase=$_POST["IDClase"];
@@ -14,8 +12,5 @@ $u=$objeto->actualizar($lote, $tanque, $IDClase, $edad, $especie, $IDCategoria);
 
 if ($u==true){
     echo json_encode('exito');
-}else{
-    echo json_encode('fechas');
 }
-
 ?>

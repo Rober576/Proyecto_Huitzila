@@ -1,6 +1,5 @@
 <?php
 include('../../../config/Crud_bd.php');
-
 class ModificarMezcal extends Crud_bd{
     public function obtenerIDClase($clase) {
         $q = "SELECT IDClase FROM clasemezcal WHERE Clase_Mezcal = :clase";
@@ -14,7 +13,6 @@ class ModificarMezcal extends Crud_bd{
             return false;
         }
     }
-
     public function obtenerIDCategoria($categoria) {
         $q = "SELECT IDCategoria FROM categoriamezcal WHERE Categoria = :categoria";
         $params = array(":categoria" => $categoria);
@@ -47,7 +45,6 @@ class ModificarMezcal extends Crud_bd{
                 ":especie" => $especie,
                 ":categoria" => $IDCategoria,
             ];
-
             $datos = $this->insertar_eliminar_actualizar($consulta, $parametros);
             $this->cerrar_conexion();
             return $datos;

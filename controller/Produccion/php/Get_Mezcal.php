@@ -7,12 +7,12 @@ $lote=$_GET["lote"];
 $objeto=new MostrarMez();
 $resultado=$objeto->buscar_datos($id);
 
-$lote=$resultado[0]['Lote'];
-$tanque=$resultado[0]['Tanque'];
-$categoria=$resultado[0]['IDCategoria'];
+$lote=$resultado[0]['lote'];
+$tanque=$resultado[0]['tanque'];
+$categoria=$resultado[0]['categoria'];
 $clase=$resultado[0]['IDClase'];
-$especie=$resultado[0]['Especie'];
-$edad=$resultado[0]['Edad'];
+$especie=$resultado[0]['especie'];
+$edad=$resultado[0]['edad'];
 
 
 ?>
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("lote").value = "<?php echo $lote ?>";
     document.getElementById("tanque").value = "<?php echo $tanque ?>";
     document.getElementById("categoria").value = "<?php echo $categoria ?>";
-    document.getElementById("clase").value = "<?php echo $clase ?>";
+    document.getElementById("IDClase").value = "<?php echo $clase ?>";
     document.getElementById("especie").value = "<?php echo $especie ?>";
     document.getElementById("edad").value = "<?php echo $edad ?>";
    
