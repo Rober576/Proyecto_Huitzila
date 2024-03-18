@@ -2,7 +2,7 @@
 $(buscar_datos());
 function buscar_datos(consulta){
     $.ajax({
-        url: '../../../controller/Agricola/Predios/php/Mostrar_Predio.php',
+        url: '../../../controller/Agricola/Predios/php/Consultar_Predio.php',
         type: 'POST',
         dataType: 'html',
         data: { consulta: consulta },
