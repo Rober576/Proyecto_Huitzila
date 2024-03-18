@@ -2,29 +2,24 @@
 include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_Mezcal.php');
 include_once('../../../view/Produccion/Modificar_Mezcal.html');
 
-$lote=$_GET["lote"];
-
+$id=$_GET["id"];
 $objeto=new MostrarMez();
 $resultado=$objeto->buscar_datos($id);
-
-$lote=$resultado[0]['lote'];
-$tanque=$resultado[0]['tanque'];
-$categoria=$resultado[0]['categoria'];
+$lote=$resultado[0]['Lote'];
+$tanque=$resultado[0]['Tanque'];
+$categoria=$resultado[0]['IDCategoria'];
 $clase=$resultado[0]['IDClase'];
-$especie=$resultado[0]['especie'];
-$edad=$resultado[0]['edad'];
-
-
+$especie=$resultado[0]['Especie'];
+$edad=$resultado[0]['Edad'];
 ?>
 <!-- script para poner los valores en los campos correspondientes -->
 
 <script languaje="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    var selectEspecie = document.getElementById('especie');
+    var agave ="<?php echo $agave ?>"
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    var selectClase = document.getElementById('clases');
-   
-    fetch('Obtener_Categorias_Clase_Especie.php?tipo=clases')
+    fetch('Obtener_Categorias_Clase_Especie.php?tipo=especies')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -32,42 +27,23 @@ document.addEventListener('DOMContentLoaded', function() {
             option.value = item;
             option.textContent = item;
 
-            if (selectClase) {
-                selectClase.appendChild(option);
+            if (selectEspecie) {
+                selectEspecie.appendChild(option);
             }
-            
+            if(item==agave){
+                selectEspecie.value=agave;
+            }
         });
     })
-    .catch(error => console.error('Error al obtener clases:', error));
+    .catch(error => console.error('Error al obtener especies:', error));
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    var selectCategoria = document.getElementById('categorias');
-   
-    fetch('Obtener_Categorias_Clase_Especie.php?tipo=categorias')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-
-            if (selectCategoria) {
-                selectCategoria.appendChild(option);
-            }
-            
-        });
-    })
-    .catch(error => console.error('Error al obtener categoias:', error));
-});
-
-
-    document.getElementById("lote").value = "<?php echo $lote ?>";
-    document.getElementById("tanque").value = "<?php echo $tanque ?>";
-    document.getElementById("categoria").value = "<?php echo $categoria ?>";
+    document.getElementById("Lote").value = "<?php echo $lote ?>";
+    document.getElementById("Tanque").value = "<?php echo $tanque ?>";
+    document.getElementById("IDCategoria").value = "<?php echo $categoria ?>";
     document.getElementById("IDClase").value = "<?php echo $clase ?>";
-    document.getElementById("especie").value = "<?php echo $especie ?>";
-    document.getElementById("edad").value = "<?php echo $edad ?>";
+    document.getElementById("Especie").value = "<?php echo $especie ?>";
+    document.getElementById("Edad").value = "<?php echo $edad ?>";
    
    
 </script>
