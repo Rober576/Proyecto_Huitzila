@@ -51,9 +51,6 @@ class ModificarMezcal extends Crud_bd{
             $datos = $this->insertar_eliminar_actualizar($consulta, $parametros);
             $this->cerrar_conexion();
             return $datos;
-        } else {
-            // Manejar el caso donde no se puedan obtener los IDs
-            return false;
         }
     }
 }

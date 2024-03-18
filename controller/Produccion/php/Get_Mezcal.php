@@ -22,10 +22,9 @@ $edad=$resultado[0]['Edad'];
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    var selectEspecie = document.getElementById('especie');
-    var agave ="<?php echo $agave ?>"
-
-    fetch('Obtener_Categorias_Clase_Especie.php?tipo=especies')
+    var selectClase = document.getElementById('clases');
+   
+    fetch('Obtener_Categorias_Clase_Especie.php?tipo=clases')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -33,15 +32,33 @@ document.addEventListener('DOMContentLoaded', function() {
             option.value = item;
             option.textContent = item;
 
-            if (selectEspecie) {
-                selectEspecie.appendChild(option);
+            if (selectClase) {
+                selectClase.appendChild(option);
             }
-            if(item==agave){
-                selectEspecie.value=agave;
-            }
+            
         });
     })
-    .catch(error => console.error('Error al obtener especies:', error));
+    .catch(error => console.error('Error al obtener clases:', error));
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var selectCategoria = document.getElementById('categorias');
+   
+    fetch('Obtener_Categorias_Clase_Especie.php?tipo=categorias')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(item => {
+            var option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+
+            if (selectCategoria) {
+                selectCategoria.appendChild(option);
+            }
+            
+        });
+    })
+    .catch(error => console.error('Error al obtener categoias:', error));
 });
 
 
