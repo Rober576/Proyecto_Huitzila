@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnModificar.addEventListener("click", function() {
         // Redirigir a la ventana de modificación
-        
+        console.log("entra aqui")
         window.location.href = "../../view/Produccion/Modificar_Bitacora.html";
     });
 

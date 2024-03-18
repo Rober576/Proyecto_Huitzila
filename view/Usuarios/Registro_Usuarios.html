@@ -38,19 +38,8 @@
 		
 						<li>
 							<a href="#">
-								<i ></i>
-								Usuarios
-							</a>
-				
-							<ul>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#">
 							<i ></i>
-							Trabajadores
+							Agrícola
 							</a>
 			
 							<ul>
@@ -62,7 +51,19 @@
 						<li>
 							<a href="#">
 								<i ></i>
-								Certificaciones
+								Producción
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Envasado
 							</a>
 				
 							<ul>
@@ -74,7 +75,7 @@
 						<li>
 							<a href="#">
 								<i ></i>
-								Cursos
+								Calidad
 							</a>
 				
 							<ul>
@@ -82,6 +83,31 @@
 								<li><a >Mostrar</a></li>
 							</ul>
 						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Ventas
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Mostrar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li ><a href="../Usuarios/Registro_Usuarios.html">Registro</a></li>
+                                <li><a href="../Usuarios/Mostrar_Usuarios.html">Mostrar</a></li>
+							</ul>
+						</li>
+
 					</ul>
         		</nav>
       		</div>
@@ -99,17 +125,17 @@
             <br>
             <form class="formulario-datos" id="advanced-form">
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Clave de usuario</label>
+                    <label class="label_datos" for="nombre">Clave de usuario*</label>
                     <input type="text" id="clave_us" name="clave_us" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Nombre</label>
+                    <label class="label_datos" for="nombre">Nombre*</label>
                     <input type="text" id="nombre_us" name="nombre_us" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="apellido">Apellido paterno</label>
+                    <label class="label_datos" for="apellido">Apellido paterno*</label>
                     <input type="text" id="apellido_pat" name="apellido_pat" required>
                 </div>
 
@@ -119,17 +145,17 @@
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="email">Email</label>
+                    <label class="label_datos" for="email">Email*</label>
                     <input type="email" id="email_us" name="email_us" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="email">Contraseña</label>
+                    <label class="label_datos" for="email">Contraseña*</label>
                     <input type="password" id="email" name="email" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="area_us">Área</label>
+                    <label class="label_datos" for="area_us">Área*</label>
                     <select id="area_us" name="area_us" required>
                         <option value="1">Agrícola</option>
                         <option value="2">Producción</option>
@@ -142,7 +168,7 @@
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="tipo_us">Tipo de usuario</label>
+                    <label class="label_datos" for="tipo_us">Tipo de usuario*</label>
                     <select id="tipo_us" name="tipo_us" required>
                         <option value="1">Jefe de área</option>
                         <option value="2">Usuario normal</option>

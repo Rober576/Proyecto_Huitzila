@@ -1,49 +1,95 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_Mezcal.php');
+include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_MezcalM.php');
 include_once('../../../view/Produccion/Modificar_Mezcal.html');
 
-$id=$_GET["id"];
-$objeto=new MostrarMez();
-$resultado=$objeto->buscar_datos($id);
-$lote=$resultado[0]['Lote'];
-$tanque=$resultado[0]['Tanque'];
-$categoria=$resultado[0]['IDCategoria'];
-$clase=$resultado[0]['IDClase'];
-$especie=$resultado[0]['Especie'];
-$edad=$resultado[0]['Edad'];
+$id = $_GET["id"];
+$objeto = new MostrarMez();
+$resultado = $objeto->buscar_datos($id);
+echo $resultado;
+$lote = $resultado[0]['Lote'];
+$especie = $resultado[0]['NombrePlanta'];
+$tanque = $resultado[0]['Tanque'];
+$clase = $resultado[0]['IDClase'];
+$edad = $resultado[0]['Edad'];
+$categoria = $resultado[0]['IDCategoria'];
+        
 ?>
-<!-- script para poner los valores en los campos correspondientes -->
+<script language="javascript">
+    console.log("modificando");
 
-<script languaje="javascript">
     document.addEventListener('DOMContentLoaded', function() {
-    var selectEspecie = document.getElementById('especie');
-    var agave ="<?php echo $agave ?>"
+        var selectEspecie = document.getElementById('especie');
+        var especie = "<?php echo $especie ?>";
 
-    fetch('Obtener_Categorias_Clase_Especie.php?tipo=especies')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
+        fetch('Obtener_Categorias_Clase_Especie.php?tipo=especies')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
 
-            if (selectEspecie) {
-                selectEspecie.appendChild(option);
-            }
-            if(item==agave){
-                selectEspecie.value=agave;
-            }
-        });
-    })
-    .catch(error => console.error('Error al obtener especies:', error));
-});
+                    if (selectEspecie) {
+                        selectEspecie.appendChild(option);
+                    }
+                    if (item == especie) {
+                        selectEspecie.value = especie;
+                    }
+                });
+            })
+            .catch(error => console.error('Error al obtener especies:', error));
+    });
 
-    document.getElementById("Lote").value = "<?php echo $lote ?>";
-    document.getElementById("Tanque").value = "<?php echo $tanque ?>";
-    document.getElementById("IDCategoria").value = "<?php echo $categoria ?>";
-    document.getElementById("IDClase").value = "<?php echo $clase ?>";
-    document.getElementById("Especie").value = "<?php echo $especie ?>";
-    document.getElementById("Edad").value = "<?php echo $edad ?>";
-   
-   
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectCategoria = document.getElementById('categoria');
+        var categoria = "<?php echo $categoria?>";
+
+        fetch('Obtener_Categorias_Clase_Especie.php?tipo=categorias')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
+
+                    if (selectCategoria) {
+                        selectCategoria.appendChild(option);
+                    }
+                    if (item == categoria) {
+                        selectCategoria.value = categoria;
+                    }
+                });
+            })
+            .catch(error => console.error('Error al obtener especies:', error));
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectClases = document.getElementById('clase');
+        var clase = "<?php echo $clase ?>";
+
+        fetch('Obtener_Categorias_Clase_Especie.php?tipo=clases')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
+
+                    if (selectClases) {
+                        selectClases.appendChild(option);
+                    }
+                    if (item == clase) {
+                        selectClases.value = clase;
+                    }
+                });
+            })
+            .catch(error => console.error('Error al obtener especies:', error));
+    });
+
+    document.getElementById("lote").value = "<?php echo $lote ?>";
+    document.getElementById("lote").readOnly = true;
+    document.getElementById("tanque").value = "<?php echo $tanque ?>";
+    document.getElementById("edad").value = "<?php echo $edad ?>";
+    console.log("ya modificados");
+    
 </script>

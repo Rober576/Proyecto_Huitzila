@@ -1,6 +1,5 @@
 
 function buscar_datos(consulta) {
-
     var url = '../../controller/Produccion/php/Mostrar_Mezcal.php';
 
     if (consulta !== "") {
@@ -16,8 +15,8 @@ function buscar_datos(consulta) {
     xhr.onload = function() {
         if (xhr.status === 200) {
 
-            document.getElementById("tabla_Bit").innerHTML = xhr.responseText;
-
+            document.getElementById("tabla_Mez").innerHTML = xhr.responseText;
+            console.log("entro aqui")
             agregarEventosEliminar();
             agregarEventosEditar();
         } else {
@@ -66,7 +65,7 @@ function agregarEventosEditar() {
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
 
-            window.location.href = "../../view/Produccion/Modificar_Mezcal.html";
+            window.location.href = "#";
 
            
         });

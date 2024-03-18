@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="..\../public/css/Plantilla.css">
     <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
     <link rel="stylesheet" href="..\../public/css/cssProduccion.css">
-    
-	
+	<script src="../../controller/Produccion/js/Mostrar_Mezcal.js"></script>
 </head>
 <body>
     <header>
@@ -104,37 +103,24 @@
 
     <div class="tabla_titulo"><h2>Mostrar mezcal</h2>
         <br></div>    
-    <section class="table-container" id="tabla_Bit">
+    <section class="table-container" id="tabla_Mez">
         <table>
             <thead>
                 <tr>
-                    <th>Fecha</th>
-                    <th>No. de lote</th>
-                    <th>Análisis fisicoquímico</th>
-                    <th>Categoría</th>
-                    <th>Clase</th>
-                    <th>Tanque</th>
-
-                    <th>Acciones</th>
-
-                    <!--<th>Lote</th>
-                    <th>Tanque</th>
-                    <th>Categoria</th>
+                  
+                    <th>No. de Lote</th>
+                    <th>Nombre Planta</th>
+					<th>Tanque</th>
                     <th>Clase</th>
                     <th>Edad</th>
-                    <th>Acciones</th>-->
+                    <th>Categoria</th>
+                    <th>Acciones</th>
                    
                     
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <!--<td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>-->
                     <td></td>
                     <td></td>
                     <td></td>
@@ -144,7 +130,7 @@
                     <td></td>
                     
                     <td><div class="acciones">
-                        <button class="boton-modificar" type="submit">Modificar</button>
+                        <button class="boton-modificar" id="modificar" type="submit">Modificar</button>
                         <button class="boton-eliminar" type="submit">Eliminar</button>
                     </div></td>
                     
@@ -156,9 +142,5 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-	<script src="../../controller/Produccion/js/Mostrar_Mezcal.js"></script>
-
-	
-
 </body>
 </html>
