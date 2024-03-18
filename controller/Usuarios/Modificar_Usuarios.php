@@ -6,8 +6,8 @@ $c1 = $_POST["nombre_us"];
 $c2 = $_POST["apellido_pat"];
 $c3 = $_POST["apellido_mat"];
 $c4 = $_POST["email_us"];
-$c5 = $_POST["area_us"];
-$c6 = $_POST["tipo_us"];
+$c5 = $_POST["tipo_us"];
+$c6 = $_POST["area_us"];
 
 //instanciar la clase y llamar la funcion para insertar
 $obj = new NuevosCampos();
