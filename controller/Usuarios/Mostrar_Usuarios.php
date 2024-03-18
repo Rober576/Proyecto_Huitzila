@@ -46,7 +46,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
         $salida .= ' | ';
-        $salida .= '<a href="../../view/ejemplo/Mod_Equipo1.html?id=' . $id . '">Editar</a>';
+        $salida .= '<a href="../../view/Usuarios/Editar_Usuario.html?id=' . $id . '">Editar</a>';
         $salida .= '</td>';
 
         $salida .= '</tr>';
