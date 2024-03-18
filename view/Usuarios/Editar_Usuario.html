@@ -105,7 +105,7 @@
 
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Clave de usuario</label>
-                    <input type="text" id="clave_us" name="clave_us" required>
+                    <input type="text" id="clave_us" name="clave_us" required readonly>
                 </div>
 
                 <div class="grupo1">
@@ -125,7 +125,7 @@
 
                 <div class="grupo1">
                     <label class="label_datos" for="email">Email</label>
-                    <input type="email" id="email_us" name="email_us" required>
+                    <input type="text" id="email_us" name="email_us" required>
                 </div>
 
                 
@@ -134,18 +134,18 @@
                     <label class="label_datos" for="area_us">Área</label>
                     <select id="area_us" name="area_us" required>
                         <option value="1">Agrícola</option>
-                        <option value="prod">Producción</option>
-                        <option value="calidad">Calidad</option>
-                        <option value="envasado">Envasado</option>
-                        <option value="ventas">Ventas</option>
+                        <option value="2">Producción</option>
+                        <option value="3">Envasado</option>
+                        <option value="4">Calidad</option>
+                        <option value="5">Ventas</option>
                     </select>
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="tipo_us">Tipo de usuario</label>
                     <select id="tipo_us" name="tipo_us" required>
-                        <option value="1">Usuario normal</option>
-                        <option value="jefe_area">Jefe de área</option>
+                        <option value="2">Usuario normal</option>
+                        <option value="1">Jefe de área</option>
                     </select>
                 </div>
 
@@ -164,6 +164,7 @@
     </footer>
 
     <script src="../../controller/Usuarios/js/Modificar_Usuarios.js"></script>
+    <script src="../../controller/Usuarios/js/Registro_Modificar.js"></script>
 </body>
 
 </html>
