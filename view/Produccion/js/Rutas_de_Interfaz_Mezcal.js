@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnModificar.addEventListener("click", function() {
         // Redirigir a la ventana de modificación
-        
-        window.location.href = "../../view/Produccion/Modificar_Mezcal.html";
+
+        console.log("entro al de rutas de interfaz")
+        window.location.href = "../../controller/Produccion/php/Get_Mezcal.php";
     });
 
     btnEliminar.addEventListener("click", function() {

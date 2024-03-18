@@ -17,7 +17,7 @@ function buscar_datos(consulta) {
         if (xhr.status === 200) {
 
             document.getElementById("tabla_Bit").innerHTML = xhr.responseText;
-
+            console.log("estro aqui")
             agregarEventosEliminar();
             agregarEventosEditar();
         } else {
