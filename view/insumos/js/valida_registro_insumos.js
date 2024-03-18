@@ -32,7 +32,8 @@ const expresion = {
     Nombre: /^[a-zA-Z0-9\s.]{1,50}$/,
     Descripcion: /^[a-zA-Z0-9\s.,_-]{1,100}$/,
     Unidades: /^[a-zA-Z\s]{1,10}$/,
-    Existencia: /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/,
+    Existencia: /^\d+$/,
+    FechaReg: /^(0[1-9]|1[0-2])\s(0[1-9]|[12][0-9]|3[01])\s([0-9]{2})$/,
     Stockmi: /^\d+$/,
     Stockma: /^\d+$/,
     Costo: /^\d+(\.\d{1,2})?$/,
@@ -127,6 +128,24 @@ insumos_form.Existencia.addEventListener('keyup', (e) =>{
 });
 
 
+// Escuchador de eventos para el campo FechaReg
+insumos_form.FechaReg.addEventListener('keyup', (e) =>{
+    let valorInput = e.target.value;
+
+    // Asigna el valor al campo
+    insumos_form.FechaReg.value = valorInput;
+
+    // Verifica con la expresión regular
+    if(!expresion.FechaReg.test(valorInput)){
+        insumos_form.FechaReg.style.border = "5px solid red";
+        bandera6 = false;
+    } else {
+        insumos_form.FechaReg.removeAttribute("style");
+        bandera6 = true;
+    }
+});
+
+
 // Escuchador de eventos para el campo Stockmi
 insumos_form.Stockmi.addEventListener('keyup', (e) =>{
     let valorInput = e.target.value;
@@ -137,10 +156,10 @@ insumos_form.Stockmi.addEventListener('keyup', (e) =>{
     // Verifica con la expresión regular
     if(!expresion.Stockmi.test(valorInput)){
         insumos_form.Stockmi.style.border = "5px solid red";
-        bandera6 = false;
+        bandera7 = false;
     } else {
         insumos_form.Stockmi.removeAttribute("style");
-        bandera6 = true;
+        bandera7 = true;
     }
 });
 
@@ -155,10 +174,10 @@ insumos_form.Stockma.addEventListener('keyup', (e) =>{
     // Verifica con la expresión regular
     if(!expresion.Stockma.test(valorInput)){
         insumos_form.Stockma.style.border = "5px solid red";
-        bandera7 = false;
+        bandera8 = false;
     } else {
         insumos_form.Stockma.removeAttribute("style");
-        bandera7 = true;
+        bandera8 = true;
     }
 });
 
@@ -173,9 +192,9 @@ insumos_form.Costo.addEventListener('keyup', (e) =>{
     // Verifica con la expresión regular
     if(!expresion.Costo.test(valorInput)){
         insumos_form.Costo.style.border = "5px solid red";
-        bandera8 = false;
+        bandera9 = false;
     } else {
         insumos_form.Costo.removeAttribute("style");
-        bandera8 = true;
+        bandera9 = true;
     }
 });

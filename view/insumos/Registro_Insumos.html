@@ -124,7 +124,12 @@
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Exitencia">Existencia</label>
-					<input type="date" id="Existencia" name="Existencia" required>
+					<input type="number" id="Existencia" name="Existencia" required>
+				</div>
+
+				<div class="grupo1">
+					<label class="label_datos" for="FechaReg">Fecha de registro</label>
+					<input type="date" id="FechaReg" name="FechaReg" required>
 				</div>
 				
 				<div class="grupo1">
@@ -145,7 +150,7 @@
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" class="Boton_cancelar">Cancelar</button>
+						<button type="button" class="Boton_cancelar" id="Cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
@@ -160,5 +165,6 @@
     </footer>
 	<script src="../../controller/Insumos/js/reg_insumos.js"></script>
 	<script src="../../view/insumos/js/valida_registro_insumos.js"></script>
+	<script src="/view/insumos/js/Cancela_Reg_Insumos.js"></script>
 </body>
 </html>

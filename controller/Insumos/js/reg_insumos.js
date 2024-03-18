@@ -4,7 +4,7 @@ document.getElementById('insumos_form').addEventListener('submit', function (eve
 
     // Verifica que todas las banderas de los campos sean válidas
     function todasBanderasAceptadas() {
-        if((bandera1 && bandera2 && bandera3 && bandera4 && bandera5 && bandera6 && bandera7 && bandera8)==true){
+        if((bandera1 && bandera2 && bandera3 && bandera4 && bandera5 && bandera6 && bandera7 && bandera8 && bandera9)==true){
             return true; 
         }else{
             return false;

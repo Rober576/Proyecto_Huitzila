@@ -6,13 +6,14 @@ $c2 = $_POST["Nombre"];
 $c3 = $_POST["Descripcion"];
 $c4 = $_POST["Unidades"];
 $c5 = $_POST["Existencia"];
-$c6 = $_POST["Stockmi"];
-$c7 = $_POST["Stockma"];
-$c8 = $_POST["Costo"];
+$c6 = $_POST["FechaReg"];
+$c7 = $_POST["Stockmi"];
+$c8 = $_POST["Stockma"];
+$c9 = $_POST["Costo"];
 
 //instanciar la clase y llamar la funcion para insertar
 $obj = new Registro_Insumos();
 $obj->conexion();
-$obj->insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8);
+$obj->insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8, $c9);
 echo json_encode('exito');
 ?>
