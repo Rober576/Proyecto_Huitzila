@@ -22,12 +22,11 @@ const expresion = {
     nombre: /^[A-Za-z. ]{1,40}$/,
     paterno: /^[A-Za-z. ]{1,20}$/,
     materno: /^[A-Za-z. ]{0,20}$/,
-    email:/^([^@~`;]{0,}|)$/,
-    password:/^([^@~`;]{0,}|)$/,
+    email:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
 }
 
-
-//se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
+var registro = document.getElementById('registro');
 registro.clave_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     registro.clave_us.value = valorInput
@@ -84,16 +83,30 @@ registro.apellido_mat.addEventListener('keyup', (e) => {
     }
 });
 
-registro.campo5.addEventListener('keyup', (e) => {
+registro.email_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    registro.campo5.value = valorInput
+    registro.email_us.value = valorInput
 
-    if (!expresion.campo5.test(valorInput)) {
-        campo5.style.border = "5px solid red";
+    if (!expresion.email.test(valorInput)) {
+        email_us.style.border = "5px solid red";
         bandera5 = false;
     } else {
-        campo5.removeAttribute("style");
+        email_us.removeAttribute("style");
         bandera5 = true;
+    }
+});
+
+registro.email.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    registro.email.value = valorInput
+
+    if (!expresion.password.test(valorInput)) {
+        email.style.border = "5px solid red";
+        bandera6 = false;
+    } else {
+        email.removeAttribute("style");
+        bandera6 = true;
     }
 });
