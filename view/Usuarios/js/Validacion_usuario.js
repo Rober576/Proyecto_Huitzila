@@ -21,7 +21,7 @@ const expresion = {
     clave: /^[A-Za-z0-9]{1,7}$/,
     nombre: /^[A-Za-z. ]{1,40}$/,
     paterno: /^[A-Za-z. ]{1,20}$/,
-    materno: /^\d{2}[A-Za-z]{5}$/,
+    materno: /^[A-Za-z. ]{0,20}$/,
     email:/^([^@~`;]{0,}|)$/,
     password:/^([^@~`;]{0,}|)$/,
 }
@@ -71,41 +71,24 @@ registro.apellido_pat.addEventListener('keyup', (e) => {
     }
 });
 
-Equipo1.campo4.addEventListener('keyup', (e) => {
+registro.apellido_mat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a 7 caracteres (2 números + 5 letras)
-    valorInput = valorInput.slice(0, 7);
-
-    // Asigna el valor al campo
-    Equipo1.campo4.value = valorInput
-
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûáéíóúÁÉÍÓÚùÿÖÜ¢£¥₧ƒª`´·.¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
-
-    // Verifica si cumple con la expresión regular
-    if (!expresion.campo4.test(valorInput)) {
-        campo4.style.border = "5px solid red";
+    registro.apellido_mat.value = valorInput
+    if (!expresion.materno.test(valorInput)) {
+        apellido_mat.style.border = "5px solid red";
         bandera4 = false;
     } else {
-        campo4.removeAttribute("style");
+        apellido_mat.removeAttribute("style");
         bandera4 = true;
     }
 });
 
-// Escuchador de eventos para el campo de descripción
-Equipo1.campo5.addEventListener('keyup', (e) => {
+registro.campo5.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a un máximo (opcional)
-    valorInput = valorInput.slice(0); // Por ejemplo, se limita a 255 caracteres
+    registro.campo5.value = valorInput
 
-    // Asigna el valor al campo
-    Equipo1.campo5.value = valorInput
-
-    .replace(/[@~`;]/g, '')
-
-    // Verifica si cumple con la expresión regular
     if (!expresion.campo5.test(valorInput)) {
         campo5.style.border = "5px solid red";
         bandera5 = false;
