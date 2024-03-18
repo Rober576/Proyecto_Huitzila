@@ -77,6 +77,6 @@ echo $salida;
 
 ?>
 
-<script src="../../controller/Insumos/Eliminar_insumo.js"></script>
+<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
 
 
