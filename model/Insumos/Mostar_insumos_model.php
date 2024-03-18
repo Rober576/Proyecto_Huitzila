@@ -1,19 +1,31 @@
 <?php
-// Incluir el archivo Crud.php para interactuar con la base de datos
-require_once '../../config/Crud_bd.php';
+include('../../config/Crud_bd.php');
+class MostrarCampos{
+    private $base;
 
-// Función para obtener todos los insumos desde la base de datos
-function obtener_Insumos() {
-    // Crear una instancia de la clase Crud_bd para realizar consultas
-    $crud = new Crud_bd();
-    $conexion = $crud->conexion_bd();
-    // Consulta SQL para seleccionar todos los insumos
-    $query = "SELECT * FROM insumos";
-    // Ejecutar la consulta y obtener los resultados
-    $insumos = $crud->mostrar($query);
-    // Cerrar conexión con la base de datos
-    $crud->cerrar_conexion();
-    return $insumos;
+    function instancias(){
+        $this->base = new Crud_bd();
+        $this->base->conexion_bd();
+    }
+
+    function getEjemplo(){
+        $query = "SELECT * FROM insumos";
+        $resultados = $this->base->mostrar($query);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
+    function buscador($busqueda){
+        $query = "SELECT * FROM insumos WHERE IDInsumo LIKE :busqueda OR NombreInsumo LIKE :busqueda OR Descripcion LIKE :busqueda 
+        OR Unidades LIKE :busqueda OR Existencia LIKE :busqueda OR FechaReg LIKE :busqueda OR StockMinimo LIKE :busqueda 
+        OR StockMaximo LIKE :busqueda OR Costo LIKE :busqueda";
+        
+        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+        $this->base->cerrar_conexion();
+        echo $_POST['consulta'];
+        return $resultados;
+        echo $resultados;
+    }
 }
-?>
 
+$obj = new MostrarCampos();
+$obj->instancias();
