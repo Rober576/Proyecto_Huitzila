@@ -4,7 +4,6 @@ var respuesta = document.getElementById('respuesta');
 
 //responde cuando hay un click en el boton
 formulario.addEventListener('submit', function (e)
-
 {
     console.log("Mensaje de prueba en la consola");
     var datos= new FormData(formulario);

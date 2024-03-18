@@ -6,7 +6,7 @@ class ModificarMezcal extends Crud_bd{
         
         // Obtener los IDs de clase y categoría
     
-        $consulta = "UPDATE registromezcal SET Tanque=:tanque, IDClase=:clase, NombrePLanta=:especie, Edad=:edad, IDCategoria=:categoria 
+        $consulta = "UPDATE registromezcal SET Tanque=:tanque, IDClase=:clase, NombrePlanta=:especie, Edad=:edad, IDCategoria=:categoria 
                         WHERE Lote=:lote";
         $parametros = [
             
