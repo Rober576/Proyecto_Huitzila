@@ -18,77 +18,55 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    campo1: /^[A-Za-z0-9]{1,7}$/,
-    campo2: /^\d{10}$/,
-    campo3: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    campo4: /^\d{2}[A-Za-z]{5}$/,
-    campo5:/^([^@~`;]{0,}|)$/,
-    campo6:/^([^@~`;]{0,}|)$/,
+    clave: /^[A-Za-z0-9]{1,7}$/,
+    nombre: /^[A-Za-z. ]{1,40}$/,
+    paterno: /^[A-Za-z. ]{1,20}$/,
+    materno: /^\d{2}[A-Za-z]{5}$/,
+    email:/^([^@~`;]{0,}|)$/,
+    password:/^([^@~`;]{0,}|)$/,
 }
 
 
 //se pone un escuchador de eventos para el campo, para que cuando se escriba se ejecute la función
-Equipo1.campo1.addEventListener('keyup', (e) => {
+registro.clave_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-    Equipo1.campo1.value = valorInput
+    registro.clave_us.value = valorInput
 
-    //elimina caracteres especiales
-    .replace(/[0-9☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòû¢£¥₧ƒª`´·¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
-
-    //verifica que se cumpla con la expresion correpondiente
-    if (!expresion.campo1.test(valorInput)) {
-        campo1.style.border = "5px solid red";
+    if (!expresion.clave.test(valorInput)) {
+        clave_us.style.border = "5px solid red";
         bandera1 = false;
     }
 
     else {
-        campo1.removeAttribute("style");
+        clave_us.removeAttribute("style");
         bandera1 = true;
     }
 });
 
-// Escuchador de eventos para el campo de teléfono
-Equipo1.campo2.addEventListener('keyup', (e) => {
+registro.nombre_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Elimina todo excepto los números
-    valorInput = valorInput.replace(/\D/g, '');
+    registro.nombre_us.value = valorInput;
 
-    // Limita la longitud a 10 caracteres
-    valorInput = valorInput.slice(0, 10);
-
-    // Asigna el valor al campo
-    Equipo1.campo2.value = valorInput;
-
-    // Verifica si cumple con la expresión regular
-    if (!expresion.campo2.test(valorInput)) {
-        campo2.style.border = "5px solid red";
+    if (!expresion.nombre.test(valorInput)) {
+        nombre_us.style.border = "5px solid red";
         bandera2 = false;
     } else {
-        campo2.removeAttribute("style");
+        nombre_us.removeAttribute("style");
         bandera2 = true;
     }
 });
 
-// Escuchador de eventos para el campo de correo electrónico
-Equipo1.campo3.addEventListener('keyup', (e) => {
+registro.apellido_pat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    // Limita la longitud a 60 caracteres
-    valorInput = valorInput.slice(0, 60);
+    registro.apellido_pat.value = valorInput
 
-    // Asigna el valor al campo
-    Equipo1.campo3.value = valorInput
-
-    //elimina caracteres especiales
-    .replace(/[àèìÉòáéíóúÁÉÍÓÚù,;:""''!?+\*/=&$€£¥#%^()ñÑ`~[{}|<>=]/g, '')
-
-    // Verifica si cumple con la expresión regular
-    if (!expresion.campo3.test(valorInput)) {
-        campo3.style.border = "5px solid red";
+    if (!expresion.paterno.test(valorInput)) {
+        apellido_pat.style.border = "5px solid red";
         bandera3 = false;
     } else {
-        campo3.removeAttribute("style");
+        apellido_pat.removeAttribute("style");
         bandera3 = true;
     }
 });
