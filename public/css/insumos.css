@@ -7,14 +7,19 @@ input[type="number"]{
     box-sizing: border-box;
 }
 button.Boton_cancelar{
-    background-color: #C7B392;
-    color: black;
+    background-color: darkred;
+    color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
 }
+
+.Boton_cancelar:hover {
+    background-color: rgb(190, 7, 7); 
+}
+
 .CentrarBoton{
     display: flex;
     flex-direction: column;

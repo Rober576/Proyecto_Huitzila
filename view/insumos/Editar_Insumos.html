@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
-    <link rel="stylesheet" href="../../public/css/insumos.css">
+	<link rel="stylesheet" href="../../public/css/insumos.css">
+    
 </head>
 <body>
     <header>
@@ -90,89 +91,70 @@
 	</header>
 
     <main>
-        <section class="container">
-            <div class="column">
-                <h2>Editar insumos</h2>
-                <form id="advanced-form">
-					<input type="hidden" name="id" value="">
-                    <div>
-                        <label for="Compras">Identificador: </label>
-                        <input type="text" id="Identificador" name="Identificador" required>
-                    </div>
-                    <div>
-                        <label for="Nombre">Nombre: </label>
-                        <input type="text" id="Nombre" name="Nombre" required>
-                    </div>
-					<div>
-                        <label for="Nombre">Descripción: </label>
-                        <textarea name="Descripción" id="Descripción" cols="30" rows="10"></textarea>
-                    </div>
-					<div>
-                        <label for="Unidades">Unidades: </label>
-                        <input type="text" id="Unidades" name="Unidades" required>
-                    </div>
-					<div>
-                        <label for="Exitencia">Exitencia: </label>
-                        <input type="date" id="Exitencia" name="Exitencia" required>
-                    </div>
-					<div>
-                        <label for="Stockmi">Stock minimo: </label>
-                        <input type="number" id="Stockmi" name="Stockmi" required>
-                    </div>
-					<div>
-                        <label for="Stockma">Stock máximo: </label>
-                        <input type="number" id="Stockma" name="Stockma" required>
-                    </div>
-					<div>
-                        <label for="Costo">Costo: </label>
-                        <input type="number" id="Costo" name="Costo" required>
-                    </div>
+        <section class="section-main">
+			<div class="cabezera">
+				<h4 class="h4">Edición de insumos</h4>
+			</div>
+			<br>
+			<p class="subtitulo-1">Datos de los insumos</p>
+			<hr>
+			<br>
 
-                    <div class="CentrarBoton">
-						<div class="Botones">
-							<button type="submit" id="registrar">Enviar</button>
-							<button type="submit" class="Boton_cancelar">Cancelar</button>
-						</div>
+			<form class="formulario-datos" id="insumos_form">
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Compras">Identificador</label>
+					<input type="text" id="Identificador" name="Identificador" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Nombre">Nombre</label>
+					<input type="text" id="Nombre" name="Nombre" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Nombre">Descripción</label>
+					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10"></textarea>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Unidades">Unidades</label>
+					<input type="text" id="Unidades" name="Unidades" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Exitencia">Existencia</label>
+					<input type="date" id="Existencia" name="Existencia" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Stockmi">Stock minimo: </label>
+					<input type="number" id="Stockmi" name="Stockmi" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Stockma">Stock máximo</label>
+					<input type="number" id="Stockma" name="Stockma" required>
+				</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Costo">Costo</label>
+					<input type="number" id="Costo" name="Costo" required>
+				</div>
+				
+				<div class="grupo-boton-reg">
+					<div class="boton_registrar">
+						<button type="submit" id="registrar">Enviar</button>
+						<button type="button" class="Boton_cancelar">Cancelar</button>
 					</div>
-                </form>
-            </div>
-            
-        </section>
-
-        
+				</div>
+			</form>
+        </section> 
     </main>
 
-    <section class="container">
-        
-        <table>
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                </tr>
-                <tr>
-                </tr>
-            </tbody>
-        </table>
-    </section>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
-<style>
-	
-button.Boton_cancelar{
-    background-color: #C7B392;
-    color: black;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-</style>
 </html>
