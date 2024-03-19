@@ -36,6 +36,9 @@ clave_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     clave_us.value = valorInput
 
+    .replace(/\s/g, '')
+    .trim();
+
     if (valorInput.length > 7) {
         clave_us.value = valorInput.slice(0, 7); 
     }
@@ -54,7 +57,10 @@ clave_us.addEventListener('keyup', (e) => {
 nombre_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    nombre_us.value = valorInput;
+    nombre_us.value = valorInput
+
+    .replace(/\s/g, '')
+    .trim();
 
     if (valorInput.length > 40) {
         clave_us.value = valorInput.slice(0, 40);
@@ -74,6 +80,9 @@ apellido_pat.addEventListener('keyup', (e) => {
 
     apellido_pat.value = valorInput
 
+    .replace(/\s/g, '')
+    .trim();
+
     if (valorInput.length > 20) {
         clave_us.value = valorInput.slice(0, 20);
     }
@@ -91,6 +100,8 @@ apellido_mat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     apellido_mat.value = valorInput
+    .replace(/\s/g, '')
+    .trim();
 
     if (valorInput.length > 20) {
         clave_us.value = valorInput.slice(0, 20);
@@ -109,6 +120,9 @@ email_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     email_us.value = valorInput
+
+    .replace(/\s/g, '')
+    .trim();
 
     if (valorInput.length > 40) {
         clave_us.value = valorInput.slice(0, 40);
