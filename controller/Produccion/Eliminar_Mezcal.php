@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Eliminar/Eliminar_Mezcal.php');
+include_once('../../model/Produccion/Eliminar_Mezcal.php');
 
 $base = new EliminarCampos();
 $base->instancias();

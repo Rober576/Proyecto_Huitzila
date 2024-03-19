@@ -8,7 +8,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
     console.log("Antes de fetch"); // Agregado para depuración
-    fetch('../php/Modificar_Mezcal.php', {
+    fetch('../../../controller/Produccion/Modificar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
@@ -16,13 +16,11 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     .then(data => {
         console.log("Después de fetch"); // Agregado para depuración
         console.log(data); // Agregado para depuración
-        if (data.trim() === 'exito') {
-            alert("Actualización exitosa");
-            location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
-        } else if (data.trim() === 'no exito') {
+        if (data.trim() === 'no exito') {
             alert("Hubo un error");
         } else {
-            alert(data); // Muestra cualquier otro mensaje de error
+            alert("Actualización exitosa");
+            location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
         }
     })
     .catch(error => {

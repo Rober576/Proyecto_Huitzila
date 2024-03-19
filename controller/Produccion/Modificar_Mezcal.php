@@ -1,5 +1,5 @@
 <?php
-require_once('../../../model/Produccion/Modificar/Mod_Datos_Mezcal.php');
+require_once('../../model/Produccion/Mod_Datos_Mezcal.php');
 $objeto=new modificarMezcal();
 echo("entra aquiSSSSSS");
 $lote=$_POST["lote"];

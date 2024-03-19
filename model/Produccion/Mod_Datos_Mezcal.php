@@ -1,5 +1,5 @@
 <?php
-include('../../../config/Crud_bd.php');
+include('../../config/Crud_bd.php');
 class ModificarMezcal extends Crud_bd{
     public function actualizar($lote, $tanque, $clase, $edad, $especie, $categoria){
         $this->conexion_bd();
