@@ -37,8 +37,9 @@ fetch(`../../controller/Usuarios/Registro_Modificar.php?id=${id}`)
             document.getElementById('apellido_pat').value = campo3;
             document.getElementById('apellido_mat').value = campo4;
             document.getElementById('email_us').value = campo5;
-            document.getElementById('tipo_us').value = campo6;
-            document.getElementById('area_us').value = campo7;
+            document.getElementById('area_us').value = campo6;
+            document.getElementById('tipo_us').value = campo7;
+            console.log(campo1)
 
         });// Mostrar los datos en la consola
     })
