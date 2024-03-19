@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_BitacoraM.php');
+include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_Bitacora.php');
 
 $base = new MostrarBit();
 $base->instancias();
