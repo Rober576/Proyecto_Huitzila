@@ -1,53 +1,29 @@
 <?php
-session_start();
+include_once('../../config/Crud_bd.php');
 
-// Función para verificar si el usuario es administrador
-function verificar_admin() {
-    if (!isset($_SESSION["usuario_id"]) || $_SESSION["rol"] != "admin") {
-        header("Location: login.php");
-        exit();
+class ObtenerDetallesAdmin {
+    private $base;
+
+     function instancias() {
+        $this->base = new Crud_bd();
+        $this->base->conexion_bd();
+    }
+
+     function obtener($id) {
+        $query = "SELECT Nombre, IdenttificadorArea FROM usuarios WHERE Clave = :Clave";
+        $resultado = $this->base->mostrar($query, [":Clave" => $id]);
+        $this->base->cerrar_conexion();
+        return $resultado;
     }
 }
-
-// Función para conectar a la base de datos
-function conectar_bd() {
-    $conexion = new mysqli("localhost", "root", "", "hola");
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
-    }
-    return $conexion;
-}
-
-// Función para obtener los detalles del administrador
-function obtener_detalles_admin() {
-    verificar_admin(); // Verificar si el usuario es administrador
-    $conexion = conectar_bd(); // Conectar a la base de datos
-    
-    $consulta_admin = $conexion->prepare("SELECT nombre, area FROM usuarios WHERE id=?");
-    $consulta_admin->bind_param("i", $_SESSION["usuario_id"]);
-    $consulta_admin->execute();
-    $resultado_admin = $consulta_admin->get_result();
-    
-    if ($resultado_admin->num_rows == 1) {
-        $fila_admin = $resultado_admin->fetch_assoc();
-        $nombre_admin = $fila_admin["nombre"];
-        $area_admin = $fila_admin["area"];
-        $conexion->close();
-        return array("nombre" => $nombre_admin, "area" => $area_admin);
-    } else {
-        $conexion->close();
-        return false; // No se encontró el administrador
-    }
-}
-
-
 
 // Obtener los detalles del administrador
-$detalles_admin = obtener_detalles_admin();
+$obtenerDetallesAdmin = new ObtenerDetallesAdmin();
+$detalles_admin = $obtenerDetallesAdmin->obtener($_SESSION["usuario_id"]);
+
 if ($detalles_admin) {
-    $nombre_admin = $detalles_admin["nombre"];
-    $area_admin = $detalles_admin["area"];
+    $nombre_admin = $detalles_admin[0]["Nombre"];
+    $area_admin = $detalles_admin[0]["IdentificadorArea"];
     // Hacer algo con los detalles obtenidos
 }
 ?>
-
