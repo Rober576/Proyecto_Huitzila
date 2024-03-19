@@ -35,6 +35,7 @@ if ($resultado) {
     
         $salida .= '<tr>';
         $Lote= $fila['Lote'];
+        
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' .$fila["NombrePlanta"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';

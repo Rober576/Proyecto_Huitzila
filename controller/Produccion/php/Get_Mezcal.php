@@ -8,6 +8,8 @@ $resultado = $objeto->buscar_datos($id);
 $lote = $resultado['Lote'];
 $especie = $resultado[0]['NombrePlanta'];
 $tanque = $resultado[0]['Tanque'];
+echo $tanque;
+echo $id;
 $clase = $resultado[0]['IDClase'];
 $edad = $resultado[0]['Edad'];
 $categoria = $resultado[0]['IDCategoria'];
@@ -77,11 +79,11 @@ $categoria = $resultado[0]['IDCategoria'];
 
         
 });
-
+    document.getElementById("lote").value = "<?php echo $id ?>";
+    document.getElementById("lote").readOnly = true;
     
     document.getElementById("tanque").value = "<?php echo $tanque ?>";
     document.getElementById("edad").value = "<?php echo $edad ?>";
-    document.getElementById("lote").value = "<?php echo $lote ?>";
-    document.getElementById("lote").readOnly = true;
+   
     
 </script>
