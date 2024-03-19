@@ -36,9 +36,14 @@ clave_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     clave_us.value = valorInput
 
+    if (valorInput.length > 7) {
+        clave_us.value = valorInput.slice(0, 7); 
+    }
+
     if (!expresion.clave.test(valorInput)) {
         clave_us.style.border = "5px solid red";
         bandera1 = false;
+        e.target.value = "";
     }
 
     else {
@@ -52,9 +57,14 @@ nombre_us.addEventListener('keyup', (e) => {
 
     nombre_us.value = valorInput;
 
+    if (valorInput.length > 40) {
+        clave_us.value = valorInput.slice(0, 40);
+    }
+
     if (!expresion.nombre.test(valorInput)) {
         nombre_us.style.border = "5px solid red";
         bandera2 = false;
+        nombre_us.value = "";
     } else {
         nombre_us.removeAttribute("style");
         bandera2 = true;
@@ -66,9 +76,14 @@ apellido_pat.addEventListener('keyup', (e) => {
 
     apellido_pat.value = valorInput
 
+    if (valorInput.length > 20) {
+        clave_us.value = valorInput.slice(0, 20);
+    }
+
     if (!expresion.paterno.test(valorInput)) {
         apellido_pat.style.border = "5px solid red";
         bandera3 = false;
+        apellido_pat.value = "";
     } else {
         apellido_pat.removeAttribute("style");
         bandera3 = true;
@@ -79,9 +94,15 @@ apellido_mat.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     apellido_mat.value = valorInput
+
+    if (valorInput.length > 20) {
+        clave_us.value = valorInput.slice(0, 20);
+    }
+
     if (!expresion.materno.test(valorInput)) {
         apellido_mat.style.border = "5px solid red";
         bandera4 = false;
+        apellido_mat.value = "";
     } else {
         apellido_mat.removeAttribute("style");
         bandera4 = true;
@@ -92,6 +113,10 @@ email_us.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     email_us.value = valorInput
+
+    if (valorInput.length > 40) {
+        clave_us.value = valorInput.slice(0, 40);
+    }
 
     if (!expresion.email.test(valorInput)) {
         email_us.style.border = "5px solid red";
@@ -106,6 +131,10 @@ email.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     email.value = valorInput
+
+    if (valorInput.length > 16) {
+        clave_us.value = valorInput.slice(0, 16);
+    }
 
     if (!expresion.password.test(valorInput)) {
         email.style.border = "5px solid red";
