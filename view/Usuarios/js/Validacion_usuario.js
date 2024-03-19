@@ -23,7 +23,7 @@ const expresion = {
     paterno: /^[A-Za-záéíóúÁÉÍÓÚüÜ. ]{1,20}$/,
     materno: /^[A-Za-záéíóúÁÉÍÓÚüÜ. ]{0,20}$/,
     email:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.-_+*/!@#$])[A-Za-z.-_+*/!@#$]{8,}$/,
 }
 
 var clave_us = document.getElementById('clave_us');
@@ -43,7 +43,6 @@ clave_us.addEventListener('keyup', (e) => {
     if (!expresion.clave.test(valorInput)) {
         clave_us.style.border = "5px solid red";
         bandera1 = false;
-        e.target.value = "";
     }
 
     else {
@@ -64,7 +63,6 @@ nombre_us.addEventListener('keyup', (e) => {
     if (!expresion.nombre.test(valorInput)) {
         nombre_us.style.border = "5px solid red";
         bandera2 = false;
-        nombre_us.value = "";
     } else {
         nombre_us.removeAttribute("style");
         bandera2 = true;
@@ -83,7 +81,6 @@ apellido_pat.addEventListener('keyup', (e) => {
     if (!expresion.paterno.test(valorInput)) {
         apellido_pat.style.border = "5px solid red";
         bandera3 = false;
-        apellido_pat.value = "";
     } else {
         apellido_pat.removeAttribute("style");
         bandera3 = true;
@@ -102,7 +99,6 @@ apellido_mat.addEventListener('keyup', (e) => {
     if (!expresion.materno.test(valorInput)) {
         apellido_mat.style.border = "5px solid red";
         bandera4 = false;
-        apellido_mat.value = "";
     } else {
         apellido_mat.removeAttribute("style");
         bandera4 = true;
@@ -120,7 +116,6 @@ email_us.addEventListener('keyup', (e) => {
 
     if (!expresion.email.test(valorInput)) {
         email_us.style.border = "5px solid red";
-        bandera5 = false;
     } else {
         email_us.removeAttribute("style");
         bandera5 = true;
