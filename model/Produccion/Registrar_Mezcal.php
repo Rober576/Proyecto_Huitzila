@@ -1,5 +1,5 @@
 <?php
-include('../../../config/Crud_bd.php');
+include('../../config/Crud_bd.php');
 class NuevosCampos{
     private $base;
     function conexion(){
