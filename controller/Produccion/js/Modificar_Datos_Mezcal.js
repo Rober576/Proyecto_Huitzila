@@ -1,42 +1,43 @@
-//declara las variables globales
+// Declara las variables globales
 var formulario = document.getElementById('form_datos');
 var respuesta = document.getElementById('respuesta');
 
-//responde cuando hay un click en el boton
-formulario.addEventListener('submit', function (e)
-{
+// Responde cuando hay un click en el boton "Guardar"
+document.getElementById('submitButton').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevenir el envío del formulario por defecto
     console.log("Mensaje de prueba en la consola");
-    var datos= new FormData(formulario);
-    console.log("entro aqui")
+    var datos = new FormData(formulario);
+    console.log("Antes de fetch"); // Agregado para depuración
     fetch('../php/Modificar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
-
-    .then(res => res.json())
+    .then(res => res.text()) // Cambiado a text() para manejar cualquier tipo de respuesta
     .then(data => {
-        if (data === 'exito') {
+        console.log("Después de fetch"); // Agregado para depuración
+        console.log(data); // Agregado para depuración
+        if (data.trim() === 'exito') {
             alert("Actualización exitosa");
-            location.href="../../../view/Produccion/Mostrar_Mezcal.html";
-        }
-        //los datos no pasaron alguna validacion
-        else if (data === 'no exito'){
+            location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
+        } else if (data.trim() === 'no exito') {
             alert("Hubo un error");
-        }else{
-            alert (data)
+        } else {
+            alert(data); // Muestra cualquier otro mensaje de error
         }
     })
-}
-)
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error); // Agregado para manejar errores de fetch
+        alert("Hubo un error en la solicitud"); // Muestra un mensaje de error genérico
+    });
+});
 
-//responde cuando hay un click en el boton cancelar
-formulario.cancelar.addEventListener('click', function (e){
+// Responde cuando hay un click en el boton "Cancelar"
+document.getElementById('cancelButton').addEventListener('click', function (e) {
     e.preventDefault();
-    let urlAct = window.location+''
     console.log("Mensaje de prueba en la consola");
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
-    if(resp ==  true){
-      window.location.href='../../../view/Produccion/Mostrar_Mezcal.html';
-    }    
-})
+    if (resp == true) {
+        window.location.href = '../../../view/Produccion/Mostrar_Mezcal.html';
+    }
+});

@@ -5,7 +5,7 @@ include_once('../../../view/Produccion/Modificar_Mezcal.html');
 $id = $_GET["id"];
 $objeto = new MostrarMez();
 $resultado = $objeto->buscar_datos($id);
-$lote = $resultado['Lote'];
+$lote = $resultado[0]['Lote'];
 $especie = $resultado[0]['NombrePlanta'];
 $tanque = $resultado[0]['Tanque'];
 echo $tanque;
@@ -60,22 +60,22 @@ $categoria = $resultado[0]['IDCategoria'];
                 });
             })
         fetch('Obtener_Categorias_Clase_Especie.php?tipo=clases')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(item => {
-                var option = document.createElement('option');
-                option.value = item;
-                option.textContent = item;
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
 
-                if (selectClases) {
-                    selectClases.appendChild(option);
-                }
-                if (item == clase) {
-                    selectClases.value = clase;
-                }
-            });
-        })
-        .catch(error => console.error('Error al obtener especies:', error));
+                    if (selectClases) {
+                        selectClases.appendChild(option);
+                    }
+                    if (item == clase) {
+                        selectClases.value = clase;
+                    }
+                });
+            })
+            .catch(error => console.error('Error al obtener especies:', error));
 
         
 });
