@@ -146,6 +146,13 @@ footer {
     justify-content: space-between;
     overflow-x: auto;
 }
+.table-container2 {
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
 
 table {
     width: auto;

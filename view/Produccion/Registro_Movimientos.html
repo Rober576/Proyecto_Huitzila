@@ -107,27 +107,64 @@
                 <p class="subtitulo-1"> Movimientos de mezcal</p>
                 <hr>
                 <div class="grupo1">
-                    <label class="label_datos" for="lote">Lote:</label>
+                    <label class="label_datos" for="lote">Lote*</label>
                     <select id="lote" name="lote" required>
                         <option value="">Selecciona</option>
                         <option value="lote1">Lote 1</option>
                         <option value="lote2">Lote 2</option>
                     </select>
                 </div>
+				<div class="grupo1">
+                    <label class="label_datos" for="tipo">Movimiento*</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="produccion">Producción</option>
+                        <option value="dilucion">Dilución</option>
+						<option value="traspaso">Traspaso</option>
+						<option value="merma">Merma</option>
+						<option value="baja">Baja</option>
+                    </select>
+                </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="volumen">Volumen:</label>
+                    <label class="label_datos" for="volumen">Volumen*</label>
                     <input type="text" id="volumen" name="volumen" required>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="alc_vol">% alc. vol. :</label>
+                    <label class="label_datos" for="alc_vol">% Concentración de alc.*</label>
                     <input type="text" id="alc_vol" name="alc_vol" required>
                 </div>
 
             </section>
-
-            
+			<br>
+            <section class="table-container2" id="tablaMovimientos">
+				<table>
+					<thead>
+						<tr>
+						  
+							<th>No. de lote</th>
+							<th>Movimiento</th>
+							<th>Volumen</th>
+							<th>% Concentracion de alc.</th>
+						   <th>Acciones</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><div class="acciones">
+								<button class="boton-modificar" type="submit">Modificar</button>
+								<button class="boton-eliminar" type="submit">Eliminar</button>
+							</div></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
 
             <div class="grupo-boton-reg">
                 <div class="boton_registrar">
