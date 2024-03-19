@@ -34,7 +34,7 @@ formulario.addEventListener('submit', function (e)
                 form.reset();
                 alert("Se han modificado los datos");
                 
-                window.location.href = 'http://localhost:3000/view/Usuarios/Mostrar_Usuarios.html';
+                window.location.href = '../../view/Usuarios/Mostrar_Usuarios.html';
             }
         });
     }
