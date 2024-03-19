@@ -44,7 +44,7 @@
 				
 							<ul>
 								<li><a href="Registro_Predios.html">Registrar</a></li>
-								<li><a href="Vista_Predios.html">Mostrar</a></li>
+								<li><a href="Vista_Predios.html">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -55,8 +55,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 
@@ -67,8 +67,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -79,8 +79,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 
@@ -91,8 +91,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 	
@@ -104,16 +104,17 @@
 
 
 	<main>
-
-    <h1 class="titulo_form">Editar Predio</h1>
-    <hr>
-
-    <section class="container">
-        <div class="column">
+    <section class="section-main">
+        <div class="cabezera">
+			<h4 class="h4">Modificar</h4>
+		</div>
+		<br>
+		<p class="subtitulo-1"> Modificar Predio</p>
+		<hr>
             <form id="advanced-form">
                 <div>
-                    <label for="codArea">Calve del predio:</label>
-                    <input type="text" id="codArea" name="codArea" required>
+                    <label for="codArea">Clave del predio:</label>
+                    <input type="text" id="codArea" name="codArea" required readonly>
                 </div>
                 <div>
                     <label for="nomPred">Nombre del predio:</label>
@@ -128,8 +129,12 @@
                     <textarea id="descPre" name="desdescPrec" rows="4" required></textarea>
                 </div>
                 
-                <button type="submit" id="submitButton">Enviar</button>
-                <button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+				<div class="grupo-boton-reg">
+					<div class="boton_registrar">
+						<button type="submit" id="submitButton">Guardar</button>
+						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+					</div>
+				</div>
 
             </form>
         </div>

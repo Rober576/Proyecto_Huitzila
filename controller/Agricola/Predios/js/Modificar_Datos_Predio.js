@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Confirmación antes de enviar
-    if (confirm("¿Estás seguro de que deseas enviar el formulario?")) {
+    if (confirm("¿Estás seguro de que deseas realizar las modificaciones?")) {
         var datos = new FormData(formulario);
         datos.append('id', id);
         fetch('../../../controller/Agricola/Predios/php/Actualizar_Datos_Predio.php', {
@@ -32,7 +32,7 @@ formulario.addEventListener('submit', function (e) {
 
 // Agregar evento de clic al botón "Cancelar"
 document.getElementById('cancelButton').addEventListener('click', function() {
-    // Código para ejecutar cuando se hace clic en el botón "Cancelar"
-    // Por ejemplo, redirigir a otra página
-    window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
+    if (confirm("¿Estás seguro de que deseas cancelar la edicion?")){
+        window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
+    }
 });
