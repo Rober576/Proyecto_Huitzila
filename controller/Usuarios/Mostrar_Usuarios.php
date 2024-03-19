@@ -44,9 +44,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["IdentificadorArea"] . '</td>';
 
         $salida .= '<td>';
-        $salida .= '<a href="#" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</a>';
-        $salida .= ' | ';
-        $salida .= '<a href="../../view/Usuarios/Editar_Usuario.html?id=' . $id . '">Editar</a>';
+        $salida .= '<button type="submit" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</button>';
+        $salida .= '  ';
+        $salida .= '<button type="submit" onclick="window.location.href=\'../../view/Usuarios/Editar_Usuario.html?id=' . $id . '\'">Editar</button>';
         $salida .= '</td>';
 
         $salida .= '</tr>';

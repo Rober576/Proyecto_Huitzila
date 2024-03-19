@@ -23,6 +23,9 @@ hr {
 #cancelar {
     background-color: #C7B392;
     }
+#cancelButton {
+    background-color: #C7B392;
+    }
 td,th{
     width: calc(100% / 14);
 }

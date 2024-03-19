@@ -1,5 +1,5 @@
 <?php
-include_once('../../../config/Crud_bd.php');
+include_once('../../config/Crud_bd.php');
 
 class EliminarCampos{
     private $base;

@@ -66,7 +66,7 @@
 							</a>
 			
 							<ul>
-							<li><a href="">Registrar</a></li>
+							<li><a href="../../view/Produccion/Registro_Movimientos.html">Registrar</a></li>
 							<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
@@ -104,31 +104,31 @@
                     <h4 class="h4">Registrar</h4>
                 </div>
                 <br>
-                <p class="subtitulo-1"> Datos generales</p>
+                <p class="subtitulo-1"> Datos generales de mezcal</p>
                 <hr>
                 <div class="grupo1">
-                    <label class="label_datos" for="lote">Lote:</label>
-                    <input type="text" id="lote" name="lote" required>
+                    <label class="label_datos" for="lote">Lote*</label>
+                    <input type="text" id="lote" name="lote" class="styled-input" required>
                 </div>
                 <div class="grupo1">
-                    <label class="label_datos"for="tanque">Tanque:</label>
+                    <label class="label_datos"for="tanque">Tanque*</label>
                     <input type="text" id="tanque" name="tanque" class="styled-input" required>
                 </div>
                 <div class="grupo1">
-                    <label class="label_datos" for="categoria">Categoría: </label>
+                    <label class="label_datos" for="categoria">Categoría*</label>
                     <select id="categoria" name="categoria" required></select>
                 </div>
                 <div class="grupo1">
-                    <label class="label_datos" for="especie">Especie: </label>
+                    <label class="label_datos" for="especie">Especie*</label>
                     <select id="especie" name="especie"required >
                     </select>
                 </div>
                 <div class="grupo1">
-                    <label class="label_datos" for="clase">Clase: </label>
-                    <select id="clase" name="clase" required></select>
+                    <label class="label_datos" for="clase">Clase*</label>
+                    <select id="clase" name="clase" class="styled-input" required></select>
                 </div>
                 <div class="grupo1">
-                    <label class="label_datos"for="edad">Edad:</label>
+                    <label class="label_datos"for="edad">Edad*</label>
                     <input type="text" id="edad" name="edad" class="styled-input" required>
                 </div>
             </section>
@@ -136,7 +136,7 @@
             <div class="grupo-boton-reg">
                 <div class="boton_registrar">
                     <button type="submit" id="submitButton">Registrar</button>
-					<button type="submit" id="cancelButton">Cancelar</button>
+					<button name="cancelar" id="cancelButton" type="submit">Cancelar</button>
                 </div>
             </div>      
         </form>

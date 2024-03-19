@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_BitacoraM.php');
+include_once('../../model/Produccion/Mostrar_BitacoraM.php');
 
 $base = new MostrarBit();
 $base->instancias();
@@ -57,7 +57,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Guia . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Bitacora.php?id='.$Guia.'\'"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modifica</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Bitacora.php?id='.$Guia.'\'"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modifica</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
@@ -69,4 +69,4 @@ if ($resultado) {
 
 echo $salida;
 ?>
-<script src="../../../controller/Produccion/js/Eliminar_Bitacora.js"></script>
+<script src="../../controller/Produccion/js/Eliminar_Bitacora.js"></script>
