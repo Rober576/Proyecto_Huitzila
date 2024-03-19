@@ -32,7 +32,7 @@ formulario.addEventListener('submit', function (e) {
 
 // Agregar evento de clic al botón "Cancelar"
 document.getElementById('cancelButton').addEventListener('click', function() {
-    if (confirm("¿Estás seguro de que deseas cancelar la edicion?")){
+    if (confirm("¿Estás seguro de que deseas cancelar la Modificacion? Los cambios se perderan")){
         window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html'; 
     }
 });
