@@ -41,10 +41,11 @@
 						<li>
 							<a href="#">
 								<i ></i>
-								Usuarios
+								Insumos
 							</a>
 				
 							<ul>
+								<li><a >Registrar</a></li>
 								<li><a >Mostrar</a></li>
 							</ul>
 						</li>
@@ -52,7 +53,7 @@
 						<li>
 							<a href="#">
 							<i ></i>
-							Trabajadores
+							Envasado
 							</a>
 			
 							<ul>
@@ -61,29 +62,7 @@
 							</ul>
 						</li>
 		
-						<li>
-							<a href="#">
-								<i ></i>
-								Certificaciones
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#">
-								<i ></i>
-								Cursos
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
+						
 					</ul>
         		</nav>
       		</div>
@@ -100,51 +79,56 @@
 			<hr>
 			<br>
 
-			<form class="formulario-datos" id="insumos_form">
+			<form class="formulario" id="insumos_form">
+				<div class="formulario-colum">
+					<input type="hidden" name="id" value="">
 				
 				<div class="grupo1">
-					<label class="label_datos" for="Compras">Identificador</label>
+					<label class="label_datos" for="Compras">Identificador*</label>
 					<input type="text" id="Identificador" name="Identificador" required>
 				</div>
-				
+					
 				<div class="grupo1">
-					<label class="label_datos" for="Nombre">Nombre</label>
+					<label class="label_datos" for="Nombre">Nombre*</label>
 					<input type="text" id="Nombre" name="Nombre" required>
 				</div>
 				
-				<div class="grupo1">
-					<label class="label_datos" for="Nombre">Descripción</label>
-					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
-				</div>
+				
 				
 				<div class="grupo1">
-					<label class="label_datos" for="Unidades">Unidades</label>
+					<label class="label_datos" for="Unidades">Unidades*</label>
 					<input type="text" id="Unidades" name="Unidades" required>
 				</div>
-				
+					
 				<div class="grupo1">
-					<label class="label_datos" for="Exitencia">Existencia</label>
+					<label class="label_datos" for="Exitencia">Existencia*</label>
 					<input type="number" id="Existencia" name="Existencia" required>
 				</div>
 
 				<div class="grupo1">
-					<label class="label_datos" for="FechaReg">Fecha de registro</label>
+					<label class="label_datos" for="FechaReg">Fecha de registro*</label>
 					<input type="date" id="FechaReg" name="FechaReg" required>
 				</div>
 				
 				<div class="grupo1">
-					<label class="label_datos" for="Stockmi">Stock minimo</label>
+					<label class="label_datos" for="Stockmi">Stock minimo*</label>
 					<input type="number" id="Stockmi" name="Stockmi" required>
 				</div>
 				
 				<div class="grupo1">
-					<label class="label_datos" for="Stockma">Stock máximo</label>
+					<label class="label_datos" for="Stockma">Stock máximo*</label>
 					<input type="number" id="Stockma" name="Stockma" required>
 				</div>
 				
 				<div class="grupo1">
-					<label class="label_datos" for="Costo">Costo</label>
+					<label class="label_datos" for="Costo">Costo*</label>
 					<input type="number" id="Costo" name="Costo" required>
+				</div>
+
+			</div>
+				<div class="grupo1">
+					<label class="label_datos" for="Nombre">Descripción</label>
+					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
 				</div>
 				
 				<div class="grupo-boton-reg">

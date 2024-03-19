@@ -42,6 +42,8 @@ const expresion = {
     clave: /^[a-zA-Z0-9]{5}[a-zA-Z0-9]*$/,
     superficie: /^[0-9]+(\.[0-9]*)?$/,
     nombre: /^(?=.*[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9.])[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9\s.]+$/
+
+    
 };
 
 //Función para validar la clave
@@ -97,24 +99,22 @@ function Validad_Nombre(){
 
 //Función para validar el campo de superficie
 function Validar_Superficie() {
-    let campo = Formulario.superfPre;
-    let inicioSeleccion = campo.selectionStart;
-    let finSeleccion = campo.selectionEnd;
+    let valorInput = Formulario.superfPre.value;
 
-    let valorInput = campo.value;
+    // Eliminar todos los caracteres no numéricos
+    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d*)\./g, '');
 
-    // Limitar la longitud a 5 caracteres
+
+
+    // Limitar la longitud a 10 caracteres
     if (valorInput.length > 5) {
-        // Guardar la posición del cursor antes de truncar el valor
-        let cursorOffset = inicioSeleccion - (valorInput.length - 5);
         valorInput = valorInput.slice(0, 5);
-        // Actualizar el valor del campo con los cambios realizados
-        campo.value = valorInput;
-        // Restaurar la posición del cursor
-        campo.setSelectionRange(inicioSeleccion - cursorOffset, finSeleccion - cursorOffset);
     }
 
-    // Validar si la entrada coincide con la expresión regular para el nombre
+    // Actualizar el valor del campo con los cambios realizados
+    Formulario.superfPre.value = valorInput;
+   
+    // Validar si la entrada coincide con la expresión regular para LA CLAVE
     if (!expresion.superficie.test(valorInput)) {
         Formulario.superfPre.style.border = "5px solid red"; 
         bandera3 = false; 
