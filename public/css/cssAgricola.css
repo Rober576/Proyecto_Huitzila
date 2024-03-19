@@ -81,6 +81,11 @@ input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="password"],
+input[type="number"],
 textarea {
  font-family:"FuentePrincipal" ;
+}
+
+textarea{
+    resize: none;
 }
