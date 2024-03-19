@@ -10,11 +10,11 @@ class Eliminar_Campos{
     }
 
     function eliminar($id){
-        
+
         $query = "DELETE FROM insumos WHERE IDInsumo = :id";
         $this->base->insertar_eliminar_actualizar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
-        
+
     }
 }
 ?>

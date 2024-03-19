@@ -1,4 +1,3 @@
-
 // Esta función se activa con el click del botón eliminar, y le pregunta al usuario si esta seguro de eliminar el registro
 // Si el usuario da click en aceptar, conecta con el php de controller de eliminar
 function confirmacion(e){

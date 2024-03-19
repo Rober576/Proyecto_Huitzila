@@ -40,7 +40,7 @@
 						<li>
 							<a href="#">
 								<i ></i>
-								Usuarios
+								Insumos
 							</a>
 				
 							<ul>
@@ -51,7 +51,7 @@
 						<li>
 							<a href="#">
 							<i ></i>
-							Trabajadores
+							Envasado
 							</a>
 			
 							<ul>
@@ -60,29 +60,7 @@
 							</ul>
 						</li>
 		
-						<li>
-							<a href="#">
-								<i ></i>
-								Certificaciones
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#">
-								<i ></i>
-								Cursos
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
-							</ul>
-						</li>
+						
 					</ul>
         		</nav>
       		</div>
@@ -100,7 +78,8 @@
 			<br>
 
 				
-			<form class="formulario-datos" id="insumos_form" novalidate>
+			<form class="formulario" id="insumos_form">
+				<div class="formulario-colum">
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Compras">Identificador</label>
@@ -112,10 +91,7 @@
 					<input type="text" id="Nombre" name="Nombre" required>
 				</div>
 				
-				<div class="grupo1">
-					<label class="label_datos" for="Nombre">Descripción</label>
-					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
-				</div>
+				
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Unidades">Unidades</label>
@@ -129,7 +105,7 @@
 
 				<div class="grupo1">
 					<label class="label_datos" for="FechaReg">Fecha de registro</label>
-					<input type="date" id="FechaReg" name="FechaReg" required >
+					<input type="date" id="FechaReg" name="FechaReg" required>
 				</div>
 				
 				<div class="grupo1">
@@ -146,11 +122,17 @@
 					<label class="label_datos" for="Costo">Costo</label>
 					<input type="number" id="Costo" name="Costo" required>
 				</div>
+
+			</div>
+				<div class="grupo1">
+					<label class="label_datos" for="Nombre">Descripción</label>
+					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
+				</div>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" class="Boton_cancelar" id="Cancelar">Cancelar</button>
+						<button type="button" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
@@ -165,6 +147,6 @@
     </footer>
 	<script src="../../controller/Insumos/js/reg_insumos.js"></script>
 	<script src="../../view/insumos/js/valida_registro_insumos.js"></script>
-	<script src="/view/insumos/js/Cancela_Reg_Insumos.js"></script>
+	<script src="js/Cancela_Reg_Insumos.js"></script>
 </body>
 </html>
