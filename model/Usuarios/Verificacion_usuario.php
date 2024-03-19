@@ -1,21 +1,29 @@
 <?php
-session_start();
-if (!isset($_SESSION["usuario_id"]) || $_SESSION["rol"] != "usuario") {
-    header("Location: login.php");
-    exit();
+include_once('../../config/Crud_bd.php');
+
+class ObtenerDetallesUsuario {
+    private $base;
+
+     function instancias() {
+        $this->base = new Crud_bd();
+        $this->base->conexion_bd();
+    }
+
+    function obtener($id) {
+        $query = "SELECT Nombre, IdentificadorArea FROM usuarios WHERE Clave = :Clave";
+        $resultado = $this->base->mostrar($query, [":Clave" => $id]);
+        $this->base->cerrar_conexion();
+        return $resultado;
+    }
 }
 
-// Conectar a la base de datos 
-$conexion = new mysqli("localhost", "root", "", "hola");
+// Obtener los detalles del usuario
+$obtenerDetallesUsuario = new ObtenerDetallesUsuario();
+$detalles_usuario = $obtenerDetallesUsuario->obtener($_SESSION["usuario_id"]);
 
-// Obtener los detalles del administrador
-$consulta_user = $conexion->prepare("SELECT nombre, area FROM usuarios WHERE id=?");
-$consulta_user->bind_param("i", $_SESSION["usuario_id"]);
-$consulta_user->execute();
-$resultado_user = $consulta_user->get_result();
-$fila_user = $resultado_user->fetch_assoc();
-$nombre_user = $fila_user["nombre"];
-$area_user = $fila_user["area"];
-
-$conexion->close();
+if ($detalles_usuario) {
+    $nombre_user = $detalles_usuario[0]["Nombre"];
+    $area_user = $detalles_usuario[0]["Area"];
+    // Hacer algo con los detalles obtenidos
+}
 ?>

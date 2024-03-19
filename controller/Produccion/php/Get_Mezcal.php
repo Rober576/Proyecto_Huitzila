@@ -5,9 +5,11 @@ include_once('../../../view/Produccion/Modificar_Mezcal.html');
 $id = $_GET["id"];
 $objeto = new MostrarMez();
 $resultado = $objeto->buscar_datos($id);
-$lote = $resultado['Lote'];
+$lote = $resultado[0]['Lote'];
 $especie = $resultado[0]['NombrePlanta'];
 $tanque = $resultado[0]['Tanque'];
+echo $tanque;
+echo $id;
 $clase = $resultado[0]['IDClase'];
 $edad = $resultado[0]['Edad'];
 $categoria = $resultado[0]['IDCategoria'];
@@ -58,30 +60,30 @@ $categoria = $resultado[0]['IDCategoria'];
                 });
             })
         fetch('Obtener_Categorias_Clase_Especie.php?tipo=clases')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(item => {
-                var option = document.createElement('option');
-                option.value = item;
-                option.textContent = item;
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
 
-                if (selectClases) {
-                    selectClases.appendChild(option);
-                }
-                if (item == clase) {
-                    selectClases.value = clase;
-                }
-            });
-        })
-        .catch(error => console.error('Error al obtener especies:', error));
+                    if (selectClases) {
+                        selectClases.appendChild(option);
+                    }
+                    if (item == clase) {
+                        selectClases.value = clase;
+                    }
+                });
+            })
+            .catch(error => console.error('Error al obtener especies:', error));
 
         
 });
-
+    document.getElementById("lote").value = "<?php echo $id ?>";
+    document.getElementById("lote").readOnly = true;
     
     document.getElementById("tanque").value = "<?php echo $tanque ?>";
     document.getElementById("edad").value = "<?php echo $edad ?>";
-    document.getElementById("lote").value = "<?php echo $lote ?>";
-    document.getElementById("lote").readOnly = true;
+   
     
 </script>
