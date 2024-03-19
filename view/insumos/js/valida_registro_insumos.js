@@ -33,7 +33,7 @@ const expresion = {
     Descripcion: /^[a-zA-Z0-9\s.,_-]{1,100}$/,
     Unidades: /^[a-zA-Z\s]{1,10}$/,
     Existencia: /^\d+$/,
-    FechaReg: /^(0[1-9]|1[0-2])\s(0[1-9]|[12][0-9]|3[01])\s([0-9]{2})$/,
+    FechaReg: /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/,
     Stockmi: /^\d+$/,
     Stockma: /^\d+$/,
     Costo: /^\d+(\.\d{1,2})?$/,
@@ -129,21 +129,19 @@ insumos_form.Existencia.addEventListener('keyup', (e) =>{
 
 
 // Escuchador de eventos para el campo FechaReg
-insumos_form.FechaReg.addEventListener('keyup', (e) =>{
+insumos_form.FechaReg.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Asigna el valor al campo
-    insumos_form.FechaReg.value = valorInput;
-
     // Verifica con la expresión regular
-    if(!expresion.FechaReg.test(valorInput)){
+    if (!expresion.FechaReg.test(valorInput)) {
         insumos_form.FechaReg.style.border = "5px solid red";
         bandera6 = false;
     } else {
-        insumos_form.FechaReg.removeAttribute("style");
+        insumos_form.FechaReg.style.border = "none";
         bandera6 = true;
     }
 });
+
 
 
 // Escuchador de eventos para el campo Stockmi
