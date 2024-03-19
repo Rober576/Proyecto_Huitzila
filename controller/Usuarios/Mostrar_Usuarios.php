@@ -25,8 +25,8 @@ if ($resultado) {
                     <th>Apellido paterno</th>
                     <th>Apellido materno</th>
                     <th>Correo</th>
-                    <th>Identificador tipo</th>
-                    <th>Identificador area</th>
+                    <th>Tipo de usuario</th>
+                    <th>Área</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
