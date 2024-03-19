@@ -1,4 +1,4 @@
-// Declara las variables globales
+
 var formulario = document.getElementById('form_datos');
 var respuesta = document.getElementById('respuesta');
 
@@ -12,23 +12,33 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
         method: 'POST',
         body: datos
     })
-    .then(res => res.text()) // Cambiado a text() para manejar cualquier tipo de respuesta
+    .then(res => res.text())
     .then(data => {
-        console.log("Después de fetch"); // Agregado para depuración
-        console.log(data); // Agregado para depuración
-        if (data.trim() === 'exito') {
-            alert("Actualización exitosa");
-            location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
-        } else if (data.trim() === 'no exito') {
+        if (data.trim() === 'no exito') {
             alert("Hubo un error");
         } else {
-            alert(data); // Muestra cualquier otro mensaje de error
+            alert("Actualización exitosa");
+            redirectToMostrarMezcal(); // Redirigir después de la confirmación
         }
     })
     .catch(error => {
-        console.error('Error en la solicitud fetch:', error); // Agregado para manejar errores de fetch
-        alert("Hubo un error en la solicitud"); // Muestra un mensaje de error genérico
+        console.error('Error en la solicitud fetch:', error);
+        alert("Hubo un error en la solicitud");
     });
+});
+
+function redirectToMostrarMezcal() {
+    location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
+}
+// Responde cuando hay un click en el boton "Cancelar"
+document.getElementById('cancelButton').addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log("Mensaje de prueba en la consola");
+
+    var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
+    if (resp == true) {
+        window.location.href = '../../../view/Produccion/Mostrar_Mezcal.html';
+    }
 });
 
 // Responde cuando hay un click en el boton "Cancelar"

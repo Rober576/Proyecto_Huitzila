@@ -15,6 +15,7 @@ $u=$objeto->actualizar($lote, $tanque, $clase, $edad,$especie, $categoria);
 
 if ($u==true){
     echo json_encode('exito');
+   
 }
 else{
     echo json_encode('id');

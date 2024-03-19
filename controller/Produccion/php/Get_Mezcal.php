@@ -8,8 +8,7 @@ $resultado = $objeto->buscar_datos($id);
 $lote = $resultado[0]['Lote'];
 $especie = $resultado[0]['NombrePlanta'];
 $tanque = $resultado[0]['Tanque'];
-echo $tanque;
-echo $id;
+
 $clase = $resultado[0]['IDClase'];
 $edad = $resultado[0]['Edad'];
 $categoria = $resultado[0]['IDCategoria'];
