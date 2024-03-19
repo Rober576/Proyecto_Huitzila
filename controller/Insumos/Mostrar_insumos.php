@@ -67,18 +67,8 @@ if ($resultado) {
 }
 
 echo $salida;
-/*
- <td> <div class="CentrarBoton">
-<div class="Botones">
-<button type="submit">Editar</button>
-<button type="submit">Eliminar</button>
-</div>
-</div></td>
-<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
-*/
-
 ?>
-
+<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
 
 
 

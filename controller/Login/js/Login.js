@@ -17,7 +17,7 @@ document.getElementById('login_form').addEventListener('submit', function (event
         if (todasBanderasAceptadas()) {
             var datos = new FormData(this);
             
-            fetch("../../../controller/Login/Login_Control.php", {
+            fetch("controller/Login/Login_Control.php", {
                 method: 'POST',
                 body: datos
             })
