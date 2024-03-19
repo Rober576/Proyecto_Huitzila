@@ -51,7 +51,7 @@ if ($resultado) {
         $salida .= '<td>
                     <div class="CentrarBoton">
                     <div class="Botones">
-                    <button type="submit" href="../../ruta/a/eliminar/Insumo?id=' . $IDInsumo . '"  data-id="' . $IDInsumo . '">Eliminar</button>
+                    <button type="submit" href="../../controller/Insumos/js/Eliminar_insumo.js?id=' . $IDInsumo . '"  data-id="' . $IDInsumo . '">Eliminar</button>
                     <button type="submit" href="../../ruta/a/editar/Insumo?id=' . $IDInsumo . '"  data-id="' . $IDInsumo . '">Editar</button>
                     </div>
                     </div>
@@ -68,15 +68,16 @@ if ($resultado) {
 echo $salida;
 /*
  <td> <div class="CentrarBoton">
-							<div class="Botones">
-								<button type="submit">Editar</button>
-								<button type="submit">Eliminar</button>
-							</div>
-						</div></td>
- */
+<div class="Botones">
+<button type="submit">Editar</button>
+<button type="submit">Eliminar</button>
+</div>
+</div></td>
+<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
+*/
 
 ?>
 
-<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
+
 
 
