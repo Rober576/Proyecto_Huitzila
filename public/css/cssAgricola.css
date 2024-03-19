@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
 input[type="date"] {
     width: 100%;
     padding: 10px;
@@ -70,4 +75,12 @@ button.Boton_Tabla:hover{
     padding: 20px;
     border-left: none;
     }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+textarea {
+ font-family:"FuentePrincipal" ;
 }
