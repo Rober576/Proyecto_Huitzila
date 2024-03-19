@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Eliminar/Eliminar_Bitacora.php');
+include_once('../../model/Produccion/Eliminar_Bitacora.php');
 
 $base = new EliminarCampos();
 $base->instancias();
