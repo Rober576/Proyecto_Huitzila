@@ -16,6 +16,7 @@ $salida = '';
 if ($resultado) {
     
     $salida .= '
+
         <table border="1">
             <thead>
             <tr>
@@ -51,8 +52,8 @@ if ($resultado) {
         $salida .= '<td>
                     <div class="CentrarBoton">
                     <div class="Botones">
-                    <button type="submit" href="../../ruta/a/eliminar/Insumo?id=' . $IDInsumo . '"  data-id="' . $IDInsumo . '">Eliminar</button>
-                    <button type="submit" href="../../ruta/a/editar/Insumo?id=' . $IDInsumo . '"  data-id="' . $IDInsumo . '">Editar</button>
+                    <button type="submit" href="../../ruta/a/eliminar/Insumo?id=' . $id . '"  data-id="' . $id . '">Eliminar</button>
+                    <button type="submit" href="../../ruta/a/editar/Insumo?id=' . $id . '"  data-id="' . $id . '">Editar</button>
                     </div>
                     </div>
                     </td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'

@@ -1,8 +1,7 @@
-
 $(buscar_datos());
 function buscar_datos(consulta){
     $.ajax({
-        url: '../Mostrar_Insumos.php',
+        url: '../../controller/Insumos/Mostrar_insumos.php',
         type: 'POST',
         dataType: 'html',
         data: { consulta: consulta },
