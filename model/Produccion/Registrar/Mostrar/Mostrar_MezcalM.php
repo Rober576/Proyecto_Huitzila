@@ -23,7 +23,6 @@ class MostrarMez extends Crud_bd {
         return $resultados;
     }
     function buscar_datos($id){
-        echo $id;
         $this->conexion_bd();
         $consulta = "SELECT * FROM registromezcal WHERE Lote='$id'";
         $resultados = $this->mostrar($consulta);

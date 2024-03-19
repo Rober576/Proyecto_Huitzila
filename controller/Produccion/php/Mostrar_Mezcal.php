@@ -42,9 +42,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Edad"] . '</td>';
         $salida .= '<td>' . $fila["IDCategoria"] . '</td>';
         $salida .= '<td>';
-        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Elimina</button>';
+        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modifica</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
