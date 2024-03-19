@@ -1,5 +1,6 @@
 <?php
 include('../../config/Crud_bd.php');
+
 class NuevosCampos{
     private $base;
     function conexion(){
@@ -33,6 +34,8 @@ class NuevosCampos{
 
     function insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie){
 
+        echo "SSI";
+
         $IDClase = $this->obtenerIDClase($clase);
         $IDCategoria = $this->obtenerIDCategoria($categoria);
 
@@ -56,6 +59,7 @@ class NuevosCampos{
             $this->base->insertar_eliminar_actualizar($q1, $params);
             $this->base->cerrar_conexion();
             return true; // La inserción se realizó correctamente
+
         } else {
             // Si no se encuentran ambos IDClase e IDCategoria, devolvemos false
             return false;
