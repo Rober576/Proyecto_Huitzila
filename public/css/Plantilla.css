@@ -141,7 +141,7 @@ footer {
 }
 
 table {
-    width: auto;
+    width: 100%;
     border-collapse: collapse;
     border: 1px solid #000000;
     background-color: #C7B392;
