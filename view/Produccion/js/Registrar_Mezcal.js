@@ -22,9 +22,7 @@ formulario.addEventListener('submit', function (e) {
         } else {
             alert("Registro exitoso");
             // Recargar la página después de
-            setTimeout(function() {
-                window.location.reload();
-            }, 100);
+            location.href="../../view/Produccion/Registro_Mezcal.html";
         }
     })
     .catch(error => {

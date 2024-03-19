@@ -23,6 +23,22 @@ class MostrarCampos{
         return $resultados;
         echo $resultados;
     }
+
+    function buscador1($Tipo) {
+        $query = "SELECT Tipo FROM tipousuario WHERE IdentificadorTipo = :Tipo";
+        $resultados = $this->base->mostrar($query, [":Tipo" => $Tipo]);
+        $this->base->cerrar_conexion();
+        // Si la consulta devuelve resultados, devuelve el tipo; de lo contrario, devuelve un mensaje indicando que no se encontraron resultados
+        return $resultados;
+    } 
+    
+    function buscador2($Area) {
+        $query = "SELECT NombreArea FROM tipoareas WHERE IdentificadorArea = :Area";
+        $resultados = $this->base->mostrar($query, [":Area" => $Area]);
+        $this->base->cerrar_conexion();
+        // Si la consulta devuelve resultados, devuelve el tipo; de lo contrario, devuelve un mensaje indicando que no se encontraron resultados
+        return $resultados;
+    } 
 }
 
 $obj = new MostrarCampos();

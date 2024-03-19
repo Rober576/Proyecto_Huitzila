@@ -1,5 +1,5 @@
 <?php
-include_once('../../../model/Produccion/Registrar_Mezcal.php');
+include_once('../../model/Produccion/Registrar_Mezcal.php');
 
 // Obtener datos del formulario
 $lote = $_POST['lote'];

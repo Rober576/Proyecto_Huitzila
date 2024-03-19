@@ -21,7 +21,7 @@ if ($resultado) {
         <th>Clave de predio</th>
         <th>Nombre del predio</th>
         <th>Superficie</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Acciones</th>
         </tr>
     </thead>

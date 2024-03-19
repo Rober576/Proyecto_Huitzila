@@ -1,5 +1,4 @@
 <?php
-
 include_once('../../model/Usuarios/Mostrar_Usuario.php');
 
 $base = new MostrarCampos();
@@ -40,8 +39,22 @@ if ($resultado) {
         $salida .= '<td>' . $fila["ApellidoPaterno"] . '</td>';
         $salida .= '<td>' . $fila["ApellidoMaterno"] . '</td>';
         $salida .= '<td>' . $fila["Correo"] . '</td>';
-        $salida .= '<td>' . $fila["IdentificadorTipo"] . '</td>';
-        $salida .= '<td>' . $fila["IdentificadorArea"] . '</td>';
+
+
+        $base = new MostrarCampos();
+        $base->instancias();
+
+        $salida1 = $fila["IdentificadorTipo"];
+        $resultadoTipo = $base->buscador1($salida1);
+
+        $base = new MostrarCampos();
+        $base->instancias();
+
+        $salida2 = $fila["IdentificadorTipo"];
+        $resultadoArea = $base->buscador2($salida2);
+
+        $salida .= '<td>' . $resultadoTipo[0][0] . '</td>';
+        $salida .= '<td>' . $resultadoArea[0][0] . '</td>';
 
         $salida .= '<td>';
         $salida .= '<button type="submit" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</button>';
