@@ -44,7 +44,7 @@
 				
 							<ul>
 								<li><a href="Registro_Predios.html">Registrar</a></li>
-								<li><a href="Vista_Predios.html">Mostrar</a></li>
+								<li><a href="Vista_Predios.html">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -55,8 +55,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 
@@ -67,8 +67,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -79,8 +79,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 
@@ -91,8 +91,8 @@
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Mostrar</a></li>
+								<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
 							</ul>
 						</li>
 	
@@ -104,14 +104,17 @@
 
 	<main>
 
-    <h1 class="titulo_form">Registro de Predios</h1>
-    <hr>
 
-    <section class="container">
-        <div class="column">
+    <section class="section-main">
+        <div class="cabezera">
+			<h4 class="h4">Registrar</h4>
+		</div>
+		<br>
+		<p class="subtitulo-1"> Ingreso de Predio</p>
+		<hr>
             <form id="advanced-form">
                 <div>
-                    <label for="codArea">Calve del predio:</label>
+                    <label for="codArea">Clave del predio:</label>
                     <input type="text" id="codArea" name="codArea" required>
                 </div>
                 <div>
@@ -127,7 +130,11 @@
                     <textarea id="descPre" name="desdescPrec" rows="4" ></textarea>
                 </div>
                 
-                <button type="submit" id="submitButton">Enviar</button>
+				<div class="grupo-boton-reg">
+					<div class="boton_registrar">
+                		<button type="submit" id="submitButton">Registrar</button>
+					</div>
+				</div>
             </form>
         </div>
     </section>

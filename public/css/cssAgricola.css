@@ -55,3 +55,19 @@ button.Boton_Tabla{
 button.Boton_Tabla:hover{
     background-color: #1d4d25;
 }
+
+.tabla_titulo {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    /* font-weight: 800; */
+    
+    hr {
+    width: 80%;
+    /* margin: 0 auto; */
+    padding: 20px;
+    border-left: none;
+    }
+}
