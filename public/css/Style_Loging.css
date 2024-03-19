@@ -51,8 +51,8 @@ body, html {
     position: absolute;
     top: 100px;
     left: 20px;
-    width: 550px; /* Ajusta el ancho del cuadrado gris según sea necesario */
-    height: 450px; /* Ajusta la altura del cuadrado gris según sea necesario */
+    width: 500px; /* Ajusta el ancho del cuadrado gris según sea necesario */
+    height: 400px; /* Ajusta la altura del cuadrado gris según sea necesario */
     background-color: rgba(128, 128, 128, 0.3); /* Color de fondo gris con transparencia */
     border-radius: 10px; /* Ajusta el radio de las esquinas del cuadrado */
 }
