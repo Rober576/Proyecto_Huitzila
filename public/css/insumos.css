@@ -7,8 +7,8 @@ input[type="number"]{
     box-sizing: border-box;
 }
 button.Boton_cancelar{
-    background-color: darkred;
-    color: white;
+    background-color: #C7B392;
+    color: black;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -16,9 +16,7 @@ button.Boton_cancelar{
     font-size: 16px;
 }
 
-.Boton_cancelar:hover {
-    background-color: rgb(190, 7, 7); 
-}
+
 
 .CentrarBoton{
     display: flex;
@@ -31,4 +29,12 @@ button.Boton_cancelar{
 
 .NoResizable{
     resize: none;
+    height: 7em;
+}
+/* Estilo para el formulario y su grid */
+.formulario-colum{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Ahora hay tres columnas */
+    gap: 20px;
 }
