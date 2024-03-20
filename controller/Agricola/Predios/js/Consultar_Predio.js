@@ -72,12 +72,12 @@ function confirmacion(e, id) {
         e.preventDefault();
 
         // Realizar la solicitud fetch al script PHP para eliminar el registro
-        fetch('../../../controller\Agricola\Predios\php\Eliminar_Predio.php?id=' + id, {
+        fetch('../../../controller/Agricola/Predios/php/Eliminar_Predio.php?id=' + id, {
             method: 'GET',
         })
         .then(res => res.json())
         .then(data => {
-            alert(data.message); // Mostrar el mensaje de respuesta del servidor
+            alert('Eliminado con éxito');
             location.reload(); // Recargar la página después de eliminar el registro
         })
         .catch(error => {

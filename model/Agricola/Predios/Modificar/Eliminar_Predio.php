@@ -11,7 +11,7 @@ class EliminarCampos{
 
     function eliminar($id){
         
-        $query = "DELETE FROM predios WHERE Clave = :id";
+        $query = "DELETE FROM predios WHERE CodigoArea = :id";
         $this->base->insertar_eliminar_actualizar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
         return;
