@@ -50,7 +50,7 @@ if ($resultado) {
         $base = new MostrarCampos();
         $base->instancias();
 
-        $salida2 = $fila["IdentificadorTipo"];
+        $salida2 = $fila["IdentificadorArea"];
         $resultadoArea = $base->buscador2($salida2);
 
         $salida .= '<td>' . $resultadoTipo[0][0] . '</td>';
