@@ -47,10 +47,11 @@ function limpiarCampos() {
 
 // Expresiones regulares para validar los campos
 const expresion = {
-    lote: /^[a-zA-Z0-9]{5}$/, // Lote y Tanque: Máximo 5 caracteres alfanuméricos
-    tanque: /^[a-zA-Z0-9]{5}$/,
-    edad: /^\d{1,3}$/ // Edad: Solo acepta números del 0 al 999
+    lote: /^[a-zA-Z0-9]*$/, // Lote y Tanque: Alfanuméricos
+    tanque: /^[a-zA-Z0-9]*$/,
+    edad: /^\d*$/ // Edad: Solo acepta números
 };
+
 
 // Función para validar el campo de lote
 function validarLote() {

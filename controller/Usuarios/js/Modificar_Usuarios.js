@@ -35,6 +35,8 @@ formulario.addEventListener('submit', function (e)
                 alert("Se han modificado los datos");
                 
                 window.location.href = '../../view/Usuarios/Mostrar_Usuarios.html';
+            } else if(data==='corre') {
+                alert("El correo ya fue utilizado");
             }
         });
     }

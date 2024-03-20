@@ -102,13 +102,11 @@ input[type="password"] {
     grid-column: span 3;
 }
 
-#cancelarButton {
-    background-color:#C7B392;
-    color: white;
-}
+
 
 
 button[type="submit"] {
+    font-family: 'FuentePrincipal', sans-serif;
     background-color: #143419;
     color: white;
     padding: 12px 20px;
