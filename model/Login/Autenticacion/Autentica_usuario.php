@@ -8,6 +8,7 @@ class Login_Model {
 
     public function __construct() {
         $this->crud_bd = new Crud_bd();
+        $this->crud_bd->conexion_bd();
     }
 
     public function buscar_usuario($email, $password) {
