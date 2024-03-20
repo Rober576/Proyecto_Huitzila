@@ -21,10 +21,10 @@ const expresiones = {
 }
 
 /* Input nombres */
-formulario.lote.addEventListener('keyup', (e) => {
+form_ingreso_agave.lote.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
 
-	formulario.lote.value = valorInput
+	form_ingreso_agave.lote.value = valorInput
 
     // Eliminar caracteres especiales
     .replace(/[^a-zA-ZÁ-Ýá-ý0-9.-\s.]/g, '')
@@ -34,19 +34,19 @@ formulario.lote.addEventListener('keyup', (e) => {
     .trim();
    
     if (!expresiones.lote1.test(valorInput)) {
-        formulario.lote.style.border = "3px solid red";
+        form_ingreso_agave.lote.style.border = "3px solid red";
         lote = false;
 	}else{
-        formulario.lote.removeAttribute("style");
+        form_ingreso_agave.lote.removeAttribute("style");
         lote = true;
     }
     validar(lote);
 });
 
 /* Input apellidos */
-formulario.costo.addEventListener('keyup', (e) => {
+form_ingreso_agave.costo.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.costo.value = valorInput
+    form_ingreso_agave.costo.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -56,10 +56,10 @@ formulario.costo.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.costo1.test(valorInput)) {
-        formulario.costo.style.border = "3px solid red";
+        form_ingreso_agave.costo.style.border = "3px solid red";
         costo = false;
     }else{
-        formulario.costo.removeAttribute("style");
+        form_ingreso_agave.costo.removeAttribute("style");
         costo = true;
     }
     validar(costo);
@@ -68,11 +68,11 @@ formulario.costo.addEventListener('keyup', (e) => {
 });
 
 /* Input apellidos */
-formulario.guia.addEventListener('keyup', (e) => {
+form_ingreso_agave.guia.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
 
     if(valorInput !==""){
-        formulario.guia.value = valorInput
+        form_ingreso_agave.guia.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -82,10 +82,10 @@ formulario.guia.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.guia.test(valorInput)) {
-        formulario.guia.style.border = "3px solid red";
+        form_ingreso_agave.guia.style.border = "3px solid red";
         guia = false;
 	}else{
-        formulario.guia.removeAttribute("style");
+        form_ingreso_agave.guia.removeAttribute("style");
         guia = true;
     }
     validar(guia);
@@ -95,9 +95,9 @@ formulario.guia.addEventListener('keyup', (e) => {
 });
 
 /* Input apellidos */
-formulario.agave.addEventListener('keyup', (e) => {
+form_ingreso_agave.agave.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.agave.value = valorInput
+    form_ingreso_agave.agave.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -107,10 +107,10 @@ formulario.agave.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.agave1.test(valorInput)) {
-        formulario.agave.style.border = "3px solid red";
+        form_ingreso_agave.agave.style.border = "3px solid red";
         agave = false;
     }else{
-        formulario.agave.removeAttribute("style");
+        form_ingreso_agave.agave.removeAttribute("style");
         agave = true;
     }
     validar(agave);
@@ -119,9 +119,9 @@ formulario.agave.addEventListener('keyup', (e) => {
 });
 
 /* Input apellidos */
-formulario.brix.addEventListener('keyup', (e) => {
+form_ingreso_agave.brix.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.brix.value = valorInput
+    form_ingreso_agave.brix.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -131,10 +131,10 @@ formulario.brix.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.brix1.test(valorInput)) {
-        formulario.brix.style.border = "3px solid red";
+        form_ingreso_agave.brix.style.border = "3px solid red";
         brix = false;
     }else{
-        formulario.brix.removeAttribute("style");
+        form_ingreso_agave.brix.removeAttribute("style");
         brix = true;
     }
     validar(brix);
@@ -142,9 +142,9 @@ formulario.brix.addEventListener('keyup', (e) => {
 	
 });
 
-formulario.art.addEventListener('keyup', (e) => {
+form_ingreso_agave.art.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.art.value = valorInput
+    form_ingreso_agave.art.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -154,10 +154,10 @@ formulario.art.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.art1.test(valorInput)) {
-        formulario.art.style.border = "3px solid red";
+        form_ingreso_agave.art.style.border = "3px solid red";
         art = false;
     }else{
-        formulario.art.removeAttribute("style");
+        form_ingreso_agave.art.removeAttribute("style");
         art = true;
     }
     validar(art);
@@ -166,9 +166,9 @@ formulario.art.addEventListener('keyup', (e) => {
 });
 
 
-formulario.coccion.addEventListener('keyup', (e) => {
+form_ingreso_agave.coccion.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.coccion.value = valorInput
+    form_ingreso_agave.coccion.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -178,10 +178,10 @@ formulario.coccion.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.coccion1.test(valorInput)) {
-        formulario.coccion.style.border = "3px solid red";
+        form_ingreso_agave.coccion.style.border = "3px solid red";
         coccion = false;
     }else{
-        formulario.coccion.removeAttribute("style");
+        form_ingreso_agave.coccion.removeAttribute("style");
         coccion = true;
     }
     validar(coccion);
@@ -189,9 +189,9 @@ formulario.coccion.addEventListener('keyup', (e) => {
 	
 });
 
-formulario.art2.addEventListener('keyup', (e) => {
+form_ingreso_agave.art2.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
-    formulario.art2.value = valorInput
+    form_ingreso_agave.art2.value = valorInput
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
@@ -201,13 +201,25 @@ formulario.art2.addEventListener('keyup', (e) => {
     .trim();
 
     if (!expresiones.art3.test(valorInput)) {
-        formulario.art2.style.border = "3px solid red";
+        form_ingreso_agave.art2.style.border = "3px solid red";
         art2 = false;
     }else{
-        formulario.art2.removeAttribute("style");
+        form_ingreso_agave.art2.removeAttribute("style");
         art2 = true;
     }
     validar(art2);
 
 	
 });
+
+function validar(bandera){
+    const guardar = document.getElementById('boton_registrar');
+
+    if(bandera == false){              
+        guardar.disabled=true;
+        
+    }else{
+        guardar.disabled=false;
+    }
+
+}

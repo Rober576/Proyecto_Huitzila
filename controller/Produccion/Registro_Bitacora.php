@@ -1,5 +1,5 @@
 <?php
-require_once('../../../model/Produccion/Registrar/Registro_Bitacora.php');
+require_once('../../model/Produccion/Registro_Bitacora.php');
 $objeto=new Bitacora();
 
 $procedencia=$_POST["procedencia"];
