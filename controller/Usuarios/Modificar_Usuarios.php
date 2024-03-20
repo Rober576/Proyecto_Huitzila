@@ -13,5 +13,4 @@ $c6 = $_POST["area_us"];
 $obj = new NuevosCampos();
 $obj->conexion();
 $obj->insertar($id, $c1,$c2, $c3, $c4, $c5, $c6);
-echo json_encode('exito');
 ?>
