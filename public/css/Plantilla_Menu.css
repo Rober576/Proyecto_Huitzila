@@ -255,6 +255,20 @@ nav ul li ul li a:hover{
     text-decoration: none;
 }
 
+.Boton_cancelar{
+    background-color: #C7B392;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+.Boton_cancelar:hover{
+    background-color: #c2b29b;
+}
+
 @media screen and (max-width: 1250px){
     .formulario-datos{
         display: block;

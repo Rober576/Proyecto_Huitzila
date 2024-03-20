@@ -29,6 +29,10 @@ formulario.addEventListener('submit', function (e)
             //los datos no pasaron alguna validacion
             else if (data === 'no exito'){
                 alert("Hubo un error");
+            }else if (data === 'lote'){
+                alert("Este lote ya esta registrado");
+            }else if (data === 'guia'){
+                alert("Este número de guia ya esta registrado");
             }else{
                 alert (data)
             }
