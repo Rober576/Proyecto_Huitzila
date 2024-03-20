@@ -24,12 +24,23 @@ if ($procedencia=="procedencia1"){
     $proce="Externo";
 }
 
-$u=$objeto->insertar_bitacora($proce, $costo, $lote, $fecha, $guia, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
-if($u==true){
-    echo json_encode('exito');
-    
+$loteV=$objeto->buscar_lote($lote);
+$guiaV=$objeto->buscar_guia($guia);
+
+if($loteV==true){
+    echo json_encode('lote');
+}else if ($guiaV==true){
+    echo json_encode('guia');
 }else{
-    echo json_encode('no exito');
-    
+    $u=$objeto->insertar_bitacora($proce, $costo, $lote, $fecha, $guia, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
+    if($u==true){
+        echo json_encode('exito');
+        
+    }else{
+        echo json_encode('no exito');
+        
+    }
 }
+
+
 ?>

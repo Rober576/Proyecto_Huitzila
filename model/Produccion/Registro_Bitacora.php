@@ -19,5 +19,21 @@
             return $ejecucion;
             $this->cerrar_conexion();
         }
+
+        public function buscar_lote($lote){
+            $this->conexion_bd();
+            $consulta = "SELECT * FROM bitacoramezcal WHERE Lote='$lote'";
+            $resultados = $this->mostrar($consulta);
+            $this->cerrar_conexion();
+            return $resultados;
+        }
+
+        public function buscar_guia($guia){
+            $this->conexion_bd();
+            $consulta = "SELECT * FROM bitacoramezcal WHERE NoGuia='$guia'";
+            $resultados = $this->mostrar($consulta);
+            $this->cerrar_conexion();
+            return $resultados;
+        }
     }
 ?>
