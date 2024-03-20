@@ -18,7 +18,7 @@ if ($usuario) {
 
     // Redireccionar según el área del usuario
     switch ($usuario['IdentificadorArea']) {
-        case "Agricola":
+        case "1":
             header('Location: ../area1.html');
             break;
         case "Produccion":

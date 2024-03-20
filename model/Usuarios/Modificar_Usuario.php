@@ -16,7 +16,7 @@ class NuevosCampos
     //manda las consultas para insertar en las tablas de certificaciones internas e historicos
     function insertar($id, $c1, $c2, $c3, $c4, $c5, $c6)
     {
-        $correo_existente = $this->verificar_correo_existente($c4);
+        $correo_existente = $this->verificar_correo_existente($id,$c4);
 
         if ($correo_existente) {
             echo json_encode('corre');
@@ -33,10 +33,10 @@ class NuevosCampos
         }
     }
 
-    function verificar_correo_existente($Correo)
+    function verificar_correo_existente($id, $Correo)
     {//echo '<script>alert("El correo ya existe");</script>';
-        $q2 = "SELECT COUNT(*) as count FROM usuarios WHERE Correo = :Correo";
-        $a2 = [":Correo" => $Correo];
+        $q2 = "SELECT COUNT(*) as count FROM usuarios WHERE Correo = :Correo AND Clave != :id";
+        $a2 = [":Correo" => $Correo, ":id" => $id];
         $resultado = $this->base->mostrar($q2, $a2);
 
         if ($resultado && $resultado[0]['count'] > 0) {
