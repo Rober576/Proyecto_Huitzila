@@ -1,22 +1,17 @@
 <?php
 include_once '../../model/Login/Autenticacion/Autentica_usuario.php';
 
-// Iniciar sesión
 session_start();
 
-// Recibir datos del formulario
 $email = $_POST['Correo'];
 $password = $_POST['Password'];
 
-// Validar credenciales
 $usuarioModel = new Login_Model();
 $usuario = $usuarioModel->buscar_usuario($email, $password);
 
 if ($usuario) {
-    // Inicia la sesión y guarda la clave del usuario
     $_SESSION['user_key'] = $usuario['Clave'];
 
-    // Redireccionar según el área del usuario
     switch ($usuario['IdentificadorArea']) {
         case "1":
             header('Location: ../../view/insumos/Principal_Insumos.html');
@@ -41,9 +36,9 @@ if ($usuario) {
             break;
 
         default:
-            header('Location: ../dashboard.php'); // Redirigir a un dashboard por defecto
             break;
     }
 } else {
-    echo 'Usuario o contraseña incorrectos';
+    echo "<script>alert('Usuario o contraseña incorrecta'); window.history.back();</script>";
 }
+?>
