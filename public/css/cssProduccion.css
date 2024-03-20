@@ -62,6 +62,14 @@ th {
     text-align: center;
 }
 
+/* Estilos para el campo obligatorio */
+.campo-obligatorio {
+    color: red; /* Color rojo para resaltar */
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    margin-left: 5px; /* Espaciado a la izquierda */
+}
+
+
 footer {
     position: fixed;
     left: 0;
