@@ -8,7 +8,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
     console.log("Antes de fetch"); // Agregado para depuración
-    fetch('../../../controller/Produccion/Modificar_Mezcal.php', {
+    fetch('../../controller/Produccion/Modificar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
@@ -20,7 +20,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
             alert("Hubo un error");
         } else {
             alert("Actualización exitosa");
-            location.href = "../../../view/Produccion/Mostrar_Mezcal.html";
+            location.href = "../../view/Produccion/Mostrar_Mezcal.html";
         }
     })
     .catch(error => {
@@ -36,6 +36,6 @@ document.getElementById('cancelButton').addEventListener('click', function (e) {
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if (resp == true) {
-        window.location.href = '../../../view/Produccion/Mostrar_Mezcal.html';
+        window.location.href = '../../view/Produccion/Mostrar_Mezcal.html';
     }
 });
