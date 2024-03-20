@@ -1,70 +1,49 @@
 <?php
-include_once('../../model/Login/Autenticacion/Autentica_usuario.php');
+include_once '../../model/Login/Autenticacion/Autentica_usuario.php';
 
-class Controla_Login {
-    public function __construct() {
-        // Iniciar la sesión
-        session_start();
+// Iniciar sesión
+session_start();
+
+// Recibir datos del formulario
+$email = $_POST['Correo'];
+$password = $_POST['Password'];
+
+// Validar credenciales
+$usuarioModel = new Login_Model();
+$usuario = $usuarioModel->buscar_usuario($email, $password);
+
+if ($usuario) {
+    // Inicia la sesión y guarda la clave del usuario
+    $_SESSION['user_key'] = $usuario['Clave'];
+
+    // Redireccionar según el área del usuario
+    switch ($usuario['IdentificadorArea']) {
+        case "Agricola":
+            header('Location: ../area1.html');
+            break;
+        case "Produccion":
+            header('Location: ../area2.php');
+            break;
+        case "Envasado":
+            header('Location: ../area2.php');
+            break;
+        case "Calidad":
+            header('Location: ../area2.php');
+            break;
+        case "Ventas":
+            header('Location: ../area2.php');
+            break;
+        case "Administrativo6":
+            header('Location: ../area2.php');
+            break;
+        case "7":
+            header('Location: ../area2.php');
+            break;
+
+        default:
+            header('Location: ../dashboard.php'); // Redirigir a un dashboard por defecto
+            break;
     }
-
-    public function login() {
-        if(isset($_SESSION['clave'])) {
-            header("Location: index.html");  //Devuelve al inicio si no hay una sesión
-            exit();
-        }
-    }
-
-
-    public function autentica() {
-        $correo = $_POST['correo'];
-        $password = $_POST['password'];
-        
-        // Instanciar el modelo de Login
-        $login_model = new Autentica();
-
-        // Autenticar al usuario
-        if($login_model->autenticar_user($correo, $password)) {
-            // En este ejemplo, asumimos que la consulta SQL devuelve un solo usuario
-            $info = $login_model->obtener_Area($correo);
-            
-            $_SESSION['clave'] = $info['Clave']; // Asigna la clave del usuario de la bd a la sesión
-            header("Location: index.html");  //Pendiente de conectar con el principal   
-
-            $area = $info[0]["IdentidicadorArea"];
-            $tipo = $info[0]["IdentidicadorTipo"];
-
-            if($area == "Agricola"){
-                //se manda al area de agricola
-            }
-
-            else if($area == "Produccion"){
-
-            }
-
-            else if($area == "Envasado"){
-
-            }
-
-            else if($area == "Calidad"){
-
-            }
-
-            else if($area == "Ventas"){
-
-            }
-
-            else if($area == "Administrativo"){
-
-            }
-
-        } else {
-            $error = "Nombre de usuario o contraseña incorrectos";
-        }
-    
-    include("../../view/Login.html");
-    }
+} else {
+    echo 'Usuario o contraseña incorrectos';
 }
-
-$loginController = new Controla_Login();
-$loginController->login();
-?>

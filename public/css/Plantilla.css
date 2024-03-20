@@ -283,3 +283,6 @@ select:hover {
         margin-bottom: 10px;
     }
 }
+.required {
+    color: red; 
+  }
