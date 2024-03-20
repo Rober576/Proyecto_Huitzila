@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar usuario</title>
+	<script src="https://kit.fontawesome.com/f8c41f1595.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+
 </head>
 <body>
         <header>
@@ -126,42 +128,27 @@
             <form class="formulario-datos" id="advanced-form">
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Clave de usuario*</label>
-                    <input type="text" id="clave_us" name="clave_us" required>
+                    <input type="text" id="clave_us" name="clave_us" maxlength="7" required required title="Solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Nombre*</label>
-                    <input type="text" id="nombre_us" name="nombre_us" required>
+                    <input type="text" id="nombre_us" name="nombre_us" maxlength="40" required required title="Solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="apellido">Apellido paterno*</label>
-                    <input type="text" id="apellido_pat" name="apellido_pat" required>
+                    <input type="text" id="apellido_pat" name="apellido_pat" maxlength="20" required title="El apellido paterno debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="apellido">Apellido materno</label>
-                    <input type="text" id="apellido_mat" name="apellido_mat">
-                </div>
-
-                <div class="grupo1">
-                    <label class="label_datos" for="email">Email*</label>
-                    <input type="email" id="email_us" name="email_us" required>
-                </div>
-
-                <div class="grupo1">
-                    <label class="label_datos" for="email">Contraseña*</label>
-                    <input type="password" id="email" name="email" required>
+                    <input type="text" id="apellido_mat" name="apellido_mat" maxlength="20" title="El apellido materno es opcional. En caso de ponerlo debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
                 </div>
 
 				<div class="grupo1">
-                    <label class="label_datos" for="email">Confirmar contraseña*</label>
-                    <input type="password" id="email2" name="email2" required>
-                </div>
-
-                <div class="grupo1">
                     <label class="label_datos" for="area_us">Área*</label>
-                    <select id="area_us" name="area_us" required>
+                    <select id="area_us" name="area_us" required title="Selecciona el área de trabajo del usuario.">
                         <option value="1">Agrícola</option>
                         <option value="2">Producción</option>
                         <option value="3">Envasado</option>
@@ -174,11 +161,28 @@
 
                 <div class="grupo1">
                     <label class="label_datos" for="tipo_us">Tipo de usuario*</label>
-                    <select id="tipo_us" name="tipo_us" required>
+                    <select id="tipo_us" name="tipo_us" required title="Selecciona el tipo de usuario.">
                         <option value="1">Jefe de área</option>
                         <option value="2">Usuario normal</option>
                     </select>
                 </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Email*</label>
+                    <input type="email" id="email_us" name="email_us" maxlength="40" required title="El email puede contener un máximo de 40 caracteres, puede haber letras, números y caracteres especiales ('.','-','_') antes de la arroba, después de la arroba deberá tener la organización del correo electrónico y el tipo para ser aceptado.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Contraseña*</label>
+                    <input type="password" id="email" name="email" maxlength="16" required title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial ( ., ',', _, +, *, /, !, @, #, $).">
+                </div>
+
+				<div class="grupo1">
+                    <label class="label_datos" for="email">Confirmar contraseña*</label>
+                    <input type="password" id="email2" name="email2" required title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial ( ., ',', _, +, *, /, !, @, #, $).">
+                </div>
+
+                
 
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
