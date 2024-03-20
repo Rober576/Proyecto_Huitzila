@@ -22,12 +22,20 @@ if ($procedencia=="procedencia1"){
     $proce="Externo";
 }
 
-$u=$objeto->actualizar($guia, $proce, $costo, $lote, $fecha, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
+$loteV=$objeto->buscar_lote($lote);
 
-if ($u==true){
-    echo json_encode('exito');
+if ($loteV==true){
+    $u=$objeto->actualizar($guia, $proce, $costo, $lote, $fecha, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
+
+    if ($u==true){
+        echo json_encode('exito');
+    }else{
+        echo json_encode('fechas');
+    }
 }else{
-    echo json_encode('fechas');
+    echo json_encode('lote');
 }
+
+
 
 ?>

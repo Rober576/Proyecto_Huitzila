@@ -40,6 +40,7 @@ if ($resultado) {
     foreach ($resultado as $fila) {
         $id = $fila['IDInsumo'];
         $salida .= '<tr>';
+        $salida .= '<td>' . $fila["IDInsumo"] . '</td>';
         $salida .= '<td>' . $fila["NombreInsumo"] . '</td>';
         $salida .= '<td>' . $fila["Descripcion"] . '</td>';
         $salida .= '<td>' . $fila["Unidades"] . '</td>';
