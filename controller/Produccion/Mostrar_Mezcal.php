@@ -41,9 +41,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' .$fila["NombrePlanta"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
-        $salida .= '<td>' . $fila["IDClase"] . '</td>';
+        $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . $fila["Edad"] . '</td>';
-        $salida .= '<td>' . $fila["IDCategoria"] . '</td>';
+        $salida .= '<td>' . $fila["Categoria"] . '</td>';
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
