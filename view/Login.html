@@ -5,29 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/Style_Loging.css">
     <title>Interfaz de Usuario</title>
-    
-
 </head>
 <body>
     <div class="container">
         <img src="../public/imagen_fondo.jpg" alt="Background Image" class="background-img">
         <div class="overlay">
             <img src="../public/perfilusuario.jpg" alt="Imagen de perfil del usuario" class="profile-img">
-            
-
             <div class="content">
-                 <!-- <h1>Bienvenido</h1>-->
-                 <form id="login_form" action="/controller/Login/Login_Control.php">
+                <form id="login_form" action="/controller/Login/Login_Control.php">
                     <div class="input-group">
-                        <br><br>
-                        <input type="text" placeholder="Usuario" name="Correo" id="Correo" oninput="validarCorreo()" onkeypress="return validarTecla(event)"> 
+                        <input type="text" placeholder="Usuario" name="Correo" id="Correo" oninput="validarCorreo()" onkeypress="return validarTecla(event)">
                         <span id="mensaje-error" class="error-message"></span>
-
                         <input type="password" placeholder="Contraseña" name="Password" id="Password" oninput="validarPassword()">
                         <span id="mensaje-error-password" class="error-message"></span>
-
                         <br>
-                        <a href="#">¿Olvidaste tu<br>contraseña?</a>
+                        <a href="#" class="forgot-password">¿Olvidaste tu <br>contraseña?</a>
                         <button type="submit" id="ingresar">ENTRAR</button>
                     </div>
                 </form>
@@ -37,12 +29,7 @@
     <div class="overlay-custom">
         <img src="../public/mezcal-logo.webp" alt="Imagen personalizada" class="custom-img">
     </div>
-
     <script src="../controller/Login/js/Validaciones.js"></script>
     <script src="../controller/Login/js/Login.js"></script>
-    <!-- <script src="js/Valida_Login.js"></script> -->
-    
-    
-
 </body>
 </html>

@@ -91,6 +91,8 @@ body, html {
     margin-right: 10px; /* Añade un margen derecho para separar el hipervínculo del botón */
     transform: translateY(-9%);
     transform: translateX(50%);
+    font-size: 26px;
+
 }
 
 .input-group a:hover {
@@ -102,16 +104,17 @@ body, html {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 200px;
+    width: 300px; /* Ancho estándar para todos los elementos de entrada y botones */
+    font-size: 26px; /* Tamaño de letra estándar */
 }
 
 .input-group input[type="text"], .input-group input[type="password"] {
-    font-size: 20px;
+    font-size: 26px; /* Ajusta el tamaño de la fuente */
     margin: 5px;
     padding: 10px;
     border: none;
     border-bottom: 2px solid black; /* Color café */
-    width: 200px;
+    width: 300px; /* Ancho ajustado */
     background: transparent; /* Fondo transparente */
     color: black; /* Color de texto café */
 }
@@ -119,17 +122,17 @@ body, html {
 .input-group input[type="text"]:focus, .input-group input[type="password"]:focus {
     outline: none;
     border-bottom: 2px solid #A52A2A; /* Cambio de color al enfocar */
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .input-group button {
     border: 2px solid black; /* Borde negro */
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .error-message {
     color: #b62525;
     display: block;
     text-align: center;
-    font-size: 20px;
+    font-size: 26px;
 }
