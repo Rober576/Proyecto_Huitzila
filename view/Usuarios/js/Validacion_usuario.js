@@ -13,7 +13,11 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 
     else{
-        alert("Datos incorrectos");
+        if(email2.value!=email.value) {
+            alert("La contraseña no coincide");
+        } else {
+            alert("Datos incorrectos");
+        }
         e.preventDefault();
     }
 })
