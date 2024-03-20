@@ -23,18 +23,13 @@ body, html {
 .overlay {
     position: absolute;
     top: 50%;
-
-    left:50%;
-
-    /*right: 5%;  Ajusta el valor según sea necesario */
+    right: 5%; /* Ajusta el valor según sea necesario */
     transform: translateY(-50%);
     width: 40%;
-    height: 60%;
+    height: 70%;
     background-color: rgba(255, 255, 255, 0.3); /* Color de fondo blanco con mayor transparencia */
     border-radius: 20px; /* Ajusta el radio de las esquinas del rectángulo */
-
-    padding: 3%; /* Ajusta el espaciado dentro del rectángulo */
-
+    padding: 30px; /* Ajusta el espaciado dentro del rectángulo */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,10 +43,9 @@ body, html {
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 2; /* Asegura que la imagen esté encima del rectángulo gris */
-    width: 100%;  /*Ajusta el ancho según sea necesario */
+    width: 40%;  /*Ajusta el ancho según sea necesario */
     max-width: 150px; /* Define un ancho máximo */
     height: auto;  /*Ajusta la altura según sea necesario */
-    /*margin-right: 20px;*/
 
 }
 
@@ -80,8 +74,7 @@ body, html {
 .content {
     text-align: center;
     color: white;
-    padding: 10px;
-    width: 100%;
+    padding: 80px;
 }
 
 .input-group {
@@ -89,20 +82,19 @@ body, html {
     flex-direction: column;
     align-items: center;
     position: relative;
-    text-align: center;
+    text-align: right;
 
 }
 
 .input-group a {
     position: relative;
-    right: -60px; /* Ajusta la distancia desde el borde derecho según sea necesario */
+    right: -10px; /* Ajusta la distancia desde el borde derecho según sea necesario */
     color: black; /* Cambia el color del hipervínculo si es necesario */
     text-decoration: none; /* Elimina el subrayado del hipervínculo */
     margin-right: 10px; /* Añade un margen derecho para separar el hipervínculo del botón */
     transform: translateY(-9%);
     transform: translateX(50%);
-    font-size: 1.5vw;
-    margin-top: 10px;
+    font-size: 26px;
 
 }
 
@@ -115,8 +107,8 @@ body, html {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 80%;
-    font-size: 4vw;
+    width: 300px; /* Ancho estándar para todos los elementos de entrada y botones */
+    font-size: 26px; /* Tamaño de letra estándar */
 }
 
 .input-group input[type="text"], .input-group input[type="password"] {
@@ -139,7 +131,7 @@ body, html {
 
 .input-group button {
     border: 2px solid black; /* Borde negro */
-    font-size: 1.5vw;
+    font-size: 26px;
 
 }
 
@@ -147,5 +139,5 @@ body, html {
     color: #b62525;
     display: block;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 26px;
 }
