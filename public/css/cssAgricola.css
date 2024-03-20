@@ -97,6 +97,6 @@ textarea{
     margin-left: 5px; /* Espaciado a la izquierda */
 }
 
-body{
+.section-main{
     font-weight: bold;
 }
