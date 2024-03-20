@@ -19,7 +19,7 @@ if ($usuario) {
     // Redireccionar según el área del usuario
     switch ($usuario['IdentificadorArea']) {
         case "1":
-            header('Location: ../area1.html');
+            header('Location: ../../view/insumos/Principal_Insumos.html');
             break;
         case "Produccion":
             header('Location: ../area2.php');
