@@ -51,6 +51,7 @@ body, html {
     width: 100%;  /*Ajusta el ancho según sea necesario */
     max-width: 150px; /* Define un ancho máximo */
     height: auto;  /*Ajusta la altura según sea necesario */
+    /*margin-right: 20px;*/
 
 }
 
@@ -94,7 +95,7 @@ body, html {
 
 .input-group a {
     position: relative;
-    right: -10px; /* Ajusta la distancia desde el borde derecho según sea necesario */
+    right: -60px; /* Ajusta la distancia desde el borde derecho según sea necesario */
     color: black; /* Cambia el color del hipervínculo si es necesario */
     text-decoration: none; /* Elimina el subrayado del hipervínculo */
     margin-right: 10px; /* Añade un margen derecho para separar el hipervínculo del botón */
