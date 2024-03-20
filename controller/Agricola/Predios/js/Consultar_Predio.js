@@ -4,13 +4,9 @@ function buscar_datos(consulta) {
     if (consulta !== "") {
         url += '?consulta=' + consulta;
     }
-
-    // Crear una nueva instancia de XMLHttpRequest
     var xhr = new XMLHttpRequest();
-    // Configurar la solicitud GET
     xhr.open('GET', url, true);
 
-    // Definir la función de retorno de llamada (callback) para manejar la respuesta
     xhr.onload = function() {
         if (xhr.status === 200) {
             document.getElementById("tabla").innerHTML = xhr.responseText;
@@ -30,17 +26,11 @@ function buscar_datos(consulta) {
 
 function EventoEditar() {
     var botonesModificar = document.querySelectorAll(".boton-modificar");
-    // Agrega el evento click a cada botón de modificar
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-            // Redirige a una URL, por ejemplo:
             window.location.href = "#";
-            
-            // Imprime la ID del botón en la consola
             console.log("ID del botón:", e.target.id);
-
-            // Realiza el proceso que quieres que se haga
-            var id = e.target.id; // Obteniendo la ID del botón
+            var id = e.target.id;
 
             localStorage.setItem('id', id);
 
@@ -54,9 +44,7 @@ function EventoEditar() {
                 return response.json(); 
             })
             .then(function(data) {
-                // Convierte el objeto JSON en una cadena de texto y guárdalo en el localStorage
                 localStorage.setItem('data', JSON.stringify(data));
-                // Redirige a la página Mod_Equipo4.html
                 window.location.href = '../../../view/Agricola/Predios/Editar_Predios.html';
             })
             .catch(function(error) {
