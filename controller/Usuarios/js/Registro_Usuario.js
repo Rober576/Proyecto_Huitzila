@@ -17,6 +17,7 @@ formulario.addEventListener('submit', function (e)
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro exitoso");
+            window.location.href = 'Mostrar_Usuarios.html';
         }
     })
 })
