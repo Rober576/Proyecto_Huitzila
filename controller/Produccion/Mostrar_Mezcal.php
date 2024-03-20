@@ -1,6 +1,7 @@
 <?php
 include_once('../../model/Produccion/Mostrar_MezcalM.php');
 
+
 $base = new MostrarMez();
 $base->instancias();
 if (isset($_POST['consulta'])) {
@@ -36,6 +37,7 @@ if ($resultado) {
         $salida .= '<tr>';
         $Lote= $fila['Lote'];
         
+        
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' .$fila["NombrePlanta"] . '</td>';
         $salida .= '<td>' . $fila["Tanque"] . '</td>';
@@ -45,7 +47,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/php/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
@@ -55,4 +57,4 @@ if ($resultado) {
 }
  echo $salida;
 ?>
-<script src="../../controller/Produccion/js/Eliminar_Lote.js"></script>
+<script src="../../../controller/Produccion/js/Eliminar_Lote.js"></script>

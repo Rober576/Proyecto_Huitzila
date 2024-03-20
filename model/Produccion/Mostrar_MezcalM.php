@@ -3,7 +3,7 @@ include('../../config/Crud_bd.php');
 
 class MostrarMez extends Crud_bd {
     private $base;
-
+   
     function instancias(){
         $this->base = new Crud_bd();
         $this->base->conexion_bd();
@@ -11,16 +11,19 @@ class MostrarMez extends Crud_bd {
 
     function getInfo(){
         $query = "SELECT * FROM registromezcal";
+        
         $resultados = $this->base->mostrar($query);
         $this->base->cerrar_conexion();
         return $resultados;
     }
 
     function buscador($busqueda){
-        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR Tanque LIKE :busqueda OR IDCategoria LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda OR NombrePlanta LIKE :especie ";
+        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR Tanque LIKE :busqueda OR IDCategoria LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda OR NombrePlanta LIKE :busqueda ";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+        echo $resultados;
         $this->base->cerrar_conexion();
         return $resultados;
+
     }
     function buscar_datos($id){
         $this->conexion_bd();

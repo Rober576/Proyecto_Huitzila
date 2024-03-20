@@ -16,7 +16,6 @@ function buscar_datos(consulta) {
         if (xhr.status === 200) {
 
             document.getElementById("tabla_Mez").innerHTML = xhr.responseText;
-            console.log("entro aqui")
             agregarEventosEliminar();
             agregarEventosEditar();
         } else {
