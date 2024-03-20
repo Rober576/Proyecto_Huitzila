@@ -1,10 +1,8 @@
 <?php
-require_once('../../../model/Produccion/Modificar/Modificar_Bitacora.php');
+require_once('../../model/Produccion/Modificar_Bitacora.php');
 $objeto=new modificarBitacora();
 
-$fechaC='2000-12-27';
 $lote=$_POST["lote"];
-$kgEntrada=10;
 $procedencia=$_POST["procedencia"];
 $costo=$_POST["costo"];
 $fecha=$_POST["fecha"];
@@ -24,7 +22,7 @@ if ($procedencia=="procedencia1"){
     $proce="Externo";
 }
 
-$u=$objeto->actualizar($guia, $fechaC, $proce, $costo, $lote, $kgEntrada, $fecha, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
+$u=$objeto->actualizar($guia, $proce, $costo, $lote, $fecha, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
 
 if ($u==true){
     echo json_encode('exito');

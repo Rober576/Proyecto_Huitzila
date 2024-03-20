@@ -1,9 +1,9 @@
 <?php
-    include('../../../config/Crud_bd.php');
+    include('../../config/Crud_bd.php');
  
     class modificarBitacora extends Crud_bd{
 
-        public function actualizar($guia, $fechaC, $procedencia, $costo, $lote, $kgEntrada, $fecha, $agave, $kgAgave, $brix, $kgArt, $kgCoccion, $fechaI, $fechaF, $kgArtCoccion){
+        public function actualizar($guia, $procedencia, $costo, $lote, $fecha, $agave, $kgAgave, $brix, $kgArt, $kgCoccion, $fechaI, $fechaF, $kgArtCoccion){
             $this->conexion_bd();
             
             $consulta = "UPDATE bitacoramezcal SET Procedencia=:procedencia, Costo=:costo, 
