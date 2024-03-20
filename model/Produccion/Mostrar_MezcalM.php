@@ -1,5 +1,5 @@
 <?php
-include('../../config/Crud_bd.php');
+/*include('../../config/Crud_bd.php');
 
 class MostrarMez extends Crud_bd {
     private $base;
@@ -11,6 +11,42 @@ class MostrarMez extends Crud_bd {
 
     function getInfo(){
         $query = "SELECT * FROM registromezcal";
+        $resultados = $this->base->mostrar($query);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
+
+    function buscador($busqueda){
+        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR Tanque LIKE :busqueda OR IDCategoria LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda OR NombrePlanta LIKE :busqueda ";
+        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+        $this->base->cerrar_conexion();
+        return $resultados;
+
+    }
+    function buscar_datos($id){
+        $this->conexion_bd();
+        $consulta = "SELECT * FROM registromezcal WHERE Lote='$id'";
+        $resultados = $this->mostrar($consulta);
+        $this->cerrar_conexion();
+        return $resultados;
+    }
+}*/
+
+include('../../config/Crud_bd.php');
+
+class MostrarMez extends Crud_bd {
+    private $base;
+   
+    function instancias(){
+        $this->base = new Crud_bd();
+        $this->base->conexion_bd();
+    }
+
+    function getInfo(){
+        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
+                  FROM registromezcal rm
+                  INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
+                  INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria";
         
         $resultados = $this->base->mostrar($query);
         $this->base->cerrar_conexion();
@@ -20,7 +56,6 @@ class MostrarMez extends Crud_bd {
     function buscador($busqueda){
         $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR Tanque LIKE :busqueda OR IDCategoria LIKE :busqueda OR IDClase LIKE :busqueda OR Edad LIKE :busqueda OR NombrePlanta LIKE :busqueda ";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
-        echo $resultados;
         $this->base->cerrar_conexion();
         return $resultados;
 
@@ -33,3 +68,6 @@ class MostrarMez extends Crud_bd {
         return $resultados;
     }
 }
+?>
+
+

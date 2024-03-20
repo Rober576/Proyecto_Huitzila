@@ -11,7 +11,7 @@ $tanque = $resultado[0]['Tanque'];
 
 $clase = $resultado[0]['IDClase'];
 $edad = $resultado[0]['Edad'];
-$categoria = $resultado[0]['Categoria'];
+$categoria = $resultado[0]['IDCategoria'];
         
 ?>
 <script language="javascript">
