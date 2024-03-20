@@ -12,7 +12,7 @@ let art2 = false
 const expresiones = {
     lote1:/^[a-zA-ZÁ-Ýá-ý0-9.-\s]{1,10}$/,
     costo1:/^[0-9.\s]{1,20}$/,
-    guia:/^[a-zA-ZÁ-Ýá-ý0-9.-\s]{1,10}$/,
+    guia:/^[a-zA-ZÁ-Ýá-ý0-9-\s]{6}$/,
     agave1:/^[0-9.\s]{1,15}$/,
     brix1:/^[0-9.\s]{1,15}$/,
     art1:/^[0-9.\s]{1,15}$/,
@@ -76,8 +76,6 @@ form_ingreso_agave.guia.addEventListener('keyup', (e) => {
     
     // Eliminar espacios en blanco
     .replace(/\s/g, '')
-    // Eliminar caracteres especiales
-    .replace(/[^0-9-.]/g, '')
     // Eliminar el ultimo espaciado
     .trim();
 
