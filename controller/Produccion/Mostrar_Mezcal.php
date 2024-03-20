@@ -20,7 +20,7 @@ if ($resultado) {
             <tr>
                 
                 <th>No. de Lote</th>
-                <th>Nombre Planta</th>
+                <th>Especie</th>
                 <th>Tanque</th>
                 <th>Clase</th>
                 <th>Edad</th>
