@@ -13,5 +13,5 @@ $IdentificadorArea = intval($_POST["area_us"]);
 $usarios = new Registro_usuarios();
 $usarios->conexion();
 $usarios->insertar($Clave, $Nombre, $ApellidoPaterno, $ApellidoMaterno, $Correo, $Password, $IdentificadorTipo, $IdentificadorArea);
-echo json_encode('exito');
+
 ?>

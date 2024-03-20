@@ -18,6 +18,8 @@ formulario.addEventListener('submit', function (e)
             form.reset();
             alert("Registro exitoso");
             window.location.href = 'Mostrar_Usuarios.html';
+        } else if(data==='corre') {
+            alert("El correo ya fue utilizado");
         }
     })
 })
