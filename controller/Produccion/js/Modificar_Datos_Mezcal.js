@@ -30,12 +30,25 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
 });
 
 // Responde cuando hay un click en el boton "Cancelar"
-document.getElementById('cancelButton').addEventListener('click', function (e) {
+formulario.cancelar.addEventListener('click', function (e){
     e.preventDefault();
-    console.log("Mensaje de prueba en la consola");
+    let urlAct = window.location+''
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
-    if (resp == true) {
-        window.location.href = '../../view/Produccion/Mostrar_Mezcal.html';
+    if(resp ==  true){
+      window.location.href='../../view/Produccion/Mostrar_Mezcal.html';
     }
+
+    
+
+    /*formulario.cancelar.addEventListener('click', function (e){
+        e.preventDefault();
+        let urlAct = window.location+''
+    
+        var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
+        if(resp ==  true){
+          window.location.href='../../view/Produccion/Mostrar_Bitacora.html';
+        }*/
+    
+    
 });
