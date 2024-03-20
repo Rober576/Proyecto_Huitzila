@@ -44,3 +44,22 @@ formulario.addEventListener('submit', function (e)
         }
     })
 })
+
+
+var cancelButton = document.getElementById("cancelButton");
+
+    // Agregar un event listener para el evento 'click'
+    cancelButton.addEventListener("click", function() {
+        // Mostrar una alerta
+        var confirmar = confirm("¿Estás seguro de cancelar el registro?");
+        
+        // Si el usuario confirma la acción
+        if (confirmar) {
+            // Obtener el formulario por su ID
+            var formulario1 = document.getElementById("advanced-form"); 
+            
+            // Limpiar los campos del formulario
+            formulario1.reset();
+            
+        }
+    });
