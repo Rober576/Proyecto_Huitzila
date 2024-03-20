@@ -13,7 +13,11 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 
     else{
-        alert("Datos incorrectos");
+        if(email2.value!=email.value) {
+            alert("La contraseña no coincide");
+        } else {
+            alert("Datos incorrectos");
+        }
         e.preventDefault();
     }
 })
@@ -166,7 +170,7 @@ email2.addEventListener('keyup', (e) => {
         email.value = valorInput.slice(0, 16);
     }
 
-    if (!expresion.password.test(valorInput) || email2.value!=email.value) {
+    if (!expresion.password.test(valorInput) || email2.value !== email.value) {
         email2.style.border = "5px solid red";
         bandera7 = false;
     } else {

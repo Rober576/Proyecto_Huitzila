@@ -51,4 +51,4 @@ if ($resultado) {
 }
 
 echo $salida;
-    
+?>
