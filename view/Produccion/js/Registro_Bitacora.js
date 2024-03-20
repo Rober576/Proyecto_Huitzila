@@ -64,9 +64,9 @@ formulario.cancelar.addEventListener('click', function (e){
     e.preventDefault();
     let urlAct = window.location+''
 
-    var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
+    var resp = confirm("El registro no se completará, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='Mostrar_Bitacora.html';
+      window.location.href='Registro_Bitacora.html';
     }
 
     
