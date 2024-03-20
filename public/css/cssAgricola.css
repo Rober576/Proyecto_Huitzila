@@ -96,3 +96,7 @@ textarea{
     font-size: 16px; /* Tamaño de fuente más pequeño */
     margin-left: 5px; /* Espaciado a la izquierda */
 }
+
+body{
+    font-weight: bold;
+}
