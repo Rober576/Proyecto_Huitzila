@@ -13,6 +13,7 @@ formulario.addEventListener('submit', function (e) {
         */
     e.preventDefault();
 
+    if(true){
     var datos= new FormData(formulario);
     fetch('../../controller/Login/Login_Control.php', {
         method: 'POST',
@@ -29,7 +30,10 @@ formulario.addEventListener('submit', function (e) {
             //window.location.href = 'Mostrar_Usuarios.html';
         }
     })
-    
+    } else {
+        console.log("Ingreso fallido. Por favor, revise los campos resaltados.");
+        alert("Ingreso fallido. Por favor, revise los campos resaltados.");
+    }
 })
 
 /*
