@@ -65,7 +65,7 @@ nombre_us.addEventListener('keyup', (e) => {
     .trim();
 
     if (valorInput.length > 40) {
-        clave_us.value = valorInput.slice(0, 40);
+        nombre_us.value = valorInput.slice(0, 40);
     }
 
     if (!expresion.nombre.test(valorInput)) {
@@ -86,7 +86,7 @@ apellido_pat.addEventListener('keyup', (e) => {
     .trim();
 
     if (valorInput.length > 20) {
-        clave_us.value = valorInput.slice(0, 20);
+        apellido_pat.value = valorInput.slice(0, 20);
     }
 
     if (!expresion.paterno.test(valorInput)) {
@@ -106,7 +106,7 @@ apellido_mat.addEventListener('keyup', (e) => {
     .trim();
 
     if (valorInput.length > 20) {
-        clave_us.value = valorInput.slice(0, 20);
+        apellido_mat.value = valorInput.slice(0, 20);
     }
 
     if (!expresion.materno.test(valorInput)) {
@@ -127,7 +127,7 @@ email_us.addEventListener('keyup', (e) => {
     .trim();
 
     if (valorInput.length > 40) {
-        clave_us.value = valorInput.slice(0, 40);
+        email_us.value = valorInput.slice(0, 40);
     }
 
     if (!expresion.email.test(valorInput)) {
@@ -144,6 +144,10 @@ email.addEventListener('keyup', (e) => {
 
     email.value = valorInput
 
+    if (valorInput.length > 16) {
+        email.value = valorInput.slice(0, 16);
+    }
+
     if (!expresion.password.test(valorInput)) {
         email.style.border = "5px solid red";
         bandera6 = false;
@@ -157,6 +161,10 @@ email2.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
     email2.value = valorInput
+
+    if (valorInput.length > 16) {
+        email.value = valorInput.slice(0, 16);
+    }
 
     if (!expresion.password.test(valorInput) || email2.value!=email.value) {
         email2.style.border = "5px solid red";
