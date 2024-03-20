@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var selectClase = document.getElementById('clase');
     var selectEspecie = document.getElementById('especie');
 
-    fetch('../../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=categorias')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=categorias')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error al obtener categorías:', error));
 
-    fetch('../../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clases')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clases')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error al obtener clases:', error));
 
-    fetch('../../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=especies')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=especies')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
