@@ -57,11 +57,38 @@ function EventoEliminar() {
     var botonesEliminar = document.querySelectorAll(".boton-eliminar");
     for (var j = 0; j < botonesEliminar.length; j++) {
         botonesEliminar[j].addEventListener('click', function(e) {
+            
             var id = e.target.id;
-            console.log("ID del elemento a eliminar:", id);
-        });
+            confirmacion(e,id);
+        }
+            );
     }
 }
+
+function confirmacion(e, id) {
+    // Preguntar al usuario si está seguro de eliminar el registro
+    if (confirm('¿Estás seguro de eliminar el registro?')) {
+        // Prevenir la acción predeterminada del evento
+        e.preventDefault();
+
+        // Realizar la solicitud fetch al script PHP para eliminar el registro
+        fetch('../../../controller\Agricola\Predios\php\Eliminar_Predio.php?id=' + id, {
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message); // Mostrar el mensaje de respuesta del servidor
+            location.reload(); // Recargar la página después de eliminar el registro
+        })
+        .catch(error => {
+            console.error('Error al eliminar el registro:', error);
+            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+        });
+    } else {
+        // Si el usuario cancela, no se hace nada
+    }
+}
+
 
 
 
