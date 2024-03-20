@@ -130,7 +130,7 @@
                 <input type="hidden" name="id" id="inputId">
 
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Clave de usuario</label>
+                    <label class="label_datos" for="claveU">Clave de usuario</label>
                     <input type="text" id="clave_us" name="clave_us" required readonly title="La clave no puede ser modificada.">
                 </div>
 
@@ -140,21 +140,14 @@
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="apellido">Apellido paterno*</label>
+                    <label class="label_datos" for="apellidoP">Apellido paterno*</label>
                     <input type="text" id="apellido_pat" name="apellido_pat" maxlength="20" required title="El apellido paterno debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="apellido">Apellido materno</label>
+                    <label class="label_datos" for="apellidoM">Apellido materno</label>
                     <input type="text" id="apellido_mat" name="apellido_mat" maxlength="20" title="El apellido materno es opcional. En caso de ponerlo debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
-                </div>
-
-                <div class="grupo1">
-                    <label class="label_datos" for="email">Email*</label>
-                    <input type="text" id="email_us" name="email_us" maxlength="40" required title="El email puede contener un máximo de 40 caracteres, puede haber letras, números y caracteres especiales ('.','-','_') antes de la arroba, después de la arroba deberá tener la organización del correo electrónico y el tipo para ser aceptado.">
-                </div>
-
-                
+                </div>              
 
                 <div class="grupo1">
                     <label class="label_datos" for="area_us">Área*</label>
@@ -177,6 +170,11 @@
                     </select>
                 </div>
 
+                <div class="grupo1">
+                    <label class="label_datos" for="email">Email*</label>
+                    <input type="text" id="email_us" name="email_us" maxlength="40" required title="El email puede contener un máximo de 40 caracteres, puede haber letras, números y caracteres especiales ('.','-','_') antes de la arroba, después de la arroba deberá tener la organización del correo electrónico y el tipo para ser aceptado.">
+                </div>              
+
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
                         <button type="submit" id="submitButton">Guardar</button>
@@ -195,7 +193,7 @@
     <script src="../../controller/Usuarios/js/Modificar_Usuarios.js"></script>
     <script src="../../controller/Usuarios/js/Registro_Modificar.js"></script>
     <script src="../../controller/Usuarios/js/Cancelar_Modificar.js"></script>
-    <script src="js/Validacion_usuario.js"></script>
+    
 </body>
 
 </html>
