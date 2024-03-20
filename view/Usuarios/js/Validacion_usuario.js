@@ -173,7 +173,6 @@ email2.addEventListener('keyup', (e) => {
     if (!expresion.password.test(valorInput) || email2.value !== email.value) {
         email2.style.border = "5px solid red";
         bandera7 = false;
-        alert("Los correos electrónicos no coinciden");
     } else {
         email2.removeAttribute("style");
         bandera7 = true;
