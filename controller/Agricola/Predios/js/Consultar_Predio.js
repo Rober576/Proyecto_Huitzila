@@ -10,6 +10,7 @@ function buscar_datos(consulta) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             document.getElementById("tabla").innerHTML = xhr.responseText;
+            EventoEliminar();
             EventoEditar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
@@ -29,11 +30,8 @@ function EventoEditar() {
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
             window.location.href = "#";
-            console.log("ID del botón:", e.target.id);
             var id = e.target.id;
-
             localStorage.setItem('id', id);
-
             fetch('../../../controller/Agricola/Predios/php/Modificar_Datos_Predio.php?id=' + id, {
                 method: 'GET',
             })
@@ -53,6 +51,20 @@ function EventoEditar() {
         });
     }
 }
+
+
+function EventoEliminar() {
+    var botonesEliminar = document.querySelectorAll(".boton-eliminar");
+    for (var j = 0; j < botonesEliminar.length; j++) {
+        botonesEliminar[j].addEventListener('click', function(e) {
+            var id = e.target.id;
+            console.log("ID del elemento a eliminar:", id);
+        });
+    }
+}
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

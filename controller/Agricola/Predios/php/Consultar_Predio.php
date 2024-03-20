@@ -38,7 +38,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["DescripcionArea"] . '</td>';
     
         $salida .= '<td>';
-        $salida .= '<button class="Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
+        $salida .= '<button id="' . $id_boton . '" class="boton-eliminar Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificar Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Editar</button>';
         $salida .= '</td>';
