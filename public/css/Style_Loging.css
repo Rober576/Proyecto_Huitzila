@@ -25,8 +25,8 @@ body, html {
     top: 50%;
     right: 5%; /* Ajusta el valor según sea necesario */
     transform: translateY(-50%);
-    width: 32%;
-    height: 55%;
+    width: 40%;
+    height: 60%;
     background-color: rgba(255, 255, 255, 0.3); /* Color de fondo blanco con mayor transparencia */
     border-radius: 20px; /* Ajusta el radio de las esquinas del rectángulo */
     padding: 30px; /* Ajusta el espaciado dentro del rectángulo */
