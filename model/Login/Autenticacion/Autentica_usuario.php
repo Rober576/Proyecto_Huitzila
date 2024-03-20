@@ -25,5 +25,15 @@ class Login_Model {
             return null;
         }
     }
+
+    public function buscarArea($clave){
+        $querry = "SELECT tipousuario.Tipo as tipoU, tipoareas.NombreArea as area FROM usuarios, tipousuario, tipoareas
+        WHERE usuarios.correo = :clave AND tipousuario.IdentificadorTipo = usuarios.IdentificadorTipo AND 
+        tipoareas.IdentificadorArea = usuarios.IdentificadorArea";
+
+        $arre = [":clave" => $clave];
+        $resultados = $this->crud_bd->mostrar($querry, $arre);
+        return $resultados;
+    }
 }
 ?>
