@@ -9,7 +9,7 @@ $lote = $resultado[0]['Lote'];
 $especie = $resultado[0]['NombrePlanta'];
 $tanque = $resultado[0]['Tanque'];
 $clase = $resultado[0]['Clase_Mezcal'];
-echo $clase;
+
 $edad = $resultado[0]['Edad'];
 $categoria = $resultado[0]['Categoria'];
         

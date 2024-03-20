@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar insumos</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Editar insumos</title>
+
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
-	<script src="../../controller/Insumos/js/Mostrar_Insumos.js"></script>s
-	
+	<link rel="stylesheet" href="../../public/css/insumos.css">
     
 </head>
 <body>
@@ -38,7 +37,7 @@
 				</label>
 				<nav>
 					<ul>
-		
+                        <br><br>
 						<li>
 							<a href="Principal_Insumos.html">
 								<i ></i>
@@ -47,6 +46,7 @@
 				
                             
 							<ul>
+                                <li><a href="Mostrar_Insumos.html">Consultar</a></li>
 								<li><a href="Registro_Insumos.html">Registrar</a></li>
                                 <li><a href="Editar_Insumos.html">Editar</a></li>
 							</ul>
@@ -61,54 +61,17 @@
     	</div>
 	</header>
 
-    
-<main>
+    <main>
+        <section class="section-main">
+			<div class="cabezera">
+				<h4 class="centered" >Bienvenido a Insumos</h4>
+			</div>
+			<br>
+        </section>
+    <main>
 
-    <section class="section-main">
-		<div class="cabezera">
-			<h4 class="h4">Insumos</h4>
-
-		</div>
-		<br>
-		<p class="subtitulo-1">Vista de insumos</p>
-		<hr>
-		<br>
-
-		<div class="tablas">
-			<section class="header_table" id="tablaResultado">
-
-				<table border="1">
-					<tr>
-						<th colspan="7">Datos de los insumos</th>
-					</tr>
-					<tr>
-						<th>Identificador</th>
-						<th>Nombre</th>
-						<th>Descripción</th>
-						<th>Unidades</th>
-						<th>Existencia</th>
-						<th>Fecha de registro</th>
-						<th>Stock mínimo</th>
-						<th>Stock máximo</th>
-						<th>Costo</th>
-						<th>Acciones</th>	
-					</tr>
-					
-					
-				</table>
-			</section>
-		</div>
-	</section>
-</main>
-
-
-
-	<br><br><br><br><br><br>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-	
-	
-	
 </body>
 </html>
