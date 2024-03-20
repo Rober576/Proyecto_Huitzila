@@ -9,26 +9,23 @@ formulario.addEventListener('submit', function (e) {
         method: 'POST',
         body: datos
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Hubo un problema al procesar la solicitud.');
-        }
-        return response.text();
-    })
+  
+    .then(res => res.json())
     .then(data => {
-        if (data === 'exito') {
-            console.error('Error al registrar:', data);
-            alert("Error al registrar: " + data); 
+        console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
+        if (data === "Lote existente") {
+            alert(data); // Mostrar mensaje del servidor
+            console.error('Error:', data);
         } else {
-            alert("Registro exitoso");
-            // Recargar la página después de
+            alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
             location.href="../../view/Produccion/Registro_Mezcal.html";
-        }
+        }        
     })
     .catch(error => {
         console.error('Error:', error.message);
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var selectCategoria = document.getElementById('categoria');
@@ -80,3 +77,17 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error al obtener especies:', error));
 });
+
+
+//responde cuando hay un click en el boton cancelar
+formulario.cancelar.addEventListener('click', function (e){
+    e.preventDefault();
+    let urlAct = window.location+''
+
+    var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
+    if(resp ==  true){
+      window.location.href='Mostrar_Mezcal.html';
+    }
+
+    
+})

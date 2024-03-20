@@ -32,18 +32,30 @@ class NuevosCampos{
         }
     }
 
-    function insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie){
+    function buscar_lote($lote){
+        // No es necesario llamar a $this->base->conexion_bd() aquí, ya que debería haberse establecido previamente
+        $consulta = "SELECT * FROM registromezcal WHERE Lote='$lote'";
+        $resultados = $this->base->mostrar($consulta);
+        // No es necesario llamar a $this->base->cerrar_conexion() aquí, ya que se cerrará en otro lugar
+        return $resultados;
+    }
 
-        echo "SSI";
+    function insertar($lote, $tanque, $categoria, $clase, $edad, $especie){
+        // Verificar si el lote ya existe en la base de datos
+        $loteExistente = $this->buscar_lote($lote);
+        
+        // Si el lote existe, mostrar una alerta y no realizar la inserción
+        if ($loteExistente) {
+            return false; // No se realizó la inserción
+        }
 
+        // Si el lote no existe, proceder con la inserción
         $IDClase = $this->obtenerIDClase($clase);
         $IDCategoria = $this->obtenerIDCategoria($categoria);
 
-
         if ($IDClase !== false && $IDCategoria !== false) {
-
-            $q1 = "INSERT INTO registromezcal (Lote, Tanque, IDCategoria, IDClase, Edad, Concentracion, Volumen, NombrePlanta) 
-                    VALUES (:lote, :tanque, :IDCategoria, :IDClase, :edad, :concentracion, :volumen, :especie)";
+            $q1 = "INSERT INTO registromezcal (Lote, Tanque, IDCategoria, IDClase, Edad, NombrePlanta) 
+                    VALUES (:lote, :tanque, :IDCategoria, :IDClase, :edad, :especie)";
             
             $params = array(
                 ":lote" => $lote,
@@ -51,20 +63,16 @@ class NuevosCampos{
                 ":IDCategoria" => $IDCategoria,
                 ":IDClase" => $IDClase,
                 ":edad" => $edad,
-                ":concentracion" => $concentracion,
-                ":volumen" => $volumen,
                 ":especie" => $especie
             );
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
             $this->base->cerrar_conexion();
             return true; // La inserción se realizó correctamente
-
         } else {
             // Si no se encuentran ambos IDClase e IDCategoria, devolvemos false
             return false;
         } 
-
     }
 }
 ?>

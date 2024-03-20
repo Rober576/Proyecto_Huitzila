@@ -8,12 +8,18 @@ $categoria = $_POST['categoria'];
 $especie = $_POST['especie'];
 $clase = $_POST['clase'];
 $edad = $_POST['edad'];
-$concentracion = $_POST['concentracion'];
-$volumen = $_POST['volumen'];
 
 //instanciar la clase y llamar la funcion para insertar
 $obj = new NuevosCampos();
 $obj->conexion();
-$obj->insertar($lote, $tanque, $categoria, $clase, $edad, $concentracion, $volumen, $especie);
-echo json_encode('exito');
+
+// Realizar la inserción
+$resultado = $obj->insertar($lote, $tanque, $categoria, $clase, $edad, $especie);
+
+// Comprobar el resultado y enviar el mensaje correspondiente
+if ($resultado === true) {
+    echo json_encode('Registro exitoso');
+} elseif ($resultado === false) {
+    echo json_encode("Lote existente");
+}
 ?>
