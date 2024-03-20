@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e) {
 
     var datos = new FormData(formulario);
 
-    fetch('../../../controller/Produccion/Registrar_Mezcal.php', {
+    fetch('../../controller/Produccion/Registrar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
