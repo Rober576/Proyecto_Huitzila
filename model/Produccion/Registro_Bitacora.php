@@ -1,5 +1,5 @@
 <?php
-    include('../../../config/Crud_bd.php');
+    include('../../config/Crud_bd.php');
 
     class Bitacora extends Crud_bd{
         public function insertar_bitacora($procedencia, $costo, $lote, $fecha, $guia, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2){

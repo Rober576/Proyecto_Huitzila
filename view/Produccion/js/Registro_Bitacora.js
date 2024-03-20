@@ -15,7 +15,7 @@ formulario.addEventListener('submit', function (e)
         alert("La fecha inicio no debe ser mayor que la fecha final");
     }else{
         var datos= new FormData(formulario);
-        fetch('../../controller/Produccion/php/Registro_Bitacora.php', {
+        fetch('../../controller/Produccion/Registro_Bitacora.php', {
             method: 'POST',
             body: datos
         })
@@ -39,7 +39,7 @@ formulario.addEventListener('submit', function (e)
 document.addEventListener('DOMContentLoaded', function() {
     var selectEspecie = document.getElementById('especie');
 
-    fetch('../../controller/Produccion/php/Obtener_Categorias_Clase_Especie.php?tipo=especies')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=especies')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
