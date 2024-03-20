@@ -125,42 +125,42 @@
             <br>
             <form class="formulario-datos" id="advanced-form">
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Clave de usuario*</label>
-                    <input type="text" id="clave_us" name="clave_us" required>
+                    <label class="label_datos" for="nombre">Clave de usuario<span class="required">*</span>:</label>
+                    <input type="text" id="clave_us" name="clave_us" required minlength="7"   title="La clave debe contener un máximo de 7 caracteres y solo se permiten letras y números.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="nombre">Nombre*</label>
-                    <input type="text" id="nombre_us" name="nombre_us" required>
+                    <label class="label_datos" for="nombre">Nombre<span class="required">*</span>:</label>
+                    <input type="text" id="nombre_us" name="nombre_us" maxlength="40"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="apellido">Apellido paterno*</label>
-                    <input type="text" id="apellido_pat" name="apellido_pat" required>
+                    <label class="label_datos" for="apellido">Apellido paterno<span class="required">*</span>:</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" maxlength="20" required title="El apellido paterno debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="apellido">Apellido materno</label>
-                    <input type="text" id="apellido_mat" name="apellido_mat" required>
+                    <input type="text" id="apellido_mat" name="apellido_mat" maxlength="20" title="El apellido materno es opcional. En caso de ponerlo debe contener un máximo de 20 caracteres los cuales solo pueden ser letras, espacios y opcionalmente el carácter '.'.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="email">Email*</label>
-                    <input type="email" id="email_us" name="email_us" required>
+                    <label class="label_datos" for="email">Email<span class="required">*</span>:</label>
+                    <input type="email" id="email_us" name="email_us" maxlength="40" required title="El email puede contener un máximo de 40 caracteres, puede haber letras, números y caracteres especiales ('.','-','_') antes de la arroba, después de la arroba deberá tener la organización del correo electrónico y el tipo para ser aceptado.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="email">Contraseña*</label>
-                    <input type="password" id="email" name="email" required>
+                    <label class="label_datos" for="email">Contraseña<span class="required">*</span>:</label>
+                    <input type="password" id="email" name="email" required title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial (., ',' , _, +, *, /,!,@,#,$).">
                 </div>
 
 				<div class="grupo1">
-                    <label class="label_datos" for="email">Confirmar contraseña*</label>
-                    <input type="password" id="email" name="email" required>
+                    <label class="label_datos" for="email">Confirmar contraseña<span class="required">*</span>:</label>
+                    <input type="password" id="email2" name="email2" required title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial (., ',' , _, +, *, /,!,@,#,$).">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="area_us">Área*</label>
+                    <label class="label_datos" for="area_us">Área<span class="required">*</span>:</label>
                     <select id="area_us" name="area_us" required>
                         <option value="1">Agrícola</option>
                         <option value="2">Producción</option>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="tipo_us">Tipo de usuario*</label>
+                    <label class="label_datos" for="tipo_us">Tipo de usuario<span class="required">*</span>:</label>
                     <select id="tipo_us" name="tipo_us" required>
                         <option value="1">Jefe de área</option>
                         <option value="2">Usuario normal</option>

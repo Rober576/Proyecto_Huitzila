@@ -94,18 +94,17 @@ function validarTanque() {
 function validarEdad() {
     let valorInput = Formulario.edad.value;
 
-    // Eliminar todos los caracteres no numéricos
-    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
+    // Eliminar todos los caracteres no permitidos
+    valorInput = valorInput.replace(/[^0-9]/g, ''); // Solo se permiten números
 
+    // Actualizar el valor del campo con los caracteres permitidos
     Formulario.edad.value = valorInput;
 
-    // Validar si la entrada coincide con la expresión regular para LA CLAVE
+    // Validar si la entrada coincide con la expresión regular para la clave
     if (!expresion.edad.test(valorInput)) {
-        Formulario.edad.style.border = "5px solid red"; 
-        banderaEdad = false; 
+        banderaEdad = false;
     } else {
-        Formulario.edad.removeAttribute("style"); 
-        banderaEdad = true; 
+        banderaEdad = true;
     }
 }
 
