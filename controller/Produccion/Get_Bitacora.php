@@ -1,6 +1,6 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_BitacoraM.php');
-include_once('../../../view/Produccion/Modificar_Bitacora.html');
+include_once('../../model/Produccion/Mostrar_BitacoraM.php');
+include_once('../../view/Produccion/Modificar_Bitacora.html');
 
 $id=$_GET["id"];
 

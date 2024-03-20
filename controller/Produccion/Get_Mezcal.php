@@ -1,6 +1,6 @@
 <?php
-include_once('../../../model/Produccion/Registrar/Mostrar/Mostrar_MezcalM.php');
-include_once('../../../view/Produccion/Modificar_Mezcal.html');
+include_once('../../model/Produccion/Mostrar_MezcalM.php');
+include_once('../../view/Produccion/Modificar_Mezcal.html');
 
 $id = $_GET["id"];
 $objeto = new MostrarMez();

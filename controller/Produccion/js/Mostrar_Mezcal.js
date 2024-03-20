@@ -1,6 +1,6 @@
 
 function buscar_datos(consulta) {
-    var url = '../../controller/Produccion/php/Mostrar_Mezcal.php';
+    var url = '../../controller/Produccion/Mostrar_Mezcal.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
@@ -44,7 +44,7 @@ function agregarEventosEliminar() {
             console.log("Valor de Lote:", Lote);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../controller/Produccion/php/Eliminar_Mezcal.php?id=' + Lote, {
+                fetch('../../controller/Produccion/Eliminar_Mezcal.php?id=' + Lote, {
                         method: 'GET',
                     })
                     .then(res => res.json())

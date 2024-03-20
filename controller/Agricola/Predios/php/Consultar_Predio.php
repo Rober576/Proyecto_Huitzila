@@ -28,21 +28,22 @@ if ($resultado) {
         <tbody>';
 
     foreach ($resultado as $fila) {
-        $salida .= '<tr>';
         $CodigoA = $fila['CodigoArea'];
+        $id_boton =$CodigoA;
+    
+        $salida .= '<tr>';
         $salida .= '<td>' . $fila["CodigoArea"] . '</td>';
         $salida .= '<td>' . $fila["Nombre"] . '</td>';
         $salida .= '<td>' . $fila["Superficie"] . '</td>';
         $salida .= '<td>' . $fila["DescripcionArea"] . '</td>';
-
+    
         $salida .= '<td>';
-        $salida .= '<button class="Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
+        $salida .= '<button id="' . $id_boton . '" class="boton-eliminar Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
         $salida .= ' | ';
-        $salida .= '<button class="Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Editar</Button>';
+        $salida .= '<button id="' . $id_boton . '" class="boton-modificar Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Editar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
-
 
     $salida .= '</tbody></table>';
 } else {
@@ -50,6 +51,4 @@ if ($resultado) {
 }
 
 echo $salida;
-?>
-
-<script src="../../../controller/Agricola/Predios/js/Obtener_Info_Predios.js"></script>
+    

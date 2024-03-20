@@ -1,5 +1,5 @@
 <?php
-include('../../../config/Crud_bd.php');
+include('../../config/Crud_bd.php');
 
 class MostrarMez extends Crud_bd {
     private $base;

@@ -15,7 +15,7 @@ formulario.addEventListener('submit', function (e)
         alert("La fecha inicio no debe ser mayor que la fecha final");
     }else{
         var datos= new FormData(formulario);
-        fetch('../php/Modificar_Bitacora.php', {
+        fetch('../../controller/Produccion/Modificar_Bitacora.php', {
             method: 'POST',
             body: datos
         })
@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function (e)
         .then(data => {
             if (data === 'exito') {
                 alert("Actualización exitosa");
-                location.href="../../../view/Produccion/Mostrar_Bitacora.html";
+                location.href="../../view/Produccion/Mostrar_Bitacora.html";
             }
             //los datos no pasaron alguna validacion
             else if (data === 'no exito'){
@@ -43,7 +43,7 @@ formulario.cancelar.addEventListener('click', function (e){
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='../../../view/Produccion/Mostrar_Bitacora.html';
+      window.location.href='../../view/Produccion/Mostrar_Bitacora.html';
     }
 
     
