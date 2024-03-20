@@ -29,8 +29,8 @@ botonRegistrar.addEventListener("click", (e) => {
 // Definición de la expresión regular para cada campo
 const expresion = {
     Identificador: /^[0-9]{1,40}$/,
-    Nombre: /^[a-zA-Z0-9\s.]{1,50}$/,
-    Descripcion: /^[a-zA-Z0-9\s.,_-]{1,100}$/,
+    Nombre: /^[a-zA-Z0-9\s.ñÑ]{1,50}$/,
+    Descripcion: /^$|^[a-zA-Z0-9\s.,_-]{1,100}$/,
     Unidades: /^[a-zA-Z\s]{1,10}$/,
     Existencia: /^\d+$/,
     FechaReg: /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/,
@@ -40,9 +40,12 @@ const expresion = {
 };
 
 
-// Escuchador de eventos para el campo Identidicador
-insumos_form.Identificador.addEventListener('keyup', (e) =>{
+// Escuchador de eventos para el campo Identificador
+insumos_form.Identificador.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
+
+    // Elimina las letras del valor de entrada
+    valorInput = valorInput.replace(/[a-zA-Z]/g, '');
 
     // Asigna el valor al campo
     insumos_form.Identificador.value = valorInput;
@@ -59,8 +62,11 @@ insumos_form.Identificador.addEventListener('keyup', (e) =>{
 
 
 // Escuchador de eventos para el campo Nombre
-insumos_form.Nombre.addEventListener('keyup', (e) =>{
+insumos_form.Nombre.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
+
+    // Elimina los números del valor de entrada
+    valorInput = valorInput.replace(/[0-9]/g, '');
 
     // Asigna el valor al campo
     insumos_form.Nombre.value = valorInput;
@@ -94,8 +100,11 @@ insumos_form.Descripcion.addEventListener('keyup', (e) =>{
 
 
 // Escuchador de eventos para el campo Unidades
-insumos_form.Unidades.addEventListener('keyup', (e) =>{
+insumos_form.Unidades.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
+
+    // Elimina los números del valor de entrada
+    valorInput = valorInput.replace(/[0-9]/g, '');
 
     // Asigna el valor al campo
     insumos_form.Unidades.value = valorInput;
@@ -145,7 +154,7 @@ insumos_form.FechaReg.addEventListener('input', (e) => {
 
 
 // Escuchador de eventos para el campo Stockmi
-insumos_form.Stockmi.addEventListener('keyup', (e) =>{
+insumos_form.Stockmi.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
     // Asigna el valor al campo
@@ -155,15 +164,23 @@ insumos_form.Stockmi.addEventListener('keyup', (e) =>{
     if(!expresion.Stockmi.test(valorInput)){
         insumos_form.Stockmi.style.border = "5px solid red";
         bandera7 = false;
+    } else if (parseInt(valorInput) > parseInt(insumos_form.Stockma.value)) {
+        // Verifica que Stock mínimo no sea mayor que Stock máximo
+        insumos_form.Stockmi.style.border = "5px solid red";
+        insumos_form.Stockma.style.border = "5px solid red";
+        bandera7 = false;
+        bandera8 = false;
     } else {
         insumos_form.Stockmi.removeAttribute("style");
+        insumos_form.Stockma.removeAttribute("style");
         bandera7 = true;
+        bandera8 = true;
     }
 });
 
 
 // Escuchador de eventos para el campo Stockma
-insumos_form.Stockma.addEventListener('keyup', (e) =>{
+insumos_form.Stockma.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
     // Asigna el valor al campo
@@ -173,8 +190,16 @@ insumos_form.Stockma.addEventListener('keyup', (e) =>{
     if(!expresion.Stockma.test(valorInput)){
         insumos_form.Stockma.style.border = "5px solid red";
         bandera8 = false;
+    } else if (parseInt(valorInput) < parseInt(insumos_form.Stockmi.value)) {
+        // Verifica que Stock máximo no sea menor que Stock mínimo
+        insumos_form.Stockmi.style.border = "5px solid red";
+        insumos_form.Stockma.style.border = "5px solid red";
+        bandera7 = false;
+        bandera8 = false;
     } else {
         insumos_form.Stockma.removeAttribute("style");
+        insumos_form.Stockmi.removeAttribute("style");
+        bandera7 = true;
         bandera8 = true;
     }
 });
