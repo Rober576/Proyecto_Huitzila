@@ -39,7 +39,7 @@ body, html {
     position: absolute; /* Cambia la posición a relativa */
     margin-top: center; /* Añade margen superior automático */
     margin-bottom: center; /* Añade margen inferior automático */
-    top: 10%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 2; /* Asegura que la imagen esté encima del rectángulo gris */
@@ -141,7 +141,9 @@ body, html {
     text-align: center;
     font-size: 26px;
 }
-
+.forgot-password a{
+    font-size: 12px;
+ }
 
 @media screen and (max-width: 480px) {
     .overlay-custom{
@@ -182,8 +184,9 @@ body, html {
 }
 
 .profile-img {
+    padding-top: 5%;
     width: 80%;
-    max-width: 150px;
+    max-width: 100px;
 }
 
 .overlay-custom {
@@ -229,6 +232,7 @@ body, html {
 
 @media screen and (max-width: 768px) {
     .overlay {
+        height: 80%;
         width: 80%;
         max-width: 300px;
     }
