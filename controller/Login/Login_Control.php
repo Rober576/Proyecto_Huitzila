@@ -14,25 +14,25 @@ if ($usuario) {
 
     switch ($usuario['IdentificadorArea']) {
         case "1":
+            header('Location: ../../view/Agricola/Principal_####.html');
+            break;
+        case "2":
+            header('Location: ../../view/Produccion/Principal_####.html');
+            break;
+        case "3":
             header('Location: ../../view/insumos/Principal_Insumos.html');
             break;
-        case "Produccion":
-            header('Location: ../area2.php');
+        case "4":
+            header('Location: ../../view/Calidad/Principal_####.html');
             break;
-        case "Envasado":
-            header('Location: ../area2.php');
+        case "5":
+            header('Location: ../../view/Ventas/Principal_####.html');
             break;
-        case "Calidad":
-            header('Location: ../area2.php');
-            break;
-        case "Ventas":
-            header('Location: ../area2.php');
-            break;
-        case "Administrativo6":
-            header('Location: ../area2.php');
+        case "6":
+            header('Location: ../../view/Administrativo/Principal_####.html');
             break;
         case "7":
-            header('Location: ../area2.php');
+            header('Location: ../../view/Usuarios/Principal_####.html');
             break;
 
         default:
