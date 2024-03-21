@@ -14,7 +14,7 @@ if ($usuario) {
 
     switch ($usuario['IdentificadorArea']) {
         case "1":
-            header('Location: ../../view/Agricola/Principal_####.html');
+            header('Location: ../../view/Agricola/Principal_Agricola.html');
             break;
         case "2":
             header('Location: ../../view/Produccion/Principal_####.html');
