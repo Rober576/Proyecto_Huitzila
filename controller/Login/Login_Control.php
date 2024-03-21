@@ -32,7 +32,7 @@ if ($usuario) {
             header('Location: ../../view/Administrativo/Principal_####.html');
             break;
         case "7":
-            header('Location: ../../view/Usuarios/Principal_####.html');
+            header('Location: ../../view/Usuarios/Principal_Usuarios.html');
             break;
 
         default:
