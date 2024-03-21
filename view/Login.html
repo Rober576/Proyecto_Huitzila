@@ -15,9 +15,9 @@
                 <form id="login_form" action="../controller/Login/Login_Control.php" method="post">
                     <div class="input-group">
                         
-                        <input type="text" placeholder="Correo" name="Correo" id="Correo" oninput="validarCorreo();" onkeypress="validarTecla(event)">
+                        <input type="text" placeholder="Correo" name="Correo" id="Correo" oninput="validarCorreo();" onkeypress="validarTecla(event);">
                         <span id="mensaje-error" class="error-message"></span>
-                        <input type="password" placeholder="Contraseña" name="Password" id="Password">
+                        <input type="password" placeholder="Contraseña" name="Password" id="Password" oninput="borrarMensajeErrorPassword();">
                         <span id="mensaje-error-password" class="error-message"></span>
                         <br>
                         <a href="#" class="forgot-password">¿Olvidaste tu <br>contraseña?</a>

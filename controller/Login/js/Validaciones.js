@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    correoInput.addEventListener('input', function() {
+        validarCorreo(correoInput.value.trim());
+    });
 });
 
 function validarCorreo(correo) {
@@ -53,4 +57,10 @@ function validarTecla(event) {
     if (!permitidos.test(tecla)) {
         event.preventDefault();
     }
+}
+
+
+function borrarMensajeErrorPassword() {
+    var mensajeErrorPassword = document.getElementById('mensaje-error-password');
+    mensajeErrorPassword.textContent = '';
 }
