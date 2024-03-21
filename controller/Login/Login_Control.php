@@ -17,7 +17,7 @@ if ($usuario) {
             header('Location: ../../view/Agricola/Principal_Agricola.html');
             break;
         case "2":
-            header('Location: ../../view/Produccion/Principal_####.html');
+            header('Location: ../../view/Produccion/Principal_Produccion.html');
             break;
         case "3":
             header('Location: ../../view/insumos/Principal_Insumos.html');
