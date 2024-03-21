@@ -25,6 +25,8 @@ if ($procedencia=="procedencia1"){
 $loteV=$objeto->buscar_lote($lote);
 
 if ($loteV==true){
+    echo json_encode('lote');
+}else{
     $u=$objeto->actualizar($guia, $proce, $costo, $lote, $fecha, $especie, $agave, $brix, $art, $coccion, $fechaI, $fechaF, $art2);
 
     if ($u==true){
@@ -32,8 +34,6 @@ if ($loteV==true){
     }else{
         echo json_encode('fechas');
     }
-}else{
-    echo json_encode('lote');
 }
 
 

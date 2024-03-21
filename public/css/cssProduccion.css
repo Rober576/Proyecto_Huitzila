@@ -69,6 +69,14 @@ th {
     margin-left: 5px; /* Espaciado a la izquierda */
 }
 
+.centered{
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 auto; /* Establece los márgenes izquierdo y derecho automáticamente */
+    display: block; /* Asegura que el elemento sea tratado como un bloque */
+    width: fit-content;
+}
+
 
 footer {
     position: fixed;
