@@ -39,6 +39,6 @@ if ($usuario) {
             break;
     }
 } else {
-    echo "<script>alert('Usuario o contraseña incorrecta'); window.history.back();</script>";
+    echo "<script>alert('Usuario o contraseña incorrectos'); window.history.back();</script>";
 }
 ?>
