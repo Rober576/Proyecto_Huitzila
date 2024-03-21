@@ -1,0 +1,31 @@
+
+
+
+
+
+.imagen-container {
+    max-width: 100%;
+    height: auto;
+}
+
+.imagen-responsive {
+    max-width: 80%;
+    height: auto;
+}
+
+.imagen-wrapper {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100%; /* Altura igual al contenedor para centrar verticalmente */
+}
+
+
+
+.centered{
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0 auto; /* Establece los márgenes izquierdo y derecho automáticamente */
+        display: block; /* Asegura que el elemento sea tratado como un bloque */
+        width: fit-content;
+}
