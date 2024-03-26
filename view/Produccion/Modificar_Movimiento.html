@@ -124,7 +124,21 @@
 						<option value="baja">Baja</option>
                     </select>
                 </div>
-
+				<div class="grupo1">
+                    <label class="label_datos" for="fecha">Fecha<span class="campo-obligatorio">*</span></label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+				<div class="grupo1">
+                    <label class="label_datos" for="tipo">Tipo<span class="campo-obligatorio">*</span></label>
+                    <select id="Tipo" name="tipo" required>
+                        <option value="entrada">Entrada</option>
+                        <option value="salida">Salida</option>
+                    </select>
+                </div>
+				<div class="grupo1">
+                    <label class="label_datos" for="procedencia">Procedencia/Destino<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="procedencia" name="procedencia" required>
+                </div>
                 <div class="grupo1">
                     <label class="label_datos" for="volumen">Volumen<span class="campo-obligatorio">*</span></label>
                     <input type="text" id="volumen" name="volumen" required>
