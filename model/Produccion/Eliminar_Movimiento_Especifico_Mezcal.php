@@ -11,13 +11,9 @@ class EliminarCampos{
 
     function eliminar($Lote){
         
-        $query = "DELETE FROM registromezcal WHERE Lote = :Lote";
+        $query = "DELETE FROM movimientomezcal WHERE Lote = :Lote";
         $this->base->insertar_eliminar_actualizar($query, [":Lote" => $Lote]);
         $this->base->cerrar_conexion();
-
-        //$query = "DELETE FROM movimientomezcal WHERE Lote = :Lote";
-        //$this->base->insertar_eliminar_actualizar($query, [":Lote" => $Lote]);
-        //$this->base->cerrar_conexion();
         
     }
 }
