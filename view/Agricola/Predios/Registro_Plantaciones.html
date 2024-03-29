@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de plantaciones</title>
+    <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Agrícola</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Predios
+							</a>
+				
+							<ul>
+								<li><a href="Registro_Predios.html">Registrar</a></li>
+								<li><a href="Vista_Predios.html">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Enfermedades y plagas
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#">
+								<i ></i>
+								Control de enfermedades y plagas
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Mantenimientos
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#">
+								<i ></i>
+								Control de mantenimientos
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+	
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+	<main>
+
+
+    <section class="section-main">
+        <div class="cabezera">
+			<h4 class="h4">Registrar</h4>
+		</div>
+		<br>
+		<p class="subtitulo-1"> Ingreso de plantación</p>
+        <br>
+        <p class="subtitulo-2">Datos de plantación</p>
+		<hr>
+            <form id="advanced-form">
+				<div class="formulario-datos">
+					<div>
+						<label for="codPlantacion">Clave del plantación:<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="codPlantacion" name="codPlantacion"  class="styled-input" required>
+					</div>
+					<div>
+					    <label for="superfPre">Superficie:<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="superfPre" name="superfPre" class="styled-input" required>
+					</div>
+                    <div>
+						<label for="canPlan">Cantidad de plantas:<span class="campo-obligatorio">*</span></label>
+						<input type="number" id="canPlan" name="canPlan"  class="styled-input"  required>
+					</div>
+				</div>
+                <div class="formulario-datos">
+                    <div>
+                        <label for="superfPre">Fecha de plantación:<span class="campo-obligatorio">*</span></label>
+						<input type="date" id="superfPre" name="superfPre" class="styled-input" required>
+                    </div>
+                    <div>
+                        <label for="predioSem">Campo sembrado:<span class="campo-obligatorio">*</span></label>
+                        <select id="predioSem" name="predioSem" class="styled-input"></select>
+                    </div>
+                    <div>
+                        <label for="tipPlanta">Tipo de planta:<span class="campo-obligatorio">*</span></label>
+                        <select id="tipPlanta" name="tipPlanta" class="styled-input"></select>
+                    </div>
+                </div>
+
+    </section>
+    <section class="section-main">
+        <p class="subtitulo-2">General</p>
+		<hr>
+        <div class="formulario-datos">
+            <div>
+                <label for="nomTraba">Nombre del trabajador:<span class="campo-obligatorio">*</span></label>
+                <input type="text" id="nomTraba" name="nomTraba"  class="styled-input" required>
+            </div>
+            <div>
+                <label for="datVec">Datos del vehículo:<span class="campo-obligatorio">*</span></label>
+                <input type="text" id="datVec" name="datVec"  class="styled-input" required>
+            </div>
+            <div>
+                <label for="costGas">Costos de gasolina:<span class="campo-obligatorio">*</span></label>
+                <input type="text" id="costGas" name="costGas"  class="styled-input" required>
+            </div>
+        </div>
+        <div class="formulario-datos">
+            <div>
+                <label for="cosMate">Costo de material:<span class="campo-obligatorio">*</span></label>
+                <input type="text" id="cosMate" name="cosMate"  class="styled-input" required>
+            </div>
+            <div>
+                <label for="fecIni">Fecha de inicio:<span class="campo-obligatorio">*</span></label>
+                <input type="date" id="fecIni" name="fecIni"  class="styled-input" required>
+            </div>
+            <div>
+                <label for="fecFin">Fecha de finalización:<span class="campo-obligatorio">*</span></label>
+                <input type="date" id="fecFin" name="fecFin"  class="styled-input" required>
+            </div>
+        </div>
+				<div class="grupo-boton-reg">
+					<div class="boton_registrar">
+                		<button type="submit" id="submitButton">Registrar</button>
+						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+					</div>
+				</div>
+            </form>
+        </div>
+    </section>
+    
+	</main>
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+<script src="js/Validacion_Registro_Predios.js"></script>
+<script src="../../../controller/Agricola/Predios/js/Registrar_Predio.js"></script>
+</html>

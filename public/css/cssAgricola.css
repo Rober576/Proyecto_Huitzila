@@ -100,3 +100,39 @@ textarea{
 .section-main{
     font-weight: bold;
 }
+
+.titbot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titbot button{
+    margin-left: auto;
+}
+
+button.btngeneral{
+    font-family: 'FuentePrincipal', sans-serif;
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.btngeneral:hover{
+    background-color: #1d4d25;
+}
+
+a.btngenerala{
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Utiliza el color de texto heredado */
+    cursor: pointer; /* Cambia el cursor al estilo de un botón */
+    background: none; /* Elimina cualquier fondo del enlace */
+    border: none; /* Elimina cualquier borde del enlace */
+    padding: 0; /* Elimina el relleno del enlace */
+    font: inherit; /* Utiliza la fuente heredada */
+    outline: none; /* Quita el contorno del enlace al enfocarlo */
+}
