@@ -1,0 +1,124 @@
+/* Estilos generales */
+
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+section {
+    background-color: #E9E0D1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para la tabla */
+.table-container {
+    width: 80%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+.table-container2 {
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+table {
+    width: 3000px;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    background-color: #C7B392;
+    color: #000000;
+}
+
+
+th, td {
+    border: 1px solid #080808;
+    padding: 12px;
+    position: sticky; 
+    text-align: center;
+}
+
+th {
+    width: 50000px;
+    background-color: #C7B392;
+}
+
+/* Hover sobre las filas */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para pantallas de 600px o menos */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu-toggle i {
+        font-size: 24px;
+    }
+
+    #check__menu:checked ~ nav {
+        display: block;
+    }
+}
+
+/* Estilos para pantallas de 1100px o menos */
+@media screen and (max-width: 1100px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+.required {
+    color: red; 
+  }
