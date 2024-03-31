@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar plantas</title>
+    <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="titulo">
+
+				<div class="nombre_ventana">
+					<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
+					<h1 class="nombre_Ventana">Agrícola</h1>
+				</div>
+
+			</div>
+
+			<div class="boton-cerrar-session">
+				
+			</div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Predios
+							</a>
+				
+							<ul>
+								<li><a href="Registro_Predios.html">Registrar</a></li>
+								<li><a href="Vista_Predios.html">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Enfermedades y plagas
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#">
+								<i ></i>
+								Control de enfermedades y plagas
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Mantenimientos
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+								<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#">
+								<i ></i>
+								Control de mantenimientos
+							</a>
+				
+							<ul>
+								<li><a href="">Registrar</a></li>
+							<li><a href="">Consultar</a></li>
+							</ul>
+						</li>
+	
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+	<main>
+
+
+    <section class="section-main">
+        <div class="cabezera">
+			<h4 class="h4">Editar</h4>
+		</div>
+		<br>
+		<p class="subtitulo-1">Editar tipo de planta</p>
+        <br>
+        <p class="subtitulo-2">Datos de planta</p>
+		<hr>
+            <form id="advanced-form">
+				<div class="formulario-datos">
+					<div>
+						<label for="nomPlanta">Nombre común:<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="nomPlanta" name="nomPlanta"  class="styled-input" title="Debe de contener un máximo de 20 caracteres (letras y espacios intermedios)" required>
+					</div>
+					<div>
+					    <label for="nomCienti">Nombre científico:<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="nomCienti" name="nomCienti" class="styled-input" title="Debe de contener un máximo de 30 caracteres (letras, puntos y espacios intermedios)" required>
+					</div>
+                    <div>
+						<label for="descPla">Descripción:<span class="campo-obligatorio">*</span></label>
+						<textarea id="descPla" name="descPla" rows="4" title="Debe de contener un máximo de 100 caracteres"></textarea>
+					</div>
+				</div>
+                
+                <div class="grupo-boton-reg">
+					<div class="boton_registrar">
+                		<button type="submit" id="submitButton">Registrar</button>
+						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+					</div>
+				</div>
+            </form>
+
+    </section>
+    
+				
+     
+    
+    
+	</main>
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+
+</html>
