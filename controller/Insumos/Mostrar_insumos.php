@@ -50,15 +50,13 @@ if ($resultado) {
         $salida .= '<td>' . $fila["StockMaximo"] . '</td>';
         $salida .= '<td>' . $fila["Costo"] . '</td>';
 
-        $salida .= '<td>
-                    <div class="CentrarBoton">
-                    <div class="Botones">
-                    <button type="submit" href="../../ruta/a/eliminar/Insumo?id=' . $id . '"  data-id="' . $id . '">Eliminar</button>
-                    <button type="submit" href="../../ruta/a/editar/Insumo?id=' . $id . '"  data-id="' . $id . '">Editar</button>
-                    </div>
-                    </div>
-                    </td>'; // Aquí va el link para eliminar, por ejemplo: href="eliminar.php?id='.$fila['id'].'
-        
+
+        $salida .= '<td>';
+        $salida .= '<button type="submit" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</button>';
+        $salida .= '  ';
+        $salida .= '<button type="submit" onclick="window.location.href=\'../../view/insumos/Editar_Insumos.html?id=' . $id . '\'">Editar</button>';
+        $salida .= '</td>';
+
         $salida .= '</tr>';
     }
 
