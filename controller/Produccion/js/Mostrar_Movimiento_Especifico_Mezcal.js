@@ -1,8 +1,11 @@
-function buscar_datos(consulta) {
+function buscar_datos(lote) {
     var url = '../../controller/Produccion/Mostrar_Movimiento_Especifico_Mezcal.php';
 
-    if (consulta !== "") {
-        url += '?consulta=' + consulta;
+    console.log('Valor de lote:', lote); // Mostrar el valor de consulta en la consola
+
+    // Adjuntar el valor de Lote como consulta en la URL
+    if (lote !== "") {
+        url += '?lote=' + lote;
     }
 
     // Crear una nueva instancia de XMLHttpRequest
@@ -48,7 +51,7 @@ function agregarEventosEliminar() {
                     .then(res => res.json())
                     .then(data => {
                         alert(data);
-                        location.reload();
+                        window.location.href = '../../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
                     });
             }
         });
@@ -77,10 +80,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.addEventListener('keyup', function(event) {
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const lote = urlParams.get('Lote');
 
-    if (event.target.id === 'busqueda') {
-        var valorBusqueda = event.target.value.trim(); 
-        buscar_datos(valorBusqueda);
+    // Verificar si se encontró el parámetro Lote en la URL
+    if (lote !== null) {
+        // Llamar a la función buscar_datos con el valor de Lote como consulta
+        buscar_datos(lote);
+    } else {
+        console.error('El parámetro Lote no se encontró en la URL.');
     }
 });

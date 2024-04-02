@@ -1,56 +1,66 @@
 <?php
 include_once('../../model/Produccion/Mostrar_Movimiento_Especifico_MezcalM.php');
 
-
 $base = new MostrarMez();
 $base->instancias();
-if (isset($_POST['consulta'])) {
-    $busqueda = $_POST['consulta'];
-    $resultado = $base->buscador($busqueda);
-} else {
-    $resultado = $base->getInfo();
-}
 
+// Inicializar la variable $salida como una cadena vacía
 $salida = '';
 
-if ($resultado) {
-    $salida .= '
-    <table border="1">
-        <thead>
-            <tr>
-                
-                <th>No. de Lote</th>
-                <th>Movimiento</th>
-                <th>Volumen</th>
-                <th>% Concentracion de alc.</th>
-                <th>Acciones</th>
-                
-                
-            </tr>
-        </thead>
-        <tbody>';
-
-    foreach ($resultado as $fila) {
+// Verificar si se recibió la variable de consulta
+if (isset($_GET['lote'])) {
+    $lote = $_GET['lote'];
     
-        $salida .= '<tr>';
-        $Lote= $fila['Lote'];
+    // Mostrar el valor de consulta para verificar si se recibió correctamente
+    //echo "Lote recibido correctamente: " . $lote;
+
+    // Realizar operaciones con $lote según sea necesario
+    $resultado = $base->buscador($lote);
+
+    // Enviar respuesta a JavaScript
+    if ($resultado) {
+        $salida .= '
+        <table border="1">
+            <thead>
+                <tr>
+                    
+                    <th>No. de Lote</th>
+                    <th>Movimiento</th>
+                    <th>Volumen</th>
+                    <th>% Concentracion de alc.</th>
+                    <th>Acciones</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>';
+    
+        foreach ($resultado as $fila) {
         
+            $salida .= '<tr>';
+            $Lote= $fila['Lote'];
+            
+            
+            $salida .= '<td>' . $fila["Lote"] . '</td>';
+            $salida .= '<td>' . $fila["Movimiento"] . '</td>';
+            $salida .= '<td>' . $fila["Volumen"] . '</td>';
+            $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+            $salida .= '<td>';
+            $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
+            $salida .= ' ';
+            $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
+            $salida .= '</td>';
+            $salida .= '</tr>';
+        }
+        $salida .= '</tbody></table>';
         
-        $salida .= '<td>' . $fila["Lote"] . '</td>';
-        $salida .= '<td>' . $fila["Movimiento"] . '</td>';
-        $salida .= '<td>' . $fila["Volumen"] . '</td>';
-        $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
-        $salida .= '<td>';
-        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
-        $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
-        $salida .= '</td>';
-        $salida .= '</tr>';
+        echo $salida; // Aquí imprimimos la tabla generada
+        
+    } else {
+        echo "No se encontraron resultados";
     }
-    $salida .= '</tbody></table>';
 } else {
-    $salida .= 'No se encontraron resultados';
+    // Si no se recibe la variable de consulta, se puede enviar un mensaje de error
+    echo "Error: No se recibió la variable de consulta.";
 }
- echo $salida;
 ?>
-<script src="../../../controller/Produccion/js/Eliminar_Lote.js"></script>

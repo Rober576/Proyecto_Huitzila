@@ -41,9 +41,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . $fila["Edad"] . '</td>';
         $salida .= '<td>';
-        $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-Específico" type="button">Específico</button>';
         $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html\'" class="boton-General" type="button">General</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

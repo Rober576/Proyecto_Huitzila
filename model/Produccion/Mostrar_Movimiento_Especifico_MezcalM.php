@@ -19,16 +19,16 @@ class MostrarMez extends Crud_bd {
         return $resultados;
     }
 
-    function buscador($busqueda){
+    function buscador($lote){
         $query = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol
                   FROM movimientomezcal mm
                   INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento
-                  WHERE mm.Lote LIKE :busqueda OR mm.IDMovimiento LIKE :busqueda OR tm.Movimiento LIKE :busqueda OR mm.Volumen LIKE :busqueda OR mm.PorcentajeAlcohol LIKE :busqueda";
-        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+                  WHERE mm.Lote = :lote";
+        $resultados = $this->base->mostrar($query, [":lote" => $lote]);
         $this->base->cerrar_conexion();
         return $resultados;
-
     }
+    
     function buscar_datos($id){
         $this->conexion_bd();
         $consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol
