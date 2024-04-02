@@ -1,7 +1,5 @@
 function buscar_datos2(consulta) {
     var url = '../../../controller/Agricola/Plantaciones/php/Consultar_Plantaciones.php';
-    console.log("entro");
-
     if (consulta !== "") {
         url += '?consulta=' + consulta;
     }
