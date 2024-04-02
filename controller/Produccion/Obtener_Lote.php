@@ -10,7 +10,10 @@ class ControladorDatos {
     }
 
     function obtenerLote() {
-        $query = "SELECT Lote FROM registromezcal";
+        $query = "SELECT r.Lote
+        FROM registromezcal r
+        LEFT JOIN movimientomezcal m ON r.Lote = m.Lote
+        WHERE m.Lote IS NULL";
         $result = $this->base->mostrar($query);
 
         $lotes = array();
