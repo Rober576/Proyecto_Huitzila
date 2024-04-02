@@ -4,7 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        let fecha=document.getElementById("fecha").value;
+        let fechaA = new Date();
+        console.log(fecha);
+        console.log(fechaA);
+
+        if (fecha>=fechaA){
+            alert("La fecha tiene que ser el dia de hoy o mallor");
+        }else{
+
         var datos = new FormData(formulario);
+
 
         fetch('../../controller/Produccion/Registrar_Movimientos.php', {
             method: 'POST',
@@ -25,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error.message);
         });
-    });
+        }
+        });
 
     var selectCategoria = document.getElementById('lote');
 
