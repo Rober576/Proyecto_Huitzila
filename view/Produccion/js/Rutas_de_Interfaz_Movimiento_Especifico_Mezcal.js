@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("entra aqui")
 
         console.log("entro al de rutas de interfaz")
-        window.location.href = "../../view/Produccion/Modificar_Movimiento_Especifico_Mezcal.html";
+        //window.location.href = "../../view/Produccion/Modificar_Movimiento_Especifico_Mezcal.html";
+        window.location.href = "../../view/Produccion/Modificar_Movimiento.html";
     });
 
     btnEliminar.addEventListener("click", function() {

@@ -14,7 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectEspecie.appendChild(option);
             }
         });
+        // Después de agregar las especies, agregamos la opción "Agregar nueva planta"
+        var optionAgregar = document.createElement('option');
+        optionAgregar.value = 'agregar';
+        optionAgregar.textContent = 'Agregar nueva planta';
+        selectEspecie.appendChild(optionAgregar);
     })
+    
     .catch(error => console.error('Error al obtener especies:', error));
 
   

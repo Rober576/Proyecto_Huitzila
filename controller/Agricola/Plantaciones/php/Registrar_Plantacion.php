@@ -8,21 +8,19 @@ $Superficie = $_POST["superfPre"];
 $CantidadPlantas = $_POST["canPlan"];
 $Fecha = $_POST["fecPlant"];
 $CodigoArea = $_POST["predioSem"];
-$Planta = $_POST["tipPlanta"];
+$NombrePlanta = $_POST["tipPlanta"];
 
-
-/*
-$Trabajador = $_POST["nomTraba"];
-$Vehiculo = $_POST["datVec"];
-$Gasolina = $_POST["costGas"];
+$NombreTrabajador = $_POST["nomTraba"];
+$DatosVehiculo = $_POST["datVec"];
+$CostoGasolina = $_POST["costGas"];
 $CostoMaterial = $_POST["cosMate"];
 $FechaInicio = $_POST["fecIni"];
-$FechaFin = $_POST["fecFin"];
-*/
+$FechaFinal = $_POST["fecFin"];
+
 
 //instanciar la clase y llamar la funcion para insertar
 $obj = new NuevosCampos();
 $obj->conexion();
-$obj->insertarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $CodigoArea);
+$obj->insertarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $CodigoArea, $NombreTrabajador, $DatosVehiculo, $CostoGasolina, $CostoMaterial, $FechaInicio, $FechaFinal, $NombrePlanta);
 echo json_encode('exito');
 ?>
