@@ -21,8 +21,6 @@ formulario.addEventListener('submit', function (e) {
                 alert("Se han modificado los datos");
                 
                 window.location.href = '../../view/Insumos/Mostrar_Insumos.html';
-            } else if (data === 'id_existente') { 
-                alert("El ID ya existe");
             }
         });
     }

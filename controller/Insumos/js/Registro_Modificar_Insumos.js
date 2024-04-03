@@ -1,10 +1,10 @@
 const urlParams = new URLSearchParams(window.location.search);
-const identificador = urlParams.get('id');
+const id = urlParams.get('id');
 
-console.log(identificador); 
+console.log(id); 
 
 
-fetch(`../../controller/Insumos/Registro_Modificar_Insumos.php?id=${identificador}`)
+fetch(`../../controller/Insumos/Registro_Modificar_Insumos.php?id=${id}`)
     .then(response => {
        
         if (!response.ok) {
@@ -16,28 +16,29 @@ fetch(`../../controller/Insumos/Registro_Modificar_Insumos.php?id=${identificado
     .then(data => {
 
         data.forEach(item => {
-            const campo1 = item.Identificador;
+            const campo1 = id;  
             const campo2 = item.NombreInsumo;
-            const campo3 = item.Unidades;
-            const campo4 = item.Existencia;
-            const campo5 = item.FechaRegistro;
-            const campo6 = item.StockMinimo;
-            const campo7 = item.StockMaximo;
-            const campo8 = item.Costo;
-            const campo9 = item.Descripcion;
+            const campo3 = item.Descripcion;
+            const campo4 = item.Unidades;
+            const campo5 = item.Existencia;
+            const campo6 = item.FechaReg;
+            const campo7 = item.StockMinimo;
+            const campo8 = item.StockMaximo;
+            const campo9 = item.Costo;
+            
 
 
             
             document.getElementById('Identificador').value = campo1;
             document.getElementById('Nombre').value = campo2;
-            document.getElementById('Unidades').value = campo3;
-            document.getElementById('Existencia').value = campo4;
-            document.getElementById('FechaReg').value = campo5;
-            document.getElementById('Stockmi').value = campo6;
-            document.getElementById('Stockma').value = campo7;
-            document.getElementById('Costo').value = campo8;
-            document.getElementById('Descripcion').value = campo9;
-
+            document.getElementById('Descripcion').value = campo3;
+            document.getElementById('Unidades').value = campo4;
+            document.getElementById('Existencia').value = campo5;
+            document.getElementById('FechaReg').value = campo6;
+            document.getElementById('Stockmi').value = campo7;
+            document.getElementById('Stockma').value = campo8;
+            document.getElementById('Costo').value = campo9;
+            
             console.log(campo1); 
         });
     })

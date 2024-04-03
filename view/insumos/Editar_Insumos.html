@@ -76,56 +76,56 @@
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span>:</label>
-					<input type="text" id="Identificador" name="Identificador" required>
+					<input type="text" id="Identificador" name="Identificador" required readonly title="El identificador no puede ser modificado.">
 				</div>
 					
 				<div class="grupo1">
 					<label class="label_datos" for="Nombre">Nombre<span class="campo-obligatorio">*</span>:</label>
-					<input type="text" id="Nombre" name="Nombre" required>
+					<input type="text" id="Nombre" name="Nombre" title="Nombre del insumo de hasta 50 caracteres incluyendo letras y puntos (.)." required>
 				</div>
 				
 				
 
 				<div class="grupo1">
 					<label class="label_datos" for="Unidades">Unidades<span class="campo-obligatorio">*</span>:</label>
-					<input type="text" id="Unidades" name="Unidades" required>
+					<input type="text" id="Unidades" name="Unidades" title="Unidades en las que se mide el insumo (conformado por 10 caracteres de solo letras)." required>
 				</div>
 					
 				<div class="grupo1">
 					<label class="label_datos" for="Exitencia">Existencia<span class="campo-obligatorio">*</span>:</label>
-					<input type="number" id="Existencia" name="Existencia" required>
+					<input type="number" id="Existencia" name="Existencia" title="Cantidad del insumo en existencia (conformado por caracteres enteros)." required>
 				</div>
 
 				<div class="grupo1">
 					<label class="label_datos" for="FechaReg">Fecha de registro<span class="campo-obligatorio">*</span>:</label>
-					<input type="date" id="FechaReg" name="FechaReg" required>
+					<input type="date" id="FechaReg" name="FechaReg" title="Fecha de la última compra del insumo (Puede escribirla como mes/día/año o hacer click en el calendario y seleccionarla)." required>
 				</div>
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span>:</label>
-					<input type="number" id="Stockmi" name="Stockmi" required>
+					<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (conformado por caracteres enteros)." required>
 				</div>
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span>:</label>
-					<input type="number" id="Stockma" name="Stockma" required>
+					<input type="number" id="Stockma" name="Stockma" title="Cantidad máxima del insumo (conformado por caracteres enteros)." required>
 				</div>
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Costo">Costo<span class="campo-obligatorio">*</span>:</label>
-					<input type="number" id="Costo" name="Costo" required>
+					<input type="number" id="Costo" name="Costo" title="Costo del insumo (conformado por caracteres decimales)." required>
 				</div>
 
 			</div>
 				<div class="grupo1">
 					<label class="label_datos" for="Nombre">Descripción:</label>
-					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
+					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
 				</div>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" class="Boton_cancelar">Cancelar</button>
+						<button type="submit" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
@@ -136,8 +136,10 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 
+	
 	<script src="../../controller/Insumos/js/Modificar_Insumo.js"></script>
 	<script src="../../controller/Insumos/js/Registro_Modificar_Insumos.js"></script>
+	<script src="../../controller/Insumos/js/Cancelar_Modificar.js"></script>
 
 </body>
 </html>
