@@ -44,6 +44,18 @@ class ControladorDatos {
 
         return json_encode($especies);
     }
+
+    function obtenerMovimientos() {
+        $query = "SELECT Movimiento FROM tipomovimiento";
+        $result = $this->base->mostrar($query);
+
+        $movimiento = array();
+        foreach ($result as $row) {
+            $movimiento[] = $row['Movimiento'];
+        }
+
+        return json_encode($movimiento);
+    }
 }
 
 $controlador = new ControladorDatos();
@@ -57,6 +69,10 @@ switch ($tipo) {
     case 'especies':
         echo $controlador->obtenerEspecies();
         break;
+    case 'movimientos':
+        echo $controlador->obtenerMovimientos();
+        break;
+        
     default:
         echo $controlador->obtenerCategorias();
         break;
