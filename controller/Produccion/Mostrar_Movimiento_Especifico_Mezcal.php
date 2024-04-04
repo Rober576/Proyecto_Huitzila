@@ -4,20 +4,13 @@ include_once('../../model/Produccion/Mostrar_Movimiento_Especifico_MezcalM.php')
 $base = new MostrarMez();
 $base->instancias();
 
-// Inicializar la variable $salida como una cadena vacía
 $salida = '';
 
-// Verificar si se recibió la variable de consulta
 if (isset($_GET['lote'])) {
     $lote = $_GET['lote'];
-    
-    // Mostrar el valor de consulta para verificar si se recibió correctamente
-    //echo "Lote recibido correctamente: " . $lote;
 
-    // Realizar operaciones con $lote según sea necesario
     $resultado = $base->buscador($lote);
 
-    // Enviar respuesta a JavaScript
     if ($resultado) {
         $salida .= '
         <table border="1">
@@ -38,15 +31,16 @@ if (isset($_GET['lote'])) {
         foreach ($resultado as $fila) {
         
             $salida .= '<tr>';
-            $Lote= $fila['Lote'];
-            
-            
+            $Lote = $fila['Lote'];
+            $Fecha = $fila['Fecha'];
+            $IDMovimiento = $fila['IDMovimiento'];
+
             $salida .= '<td>' . $fila["Lote"] . '</td>';
             $salida .= '<td>' . $fila["Movimiento"] . '</td>';
             $salida .= '<td>' . $fila["Volumen"] . '</td>';
             $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
             $salida .= '<td>';
-            $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
+            $salida .= '<button href="#" class="boton-eliminar" type="submit" data-id="' . $Lote . '@' . $Fecha . '@' . $IDMovimiento . '">Eliminar</button>';
             $salida .= ' ';
             $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
             $salida .= '</td>';
@@ -54,7 +48,7 @@ if (isset($_GET['lote'])) {
         }
         $salida .= '</tbody></table>';
         
-        echo $salida; // Aquí imprimimos la tabla generada
+        echo $salida;
         
     } else {
         echo "No se encontraron resultados";

@@ -37,15 +37,19 @@ function agregarEventosEliminar() {
     // Selecciona todos los botones con la clase "boton-eliminar"
     var botonesEliminar = document.querySelectorAll(".boton-eliminar");
 
-
     for (var i = 0; i < botonesEliminar.length; i++) {
         botonesEliminar[i].addEventListener('click', function(e) {
             e.preventDefault();
-            var Lote = this.dataset.id;
+            var datos = this.dataset.id.split('@'); // Divide los datos usando el @ como separador
+            var Lote = datos[0];
+            var Fecha = datos[1];
+            var IDMovimiento = datos[2];
             console.log("Valor de Lote:", Lote);
+            console.log("Valor de Fecha:", Fecha);
+            console.log("Valor de IDMovimiento:", IDMovimiento);
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../controller/Produccion/Eliminar_Movimiento_Especifico_Mezcal.php?id=' + Lote, {
+                fetch('../../controller/Produccion/Eliminar_Movimiento_Especifico_Mezcal.php?id=' + Lote + '&fecha=' + Fecha + '&idmovimiento=' + IDMovimiento, {
                         method: 'GET',
                     })
                     .then(res => res.json())
@@ -57,6 +61,7 @@ function agregarEventosEliminar() {
         });
     }
 }
+
 
 function agregarEventosEditar() {
 
