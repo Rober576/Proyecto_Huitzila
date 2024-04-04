@@ -72,6 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var tipoSelect = document.getElementById('mov');
     var procedenciaLabel = document.querySelector('label[for="procedencia"]');
     var asterisco = document.querySelector('.campo-obligatorio');
+    var volAguaInput = document.getElementById('vol_agua');
+    var tipoMovimientoSelect = document.getElementById('tipo');
+    var vol55Label = document.querySelector('label[for="alc_vol55"]');
+    var vol55Input = document.getElementById('alc_vol55');
+
+    // Iniciar desactivado el campo alc_vol55
+    vol55Input.disabled = true;
 
     tipoSelect.addEventListener('change', function() {
         if (tipoSelect.value === 'entrada') {
@@ -81,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
             nuevoAsterisco.textContent = '*';
             nuevoAsterisco.classList.add('campo-obligatorio');
             procedenciaLabel.appendChild(nuevoAsterisco);
+
+            // Desbloquear la entrada de texto
+            volAguaInput.disabled = false;
         } else if (tipoSelect.value === 'salida') {
             procedenciaLabel.textContent = 'Destino';
             asterisco.classList.add('campo-obligatorio');
@@ -88,6 +98,35 @@ document.addEventListener('DOMContentLoaded', function() {
             nuevoAsterisco.textContent = '*';
             nuevoAsterisco.classList.add('campo-obligatorio');
             procedenciaLabel.appendChild(nuevoAsterisco);
+
+            // Bloquear la entrada de texto
+            volAguaInput.disabled = true;
+
+            // Si hay información en el campo de texto, borrarla
+            volAguaInput.value = '';
+        }
+    });
+
+    tipoMovimientoSelect.addEventListener('change', function() {
+        if (tipoMovimientoSelect.value === 'merma') {
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = false;
+        } else {
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = true;
+            vol55Input.value = ''; // Vaciar el campo si no es "merma"
         }
     });
 });
+
+
+
+
