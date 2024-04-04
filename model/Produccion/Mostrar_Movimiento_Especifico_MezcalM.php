@@ -10,7 +10,8 @@ class MostrarMez extends Crud_bd {
     }
 
     function getInfo(){
-        $query = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol
+        $query = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
+                          mm.Fecha, mm.IDMovimiento
                   FROM movimientomezcal mm
                   INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento";
         
@@ -20,7 +21,8 @@ class MostrarMez extends Crud_bd {
     }
 
     function buscador($lote){
-        $query = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol
+        $query = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
+                          mm.Fecha, mm.IDMovimiento
                   FROM movimientomezcal mm
                   INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento
                   WHERE mm.Lote = :lote";
@@ -31,7 +33,8 @@ class MostrarMez extends Crud_bd {
     
     function buscar_datos($id){
         $this->conexion_bd();
-        $consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol
+        $consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
+                            mm.Fecha, mm.IDMovimiento
                      FROM movimientomezcal mm
                      INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento";
         $resultados = $this->mostrar($consulta);
