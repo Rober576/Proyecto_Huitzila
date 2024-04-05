@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis individual</title>
+
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+</head>
+
+<body>
+    <header>
+        <div class="header_superior">
+            <div class="titulo">
+
+                <div class="nombre_ventana">
+                    <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+                    <h1 class="nombre_Ventana">Calidad</h1>
+                </div>
+
+            </div>
+
+            <div class="boton-cerrar-session">
+
+            </div>
+        </div>
+
+        <!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Agrícola
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Producción
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Envasado
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Calidad
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Ventas
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li ><a href="../Usuarios/Registro_Usuarios.html">Registro</a></li>
+                                <li><a href="../Usuarios/Mostrar_Usuarios.html">Consultar</a></li>
+							</ul>
+						</li>
+
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+    </header>
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Analsis Individual</h4>
+            </div>
+            <br>
+            <p class="subtitulo-1"> Datos del analisis</p>
+            <hr>
+            <br>
+            <form class="formulario-datos" id="advanced-form">
+
+                <input type="hidden" name="id" id="inputId">
+
+                <div class="grupo1">
+                    <label class="label_datos" for="claveU">Lote</label>
+                    <input type="text" id="clave_us" name="clave_us" required readonly title="El Lote no puede ser modificada.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Azucares<span class="required">*</span>:</label>
+                    <input type="text" id="nombre_us" name="nombre_us" required readonly title="El Lote no puede ser modificada.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="apellidoP">Madurez<span class="required">*</span>:</label>
+                    <input type="text" id="apellido_pat" name="apellido_pat" required readonly title="El Lote no puede ser modificada.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="apellidoM">Tamaño Materia</label>
+                    <input type="text" id="apellido_mat" name="apellido_mat" required readonly title="El Lote no puede ser modificada.">
+                </div>              
+
+
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button type="submit" id="submitButton">Guardar</button>
+                        <button type="submit" id="cancelarButton">Cancelar</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+
+    <script src="../../controller/Usuarios/js/Registro_Modificar.js"></script>
+    <script src="../../controller/Usuarios/js/Cancelar_Modificar.js"></script>
+    
+</body>
+
+</html>
