@@ -81,8 +81,10 @@ input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="password"],
+input[type="file"],
 textarea,
 select {
+    background-color: #fff;
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -96,12 +98,18 @@ input[type="radio"],
 input[type="password"] {
     margin-right: 5px;
 }
+
+.grupo2{
+    grid-column: span 3;
+}
 .grupo-boton-reg{
     display: flex;
     flex-direction: column;
     align-items: center;
     grid-column: span 3;
 }
+
+
 
 
 
