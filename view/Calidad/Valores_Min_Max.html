@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar valores mínimos y máximos</title>
+
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+    <link rel="stylesheet" href="../../public/css/Valores_Min_Max.css">
+
+</head>
+<body>
+        <header>
+        <div class="header_superior">
+            <div class="titulo">
+
+                <div class="nombre_ventana">
+                    <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+                    <h1 class="nombre_Ventana">Calidad</h1>
+                </div>
+
+            </div>
+
+            <div class="boton-cerrar-session">
+
+            </div>
+        </div>
+
+        <!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Agrícola
+							</a>
+			
+							<ul>
+							<li><a >Registrar</a></li>
+							<li><a >Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Producción
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Envasado
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Calidad
+							</a>
+				
+							<ul>
+								<li><a >Análisis general</a></li>
+                                <li><a >Análisis fisioquímico</a></li>
+                                <li><a >Valores mínimos y máximos</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Ventas
+							</a>
+				
+							<ul>
+								<li><a >Registrar</a></li>
+								<li><a >Consultar</a></li>
+							</ul>
+						</li>
+
+                        <li>
+							<a href="#">
+								<i ></i>
+								Usuarios
+							</a>
+				
+							<ul>
+								<li ><a href="../Usuarios/Registro_Usuarios.html">Registro</a></li>
+                                <li><a href="../Usuarios/Mostrar_Usuarios.html">Consultar</a></li>
+							</ul>
+						</li>
+
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+    </header>
+
+    <main>
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Registro</h4>
+            </div>
+
+            <br>
+            <p class="subtitulo-1">Valores mínimos y máximos</p>
+            <hr>
+            <br>
+
+            <!-- Formulario de analisis fisioquimico -->
+            <form class="formulario-datos2" id="advanced-form">
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de alcohol<span class="required">*</span></label>
+                    <input type="text" id="min_alcohol" name="max_alc" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de alcohol<span class="required">*</span></label>
+                    <input type="text" id="max_alchol" name="max_alc" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de extracto seco<span class="required">*</span></label>
+                    <input type="text" id="min_ext_seco" name="min_ext_seco" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de extracto seco<span class="required">*</span></label>
+                    <input type="text" id="max_ext_seco" name="max_ext_seco" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de metanol<span class="required">*</span></label>
+                    <input type="text" id="min_metanol" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de metanol<span class="required">*</span></label>
+                    <input type="text" id="max_metanol" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de alcoholes superiores<span class="required">*</span></label>
+                    <input type="text" id="min_alc_sup" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de alcoholes superiores<span class="required">*</span></label>
+                    <input type="text" id="max_alc_sup" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de aldheídos<span class="required">*</span></label>
+                    <input type="text" id="min_aldehidos" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de aldheídos<span class="required">*</span></label>
+                    <input type="text" id="max_aldehidos" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de furfural<span class="required">*</span></label>
+                    <input type="text" id="min_furfural" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de furfural<span class="required">*</span></label>
+                    <input type="text" id="max_furfural" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de plomo<span class="required">*</span></label>
+                    <input type="text" id="min_plomo" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de plomo<span class="required">*</span></label>
+                    <input type="text" id="max_plomo" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor mínimo de arsénico<span class="required">*</span></label>
+                    <input type="text" id="min_arse" name="min" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="nombre">Valor máximo de arsénico<span class="required">*</span></label>
+                    <input type="text" id="max_arse" name="max" maxlength=""  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                </div>
+
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button type="submit" id="submitButton">Guardar</button>
+                        <a class="Boton_cancelar" href="Valores_Min_Max.html" id="cancelarButton">Cancelar</a>
+                    </div>
+                </div>
+
+                
+
+            </form>
+
+            
+
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+</html>
