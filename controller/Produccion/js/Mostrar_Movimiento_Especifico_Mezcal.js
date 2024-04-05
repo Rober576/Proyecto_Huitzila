@@ -2,8 +2,6 @@ function buscar_datos(lote) {
     var url = '../../controller/Produccion/Mostrar_Movimiento_Especifico_Mezcal.php';
 
     console.log('Valor de lote:', lote); // Mostrar el valor de consulta en la consola
-
-    // Adjuntar el valor de Lote como consulta en la URL
     if (lote !== "") {
         url += '?lote=' + lote;
     }
@@ -64,21 +62,23 @@ function agregarEventosEliminar() {
 
 
 function agregarEventosEditar() {
-
     var botonesModificar = document.querySelectorAll(".boton-modificar");
-
-    // Agrega el evento click a cada botón de modificar
+    
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-
-            window.location.href = "#";
-
+            e.preventDefault(); // Evitar la acción predeterminada del botón
+            
+            // Obtener el valor de 'lote' de la URL actual
+            const urlParams = new URLSearchParams(window.location.search);
+            const lote = urlParams.get('Lote');
+            
+            // Mostrar el valor del lote en la consola
            
+            window.location.href = '#' ;
         });
     }
 }
-
-
+    
 
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos("");
@@ -86,15 +86,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Obtener parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
+    console.log(window.location.search)
     const lote = urlParams.get('Lote');
-
-    // Verificar si se encontró el parámetro Lote en la URL
-    if (lote !== null) {
+    console.log(lote)
+    if (lote !== null)  {
         // Llamar a la función buscar_datos con el valor de Lote como consulta
         buscar_datos(lote);
     } else {
-        console.error('El parámetro Lote no se encontró en la URL.');
+        console.error("error en el lote")
+        
     }
+
 });
+
+
+
+
+
+

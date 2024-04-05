@@ -6,8 +6,11 @@ $id = $_GET["id"];
 $objeto = new MostrarMez();
 $resultado = $objeto->buscar_datos($id);
 $lote = $resultado[0]['Lote'];
+$fecha=$resultado[0]['Fecha'];
+$tipo=$resultado[0]['EntradaSalida'];
+$procendencia=$resultado[0]['DestinoProcedencia'];
 $movimiento = $resultado[0]['Movimiento'];
-$Volumen = $resultado[0]['Volumen'];
+$volumen = $resultado[0]['Volumen'];
 $concentracion = $resultado[0]['PorcentajeAlcohol'];
 
         
