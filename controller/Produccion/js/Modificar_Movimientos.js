@@ -1,7 +1,7 @@
 // Declara las variables globales
 var formulario = document.getElementById('form_ingreso_agave');
 var respuesta = document.getElementById('respuesta');
-
+console.log("entro a modificar_movimientos")
 // Responde cuando hay un click en el boton "Guardar"
 document.getElementById('submitButton').addEventListener('click', function (e) {
     e.preventDefault(); // Prevenir el envío del formulario por defecto

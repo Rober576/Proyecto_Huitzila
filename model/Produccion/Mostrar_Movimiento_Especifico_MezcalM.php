@@ -33,14 +33,21 @@ class MostrarMez extends Crud_bd {
     
     function buscar_datos($id){
         $this->conexion_bd();
-        $consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
-                            mm.Fecha, mm.IDMovimiento
-                     FROM movimientomezcal mm
-                     INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento";
+        $consulta="SELECT rm.*, cm.Movimiento
+        from movimientomezcal rm
+        INNER JOIN tipomovimiento cm ON rm.IDMovimiento = cm.IDMovimiento
+        WHERE rm.Lote = '$id'";
+        
         $resultados = $this->mostrar($consulta);
-     
         $this->cerrar_conexion();
         return $resultados;
     }
+      /*$consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
+                    mm.Fecha, mm.EntradaSalida, mm.DestinoProcedencia
+             FROM movimientomezcal mm
+             INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento
+             WHERE mm.Lote = lote"; // Si hay una columna ID para filtrar por el ID específico
+        
+        $resultados = $this->mostrar($consulta);*/
 }
 ?>
