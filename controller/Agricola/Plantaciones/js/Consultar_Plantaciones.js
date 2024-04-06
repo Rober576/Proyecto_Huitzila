@@ -28,26 +28,52 @@ function EventoEditarP() {
     var botonesModificar = document.querySelectorAll(".boton-modificarP");
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-            window.location.href = "#";
+            
             var id = e.target.id;
-            console.log(id);
+         
+        }
+            );
+    }
+}
+
+
+
+
+
+
+
+function confirmarEliminacion(id) {
+    // Preguntar al usuario si está seguro de eliminar el registro
+    if (confirm('¿Estás seguro de eliminar la plantación?')) {
+        // Realizar la solicitud fetch al script PHP para eliminar el registro
+        fetch('../../../controller/Agricola/Plantaciones/php/Eliminar_Plantacion.php?id=' + id, {
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('Eliminado con éxito');
+            location.reload(); // Recargar la página después de eliminar el registro
+        })
+        .catch(error => {
+            console.error('Error al eliminar el registro:', error);
+            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
         });
+    } else {
+        // Si el usuario cancela, no se hace nada
     }
 }
 
 function EventoEliminarP() {
-    var botonesModificar = document.querySelectorAll(".boton-eliminarP");
-    for (var j = 0; j < botonesModificar.length; j++) {
-        botonesModificar[j].addEventListener('click', function(e) {
-            window.location.href = "#";
+    var botonesEliminar = document.querySelectorAll(".boton-eliminarP");
+    for (var j = 0; j < botonesEliminar.length; j++) {
+        botonesEliminar[j].addEventListener('click', function(e) {
             var id = e.target.id;
-            console.log(id);
+            confirmarEliminacion(id);
         });
     }
 }
 
-
-
+// Llamar a EventoEliminarP() en el evento "DOMContentLoaded"
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos2("");
 });
