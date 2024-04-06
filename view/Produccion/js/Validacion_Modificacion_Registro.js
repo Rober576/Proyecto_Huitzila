@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(fechaA);
 
         if (fecha>=fechaA){
-            alert("La fecha tiene que ser el dia de hoy o mallor");
+            alert("La fecha tiene que ser el dia de hoy o mayor");
         }else{
 
         var datos = new FormData(formulario);
 
 
-        fetch('../../controller/Produccion/Registrar_Movimientos.php', {
+        fetch('../../controller/Produccion/Modificar_Movimientos.php', {
             method: 'POST',
             body: datos
         })
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error:', data);
             } else {
                 alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-                location.href="../../view/Produccion/Registro_Movimientos.html";
+                location.href="../../view/Produccion/Movimiento_Especifico_Mezcal.html";
             }        
         })
         .catch(error => {
@@ -56,15 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => console.error('Error al obtener categorías:', error));
 
     // Responde cuando hay un click en el botón cancelar
-    formulario.cancelar.addEventListener('click', function (e) {
-        e.preventDefault();
-        let urlAct = window.location;
-
-        var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
-        if(resp ==  true){
-            window.location.href='Mostrar_Mezcal.html';
-        }
-    });
+   
 });
 
 
