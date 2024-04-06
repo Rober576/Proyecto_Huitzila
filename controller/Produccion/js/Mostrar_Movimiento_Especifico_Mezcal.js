@@ -42,6 +42,7 @@ function agregarEventosEliminar() {
             var Lote = datos[0];
             var Fecha = datos[1];
             var IDMovimiento = datos[2];
+           
             console.log("Valor de Lote:", Lote);
             console.log("Valor de Fecha:", Fecha);
             console.log("Valor de IDMovimiento:", IDMovimiento);
@@ -53,6 +54,7 @@ function agregarEventosEliminar() {
                     .then(res => res.json())
                     .then(data => {
                         alert(data);
+                        console.log("data",data)
                         window.location.href = '../../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
                     });
             }
@@ -85,20 +87,29 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    console.log(window.location.search)
     const lote = urlParams.get('Lote');
-    console.log(lote)
     if (lote !== null)  {
         // Llamar a la función buscar_datos con el valor de Lote como consulta
         buscar_datos(lote);
     } else {
         console.error("error en el lote")
         
+    }*/
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const lote = urlParams.get('Lote');
+    // Verificar si se encontró el parámetro Lote en la URL
+    if (lote !== null) {
+        // Llamar a la función buscar_datos con el valor de Lote como consulta
+        buscar_datos(lote);
+    } else {
+        console.error('El parámetro Lote no se encontró en la URL.');
     }
-
 });
+
 
 
 

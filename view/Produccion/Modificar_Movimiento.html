@@ -111,20 +111,13 @@
                 <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="lote">Lote<span class="campo-obligatorio">*</span></label>
-                    <select id="lote" name="lote" required>
-                        <option value="">Selecciona</option>
-                        <option value="lote1">Lote 1</option>
-                        <option value="lote2">Lote 2</option>
-                    </select>
+                    <input type="text" id="lote" name="lote" class="styled-input" maxlength="5"
+					title="El lote debe contener máximo 5 caracteres, letras y/o números." required>
                 </div>
 				<div class="grupo1">
                     <label class="label_datos" for="tipo">Movimiento<span class="campo-obligatorio">*</span></label>
                     <select id="tipo" name="tipo" required>
-                        <option value="produccion">Producción</option>
-                        <option value="dilucion">Dilución</option>
-						<option value="traspaso">Traspaso</option>
-						<option value="merma">Merma</option>
-						<option value="baja">Baja</option>
+                        
                     </select>
                 </div>
 				<div class="grupo1">

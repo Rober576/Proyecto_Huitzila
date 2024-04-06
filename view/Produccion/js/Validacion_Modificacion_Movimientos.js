@@ -101,14 +101,12 @@ form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
 
 
 
-function validar(bandera){
-    const guardar = document.getElementById('boton_registrar');
+function validar(bandera) {
+    const guardar = document.getElementById('submitButton');
 
-    if(bandera == false){              
-        guardar.disabled=true;
-        
-    }else{
-        guardar.disabled=false;
+    if (bandera == false) {              
+        guardar.disabled = true;
+    } else {
+        guardar.disabled = false;
     }
-
 }

@@ -31,25 +31,24 @@ class MostrarMez extends Crud_bd {
         return $resultados;
     }
     
-    /*function buscar_datos($id){
+    function buscar_datos_GET($id){
         $this->conexion_bd();
-        *$consulta="SELECT rm.*, cm.Movimiento
-        from movimientomezcal rm
-        INNER JOIN tipomovimiento cm ON rm.IDMovimiento = cm.IDMovimiento
-        WHERE rm.Lote = '$id'";
-        
+        $consulta = "SELECT rm.*, cm.Movimiento
+             FROM movimientomezcal rm
+             INNER JOIN tipomovimiento cm ON rm.idMovimiento = cm.idMovimiento
+             WHERE rm.Lote = '$id'";
         $resultados = $this->mostrar($consulta);
         $this->cerrar_conexion();
         return $resultados;
-    }*/
+    }
     function buscar_datos($id){
         $this->conexion_bd();
-        $consulta = "SELECT mm.Lote, mm.IDMovimiento, tm.Movimiento, mm.Volumen, mm.PorcentajeAlcohol,
-                            mm.Fecha, mm.IDMovimiento
+        $consulta = "SELECT mm.Lote, mm.idMovimiento, tm.Movimiento,
+                            mm.Fecha
                      FROM movimientomezcal mm
-                     INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento";
+                     INNER JOIN tipomovimiento tm ON mm.IDMovimiento = tm.IDMovimiento
+                     WHERE mm.Lote = '$id'";
         $resultados = $this->mostrar($consulta);
-     
         $this->cerrar_conexion();
         return $resultados;
     }

@@ -1,31 +1,23 @@
 <?php
 require_once('../../model/Produccion/Mod_Movimientos_Mezcal.php');
-$objeto=new modificarMez();
+$objeto = new modificarMez();
+$lote = $_POST["lote"];
+$fecha = $_POST["fecha"];
+$tipo = $_POST["tipo"];
+$procedencia = $_POST["procedencia"];
+$movimiento = $_POST["mov"];
+$volumen = $_POST["volumen"];
+$volumen2 = $_POST["vol_agua"];
+$concentracion = $_POST["alc_vol"];
 
-$lote=$_POST["lote"];
-$fecha=$_POST["fecha"];
-$tipo=$_POST["entradasalida"];
-$procedencia=$_POST["destinosalida"];
-$movimiento=$_POST["movimiento"];
-$volumen=$_POST["volumen"];
-$concentracion=$_POST["concentracion"];
 
-/*$especie=$_POST["especie"];
-$categoria=$_POST["categoria"];*/
+// Realiza la actualización con el ID de movimiento obtenido
+$u = $objeto->actualizar($lote, $fecha, $tipo, $procedencia, $movimiento, $volumen, $volumen2, $concentracion);
 
-if ($tipo=="Entrada"){
-    $proce="Entrada";
-}else if ($tipo=="Salida"){
-    $proce="Salida";
-}
-
-$u=$objeto->actualizar($lote,$fecha,$tipo,$procedencia,$movimiento, $volumen, $concentracion);
-
-if ($u==true){
+if ($u == true) {
     echo json_encode('exito');
+} else {
+    echo json_encode('Error al actualizar el movimiento.');
 }
-else{
-    echo json_encode('id');
-}
-
 ?>
+

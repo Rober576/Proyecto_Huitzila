@@ -8,17 +8,18 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
     console.log("Antes de fetch"); // Agregado para depuración
-    fetch('../../controller/Produccion/Modificar_Movimientos.php', {
+    fetch('../../controller/Produccion/Modificar_Movimientos.php',
+    {
         method: 'POST',
         body: datos
     })
     .then(res => res.text()) // Cambiado a text() para manejar cualquier tipo de respuesta
     .then(data => {
         console.log("Después de fetch"); // Agregado para depuración
-        console.log(data); // Agregado para depuración
-        if (data.trim() === 'no exito') {
+        console.log("Mensaje de prueba",data); // Agregado para depuración
+        if (data.trim() === "id") {
             alert("Hubo un error");
-        } else {
+        } else if(data.trim) {
             alert("Actualización exitosa");
             location.href = "../../view/Produccion/Mostrar_Movimientos_Mezcal.html";
         }
