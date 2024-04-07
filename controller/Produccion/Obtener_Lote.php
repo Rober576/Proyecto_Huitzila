@@ -10,17 +10,14 @@ class ControladorDatos {
     }
 
     function obtenerLote() {
-        $query = "SELECT r.Lote
-        FROM registromezcal r
-        LEFT JOIN movimientomezcal m ON r.Lote = m.Lote
-        WHERE m.Lote IS NULL";
+        $query = "SELECT Lote FROM registromezcal";
         $result = $this->base->mostrar($query);
-
+    
         $lotes = array();
         foreach ($result as $row) {
-            $lotes[] = $row['Lote']; // Corregido a 'Lote'
+            $lotes[] = $row['Lote'];
         }
-
+    
         return json_encode($lotes);
     }
 }

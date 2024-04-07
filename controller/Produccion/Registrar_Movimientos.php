@@ -10,6 +10,7 @@ $procedencia = $_POST['procedencia'];
 $volumen = $_POST['volumen'];
 $alc_vol = $_POST['alc_vol'];
 $alc_vol55 = $_POST['alc_vol55'];
+$agua=$_POST['vol_agua'];
 
 
 // Instanciar la clase y llamar la función para insertar
@@ -17,7 +18,7 @@ $obj = new NuevosCampos();
 $obj->conexion();
 
 // Realizar la inserción
-$resultado = $obj->insertar($lote, $Mov, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55);
+$resultado = $obj->insertar($lote, $Mov, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55,$agua);
 
 // Comprobar el resultado y enviar el mensaje correspondiente
 if ($resultado === true) {
