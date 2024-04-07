@@ -29,7 +29,8 @@ if (isset($_GET['lote'])) {
             $salida .= '<tr>';
             $Lote= $fila['Lote'];
             $Fecha =$fila['Fecha'];
-            $IDMovimiento=$fila['Movimiento'];
+            $IDMovimiento=$fila['IDMovimiento'];
+
             $salida .= '<td>' . $fila["Lote"] . '</td>';
             $salida .= '<td>' . $fila["Movimiento"] . '</td>';
             $salida .= '<td>' . $fila["Volumen"] . '</td>';
