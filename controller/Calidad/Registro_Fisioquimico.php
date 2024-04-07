@@ -13,7 +13,36 @@ $Cobre = $_POST["cobre"];
 $Estado = $_POST["Estado_as"];
 $archivo = $_FILES["doc_ref"]["name"];
 
-$id_cuota = "Doc_Fisioquimico1";
+function obtenerSiguienteNombreArchivo($carpeta, $prefijo) {
+    // Obtener todos los archivos en la carpeta
+    $archivos = glob($carpeta . '/' . $prefijo . '*');
+    
+    // Inicializar el número más alto encontrado
+    $numeroMasAlto = 0;
+    
+    // Iterar sobre los archivos y encontrar el número más alto usando expresiones regulares
+    foreach ($archivos as $archivo) {
+        // Extraer el número del nombre del archivo usando una expresión regular
+        preg_match('/' . preg_quote($prefijo, '/') . '(\d+)/', $archivo, $matches);
+        if (isset($matches[1])) {
+            $numero = intval($matches[1]);
+            if ($numero > $numeroMasAlto) {
+                $numeroMasAlto = $numero;
+            }
+        }
+    }
+    
+    // Construir el nombre del siguiente archivo
+    $siguienteNumero = $numeroMasAlto + 1;
+    $siguienteNombre = $prefijo . $siguienteNumero;
+    
+    return $siguienteNombre;
+}
+
+$carpeta = "Documentos_Fisioquimico";
+$prefijo = "Doc_Fisioquimico";
+$id_cuota = obtenerSiguienteNombreArchivo($carpeta, $prefijo);
+
 
 if ($archivo!='' || $archivo!=null){
     $tipo = $_FILES['doc_ref']['type'];
@@ -31,6 +60,7 @@ if ($archivo!='' || $archivo!=null){
         }
     }
 }
+
 
 $usarios = new Registro_cuotas();
 $usarios->conexion();
