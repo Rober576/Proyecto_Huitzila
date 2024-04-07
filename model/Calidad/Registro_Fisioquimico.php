@@ -13,9 +13,22 @@ class Registro_cuotas
 
     function insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $Estado, $archivo)
     {
-        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Cumplimiento)
-                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Cumplimiento)";
-        $a1 = [":Clave" => $Clave, ":Lote" => $Lote, ":Alcohol" => $Alcohol, ":ExtractoSeco" => $Extracto, ":Metanol" => $Metanol, ":AlcoholesSuperiores" => $Superiores, ":Aldehidos" => $Aldehidos, ":Furfural" => $Furfural, ":Plomo" => $Plomo, ":Cobre" => $Cobre, ":Cumplimiento" => $Estado];
+        $referencia = 1;
+        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Referencia, Cumplimiento)
+                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Referencia, :Cumplimiento)";
+        $a1 = [
+        ":Clave" => $Clave, 
+        ":Lote" => $Lote, 
+        ":Alcohol" => $Alcohol, 
+        ":ExtractoSeco" => $Extracto, 
+        ":Metanol" => $Metanol, 
+        ":AlcoholesSuperiores" => $Superiores, 
+        ":Aldehidos" => $Aldehidos, 
+        ":Furfural" => $Furfural, 
+        ":Plomo" => $Plomo, 
+        ":Cobre" => $Cobre, 
+        ":Referencia" => $referencia, 
+        ":Cumplimiento" => $Estado];
         $querry = $q1;
         $parametros = $a1;
 
