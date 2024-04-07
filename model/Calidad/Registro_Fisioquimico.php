@@ -14,8 +14,8 @@ class Registro_cuotas
     function insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $Estado, $archivo)
     {
         $referencia = 1;
-        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Referencia, Cumplimiento)
-                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Referencia, :Cumplimiento)";
+        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Referencia, Cumplimiento, NombreDocumento)
+                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Referencia, :Cumplimiento, :NombreDocumento)";
         $a1 = [
         ":Clave" => $Clave, 
         ":Lote" => $Lote, 
@@ -28,7 +28,8 @@ class Registro_cuotas
         ":Plomo" => $Plomo, 
         ":Cobre" => $Cobre, 
         ":Referencia" => $referencia, 
-        ":Cumplimiento" => $Estado];
+        ":Cumplimiento" => $Estado,
+        ":NombreDocumento" => $archivo];
         $querry = $q1;
         $parametros = $a1;
 

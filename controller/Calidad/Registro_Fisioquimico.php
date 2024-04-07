@@ -64,6 +64,6 @@ if ($archivo!='' || $archivo!=null){
 
 $usarios = new Registro_cuotas();
 $usarios->conexion();
-$usarios->insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $Estado, $archivo);
+$usarios->insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $Estado, $id_cuota);
 
 ?>
