@@ -107,7 +107,7 @@
 
     <section class="section-main">
         <div class="cabezera">
-			<h4 class="h4">Registrar</h4>
+			<h4 class="h4">Modificar</h4>
 		</div>
 		<br>
 		<p class="subtitulo-1"> Ingreso de plantación</p>
@@ -131,8 +131,8 @@
 				</div>
                 <div class="formulario-datos">
                     <div>
-                        <label for="superfPre">Fecha de plantación:<span class="campo-obligatorio">*</span></label>
-						<input type="date" id="superfPre" name="superfPre" class="styled-input" required>
+                        label for="fecPlant">Fecha de plantación:<span class="campo-obligatorio">*</span></label>
+						<input type="date" id="fecPlant" name="fecPlant" class="styled-input" required>
                     </div>
                     <div>
                         <label for="predioSem">Campo sembrado:<span class="campo-obligatorio">*</span></label>
@@ -178,7 +178,7 @@
         </div>
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
-                		<button type="submit" id="submitButton">Registrar</button>
+                		<button type="submit" id="submitButton">Modificar</button>
 						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
@@ -191,6 +191,7 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
-<script src="js/Validacion_Registro_Predios.js"></script>
-<script src="../../../controller/Agricola/Predios/js/Registrar_Predio.js"></script>
+<script src="../../../controller/Agricola/Plantaciones/js/Consultar_Tipos_Plantas_Y_Predios.js"></script>
+<script src="../../../controller/Agricola/Plantaciones/js/Llenado_Campos_Modificar_Plantaciones.js"></script>
+<script src="../../../controller/Agricola/Plantaciones/js/Modificar_Plantaciones.js"></script>
 </html>

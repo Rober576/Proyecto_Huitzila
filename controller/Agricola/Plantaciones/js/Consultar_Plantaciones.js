@@ -28,11 +28,26 @@ function EventoEditarP() {
     var botonesModificar = document.querySelectorAll(".boton-modificarP");
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-            
+            window.location.href = "#";
             var id = e.target.id;
-         
-        }
-            );
+            localStorage.setItem('id', id);
+            fetch('../../../controller/Agricola/Plantaciones/php/Modificar_Datos_Plantacion.php?id=' + id, {
+                method: 'GET',
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); 
+            })
+            .then(function(data) {
+                localStorage.setItem('data', JSON.stringify(data));
+                window.location.href = '../../../view/Agricola/Predios/Editar_Plantaciones.html';
+            })
+            .catch(function(error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+        });
     }
 }
 
