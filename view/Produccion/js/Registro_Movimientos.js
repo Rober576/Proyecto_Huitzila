@@ -77,8 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var vol55Label = document.querySelector('label[for="alc_vol55"]');
     var vol55Input = document.getElementById('alc_vol55');
 
-    // Iniciar desactivado el campo alc_vol55
+    // Iniciar desactivado el campo alc_vol55 y establecer color de fondo gris
     vol55Input.disabled = true;
+    vol55Input.style.backgroundColor = 'lightgrey';
 
     tipoSelect.addEventListener('change', function() {
         if (tipoSelect.value === 'entrada') {
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Desbloquear la entrada de texto
             volAguaInput.disabled = false;
+            volAguaInput.style.backgroundColor = 'white'; // Restaurar color original
         } else if (tipoSelect.value === 'salida') {
             procedenciaLabel.textContent = 'Destino';
             asterisco.classList.add('campo-obligatorio');
@@ -101,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Bloquear la entrada de texto
             volAguaInput.disabled = true;
+            volAguaInput.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
 
             // Si hay información en el campo de texto, borrarla
             volAguaInput.value = '';
@@ -115,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = false;
+            vol55Input.style.backgroundColor = 'white'; // Restaurar color original
         } else {
             vol55Label.textContent = 'Vol a 55% alc.';
             var asterisco = document.createElement('span');
@@ -122,11 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = true;
+            vol55Input.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
             vol55Input.value = ''; // Vaciar el campo si no es "merma"
         }
     });
 });
-
 
 
 
