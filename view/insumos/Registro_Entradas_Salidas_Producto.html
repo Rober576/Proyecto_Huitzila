@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de entradas y salidas de productos</title>
+    <title>Registro de entradas y salidas de insumos</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -40,13 +40,13 @@
 						<li>
 							<a href="Principal_Insumos.html">
 								<i ></i>
-								Productos
+								Insumos
 							</a>
 				
                             
 							<ul>
-                                <li><a href="Mostrar_Productos.html">Consultar</a></li>
-                                <li><a href="Editar_Productos.html">Editar</a></li>
+                                <li><a href="Mostrar_Insumos.html">Consultar</a></li>
+                                <li><a href="Editar_Insumos.html">Editar</a></li>
 							</ul>
 						</li>
 
@@ -64,7 +64,7 @@
 						<li>
 							<a href="">
 								<i ></i>
-								Entrada/Salida productos
+								Entrada/Salida insumos
 							</a>
 				
                             
@@ -100,35 +100,35 @@
 				<h4 class="h4">Registro</h4>
 			</div>
 			<br>
-			<p class="subtitulo-1">Datos de Producto teminado</p>
+			<p class="subtitulo-1">Datos de entradas y salidas de productos</p>
 			<hr>
 			<br>
 
 				
-			<form class="formulario" id="insumos_form">
+			<form class="formulario" id="Entradas_Salidas_productos_form">
 				<div class="formulario-colum">
 
 
 					<div class="grupo1">
-						<label class="label_datos" for="ID">Id productos<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Id_insumos" name="Id_insumos" title="Es el identificador de los productos" required>
+						<label class="label_datos" for="ID">ID producto<span class="campo-obligatorio">*</span>:</label>
+						<input type="text" id="Id_productos" name="Id_productos" title="Identificador de los productos." required>
 					</div>
 
 					
 					<div class="grupo1">
 						<label class="label_datos" for="Fecha">Fecha<span class="campo-obligatorio">*</span>:</label>
-						<input type="date" id="Fecha" name="Fecha" title="Es la fecha con la que se resaliso el reguistro" required>
+						<input type="date" id="Fecha" name="Fecha" title="Fecha en la que se realizó el registro." required>
 					</div>
 
 					<div class="grupo1">
 						<label class="label_datos" for="Entrada_Salida">Entrada/Salida<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Entrada_Salida" name="Entrada_Salida" title="Si es entrada o salida" required>
+						<input type="text" id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
 					</div>
 					
 
 
 					<div class="grupo1">
-						<label class="label_datos" for="ID Movimiento">Id Movimiento<span class="campo-obligatorio">*</span>:</label>
+						<label class="label_datos" for="ID Movimiento">ID movimiento<span class="campo-obligatorio">*</span>:</label>
 						<select name="ID_Movimiento" id="ID_Movimiento">
 							<option value="1">1 - Produccion</option>
 							<option value="2">2 - Devoluciones</option>
@@ -142,22 +142,22 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="Destino">Destino<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Destino" name="Destino" title="A donde se dirige" required>
+						<input type="text" id="Destino" name="Destino" title="Destino del insumo." required>
 					</div>
 
 					<div class="grupo1">
 						<label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" id="Cantidad" name="Cantidad" title="Cuanto se va a reguistrar" required>
+						<input type="number" id="Cantidad" name="Cantidad" title="Cantidad que se registrará." required>
 					</div>
 
 					<div class="grupo1">
 						<label class="label_datos" for="Costo unitario">Costo unitario<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" id="Costo_Unitario" name="Costo_Unitario" title="El costo de cada producto, se rellenará automáticamente si el producto está registrado." required readonly >
+						<input type="number" id="Costo_Unitario" name="Costo_Unitario" title="El costo de cada insumo se rellenará automáticamente si el ID del insumo está registrado." required readonly >
 					</div>
 
 					<div class="grupo1">
 						<label class="label_datos" for="Costo total">Costo total<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" id="Costo_Total" name="Costo_Total" title="El costo total de todos los productos." required readonly>
+						<input type="number" id="Costo_Total" name="Costo_Total" title="Costo total." required readonly>
 					</div>
 				
 					
@@ -166,7 +166,7 @@
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Guardar</button>
-						<button type="button" class="Boton_cancelar">Cancelar</button>
+						<button type="submit" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
@@ -181,6 +181,7 @@
     </footer>
 
 	<script src="../../controller/Insumos/js/Registro_Entradas_Salidas_Productos.js"></script>
-
+	<script src="../../view/insumos/js/Valida_Registro_Entradas_Salidas_Producto.js"></script>
+	<script src="../../controller/Insumos/js/Cancelar_Registro_Entradas_Salidas_Productos.js"></script>
 </body>
 </html>
