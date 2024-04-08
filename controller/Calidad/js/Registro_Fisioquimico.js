@@ -17,7 +17,7 @@ formulario.addEventListener('submit', function (e)
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro exitoso");
-            window.location.href = '../../view/Calidad/Registro_Fisioquimico.html';
+            window.location.href = '../../view/Calidad/Mostrar_Fisioquimico.html';
         }
     })
 })
