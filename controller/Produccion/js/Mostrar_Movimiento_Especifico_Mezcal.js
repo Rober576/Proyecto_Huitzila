@@ -69,11 +69,20 @@ function agregarEventosEditar() {
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
             e.preventDefault(); // Evitar la acción predeterminada del botón
-            
+            var datos = this.dataset.id.split('@'); // Divide los datos usando el @ como separador
+            var Lote = datos[0];
+            var Fecha = datos[1];
+           
+           
+            console.log("Valor de Lote:", Lote);
+            console.log("Valor de Fecha:", Fecha);
+          
             // Obtener el valor de 'lote' de la URL actual
-            const urlParams = new URLSearchParams(window.location.search);
+            /*const urlParams = new URLSearchParams(window.location.search);
             const lote = urlParams.get('Lote');
-            
+            const fecha =urlParams.get('Fecha')
+            console.log("Valor lote modificar",lote)
+            console.log("valor fecha modificar",fecha)*/
             // Mostrar el valor del lote en la consola
            
             window.location.href = '#' ;
