@@ -1,4 +1,4 @@
-var formulario = document.getElementById('');
+var formulario = document.getElementById('advanced-form');
 
 formulario.addEventListener('submit', function (e)
 {
