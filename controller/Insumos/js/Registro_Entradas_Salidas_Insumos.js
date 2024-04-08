@@ -1,55 +1,82 @@
-const idInsumosInput = document.getElementById('Id_insumos');
-const costoUnitarioInput = document.getElementById('Costo_Unitario');
+document.addEventListener('DOMContentLoaded', function () {
+    const idInsumosInput = document.getElementById('Id_insumos');
+    const costoUnitarioInput = document.getElementById('Costo_Unitario');
+    const cantidadInput = document.getElementById('Cantidad');
+    const costoTotalInput = document.getElementById('Costo_Total');
 
-idInsumosInput.addEventListener('blur', function() {
-    const id = this.value;
-    
-    fetch(`../../controller/Insumos/Registro_Entradas_Salidas_Insumos.php?id=${id}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Ocurrió un error al obtener los datos');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length > 0) {
-               
-                const item = data[0]; 
-                costoUnitarioInput.value = item.Costo;
-                
-
-            } else {
-                alert('El insumo con el ID proporcionado no está registrado.');
-                costoUnitarioInput.value = '';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
-
-const cantidadInput = document.getElementById('Cantidad');
-const costoTotalInput = document.getElementById('Costo_Total');
-
-cantidadInput.addEventListener('input', function() {
-    const cantidad = parseInt(this.value);
-
-    
-    if (!isNaN(cantidad) && cantidad > 0) {
+    idInsumosInput.addEventListener('blur', function() {
+        const id = this.value;
         
-        if (costoUnitarioInput.value.trim() !== '') {
-            
-            const costoUnitario = parseFloat(costoUnitarioInput.value);
-            const costoTotal = costoUnitario * cantidad;
+        fetch(`../../controller/Insumos/Obtener_Entradas_Salidas_Insumos.php?id=${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ocurrió un error al obtener los datos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.length > 0) {
+                    const item = data[0]; 
+                    costoUnitarioInput.value = item.Costo;
+                    document.getElementById('Id_insumos').style.border = "none";
+                } else {
+                    alert('El insumo con el ID proporcionado no está registrado.');
+                    document.getElementById('Id_insumos').style.border = "5px solid red";
+                    costoUnitarioInput.value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
 
-            
-            costoTotalInput.value = costoTotal.toFixed(2); 
+    cantidadInput.addEventListener('input', function() {
+        const cantidad = parseInt(this.value);
+        
+        if (!isNaN(cantidad) && cantidad > 0) {
+            if (costoUnitarioInput.value.trim() !== '') {
+                const costoUnitario = parseFloat(costoUnitarioInput.value);
+                const costoTotal = costoUnitario * cantidad;
+                costoTotalInput.value = costoTotal.toFixed(2); 
+            } else {
+                costoTotalInput.value = '';
+            }
         } else {
-            
             costoTotalInput.value = '';
         }
-    } else {
+    });
+
+
+    document.getElementById('Entradas_Salidas_insumos_form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
         
-        costoTotalInput.value = '';
+        if (todasBanderasAceptadas()) {
+            var datos = new FormData(this);
+
+            fetch("../../controller/Insumos/Registro_Entradas_Salidas_Insumos.php", {
+                method: 'POST',
+                body: datos
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data === 'exito') {
+                        const form = document.getElementById('Entradas_Salidas_insumos_form');
+                        form.reset();
+                        alert("Registro exitoso");
+                    }
+                })
+
+        } else {
+            console.log("Registro fallido. Por favor, revise los campos resaltados.");
+            alert("Registro fallido. Por favor, revise los campos resaltados.");
+        }
+    });
+
+   
+    function todasBanderasAceptadas() {
+        
+        return true;
     }
 });
