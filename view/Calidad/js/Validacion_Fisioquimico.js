@@ -109,10 +109,10 @@ metanol.addEventListener('keyup', (e) => {
 
     if (!expresion.Metanol.test(valorInput)) {
         metanol.style.border = "5px solid red";
-        bandera2 = false;
+        bandera4 = false;
     } else {
         metanol.removeAttribute("style");
-        bandera2 = true;
+        bandera4 = true;
     }
 });
 
@@ -128,10 +128,10 @@ alcohol_sup.addEventListener('keyup', (e) => {
 
     if (!expresion.Superiores.test(valorInput)) {
         alcohol_sup.style.border = "5px solid red";
-        bandera3 = false;
+        bandera5 = false;
     } else {
         alcohol_sup.removeAttribute("style");
-        bandera3 = true;
+        bandera5 = true;
     }
 });
 
@@ -146,10 +146,10 @@ aldehidos.addEventListener('keyup', (e) => {
 
     if (!expresion.Aldheídos.test(valorInput)) {
         aldehidos.style.border = "5px solid red";
-        bandera2 = false;
+        bandera6 = false;
     } else {
         aldehidos.removeAttribute("style");
-        bandera2 = true;
+        bandera6 = true;
     }
 });
 
@@ -165,10 +165,10 @@ furfural.addEventListener('keyup', (e) => {
 
     if (!expresion.Furfural.test(valorInput)) {
         furfural.style.border = "5px solid red";
-        bandera3 = false;
+        bandera7 = false;
     } else {
         furfural.removeAttribute("style");
-        bandera3 = true;
+        bandera7 = true;
     }
 });
 
@@ -183,10 +183,10 @@ plomo.addEventListener('keyup', (e) => {
 
     if (!expresion.Plomo.test(valorInput)) {
         plomo.style.border = "5px solid red";
-        bandera2 = false;
+        bandera8 = false;
     } else {
         plomo.removeAttribute("style");
-        bandera2 = true;
+        bandera8 = true;
     }
 });
 
@@ -202,9 +202,9 @@ cobre.addEventListener('keyup', (e) => {
 
     if (!expresion.Cobre.test(valorInput)) {
         cobre.style.border = "5px solid red";
-        bandera3 = false;
+        bandera9 = false;
     } else {
         cobre.removeAttribute("style");
-        bandera3 = true;
+        bandera9 = true;
     }
 });
