@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro insumos</title>
+    <title>Registro de entradas y salidas de insumos</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -100,7 +100,7 @@
 				<h4 class="h4">Registro</h4>
 			</div>
 			<br>
-			<p class="subtitulo-1">Datos de Producto temindado</p>
+			<p class="subtitulo-1">Datos de Producto teminado</p>
 			<hr>
 			<br>
 
@@ -128,15 +128,15 @@
 
 
 					<div class="grupo1">
-						<label class="label_datos" for="ID Movimient">Id Movimiento<span class="campo-obligatorio">*</span>:</label>
-						<select name="" id="">
-							<option value="1">Produccion</option>
-							<option value="2">Devoluciones</option>
-							<option value="3">Cancelacione de venta</option>
-							<option value="4">Ajustes de inventario</option>
-							<option value="5">Venta</option>
-							<option value="6">Mermas</option>
-							<option value="7">Traspaso</option>
+						<label class="label_datos" for="ID Movimiento">Id Movimiento<span class="campo-obligatorio">*</span>:</label>
+						<select name="ID_Movimiento" id="ID_Movimiento">
+							<option value="1">1 - Produccion</option>
+							<option value="2">2 - Devoluciones</option>
+							<option value="3">3 - Cancelacione de venta</option>
+							<option value="4">4 - Ajustes de inventario</option>
+							<option value="5">5 - Venta</option>
+							<option value="6">6 - Mermas</option>
+							<option value="7">7 - Traspaso</option>
 						</select>
 					</div>
 
@@ -152,12 +152,12 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="Costo unitario">Costo unitario<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" id="CostoU" name="CostoU" title="El costo por cada uno de los productos" required>
+						<input type="number" id="Costo_Unitario" name="Costo_Unitario" title="El costo de cada insumo, se rellenará automáticamente si el insumo está registrado." required readonly >
 					</div>
 
 					<div class="grupo1">
 						<label class="label_datos" for="Costo total">Costo total<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" id="CostoT" name="CostoT" title="El costo de todos por productos" required>
+						<input type="number" id="Costo_Total" name="Costo_Total" title="El costo total de todos los productos." required readonly>
 					</div>
 				
 					
@@ -179,5 +179,8 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+
+	<script src="../../controller/Insumos/js/Registro_Entradas_Salidas_Insumos.js"></script>
+
 </body>
 </html>
