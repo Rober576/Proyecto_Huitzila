@@ -122,7 +122,7 @@
                 <h4 class="h4">Registro</h4>
             </div>
             <br>
-            <p class="subtitulo-1"> Datos del ánalisis fisioquímico</p>
+            <p class="subtitulo-1"> Datos del ánalisis general</p>
             <hr>
             <br>
 
@@ -132,22 +132,23 @@
                 <div class="grupo1">
                     <label class="label_datos" for="area_us">Lote:<span class="required">*</span></label>
                     <select id="lote" name="lote" required>
+                        <option value="1">1</option>
                     </select>
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Azucares:<span class="required">*</span></label>
-                    <input type="text" id="azucares" name="azucares" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                    <input type="text" id="azucares" name="azucares" maxlength="13"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Madurez:<span class="required">*</span></label>
-                    <input type="text" id="madurez" name="madurez" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                    <input type="text" id="madurez" name="madurez" maxlength="13"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo1">
                     <label class="label_datos" for="nombre">Materia prima (tamaño):<span class="required">*</span></label>
-                    <input type="text" id="mat_prima" name="mat_prima" maxlength="10"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
+                    <input type="text" id="mat_prima" name="mat_prima" maxlength="13"  required title="El nombre debe contener un máximo de 40 caracteres y solo se permiten letras, espacios y el caracter '.'.">
                 </div>
 
                 <div class="grupo-boton-reg">
@@ -165,5 +166,7 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+    <script src="js/Validacion_General.js"></script>
+    <script src="../../controller/Calidad/js/Registro_Calidad.js"></script>
 </body>
 </html>

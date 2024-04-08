@@ -19,7 +19,7 @@
 
             $this->base->insertar_eliminar_actualizar($querry, $parametros);
             $this->base->cerrar_conexion();
-            echo json_encode('exito');
+            echo json_encode(['status' => 'exito']);
         }
     
         

@@ -27,12 +27,9 @@ azucares.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     azucares.value = valorInput
 
-    .replace(/[^A-Za-z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
-    if (valorInput.length > 7) {
-        azucares.value = valorInput.slice(0, 7); 
-    }
 
     if (!expresion.Azucares.test(valorInput)) {
         azucares.style.border = "5px solid red";
@@ -50,12 +47,9 @@ madurez.addEventListener('keyup', (e) => {
 
     madurez.value = valorInput
 
-    .replace(/[^A-Za-záéíóúÁÉÍÓÚüÜ. ]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
-    if (valorInput.length > 40) {
-        madurez.value = valorInput.slice(0, 40);
-    }
 
     if (!expresion.Madurez.test(valorInput)) {
         madurez.style.border = "5px solid red";
@@ -71,12 +65,10 @@ mat_prima.addEventListener('keyup', (e) => {
 
     mat_prima.value = valorInput
 
-    .replace(/[^A-Za-záéíóúÁÉÍÓÚüÜ. ]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
-    if (valorInput.length > 20) {
-        mat_prima.value = valorInput.slice(0, 20);
-    }
+   
 
     if (!expresion.Materia.test(valorInput)) {
         mat_prima.style.border = "5px solid red";
