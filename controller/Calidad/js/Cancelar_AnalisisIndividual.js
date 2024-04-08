@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     if (cancelarButton) {
         cancelarButton.addEventListener("click", function() {
-            var confirmacion = confirm("¿Estás seguro de que deseas cancelar?");
+            var confirmacion = confirm("¿Estás seguro de que deseas regresar?");
             
             if (confirmacion) {
                 window.location.href = "../../view/Calidad/Mostrar_Calidad.html"; // Cambiar por la ruta correcta
