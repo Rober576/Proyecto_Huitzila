@@ -1,10 +1,16 @@
 let bandera1=false;
 let bandera2=false;
 let bandera3=false;
+let bandera4=false;
+let bandera5=false;
+let bandera6=false;
+let bandera7=false;
+let bandera8=false;
+let bandera9=false;
 
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
-    if(bandera1 == true && bandera2 == true && bandera3 == true){
+    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true){
         console.log("Registro exitoso");
     }
 
@@ -15,66 +21,190 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    Azucares: /^\d{1,8}(\.\d{1,2})$/,
-    Madurez: /^\d{1,8}(\.\d{1,2})$/,
-    Materia: /^\d{1,8}(\.\d{1,2})$/,
+    Clave: /^[a-zA-Z0-9]{1,10}$/,
+    Alcohol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Extracto: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Metanol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Superiores: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Aldheídos: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Furfural: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Plomo: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Cobre: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
 }
 
-var azucares = document.getElementById('azucares');
-var madurez = document.getElementById('madurez');
-var mat_prima = document.getElementById('mat_prima');
-azucares.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
-    azucares.value = valorInput
+var clave_analisis = document.getElementById('clave_analisis');
+var alcohol = document.getElementById('alcohol');
+var ext_seco = document.getElementById('ext_seco');
+var metanol = document.getElementById('metanol');
+var alcohol_sup = document.getElementById('alcohol_sup');
+var aldehidos = document.getElementById('aldehidos');
+var furfural = document.getElementById('furfural');
+var plomo = document.getElementById('plomo');
+var cobre = document.getElementById('cobre');
 
-    .replace(/[^0-9.]/g, '')
+clave_analisis.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+    clave_analisis.value = valorInput
+
+    .replace(/[^a-zA-Z0-9]/g, '')
     .trim();
 
 
-    if (!expresion.Azucares.test(valorInput)) {
-        azucares.style.border = "5px solid red";
+    if (!expresion.Clave.test(valorInput)) {
+        clave_analisis.style.border = "5px solid red";
         bandera1 = false;
     }
 
     else {
-        azucares.removeAttribute("style");
+        clave_analisis.removeAttribute("style");
         bandera1 = true;
     }
 });
 
-madurez.addEventListener('keyup', (e) => {
+alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    madurez.value = valorInput
+    alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Madurez.test(valorInput)) {
-        madurez.style.border = "5px solid red";
+    if (!expresion.Alcohol.test(valorInput)) {
+        alcohol.style.border = "5px solid red";
         bandera2 = false;
     } else {
-        madurez.removeAttribute("style");
+        alcohol.removeAttribute("style");
         bandera2 = true;
     }
 });
 
-mat_prima.addEventListener('keyup', (e) => {
+ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
-    mat_prima.value = valorInput
+    ext_seco.value = valorInput
 
     .replace(/[^0-9.]/g, '')
     .trim();
 
    
 
-    if (!expresion.Materia.test(valorInput)) {
-        mat_prima.style.border = "5px solid red";
+    if (!expresion.Extracto.test(valorInput)) {
+        ext_seco.style.border = "5px solid red";
         bandera3 = false;
     } else {
-        mat_prima.removeAttribute("style");
+        ext_seco.removeAttribute("style");
+        bandera3 = true;
+    }
+});
+
+metanol.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    metanol.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+
+    if (!expresion.Metanol.test(valorInput)) {
+        metanol.style.border = "5px solid red";
+        bandera2 = false;
+    } else {
+        metanol.removeAttribute("style");
+        bandera2 = true;
+    }
+});
+
+alcohol_sup.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    alcohol_sup.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+   
+
+    if (!expresion.Superiores.test(valorInput)) {
+        alcohol_sup.style.border = "5px solid red";
+        bandera3 = false;
+    } else {
+        alcohol_sup.removeAttribute("style");
+        bandera3 = true;
+    }
+});
+
+aldehidos.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    aldehidos.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+
+    if (!expresion.Aldheídos.test(valorInput)) {
+        aldehidos.style.border = "5px solid red";
+        bandera2 = false;
+    } else {
+        aldehidos.removeAttribute("style");
+        bandera2 = true;
+    }
+});
+
+furfural.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    furfural.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+   
+
+    if (!expresion.Furfural.test(valorInput)) {
+        furfural.style.border = "5px solid red";
+        bandera3 = false;
+    } else {
+        furfural.removeAttribute("style");
+        bandera3 = true;
+    }
+});
+
+plomo.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    plomo.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+
+    if (!expresion.Plomo.test(valorInput)) {
+        plomo.style.border = "5px solid red";
+        bandera2 = false;
+    } else {
+        plomo.removeAttribute("style");
+        bandera2 = true;
+    }
+});
+
+cobre.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+
+    cobre.value = valorInput
+
+    .replace(/[^0-9.]/g, '')
+    .trim();
+
+   
+
+    if (!expresion.Cobre.test(valorInput)) {
+        cobre.style.border = "5px solid red";
+        bandera3 = false;
+    } else {
+        cobre.removeAttribute("style");
         bandera3 = true;
     }
 });
