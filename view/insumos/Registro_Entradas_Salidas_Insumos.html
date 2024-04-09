@@ -60,21 +60,35 @@
 								<li><a href="Mostrar_Producto.html">Consultar</a></li>
 							</ul>
 						</li>
+
+
 						<li>
 							<a href="">
 								<i ></i>
-								Entrada/Salida insumos
+								Inventario
+							</a>
+							<ul>
+								<li><a href="Inventario_Insumos.html">Insumos</a></li>
+								<li><a href="Inventario_Productos.html">Productos</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="">
+								<i ></i>
+								Movimiento insumo
 							</a>
 				
                             
 							<ul>
+								<li><a href="Registro_Entradas_Salidas_Insumos.html">Registrar</a></li>
                                 <li><a href="Mostrar_EntradasSalidas_Insumo.html">Consultar</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="">
 								<i ></i>
-								Entrada/Salida producto
+								Movimiento producto
 							</a>
 				
                             
@@ -110,7 +124,7 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="ID">ID insumos<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Id_insumos" name="Id_insumos" title="Identificador de los insumos." required>
+						<select id="Id_insumos" name="Id_insumos" title="Identificador de los insumos." required></select>
 					</div>
 
 					
@@ -121,7 +135,10 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="Entrada_Salida">Entrada/Salida<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
+						<select id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
+							<option value="Entrada">Entrada</option>
+							<option value="Salida">Salida</option>
+						</select>
 					</div>
 					
 

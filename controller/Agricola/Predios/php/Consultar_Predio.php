@@ -31,6 +31,7 @@ if ($resultado) {
     foreach ($resultado as $fila) {
         $CodigoA = $fila['CodigoArea'];
         $id_boton =$CodigoA;
+        
     
         $salida .= '<tr>';
         $salida .= '<td>' . $fila["CodigoArea"] . '</td>';
