@@ -11,7 +11,6 @@ $nombre_archivo = $id .".pdf";
 
 // Ruta completa del archivo PDF
 $ruta_archivo = $ruta_directorio . $nombre_archivo;
-echo $nombre_archivo;
 ?>
 
 
@@ -23,9 +22,10 @@ echo $nombre_archivo;
     <script type="text/javascript">
         window.location.href = "<?php echo $ruta_archivo; ?>"
     </script>
-    <title>Redireccionando...</title>
+
+    <script type="text/javascript">
+    window.open("<?php echo $ruta_archivo; ?>", "_blank");
+    </script>
+
 </head>
-<body>
-    Si no has sido redirigido automáticamente, puedes hacer clic <a href="<?php echo $ruta_archivo; ?>">aquí</a>.
-</body>
 </html>

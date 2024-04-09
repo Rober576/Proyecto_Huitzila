@@ -47,7 +47,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Cobre"] . '</td>';
 
         $salida .= '<td>';
-        $salida .= '<button type="submit" onclick="window.location.href=\'../../controller/Calidad/Abrir_Fisioquimico.php?id=' . $id . '\'">Abrir</button>';
+        $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Abrir_Fisioquimico.php?id=' . $id . '\', \'_blank\')">Abrir</button>';
         $salida .= '</td>';
 
         $salida .= '</tr>';
