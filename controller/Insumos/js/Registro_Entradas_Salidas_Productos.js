@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.length > 0) {
                     const item = data[0]; 
-                    costoUnitarioInput.value = item.Costo;
+                    costoUnitarioInput.value = item.CostoUltimo;
                     document.getElementById('Id_productos').style.border = "none";
                 } else {
                     alert('El insumo con el ID proporcionado no está registrado.');

@@ -10,7 +10,7 @@ class ObtenerCampos {
     }
 
     function obtener($id) {
-        $query = "SELECT * FROM insumos WHERE IDInsumo = :id";
+        $query = "SELECT * FROM productoterminado WHERE IDProducto = :id";
         $resultado = $this->base->mostrar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
         return $resultado;
