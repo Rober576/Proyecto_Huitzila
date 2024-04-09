@@ -1,0 +1,21 @@
+.formulario-colum {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.grupo1 {
+    flex: 1 1 calc(50% - 10px); /* Para que cada div ocupe aproximadamente la mitad del ancho del contenedor padre */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espacio entre los elementos hijos */
+}
+
+.label_datos {
+    margin-bottom: 3px;
+}
+
+.NoResizable {
+    resize: vertical; /* Solo permite redimensionar verticalmente */
+    min-height: 100px; /* Altura mínima de la textarea */
+}

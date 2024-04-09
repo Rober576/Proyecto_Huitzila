@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../public/css/insumos.css">
+	<link rel="stylesheet" href="../../public/css/Productos_insumos.css">
     
 </head>
 <body>
@@ -106,8 +107,8 @@
 			<br>
 
 			<form class="formulario" id="insumos_form">
-				<<div class="formulario-colum">
 				
+				<div class="formulario-colum">
 					<div class="grupo1">
 						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span>:</label>
 						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required>
@@ -117,12 +118,7 @@
 						<label class="label_datos" for="Nombre">Nombre<span class="campo-obligatorio">*</span>:</label>
 						<input type="text" id="Nombre" name="Nombre" title="Nombre del insumo de hasta 50 caracteres incluyendo letras, números y símbolos '.'" required>
 					</div>
-					
-					
-					
-					
-	
-					
+				
 					<div class="grupo1">
 						<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span>:</label>
 						<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (Conformado por caracteres enteros)." required>
@@ -132,13 +128,13 @@
 						<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span>:</label>
 						<input type="number" id="Stockma" name="Stockma" title="Cantidad máxima del insumo (Conformado por caracteres enteros)." required>
 					</div>
-					
-	
 				</div>
-					<div class="grupo1">
-						<label class="label_datos" for="Nombre">Descripción</label>
-						<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
-					</div>
+				
+				<div class="grupo1">
+					<label class="label_datos" for="Nombre">Descripción</label>
+					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
+				</div>
+				
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
