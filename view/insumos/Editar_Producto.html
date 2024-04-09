@@ -46,9 +46,8 @@
 				
                             
 							<ul>
-								<li><a href="">Registrar</a></li>
+								<li><a href="Registro_Insumos.html">Registrar</a></li>
                                 <li><a href="Mostrar_Insumos.html">Consultar</a></li>
-                                <li><a href="Editar_Insumos.html">Editar</a></li>
 							</ul>
 						</li>
 
@@ -58,8 +57,8 @@
 								Productos
 							</a>
 							<ul>
-                                <li><a href="">Registrar</a></li>
-                                <li><a href="">Consultar</a></li>
+								<li><a href="Registro_Producto.html">Registrar</a></li>
+								<li><a href="Mostrar_Producto.html">Consultar</a></li>
 							</ul>
 						</li>
 						<li>
@@ -70,7 +69,8 @@
 				
                             
 							<ul>
-                                <li><a href="">Consultar</a></li>
+								<li><a href="Registro_Entradas_Salidas_Insumos.html">Registrar</a></li>
+                                <li><a href="Mostrar_EntradasSalidas_Insumo.html">Consultar</a></li>
 							</ul>
 						</li>
 						<li>
@@ -81,8 +81,8 @@
 				
                             
 							<ul>
-								<li><a href="">Registrar</a></li>
-                                <li><a href="">Consultar</a></li>
+								<li><a href="Registro_Entradas_Salidas_Producto.html">Registrar</a></li>
+                                <li><a href="Mostrar_Entradas_Salidas_Producto.html">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -106,31 +106,39 @@
 			<br>
 
 			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
-					<input type="hidden" name="id">
-					<div class="grupo1">
-						<label class="label_datos" for="Productos">Poductos<span class="campo-obligatorio">*</span>:</label>
-						<select name="productos" id="productos"></select>
-					</div>
+				<<div class="formulario-colum">
 				
 					<div class="grupo1">
-						<label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" name="cantidad" id="cantidad">
+						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span>:</label>
+						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required>
 					</div>
+					
 					<div class="grupo1">
-						<label class="label_datos" for="CostoU">Costo unitario<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" name="CostoU" id="CostoU">
+						<label class="label_datos" for="Nombre">Nombre<span class="campo-obligatorio">*</span>:</label>
+						<input type="text" id="Nombre" name="Nombre" title="Nombre del insumo de hasta 50 caracteres incluyendo letras, números y símbolos '.'" required>
 					</div>
+					
+					
+					
+					
+	
+					
 					<div class="grupo1">
-						<label class="label_datos" for="CostoT">Costo total<span class="campo-obligatorio">*</span>:</label>
-						<input type="number" name="CostoT" id="CostoT">
+						<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span>:</label>
+						<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (Conformado por caracteres enteros)." required>
 					</div>
-
-			</div>
-				<div class="grupo1">
-					<label class="label_datos" for="Nombre">Descripción:</label>
-					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable"></textarea>
+					
+					<div class="grupo1">
+						<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span>:</label>
+						<input type="number" id="Stockma" name="Stockma" title="Cantidad máxima del insumo (Conformado por caracteres enteros)." required>
+					</div>
+					
+	
 				</div>
+					<div class="grupo1">
+						<label class="label_datos" for="Nombre">Descripción</label>
+						<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
+					</div>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">

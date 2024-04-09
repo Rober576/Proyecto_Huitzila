@@ -43,7 +43,7 @@ if ($resultado) {
         $salida .= '<td>';
         $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-Específico" type="button">Específico</button>';
         $salida .= ' ';
-        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html\'" class="boton-General" type="button">General</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-General" type="button">General</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

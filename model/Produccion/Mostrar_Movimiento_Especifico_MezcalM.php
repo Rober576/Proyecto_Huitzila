@@ -36,7 +36,7 @@ class MostrarMez extends Crud_bd {
         $consulta = "SELECT rm.*, cm.Movimiento
              FROM movimientomezcal rm
              INNER JOIN tipomovimiento cm ON rm.idMovimiento = cm.idMovimiento
-             WHERE rm.Lote = '$id'";
+             WHERE rm.Lote = '$id'" ;
         $resultados = $this->mostrar($consulta);
         $this->cerrar_conexion();
         return $resultados;
