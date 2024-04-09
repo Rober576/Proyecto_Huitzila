@@ -9,6 +9,7 @@ if (isset($_POST['consulta'])) {
     $resultado = $base->buscador($busqueda);
 } else {
     $resultado = $base->getInfo();
+    
 }
 
 $salida = '';

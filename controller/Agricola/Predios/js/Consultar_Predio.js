@@ -84,7 +84,7 @@ function EventoNewPlantacion() {
         botonesEliminar[j].addEventListener('click', function(e) {
 
             var id = e.target.id;
-            console.log("codigo de predio en el js.");
+            console.log("codigo de predio en el js");
             console.log(id);
             //window.location.href = '../../../view/Agricola/Predios/Registro_Plantaciones.html';
             
