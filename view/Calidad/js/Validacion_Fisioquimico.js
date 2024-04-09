@@ -20,6 +20,8 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
+
+
 const expresion = {
     Clave: /^[a-zA-Z0-9]{1,10}$/,
     Alcohol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
