@@ -81,6 +81,32 @@ class NuevosCampos {
         return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
     }
 
+    function obtenerNumeroMov($lote) {
+        // Verificar si existe algún registro para el lote
+        $query = "
+            SELECT COUNT(*) AS count
+            FROM movimientomezcal
+            WHERE Lote = '$lote'
+        ";
+        $result = $this->base->mostrar($query);
+        
+        if (!empty($result) && $result[0]['count'] > 0) {
+            // Si hay al menos un registro para el lote, buscar el número de movimiento más alto
+            $query = "
+                SELECT IFNULL(MAX(NumeroMovimiento), 0) AS MaxNumeroMovimiento
+                FROM movimientomezcal
+                WHERE Lote = '$lote'
+            ";
+            $result = $this->base->mostrar($query);
+    
+            // Devolver el número de movimiento más alto más uno
+            return json_encode($result[0]['MaxNumeroMovimiento'] + 1);
+        } else {
+            // Si no hay registros para el lote, retornar 0
+            return json_encode(0);
+        }
+    }
+
     function insertar($lote, $tipo, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55,$agua) {
 
         $IDMovimiento = $this->obtenerIDMovimiento($tipo);
@@ -98,12 +124,14 @@ class NuevosCampos {
         
         $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol);
 
+        $numeroMov=$this->obtenerNumeroMov($lote);
+
         // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
         $finalVolumen = $resultado['FinalVolumen'];
         $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-        $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje) 
-                VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje)";
+        $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+                VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje,:NumeroMovimiento)";
         
         $params = array(
             ":Lote" => $lote,
@@ -117,7 +145,8 @@ class NuevosCampos {
             ":MermasPorcentaje" => 1, 
             ":Volumen55" => $alc_vol55,
             ":FinalVolumen" => $finalVolumen, 
-            ":FinalPorcentaje" => $finalPorcentaje
+            ":FinalPorcentaje" => $finalPorcentaje,
+            "NumeroMovimiento"=>$numeroMov
         );
         
         $this->base->insertar_eliminar_actualizar($q1, $params);
