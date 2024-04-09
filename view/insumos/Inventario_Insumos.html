@@ -22,6 +22,71 @@
             </div>
         </div>
         <!-- Menú Desplegable -->
+        <div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="Principal_Insumos.html">
+								<i ></i>
+								Insumos
+							</a>
+				
+                            
+							<ul>
+								<li><a href="Registro_Insumos.html">Registrar</a></li>
+                                <li><a href="Mostrar_Insumos.html">Consultar</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="">
+								<i ></i>
+								Productos
+							</a>
+							<ul>
+								<li><a href="Registro_Producto.html">Registrar</a></li>
+								<li><a href="Mostrar_Producto.html">Consultar</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="">
+								<i ></i>
+								Movimiento insumo
+							</a>
+				
+                            
+							<ul>
+								<li><a href="Registro_Entradas_Salidas_Insumos.html">Registrar</a></li>
+                                <li><a href="Mostrar_EntradasSalidas_Insumo.html">Consultar</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="">
+								<i ></i>
+								Movimiento producto
+							</a>
+				
+                            
+							<ul>
+								<li><a href="Registro_Entradas_Salidas_Producto.html">Registrar</a></li>
+                                <li><a href="Mostrar_Entradas_Salidas_Producto.html">Consultar</a></li>
+							</ul>
+						</li>
+		
+						
+		
+						
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
         <!-- Estructura del menú omitida para brevedad -->
     </header>
     <main>
@@ -40,13 +105,14 @@
                         </tr>
                         <tr>
                             <th>ID Insumo</th>
+                            <th>Fecha</th>
+                            <th>ID de movimiento </th>
+                            <th>Destino</th>
                             <th>Cantidad</th>
                             <th>Costo unitario</th>
                             <th>Costo total</th>
-                            <th>Fecha de Adquisición</th>
-                            <th>Proveedor</th>
-                            <th>Fecha de Caducidad</th>
-                            <th>Acciones</th> <!-- Columna para botones de acciones como Editar o Eliminar -->
+                            
+                            <!-- <th>Acciones</th>  Columna para botones de acciones como Editar o Eliminar -->
                         </tr>
                     </thead>
                     <tbody>

@@ -3,12 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vista de plantas</title>
+        <title>Vista de predios</title>
         <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
         <link rel="stylesheet" href="../../../public/css/Plantilla.css">
         <link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
-        <script src="../../../controller/Agricola/Plantaciones/js/Consultar_Plantas.js"></script>
-        
+        <script src="../../../controller/Agricola/Predios/js/Consultar_Predio.js"></script>     
+        <script src="../../../controller/Agricola/Plantaciones/js/Consultar_Plantaciones.js"></script>
+
+
         
         
     </head>
@@ -108,31 +110,36 @@
 
 
     <main>
-
-    <div class="tabla_titulo">
-        <h2>Mostrar Plantas</h2>
-        <br>
-    </div> 
-
-    <section class="table-container" id="tabla">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre común</th>
-                    <th>Nombre científico</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-        </table>
-    </section>
-
-    <hr>
-    
+        <div class="tabla_titulo">
+            <h2>Mostrar Plantaciones</h2>
+            <br>
+        </div>
+        <br> 
+        </div> 
+        <section class="table-container" id="tabla2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clave de plantación</th>
+                        <th>Superficie</th>
+                        <th>Cantidad de plantas</th>
+                        <th>Fecha de plantación</th>
+                        <th>Campo sembrado</th>
+                        <th>Tipo de planta</th>
+                        <th>Nombre del trabajador</th>
+                        <th>Datos del vehículo</th>
+                        <th>Costos de gasolina</th>
+                        <th>Costos de material</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de finalización</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </section>
     </main>
-
-    <footer>
-        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
-    </footer>
 </body>
 </html>
+
+
+

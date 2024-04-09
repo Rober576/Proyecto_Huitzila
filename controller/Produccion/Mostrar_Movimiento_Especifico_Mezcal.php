@@ -29,14 +29,14 @@ if (isset($_GET['lote'])) {
             $salida .= '<tr>';
             $Lote= $fila['Lote'];
             $Fecha =$fila['Fecha'];
-            $IDMovimiento=$fila['IDMovimiento'];
+            $NumeroMovimiento=$fila['NumeroMovimiento'];
 
             $salida .= '<td>' . $fila["Lote"] . '</td>';
             $salida .= '<td>' . $fila["Movimiento"] . '</td>';
             $salida .= '<td>' . $fila["Volumen"] . '</td>';
             $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
             $salida .= '<td>';
-            $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '@' . $Fecha . '@' . $IDMovimiento . '">Eliminar</button>';
+            $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '@' . $NumeroMovimiento . '">Eliminar</button>';
             $salida .= ' ';
             $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Movimiento.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote .'@' . $Fecha . '">Modificar</button>';
             $salida .= '</td>';

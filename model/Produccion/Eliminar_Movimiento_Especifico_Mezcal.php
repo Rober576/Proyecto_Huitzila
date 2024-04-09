@@ -9,13 +9,12 @@ class EliminarCampos {
         $this->base->conexion_bd();
     }
 
-    function eliminar($Lote, $Fecha, $IDMovimiento) {
-        $query = "DELETE FROM movimientomezcal WHERE Lote = :Lote AND Fecha = :Fecha AND IDMovimiento = :IDMovimiento";
+    function eliminar($Lote, $NumeroMovimiento) {
+        $query = "DELETE FROM movimientomezcal WHERE Lote = :Lote AND NumeroMovimiento = :NumeroMovimiento";
         
         $this->base->insertar_eliminar_actualizar($query, [
             ":Lote" => $Lote,
-            ":Fecha" => $Fecha,
-            ":IDMovimiento" => $IDMovimiento
+            ":NumeroMovimiento" => $NumeroMovimiento
         ]);
         
         $this->base->cerrar_conexion();

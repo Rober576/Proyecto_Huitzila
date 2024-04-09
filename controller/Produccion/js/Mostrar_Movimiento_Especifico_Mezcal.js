@@ -40,15 +40,15 @@ function agregarEventosEliminar() {
             e.preventDefault();
             var datos = this.dataset.id.split('@'); // Divide los datos usando el @ como separador
             var Lote = datos[0];
-            var Fecha = datos[1];
-            var IDMovimiento = datos[2];
+            var NumeroMovimiento = datos[1];
+      
            
-            console.log("Valor de Lote:", Lote);
-            console.log("Valor de Fecha:", Fecha);
-            console.log("Valor de IDMovimiento:", IDMovimiento);
+            console.log("Valor de LotEe:", Lote);
+            console.log("Valor de NumeroMovimiento:", NumeroMovimiento);
+
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                fetch('../../controller/Produccion/Eliminar_Movimiento_Especifico_Mezcal.php?id=' + Lote + '&fecha=' + Fecha + '&idmovimiento=' + IDMovimiento, {
+                fetch('../../controller/Produccion/Eliminar_Movimiento_Especifico_Mezcal.php?id=' + Lote + '&NumeroMovimiento=' + NumeroMovimiento, {
                         method: 'GET',
                     })
                     .then(res => res.json())
