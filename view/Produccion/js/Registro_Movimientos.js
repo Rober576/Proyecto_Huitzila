@@ -4,15 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        let fecha=document.getElementById("fecha").value;
-        let fechaA = new Date();
-        console.log(fecha);
-        console.log(fechaA);
-
-        if (fecha>=fechaA){
-            alert("La fecha tiene que ser el dia de hoy o mallor");
-        }else{
-
         var datos = new FormData(formulario);
 
 
@@ -24,18 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
             console.log("Entro4")
-            if (data.trim() === "Lote existente") { // Trim la respuesta antes de comparar
-                alert(data); // Mostrar mensaje del servidor
-                console.error('Error:', data);
+            if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
+                // Mostrar mensaje de error si la fecha ingresada es menor que la última fecha registrada
+                alert("Error: La fecha ingresada es menor que la última fecha registrada");
+                console.error("Error: La fecha ingresada es menor que la ultima fecha registrada");
             } else {
-                alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-                location.href="../../view/Produccion/Registro_Movimientos.html";
-            }        
+                // Si la inserción es exitosa, redireccionar a la página de éxito
+                alert("Registro exitoso");
+                location.href = "../../view/Produccion/Registro_Movimientos.html";
+            }      
         })
         .catch(error => {
             console.error('Error:', error.message);
         });
-        }
+        
         });
 
     var selectCategoria = document.getElementById('lote');
@@ -132,5 +125,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener elementos
+    const volumenMermaContainer = document.getElementById("volumen_merma");
+    const alcVolMermaContainer = document.getElementById("alc_vol_merma");
+    const volumenciaLabel = document.querySelector('label[for="volumen_merma"]');
+    const alcVolLabel = document.querySelector('label[for="alc_vol_merma"]');
+  
+    // Ocultar los elementos al principio
+    volumenMermaContainer.style.display = "none";
+    alcVolMermaContainer.style.display = "none";
+    volumenciaLabel.style.display = "none";
+    alcVolLabel.style.display = "none";
+  
+    // Desactivar el atributo required de los campos ocultos
+    document.getElementById("volumen_merma").removeAttribute("required");
+    document.getElementById("alc_vol_merma").removeAttribute("required");
+  
+    // Agregar evento de cambio al select
+    document.getElementById("tipo").addEventListener("change", function() {
+      // Mostrar los elementos solo si la opción seleccionada es "merma"
+      if (this.value === "merma") {
+        volumenMermaContainer.style.display = "block";
+        alcVolMermaContainer.style.display = "block";
+        volumenciaLabel.style.display = "block";
+        alcVolLabel.style.display = "block";
+  
+        // Activar el atributo required cuando se muestran los campos
+        document.getElementById("volumen_merma").setAttribute("required", "required");
+        document.getElementById("alc_vol_merma").setAttribute("required", "required");
+      } else {
+        // Ocultar los elementos si no es "merma"
+        volumenMermaContainer.style.display = "none";
+        alcVolMermaContainer.style.display = "none";
+        volumenciaLabel.style.display = "none";
+        alcVolLabel.style.display = "none";
+  
+        // Desactivar el atributo required cuando se ocultan los campos
+        document.getElementById("volumen_merma").removeAttribute("required");
+        document.getElementById("alc_vol_merma").removeAttribute("required");
+      }
+    });
+});
