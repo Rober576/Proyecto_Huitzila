@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
     <link rel="stylesheet" href="../../public/css/insumos.css">
 	<link rel="stylesheet" href="../../public/css/Productos_insumos.css">
+	
 </head>
 <body>
     <header>
@@ -101,7 +102,7 @@
 				<h4 class="h4">Registro</h4>
 			</div>
 			<br>
-			<p class="subtitulo-1">Datos de los producto</p>
+			<p class="subtitulo-1">Datos de los productos</p>
 			<hr>
 			<br>
 
@@ -111,7 +112,7 @@
 				
 					<div class="grupo1">
 						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required>
+						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required maxlength="40">
 					</div>
 					
 					<div class="grupo1">
@@ -119,15 +120,10 @@
 						<input type="text" id="Nombre" name="Nombre" title="Nombre del insumo de hasta 50 caracteres incluyendo letras, números y símbolos '.'" required>
 					</div>
 					
-					
-					
-					
-	
-					
 					<div class="grupo1">
 						<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span>:</label>
 						<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (Conformado por caracteres enteros)." required>
-					</div>
+					</div>	
 					
 					<div class="grupo1">
 						<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span>:</label>
@@ -159,6 +155,8 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+
+	<script src="js/Valida_Reg_Producto.js"></script>
 	
 </body>
 </html>
