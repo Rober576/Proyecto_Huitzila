@@ -24,6 +24,18 @@ formulario.addEventListener('submit', function (e)
         }
         //si el codigo no esta siendo utilizado se procede con el registro
         else{
+            var predio = obtenerParametroURL('predio');
+            console.log(predio);
+
+            if (predio !== null && predio !== ""){
+                datos.append('predioSem', predio);
+            }
+
+            
+            /* datos.forEach((valor, clave) => {
+                console.log(`${clave}: ${valor}`);
+            }); */
+            
             fetch('../../../controller/Agricola/Plantaciones/php/Registrar_Plantacion.php', {
                 method: 'POST',
                 body: datos
@@ -39,6 +51,12 @@ formulario.addEventListener('submit', function (e)
                     window.location.href = "../../../view/Agricola/Predios/Vista_Predios.html";
 
                     
+                }
+                else{
+                    const form= document.getElementById('advanced-form');
+                    form.reset();
+                    alert("ERROR AL REGISTRAR");
+                    window.location.href = "../../../view/Agricola/Predios/Vista_Predios.html";
                 }
             })
         }
@@ -64,3 +82,9 @@ var cancelButton = document.getElementById("cancelButton");
             
         }
     });
+
+
+    function obtenerParametroURL(parametro) {
+        var parametrosURL = new URLSearchParams(window.location.search);
+        return parametrosURL.get(parametro);
+      }
