@@ -95,12 +95,6 @@ img.logo_mezcal{
     padding:0 50px 0 50px;
     display: flex;
 }
-.barra-busqueda{
-    background-color: #fff;
-    width: fit-content;
-    border: 1px solid silver;
-    border-radius: 30px;
-}
   
   .input-buscar input {
     width: 240px;
@@ -272,6 +266,8 @@ nav ul li ul li a:hover{
     transition: 300ms all;
 
 }
+
+
 
 @media screen and (max-width: 1250px){
     .formulario-datos{

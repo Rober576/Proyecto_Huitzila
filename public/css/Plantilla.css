@@ -273,6 +273,25 @@ select:hover {
     transition: 300ms all;
 }
 
+.barra-busqueda {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms all;
+}
+.grupo-input-busqueda{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.input-form-busqueda{
+    width: 30%;
+}
+
 /* Estilos para pantallas de 600px o menos */
 @media screen and (max-width: 600px) {
     .container {
