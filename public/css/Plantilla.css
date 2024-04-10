@@ -131,7 +131,8 @@ input[type="password"] {
 
 button[type="submit"] {
     font-family: 'FuentePrincipal', sans-serif;
-    background-color: #143419;
+    background-color: #1d4d25;
+    
     color: white;
     padding: 12px 20px;
     border: none;
@@ -150,7 +151,7 @@ hr{
 }
 
 button[type="submit"]:hover {
-    background-color: #1d4d25;
+    background-color: #143419;
 }
 
 footer {
@@ -220,9 +221,7 @@ button[type="submit"] {
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: #1d4d25;
-}
+
 
 /* Estilos para el hover de inputs */
 input[type="text"]:hover,
@@ -251,6 +250,27 @@ select:hover {
 
 .styled-input:hover {
     border-color: #143419;
+}
+
+.boton-cerrar-session{
+    padding-right: 50px;
+}
+
+.btn-cerrar-session{
+    font-size: 1.2rem;
+    font-family: 'FuentePrincipal', sans-serif;
+    font-weight: 400;
+    border-radius: 8px;
+    padding: 12px 24px;
+    border: none;
+    background:#a77753;
+    color: #fff;
+    transition: all 300ms;
+}
+
+.btn-cerrar-session:hover{
+    background: #735137;
+    transition: 300ms all;
 }
 
 /* Estilos para pantallas de 600px o menos */

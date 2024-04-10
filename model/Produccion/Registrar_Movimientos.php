@@ -81,7 +81,7 @@ class NuevosCampos {
         return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
     }
 
-    function obtenerNumeroMov($lote) {
+    function verificarRegistro($lote, $fecha) {
         // Verificar si existe algún registro para el lote
         $query = "
             SELECT COUNT(*) AS count
@@ -91,67 +91,86 @@ class NuevosCampos {
         $result = $this->base->mostrar($query);
         
         if (!empty($result) && $result[0]['count'] > 0) {
-            // Si hay al menos un registro para el lote, buscar el número de movimiento más alto
+            // Si hay al menos un registro para el lote, obtener el número de movimiento más alto y su fecha
             $query = "
-                SELECT IFNULL(MAX(NumeroMovimiento), 0) AS MaxNumeroMovimiento
+                SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha
                 FROM movimientomezcal
                 WHERE Lote = '$lote'
             ";
             $result = $this->base->mostrar($query);
     
-            // Devolver el número de movimiento más alto más uno
-            return json_encode($result[0]['MaxNumeroMovimiento'] + 1);
+            $numeroMovimiento = $result[0]['MaxNumeroMovimiento'];
+            $fechaUltimoRegistro = $result[0]['Fecha'];
+    
+            // Verificar si la fecha que se quiere ingresar es mayor o igual a la última fecha registrada
+            if ($fecha >= $fechaUltimoRegistro) {
+                // Devolver el número de movimiento más alto más uno
+                return $numeroMovimiento + 1;
+            } else {
+                // La fecha es menor que la última fecha registrada
+                return "La fecha ingresada es menor que la ultima fecha registrada";
+            }
         } else {
-            // Si no hay registros para el lote, retornar 0
-            return json_encode(0);
+            // Si no hay registros para el lote, retornar 1 como primer número de movimiento
+            return 0;
         }
     }
+    
 
-    function insertar($lote, $tipo, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55,$agua) {
+    function insertar($lote, $tipo, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55,$agua,$alc_vol_merma,$volumen_merma) {
 
         $IDMovimiento = $this->obtenerIDMovimiento($tipo);
         $datos=$this->obtenerInicio($lote);
-
+    
         $datosArray = json_decode($datos, true);
-
+    
         $inicialVolumen = $datosArray['FinalVolumen'];
         $inicialPorcentaje = $datosArray['FinalPorcentaje'];
-
+    
         $inicialVolumen = floatval($inicialVolumen);
         $volumen = floatval($volumen);
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
         
         $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol);
+    
 
-        $numeroMov=$this->obtenerNumeroMov($lote);
-
+    
         // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
         $finalVolumen = $resultado['FinalVolumen'];
         $finalPorcentaje = $resultado['FinalPorcentaje'];
-
-        $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
-                VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje,:NumeroMovimiento)";
-        
-        $params = array(
-            ":Lote" => $lote,
-            ":Fecha" => $fecha,
-            ":IDMovimiento" => $IDMovimiento, 
-            ":Volumen" => $volumen,
-            ":PorcentajeAlcohol" => $alc_vol,
-            ":EntradaSalida" => $tipoES,
-            ":DestinoProcedencia" => $procedencia,
-            ":MermasVolumen" => 1, 
-            ":MermasPorcentaje" => 1, 
-            ":Volumen55" => $alc_vol55,
-            ":FinalVolumen" => $finalVolumen, 
-            ":FinalPorcentaje" => $finalPorcentaje,
-            "NumeroMovimiento"=>$numeroMov
-        );
-        
-        $this->base->insertar_eliminar_actualizar($q1, $params);
-        $this->base->cerrar_conexion();
-        return true; // La inserción se realizó correctamente
+    
+        // Verificar si la fecha es mayor o igual a la última registrada
+        $verificacion = $this->verificarRegistro($lote, $fecha);
+        if (is_numeric($verificacion)) {
+            // Si la fecha es válida, continuar con la inserción
+            $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+                    VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
+            
+            $params = array(
+                ":Lote" => $lote,
+                ":Fecha" => $fecha,
+                ":IDMovimiento" => $IDMovimiento, 
+                ":Volumen" => $volumen,
+                ":PorcentajeAlcohol" => $alc_vol,
+                ":EntradaSalida" => $tipoES,
+                ":DestinoProcedencia" => $procedencia,
+                "VolumenAgua"=>$agua,
+                ":MermasVolumen" => $volumen_merma, 
+                ":MermasPorcentaje" => $alc_vol_merma, 
+                ":Volumen55" => $alc_vol55,
+                ":FinalVolumen" => $finalVolumen, 
+                ":FinalPorcentaje" => $finalPorcentaje,
+                ":NumeroMovimiento"=>$verificacion
+            );
+            
+            $this->base->insertar_eliminar_actualizar($q1, $params);
+            $this->base->cerrar_conexion();
+            return true; // La inserción se realizó correctamente
+        } else {
+            // Si la fecha no es válida, devolver el mensaje de error
+            return $verificacion;
+        }
     }
-}
+     }
 ?>
