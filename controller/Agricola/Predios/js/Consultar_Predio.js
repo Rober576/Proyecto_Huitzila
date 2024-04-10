@@ -10,7 +10,9 @@ function buscar_datos(consulta) {
     xhr.onload = function() {
         if (xhr.status === 200) {
             document.getElementById("tabla").innerHTML = xhr.responseText;
+            EventoVerPlantaciones();
             EventoEliminar();
+            EventoNewPlantacion();
             EventoEditar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
@@ -64,6 +66,35 @@ function EventoEliminar() {
             );
     }
 }
+
+function EventoVerPlantaciones() {
+    var botonesEliminar = document.querySelectorAll(".boton-ver-plantacion");
+    for (var j = 0; j < botonesEliminar.length; j++) {
+        botonesEliminar[j].addEventListener('click', function(e) {    
+            var id = e.target.id;
+            console.log("VerPlantacion.");
+        }
+            );
+    }
+}
+
+function EventoNewPlantacion() {
+    var botonesEliminar = document.querySelectorAll(".boton-agragar-plantacion");
+    for (var j = 0; j < botonesEliminar.length; j++) {
+        botonesEliminar[j].addEventListener('click', function(e) {
+
+            var id = e.target.id;
+            console.log("codigo de predio en el js");
+            console.log(id);
+            window.location.href = '../../../view/Agricola/Predios/Registro_Plantaciones.html?predio=' + id;
+            
+        });
+    }
+}
+
+
+
+
 
 function confirmacion(e, id) {
     // Preguntar al usuario si está seguro de eliminar el registro

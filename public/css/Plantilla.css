@@ -112,6 +112,21 @@ input[type="password"] {
 
 
 
+/* Mostrar fisioquimico */
+.fila-verde {
+    background-color: rgb(168, 219, 168);
+}
+
+.fila-rojo {
+    background-color: rgb(235, 188, 188);
+}
+
+.fila-naranja {
+    background-color: rgb(248, 211, 154);
+}
+
+
+
 
 
 button[type="submit"] {

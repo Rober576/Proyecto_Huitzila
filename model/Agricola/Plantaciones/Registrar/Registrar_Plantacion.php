@@ -24,33 +24,20 @@
             $this->base->insertar_eliminar_actualizar($querry, $parametros);
 
 
-            #AHORA SE HACE LA INSERCION DE LOS DATOS PARA EN LA TABAL DE RELACION ENTRE EL PREDIO Y LA PLANTACION
-            $query = "SELECT CodigoArea FROM predios WHERE Nombre = '$ClavePredio'";
-            $resultado = $this->base->mostrar($query);
+            //consultas para la tabla de plantacionpredio
+            $q1 = "INSERT INTO plantacionpredio (CodigoArea, ClavePlantacion)
+            VALUES(:c1, :c2)";
+            $a1= [":c1"=>$ClavePredio, ":c2"=>$ClavePlantacion];
+            //acomoda todo en arreglos para mandarlos al CRUD, Puedes meter varios arreglos en un solo arreglo
             
-            if (!empty($resultado) && is_array($resultado)) {
-                // Asignamos el valor de CodigoArea del primer resultado a $codigoPredio
-                $codigoPredio = $resultado[0]['CodigoArea'];
-                
-
-
-                
+            $querry = $q1;
+            $parametros = $a1;           
             
-
-                //consultas para la tabla de plantacionpredio
-                $q1 = "INSERT INTO plantacionpredio (CodigoArea, ClavePlantacion)
-                VALUES(:c1, :c2)";
-                $a1= [":c1"=>$codigoPredio, ":c2"=>$ClavePlantacion];
-                //acomoda todo en arreglos para mandarlos al CRUD, Puedes meter varios arreglos en un solo arreglo
-                
-                $querry = $q1;
-                $parametros = $a1;           
-                
-                $this->base->insertar_eliminar_actualizar($querry, $parametros);
+            $this->base->insertar_eliminar_actualizar($querry, $parametros);
             
 
             
-        }
+        
 
         #INCERSION DE DATOS PARA LA TABLA DE RELACION ENTRE EL TIPO DE PLANTA Y LA CLAVE DE PLANTACION
         $q1 = "INSERT INTO tipoplantas (NombrePlanta, ClavePlantacion)

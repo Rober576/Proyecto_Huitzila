@@ -43,20 +43,23 @@
 							</a>
 				
 							<ul>
-								<li><a href="Registro_Predios.html">Registrar</a></li>
-								<li><a href="Vista_Predios.html">Consultar</a></li>
+								<li><a href="../Predios/Registro_Predios.html">Registrar</a></li>
+								<li><a href="../Predios/Vista_Predios.html">Consultar</a></li>
 							</ul>
 						</li>
 		
 						<li>
 							<a href="#">
 								<i ></i>
-								Enfermedades y plagas
+								Plagas y herbicidas
 							</a>
 				
 							<ul>
-								<li><a href="">Registrar</a></li>
-								<li><a href="">Consultar</a></li>
+								<li><a href="../Plagas_y_herbicidas/Registro_Plagas.html">Registrar plagas</a></li>
+								<li><a href="">Consultar plagas</a></li>
+								<hr>
+								<li><a href="../Plagas_y_herbicidas/Registro_Herbicidas.html">Registrar herbicidas</a></li>
+								<li><a>Consultar herbicidas</a></li>
 							</ul>
 						</li>
 
@@ -118,7 +121,7 @@
 				<div class="formulario-datos">
 					<div>
 						<label for="codPlantacion">Clave del plantación:<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="codPlantacion" name="codPlantacion"  class="styled-input" required>
+						<input type="text" id="codPlantacion" name="codPlantacion"  class="styled-input" required readonly>
 					</div>
 					<div>
 					    <label for="superfPre">Superficie:<span class="campo-obligatorio">*</span></label>
@@ -133,10 +136,6 @@
                     <div>
                         <label for="fecPlant">Fecha de plantación:<span class="campo-obligatorio">*</span></label>
 						<input type="date" id="fecPlant" name="fecPlant" class="styled-input" required>
-                    </div>
-                    <div>
-                        <label for="predioSem">Campo sembrado:<span class="campo-obligatorio">*</span></label>
-                        <select id="predioSem" name="predioSem" class="styled-input"></select>
                     </div>
                     <div>
                         <label for="tipPlanta">Tipo de planta:<span class="campo-obligatorio">*</span></label>

@@ -60,8 +60,6 @@ if ($resultado) {
         $salida .= '<td>' . $fila["FechaFinal"] . '</td>';
     
         $salida .= '<td>';
-        $salida .= '<button id="' . $id_boton . '" class="boton-eliminarP Boton_Tabla eliminar-elemento" data-id="'.$ClaveP.'">Eliminar</Button>';
-        $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificarP Boton_Tabla obtener-informacion" data-id="'.$ClaveP.'">Editar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';

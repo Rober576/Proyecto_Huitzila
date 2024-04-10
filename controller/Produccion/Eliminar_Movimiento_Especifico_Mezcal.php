@@ -5,9 +5,8 @@ $base = new EliminarCampos();
 $base->instancias();
 
 $Lote = isset($_GET['id']) ? $_GET['id'] : null;
-$Fecha = isset($_GET['fecha']) ? $_GET['fecha'] : null;
-$IDMovimiento = isset($_GET['idmovimiento']) ? $_GET['idmovimiento'] : null;
+$NumeroMovimiento = isset($_GET['NumeroMovimiento']) ? $_GET['NumeroMovimiento'] : null;
 
-$base->eliminar($Lote, $Fecha, $IDMovimiento);
+$base->eliminar($Lote, $NumeroMovimiento);
 echo json_encode('Eliminado con éxito');
 ?>

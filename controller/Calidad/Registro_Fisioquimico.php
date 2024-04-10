@@ -10,7 +10,6 @@ $Aldehidos = $_POST["aldehidos"];
 $Furfural = $_POST["furfural"];
 $Plomo = $_POST["plomo"];
 $Cobre = $_POST["cobre"];
-$Estado = $_POST["Estado_as"];
 $archivo = $_FILES["doc_ref"]["name"];
 
 function obtenerSiguienteNombreArchivo($carpeta, $prefijo) {
@@ -64,6 +63,6 @@ if ($archivo!='' || $archivo!=null){
 
 $usarios = new Registro_cuotas();
 $usarios->conexion();
-$usarios->insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $Estado, $id_cuota);
+$usarios->insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $id_cuota);
 
 ?>

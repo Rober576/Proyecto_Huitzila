@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Predio</title>
+    <title>Registro de plagas</title>
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
@@ -55,7 +55,7 @@
 							</a>
 				
 							<ul>
-								<li><a href="../Plagas_y_herbicidas/Registro_Plagas.html">Registrar plagas</a></li>
+								<li><a href="../Plagas y herbicidas/Registro_Plagas.html">Registrar plagas</a></li>
 								<li><a href="">Consultar plagas</a></li>
 								<hr>
 								<li><a href="../Plagas_y_herbicidas/Registro_Herbicidas.html">Registrar herbicidas</a></li>
@@ -105,52 +105,46 @@
     	</div>
 	</header>
 
-
 	<main>
-    <section class="section-main">
-        <div class="cabezera">
-			<h4 class="h4">Modificar</h4>
-		</div>
-		<br>
-		<p class="subtitulo-1"> Modificar Predio</p>
-		<hr>
-            <form id="advanced-form">
-				<div class="formulario-datos">
-					<div>
-						<label for="codArea">Clave del predio:</label>
-						<input type="text" id="codArea" name="codArea" required readonly  class="styled-input">
+        <section class="section-main">
+            <div class="cabezera">
+                <h4 class="h4">Registro</h4>
+            </div>
+            <br>
+            <p class="subtitulo-1"> Ingreso de plagas</p>
+            <hr>
+                <form id="advanced-form">
+                    <div class="formulario-datos">
+                        <div>
+                            <label for="codPlaga">Clave de la plaga:<span class="campo-obligatorio">*</span></label>
+                            <input type="text" id="codPlaga" name="codPlaga"  class="styled-input" required>
+                        </div>
+                        <div>
+                            <label for="nomPlaga">Nombre de la plaga:<span class="campo-obligatorio">*</span></label>
+                            <input type="text" id="nomPlaga" name="nomPlaga" class="styled-input" required>
+                        </div>
+						<div>
+                            <label for="nomciePlaga">Nombre científico de la plaga:<span class="campo-obligatorio">*</span></label>
+                            <input type="text" id="nomciePlaga" name="nomciePlaga" class="styled-input" required>
+                        </div>
 					</div>
 					<div>
-						<label for="nomPred">Nombre del predio:<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="nomPred" name="nomPred" title="El nombre de predio debe contener máximo 20 caracteres, de los cuales solo deben de ser letras y números" required  class="styled-input">
+						<label for="descPlaga">Descripción:</label>
+						<textarea id="descPlaga" name="descPlaga" rows="4" title="La descripción debe de contener un máximo de 120 caracteres"></textarea>
 					</div>
-					<div>
-					<label for="superfPre">Superficie:<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="superfPre" name="superfPre" class="styled-input" title="La superficie del predio debe contener un máximo de 5 caracteres, de los cuales solo deben de ser números" required>
+					<div class="grupo-boton-reg">
+						<div class="boton_registrar">
+							<button type="submit" id="submitButton">Registrar</button>
+							<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+						</div>
 					</div>
-				</div>
-                <div>
-                    <label for="descPre">Descripción:</label>
-                    <textarea id="descPre" name="desdescPrec" rows="4" title="La descripción debe de contener un máximo de 120 caracteres"></textarea>
-                </div>
-                
-				<div class="grupo-boton-reg">
-					<div class="boton_registrar">
-						<button type="submit" id="submitButton">Guardar</button>
-						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
-					</div>
-				</div>
+				</form>
 
-            </form>
-        </div>
-    </section>
+        </section>
+
 	</main>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
 </html>
-
-<script src="../../../controller/Agricola/Predios/js/Llenado_Campos_Modificar_Predio.js"></script>
-<script src="../../../controller/Agricola/Predios/js/Modificar_Datos_Predio.js"></script>
-<script src="../../../view/Agricola/Predios/js/Validacion_Registro_Predios.js"></script>
