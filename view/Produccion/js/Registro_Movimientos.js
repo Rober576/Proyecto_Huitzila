@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: datos
         })
-        .then(res => res.text()) // Cambiar a text() para obtener la respuesta como texto
+        .then(res => res.json()) // Cambiar a text() para obtener la respuesta como texto
         .then(data => {
             console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
             console.log("Entro4")
