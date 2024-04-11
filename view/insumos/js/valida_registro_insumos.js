@@ -28,7 +28,7 @@ botonRegistrar.addEventListener("click", (e) => {
 
 // Definición de la expresión regular para cada campo
 const expresion = {
-    Identificador: /^[0-9]{1,40}$/,
+    Identificador: /^[a-zA-Z0-9\s]{1,40}$/,
     Nombre: /^[a-zA-Z0-9\s.ñÑ]{1,50}$/,
     Descripcion: /^$|^[a-zA-Z0-9\s.,_-]{1,100}$/,
     Unidades: /^[a-zA-Z\s]{1,10}$/,
