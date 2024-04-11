@@ -9,19 +9,17 @@ formulario.addEventListener('submit', function (e)
         method: 'POST',
         body: datos
     })
+    
     .then(res => res.json())
     .then(data => {
-        console.log("Registro exitoso2");
         console.log(data);
-        if (data.status === 'exito') {
+        if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro exitoso");
+            window.location.href = '../../view/Calidad/Mostrar_Calidad.html';
         } 
     })
-    .catch(error => {
-        console.error('Error en la solicitud:', error);
-    });
 })
 
 var selectCategoria = document.getElementById('lote');
