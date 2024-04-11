@@ -20,7 +20,7 @@ if ($resultado) {
             <tr>
                 
                 <th>No. de Lote</th>
-                <th>Categoria</th>
+                <th>Categoría</th>
                 <th>Clase</th>
                 <th>Edad</th>
                 <th>Acciones</th>
@@ -41,9 +41,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . $fila["Edad"] . '</td>';
         $salida .= '<td>';
-        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-Específico" type="submit">Específico</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">Específico</button>';
         $salida .= ' ';
-        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-General" type="submit">General</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">General</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
