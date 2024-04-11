@@ -41,7 +41,7 @@ class NuevosCampos {
                 IFNULL(m.FinalPorcentaje, 0) AS FinalPorcentaje
             FROM movimientomezcal m
             WHERE m.Lote = '$lote'
-            ORDER BY m.Fecha DESC
+            ORDER BY m.NumeroMovimiento DESC
             LIMIT 1
         ";
     
@@ -55,7 +55,7 @@ class NuevosCampos {
         }
     }
 
-    function calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol) {
+    function calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol, $tipoES) {
         // Convertir a números de punto flotante
         $inicialVolumen = floatval($inicialVolumen);
         $volumen = floatval($volumen);
@@ -66,15 +66,26 @@ class NuevosCampos {
         $finalVolumen = 0;
         $finalPorcentaje = 0;
     
-        // Verificar si inicialVolumen e inicialPorcentaje son cero
-        if ($inicialVolumen == 0 && $inicialPorcentaje == 0) {
-            // Si ambos son cero, asignar volumen y alc_vol directamente
-            $finalVolumen = $volumen;
-            $finalPorcentaje = $alc_vol;
-        } else {
-            // Si no son cero, realizar las operaciones mencionadas
+        // Verificar el tipo de movimiento
+        if ($tipoES == 'entrada') {
+            // Sumar volumen
             $finalVolumen = $inicialVolumen + $volumen;
-            $finalPorcentaje = ($inicialPorcentaje + $alc_vol) / 2;
+            // Calcular porcentaje
+            if ($inicialVolumen == 0) {
+                $finalPorcentaje = $alc_vol;
+            } else {
+                $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $alc_vol)) / ($finalVolumen);
+            }
+        } elseif ($tipoES == 'salida') {
+            // Restar volumen
+            $finalVolumen = $inicialVolumen - $volumen;
+            // Si el volumen inicial es 0, el porcentaje también será 0
+            if ($inicialVolumen == 0) {
+                $finalPorcentaje = 0;
+            } else {
+                // Calcular porcentaje
+                $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $alc_vol)) / ($finalVolumen);
+            }
         }
     
         // Devolver los resultados
@@ -132,7 +143,7 @@ class NuevosCampos {
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
         
-        $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol);
+        $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol,$tipoES);
     
 
     
