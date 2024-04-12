@@ -22,8 +22,6 @@ function buscar_datos(consulta) {
         return response.text();
     })
     .then(respuesta => {
-        //document.getElementById('tablaResultado').innerHTML = respuesta;
-        console.log(respuesta)
         mostrarDatos(JSON.parse(respuesta));
     })
     .catch(error => {
@@ -38,7 +36,6 @@ buscar_datos();
 document.getElementById('buscar-txt').addEventListener('keyup', function() {
     var valorBusqueda = this.value;
     if (valorBusqueda != "") {
-        console.log(valorBusqueda)
         buscar_datos(valorBusqueda);
     } else {
         buscar_datos();
@@ -46,7 +43,6 @@ document.getElementById('buscar-txt').addEventListener('keyup', function() {
 });
 
 function mostrarDatos(datos){
-    console.log(datos);
     cuerpo_tabla.innerHTML = '';
     
 
@@ -72,8 +68,8 @@ function mostrarDatos(datos){
             var acciones = document.createElement('td')
             var link_eliminar = document.createElement('Button')
             var link_editar = document.createElement('Button')
-    
-            console.log(datos[i]);
+            link_editar.classList.add ('boton_registrar');
+
             id_col.innerHTML = datos[i][0]
             row.appendChild(id_col);
             desc_col.innerHTML = datos[i][1];
