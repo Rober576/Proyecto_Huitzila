@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let bandera = true;
 
-        if (!/^([a-zA-Z.]{1,50})$/.test(nombre)) {
+        if (!/^([a-zA-Z0-9_]{1,50})$/.test(nombre)) {
             form.Nombre.style.border = "5px solid red";
             bandera = false;
         } else {
