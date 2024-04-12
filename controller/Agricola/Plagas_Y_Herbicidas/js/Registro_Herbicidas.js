@@ -1,7 +1,7 @@
 //declara las variables globales
 var formulario = document.getElementById('advanced-form');
 
-console.log('registro plaga');
+console.log('registro herbicida');
 
 formulario.addEventListener('submit', function (e)
 {
@@ -10,7 +10,7 @@ formulario.addEventListener('submit', function (e)
     
     /* Se envian los datos de formulario para verificar que el nombre de la plaga no este siendo utilizado
     en otra planta, en caso de que si mandar una alerta informando esto */
-    fetch('../../../controller/Agricola/Plagas_Y_Herbicidas/php/Verificar_Codigo_Plaga.php', {
+    fetch('../../../controller/Agricola/Plagas_Y_Herbicidas/php/Verificar_Codigo_Herbicida.php', {
         method: 'POST',
         body: datos
     })
@@ -19,12 +19,12 @@ formulario.addEventListener('submit', function (e)
         console.log(data);
         if (data === 'codigoUsado') {
             Formulario = document.getElementById("advanced-form");
-            Formulario.nomPlaga.style.border = "5px solid red"; 
-            alert("Este nombre de plaga ya está registrado actualmente");     
+            Formulario.nomHerb.style.border = "5px solid red"; 
+            alert("Este nombre de herbicida ya está registrado actualmente");     
         }
         //si el codigo  no esta siendo utilizado se procede con el registro
         else{
-            fetch('../../../controller/Agricola/Plagas_Y_Herbicidas/php/Registrar_Plaga.php', {
+            fetch('../../../controller/Agricola/Plagas_Y_Herbicidas/php/Registrar_Herbicida.php', {
                 method: 'POST',
                 body: datos
             })
@@ -35,8 +35,8 @@ formulario.addEventListener('submit', function (e)
                 if (data === 'exito') {
                     const form= document.getElementById('advanced-form');
                     form.reset();
-                    alert("Registro de plaga exitoso");
-                    window.location.href = "../../../view/Agricola/Plagas_Y_Herbicidas/Vista_Plagas.html";
+                    alert("Registro de herbicida exitoso");
+                    window.location.href = "../../../view/Agricola/Plagas_Y_Herbicidas/Vista_Herbicidas.html";
 
                     
                 }
@@ -60,7 +60,7 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
-            window.location.href = "../../../view/Agricola/Plagas_Y_Herbicidas/Vista_Plagas.html";
+            window.location.href = "../../../view/Agricola/Plagas_Y_Herbicidas/Vista_Herbicidas.html";
             
         }
     });
