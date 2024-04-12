@@ -124,7 +124,9 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="ID">ID insumos<span class="campo-obligatorio">*</span>:</label>
-						<select id="Id_insumos" name="Id_insumos" title="Identificador de los insumos." required></select>
+						<select id="Id_insumos" name="Id_insumos" title="Identificador de los insumos." required>
+							<option disabled selected>Seleccionar opción</option>
+						</select>
 					</div>
 
 					
@@ -197,6 +199,7 @@
     </footer>
 
 	<script src="../../controller/Insumos/js/Registro_Entradas_Salidas_Insumos.js"></script>
+	<script src="../../controller/Insumos/js/Obtener_Id_Insumos.js"></script>
 	<script src="../../view/insumos/js/Valida_Registro_Entradas_Salidas_Insumos.js"></script>
 	<script src="../../controller/Insumos/js/Cancelar_Registro_Entradas_Salidas_Insumos.js"></script>
 </body>

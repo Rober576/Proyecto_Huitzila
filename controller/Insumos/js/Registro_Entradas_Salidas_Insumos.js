@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const idInsumosInput = document.getElementById('Id_insumos');
+    const idInsumosSelect = document.getElementById('Id_insumos');
     const costoUnitarioInput = document.getElementById('Costo_Unitario');
     const cantidadInput = document.getElementById('Cantidad');
     const costoTotalInput = document.getElementById('Costo_Total');
 
-    idInsumosInput.addEventListener('blur', function() {
+    idInsumosSelect.addEventListener('change', function() {
         const id = this.value;
         
         fetch(`../../controller/Insumos/Obtener_Entradas_Salidas_Insumos.php?id=${id}`)
@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     const item = data[0]; 
                     costoUnitarioInput.value = item.Costo;
                     document.getElementById('Id_insumos').style.border = "none";
+                    idInsumosSelect.setCustomValidity('');
                 } else {
+                    idInsumosSelect.setCustomValidity('Por favor, seleccione una opción de la lista');
                     alert('El insumo con el ID proporcionado no está registrado.');
                     document.getElementById('Id_insumos').style.border = "5px solid red";
                     costoUnitarioInput.value = '';
@@ -46,11 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
     document.getElementById('Entradas_Salidas_insumos_form').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        
         if (todasBanderasAceptadas()) {
             var datos = new FormData(this);
 
@@ -74,9 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-   
     function todasBanderasAceptadas() {
-        
         return true;
     }
 });
