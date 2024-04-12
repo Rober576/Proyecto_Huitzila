@@ -48,32 +48,117 @@ if (isset($_GET['lote'])) {
 					<tbody>';
     
         foreach ($resultado as $fila) {
-            if ($fila["EntradaSalida"]=='salida')
+            if ($fila["Movimiento"]=='Merma'){
+                if ($fila["EntradaSalida"]=='entrada'){
+                    $salida .= '<tr>';
+                    $Lote= $fila['Lote'];
+                    $Fecha =$fila['Fecha'];
+                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                    $salida .= '<td>' . $fila["Lote"] . '</td>';
+                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila["VolumenAgua"] . '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . $fila["MermasVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["MermasPorcentaje"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen55"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
+                    $salida .= '</td>';
+                    $salida .= '</tr>';
+                }else if ($fila["EntradaSalida"]=='salida'){
+                    $salida .= '<tr>';
+                    $Lote= $fila['Lote'];
+                    $Fecha =$fila['Fecha'];
+                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                    $salida .= '<td>' . $fila["Lote"] . '</td>';
+                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila["MermasVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["MermasPorcentaje"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen55"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
+                    $salida .= '</td>';
+                    $salida .= '</tr>';
+                }
+            }else{
+                if ($fila["EntradaSalida"]=='entrada'){
+                    $salida .= '<tr>';
+                    $Lote= $fila['Lote'];
+                    $Fecha =$fila['Fecha'];
+                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                    $salida .= '<td>' . $fila["Lote"] . '</td>';
+                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila["VolumenAgua"] . '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
+                    $salida .= '</td>';
+                    $salida .= '</tr>';
+                }else if ($fila["EntradaSalida"]=='salida'){
+                    $salida .= '<tr>';
+                    $Lote= $fila['Lote'];
+                    $Fecha =$fila['Fecha'];
+                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                    $salida .= '<td>' . $fila["Lote"] . '</td>';
+                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
+                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
+                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . "-". '</td>';
+                    $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
+                    $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
+                    $salida .= '</td>';
+                    $salida .= '</tr>';
+                }
+            }
         
-            $salida .= '<tr>';
-            $Lote= $fila['Lote'];
-            $Fecha =$fila['Fecha'];
-            $salida .= '<td>' . $fila["Fecha"] . '</td>';
-            $salida .= '<td>' . $fila["Lote"] . '</td>';
-            $salida .= '<td>' . "S/A" . '</td>';
-            $salida .= '<td>' . $fila["Categoria"] . '</td>';
-            $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-            $salida .= '<td>' . $fila["Tanque"] . '</td>';
-            $salida .= '<td>' . $fila["Volumen"] . '</td>';
-            $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
-            $salida .= '<td>' . $fila["EntradaSalida"] . '</td>';
-            $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
-            $salida .= '<td>' . $fila["VolumenAgua"] . '</td>';
-            $salida .= '<td>' . $fila["MermasVolumen"] . '</td>';
-            $salida .= '<td>' . $fila["MermasPorcentaje"] . '</td>';
-            $salida .= '<td>' . $fila["Volumen55"] . '</td>';
-            $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
-            $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
-            $salida .= '<td>' . $fila["Volumen55"] . '</td>';
-            $salida .= '<td>' . $fila["FinalVolumen"] . '</td>';
-            $salida .= '<td>' . $fila["FinalPorcentaje"] . '</td>';
-            $salida .= '</td>';
-            $salida .= '</tr>';
+            
             
         }
         $salida .= '</tbody></table>';
