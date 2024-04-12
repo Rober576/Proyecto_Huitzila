@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostrar insumos</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
-	<script src="../../controller/Insumos/js/Mostrar_Insumos.js"></script>s
+	
 	
     
 </head>
@@ -122,29 +121,34 @@
 		<hr>
 		<br>
 
-		<div class="tablas">
-			<section class="header_table" id="tablaResultado">
+		<form id="formulario" name="formulario">
+			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+			<span id="mensaje">No se encontraron resultados</span>
 
-				<table border="1">
-					<tr>
-						<th colspan="8">Datos de los insumos</th>
-					</tr>
-					<tr>
-						<th>Identificador</th>
-						<th>Nombre</th>
-						<th>Descripción</th>
-						<th>Costo promocional</th>
-						<th>Último costo</th>
-						<th>Cantidad</th>
-						<th>Stock mínimo</th>
-						<th>Stock máximo</th>
-						<th>Acciones</th>	
-					</tr>
-					
-					
-				</table>
-			</section>
-		</div>
+			<div class="tablas">
+				<section class="header_table" id="tablaResultado">
+	
+					<table border="1">
+						<tr>
+							<th colspan="8">Datos de los insumos</th>
+						</tr>
+						<tr>
+							<th>Identificador</th>
+							<th>Descripción</th>
+							<th>Costo promocional</th>
+							<th>Último costo</th>
+							<th>Cantidad</th>
+							<th>Stock mínimo</th>
+							<th>Stock máximo</th>
+							<th>Acciones</th>	
+						</tr>
+						<tbody id="cuerpo"></tbody>
+						
+					</table>
+				</section>
+			</div>
+		</form>
+		
 	</section>
 </main>
 
@@ -155,7 +159,7 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 	
-	
+	<script src="js/Mostrar_Producto.js"></script>
 	
 </body>
 </html>
