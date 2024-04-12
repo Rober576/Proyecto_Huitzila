@@ -45,7 +45,7 @@ insumos_form.Identificador.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
     // Elimina las letras del valor de entrada
-    valorInput = valorInput.replace(/[a-zA-Z]/g, '');
+    //valorInput = valorInput.replace(/[a-zA-Z]/g, '');
 
     // Asigna el valor al campo
     insumos_form.Identificador.value = valorInput;
@@ -66,7 +66,7 @@ insumos_form.Nombre.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
     // Elimina los números del valor de entrada
-    valorInput = valorInput.replace(/[0-9]/g, '');
+    //valorInput = valorInput.replace(/[0-9]/g, '');
 
     // Asigna el valor al campo
     insumos_form.Nombre.value = valorInput;
