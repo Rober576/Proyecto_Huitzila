@@ -136,3 +136,10 @@ a.btngenerala{
     font: inherit; /* Utiliza la fuente heredada */
     outline: none; /* Quita el contorno del enlace al enfocarlo */
 }
+
+.formulario-datos2{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
