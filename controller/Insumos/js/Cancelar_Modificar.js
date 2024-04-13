@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var cancelarButton = document.getElementById("Boton_cancelar");
+    var cancelarButton = document.getElementById("cancelar");
     
     if (cancelarButton) {
         cancelarButton.addEventListener("click", function() {
