@@ -11,9 +11,9 @@ class Mostrar {
 
 
 
-    function getInfo_TipoPlantas($ClaveP) {
+    function getInfo_TipoPlantas($Plantacion) {
         $query = "SELECT NombrePlanta FROM tipoplantas WHERE ClavePlantacion = :id LIMIT 1";
-        $resultados = $this->base->mostrar($query, [":id" => $ClaveP]);
+        $resultados = $this->base->mostrar($query, [":id" => $Plantacion]);
         if ($resultados) {
             $primerResultado = reset($resultados); 
             return $primerResultado['NombrePlanta'];
@@ -21,16 +21,7 @@ class Mostrar {
             return null;
         }
     }
-    function getInfo_Plantacionpredio($ClaveP) {
-        $query = "SELECT CodigoArea FROM plantacionpredio WHERE ClavePlantacion = :id LIMIT 1";
-        $resultados = $this->base->mostrar($query, [":id" => $ClaveP]);
-        if ($resultados) {
-            $primerResultado = reset($resultados); 
-            return $primerResultado['CodigoArea'];
-        } else {
-            return null;
-        }
-    }
+
 
     function getInfo_Predios($CodigoA) {
         $query = "SELECT Nombre FROM predios WHERE CodigoArea = :id LIMIT 1";
@@ -43,20 +34,20 @@ class Mostrar {
         }
     }
 
-    
 
-    function getInfo_Plantaciones(){
-        $query = "SELECT * FROM plantaciones";
-        $resultados = $this->base->mostrar($query);
+
+    function buscador($codigoArea) {
+        $query = "SELECT ClavePlantacion FROM plantacionpredio WHERE CodigoArea = :codigoArea";
+        $resultados = $this->base->mostrar($query, [":codigoArea" => $codigoArea]);
         $this->base->cerrar_conexion();
         return $resultados;
+
+
     }
 
-
-
-    function buscador($busqueda){
-        $query = "SELECT * FROM plantaciones WHERE ClavePlantacion LIKE :busqueda OR Superficie LIKE :busqueda OR CantidadPlantas LIKE :busqueda OR Fecha LIKE :busqueda ";
-        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+    function getInfo_Plantaciones($claveplantacion) {
+        $query = "SELECT Superficie, CantidadPlantas, Fecha, NombreTrabajador, DatosVehiculo, CostoGasolina, CostoMaterial, FechaInicio, FechaFinal FROM plantaciones WHERE ClavePlantacion= :codigoP";
+        $resultados = $this->base->mostrar($query, [":codigoP" => $claveplantacion]);
         $this->base->cerrar_conexion();
         return $resultados;
     }

@@ -3,6 +3,13 @@ function buscar_datos2(consulta) {
     if (consulta !== "") {
         url += '?consulta=' + consulta;
     }
+    // Obtener el valor de predio si está presente en la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var predio = urlParams.get('predio');
+    // Incluir predio en la URL si está definido
+    if (predio) {
+        url += (consulta !== "" ? '&' : '?') + 'predio=' + predio;
+    }
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 

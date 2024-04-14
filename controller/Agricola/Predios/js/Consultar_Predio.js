@@ -72,7 +72,9 @@ function EventoVerPlantaciones() {
     for (var j = 0; j < botonesEliminar.length; j++) {
         botonesEliminar[j].addEventListener('click', function(e) {    
             var id = e.target.id;
-            console.log("VerPlantacion.");
+            console.log(id);
+            window.location.href = '../../../view/Agricola/Predios/Mostrar_Plantaciones.html?predio=' + id;
+            
         }
             );
     }
