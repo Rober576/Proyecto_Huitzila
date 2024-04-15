@@ -7,7 +7,7 @@ $ClavePlantacion = $_POST["codPlantacion"];
 $Superficie = $_POST["superfPre"];
 $CantidadPlantas = $_POST["canPlan"];
 $Fecha = $_POST["fecPlant"];
-$NombrePredio = $_POST["predioSem"];
+
 $NombrePlanta = $_POST["tipPlanta"];
 
 $NombreTrabajador = $_POST["nomTraba"];
@@ -21,6 +21,6 @@ $FechaFinal = $_POST["fecFin"];
 //instanciar la clase y llamar la funcion para insertar
 $obj = new ModificarCampos();
 $obj->conexion();
-$obj->modificarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $NombreTrabajador, $DatosVehiculo, $CostoGasolina, $CostoMaterial, $FechaInicio, $FechaFinal, $NombrePlanta, $NombrePredio);
+$obj->modificarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $NombreTrabajador, $DatosVehiculo, $CostoGasolina, $CostoMaterial, $FechaInicio, $FechaFinal, $NombrePlanta);
 echo json_encode('exito');
 ?>
