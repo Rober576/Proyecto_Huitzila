@@ -146,8 +146,8 @@ function Validar_Superficie() {
 
 
     // Limitar la longitud a 10 caracteres
-    if (valorInput.length > 5) {
-        valorInput = valorInput.slice(0, 5);
+    if (valorInput.length > 10) {
+        valorInput = valorInput.slice(0, 10);
     }
 
     // Actualizar el valor del campo con los cambios realizados
