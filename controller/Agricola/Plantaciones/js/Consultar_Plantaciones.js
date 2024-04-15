@@ -15,16 +15,17 @@ function buscar_datos2(consulta) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById("tabla2").innerHTML = xhr.responseText;
-            EventoEliminarP();
-            EventoEditarP();
+            var tabla2 = document.getElementById("tabla2");
+            if (tabla2) {
+                tabla2.innerHTML = xhr.responseText;
+                EventoEliminarP();
+                EventoEditarP();
+            } else {
+                console.log("elementos");
+            }
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
-    };
-
-    xhr.onerror = function() {
-        console.error("Error al realizar la solicitud.");
     };
 
 

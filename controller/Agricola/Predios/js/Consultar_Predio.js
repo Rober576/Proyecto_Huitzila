@@ -9,18 +9,19 @@ function buscar_datos(consulta) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById("tabla").innerHTML = xhr.responseText;
-            EventoVerPlantaciones();
-            EventoEliminar();
-            EventoNewPlantacion();
-            EventoEditar();
+            var tabla = document.getElementById("tabla");
+            if (tabla) {
+                tabla.innerHTML = xhr.responseText;
+                EventoVerPlantaciones();
+                EventoEliminar();
+                EventoNewPlantacion();
+                EventoEditar();
+            } else {
+                console.log("No hay elementos");
+            }
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
-    };
-
-    xhr.onerror = function() {
-        console.error("Error al realizar la solicitud.");
     };
 
 
@@ -72,7 +73,6 @@ function EventoVerPlantaciones() {
     for (var j = 0; j < botonesEliminar.length; j++) {
         botonesEliminar[j].addEventListener('click', function(e) {    
             var id = e.target.id;
-            console.log(id);
             window.location.href = '../../../view/Agricola/Predios/Mostrar_Plantaciones.html?predio=' + id;
             
         }

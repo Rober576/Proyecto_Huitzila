@@ -127,14 +127,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const contenedorPrincipal = document.getElementById("contenedor-principal");
-
+    const volumenMermaContainer = document.getElementById("volumen_merma");
+    const alcVolMermaContainer = document.getElementById("alc_vol_merma");
     contenedorPrincipal.style.display = "none";
+    document.getElementById("volumen_merma").removeAttribute("required");
+    document.getElementById("alc_vol_merma").removeAttribute("required");
 
     document.getElementById("tipo").addEventListener("change", function() {
         if (this.value === "merma") {
             contenedorPrincipal.style.display = "block";
+            document.getElementById("volumen_merma").setAttribute("required", "required");
+            document.getElementById("alc_vol_merma").setAttribute("required", "required");
         } else {
             contenedorPrincipal.style.display = "none";
+            document.getElementById("volumen_merma").removeAttribute("required");
+            document.getElementById("alc_vol_merma").removeAttribute("required");
         }
     });
 });
+
