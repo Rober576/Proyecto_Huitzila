@@ -1,9 +1,9 @@
 <?php
 include_once('../../model/Calidad/Registro_Calidad.php');
-$Lote = $_POST["lote"];
-$Azucares = $_POST["azucares"];
-$Madurez = $_POST["madurez"];
-$Materia = $_POST["mat_prima"];
+$Lote = 'ASS';
+$Azucares = 10.5;
+$Madurez = 10.5;
+$Materia = 10.5;
 
 $calidad = new Registro_Calidad();
 $calidad->conexion();
