@@ -108,7 +108,7 @@
 	<main>
         <section class="section-main">
             <div class="cabezera">
-                <h4 class="h4">Registro</h4>
+                <h4 class="h4">Modificar</h4>
             </div>
             <br>
             <p class="subtitulo-1"> Ingreso de herbicidas</p>
@@ -117,7 +117,7 @@
                     <div class="formulario-datos2">
                         <div>
                             <label for="nomHerb">Nombre del herbicida:<span class="campo-obligatorio">*</span></label>
-                            <input type="text" id="nomHerb" name="nomHerb" class="styled-input" required>
+                            <input type="text" id="nomHerb" name="nomHerb" class="styled-input" required readonly>
                         </div>
 						<div>
                             <label for="fabriHerb">Fabricante:<span class="campo-obligatorio">*</span></label>
@@ -130,7 +130,7 @@
 					</div>
 					<div class="grupo-boton-reg">
 						<div class="boton_registrar">
-							<button type="submit" id="submitButton">Registrar</button>
+							<button type="submit" id="submitButton">Modificar</button>
 							<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
 						</div>
 					</div>
@@ -143,6 +143,7 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
-<script src="../../../controller/Agricola/Plagas_Y_Herbicidas/js/Registro_Herbicidas.js"></script>
+<script src="../../../controller/Agricola/Plagas_Y_Herbicidas/js/Llenado_Campos_Modificar_Herbicidas.js"></script>
+<script src="../../../controller/Agricola/Plagas_Y_Herbicidas/js/Modificar_Campos_Herbicidas.js"></script>
 <script src="js/Validacion_Herbicidas.js"></script>
 </html>

@@ -8,6 +8,16 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
     console.log("Antes de fetch"); // Agregado para depuración
+    
+    
+    var movimiento = obtenerParametroURL('NumeroMovimiento');
+    console.log(movimiento);
+
+    if (movimiento !== null && movimiento !== ""){
+        datos.append('numero', movimiento);
+    }
+
+
     fetch('../../controller/Produccion/Modificar_Movimientos.php',
     {
         method: 'POST',
@@ -21,8 +31,14 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
             alert("Hubo un error");
         } else if(data.trim) {
             alert("Actualización exitosa");
-            location.href = "../../view/Produccion/Mostrar_Movimientos_Mezcal.html";
-        }
+            var parametrosURL = new URLSearchParams(window.location.search);
+            var lotE = parametrosURL.get('Lote');
+            console.log('lote',lotE)
+            // Redirigir a movimiento_espeficico.html con el parámetro 'lote'
+            location.href = "../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=" + lotE;
+            //C:\xampp\htdocs\Proyecto_Huitzila\view\Produccion\
+            //location.href = "../../view/Produccion/Movimientos_Mezcal.html";
+            }
     })
     .catch(error => {
         console.error('Error en la solicitud fetch:', error); // Agregado para manejar errores de fetch
@@ -42,3 +58,9 @@ formulario.cancelar.addEventListener('click', function (e){
 
     
 });
+
+
+function obtenerParametroURL(parametro) {
+    var parametrosURL = new URLSearchParams(window.location.search);
+    return parametrosURL.get(parametro);
+  }

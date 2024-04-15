@@ -19,12 +19,15 @@ formulario.addEventListener('submit', function (e)
 
     .then(res => res.json())
     .then(data => {
+        console.log("ini");
         console.log(data);
+        console.log("fin");
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro de plantación exitoso");
+            alert("Modificación de plantación exitoso");
             window.location.href = "../../../view/Agricola/Predios/Vista_Predios.html";
+            
 
             
         }

@@ -29,7 +29,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
     if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true ){
         //si es válida se muestra un mensaje de éxito
-        console.log("Registro exitoso");
+        console.log("exitoso");
     }
     else{
         //si no es válida se cancela el envío
