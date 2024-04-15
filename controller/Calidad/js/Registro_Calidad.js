@@ -1,5 +1,5 @@
 var formulario = document.getElementById('advanced-form');
-
+console.log("jsjdj")
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
