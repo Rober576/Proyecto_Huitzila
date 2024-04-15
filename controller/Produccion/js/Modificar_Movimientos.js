@@ -8,6 +8,16 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
     console.log("Antes de fetch"); // Agregado para depuración
+    
+    
+    var movimiento = obtenerParametroURL('NumeroMovimiento');
+    console.log(movimiento);
+
+    if (movimiento !== null && movimiento !== ""){
+        datos.append('numero', movimiento);
+    }
+
+
     fetch('../../controller/Produccion/Modificar_Movimientos.php',
     {
         method: 'POST',
@@ -42,3 +52,9 @@ formulario.cancelar.addEventListener('click', function (e){
 
     
 });
+
+
+function obtenerParametroURL(parametro) {
+    var parametrosURL = new URLSearchParams(window.location.search);
+    return parametrosURL.get(parametro);
+  }

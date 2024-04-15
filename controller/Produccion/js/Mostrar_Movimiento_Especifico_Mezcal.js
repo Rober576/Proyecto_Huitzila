@@ -71,11 +71,11 @@ function agregarEventosEditar() {
             e.preventDefault(); // Evitar la acción predeterminada del botón
             var datos = this.dataset.id.split('@'); // Divide los datos usando el @ como separador
             var Lote = datos[0];
-            var Fecha = datos[1];
+            var NumeroMovimiento = datos[1];
            
            
             console.log("Valor de Lote:", Lote);
-            console.log("Valor de Fecha:", Fecha);
+            console.log("Valor de Fecha:", NumeroMovimiento);
           
             // Obtener el valor de 'lote' de la URL actual
             /*const urlParams = new URLSearchParams(window.location.search);
