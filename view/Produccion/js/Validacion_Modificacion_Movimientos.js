@@ -4,8 +4,9 @@ let procedencia = false
 let volumen = false
 let alc_vol = false
 let alc_vol55 = false
+console.log("entro a Validacion_Modificacion.js")
 
-console.log("entro a validacion")
+
 const expresiones = {
     procedencia:/^[a-zA-ZÁ-Ýá-ý0-9.-\s]{1,50}$/,
     costo1:/^[0-9.\s]{1,20}$/,
@@ -101,12 +102,14 @@ form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
 
 
 
-function validar(bandera) {
+function validar(bandera){
     const guardar = document.getElementById('submitButton');
 
-    if (bandera == false) {              
-        guardar.disabled = true;
-    } else {
-        guardar.disabled = false;
+    if(bandera == false){              
+        guardar.disabled=true;
+        
+    }else{
+        guardar.disabled=false;
     }
+
 }
