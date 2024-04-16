@@ -68,6 +68,29 @@ class Crud_bd{
         }
     }
 
+    public function consultar($consultaEscrita, ?array $arrayAsociativo = null){
+        try {
+            $this->conexion->beginTransaction();
+            if ($arrayAsociativo == null) {
+                $sentencia = $this->conexion->query($consultaEscrita);
+            } else {
+                $sentencia = $this->conexion->prepare($consultaEscrita);
+                $sentencia->execute($arrayAsociativo);
+            }
+            $this->conexion->commit();
+            $filas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $sentencia = null;
+            return $filas;
+        } catch (\Exception $e) {
+            if ($this->conexion->inTransaction()) {
+                $this->conexion->rollback();
+                die("Error: " . $e->getMessage());
+                echo "Linea del error: " . $e->getLine();
+            }
+            throw $e;
+        }
+    }
+
     public function insertar_eliminar_actualizar($consultaEscrita, $arrayAsociativo){
         /**
          * Esta funcion perminte insertar, eliminar, los parametros de busqueda y modificacion 

@@ -37,6 +37,8 @@ $movimiento = $resultado[0]['EntradaSalida'];
 $volumen = $resultado[0]['Volumen'];
 $volumen2=$resultado[0]['VolumenAgua'];
 $concentracion = $resultado[0]['PorcentajeAlcohol'];
+$volumen_merma=$resultado[0]['MermasVolumen'];
+$alc_vol_merma=$resultado[0]['MermasPorcentaje']
 
 
 ?>
@@ -52,6 +54,9 @@ $concentracion = $resultado[0]['PorcentajeAlcohol'];
     document.getElementById("volumen").value = "<?php echo $volumen ?>";
     document.getElementById("alc_vol").value = "<?php echo $concentracion ?>";
     document.getElementById("vol_agua").value="<?php echo $volumen2 ?>";
+    document.getElementById("volumen_merma").value="<?php echo $volumen_merma ?>";
+    document.getElementById("alc_vol_merma").value="<?php echo $alc_vol_merma ?>";
+    
 
     document.addEventListener('DOMContentLoaded', function() {
         var selectMovimiento = document.getElementById('tipo');

@@ -26,6 +26,7 @@ function llenarListaInsumos(datosInsumos) {
     const optionDefault = document.createElement('option');
     optionDefault.value = '';
     optionDefault.textContent = 'Seleccionar opción';
+    optionDefault.selected = true; 
     selectInsumos.appendChild(optionDefault);
 
     
@@ -34,13 +35,16 @@ function llenarListaInsumos(datosInsumos) {
         option.value = insumo.IDInsumo;
         option.textContent = `${insumo.IDInsumo} - ${insumo.NombreInsumo}`;
         selectInsumos.appendChild(option);
+        
     });
+    
+   
+    
 }
 
 
 function validarFormulario() {
     const selectInsumos = document.getElementById('Id_insumos');
-
     
     if (selectInsumos.value === '') {
         alert('Por favor, seleccione una opción.');
