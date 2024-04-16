@@ -17,8 +17,8 @@ if(isset($_GET["Lote"]) && isset($_GET["NumeroMovimiento"])) {
     
     // Luego llamas a la función buscar_datos_GET pasando $id y $numeroMovimiento
     $resultado = $resultado = $objeto->buscar_datos_Get($lote, $numeroMovimiento);
-    echo json_encode('NumeroMovimiento',$numeroMovimiento);
-    echo json_encode('Lote',$lote);
+    //echo json_encode('NumeroMovimiento',$numeroMovimiento);
+    //echo json_encode('Lote',$lote);
     // Resto del código para mostrar los datos en la página
 } else {
     echo "Los parámetros 'ID' y 'NumeroMovimiento' no están definidos en la URL.";

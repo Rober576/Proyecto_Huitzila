@@ -126,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Responder al botón cancelar
-    formulario.cancelar.addEventListener('click', function (e) {
+    /*formulario.cancelar.addEventListener('click', function (e) {
         e.preventDefault();
         if (confirm("Los cambios realizados no se guardarán, ¿desea continuar?")) {
             window.location.href = 'Mostrar_Mezcal.html';
         }
-    });
+    });*/
 });

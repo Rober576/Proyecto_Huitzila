@@ -4,6 +4,7 @@ let procedencia = false
 let volumen = false
 let alc_vol = false
 let alc_vol55 = false
+let vol_agua =false
 console.log("entro a Validacion_Modificacion.js")
 
 
@@ -13,6 +14,7 @@ const expresiones = {
     volumen:/^[0-9.\s]{1,15}$/,
     alc_vol:/^[0-9.\s]{1,15}$/,
     alc_vol55:/^[0-9.\s]{1,15}$/,
+    vol_agua:/^[0-9.\s]{1,15}$/
 }
 
 /* Input nombres */
@@ -98,6 +100,25 @@ form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
         alc_vol55 = true;
     }
     validar(alc_vol55);
+});
+
+
+form_ingreso_agave.vol_agua.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Limitar a números decimales con un máximo de 2 dígitos después del punto
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_ingreso_agave.vol_agua.value = valorInput;
+
+    if (!expresiones.vol_agua.test(valorInput)) {
+        form_ingreso_agave.vol_agua.style.border = "3px solid red";
+        vol_agua = false;
+    } else {
+        form_ingreso_agave.vol_agua.removeAttribute("style");
+        vol_agua = true;
+    }
+    validar(vol_agua);
 });
 
 
