@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
         if(resp ==  true){
-            window.location.href='Mostrar_Mezcal.html';
+            window.location.href='Registro_Movimientos.html';
         }
     });
 });
