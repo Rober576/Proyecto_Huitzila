@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const entradaSalidaSelect = document.getElementById('Entrada_Salida');
+    const idMovimientoSelect = document.getElementById('ID_Movimiento');
+
+    entradaSalidaSelect.addEventListener('change', function() {
+        const valorSeleccionado = this.value;
+
+        Array.from(idMovimientoSelect.options).forEach(option => {
+            option.style.display = 'none';
+        });
+
+        
+        if (valorSeleccionado === 'Entrada') {
+            
+            for (let i = 0; i <= 4; i++) {
+                idMovimientoSelect.options[i].style.display = 'block';
+            }
+        } else if (valorSeleccionado === 'Salida') {
+            
+            for (let i = idMovimientoSelect.options.length - 3; i < idMovimientoSelect.options.length; i++) {
+                idMovimientoSelect.options[i].style.display = 'block';
+            }
+        }
+    });
+
+    
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const idInsumosSelect = document.getElementById('Id_insumos');
     const costoUnitarioInput = document.getElementById('Costo_Unitario');
     const cantidadInput = document.getElementById('Cantidad');
@@ -22,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     idInsumosSelect.setCustomValidity('');
                 } else {
                     idInsumosSelect.setCustomValidity('Por favor, seleccione una opción de la lista');
-                    alert('El insumo con el ID proporcionado no está registrado.');
                     document.getElementById('Id_insumos').style.border = "5px solid red";
                     costoUnitarioInput.value = '';
                 }
@@ -48,10 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    
+
     document.getElementById('Entradas_Salidas_insumos_form').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        if (todasBanderasAceptadas()) {
+        if (validarFormulario()) { 
             var datos = new FormData(this);
 
             fetch("../../controller/Insumos/Registro_Entradas_Salidas_Insumos.php", {
@@ -74,7 +106,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function todasBanderasAceptadas() {
-        return true;
+    function validarFormulario() {
+        const idInsumos = document.getElementById('Id_insumos').value;
+        const fecha = document.getElementById('Fecha').value;
+        const entradaSalida = document.getElementById('Entrada_Salida').value;
+        const destino = document.getElementById('Destino').value;
+        const cantidad = document.getElementById('Cantidad').value;
+        const costoUnitario = document.getElementById('Costo_Unitario').value;
+        const costoTotal = document.getElementById('Costo_Total').value;
+        const idMovimiento = document.getElementById('ID_Movimiento').value;
+    
+        let validacionExitosa = true;
+    
+    
+        if (fecha === '') {
+            validacionExitosa = false;
+        }
+    
+    
+        if (destino === '') {
+            document.getElementById('Destino').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Destino').style.border = "none";
+        }
+    
+        if (cantidad === '') {
+            document.getElementById('Cantidad').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Cantidad').style.border = "none";
+        }
+    
+        if (costoUnitario === '') {
+            alert('Por favor, ingrese un ID de insumos que ya se encuentre registrado en el sistema.');
+            document.getElementById('Id_insumos').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Id_insumos').style.border = "none";
+        }
+    
+        if (costoTotal === '') {
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Costo_Total').style.border = "none";
+        }
+    
+        if (entradaSalida === '') {
+            document.getElementById('Entrada_Salida').style.border = "5px solid red";
+            alert('Por favor, selecciona una opción en Entrada/Salida.');
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Entrada_Salida').style.border = "none";
+        }
+    
+        if (idMovimiento === '') {
+            document.getElementById('ID_Movimiento').style.border = "5px solid red";
+            alert('Por favor, selecciona una opción en ID Movimiento.');
+            validacionExitosa = false;
+            
+        } else {
+            document.getElementById('ID_Movimiento').style.border = "none";
+        }
+    
+        return validacionExitosa;
     }
+
 });

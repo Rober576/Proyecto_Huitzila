@@ -1,6 +1,6 @@
 
-function obtenerIdNombreInsumos() {
-    fetch('../../controller/Insumos/Obtener_Id_Insumos.php')
+function obtenerIdProductos() {
+    fetch('../../controller/Insumos/Obtener_Id_Productos.php')
     .then(response => {
         if (!response.ok) {
             throw new Error('Ocurrió un error al obtener los datos de los insumos.');
@@ -8,7 +8,7 @@ function obtenerIdNombreInsumos() {
         return response.json();
     })
     .then(data => {
-        llenarListaInsumos(data);
+        llenarListaProductos(data);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -16,25 +16,25 @@ function obtenerIdNombreInsumos() {
 }
 
 
-function llenarListaInsumos(datosInsumos) {
-    const selectInsumos = document.getElementById('Id_insumos');
+function llenarListaProductos(datosProductos) {
+    const selectProductos = document.getElementById('Id_productos');
 
     
-    selectInsumos.innerHTML = '';
+    selectProductos.innerHTML = '';
 
     
     const optionDefault = document.createElement('option');
     optionDefault.value = '';
     optionDefault.textContent = 'Seleccionar opción';
     optionDefault.selected = true; 
-    selectInsumos.appendChild(optionDefault);
+    selectProductos.appendChild(optionDefault);
 
     
-    datosInsumos.forEach(insumo => {
+    datosProductos.forEach(producto => {
         const option = document.createElement('option');
-        option.value = insumo.IDInsumo;
-        option.textContent = `${insumo.IDInsumo} - ${insumo.NombreInsumo}`;
-        selectInsumos.appendChild(option);
+        option.value = producto.IDProducto;
+        option.textContent = `${producto.IDProducto}`;
+        selectProductos.appendChild(option);
         
     });
     
@@ -44,9 +44,9 @@ function llenarListaInsumos(datosInsumos) {
 
 
 function validarFormulario() {
-    const selectInsumos = document.getElementById('Id_insumos');
+    const selectProductos = document.getElementById('Id_productos');
     
-    if (selectInsumos.value === '') {
+    if (selectProductos.value === '') {
         alert('Por favor, seleccione una opción.');
         return false; 
     }
@@ -55,10 +55,10 @@ function validarFormulario() {
 }
 
 
-window.addEventListener('DOMContentLoaded', obtenerIdNombreInsumos);
+window.addEventListener('DOMContentLoaded', obtenerIdProductos);
 
 
-document.getElementById('Entradas_Salidas_insumos_form').addEventListener('submit', function(event) {
+document.getElementById('Entradas_Salidas_productos_form').addEventListener('submit', function(event) {
     
     if (!validarFormulario()) {
         event.preventDefault(); 

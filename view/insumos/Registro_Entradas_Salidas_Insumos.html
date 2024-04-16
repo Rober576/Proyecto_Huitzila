@@ -16,7 +16,7 @@
 
 				<div class="nombre_ventana">
 					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
-					<h1 class="nombre_Ventana">Productos</h1>
+					<h1 class="nombre_Ventana">Insumos</h1>
 				</div>
 
 			</div>
@@ -138,6 +138,7 @@
 					<div class="grupo1">
 						<label class="label_datos" for="Entrada_Salida">Entrada/Salida<span class="campo-obligatorio">*</span>:</label>
 						<select id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
+							<option value="">Selecciona una opción</option>
 							<option value="Entrada">Entrada</option>
 							<option value="Salida">Salida</option>
 						</select>
@@ -147,12 +148,13 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="ID Movimiento">ID movimiento<span class="campo-obligatorio">*</span>:</label>
-						<select name="ID_Movimiento" id="ID_Movimiento">
-							<option value="1">1 - Produccion</option>
+						<select name="ID_Movimiento" id="ID_Movimiento" required>
+							<option value="">Selecciona una opción</option>
+							<option value="1">1 - Producción</option>
 							<option value="2">2 - Devoluciones</option>
-							<option value="3">3 - Cancelacione de venta</option>
+							<option value="3">3 - Cancelaciones de venta</option>
 							<option value="4">4 - Ajustes de inventario</option>
-							<option value="5">5 - Venta</option>
+							<option value="5">5 - Ventas</option>
 							<option value="6">6 - Mermas</option>
 							<option value="7">7 - Traspaso</option>
 						</select>
@@ -200,7 +202,6 @@
 
 	<script src="../../controller/Insumos/js/Registro_Entradas_Salidas_Insumos.js"></script>
 	<script src="../../controller/Insumos/js/Obtener_Id_Insumos.js"></script>
-	<script src="../../view/insumos/js/Valida_Registro_Entradas_Salidas_Insumos.js"></script>
 	<script src="../../controller/Insumos/js/Cancelar_Registro_Entradas_Salidas_Insumos.js"></script>
 </body>
 </html>

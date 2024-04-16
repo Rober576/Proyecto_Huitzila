@@ -124,7 +124,9 @@
 
 					<div class="grupo1">
 						<label class="label_datos" for="ID">ID producto<span class="campo-obligatorio">*</span>:</label>
-						<select type="text" id="Id_productos" name="Id_productos" title="Identificador de los productos." required></select>
+						<select id="Id_productos" name="Id_productos" title="Identificador de los productos." required>
+							<option disabled selected>Seleccionar opción</option>
+						</select>
 					</div>
 
 					
@@ -136,6 +138,7 @@
 					<div class="grupo1">
 						<label class="label_datos" for="Entrada_Salida">Entrada/Salida<span class="campo-obligatorio">*</span>:</label>
 						<select id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
+							<option value="">Selecciona una opción</option>
 							<option value="Entrada">Entrada</option>
 							<option value="Salida">Salida</option>
 						</select>
@@ -146,11 +149,12 @@
 					<div class="grupo1">
 						<label class="label_datos" for="ID Movimiento">ID movimiento<span class="campo-obligatorio">*</span>:</label>
 						<select name="ID_Movimiento" id="ID_Movimiento">
-							<option value="1">1 - Produccion</option>
+							<option value="">Selecciona una opción</option>
+							<option value="1">1 - Producción</option>
 							<option value="2">2 - Devoluciones</option>
-							<option value="3">3 - Cancelacione de venta</option>
+							<option value="3">3 - Cancelaciones de venta</option>
 							<option value="4">4 - Ajustes de inventario</option>
-							<option value="5">5 - Venta</option>
+							<option value="5">5 - Ventas</option>
 							<option value="6">6 - Mermas</option>
 							<option value="7">7 - Traspaso</option>
 						</select>
@@ -197,7 +201,7 @@
     </footer>
 
 	<script src="../../controller/Insumos/js/Registro_Entradas_Salidas_Productos.js"></script>
-	<script src="../../view/insumos/js/Valida_Registro_Entradas_Salidas_Producto.js"></script>
+	<script src="../../controller/Insumos/js/Obtener_Id_Productos.js"></script>
 	<script src="../../controller/Insumos/js/Cancelar_Registro_Entradas_Salidas_Productos.js"></script>
 </body>
 </html>
