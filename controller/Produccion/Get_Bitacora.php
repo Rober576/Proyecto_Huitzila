@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     document.getElementById("lote").value = "<?php echo $lote ?>";
+    document.getElementById("lote").readOnly = true;
     document.getElementById("procedencia").value = "<?php echo $proce?>";
     document.getElementById("costo").value = "<?php echo $costo ?>";
     document.getElementById("fecha").value = "<?php echo $fecha ?>";
