@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('fecIni').value = data['plantacion'].FechaInicio;
             document.getElementById('fecFin').value = data['plantacion'].FechaFinal;
 
-            document.getElementById('predioSem').value = data['nombrePredio'];
+       
             document.getElementById('tipPlanta').value = data['nombrePlanta'];
         });
     }

@@ -84,7 +84,7 @@ class NuevosCampos {
                 $finalPorcentaje = 0;
             } else {
                 // Calcular porcentaje
-                $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $alc_vol)) / ($finalVolumen);
+                $finalVolumen = $inicialVolumen - $volumen;
             }
         }
     

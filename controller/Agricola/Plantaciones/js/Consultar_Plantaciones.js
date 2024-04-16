@@ -3,21 +3,29 @@ function buscar_datos2(consulta) {
     if (consulta !== "") {
         url += '?consulta=' + consulta;
     }
+    // Obtener el valor de predio si está presente en la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var predio = urlParams.get('predio');
+    // Incluir predio en la URL si está definido
+    if (predio) {
+        url += (consulta !== "" ? '&' : '?') + 'predio=' + predio;
+    }
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById("tabla2").innerHTML = xhr.responseText;
-            EventoEliminarP();
-            EventoEditarP();
+            var tabla2 = document.getElementById("tabla2");
+            if (tabla2) {
+                tabla2.innerHTML = xhr.responseText;
+                EventoEliminarP();
+                EventoEditarP();
+            } else {
+                console.log("elementos");
+            }
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
-    };
-
-    xhr.onerror = function() {
-        console.error("Error al realizar la solicitud.");
     };
 
 

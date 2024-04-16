@@ -126,44 +126,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Obtener elementos
+    const contenedorPrincipal = document.getElementById("contenedor-principal");
     const volumenMermaContainer = document.getElementById("volumen_merma");
     const alcVolMermaContainer = document.getElementById("alc_vol_merma");
-    const volumenciaLabel = document.querySelector('label[for="volumen_merma"]');
-    const alcVolLabel = document.querySelector('label[for="alc_vol_merma"]');
-  
-    // Ocultar los elementos al principio
-    volumenMermaContainer.style.display = "none";
-    alcVolMermaContainer.style.display = "none";
-    volumenciaLabel.style.display = "none";
-    alcVolLabel.style.display = "none";
-  
-    // Desactivar el atributo required de los campos ocultos
+    contenedorPrincipal.style.display = "none";
     document.getElementById("volumen_merma").removeAttribute("required");
     document.getElementById("alc_vol_merma").removeAttribute("required");
-  
-    // Agregar evento de cambio al select
+
     document.getElementById("tipo").addEventListener("change", function() {
-      // Mostrar los elementos solo si la opción seleccionada es "merma"
-      if (this.value === "merma") {
-        volumenMermaContainer.style.display = "block";
-        alcVolMermaContainer.style.display = "block";
-        volumenciaLabel.style.display = "block";
-        alcVolLabel.style.display = "block";
-  
-        // Activar el atributo required cuando se muestran los campos
-        document.getElementById("volumen_merma").setAttribute("required", "required");
-        document.getElementById("alc_vol_merma").setAttribute("required", "required");
-      } else {
-        // Ocultar los elementos si no es "merma"
-        volumenMermaContainer.style.display = "none";
-        alcVolMermaContainer.style.display = "none";
-        volumenciaLabel.style.display = "none";
-        alcVolLabel.style.display = "none";
-  
-        // Desactivar el atributo required cuando se ocultan los campos
-        document.getElementById("volumen_merma").removeAttribute("required");
-        document.getElementById("alc_vol_merma").removeAttribute("required");
-      }
+        if (this.value === "merma") {
+            contenedorPrincipal.style.display = "block";
+            document.getElementById("volumen_merma").setAttribute("required", "required");
+            document.getElementById("alc_vol_merma").setAttribute("required", "required");
+        } else {
+            contenedorPrincipal.style.display = "none";
+            document.getElementById("volumen_merma").removeAttribute("required");
+            document.getElementById("alc_vol_merma").removeAttribute("required");
+        }
     });
 });
+

@@ -29,7 +29,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
     if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true ){
         //si es válida se muestra un mensaje de éxito
-        console.log("Registro exitoso");
+        console.log("exitoso");
     }
     else{
         //si no es válida se cancela el envío
@@ -146,8 +146,8 @@ function Validar_Superficie() {
 
 
     // Limitar la longitud a 10 caracteres
-    if (valorInput.length > 5) {
-        valorInput = valorInput.slice(0, 5);
+    if (valorInput.length > 10) {
+        valorInput = valorInput.slice(0, 10);
     }
 
     // Actualizar el valor del campo con los cambios realizados
