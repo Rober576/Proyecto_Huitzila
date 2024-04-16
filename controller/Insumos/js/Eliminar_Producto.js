@@ -8,7 +8,7 @@ function confirmacion(e){
         e.preventDefault();
         var id = $(this).data('id');
 
-        fetch('../../controller/Insumos/Eliminar_Insumo.php?id='+id, {
+        fetch('../../controller/Insumos/Eliminar_Producto.php?id='+id, {
             method: 'GET',
             //id: id
         })
