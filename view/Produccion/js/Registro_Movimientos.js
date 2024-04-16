@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var selectCategoria = document.getElementById('lote');
 
-    fetch('../../controller/Produccion/Obtener_Lote.php?tipo=lote')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -46,7 +46,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     })
-    .catch(error => console.error('Error al obtener categorías:', error));
+    .catch(error => console.error('Error al obtener Lotes:', error));
+
+    var selectTipo = document.getElementById('tipo');
+
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=movimientos')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(item => {
+            var option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+
+            if (selectTipo) {
+                selectTipo.appendChild(option);
+            }
+        });
+    })
+    .catch(error => console.error('Error al obtener tipo Movimientos:', error));
 
     // Responde cuando hay un click en el botón cancelar
     formulario.cancelar.addEventListener('click', function (e) {
@@ -104,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     tipoMovimientoSelect.addEventListener('change', function() {
-        if (tipoMovimientoSelect.value === 'merma') {
+        if (tipoMovimientoSelect.value === 'Merma') {
             vol55Label.textContent = 'Vol a 55% alc.';
             var asterisco = document.createElement('span');
             asterisco.textContent = '*';
@@ -134,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("alc_vol_merma").removeAttribute("required");
 
     document.getElementById("tipo").addEventListener("change", function() {
-        if (this.value === "merma") {
+        if (this.value === "Merma") {
             contenedorPrincipal.style.display = "block";
             document.getElementById("volumen_merma").setAttribute("required", "required");
             document.getElementById("alc_vol_merma").setAttribute("required", "required");

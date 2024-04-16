@@ -56,6 +56,18 @@ class ControladorDatos {
 
         return json_encode($movimiento);
     }
+
+    function obtenerLote() {
+        $query = "SELECT Lote FROM registromezcal";
+        $result = $this->base->mostrar($query);
+    
+        $lotes = array();
+        foreach ($result as $row) {
+            $lotes[] = $row['Lote'];
+        }
+    
+        return json_encode($lotes);
+    }
 }
 
 $controlador = new ControladorDatos();
@@ -71,6 +83,9 @@ switch ($tipo) {
         break;
     case 'movimientos':
         echo $controlador->obtenerMovimientos();
+        break;
+    case 'lote':
+        echo $controlador->obtenerLote();
         break;
         
     default:
