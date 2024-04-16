@@ -1,10 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const idInsumosInput = document.getElementById('Id_productos');
+    const entradaSalidaSelect = document.getElementById('Entrada_Salida');
+    const idMovimientoSelect = document.getElementById('ID_Movimiento');
+
+    entradaSalidaSelect.addEventListener('change', function() {
+        const valorSeleccionado = this.value;
+
+        Array.from(idMovimientoSelect.options).forEach(option => {
+            option.style.display = 'none';
+        });
+
+        
+        if (valorSeleccionado === 'Entrada') {
+            
+            for (let i = 0; i <= 4; i++) {
+                idMovimientoSelect.options[i].style.display = 'block';
+            }
+        } else if (valorSeleccionado === 'Salida') {
+            
+            for (let i = idMovimientoSelect.options.length - 3; i < idMovimientoSelect.options.length; i++) {
+                idMovimientoSelect.options[i].style.display = 'block';
+            }
+        }
+    });
+
+    
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const idInsumosSelect = document.getElementById('Id_productos');
     const costoUnitarioInput = document.getElementById('Costo_Unitario');
     const cantidadInput = document.getElementById('Cantidad');
     const costoTotalInput = document.getElementById('Costo_Total');
 
-    idInsumosInput.addEventListener('blur', function() {
+    idInsumosSelect.addEventListener('change', function() {
         const id = this.value;
         
         fetch(`../../controller/Insumos/Obtener_Entradas_Salidas_Productos.php?id=${id}`)
@@ -19,8 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     const item = data[0]; 
                     costoUnitarioInput.value = item.CostoUltimo;
                     document.getElementById('Id_productos').style.border = "none";
+                    idInsumosSelect.setCustomValidity('');
                 } else {
-                    alert('El insumo con el ID proporcionado no está registrado.');
+                    idInsumosSelect.setCustomValidity('Por favor, seleccione una opción de la lista');
                     document.getElementById('Id_productos').style.border = "5px solid red";
                     costoUnitarioInput.value = '';
                 }
@@ -46,12 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    
 
     document.getElementById('Entradas_Salidas_productos_form').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        
-        if (todasBanderasAceptadas()) {
+        if (validarFormulario()) { 
             var datos = new FormData(this);
 
             fetch("../../controller/Insumos/Registro_Entradas_Salidas_Productos.php", {
@@ -74,9 +106,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-   
-    function todasBanderasAceptadas() {
-        
-        return true;
+    function validarFormulario() {
+        const idInsumos = document.getElementById('Id_productos').value;
+        const fecha = document.getElementById('Fecha').value;
+        const entradaSalida = document.getElementById('Entrada_Salida').value;
+        const destino = document.getElementById('Destino').value;
+        const cantidad = document.getElementById('Cantidad').value;
+        const costoUnitario = document.getElementById('Costo_Unitario').value;
+        const costoTotal = document.getElementById('Costo_Total').value;
+        const idMovimiento = document.getElementById('ID_Movimiento').value;
+    
+        let validacionExitosa = true;
+    
+    
+        if (fecha === '') {
+            validacionExitosa = false;
+        }
+    
+    
+        if (destino === '') {
+            document.getElementById('Destino').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Destino').style.border = "none";
+        }
+    
+        if (cantidad === '') {
+            document.getElementById('Cantidad').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Cantidad').style.border = "none";
+        }
+    
+        if (costoUnitario === '') {
+            alert('Por favor, ingrese un ID de insumos que ya se encuentre registrado en el sistema.');
+            document.getElementById('Id_productos').style.border = "5px solid red";
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Id_productos').style.border = "none";
+        }
+    
+        if (costoTotal === '') {
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Costo_Total').style.border = "none";
+        }
+    
+        if (entradaSalida === '') {
+            document.getElementById('Entrada_Salida').style.border = "5px solid red";
+            alert('Por favor, selecciona una opción en Entrada/Salida.');
+            validacionExitosa = false;
+        } else {
+            document.getElementById('Entrada_Salida').style.border = "none";
+        }
+    
+        if (idMovimiento === '') {
+            document.getElementById('ID_Movimiento').style.border = "5px solid red";
+            alert('Por favor, selecciona una opción en ID Movimiento.');
+            validacionExitosa = false;
+            
+        } else {
+            document.getElementById('ID_Movimiento').style.border = "none";
+        }
+    
+        return validacionExitosa;
     }
+
 });
