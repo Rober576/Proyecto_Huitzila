@@ -37,14 +37,14 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    nombre: /^(?=.*[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9.])[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9\s.]+$/
+    nombre: /^(?=.*[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.])[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s.]+$/
 };
 
 //Función para validar el campo de nombre
 function Validar_Nombre(){
     let valorInput = Formulario.nomPlanta.value;
 
-    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9.\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.\s]/g, '');
 
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 20) {
@@ -69,7 +69,7 @@ function Validar_Nombre(){
 function Validar_Nombre_Cientifico(){
     let valorInput = Formulario.nomCienti.value;
 
-    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9.\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.\s]/g, '');
 
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 20) {
@@ -93,6 +93,10 @@ function Validar_Nombre_Cientifico(){
 //Función para validar el campo de nombre
 function Validar_Descripcion(){
     let valorInput = Formulario.descPla.value;
+
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.,\-_$\s]/g, '');
+
+    
 
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 100) {

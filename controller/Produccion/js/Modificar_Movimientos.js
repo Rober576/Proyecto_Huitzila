@@ -53,7 +53,12 @@ formulario.cancelar.addEventListener('click', function (e){
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
+        var parametrosURL = new URLSearchParams(window.location.search);
+        var lotE = parametrosURL.get('Lote');
+        console.log('lote',lotE)
+        // Redirigir a movimiento_espeficico.html con el parámetro 'lote'
+        location.href = "../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=" + lotE;
+      //window.location.href='../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
     }
 
     
