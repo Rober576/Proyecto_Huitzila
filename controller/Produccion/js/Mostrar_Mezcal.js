@@ -48,9 +48,17 @@ function agregarEventosEliminar() {
                     })
                     .then(res => res.json())
                     .then(data => {
-                        alert(data);
-                        location.reload();
-                    });
+                        console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
+                        if (data === "Lote") {
+                            alert("El lote que desea eliminar tiene movimientos registrados.");
+                            console.error('Error: El lote que desea eliminar tiene movimientos registrados.');
+                        } else if (data === "Eliminado") {
+                            alert("Registro eliminado correctamente.");
+                            location.reload(); // Recargar la página después de la eliminación
+                        } else {
+                            console.error('Error: Respuesta inesperada del servidor.');
+                        }
+                    })                    
             }
         });
     }

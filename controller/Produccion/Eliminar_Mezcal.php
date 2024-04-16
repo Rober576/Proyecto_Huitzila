@@ -7,5 +7,13 @@ $base->instancias();
 
 
 $Lote = isset($_GET['id']) ? $_GET['id'] : null;
-$base->eliminar($Lote);
-echo json_encode('Eliminado con éxito');
+$resultado = $base->eliminar($Lote);
+
+
+// Comprobar el resultado y enviar el mensaje correspondiente
+if ($resultado === true) {
+    echo json_encode('Eliminado');
+} elseif ($resultado === false) {
+    echo json_encode("Lote");
+}
+
