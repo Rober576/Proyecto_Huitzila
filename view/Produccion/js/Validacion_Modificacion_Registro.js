@@ -1,5 +1,4 @@
 console.log('Validacion_Modificacion_Registro');
-
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener el formulario y agregar un listener para el evento 'submit'
     var formulario = document.getElementById('form_ingreso_agave');
@@ -42,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Obtener el select de lote y cargar las opciones desde el servidor
     var selectCategoria = document.getElementById('lote');
-    fetch('../../controller/Produccion/Obtener_Lote.php?tipo=lote')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote')
+    //C:\xampp\htdocs\Proyecto_Huitzila\controller\Produccion\.php
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             selectCategoria.appendChild(option);
         });
     })
-    .catch(error => console.error('Error al obtener categorías:', error));
+   
 });
 document.addEventListener('DOMContentLoaded', function() {
     var tipoSelect = document.getElementById('mov');
@@ -60,14 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var asterisco = document.querySelector('.campo-obligatorio');
     var volAguaInput = document.getElementById('vol_agua');
     var tipoMovimientoSelect = document.getElementById('tipo');
-    var vol55Label = document.querySelector('label[for="alc_vol55"]');
-    var vol55Input = document.getElementById('alc_vol55');
-    vol55Input.disabled = true;
-    vol55Input.style.backgroundColor = 'lightgrey';
+   
 
     const contenedorPrincipal = document.getElementById("contenedor-principal");
     const volumenMermaContainer = document.getElementById("volumen_merma");
     const alcVolMermaContainer = document.getElementById("alc_vol_merma");
+    //const vol55Label = document.querySelector('label[for="alc_vol55"]');
+    const vol55Input = document.getElementById('alc_vol55');
+   
     contenedorPrincipal.style.display = "none";
     volumenMermaContainer.removeAttribute("required");
     alcVolMermaContainer.removeAttribute("required");
@@ -85,31 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         volAguaInput.disabled = false;
         volAguaInput.style.backgroundColor = 'white';
        
-        if (tipoMovimientoSelect.value === 'Merma') {
-            console.log("ENTRAS A MERMA ")
-            vol55Label.textContent = 'Vol a 55% alc.';
-            var asterisco = document.createElement('span');
-            asterisco.textContent = '*';
-            asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = false;
-            vol55Input.style.backgroundColor = 'white'; 
-            contenedorPrincipal.style.display = "block";
-            volumenMermaContainer.setAttribute("required", "required");
-            alcVolMermaContainer.setAttribute("required", "required");// Restaurar color original
-        } else {
-            vol55Label.textContent = 'Vol a 55% alc.';
-            var asterisco = document.createElement('span');
-            asterisco.textContent = '*';
-            asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = true;
-            vol55Input.style.backgroundColor = 'lightgrey'; 
-            vol55Input.value = '';
-            contenedorPrincipal.style.display = "none";
-            volumenMermaContainer.removeAttribute("required");
-            alcVolMermaContainer.removeAttribute("required");
-        }
+       
         
     } else if (tipoSelect.value === 'salida') {
         console.log("por la salida")
@@ -123,31 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         volAguaInput.disabled = true;
         volAguaInput.style.backgroundColor = 'lightgrey'; 
         volAguaInput.value = '';
-        if (tipoMovimientoSelect.value === 'merma') {
-            console.log("ENTRAS A MERMA ")
-            vol55Label.textContent = 'Vol a 55% alc.';
-            var asterisco = document.createElement('span');
-            asterisco.textContent = '*';
-            asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = false;
-            vol55Input.style.backgroundColor = 'white'; 
-            contenedorPrincipal.style.display = "block";
-            volumenMermaContainer.setAttribute("required", "required");
-            alcVolMermaContainer.setAttribute("required", "required");// Restaurar color original
-        } else {
-            vol55Label.textContent = 'Vol a 55% alc.';
-            var asterisco = document.createElement('span');
-            asterisco.textContent = '*';
-            asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = true;
-            vol55Input.style.backgroundColor = 'lightgrey'; 
-            vol55Input.value = '';
-            contenedorPrincipal.style.display = "none";
-            volumenMermaContainer.removeAttribute("required");
-            alcVolMermaContainer.removeAttribute("required");
-        }
         
     }
     
@@ -186,23 +137,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     tipoMovimientoSelect.addEventListener('change', function() {
-        if (tipoMovimientoSelect.value === 'merma') {
-            vol55Label.textContent = 'Vol a 55% alc.';
+        if (tipoMovimientoSelect.value === 'Merma') {
             var asterisco = document.createElement('span');
             asterisco.textContent = '*';
             asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = false;
-            vol55Input.style.backgroundColor = 'white'; // Restaurar color original
+            
         } else {
-            vol55Label.textContent = 'Vol a 55% alc.';
             var asterisco = document.createElement('span');
             asterisco.textContent = '*';
             asterisco.classList.add('campo-obligatorio');
-            vol55Label.appendChild(asterisco);
-            vol55Input.disabled = true;
-            vol55Input.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
-            vol55Input.value = ''; // Vaciar el campo si no es "merma"
         }
     });
 
@@ -214,15 +157,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const contenedorPrincipal = document.getElementById("contenedor-principal");
     const volumenMermaContainer = document.getElementById("volumen_merma");
     const alcVolMermaContainer = document.getElementById("alc_vol_merma");
+    const vol55Input = document.getElementById('alc_vol55');
+   
     contenedorPrincipal.style.display = "none";
     volumenMermaContainer.removeAttribute("required");
     alcVolMermaContainer.removeAttribute("required");
-
+    vol55Input.removeAttribute("required");
     document.getElementById("tipo").addEventListener("change", function() {
         if (this.value === "Merma") {
             contenedorPrincipal.style.display = "block";
             volumenMermaContainer.setAttribute("required", "required");
             alcVolMermaContainer.setAttribute("required", "required");
+            vol55Input.setAttribute("required", "required");
         } else {
             contenedorPrincipal.style.display = "none";
             volumenMermaContainer.removeAttribute("required");

@@ -1,7 +1,7 @@
 <?php
 include('../../config/Crud_bd.php');
 class  modificarMez extends Crud_bd{
-    public function actualizar($lote2,$numero,$fecha,$tipo,$procedencia,$movimiento, $volumen,$volumen2, $concentracion,$alc_vol_merma,$volumen_merma){
+    public function actualizar($lote2,$numero,$fecha,$tipo,$procedencia,$movimiento, $volumen,$volumen2, $concentracion,$volumen3,$alc_vol_merma,$volumen_merma){
         $this->conexion_bd();
         
         // Obtener los IDs de clase y categoría
@@ -14,7 +14,7 @@ class  modificarMez extends Crud_bd{
 
         $consulta = "UPDATE movimientomezcal SET IdMovimiento=:idMovimiento ,Fecha=:fecha,
         EntradaSalida=:tipo,DestinoProcedencia=:procedencia, Volumen=:volumen , PorcentajeAlcohol=:concentracion,
-        VolumenAgua=:volumen2 ,MermasVolumen=:volumen_merma, MermasPorcentaje=:alc_vol_merma
+        VolumenAgua=:volumen2 ,Volumen55=:volumen3, MermasVolumen=:volumen_merma, MermasPorcentaje=:alc_vol_merma
                     WHERE Lote=:lote and NumeroMovimiento=:numero";
         
         $parametros = [
@@ -27,6 +27,7 @@ class  modificarMez extends Crud_bd{
             ":volumen" => $volumen,
             ":volumen2"=>$volumen2,
             ":concentracion"=>$concentracion,
+            ":volumen3"=>$volumen3,
             ":alc_vol_merma"=>$alc_vol_merma,
             ":volumen_merma"=>$volumen_merma
 
