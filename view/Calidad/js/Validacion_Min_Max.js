@@ -31,27 +31,27 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 
 const expresion = {
-    Valor_min_alcohol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_alcohol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_extraseco: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_extraseco: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_meta: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_meta: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_alcoholsup: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_alcoholsup: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_aldehidos: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_aldehidos: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_furfural: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_furfural: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_plomo: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_plomo: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_min_arsenico: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Valor_max_arsenico: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ALCVolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ALCVolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ExtractoSecoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ExtractoSecoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    MetanolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    MetanolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    AlcoholesSuperioresMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    AlcoholesSuperioresMax	: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    AldehidosMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    AldehidosMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    FurfuralMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    FurfuralMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    PlomoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    PlomoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ArsenicoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ArsenicoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
    
 }
 
-var min_alcohol = document.getElementById('min_alc');
-var max_alcohol = document.getElementById('max_alc');
+var min_alcohol = document.getElementById('min_alcohol');
+var max_alcohol = document.getElementById('max_alcohol');
 var min_ext_seco = document.getElementById('min_ext_seco');
 var max_ext_seco = document.getElementById('max_ext_seco');
 var min_metanol = document.getElementById('min_metanol');
@@ -71,11 +71,11 @@ min_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_alcohol.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_alcohol.test(valorInput)) {
+    if (!expresion.ALCVolMin.test(valorInput)) {
         min_alcohol.style.border = "5px solid red";
         bandera1 = false;
     }
@@ -90,18 +90,18 @@ max_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_alcohol.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_max_alcohol.test(valorInput)) {
+    if (!expresion.ALCVolMax.test(valorInput)) {
         max_alcohol.style.border = "5px solid red";
-        bandera1 = false;
+        bandera2 = false;
     }
 
     else {
         max_alcohol.removeAttribute("style");
-        bandera1 = true;
+        bandera2 = true;
     }
 });
 
@@ -112,18 +112,18 @@ min_ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_ext_seco.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_extraseco.test(valorInput)) {
+    if (!expresion.ExtractoSecoMin.test(valorInput)) {
         min_ext_seco.style.border = "5px solid red";
-        bandera1 = false;
+        bandera3 = false;
     }
 
     else {
         min_ext_seco.removeAttribute("style");
-        bandera1 = true;
+        bandera3 = true;
     }
 });
 
@@ -131,18 +131,18 @@ max_ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_ext_seco.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
     if (!expresion.Valor_max_extraseco.test(valorInput)) {
         max_ext_seco.style.border = "5px solid red";
-        bandera1 = false;
+        bandera4 = false;
     }
 
     else {
         max_ext_seco.removeAttribute("style");
-        bandera1 = true;
+        bandera4 = true;
     }
 });
 
@@ -151,18 +151,18 @@ min_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_metanol.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_meta.test(valorInput)) {
+    if (!expresion.MetanolMin.test(valorInput)) {
         min_metanol.style.border = "5px solid red";
-        bandera1 = false;
+        bandera5 = false;
     }
 
     else {
         min_metanol.removeAttribute("style");
-        bandera1 = true;
+        bandera5 = true;
     }
 });
 
@@ -170,18 +170,18 @@ max_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_metanol.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_max_meta.test(valorInput)) {
+    if (!expresion.MetanolMax.test(valorInput)) {
         max_metanol.style.border = "5px solid red";
-        bandera1 = false;
+        bandera6 = false;
     }
 
     else {
         max_metanol.removeAttribute("style");
-        bandera1 = true;
+        bandera6 = true;
     }
 });
 
@@ -190,18 +190,18 @@ min_alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_alc_sup.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_alcoholsup.test(valorInput)) {
+    if (!expresion.AlcoholesSuperioresMin.test(valorInput)) {
         min_alc_sup.style.border = "5px solid red";
-        bandera1 = false;
+        bandera7 = false;
     }
 
     else {
         min_alc_sup.removeAttribute("style");
-        bandera1 = true;
+        bandera7 = true;
     }
 });
 
@@ -209,18 +209,18 @@ max_alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_alc_sup.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_max_alcoholsup.test(valorInput)) {
+    if (!expresion.AlcoholesSuperioresMax.test(valorInput)) {
         max_alc_sup.style.border = "5px solid red";
-        bandera1 = false;
+        bandera8 = false;
     }
 
     else {
         max_alc_sup.removeAttribute("style");
-        bandera1 = true;
+        bandera8 = true;
     }
 });
 
@@ -229,18 +229,18 @@ min_aldehidos.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_aldehidos.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_aldehidos.test(valorInput)) {
+    if (!expresion.AldehidosMin.test(valorInput)) {
         min_aldehidos.style.border = "5px solid red";
-        bandera1 = false;
+        bandera9 = false;
     }
 
     else {
         min_aldehidos.removeAttribute("style");
-        bandera1 = true;
+        bandera9 = true;
     }
 });
 
@@ -248,18 +248,18 @@ max_aldehidos.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_aldehidos.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_max_aldehidos.test(valorInput)) {
+    if (!expresion.AldehidosMax.test(valorInput)) {
         max_aldehidos.style.border = "5px solid red";
-        bandera1 = false;
+        bandera10 = false;
     }
 
     else {
         max_aldehidos.removeAttribute("style");
-        bandera1 = true;
+        bandera10 = true;
     }
 });
 
@@ -268,18 +268,18 @@ min_furfural.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     min_furfural.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_min_furfural.test(valorInput)) {
+    if (!expresion.FurfuralMin.test(valorInput)) {
         min_furfural.style.border = "5px solid red";
-        bandera1 = false;
+        bandera11 = false;
     }
 
     else {
         min_furfural.removeAttribute("style");
-        bandera1 = true;
+        bandera11 = true;
     }
 });
 
@@ -287,18 +287,18 @@ max_furfural.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     max_furfural.value = valorInput
 
-    .replace(/[^a-zA-Z0-9]/g, '')
+    .replace(/[^0-9.]/g, '')
     .trim();
 
 
-    if (!expresion.Valor_max_furfural.test(valorInput)) {
+    if (!expresion.	FurfuralMax.test(valorInput)) {
         max_furfural.style.border = "5px solid red";
-        bandera1 = false;
+        bandera12 = false;
     }
 
     else {
         max_furfural.removeAttribute("style");
-        bandera1 = true;
+        bandera12 = true;
     }
 });
 
@@ -311,12 +311,12 @@ min_plomo.addEventListener('keyup', (e) => {
     .trim();
 
 
-    if (!expresion.Valor_min_plomo.test(valorInput)) {
+    if (!expresion.PlomoMin.test(valorInput)) {
         min_plomo.style.border = "5px solid red";
-        bandera2 = false;
+        bandera13 = false;
     } else {
         min_plomo.removeAttribute("style");
-        bandera2 = true;
+        bandera13 = true;
     }
 });
 
@@ -330,12 +330,12 @@ max_plomo.addEventListener('keyup', (e) => {
     .trim();
 
 
-    if (!expresion.Valor_max_plomo.test(valorInput)) {
+    if (!expresion.PlomoMax.test(valorInput)) {
         max_plomo.style.border = "5px solid red";
-        bandera2 = false;
+        bandera14 = false;
     } else {
         max_plomo.removeAttribute("style");
-        bandera2 = true;
+        bandera14 = true;
     }
 });
 
@@ -349,10 +349,10 @@ min_arsenico.addEventListener('keyup', (e) => {
 
     if (!expresion.Valor_min_arsenico.test(valorInput)) {
         min_arsenico.style.border = "5px solid red";
-        bandera3 = false;
+        bandera15 = false;
     } else {
         min_arsenico.removeAttribute("style");
-        bandera3 = true;
+        bandera15 = true;
     }
 });
 
@@ -365,11 +365,11 @@ max_arsenico.addEventListener('keyup', (e) => {
     .replace(/[^0-9.]/g, '')
     .trim();
 
-    if (!expresion.Valor_max_arsenico.test(valorInput)) {
+    if (!expresion.ArsenicoMax.test(valorInput)) {
         max_arsenico.style.border = "5px solid red";
-        bandera3 = false;
+        bandera16 = false;
     } else {
         max_arsenico.removeAttribute("style");
-        bandera3 = true;
+        bandera16 = true;
     }
 });
