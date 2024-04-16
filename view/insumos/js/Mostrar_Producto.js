@@ -67,8 +67,23 @@ function mostrarDatos(datos){
     
             var acciones = document.createElement('td')
             var link_eliminar = document.createElement('Button')
+            link_eliminar.style.background = '#1d4d25';
+            link_eliminar.style.color = 'white';
+            link_eliminar.style.border = 'none';
+            link_eliminar.style.fontFamily = 'FuentePrincipal, sans-serif';
+            link_eliminar.style.fontSize = '16px';
+            link_eliminar.style.padding = '5px 12px';
+            link_eliminar.style.borderRadius = '5px';
+
             var link_editar = document.createElement('Button')
-            link_editar.classList.add ('boton_registrar');
+            link_editar.style.background = '#1d4d25';
+            link_editar.style.color = 'white';
+            link_editar.style.border = 'none';
+            link_editar.style.fontFamily = 'FuentePrincipal, sans-serif';
+            link_editar.style.fontSize = '16px';
+            link_editar.style.padding = '5px 12px';
+            link_editar.style.borderRadius = '5px';
+
 
             id_col.innerHTML = datos[i][0]
             row.appendChild(id_col);
@@ -88,6 +103,9 @@ function mostrarDatos(datos){
             link_eliminar.innerHTML = "Eliminar";
             link_eliminar.href = "../../controller/Insumos/Eliminar_Producto.php?id="+datos[i][0];
             acciones.appendChild(link_eliminar);
+
+            acciones.appendChild(document.createElement('br'));
+            acciones.appendChild(document.createElement('br'));
     
             link_editar.innerHTML = "Editar";
             link_editar.href = "../../controller/Insumos/Modificar_Producto.php?id="+datos[i][0];
