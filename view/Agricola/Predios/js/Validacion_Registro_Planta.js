@@ -94,6 +94,10 @@ function Validar_Nombre_Cientifico(){
 function Validar_Descripcion(){
     let valorInput = Formulario.descPla.value;
 
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.,\-_$\s]/g, '');
+
+    
+
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 100) {
         valorInput = valorInput.slice(0, 100);
