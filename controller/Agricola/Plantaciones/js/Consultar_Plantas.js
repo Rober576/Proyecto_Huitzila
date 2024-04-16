@@ -59,8 +59,42 @@ function EventoEliminar() {
         botonesEliminar[j].addEventListener('click', function(e) {
             var id = e.target.id;
             console.log(id);
-        }
-            );
+            fetch('../../../controller/Agricola/Plantaciones/php/Eliminar_Planta.php?id=' + id, {
+                method: 'GET',
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data === "SiSePuede") {
+                    confirmarEliminacion(id);
+
+                } else if (data === "NoSePuedeEliminar") {
+                    alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+                }
+            })
+            .catch(error => console.error('Error al procesar la solicitud:', error));
+        });
+    }
+}
+
+
+function confirmarEliminacion(id) {
+    // Preguntar al usuario si está seguro de eliminar el registro
+    if (confirm('¿Estás seguro de eliminar la plantación?')) {
+        // Realizar la solicitud fetch al script PHP para eliminar el registro
+        fetch('../../../controller/Agricola/Plantaciones/php/Eliminar_Planta_Confirmacion.php?id=' + id, {
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            alert('Eliminado con éxito');
+            location.reload(); // Recargar la página después de eliminar el registro
+        })
+        .catch(error => {
+            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+        });
+    } else {
+        // Si el usuario cancela, no se hace nada
     }
 }
 
