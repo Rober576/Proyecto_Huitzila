@@ -53,16 +53,107 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     })
     .catch(error => console.error('Error al obtener categorías:', error));
-
-    // Función para manejar el cambio en el tipo de movimiento (entrada/salida)
+});
+document.addEventListener('DOMContentLoaded', function() {
     var tipoSelect = document.getElementById('mov');
     var procedenciaLabel = document.querySelector('label[for="procedencia"]');
     var asterisco = document.querySelector('.campo-obligatorio');
-    
     var volAguaInput = document.getElementById('vol_agua');
     var tipoMovimientoSelect = document.getElementById('tipo');
     var vol55Label = document.querySelector('label[for="alc_vol55"]');
     var vol55Input = document.getElementById('alc_vol55');
+    vol55Input.disabled = true;
+    vol55Input.style.backgroundColor = 'lightgrey';
+
+    const contenedorPrincipal = document.getElementById("contenedor-principal");
+    const volumenMermaContainer = document.getElementById("volumen_merma");
+    const alcVolMermaContainer = document.getElementById("alc_vol_merma");
+    contenedorPrincipal.style.display = "none";
+    volumenMermaContainer.removeAttribute("required");
+    alcVolMermaContainer.removeAttribute("required");
+    
+    // Función para manejar el cambio en el tipo de movimiento (merma/otros)
+        
+    if (tipoSelect.value === 'entrada') {
+        console.log("por la entrada")
+        procedenciaLabel.textContent = 'Procedencia';
+        asterisco.classList.add('campo-obligatorio');
+        var nuevoAsterisco = document.createElement('span');
+        nuevoAsterisco.textContent = '*';
+        nuevoAsterisco.classList.add('campo-obligatorio');
+        procedenciaLabel.appendChild(nuevoAsterisco);
+        volAguaInput.disabled = false;
+        volAguaInput.style.backgroundColor = 'white';
+       
+        if (tipoMovimientoSelect.value === 'Merma') {
+            console.log("ENTRAS A MERMA ")
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = false;
+            vol55Input.style.backgroundColor = 'white'; 
+            contenedorPrincipal.style.display = "block";
+            volumenMermaContainer.setAttribute("required", "required");
+            alcVolMermaContainer.setAttribute("required", "required");// Restaurar color original
+        } else {
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = true;
+            vol55Input.style.backgroundColor = 'lightgrey'; 
+            vol55Input.value = '';
+            contenedorPrincipal.style.display = "none";
+            volumenMermaContainer.removeAttribute("required");
+            alcVolMermaContainer.removeAttribute("required");
+        }
+        
+    } else if (tipoSelect.value === 'salida') {
+        console.log("por la salida")
+        procedenciaLabel.textContent = 'Destino';
+        asterisco.classList.add('campo-obligatorio');
+        var nuevoAsterisco = document.createElement('span');
+        nuevoAsterisco.textContent = '*';
+        nuevoAsterisco.classList.add('campo-obligatorio');
+        procedenciaLabel.appendChild(nuevoAsterisco);
+
+        volAguaInput.disabled = true;
+        volAguaInput.style.backgroundColor = 'lightgrey'; 
+        volAguaInput.value = '';
+        if (tipoMovimientoSelect.value === 'merma') {
+            console.log("ENTRAS A MERMA ")
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = false;
+            vol55Input.style.backgroundColor = 'white'; 
+            contenedorPrincipal.style.display = "block";
+            volumenMermaContainer.setAttribute("required", "required");
+            alcVolMermaContainer.setAttribute("required", "required");// Restaurar color original
+        } else {
+            vol55Label.textContent = 'Vol a 55% alc.';
+            var asterisco = document.createElement('span');
+            asterisco.textContent = '*';
+            asterisco.classList.add('campo-obligatorio');
+            vol55Label.appendChild(asterisco);
+            vol55Input.disabled = true;
+            vol55Input.style.backgroundColor = 'lightgrey'; 
+            vol55Input.value = '';
+            contenedorPrincipal.style.display = "none";
+            volumenMermaContainer.removeAttribute("required");
+            alcVolMermaContainer.removeAttribute("required");
+        }
+        
+    }
+    
+
+    
+
 
     tipoSelect.addEventListener('change', function() {
         if (tipoSelect.value === 'entrada') {
@@ -72,7 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
             nuevoAsterisco.textContent = '*';
             nuevoAsterisco.classList.add('campo-obligatorio');
             procedenciaLabel.appendChild(nuevoAsterisco);
+
+            // Desbloquear la entrada de texto
             volAguaInput.disabled = false;
+            volAguaInput.style.backgroundColor = 'white'; // Restaurar color original
         } else if (tipoSelect.value === 'salida') {
             procedenciaLabel.textContent = 'Destino';
             asterisco.classList.add('campo-obligatorio');
@@ -80,12 +174,17 @@ document.addEventListener('DOMContentLoaded', function() {
             nuevoAsterisco.textContent = '*';
             nuevoAsterisco.classList.add('campo-obligatorio');
             procedenciaLabel.appendChild(nuevoAsterisco);
+
+            // Bloquear la entrada de texto
             volAguaInput.disabled = true;
+            volAguaInput.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
+
+            // Si hay información en el campo de texto, borrarla
             volAguaInput.value = '';
         }
     });
 
-    // Función para manejar el cambio en el tipo de movimiento (merma/otros)
+
     tipoMovimientoSelect.addEventListener('change', function() {
         if (tipoMovimientoSelect.value === 'merma') {
             vol55Label.textContent = 'Vol a 55% alc.';
@@ -94,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = false;
+            vol55Input.style.backgroundColor = 'white'; // Restaurar color original
         } else {
             vol55Label.textContent = 'Vol a 55% alc.';
             var asterisco = document.createElement('span');
@@ -101,10 +201,15 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = true;
-            vol55Input.value = '';
+            vol55Input.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
+            vol55Input.value = ''; // Vaciar el campo si no es "merma"
         }
     });
 
+    // Función para manejar el cambio en el tipo de movimiento (merma/otros)
+}); 
+
+document.addEventListener("DOMContentLoaded", function() {
     // Función para mostrar u ocultar el contenedor de volumen y alcohol
     const contenedorPrincipal = document.getElementById("contenedor-principal");
     const volumenMermaContainer = document.getElementById("volumen_merma");
@@ -124,12 +229,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alcVolMermaContainer.removeAttribute("required");
         }
     });
-
-    // Responder al botón cancelar
-    /*formulario.cancelar.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (confirm("Los cambios realizados no se guardarán, ¿desea continuar?")) {
-            window.location.href = 'Mostrar_Mezcal.html';
-        }
-    });*/
 });
