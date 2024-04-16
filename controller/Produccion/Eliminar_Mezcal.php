@@ -15,7 +15,7 @@ $eliminado = $base->eliminar($Lote);
 // Verificar si se eliminó correctamente
 if ($eliminado) {
     // Si se eliminó correctamente, devolver un mensaje de éxito
-    echo json_encode(array('mensaje' => 'Eliminado con éxito'));
+    echo json_encode('Eliminado con éxito');
 } else {
     // Si hubo un problema al eliminar, devolver un mensaje de error
     echo json_encode(array('error' => 'No se pudo eliminar el registro'));
