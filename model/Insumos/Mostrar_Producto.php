@@ -26,7 +26,13 @@ class Mostrar{
         
         return $resultados;
     }
-
+    
+    function getProducto($id){
+        $querry = "SELECT * FROM productoterminado WHERE IDProducto = :id";
+        $array = [":id"=>$id];
+        $resultados = $this->base->mostrar($querry, $array);
+        return $resultados;
+    }
     
 }
 ?>

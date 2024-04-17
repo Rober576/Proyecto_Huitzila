@@ -108,7 +108,7 @@ function mostrarDatos(datos){
             acciones.appendChild(document.createElement('br'));
     
             link_editar.innerHTML = "Editar";
-            link_editar.href = "../../controller/Insumos/Modificar_Producto.php?id="+datos[i][0];
+            link_editar.href = "../../controller/Insumos/Get_Producto.php?id="+datos[i][0];
             acciones.appendChild(link_editar);
     
             row.appendChild(acciones);

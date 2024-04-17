@@ -120,34 +120,49 @@
 			<br>
 
 			<form class="formulario" id="insumos_form">
-				
 				<div class="formulario-colum">
+				
 					<div class="grupo1">
 						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required>
+						<input type="text" id="Identificador" name="Identificador" readonly
+						title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required maxlength="40">
 					</div>
 					
-					<div class="grupo1">
-						<label class="label_datos" for="Nombre">Nombre<span class="campo-obligatorio">*</span>:</label>
-						<input type="text" id="Nombre" name="Nombre" title="Nombre del insumo de hasta 50 caracteres incluyendo letras, números y símbolos '.'" required>
-					</div>
-				
+					
+					
 					<div class="grupo1">
 						<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span>:</label>
 						<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (Conformado por caracteres enteros)." required>
-					</div>
+					</div>	
 					
 					<div class="grupo1">
 						<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span>:</label>
 						<input type="number" id="Stockma" name="Stockma" title="Cantidad máxima del insumo (Conformado por caracteres enteros)." required>
 					</div>
+
+					<div class="grupo1">
+						<label class="label_datos" for="CProm">Costo promocional<span class="campo-obligatorio">*</span>:</label>
+						<input type="text" id="CProm" name="CProm" title="Costo promocional (Conformado por números y un punto decimal)." required>
+					</div>
+
+					<div class="grupo1">
+						<label class="label_datos" for="UCosto">Último costo<span class="campo-obligatorio">*</span>:</label>
+						<input type="text" id="UCosto" name="UCosto" title="Último costo (Conformado por números y un punto decimal." required>
+					</div>
+
+					<div class="grupo1">
+						<label class="label_datos" for="cantidad">cantidad<span class="campo-obligatorio">*</span>:</label>
+						<input type="number" id="cantidad" name="cantidad" title="Cantidad actual del insumo (Conformado por caracteres enteros)." required>
+					</div>
+					
+	
 				</div>
-				
-				<div class="grupo1">
-					<label class="label_datos" for="Nombre">Descripción</label>
-					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
-				</div>
-				
+					<div class="grupo1">
+						<label class="label_datos" for="Nombre">Descripción</label>
+						<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
+					</div>
+
+			</div>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
@@ -156,12 +171,16 @@
 					</div>
 				</div>
 			</form>
-        </section> 
+		
+		</section>
+        
     </main>
 
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+
+	<script src="../../view/insumos/js/Valida_Reg_Producto.js"></script>
 </body>
 </html>
