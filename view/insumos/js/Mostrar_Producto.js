@@ -75,7 +75,7 @@ function mostrarDatos(datos){
             link_eliminar.style.padding = '5px 12px';
             link_eliminar.style.borderRadius = '5px';
 
-            var link_editar = document.createElement('Button')
+            var link_editar = document.createElement('a')
             link_editar.style.background = '#1d4d25';
             link_editar.style.color = 'white';
             link_editar.style.border = 'none';
@@ -83,6 +83,7 @@ function mostrarDatos(datos){
             link_editar.style.fontSize = '16px';
             link_editar.style.padding = '5px 12px';
             link_editar.style.borderRadius = '5px';
+            link_editar.style.textDecoration = 'none';
 
 
             id_col.innerHTML = datos[i][0]
