@@ -9,7 +9,7 @@ console.log("entro a Validacion_Modificacion.js")
 
 
 const expresiones = {
-    procedencia:/^[a-zA-ZÁ-Ýá-ý0-9.-\s#]{1,50}$/,
+    procedencia:/^[a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\s#\-]{1,50}$/,
     costo1:/^[0-9.\s]{1,20}$/,
     volumen:/^[0-9.\s]{1,15}$/,
     alc_vol:/^[0-9.\s]{1,15}$/,
@@ -30,11 +30,10 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
 
     form_ingreso_agave.procedencia.value = valorInput
         // Eliminar caracteres especiales excepto los permitidos
-        .replace(/[^a-zA-ZÁ-Ýá-ý0-9.\s-]/g, '')
-        // Eliminar espacios en blanco
-        .replace(/\s/g, '')
-        // Eliminar el último espaciado
-        .trim();
+        .replace(/[^a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\s#\-/,]/g, '')
+        // Reemplazar más de un espacio en blanco por solo un espacio
+        .replace(/\s{2,}/g, ' ')
+        .replace(/#+/g, '#');
 
     if (!expresiones.procedencia.test(valorInput)) {
         form_ingreso_agave.procedencia.style.border = "3px solid red";
