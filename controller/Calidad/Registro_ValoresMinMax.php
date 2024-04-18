@@ -18,7 +18,7 @@ $PlomoMax = $_POST["PlomoMax"];
 $ArsenicoMin = $_POST["ArsenicoMin"];
 $ArsenicoMax = $_POST["ArsenicoMax"];
 
-$calidad = new Registro();
+$calidad = new Registro_MinMax();
 $calidad->conexion();
 $calidad->insertar($ID, $ALCVolMin, $ALCVolMax, $ExtractoSecoMin, $ExtractoSecoMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax, $AldehidosMin, $AldehidosMax, $FurfuralMin, $FurfuralMax, $PlomoMin, $PlomoMax, $ArsenicoMin, $ArsenicoMax);
 ?>
