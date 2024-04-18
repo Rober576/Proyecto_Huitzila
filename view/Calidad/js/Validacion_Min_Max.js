@@ -30,7 +30,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 
 const expresion = {
-    ALCVolMin: /^\d{1,8}(\.\d{1,2})$/,
+    ALCVolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/ ,
     ALCVolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ExtractoSecoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ExtractoSecoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
@@ -94,12 +94,12 @@ max_alcohol.addEventListener('keyup', (e) => {
 
     if (!expresion.ALCVolMax.test(valorInput)) {
         max_alcohol.style.border = "5px solid red";
-        bandera1 = false;
+        bandera2 = false;
     }
 
     else {
         max_alcohol.removeAttribute("style");
-        bandera1 = true;
+        bandera2 = true;
     }
 });
 
