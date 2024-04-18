@@ -1,10 +1,17 @@
 <?php
-include_once('../../model/Insumos/Eliminar_produ_model.php');
+include_once("../../model/Insumos/Eliminar_Producto.php");
 
-// Instancia de la clase del modelo para eliminar insumos
-$base = new Eliminar_Campos();
+$id = $_GET['id'];
+$base = new EliminarProducto();
 $base->instancias();
+$movimiento = $base->buscarMovimiento($id);
 
-$base->eliminar($_GET['id']);
-echo json_encode('Eliminado con éxito');
+if($movimiento == true){
+    echo json_encode("movimientos");
+}
+
+else{
+    $base->eliminar($id);
+    echo json_encode("exito");
+}
 ?>

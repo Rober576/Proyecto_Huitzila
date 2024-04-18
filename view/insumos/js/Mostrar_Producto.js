@@ -66,7 +66,7 @@ function mostrarDatos(datos){
             var smin_col = document.createElement('td');
     
             var acciones = document.createElement('td')
-            var link_eliminar = document.createElement('Button')
+            var link_eliminar = document.createElement('a')
             link_eliminar.style.background = '#1d4d25';
             link_eliminar.style.color = 'white';
             link_eliminar.style.border = 'none';
@@ -74,8 +74,9 @@ function mostrarDatos(datos){
             link_eliminar.style.fontSize = '16px';
             link_eliminar.style.padding = '5px 12px';
             link_eliminar.style.borderRadius = '5px';
+            link_eliminar.style.textDecoration = 'none';
 
-            var link_editar = document.createElement('Button')
+            var link_editar = document.createElement('a')
             link_editar.style.background = '#1d4d25';
             link_editar.style.color = 'white';
             link_editar.style.border = 'none';
@@ -83,6 +84,7 @@ function mostrarDatos(datos){
             link_editar.style.fontSize = '16px';
             link_editar.style.padding = '5px 12px';
             link_editar.style.borderRadius = '5px';
+            link_editar.style.textDecoration = 'none';
 
 
             id_col.innerHTML = datos[i][0]
@@ -99,16 +101,54 @@ function mostrarDatos(datos){
             row.appendChild(smax_col);
             smin_col.innerHTML = datos[i][6];
             row.appendChild(smin_col);
+
+            console.log("link_eliminar:", link_eliminar);
+
             
             link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.href = "../../controller/Insumos/Eliminar_Producto.php?id="+datos[i][0];
+            link_eliminar.dataset.id = datos[i][0];
+
+            link_eliminar.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace siga el href
+
+            if (confirm('¿Estás seguro de eliminar el registro?')) {
+                // Obtiene el ID del atributo 'data' del enlace
+                const id = this.dataset.id;
+
+                // Realiza la solicitud fetch para eliminar el registro
+                fetch("../../controller/Insumos/Eliminar_Producto.php?id=" + id, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    if(data === 'exito'){
+                        alert('Eliminado con éxito');
+                        window.location.reload();
+                    }
+
+                    else if(data === 'movimientos'){
+                        alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
+                    }
+
+                    else{
+                        alert(data)
+                    }
+                    
+                })
+                .catch(error => {
+                    console.error('Error al eliminar el registro:', error);
+                });
+            }
+        });
+
             acciones.appendChild(link_eliminar);
 
             acciones.appendChild(document.createElement('br'));
             acciones.appendChild(document.createElement('br'));
     
             link_editar.innerHTML = "Editar";
-            link_editar.href = "../../controller/Insumos/Modificar_Producto.php?id="+datos[i][0];
+            link_editar.href = "../../controller/Insumos/Get_Producto.php?id="+datos[i][0];
             acciones.appendChild(link_editar);
     
             row.appendChild(acciones);
