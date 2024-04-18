@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var asterisco = document.querySelector('.campo-obligatorio');
     var volAguaInput = document.getElementById('vol_agua');
     var tipoMovimientoSelect = document.getElementById('tipo');
+    console.log("tipo",tipoMovimientoSelect.value)
    
 
     const contenedorPrincipal = document.getElementById("contenedor-principal");
@@ -71,8 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
     contenedorPrincipal.style.display = "none";
     volumenMermaContainer.removeAttribute("required");
     alcVolMermaContainer.removeAttribute("required");
-    
-    // Función para manejar el cambio en el tipo de movimiento (merma/otros)
         
     if (tipoSelect.value === 'entrada') {
         console.log("por la entrada")

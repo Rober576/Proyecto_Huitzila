@@ -10,6 +10,7 @@ if(isset($_GET["Lote"]) && isset($_GET["NumeroMovimiento"])) {
     $lote = $_GET["Lote"];
     $numeroMovimiento = $_GET["NumeroMovimiento"];
     
+    
     // Luego llamas a la función buscar_datos_GET pasando $id y $numeroMovimiento
     $resultado = $resultado = $objeto->buscar_datos_Get($lote, $numeroMovimiento);
 } else {
@@ -25,11 +26,12 @@ $volumen2= $resultado[0]['VolumenAgua'];
 $concentracion = $resultado[0]['PorcentajeAlcohol'];
 $volumen3= $resultado[0]['Volumen55'];
 $volumen_merma=$resultado[0]['MermasVolumen'];
-$alc_vol_merma=$resultado[0]['MermasPorcentaje']
+$alc_vol_merma=$resultado[0]['MermasPorcentaje'];
 
 
 ?>
 <script language="javascript">
+    console.log("entro al get")
     var lote = "<?php echo $lote2 ?>";
     var volumenn3= "<?php echo $volumen3 ?>"
    
@@ -50,27 +52,61 @@ $alc_vol_merma=$resultado[0]['MermasPorcentaje']
     
     
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var selectMovimiento = document.getElementById('tipo');
-        var movimiento = "<?php echo $tipo?>";
-        fetch('Obtener_Categorias_Clase_Especie.php?tipo=movimientos')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(item => {
-                    var option = document.createElement('option');
-                    option.value = item;
-                    option.textContent = item;
-                    console.log('Item:', item);
+   // Declarar la variable movimiento en un ámbito global
+var movimiento;
+
+document.addEventListener('DOMContentLoaded', function() {
+    var selectMovimiento = document.getElementById('tipo');
+    // Movimiento se asigna cuando se carga el DOM, pero puedes usarlo fuera de esta función
+    movimiento = "<?php echo $tipo?>";
+    
+    fetch('Obtener_Categorias_Clase_Especie.php?tipo=movimientos')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                var option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                //console.log('Item:', item);
+                
+                if (selectMovimiento) {
+                    selectMovimiento.appendChild(option);
+                }
+                if (item == movimiento) {
+                    selectMovimiento.value = movimiento;
                     console.log('Movimiento:', movimiento);
-                    if (selectMovimiento) {
-                        selectMovimiento.appendChild(option);
-                    }
-                    if (item == movimiento) {
-                        selectMovimiento.value = movimiento;
-                    }
-                });
-            })
-    .catch(error => console.error('Error al obtener especies:', error));
+                }
+            });
+        });
+});
+
+// Ahora puedes acceder a la variable movimiento fuera de la función
+console.log('Movimiento fuera de la función:', movimiento);
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para mostrar u ocultar el contenedor de volumen y alcohol
+    const contenedorPrincipal = document.getElementById("contenedor-principal");
+    const volumenMermaContainer = document.getElementById("volumen_merma");
+    const alcVolMermaContainer = document.getElementById("alc_vol_merma");
+    const vol55Input = document.getElementById('alc_vol55');
+   
+    contenedorPrincipal.style.display = "none";
+    volumenMermaContainer.removeAttribute("required");
+    alcVolMermaContainer.removeAttribute("required");
+    vol55Input.removeAttribute("required");
+    
+    if (movimiento === "Merma") {
+        contenedorPrincipal.style.display = "block";
+        volumenMermaContainer.setAttribute("required", "required");
+        alcVolMermaContainer.setAttribute("required", "required");
+        vol55Input.setAttribute("required", "required");
+    } else {
+        contenedorPrincipal.style.display = "none";
+        volumenMermaContainer.removeAttribute("required");
+        alcVolMermaContainer.removeAttribute("required");
+    }
     });
+
+    
 
 </script>
