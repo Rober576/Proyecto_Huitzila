@@ -129,32 +129,30 @@ class NuevosCampos {
     
 
     function insertar($lote, $tipo, $fecha, $tipoES, $procedencia, $volumen, $alc_vol,$alc_vol55,$agua,$alc_vol_merma,$volumen_merma) {
-
-        $IDMovimiento = $this->obtenerIDMovimiento($tipo);
-        $datos=$this->obtenerInicio($lote);
-    
-        $datosArray = json_decode($datos, true);
-    
-        $inicialVolumen = $datosArray['FinalVolumen'];
-        $inicialPorcentaje = $datosArray['FinalPorcentaje'];
-    
-        $inicialVolumen = floatval($inicialVolumen);
-        $volumen = floatval($volumen);
-        $inicialPorcentaje = floatval($inicialPorcentaje);
-        $alc_vol = floatval($alc_vol);
-        
-        $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol,$tipoES);
-    
-
-    
-        // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
-        $finalVolumen = $resultado['FinalVolumen'];
-        $finalPorcentaje = $resultado['FinalPorcentaje'];
-    
-        // Verificar si la fecha es mayor o igual a la última registrada
         $verificacion = $this->verificarRegistro($lote, $fecha);
         if (is_numeric($verificacion)) {
-            // Si la fecha es válida, continuar con la inserción
+
+            $IDMovimiento = $this->obtenerIDMovimiento($tipo);
+            $datos=$this->obtenerInicio($lote);
+        
+            $datosArray = json_decode($datos, true);
+        
+            $inicialVolumen = $datosArray['FinalVolumen'];
+            $inicialPorcentaje = $datosArray['FinalPorcentaje'];
+        
+            $inicialVolumen = floatval($inicialVolumen);
+            $volumen = floatval($volumen);
+            $inicialPorcentaje = floatval($inicialPorcentaje);
+            $alc_vol = floatval($alc_vol);
+            
+            $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol,$tipoES);
+        
+
+        
+            // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
+            $finalVolumen = $resultado['FinalVolumen'];
+            $finalPorcentaje = $resultado['FinalPorcentaje'];
+
             $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
                     VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
             
