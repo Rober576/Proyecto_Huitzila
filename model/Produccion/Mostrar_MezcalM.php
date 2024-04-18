@@ -32,7 +32,9 @@ class MostrarMez extends Crud_bd {
         $consulta = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
                         FROM registromezcal rm
                         INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
-                        INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria";
+                        INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria
+                        WHERE rm.Lote = '$id'";
+                        
         $resultados = $this->mostrar($consulta);
      
         $this->cerrar_conexion();
