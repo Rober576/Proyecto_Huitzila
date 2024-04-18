@@ -88,15 +88,14 @@ body, html {
 
 .input-group a {
     position: relative;
-    right: -10px; /* Ajusta la distancia desde el borde derecho según sea necesario */
+    text-align: center; /* Alinea el texto al centro */
     color: black; /* Cambia el color del hipervínculo si es necesario */
     text-decoration: none; /* Elimina el subrayado del hipervínculo */
-    margin-right: 10%; /* Añade un margen derecho para separar el hipervínculo del botón */
-    transform: translateY(-9%);
-    transform: translateX(50%);
     font-size: 26px;
-
+    display: block; /* Hace que el enlace ocupe todo el ancho disponible */
+    margin-top: 10px; /* Agrega un espacio en la parte superior */
 }
+
 
 .input-group a:hover {
     color: red; /* Cambia el color del hipervínculo al pasar el cursor sobre él */
