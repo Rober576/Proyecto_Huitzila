@@ -15,7 +15,6 @@ let bandera15=false;
 let bandera16=false;
 
 
-
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
     if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true && bandera10 == true && bandera11 == true && bandera12 == true && bandera13 == true && bandera14 == true && bandera15 == true && bandera16 == true){
@@ -31,7 +30,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 
 const expresion = {
-    ALCVolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ALCVolMin: /^\d{1,8}(\.\d{1,2})$/,
     ALCVolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ExtractoSecoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ExtractoSecoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
@@ -47,7 +46,6 @@ const expresion = {
     PlomoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ArsenicoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ArsenicoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-   
 }
 
 var min_alcohol = document.getElementById('min_alcohol');
@@ -64,8 +62,8 @@ var min_furfural = document.getElementById('min_furfural');
 var max_furfural = document.getElementById('max_furfural');
 var min_plomo = document.getElementById('min_plomo');
 var max_plomo = document.getElementById('max_plomo');
-var min_arsenico = document.getElementById('min_arse');
-var max_arsenico = document.getElementById('max_arse');
+var min_arsenico = document.getElementById('min_arsenico');
+var max_arsenico = document.getElementById('max_arsenico');
 
 min_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
@@ -96,16 +94,14 @@ max_alcohol.addEventListener('keyup', (e) => {
 
     if (!expresion.ALCVolMax.test(valorInput)) {
         max_alcohol.style.border = "5px solid red";
-        bandera2 = false;
+        bandera1 = false;
     }
 
     else {
         max_alcohol.removeAttribute("style");
-        bandera2 = true;
+        bandera1 = true;
     }
 });
-
-
 
 
 min_ext_seco.addEventListener('keyup', (e) => {
@@ -135,7 +131,7 @@ max_ext_seco.addEventListener('keyup', (e) => {
     .trim();
 
 
-    if (!expresion.Valor_max_extraseco.test(valorInput)) {
+    if (!expresion.ExtractoSecoMax.test(valorInput)) {
         max_ext_seco.style.border = "5px solid red";
         bandera4 = false;
     }
@@ -347,7 +343,7 @@ min_arsenico.addEventListener('keyup', (e) => {
     .replace(/[^0-9.]/g, '')
     .trim();
 
-    if (!expresion.Valor_min_arsenico.test(valorInput)) {
+    if (!expresion.ArsenicoMin.test(valorInput)) {
         min_arsenico.style.border = "5px solid red";
         bandera15 = false;
     } else {
