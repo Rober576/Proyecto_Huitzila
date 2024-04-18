@@ -7,11 +7,14 @@ let alc_vol55 = false
 
 
 const expresiones = {
-    procedencia:/^[a-zA-ZÁ-Ýá-ý0-9.-\s]{1,50}$/,
+    procedencia:/^[a-zA-ZÁ-Ýá-ý0-9.-\s#]{1,50}$/,
     costo1:/^[0-9.\s]{1,20}$/,
     volumen:/^[0-9.\s]{1,15}$/,
     alc_vol:/^[0-9.\s]{1,15}$/,
     alc_vol55:/^[0-9.\s]{1,15}$/,
+    alc_vol_merma:/^[0-9.\s]{1,15}$/,
+    volumen_merma:/^[0-9.\s]{1,15}$/,
+    vol_agua:/^[0-9.\s]{1,15}$/,
 }
 
 /* Input nombres */
@@ -25,11 +28,9 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
 
     form_ingreso_agave.procedencia.value = valorInput
         // Eliminar caracteres especiales excepto los permitidos
-        .replace(/[^a-zA-ZÁ-Ýá-ý0-9.\s-]/g, '')
-        // Eliminar espacios en blanco
-        .replace(/\s/g, '')
-        // Eliminar el último espaciado
-        .trim();
+        .replace(/[^a-zA-ZÁ-Ýá-ý0-9.\s-#]/g, '')
+        // Reemplazar más de un espacio en blanco por solo un espacio
+        .replace(/\s{2,}/g, ' ');
 
     if (!expresiones.procedencia.test(valorInput)) {
         form_ingreso_agave.procedencia.style.border = "3px solid red";
@@ -99,7 +100,60 @@ form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
     validar(alc_vol55);
 });
 
+form_ingreso_agave.alc_vol_merma.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
 
+    // Limitar a números decimales con un máximo de 2 dígitos después del punto
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_ingreso_agave.alc_vol_merma.value = valorInput;
+
+    if (!expresiones.alc_vol_merma.test(valorInput)) {
+        form_ingreso_agave.alc_vol_merma.style.border = "3px solid red";
+        alc_vol_merma = false;
+    } else {
+        form_ingreso_agave.alc_vol_merma.removeAttribute("style");
+        alc_vol_merma= true;
+    }
+    validar(alc_vol_merma);
+});
+
+
+form_ingreso_agave.volumen_merma.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Limitar a números decimales con un máximo de 2 dígitos después del punto
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_ingreso_agave.volumen_merma.value = valorInput;
+
+    if (!expresiones.volumen_merma.test(valorInput)) {
+        form_ingreso_agave.volumen_merma.style.border = "3px solid red";
+        volumen_merma = false;
+    } else {
+        form_ingreso_agave.volumen_merma.removeAttribute("style");
+        volumen_merma= true;
+    }
+    validar(volumen_merma);
+});
+
+form_ingreso_agave.vol_agua.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Limitar a números decimales con un máximo de 2 dígitos después del punto
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_ingreso_agave.vol_agua.value = valorInput;
+
+    if (!expresiones.vol_agua.test(valorInput)) {
+        form_ingreso_agave.vol_agua.style.border = "3px solid red";
+        vol_agua = false;
+    } else {
+        form_ingreso_agave.vol_agua.removeAttribute("style");
+        vol_agua= true;
+    }
+    validar(vol_agua);
+});
 
 function validar(bandera){
     const guardar = document.getElementById('boton_registrar');
