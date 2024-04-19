@@ -122,33 +122,39 @@
 		<p class="subtitulo-1">Vista de insumos</p>
 		<hr>
 		<br>
+		<form id="formulario" name="formulario">
+			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+			<span id="mensaje">No se encontraron resultados</span>
 
-		<div class="tablas">
-			<section class="header_table" id="tablaResultado">
+			<div class="tablas">
+				<section class="header_table" id="tablaResultado">
 
-				<table border="1" class="titulo_tabla">
-					<tr>
-						<th colspan="9" id="titulo" >Datos de los insumos</th>
-						<th colspan="1"></th>
+					<table border="1" class="titulo_tabla">
+						<tr>
+							<th colspan="9" id="titulo" >Datos de los insumos</th>
+							<th colspan="1"></th>
+							
+						</tr>
+						<tr class="titulo_tabla">
+							<th>Identificador</th>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th>Unidades</th>
+							<th>Existencia</th>
+							<th>Fecha de registro</th>
+							<th>Stock mínimo</th>
+							<th>Stock máximo</th>
+							<th>Costo</th>
+							<th>Acciones</th>	
+						</tr>
+						<tbody id="cuerpo"></tbody>
 						
-					</tr>
-					<tr class="titulo_tabla">
-						<th>Identificador</th>
-						<th>Nombre</th>
-						<th>Descripción</th>
-						<th>Unidades</th>
-						<th>Existencia</th>
-						<th>Fecha de registro</th>
-						<th>Stock mínimo</th>
-						<th>Stock máximo</th>
-						<th>Costo</th>
-						<th>Acciones</th>	
-					</tr>
-					
-					
-				</table>
-			</section>
-		</div>
+						
+					</table>
+				</section>
+			</div>
+		</form>
+		
 	</section>
 </main>
 
@@ -159,7 +165,8 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 	
-	
+	<script src="js/Mostrar_Insumo.js"></script>
+	<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>	
 	
 </body>
 </html>
