@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar insumos</title>
-
+    <title>Mostrar movimiento insumos</title>
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../public/css/insumos.css">
+	
+	
     
 </head>
 <body>
@@ -17,7 +18,7 @@
 
 				<div class="nombre_ventana">
 					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
-					<h1 class="nombre_Ventana">Insumos</h1>
+					<h1 class="nombre_Ventana">Movimiento general insumos</h1>
 				</div>
 
 			</div>
@@ -108,17 +109,57 @@
     	</div>
 	</header>
 
-    <main>
-        <section class="section-main">
-			<div class="cabezera">
-				<h4 class="centered" >Bienvenido a Insumos</h4>
-			</div>
-			<br>
-        </section>
-    <main>
+    
+<main>
 
+    <section class="section-main">
+		<div class="cabezera">
+			<h4 class="h4">Movimiento insumos</h4>
+
+		</div>
+		<br>
+		<p class="subtitulo-1">Vista general de movimiento de insumos</p>
+		<hr>
+		<br>
+
+		<form id="formulario" name="formulario">
+			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+			<span id="mensaje">No se encontraron resultados</span>
+
+			<div class="tablas">
+				<section class="header_table" id="tablaResultado">
+	
+					<table border="1">
+						<tr>
+							<th colspan="4">Datos generales de los movimientos de insumos</th>
+						</tr>
+						<tr>
+							<th>Identificador</th>
+							<th>Nombre</th>
+							<th>Cantidad</th>
+							<th>Costo unitario</th>	
+                            <th>Acciones</th>
+						</tr>
+						<tbody id="cuerpo"></tbody>
+						
+					</table>
+				</section>
+			</div>
+		</form>
+		
+	</section>
+</main>
+
+
+
+	<br><br><br><br><br><br>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+	
+	
+	<script src="js/Mostrar_Movimiento_Insumos_General.js"></script>
+
+	
 </body>
 </html>
