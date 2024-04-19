@@ -1,89 +1,81 @@
 
-let banderaTanque = false;
-let banderaEdad = false;
+let tanque = false;
+let edad = false;
 
-let botonRegistrar = document.getElementById("submitButton");
+console.log("entra a validacion de modificar")
 
-botonRegistrar.addEventListener("click", (e) => {
-    // Se revisa si la entrada es válida
-    validarTanque();
-    validarEdad();
-
-    if (banderaTanque && banderaEdad) {
-        // Si es válida se muestra un mensaje de éxito
-        console.log("Registro exitoso");
-    } else {
-        // Si no es válida se cancela el envío
-        console.log("Envío cancelado");
-        e.preventDefault();
-
-       
-        if (!banderaTanque) {
-            document.getElementById("tanque").style.border = "5px solid red"; 
-        }
-        if (!banderaEdad) {
-            document.getElementById("edad").style.border = "5px solid red"; 
-        }
-    }
-});
-
-let botonCancelar = document.getElementById("cancel");
-
-botonCancelar.addEventListener("click", (e) => {
-    limpiarCampos();
-});
-
-function limpiarCampos() {
-   
-    document.getElementById("tanque").value = "";
-    document.getElementById("edad").value = "";
-}
-
-// Expresiones regulares para validar los campos
-const expresion = {
+const expresiones = {
    
     tanque: /^[a-zA-Z0-9]*$/,
     edad: /^\d*$/ // Edad: Solo acepta números
 };
 
-// Función para validar el campo de tanque
-function validarTanque() {
-    let valorInput = document.getElementById("tanque").value;
+form_datos.tanque.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
 
-    // Eliminar todos los caracteres no numéricos
-    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
-
-    document.getElementById("tanque").value = valorInput;
-
-    // Validar si la entrada coincide con la expresión regular para LA CLAVE
-    if (!expresion.tanque.test(valorInput)) {
-        document.getElementById("tanque").style.border = "5px solid red"; 
-        banderaTanque = false; 
-    } else {
-        document.getElementById("tanque").removeAttribute("style"); 
-        banderaTanque = true; 
+    // Limitar la longitud a 50 caracteres
+    if (valorInput.length > 50) {
+        valorInput = valorInput.slice(0, 50);
     }
-}
 
-// Función para validar el campo de edad
-function validarEdad() {
-    let valorInput = document.getElementById("edad").value;
+    form_datos.tanque.value = valorInput;
 
-    // Eliminar todos los caracteres no permitidos
-    valorInput = valorInput.replace(/[^0-9]/g, ''); // Solo se permiten números
-
-    // Actualizar el valor del campo con los caracteres permitidos
-    document.getElementById("edad").value = valorInput;
-
-    // Validar si la entrada coincide con la expresión regular para la clave
-    if (!expresion.edad.test(valorInput)) {
-        banderaEdad = false;
+    if (!valorInput || !expresiones.tanque.test(valorInput)) {
+        form_datos.tanque.style.border = "3px solid red";
+        tanque = false;
     } else {
-        banderaEdad = true;
+        form_datos.tanque.removeAttribute("style");
+        tanque = true;
     }
+
+    validar(tanque);
+});
+
+form_datos.edad.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
+
+    // Obtener el valor del campo de clase
+    let claseSeleccionada = document.getElementById('clase').value;
+
+    // Limitar la longitud a 50 caracteres
+    if (valorInput.length > 50) {
+        valorInput = valorInput.slice(0, 50);
+    }
+
+    form_datos.edad.value = valorInput;
+
+    if (claseSeleccionada === "Blanco") {
+        // Si la clase seleccionada es "Blanco", no aplicar validación de edad
+        // Restablecer estilo del campo de edad
+        form_datos.edad.removeAttribute("style");
+        edad = true;
+    } else {
+        // Aplicar validación de edad si la clase no es "Blanco"
+        if (!valorInput || !expresiones.edad.test(valorInput)) {
+            form_datos.edad.style.border = "3px solid red";
+            edad = false;
+        } else {
+            form_datos.edad.removeAttribute("style");
+            edad = true;
+        }
+    }
+
+    validar(edad);
+});
+
+
+
+// Expresiones regulares para validar los campos
+
+
+function validar(bandera){
+    const guardar = document.getElementById('submitButton');
+
+    if(bandera == false){              
+        guardar.disabled=true;
+        
+    }else{
+        guardar.disabled=false;
+    }
+
 }
-
-
-var Formulario = document.getElementById("form_datos");
-var edad = Formulario.edad.addEventListener('input', validarEdad);
-var edad = Formulario.tanque.addEventListener('input', validarTanque);
