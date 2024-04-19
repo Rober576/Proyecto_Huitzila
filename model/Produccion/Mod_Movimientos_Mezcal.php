@@ -1,18 +1,7 @@
 <?php
 include('../../config/Crud_bd.php');
 class  modificarMez extends Crud_bd{
-    function obtenerIDLote($lote2) {
-        $q = "SELECT Lote FROM registromezcal WHERE Lote = :lote";
-        $params = array(":Lote" => $lote2);
-        
-        $resultado = $this->mostrar($q, $params);
-
-        if ($resultado) {
-            return $resultado[0]['IDLote'];
-        } else {
-            return false;
-        }
-    }
+    
      // Función para obtener el ID de la clase a partir de su nombre
      function obteneridMovimiento($tipo) {
         echo json_encode($tipo);
