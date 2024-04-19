@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Calidad/Registro_ValoresMinMax.php', {
+    fetch('../../controller/Calidad/Modificar_ValoresMinMax.php', {
         method: 'POST',
         body: datos
     })

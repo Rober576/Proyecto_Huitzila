@@ -55,7 +55,8 @@ function agregarEventosEliminar() {
                     .then(data => {
                         alert(data);
                         console.log("data",data)
-                        window.location.href = '../../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
+                        location.reload();
+                        //window.location.href = '../../../view/Produccion/Mostrar_Movimientos_Mezcal.html';
                     });
             }
         });

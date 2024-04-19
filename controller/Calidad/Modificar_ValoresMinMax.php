@@ -1,5 +1,5 @@
 <?php
-include_once('../../model/Calidad/Registro_ValoresMinMax.php');
+include_once('../../model/Calidad/Modificar_ValoresMinMax.php');
 $ALCVolMin = floatval($_POST["min_alcohol"]);
 $ALCVolMax = floatval($_POST["max_alcohol"]);
 $ExtractoSecoMin = floatval($_POST["min_ext_seco"]);
