@@ -22,6 +22,8 @@ formulario.addEventListener('submit', function (e) {
         }        
     })
     .catch(error => {
+        alert("Registro exitoso");
+        location.href="../../view/Produccion/Registro_Mezcal.html";
         console.error('Error:', error.message);
     });
 });
