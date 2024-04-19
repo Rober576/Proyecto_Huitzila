@@ -10,7 +10,8 @@ class MostrarMez extends Crud_bd {
     }
 
     function buscador($lote){
-        $query = "SELECT tipomovimiento.Movimiento, movimientomezcal.Fecha, movimientomezcal.Lote, categoriamezcal.Categoria, clasemezcal.Clase_Mezcal, 
+        $this->base->conexion_bd();
+        $query = "SELECT tipomovimiento.Movimiento, DATE_FORMAT(movimientomezcal.Fecha, '%d-%m-%Y') AS Fecha, movimientomezcal.Lote, categoriamezcal.Categoria, clasemezcal.Clase_Mezcal, 
         registromezcal.Tanque, movimientomezcal.Volumen, movimientomezcal.PorcentajeAlcohol, movimientomezcal.EntradaSalida, 
         movimientomezcal.DestinoProcedencia, movimientomezcal.VolumenAgua, movimientomezcal.MermasVolumen, movimientomezcal.MermasPorcentaje, 
         movimientomezcal.Volumen55, movimientomezcal.FinalVolumen, movimientomezcal.FinalPorcentaje FROM registromezcal, categoriamezcal, 
@@ -19,6 +20,30 @@ class MostrarMez extends Crud_bd {
         $resultados = $this->base->mostrar($query, [":lote" => $lote]);
         $this->base->cerrar_conexion();
         return $resultados;
+    }
+
+    function buscador_menor($lote){
+        $this->base->conexion_bd();
+        $query = "SELECT DATE_FORMAT(MIN(Fecha), '%d-%m-%Y') AS fecha FROM movimientomezcal WHERE Lote=:lote";
+        $resultados1 = $this->base->mostrar($query, [":lote" => $lote]);
+        $this->base->cerrar_conexion();
+        return $resultados1;
+    }
+
+    function buscador_menor1($lote){
+        $this->base->conexion_bd();
+        $query = "SELECT MAX(Fecha) AS fecha FROM movimientomezcal WHERE Lote=:lote";
+        $resultados1 = $this->base->mostrar($query, [":lote" => $lote]);
+        $this->base->cerrar_conexion();
+        return $resultados1;
+    }
+
+    function datos_finales($fecha){
+        $this->base->conexion_bd();
+        $query = "SELECT FinalVolumen AS final, FinalPorcentaje AS porcentaje FROM movimientomezcal WHERE Fecha!=:fecha";
+        $resultados2 = $this->base->mostrar($query, [":fecha" => $fecha]);
+        $this->base->cerrar_conexion();
+        return $resultados2;
     }
 }
 ?>

@@ -7,8 +7,22 @@ $base->instancias();
 $salida = '';
 if (isset($_GET['lote'])) {
     $lote = $_GET['lote'];    
+    
+    $resultado1=$base->buscador_menor($lote);
+    foreach ($resultado1 as $fila1){
+        $fecha=$fila1["fecha"];
+    }
+
+    $resultado3=$base->buscador_menor1($lote);
+    foreach ($resultado3 as $fila3){
+        $fecha1=$fila3["fecha"];
+    }
+
+    $resultado2=$base->datos_finales($fecha1);
+
     $resultado = $base->buscador($lote);
     
+
     if ($resultado) {
         $salida .= '
         <table>
@@ -46,21 +60,42 @@ if (isset($_GET['lote'])) {
                         </tr>
 					</thead>
 					<tbody>';
-    
-        foreach ($resultado as $fila) {
-            if ($fila["Movimiento"]=='Merma'){
-                if ($fila["EntradaSalida"]=='entrada'){
+        $indice_resultado2 = 0;
+        foreach ($resultado as $fila){
+            if ($fila['Fecha']==$fecha){
+                $salida .= '<tr>';
+                $Lote= $fila['Lote'];
+                $Fecha =$fila['Fecha'];
+                $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                $salida .= '<td>' . $fila["Lote"] . '</td>';
+                $salida .= '<td>' . "S/A" . '</td>';
+                $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                $salida .= '<td>' . "0.00" . '</td>';
+                $salida .= '<td>' . "0.00" . '</td>';
+            }else {
+                // Si la fecha no coincide, verificar si hay datos en $resultado2
+                if ($indice_resultado2 <= count($resultado2)) {
+                    // Agregar datos de $fila y $fila2 al $salida
+                    $fila2 = $resultado2[$indice_resultado2];
                     $salida .= '<tr>';
-                    $Lote= $fila['Lote'];
-                    $Fecha =$fila['Fecha'];
                     $salida .= '<td>' . $fila["Fecha"] . '</td>';
                     $salida .= '<td>' . $fila["Lote"] . '</td>';
                     $salida .= '<td>' . "S/A" . '</td>';
                     $salida .= '<td>' . $fila["Categoria"] . '</td>';
                     $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
                     $salida .= '<td>' . $fila["Tanque"] . '</td>';
-                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
-                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+                    $salida .= '<td>' . $fila2["final"] . '</td>';
+                    $salida .= '<td>' . $fila2["porcentaje"] . '</td>';
+                    
+                    // Incrementar el índice de $resultado2
+                    $indice_resultado2++;
+                }
+            }
+           
+            if ($fila["Movimiento"]=='Merma'){
+                if ($fila["EntradaSalida"]=='entrada'){
                     $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
                     $salida .= '<td>' . $fila["Volumen"] . '</td>';
                     $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
@@ -76,17 +111,6 @@ if (isset($_GET['lote'])) {
                     $salida .= '</td>';
                     $salida .= '</tr>';
                 }else if ($fila["EntradaSalida"]=='salida'){
-                    $salida .= '<tr>';
-                    $Lote= $fila['Lote'];
-                    $Fecha =$fila['Fecha'];
-                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
-                    $salida .= '<td>' . $fila["Lote"] . '</td>';
-                    $salida .= '<td>' . "S/A" . '</td>';
-                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
-                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
-                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
-                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
                     $salida .= '<td>' . "-". '</td>';
                     $salida .= '<td>' . "-". '</td>';
                     $salida .= '<td>' . "-". '</td>';
@@ -104,17 +128,6 @@ if (isset($_GET['lote'])) {
                 }
             }else{
                 if ($fila["EntradaSalida"]=='entrada'){
-                    $salida .= '<tr>';
-                    $Lote= $fila['Lote'];
-                    $Fecha =$fila['Fecha'];
-                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
-                    $salida .= '<td>' . $fila["Lote"] . '</td>';
-                    $salida .= '<td>' . "S/A" . '</td>';
-                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
-                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
-                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
-                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
                     $salida .= '<td>' . $fila["DestinoProcedencia"] . '</td>';
                     $salida .= '<td>' . $fila["Volumen"] . '</td>';
                     $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
@@ -130,17 +143,6 @@ if (isset($_GET['lote'])) {
                     $salida .= '</td>';
                     $salida .= '</tr>';
                 }else if ($fila["EntradaSalida"]=='salida'){
-                    $salida .= '<tr>';
-                    $Lote= $fila['Lote'];
-                    $Fecha =$fila['Fecha'];
-                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
-                    $salida .= '<td>' . $fila["Lote"] . '</td>';
-                    $salida .= '<td>' . "S/A" . '</td>';
-                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
-                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
-                    $salida .= '<td>' . $fila["Volumen"] . '</td>';
-                    $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
                     $salida .= '<td>' . "-". '</td>';
                     $salida .= '<td>' . "-". '</td>';
                     $salida .= '<td>' . "-". '</td>';

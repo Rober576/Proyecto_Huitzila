@@ -9,10 +9,10 @@
             $this->base->conexion_bd();
         }
     
-        function insertar($ALCVolMin,$ALCVolMax, $ExtractoSecoMin, $ExtractoSecoMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax , $AldehidosMin, $AldehidosMax,  $FurfuralMin, $FurfuralMax, $PlomoMin, $PlomoMax, $ArsenicoMin, $ArsenicoMax){
+        function insertar($ALCVolMin,$ALCVolMax, $ExtractoSecoMin, $ExtractoSecoMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax , $AldehidosMin, $AldehidosMax,  $FurfuralMin, $FurfuralMax, $PlomoMax, $ArsenicoMax){
 
-            $q1 = "INSERT INTO valoresminmax (ALCVolMin, ALCVolMax, ExtractoSecoMin, ExtractoSecoMax, MetanolMin, MetanolMax , AlcoholesSuperioresMin, AlcoholesSuperioresMax, AldehidosMin, AldehidosMax,  FurfuralMin, FurfuralMax,  PlomoMin, PlomoMax, ArsenicoMin, ArsenicoMax) VALUES(:ALCVolMin, :ALCVolMax, :ExtractoSecoMin, :ExtractoSecoMax, :MetanolMin, :MetanolMax, :AlcoholesSuperioresMin, :AlcoholesSuperioresMax, :AldehidosMin, :AldehidosMax, :FurfuralMin, :FurfuralMax, :PlomoMin, :PlomoMax, :ArsenicoMin, :ArsenicoMax)";
-            $a1 = [":ALCVolMin" => $ALCVolMin, ":ALCVolMax" => $ALCVolMax, ":ExtractoSecoMin" => $ExtractoSecoMin, ":ExtractoSecoMax" => $ExtractoSecoMax, ":MetanolMin" => $MetanolMin, ":MetanolMax" => $MetanolMax, ":AlcoholesSuperioresMin" => $AlcoholesSuperioresMin, ":AlcoholesSuperioresMax" => $AlcoholesSuperioresMax, ":AldehidosMin" => $AldehidosMin, ":AldehidosMax" => $AldehidosMax, ":FurfuralMin" => $FurfuralMin, ":FurfuralMax" => $FurfuralMax, ":PlomoMin" => $PlomoMin, ":PlomoMax" => $PlomoMax, ":ArsenicoMin" => $ArsenicoMin, ":ArsenicoMax" => $ArsenicoMax];
+            $q1 = "INSERT INTO valoresminmax (ALCVolMin, ALCVolMax, ExtractoSecoMin, ExtractoSecoMax, MetanolMin, MetanolMax , AlcoholesSuperioresMin, AlcoholesSuperioresMax, AldehidosMin, AldehidosMax,  FurfuralMin, FurfuralMax, PlomoMax, ArsenicoMax) VALUES(:ALCVolMin, :ALCVolMax, :ExtractoSecoMin, :ExtractoSecoMax, :MetanolMin, :MetanolMax, :AlcoholesSuperioresMin, :AlcoholesSuperioresMax, :AldehidosMin, :AldehidosMax, :FurfuralMin, :FurfuralMax,  :PlomoMax,  :ArsenicoMax)";
+            $a1 = [":ALCVolMin" => $ALCVolMin, ":ALCVolMax" => $ALCVolMax, ":ExtractoSecoMin" => $ExtractoSecoMin, ":ExtractoSecoMax" => $ExtractoSecoMax, ":MetanolMin" => $MetanolMin, ":MetanolMax" => $MetanolMax, ":AlcoholesSuperioresMin" => $AlcoholesSuperioresMin, ":AlcoholesSuperioresMax" => $AlcoholesSuperioresMax, ":AldehidosMin" => $AldehidosMin, ":AldehidosMax" => $AldehidosMax, ":FurfuralMin" => $FurfuralMin, ":FurfuralMax" => $FurfuralMax,  ":PlomoMax" => $PlomoMax,  ":ArsenicoMax" => $ArsenicoMax];
             $querry = $q1;
             $parametros = $a1;           
 

@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e) {
 
     var datos = new FormData(formulario);
 
-    fetch('../../controller/Produccion/Registrar_Mezcal.php', {
+    fetch('../../controller/Produccion/Modificar_Mezcal.php', {
         method: 'POST',
         body: datos
     })
@@ -18,67 +18,16 @@ formulario.addEventListener('submit', function (e) {
             console.error('Error:', data);
         } else {
             alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-            location.href="../../view/Produccion/Registro_Mezcal.html";
+            location.href="../../view/Produccion/Mostrar_Mezcal.html";
         }        
     })
     .catch(error => {
-        alert("Registro exitoso");
-        location.href="../../view/Produccion/Registro_Mezcal.html";
         console.error('Error:', error.message);
     });
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var selectCategoria = document.getElementById('categoria');
-    var selectClase = document.getElementById('clase');
-    var selectEspecie = document.getElementById('especie');
-
-    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=categorias')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-
-            if (selectCategoria) {
-                selectCategoria.appendChild(option);
-            }
-        });
-    })
-    .catch(error => console.error('Error al obtener categorías:', error));
-
-    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clases')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-
-            if (selectClase) {
-                selectClase.appendChild(option);
-            }
-        });
-    })
-    .catch(error => console.error('Error al obtener clases:', error));
-
-    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=especies')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-
-            if (selectEspecie) {
-                selectEspecie.appendChild(option);
-            }
-        });
-    })
-    .catch(error => console.error('Error al obtener especies:', error));
-});
+   
 
 document.addEventListener('DOMContentLoaded', function() {
     var selectClase = document.getElementById('clase');
@@ -95,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Si se selecciona "Blanco", se bloquea el campo de entrada de la edad y se borra su valor
         if (selectedOption === "Blanco") {
+            inputEdad.value = ''; // Establecer el valor del campo de entrada como una cadena vacía
             inputEdadLabel.textContent = "Edad"; // Restaurar texto original del label
             inputEdadLabel.classList.add('campo-bloqueado'); // Añadir clase para cambiar el estilo del label
             asterisco.classList.remove('campo-obligatorio'); // Remover clase para quitar el asterisco rojo
@@ -102,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Establecer el campo de entrada de la edad como deshabilitado y con un color de fondo gris claro
             inputEdad.disabled = true;
             inputEdad.style.backgroundColor = 'lightgrey';
+            // Limpiar el contenido del campo de entrada de la edad
+           
+        
         } else {
             // Cambiar el texto del label según la clase seleccionada
             if (selectedOption === "Reposado") {
