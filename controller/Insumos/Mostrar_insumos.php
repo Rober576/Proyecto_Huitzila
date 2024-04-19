@@ -1,73 +1,49 @@
 <?php
-include_once('../../model/Insumos/Mostar_insumos_model.php');
+include_once('../../model/Insumos/Mostrar_insumos.php');
 
-$base = new MostrarCampos();
+$salida = "";
+$base = new Mostrar;
 $base->instancias();
+$datos = [];
 
-if (isset($_POST['consulta'])) {
-    $busqueda = $_POST['consulta'];
-    $resultado = $base->buscador($busqueda);
-} else {
-    $resultado = $base->getEjemplo();
-}
+// Verifica si se recibió un valor para la consulta
+if(isset($_POST['consulta'])) {
+    // Recibe el valor de la consulta
+    $consulta = $_POST['consulta'];
 
-$salida = '';
+    if($consulta == 'undefined'){
+        $resultados = $base->busqueda();
 
-if ($resultado) {
-    
-    $salida .= '
-
-        <table border="1">
-            <thead>
-            <tr>
-                <th colspan="7">Datos de los insumos</th>
-            </tr>
-                <tr>
-                    <th>Identificador</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Unidades</th>
-                    <th>Existencia</th>
-                    <th>Fecha de registro</th>
-                    <th>Stock mínimo</th>
-                    <th>Stock máximo</th>
-                    <th>Costo</th>
-                    <th>Acciones</th>	
-                </tr>
-            </thead>
-            <tbody>';
-
-    foreach ($resultado as $fila) {
-        $id = $fila['IDInsumo'];
-        $salida .= '<tr>';
-        $salida .= '<td>' . $fila["IDInsumo"] . '</td>';
-        $salida .= '<td>' . $fila["NombreInsumo"] . '</td>';
-        $salida .= '<td>' . $fila["Descripcion"] . '</td>';
-        $salida .= '<td>' . $fila["Unidades"] . '</td>';
-        $salida .= '<td>' . $fila["Existencia"] . '</td>';
-        $salida .= '<td>' . $fila["FechaReg"] . '</td>';
-        $salida .= '<td>' . $fila["StockMinimo"] . '</td>';
-        $salida .= '<td>' . $fila["StockMaximo"] . '</td>';
-        $salida .= '<td>' . $fila["Costo"] . '</td>';
-
-
-        $salida .= '<td>';
-        $salida .= '<button type="submit" class="table_item__link eliminar-elemento" data-id="' . $id . '">Eliminar</button>';
-        $salida .= '  ';
-        $salida .= '<button type="submit" onclick="window.location.href=\'../../view/insumos/Editar_Insumos.html?id=' . $id . '\'">Editar</button>';
-        $salida .= '</td>';
-
-        $salida .= '</tr>';
     }
 
-    $salida .= '</tbody></table>';
-} else {
-    $salida .= 'No se encontraron resultados';
-}
+    else{
+        $resultados = $base->busqueda($consulta);
 
-echo $salida;
+    }
+
+    $producto = ['id', 'nom', 'desc', 'uni', 'exist', 'date', 'smin', 'smax', 'cost'];
+
+    for($i = 0; $i < count($resultados); $i++){
+        $producto[0] = $resultados[$i]["IDInsumo"];
+        $producto[1] = $resultados[$i]["NombreInsumo"];
+        $producto[2] = $resultados[$i]["Descripcion"];
+        $producto[3] = $resultados[$i]["Unidades"];
+        $producto[4] = $resultados[$i]["Existencia"];
+        $producto[5] = $resultados[$i]["FechaReg"];
+        $producto[6] = $resultados[$i]["StockMinimo"];
+        $producto[7] = $resultados[$i]["StockMaximo"];
+        $producto[8] = $resultados[$i]["Costo"];
+        array_push($datos, $producto);
+    }
+
+    echo json_encode($datos);
+
+    
+} else {
+    // Si no se recibió ninguna consulta, puedes devolver un mensaje de error o manejar la situación según tus necesidades
+    echo json_encode("No se recibió ninguna consulta.");
+}
 ?>
-<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>
 
 
 

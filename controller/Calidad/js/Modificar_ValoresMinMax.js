@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Calidad/Registro_ValoresMinMax.php', {
+    fetch('../../controller/Calidad/Modificar_ValoresMinMax.php', {
         method: 'POST',
         body: datos
     })
@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro exitoso");
+            alert("Modificacion exitosa");
             window.location.href = '../../view/Calidad/Valores_Min_Max.html';
         }
     })

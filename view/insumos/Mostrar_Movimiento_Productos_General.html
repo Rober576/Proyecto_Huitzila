@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar insumos</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Mostrar movimiento insumos</title>
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../public/css/insumos.css">
-	<script src="../../controller/Insumos/js/Mostrar_Insumos.js"></script>s
+	
 	
     
 </head>
@@ -19,7 +18,7 @@
 
 				<div class="nombre_ventana">
 					<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
-					<h1 class="nombre_Ventana">Insumos</h1>
+					<h1 class="nombre_Ventana">Movimiento general insumos</h1>
 				</div>
 
 			</div>
@@ -97,7 +96,7 @@
                             
 							<ul>
 								<li><a href="Registro_Entradas_Salidas_Producto.html">Registrar</a></li>
-                                <li><a href="Mostrar_Entradas_Salidas_Producto.html">Consultar</a></li>
+                                <li><a href="Mostrar_Movimiento_Productos_General.html">Consultar</a></li>
 							</ul>
 						</li>
 		
@@ -115,40 +114,33 @@
 
     <section class="section-main">
 		<div class="cabezera">
-			<h4 class="h4">Insumos</h4>
+			<h4 class="h4">Movimiento insumos</h4>
 
 		</div>
 		<br>
-		<p class="subtitulo-1">Vista de insumos</p>
+		<p class="subtitulo-1">Vista general de movimiento de insumos</p>
 		<hr>
 		<br>
+
 		<form id="formulario" name="formulario">
 			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
 			<span id="mensaje">No se encontraron resultados</span>
 
 			<div class="tablas">
 				<section class="header_table" id="tablaResultado">
-
-					<table border="1" class="titulo_tabla">
+	
+					<table border="1">
 						<tr>
-							<th colspan="9" id="titulo" >Datos de los insumos</th>
-							<th colspan="1"></th>
-							
+							<th colspan="4">Datos generales de los movimientos de insumos</th>
 						</tr>
-						<tr class="titulo_tabla">
+						<tr>
 							<th>Identificador</th>
 							<th>Nombre</th>
-							<th>Descripción</th>
-							<th>Unidades</th>
-							<th>Existencia</th>
-							<th>Fecha de registro</th>
-							<th>Stock mínimo</th>
-							<th>Stock máximo</th>
-							<th>Costo</th>
-							<th>Acciones</th>	
+							<th>Cantidad</th>
+							<th>Costo unitario</th>	
+                            <th>Acciones</th>
 						</tr>
 						<tbody id="cuerpo"></tbody>
-						
 						
 					</table>
 				</section>
@@ -165,8 +157,9 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 	
-	<script src="js/Mostrar_Insumo.js"></script>
-	<script src="../../controller/Insumos/js/Eliminar_insumo.js"></script>	
+	
+	<script src="js/Mostrar_Movimiento_Productos_General.js"></script>
+
 	
 </body>
 </html>

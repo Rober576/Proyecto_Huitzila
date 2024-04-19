@@ -33,6 +33,5 @@ class Mostrar{
         $resultados = $this->base->mostrar($querry, $array);
         return $resultados;
     }
-    
 }
 ?>

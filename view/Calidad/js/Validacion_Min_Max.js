@@ -11,13 +11,11 @@ let bandera11=false;
 let bandera12=false;
 let bandera13=false;
 let bandera14=false;
-let bandera15=false;
-let bandera16=false;
 
 
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
-    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true && bandera10 == true && bandera11 == true && bandera12 == true && bandera13 == true && bandera14 == true && bandera15 == true && bandera16 == true){
+    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true && bandera5 == true && bandera6 == true && bandera7 == true && bandera8 == true && bandera9 == true && bandera10 == true && bandera11 == true && bandera12 == true && bandera13 == true && bandera14 == true){
         console.log("Registro exitoso");
     }
 
@@ -42,9 +40,7 @@ const expresion = {
     AldehidosMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     FurfuralMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     FurfuralMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    PlomoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     PlomoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    ArsenicoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
     ArsenicoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
 }
 
@@ -60,9 +56,7 @@ var min_aldehidos = document.getElementById('min_aldehidos');
 var max_aldehidos = document.getElementById('max_aldehidos');
 var min_furfural = document.getElementById('min_furfural');
 var max_furfural = document.getElementById('max_furfural');
-var min_plomo = document.getElementById('min_plomo');
 var max_plomo = document.getElementById('max_plomo');
-var min_arsenico = document.getElementById('min_arsenico');
 var max_arsenico = document.getElementById('max_arsenico');
 
 min_alcohol.addEventListener('keyup', (e) => {
@@ -298,23 +292,6 @@ max_furfural.addEventListener('keyup', (e) => {
     }
 });
 
-min_plomo.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
-
-    min_plomo.value = valorInput
-
-    .replace(/[^0-9.]/g, '')
-    .trim();
-
-
-    if (!expresion.PlomoMin.test(valorInput)) {
-        min_plomo.style.border = "5px solid red";
-        bandera13 = false;
-    } else {
-        min_plomo.removeAttribute("style");
-        bandera13 = true;
-    }
-});
 
 
 max_plomo.addEventListener('keyup', (e) => {
@@ -328,27 +305,10 @@ max_plomo.addEventListener('keyup', (e) => {
 
     if (!expresion.PlomoMax.test(valorInput)) {
         max_plomo.style.border = "5px solid red";
-        bandera14 = false;
+        bandera13 = false;
     } else {
         max_plomo.removeAttribute("style");
-        bandera14 = true;
-    }
-});
-
-min_arsenico.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
-
-    min_arsenico.value = valorInput
-
-    .replace(/[^0-9.]/g, '')
-    .trim();
-
-    if (!expresion.ArsenicoMin.test(valorInput)) {
-        min_arsenico.style.border = "5px solid red";
-        bandera15 = false;
-    } else {
-        min_arsenico.removeAttribute("style");
-        bandera15 = true;
+        bandera13 = true;
     }
 });
 
@@ -363,9 +323,9 @@ max_arsenico.addEventListener('keyup', (e) => {
 
     if (!expresion.ArsenicoMax.test(valorInput)) {
         max_arsenico.style.border = "5px solid red";
-        bandera16 = false;
+        bandera14 = false;
     } else {
         max_arsenico.removeAttribute("style");
-        bandera16 = true;
+        bandera14 = true;
     }
 });
