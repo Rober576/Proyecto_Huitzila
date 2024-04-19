@@ -31,6 +31,7 @@ if(isset($_POST['consulta'])) {
         $producto[4] = $resultados[$i]["CostoProm"];
         $producto[5] = $resultados[$i]["CostoUltimo"];
         $producto[6] = $resultados[$i]["Cantidad"];
+        $producto[7] = $resultados[$i]["ProductoTerminado"];
         array_push($datos, $producto);
     }
 
