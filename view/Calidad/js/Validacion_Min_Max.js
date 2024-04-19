@@ -1,16 +1,16 @@
-let bandera1=false;
-let bandera2=false;
-let bandera3=false;
-let bandera4=false;
-let bandera5=false;
-let bandera6=false;
-let bandera7=false;
-let bandera8=false;
-let bandera10=false;
-let bandera11=false;
-let bandera12=false;
-let bandera13=false;
-let bandera14=false;
+let bandera1=true;
+let bandera2=true;
+let bandera3=true;
+let bandera4=true;
+let bandera5=true;
+let bandera6=true;
+let bandera7=true;
+let bandera8=true;
+let bandera10=true;
+let bandera11=true;
+let bandera12=true;
+let bandera13=true;
+let bandera14=true;
 
 
 let botonRegistrar = document.getElementById("submitButton");

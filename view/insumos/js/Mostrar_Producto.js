@@ -64,6 +64,7 @@ function mostrarDatos(datos){
             var cant_col = document.createElement('td');
             var smax_col = document.createElement('td');
             var smin_col = document.createElement('td');
+            var nombre = document.createElement('td')
     
             var acciones = document.createElement('td')
             var link_eliminar = document.createElement('a')
@@ -89,6 +90,8 @@ function mostrarDatos(datos){
 
             id_col.innerHTML = datos[i][0]
             row.appendChild(id_col);
+            nombre.innerHTML = datos[i][7];
+            row.appendChild(nombre);
             desc_col.innerHTML = datos[i][1];
             row.appendChild(desc_col);
             cprom_col.innerHTML = datos[i][2];
@@ -101,6 +104,7 @@ function mostrarDatos(datos){
             row.appendChild(smax_col);
             smin_col.innerHTML = datos[i][6];
             row.appendChild(smin_col);
+            
 
             console.log("link_eliminar:", link_eliminar);
 
