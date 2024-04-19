@@ -4,19 +4,21 @@ let procedencia = false
 let volumen = false
 let alc_vol = false
 let alc_vol55 = false
-let vol_agua =false
-console.log("entro a Validacion_Modificacion.js")
+let alc_vol_merma= false
+let volumen_merma=false
+let vol_agua=false
+
 
 
 const expresiones = {
-    procedencia:/^[a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\s#\-]{1,50}$/,
+    procedencia:/^[a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ]{1,50}$/,
     costo1:/^[0-9.\s]{1,20}$/,
     volumen:/^[0-9.\s]{1,15}$/,
     alc_vol:/^[0-9.\s]{1,15}$/,
     alc_vol55:/^[0-9.\s]{1,15}$/,
     alc_vol_merma:/^[0-9.\s]{1,15}$/,
     volumen_merma:/^[0-9.\s]{1,15}$/,
-    vol_agua:/^[0-9.\s]{1,15}$/
+    vol_agua:/^[0-9.\s]{1,15}$/,
 }
 
 /* Input nombres */
@@ -34,6 +36,7 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
         // Reemplazar más de un espacio en blanco por solo un espacio
         .replace(/\s{2,}/g, ' ')
         .replace(/#+/g, '#');
+
 
     if (!expresiones.procedencia.test(valorInput)) {
         form_ingreso_agave.procedencia.style.border = "3px solid red";
@@ -103,25 +106,6 @@ form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
     validar(alc_vol55);
 });
 
-
-form_ingreso_agave.vol_agua.addEventListener('input', (e) => {
-    let valorInput = e.target.value;
-
-    // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
-
-    form_ingreso_agave.vol_agua.value = valorInput;
-
-    if (!expresiones.vol_agua.test(valorInput)) {
-        form_ingreso_agave.vol_agua.style.border = "3px solid red";
-        vol_agua = false;
-    } else {
-        form_ingreso_agave.vol_agua.removeAttribute("style");
-        vol_agua = true;
-    }
-    validar(vol_agua);
-});
-
 form_ingreso_agave.alc_vol_merma.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
@@ -159,7 +143,23 @@ form_ingreso_agave.volumen_merma.addEventListener('input', (e) => {
     validar(volumen_merma);
 });
 
+form_ingreso_agave.vol_agua.addEventListener('input', (e) => {
+    let valorInput = e.target.value;
 
+    // Limitar a números decimales con un máximo de 2 dígitos después del punto
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_ingreso_agave.vol_agua.value = valorInput;
+
+    if (!expresiones.vol_agua.test(valorInput)) {
+        form_ingreso_agave.vol_agua.style.border = "3px solid red";
+        vol_agua = false;
+    } else {
+        form_ingreso_agave.vol_agua.removeAttribute("style");
+        vol_agua= true;
+    }
+    validar(vol_agua);
+});
 
 function validar(bandera){
     const guardar = document.getElementById('submitButton');
