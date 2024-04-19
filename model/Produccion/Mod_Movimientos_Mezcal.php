@@ -1,11 +1,20 @@
 <?php
 include('../../config/Crud_bd.php');
 class  modificarMez extends Crud_bd{
+    function obtenerIDLote($lote2) {
+        $q = "SELECT Lote FROM registromezcal WHERE Lote = :lote";
+        $params = array(":Lote" => $lote2);
+        
+        $resultado = $this->mostrar($q, $params);
+
+        if ($resultado) {
+            return $resultado[0]['IDLote'];
+        } else {
+            return false;
+        }
+    }
      // Función para obtener el ID de la clase a partir de su nombre
      function obteneridMovimiento($tipo) {
-       
-
-
         echo json_encode($tipo);
         $q = "SELECT IdMovimiento FROM tipomovimiento WHERE Movimiento = :movimiento";
         $params = array(":movimiento" => $tipo);
@@ -77,12 +86,12 @@ class  modificarMez extends Crud_bd{
         // Devolver los resultados
         return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
     }
-    function verificarRegistro($lote, $fecha) {
+    function verificarRegistro($lote2, $fecha) {
         // Verificar si existe algún registro para el lote
         $query = "
             SELECT COUNT(*) AS count
             FROM movimientomezcal
-            WHERE Lote = '$lote'
+            WHERE Lote = '$lote2'
         ";
         $result = $this->mostrar($query);
         
@@ -91,7 +100,7 @@ class  modificarMez extends Crud_bd{
             $query = "
                 SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha
                 FROM movimientomezcal
-                WHERE Lote = '$lote'
+                WHERE Lote = '$lote2'
             ";
             $result = $this->mostrar($query);
     
@@ -142,9 +151,6 @@ class  modificarMez extends Crud_bd{
             $concentracion = floatval($concentracion);
             
             $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $concentracion,$movimiento);
-        
-
-        
             // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
