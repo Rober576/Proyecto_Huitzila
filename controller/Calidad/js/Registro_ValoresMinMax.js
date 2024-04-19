@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro exitoso");
+            alert("Modificacion exitosa");
             window.location.href = '../../view/Calidad/Valores_Min_Max.html';
         }
     })

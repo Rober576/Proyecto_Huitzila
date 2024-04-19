@@ -15,7 +15,7 @@ $FurfuralMax = floatval($_POST["max_furfural"]);
 $PlomoMax = floatval($_POST["max_plomo"]);
 $ArsenicoMax = floatval($_POST["max_arsenico"]);
 
-$calidad = new Registro_MinMax();
+$calidad = new Actualizar_MinMax();
 $calidad->conexion();
-$calidad->insertar($ALCVolMin, $ALCVolMax, $ExtractoSecoMin, $ExtractoSecoMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax, $AldehidosMin, $AldehidosMax, $FurfuralMin, $FurfuralMax, $PlomoMax, $ArsenicoMax);
+$calidad->actualizar($ALCVolMin, $ALCVolMax, $ExtractoSecoMin, $ExtractoSecoMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax, $AldehidosMin, $AldehidosMax, $FurfuralMin, $FurfuralMax, $PlomoMax, $ArsenicoMax);
 ?>
