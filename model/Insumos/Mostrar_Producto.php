@@ -17,7 +17,8 @@ class Mostrar{
 
         else{
             $querry = "SELECT * FROM productoterminado WHERE IDProducto LIKE :q OR Descripcion LIKE :q OR StockMinimo 
-            LIKE :q OR StockMaximo LIKE :q OR CostoProm LIKE :q OR CostoUltimo LIKE :q OR Cantidad LIKE :q";
+            LIKE :q OR StockMaximo LIKE :q OR CostoProm LIKE :q OR CostoUltimo LIKE :q OR Cantidad LIKE :q OR 
+            ProductoTerminado LIKE :q";
 
             $array = [":q"=>'%'.$parametro.'%'];
 
