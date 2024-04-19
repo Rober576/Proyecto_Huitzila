@@ -19,10 +19,11 @@ if ($resultado) {
 
         <table border="1">
             <thead>
-            <tr>
-                <th colspan="7">Datos de los insumos</th>
+            <tr class="titulo_tabla">
+                <th colspan="9" >Datos de los insumos</th>
+                <th colspan="1"></th>
             </tr>
-                <tr>
+                <tr class="titulo_tabla">
                     <th>Identificador</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
