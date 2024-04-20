@@ -72,8 +72,8 @@ function Validar_Nombre_Cientifico(){
     valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.\s]/g, '');
 
     // Limitar la longitud a 20 caracteres
-    if (valorInput.length > 20) {
-        valorInput = valorInput.slice(0, 20);
+    if (valorInput.length > 30) {
+        valorInput = valorInput.slice(0, 30);
     }
 
     // Actualizar el valor del campo con los cambios realizados

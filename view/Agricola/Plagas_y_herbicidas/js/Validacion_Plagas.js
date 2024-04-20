@@ -45,7 +45,7 @@ const expresion = {
 function Validar_Nombre(){
     let valorInput = Formulario.nomPlaga.value;
 
-    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0.\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.\s]/g, '');
 
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 40) {
@@ -71,7 +71,7 @@ function Validar_Nombre(){
 function Validar_Nombre_Cientifico(){
     let valorInput = Formulario.nomciePlaga.value;
 
-    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0.\s]/g, '');
+    valorInput = valorInput.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.\s]/g, '');
 
     // Limitar la longitud a 20 caracteres
     if (valorInput.length > 60) {
