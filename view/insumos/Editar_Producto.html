@@ -169,11 +169,23 @@
 					</div>
 
 			</div>
+
+			<script>
+				function cancelar(){
+					r = confirm("Los cambios relizados no se guardarán ¿Desea continuar?");
+					if(r == true){
+						window.location.href = "../../view/insumos/Mostrar_Producto.html";
+					}
+					else{
+						return false;
+					}
+				}
+			</script>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" class="Boton_cancelar">Cancelar</button>
+						<button type="button" id="Cancelar" onclick="cancelar()">Cancelar</button>
 					</div>
 				</div>
 			</form>

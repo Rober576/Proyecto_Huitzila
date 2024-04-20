@@ -388,3 +388,5 @@ function validarDecimales(cadena){
     }
 }
 
+
+
