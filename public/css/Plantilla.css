@@ -195,7 +195,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #000000;
-    background-color: #C7B392;
+    background-color: #e0ccae;
     color: #000000;
 }
 
@@ -207,7 +207,7 @@ th, td {
     text-align: center;
 }
 th {
-    background-color: #C7B392;
+    background-color: #c3a77a;
 }
 
 /* Hover sobre las filas */
