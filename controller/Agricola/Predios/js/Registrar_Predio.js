@@ -60,6 +60,7 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
+            window.location.href = "../../../view/Agricola/Predios/Vista_Predios.html";
             
         }
     });
