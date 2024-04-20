@@ -49,11 +49,15 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
 form_ingreso_agave.volumen.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+    // Limitar la longitud a 9 caracteres
+    if (valorInput.length > 9) {
+        valorInput = valorInput.slice(0, 9);
+    }
 
-    form_ingreso_agave.volumen.value = valorInput;
+    // Limitar el formato del valor
+    valorInput = valorInput.match(/^\d{0,6}(?:\.\d{0,2})?/)[0];
 
+    // Validar el valor con la expresión regular
     if (!expresiones.volumen.test(valorInput)) {
         form_ingreso_agave.volumen.style.border = "3px solid red";
         volumen = false;
@@ -61,6 +65,11 @@ form_ingreso_agave.volumen.addEventListener('input', (e) => {
         form_ingreso_agave.volumen.removeAttribute("style");
         volumen = true;
     }
+
+    // Actualizar el valor en el campo de entrada
+    form_ingreso_agave.volumen.value = valorInput;
+
+    // Llamar a la función de validación
     validar(volumen);
 });
 
@@ -68,8 +77,7 @@ form_ingreso_agave.volumen.addEventListener('input', (e) => {
 form_ingreso_agave.alc_vol.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+    valorInput = valorInput.match(/^(100(?:\.0{1,2})?|\d{0,2}(?:\.\d{0,2})?)/)[0];
 
     form_ingreso_agave.alc_vol.value = valorInput;
 
@@ -82,6 +90,8 @@ form_ingreso_agave.alc_vol.addEventListener('input', (e) => {
     }
     validar(alc_vol);
 });
+
+
 
 /* Evento para detectar cambios en el input de alc_vol55 */
 form_ingreso_agave.alc_vol55.addEventListener('input', (e) => {
@@ -106,7 +116,7 @@ form_ingreso_agave.alc_vol_merma.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
     // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+    valorInput = valorInput.match(/^(100(?:\.0{1,2})?|\d{1,2}(?:\.\d{0,2})?|\d{0,2}(?:\.\d{1,2})?)/)[0];
 
     form_ingreso_agave.alc_vol_merma.value = valorInput;
 
