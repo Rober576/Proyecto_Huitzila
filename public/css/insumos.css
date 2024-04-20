@@ -51,13 +51,3 @@ button.Boton_cancelar{
         display: block; /* Asegura que el elemento sea tratado como un bloque */
         width: fit-content;
 }
-
-.titulo_tabla th{
-    background-color: #C7B392;
-    color: black;
-
-}
-tr td{
-    background-color: #FFFFFF;
-    color: black;
-}
