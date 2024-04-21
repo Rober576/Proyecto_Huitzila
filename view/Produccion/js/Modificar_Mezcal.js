@@ -73,19 +73,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
-
-//responde cuando hay un click en el boton cancelar
-formulario.cancelar.addEventListener('click', function (e){
-    e.preventDefault();
-    let urlAct = window.location+''
-
-    var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
-    if(resp ==  true){
-      window.location.href='Mostrar_Mezcal.html';
-    }
-
-    
-})
-

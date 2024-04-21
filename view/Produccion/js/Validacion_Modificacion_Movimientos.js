@@ -3,6 +3,7 @@
 let procedencia = false
 let volumen = false
 let alc_vol = false
+
 let alc_vol55 = false
 let alc_vol_merma= false
 let volumen_merma=false
@@ -35,9 +36,7 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
         .replace(/[^a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\s#\-/,]/g, '')
         // Reemplazar más de un espacio en blanco por solo un espacio
         .replace(/\s{2,}/g, ' ')
-        .replace(/#+/g, '#');
-
-
+       
     if (!expresiones.procedencia.test(valorInput)) {
         form_ingreso_agave.procedencia.style.border = "3px solid red";
         procedencia = false;
@@ -52,6 +51,9 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
 /* Evento para detectar cambios en el input de volumen */
 form_ingreso_agave.volumen.addEventListener('input', (e) => {
     let valorInput = e.target.value;
+    if (valorInput.length > 9) {
+        valorInput = valorInput.slice(0, 9);
+    }
 
     // Limitar a números decimales con un máximo de 2 dígitos después del punto
     valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
@@ -72,8 +74,9 @@ form_ingreso_agave.volumen.addEventListener('input', (e) => {
 form_ingreso_agave.alc_vol.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
-    // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+    valorInput = valorInput.match(/^(100(?:\.0{1,2})?|\d{0,2}(?:\.\d{0,2})?)/)[0];
+
+    form_ingreso_agave.alc_vol.value = valorInput;
 
     form_ingreso_agave.alc_vol.value = valorInput;
 
@@ -110,8 +113,7 @@ form_ingreso_agave.alc_vol_merma.addEventListener('input', (e) => {
     let valorInput = e.target.value;
 
     // Limitar a números decimales con un máximo de 2 dígitos después del punto
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
-
+    valorInput = valorInput.match(/^(100(?:\.0{1,2})?|\d{1,2}(?:\.\d{0,2})?|\d{0,2}(?:\.\d{1,2})?)/)[0];
     form_ingreso_agave.alc_vol_merma.value = valorInput;
 
     if (!expresiones.alc_vol_merma.test(valorInput)) {
