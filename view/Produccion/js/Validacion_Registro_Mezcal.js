@@ -30,20 +30,6 @@ botonRegistrar.addEventListener("click", (e) => {
     }
 })
 
-let botonCancelar = document.getElementById("cancelButton");
-
-botonCancelar.addEventListener("click", (e) => {
-    limpiarCampos();
-});
-
-function limpiarCampos() {
-    document.getElementById("lote").value = "";
-    document.getElementById("tanque").value = "";
-    document.getElementById("categoria").selectedIndex = 0;
-    document.getElementById("especie").selectedIndex = 0;
-    document.getElementById("clase").selectedIndex = 0;
-    document.getElementById("edad").value = "";
-}
 
 // Expresiones regulares para validar los campos
 const expresion = {
