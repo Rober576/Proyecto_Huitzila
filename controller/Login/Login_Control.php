@@ -11,7 +11,9 @@ $usuario = $usuarioModel->buscar_usuario($email, $password);
 
 if ($usuario) {
     $_SESSION['user_key'] = $usuario['Clave'];
-
+    $_SESSION['Area_usuario'] = $usuario['IdentificadorArea'];
+    $_SESSION['tipo_usuario'] = $usuario['IdentificadorTipo'];
+    setcookie("user_key", $usuario['Clave'], time() + 3600, "/");
     switch ($usuario['IdentificadorArea']) {
         case "1":
             header('Location: ../../view/Agricola/Principal_Agricola.html');
