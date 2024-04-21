@@ -195,7 +195,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #000000;
-    background-color: #C7B392;
+    background-color: #e0ccae;
     color: #000000;
 }
 
@@ -207,7 +207,7 @@ th, td {
     text-align: center;
 }
 th {
-    background-color: #C7B392;
+    background-color: #c3a77a;
 }
 
 /* Hover sobre las filas */
@@ -262,26 +262,9 @@ select:hover {
     border-color: #143419;
 }
 
-.boton-cerrar-session{
-    padding-right: 50px;
-}
 
-.btn-cerrar-session{
-    font-size: 1.2rem;
-    font-family: 'FuentePrincipal', sans-serif;
-    font-weight: 400;
-    border-radius: 8px;
-    padding: 12px 24px;
-    border: none;
-    background:#a77753;
-    color: #fff;
-    transition: all 300ms;
-}
 
-.btn-cerrar-session:hover{
-    background: #735137;
-    transition: 300ms all;
-}
+
 
 .barra-busqueda {
     padding: 10px 20px;

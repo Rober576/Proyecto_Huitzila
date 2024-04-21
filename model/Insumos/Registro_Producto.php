@@ -24,11 +24,11 @@ class RegistroProducto{
     }
 
     //da de alta un producto
-    function registrar($id, $desc, $smin, $smax, $cprom, $cu, $cantidad){
-        $querry = "INSERT INTO productoterminado (IDProducto, Descripcion, StockMinimo, StockMaximo, CostoProm, 
-        CostoUltimo, Cantidad) VALUES (:id, :descr, :smin, :smax, :cprom, :cu, :cantidad)";
+    function registrar($id, $nombre, $desc, $smin, $smax, $cprom, $cu, $cantidad){
+        $querry = "INSERT INTO productoterminado (IDProducto, ProductoTerminado, Descripcion, StockMinimo, StockMaximo, 
+        CostoProm, CostoUltimo, Cantidad) VALUES (:id, :nom, :descr, :smin, :smax, :cprom, :cu, :cantidad)";
 
-        $array = [':id'=>$id, ':descr'=>$desc, ':smin'=>$smin, ':smax'=>$smax, ':cprom'=>$cprom, ':cu'=>$cu, ':cantidad'=>$cantidad];
+        $array = [':id'=>$id, ':nom'=>$nombre, ':descr'=>$desc, ':smin'=>$smin, ':smax'=>$smax, ':cprom'=>$cprom, ':cu'=>$cu, ':cantidad'=>$cantidad];
 
         $this->base->insertar_eliminar_actualizar($querry, $array);
     }

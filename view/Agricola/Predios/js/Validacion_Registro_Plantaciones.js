@@ -217,8 +217,9 @@ function Validar_Datos_Vehiculo(){
 function Validar_Costo_Gasolina() {
     let valorInput = Formulario.costGas.value;
 
-    // Eliminar todos los caracteres no numéricos
-    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d*)\./g, '');
+    // Reemplaza todos los caracteres no numéricos ni puntos, excepto el segundo punto decimal
+    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d{2})\d+/g, '');
+
 
 
 
@@ -244,8 +245,9 @@ function Validar_Costo_Gasolina() {
 function Validar_Costo_Material() {
     let valorInput = Formulario.cosMate.value;
 
-    // Eliminar todos los caracteres no numéricos
-    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d*)\./g, '');
+    // Reemplaza todos los caracteres no numéricos ni puntos, excepto el segundo punto decimal
+    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d{2})\d+/g, '');
+
 
 
 
@@ -275,7 +277,8 @@ function Validar_Fecha_Inicio_Fin(){
     if (fechaInicio > fechaFin) {
         Formulario.fecIni.style.border = "5px solid red"; 
         Formulario.fecFin.style.border = "5px solid red"; 
-        bandera8 = false; 
+        bandera8 = false;
+        alert("La fecha de inicio no puede ser posterior a la fecha de fin"); 
     } else {
         Formulario.fecIni.removeAttribute("style"); 
         Formulario.fecFin.removeAttribute("style"); 
@@ -303,6 +306,7 @@ function Validar_Inicio(){
     if (fechaInicio < fechaFin){
         Formulario.fecIni.removeAttribute("style");
         Formulario.fecFin.removeAttribute("style");
+        Validar_Fin()
     }
 }
 
@@ -315,6 +319,7 @@ function Validar_Fin(){
     if (fechaInicio < fechaFin){
         Formulario.fecIni.removeAttribute("style");
         Formulario.fecFin.removeAttribute("style");
+        Validar_Inicio()
     }
 
 }
@@ -342,4 +347,5 @@ Formulario.costGas.addEventListener('input', Validar_Costo_Gasolina);
 Formulario.cosMate.addEventListener('input', Validar_Costo_Material);
 Formulario.fecIni.addEventListener('input', Validar_Inicio);
 Formulario.fecFin.addEventListener('input', Validar_Fin);
+
 Formulario.fecPlant.addEventListener('input', Validar_Fecha_Plantacion);

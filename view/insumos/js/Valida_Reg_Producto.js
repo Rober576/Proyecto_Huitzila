@@ -68,6 +68,7 @@ const expresiones = {
     descripcion: /^[a-zA-ZÁ-ý0-9\s"-.,_]{0,100}$/,
     stock: /^[0-9]{1,10}$/,
     precio: /^[0-9]+(.([0-9])+)*$/,
+    nombre: /^[0-9.a-zA-ZÁ-ý\s]{1,50}$/
 }
 
 //funcion para validar los campos
@@ -91,6 +92,25 @@ insumos_form.Identificador.addEventListener("keyup", (e) =>{
         id = false
     }
 });
+
+insumos_form.Nombre.addEventListener("keyup", (e) =>{
+    let valorInput = e.target.value;
+    insumos_form.Nombre.value = valorInput
+    
+   
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅæÆôöòûùÿÖÜ¢£¥₧ƒªº`´¨°¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':"\\|,<>\/?]/g, '')
+
+    if(expresiones.nombre.test(e.target.value)){
+        Nombre.removeAttribute("style");
+        nom = true
+    }
+    else{
+        Nombre.style.border = "3px solid red";
+        nom = false
+    }
+});
+
 
 insumos_form.Stockma.addEventListener("keyup", (e) =>{
     let valorInput = e.target.value;
@@ -367,4 +387,6 @@ function validarDecimales(cadena){
         return false
     }
 }
+
+
 

@@ -71,10 +71,13 @@ body, html {
 }
 
 
-.content {
+.content{
     text-align: center;
     color: white;
-    padding: 10%;
+    padding: 11%;
+}
+.content_2{
+    margin-bottom: 4em;
 }
 
 .input-group {

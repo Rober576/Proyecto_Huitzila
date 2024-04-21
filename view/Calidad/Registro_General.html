@@ -11,14 +11,13 @@
 <body>
         <header>
         <div class="header_superior">
-            <div class="titulo">
-
-                <div class="nombre_ventana">
-                    <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
-                    <h1 class="nombre_Ventana">Calidad</h1>
-                </div>
-
-            </div>
+			<div class="img-ventana">
+				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+				
+			</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Calidad</h1>
+			</div>
 		
             <div class="boton-cerrar-session">
 				<button class="btn-cerrar-session btn">Cerrar sesión</button>
@@ -79,10 +78,11 @@
 							</a>
 				
 							<ul>
-								<li><a href="../Calidad/Registro_General.html">Análisis general</a></li>
-                                <li><a href="../Calidad/Mostrar_Fisioquimico.html">Análisis fisioquímico</a></li>
+								<li><a href="../Calidad/Registro_General.html">Registro de análisis general</a></li>
+                                <li><a href="../Calidad/Registro_Fisioquimico.html">Registro de análisis fisioquímico</a></li>
+                                <li><a href="../Calidad/Mostrar_Calidad.html">Consultar análisis generales</a></li>
+                                <li><a href="../Calidad/Mostrar_Fisioquimico.html">Consultar análisis fisioquímicos</a></li>
                                 <li><a href="../Calidad/Valores_Min_Max.html">Valores mínimos y máximos</a></li>
-								<li><a href="../Calidad/Mostrar_Calidad.html">Consultar</a></li>
 							</ul>
 						</li>
 
@@ -130,23 +130,23 @@
             <form class="formulario-datos" id="advanced-form">
 
                 <div class="grupo1">
-                    <label class="label_datos" for="lote">Lote:<span class="required">*</span></label>
+                    <label class="label_datos" for="lote">Lote<span class="required">*</span></label>
                     <select id="lote" name="lote" required title="Selecciona un lote">
                     </select>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="azucares">Azucares:<span class="required">*</span></label>
+                    <label class="label_datos" for="azucares">Azucares<span class="required">*</span></label>
                     <input type="text" id="azucares" name="azucares" maxlength="13"  required title="En azúcares solo se permiten valores numéricos.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="madurez">Madurez:<span class="required">*</span></label>
+                    <label class="label_datos" for="madurez">Madurez<span class="required">*</span></label>
                     <input type="text" id="madurez" name="madurez" maxlength="13"  required title="En madurez solo se permiten valores numéricos.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="mat_prima">Materia prima (tamaño):<span class="required">*</span></label>
+                    <label class="label_datos" for="mat_prima">Materia prima (tamaño)<span class="required">*</span></label>
                     <input type="text" id="mat_prima" name="mat_prima" maxlength="13"  required title="En Materia prima solo se permiten valores numéricos.">
                 </div>
 

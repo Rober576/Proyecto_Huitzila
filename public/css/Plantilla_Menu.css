@@ -57,12 +57,13 @@ header{
 
 img.logo_mezcal{
     padding-right: 10px;
-    padding-bottom: 25px;
-    width: 150px;
+    padding-bottom: 20px;
+    width: 170px;
 }
 
 .nombre_ventana{
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -71,12 +72,15 @@ img.logo_mezcal{
 .header_superior{
     background-color: #143419;
     height: 125px;
-    max-width: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 
+}
+.img-ventana{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .titulo{
     font-size: 12px;
@@ -89,6 +93,30 @@ img.logo_mezcal{
 .logo:hover{
     cursor: pointer;
 }
+
+.boton-cerrar-session{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cerrar-session{
+    font-size: 1.2rem;
+    font-family: 'FuentePrincipal', sans-serif;
+    font-weight: 400;
+    border-radius: 8px;
+    padding: 12px 24px;
+    border: none;
+    background:#a77753;
+    color: #fff;
+    transition: all 300ms;
+}
+
+.btn-cerrar-session:hover{
+    background: #735137;
+    transition: 300ms all;
+}
+
 
 /*Barra de busqueda*/
 .input-buscar{
@@ -166,7 +194,7 @@ nav > ul > li > a:hover{
 /*SUBMENU*/
 
 nav ul li ul{
-    width: 150px;
+    width: 170px;
     display: flex;
     flex-direction: column;
     background: #f5efe2;
@@ -204,9 +232,9 @@ nav ul li ul li a{
     display: block;
     color: #000000;
     padding: 6px;
-    padding-left: 14px;
+    padding-left: 12px;
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     text-transform: uppercase;
     transition: all 300ms ease;
@@ -214,8 +242,8 @@ nav ul li ul li a{
 
 nav ul li ul li a:hover{
     color: #a67651;
-    padding-left: 20px;
-    font-size: 16px;
+    padding-left: 18px;
+    font-size: 14px;
     font-weight: 800;
 }
 

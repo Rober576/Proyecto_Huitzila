@@ -8,7 +8,7 @@ formulario.addEventListener('submit', function(e){
     var datos = new FormData(formulario)
 
     //fusiona el html con el php de la logica y validaciones
-    fetch('../../controller/insumos/Registro_Producto.php', {
+    fetch('../../controller/Insumos/Registro_Producto.php', {
         method: 'POST',
         body: datos
     })

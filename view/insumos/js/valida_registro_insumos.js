@@ -44,8 +44,9 @@ const expresion = {
 insumos_form.Identificador.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
-    // Elimina las letras del valor de entrada
-    //valorInput = valorInput.replace(/[a-zA-Z]/g, '');
+    // Elimina los simbolos especiales del valor de entrada
+    valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
+
 
     // Asigna el valor al campo
     insumos_form.Identificador.value = valorInput;
@@ -65,8 +66,9 @@ insumos_form.Identificador.addEventListener('input', (e) =>{
 insumos_form.Nombre.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
-    // Elimina los números del valor de entrada
-    //valorInput = valorInput.replace(/[0-9]/g, '');
+    // Elimina los simbolos especiales del valor de entrada
+    valorInput = valorInput.replace(/[^a-zA-Z0-9.]/g, '');
+
 
     // Asigna el valor al campo
     insumos_form.Nombre.value = valorInput;
@@ -84,6 +86,10 @@ insumos_form.Nombre.addEventListener('input', (e) =>{
 // Escuchador de eventos para el campo Descripcion
 insumos_form.Descripcion.addEventListener('keyup', (e) =>{
     let valorInput = e.target.value;
+
+    // Elimina los simbolos especiales del valor de entrada excepto (puntos, comas, guiones bajos y guiones)
+    valorInput = valorInput.replace(/[^\w\s\d.,_-]/g, '');
+
 
     // Asigna el valor al campo
     insumos_form.Descripcion.value = valorInput;
@@ -103,8 +109,9 @@ insumos_form.Descripcion.addEventListener('keyup', (e) =>{
 insumos_form.Unidades.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
-    // Elimina los números del valor de entrada
-    valorInput = valorInput.replace(/[0-9]/g, '');
+    // Elimina los simbolos especiales del valor de entrada
+    valorInput = valorInput.replace(/[^a-zA-Z]/g, '');
+    
 
     // Asigna el valor al campo
     insumos_form.Unidades.value = valorInput;
@@ -208,6 +215,10 @@ insumos_form.Stockma.addEventListener('input', (e) =>{
 // Escuchador de eventos para el campo Costo
 insumos_form.Costo.addEventListener('keyup', (e) =>{
     let valorInput = e.target.value;
+
+    // Elimina los simbolos especiales del valor de entrada excepto (puntos)
+    valorInput = valorInput.replace(/[^\d.]/g, '');
+
 
     // Asigna el valor al campo
     insumos_form.Costo.value = valorInput;

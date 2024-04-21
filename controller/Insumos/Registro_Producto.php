@@ -2,11 +2,12 @@
 include_once('../../model/Insumos/Registro_Producto.php');
 
 class RegProducto{
-    private $id, $desc, $smin, $smax, $cprom, $cu, $cantidad, $base;
+    private $id, $nombre, $desc, $smin, $smax, $cprom, $cu, $cantidad, $base;
 
     function instancias(){
         $this->id = $_POST['Identificador'];
         $this->desc = $_POST['Descripcion'];
+        $this->nombre = $_POST['Nombre'];
         $this->smin = $_POST['Stockmi'];
         $this->smax = $_POST['Stockma'];
         $this->cprom = $_POST['CProm'];
@@ -25,7 +26,7 @@ class RegProducto{
         }
 
         else{
-            $this->base->registrar($this->id, $this->desc, $this->smin, $this->smax, $this->cprom, $this->cu, $this->cantidad);
+            $this->base->registrar($this->id, $this->nombre, $this->desc, $this->smin, $this->smax, $this->cprom, $this->cu, $this->cantidad);
             echo json_encode('todo chido');
         }
     }

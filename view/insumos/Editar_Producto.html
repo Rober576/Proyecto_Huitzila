@@ -124,8 +124,13 @@
 				
 					<div class="grupo1">
 						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="Identificador" name="Identificador" readonly
-						title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required maxlength="40">
+						<input type="text" id="Identificador" name="Identificador" title="El identificador de insumo puede ser de hasta 40 caracteres conformado de caracteres alfanuméricos." required maxlength="40">
+					</div>
+
+					<div class="grupo1">
+						<label class="label_datos" for="Nombre">Nombre<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="Nombre" name="Nombre" maxlength="50"
+						title="Nombre del insumo de hasta 50 caracteres incluyendo letras, números y símbolos '.'" required>
 					</div>
 					
 					
@@ -151,7 +156,7 @@
 					</div>
 
 					<div class="grupo1">
-						<label class="label_datos" for="cantidad">cantidad<span class="campo-obligatorio">*</span></label>
+						<label class="label_datos" for="cantidad">Cantidad<span class="campo-obligatorio">*</span></label>
 						<input type="number" id="cantidad" name="cantidad" title="Cantidad actual del insumo (Conformado por caracteres enteros)." required>
 					</div>
 					
@@ -159,16 +164,28 @@
 				</div>
 					<div class="grupo1">
 						<label class="label_datos" for="Nombre">Descripción</label>
-						<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" maxlength="50"
-						title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
+						<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" maxlength="50"
+						class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
 					</div>
 
 			</div>
+
+			<script>
+				function cancelar(){
+					r = confirm("Los cambios relizados no se guardarán ¿Desea continuar?");
+					if(r == true){
+						window.location.href = "../../view/insumos/Mostrar_Producto.html";
+					}
+					else{
+						return false;
+					}
+				}
+			</script>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" class="Boton_cancelar">Cancelar</button>
+						<button type="button" id="Cancelar" onclick="cancelar()">Cancelar</button>
 					</div>
 				</div>
 			</form>
