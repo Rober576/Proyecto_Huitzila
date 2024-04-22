@@ -8,7 +8,7 @@ function buscar_datos(consulta) {
     params.append('consulta', consulta);
 
     // Realiza la solicitud fetch
-    fetch('../../controller/Insumos/Mostrar_Insumos.php', {
+    fetch('../../controller/Insumos/Mostrar_insumos.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
