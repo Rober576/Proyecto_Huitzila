@@ -18,7 +18,10 @@ form_datos.tanque.addEventListener('input', (e) => {
         valorInput = valorInput.slice(0, 50);
     }
 
-    form_datos.tanque.value = valorInput;
+    form_datos.tanque.value = valorInput
+        .replace(/[^a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\-/,]/g, '')
+        // Reemplazar más de un espacio en blanco por solo un espacio
+        .replace(/\s{2,}/g, ' ')
 
     if (!valorInput || !expresiones.tanque.test(valorInput)) {
         form_datos.tanque.style.border = "3px solid red";
@@ -33,6 +36,10 @@ form_datos.tanque.addEventListener('input', (e) => {
 
 form_datos.edad.addEventListener('input', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
+    form_datos.edad.value = valorInput;
+
 
     // Obtener el valor del campo de clase
     let claseSeleccionada = document.getElementById('clase').value;
