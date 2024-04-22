@@ -15,7 +15,7 @@ $smin = $insumo[0]['StockMinimo'];
 $smax = $insumo[0]['StockMaximo'];
 $costo = $insumo[0]['Costo'];   
 
-include_once("../../view/Insumos/Editar_Insumos.html");
+include_once("../../view/insumos/Editar_Insumos.html");
 ?>
 
 <script>
