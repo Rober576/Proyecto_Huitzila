@@ -1,26 +1,92 @@
 var formulario = document.getElementById('advanced-form');
 
-formulario.addEventListener('submit', function (e)
-{
+formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var datos= new FormData(formulario);
+    // Obtener los valores mínimo y máximo
+    var min_alcohol_value = parseFloat(min_alcohol.value);
+    var max_alcohol_value = parseFloat(max_alcohol.value);
+
+    // Verificar si el valor mínimo es mayor que el valor máximo
+    if (min_alcohol_value > max_alcohol_value) {
+        alert("El valor mínimo no puede ser mayor que el valor máximo para el alcohol.");
+        return; // Detener el envío del formulario
+    } else if (min_alcohol_value === max_alcohol_value) {
+        alert("Los valores mínimo y máximo para el alcohol no pueden ser iguales.");
+        return; // Detener el envío del formulario
+    }
+
+    var min_ext_seco_value = parseFloat(min_ext_seco.value);
+    var max_ext_seco_value = parseFloat(max_ext_seco.value);
+
+    // Verificar si el valor mínimo es mayor que el valor máximo
+    if (min_ext_seco_value > max_ext_seco_value) {
+        alert("El valor mínimo no puede ser mayor que el valor máximo para el extracto seco.");
+        return; // Detener el envío del formulario
+    } else if (min_ext_seco_value === max_ext_seco_value) {
+        alert("Los valores mínimo y máximo para el extracto seco no pueden ser iguales.");
+        return; // Detener el envío del formulario
+    }
+    // Obtener los valores mínimo y máximo del metanol
+    var min_metanol_value = parseFloat(min_metanol.value);
+    var max_metanol_value = parseFloat(max_metanol.value);
+
+    // Verificar si el valor mínimo es mayor que el valor máximo
+    if (min_metanol_value > max_metanol_value) {
+        alert("El valor mínimo no puede ser mayor que el valor máximo para el metanol.");
+        return; // Detener el envío del formulario
+    } else if (min_metanol_value === max_metanol_value) {
+        alert("Los valores mínimo y máximo para el metanol no pueden ser iguales.");
+        return; // Detener el envío del formulario
+    }
+
+    // Obtener los valores mínimo y máximo de los aldehídos
+    var min_aldehidos_value = parseFloat(min_aldehidos.value);
+    var max_aldehidos_value = parseFloat(max_aldehidos.value);
+
+    // Verificar si el valor mínimo es mayor que el valor máximo
+    if (min_aldehidos_value > max_aldehidos_value) {
+        alert("El valor mínimo no puede ser mayor que el valor máximo para los aldehídos.");
+        return; // Detener el envío del formulario
+    } else if (min_aldehidos_value === max_aldehidos_value) {
+        alert("Los valores mínimo y máximo para los aldehídos no pueden ser iguales.");
+        return; // Detener el envío del formulario
+    }
+
+    var min_furfural_value = parseFloat(min_furfural.value);
+    var max_furfural_value = parseFloat(max_furfural.value);
+
+    // Verificar si el valor mínimo es mayor que el valor máximo
+    if (min_furfural_value > max_furfural_value) {
+        alert("El valor mínimo no puede ser mayor que el valor máximo para el furfural.");
+        return; // Detener el envío del formulario
+    } else if (min_furfural_value === max_furfural_value) {
+        alert("Los valores mínimo y máximo para el furfural no pueden ser iguales.");
+        return;
+    }
+
+
+
+    
+    var datos = new FormData(formulario);
     fetch('../../controller/Calidad/Modificar_ValoresMinMax.php', {
         method: 'POST',
         body: datos
     })
-
     .then(res => res.json())
     .then(data => {
         console.log(data);
         if (data === 'exito') {
-            const form= document.getElementById('advanced-form');
+            const form = document.getElementById('advanced-form');
             form.reset();
             alert("Modificacion exitosa");
             window.location.href = '../../view/Calidad/Valores_Min_Max.html';
         }
     })
-})
+});
+
+// Resto del código para obtener y asignar valores omitido por brevedad...
+
 
 
 var min_alcohol = document.getElementById('min_alcohol');
