@@ -16,9 +16,10 @@ class Mostrar{
         }
 
         else{
-            $querry = "SELECT * FROM insumos WHERE IDInsumo LIKE :q OR NombreInsumo LIKE :q OR Descripcion 
-            LIKE :q OR Unidades LIKE :q OR Existencia LIKE :q OR FechaReg LIKE :q OR StockMinimo LIKE :q OR StockMaximo LIKE :q
-            OR Costo LIKE :q";
+            $querry = "SELECT * FROM insumos WHERE IDInsumo LIKE :q 
+            OR NombreInsumo LIKE :q OR Descripcion LIKE :q OR Unidades 
+            LIKE :q OR Existencia LIKE :q OR FechaReg LIKE :q OR StockMinimo 
+            LIKE :q OR StockMaximo LIKE :q OR Costo LIKE :q";
 
             $array = [":q"=>'%'.$parametro.'%'];
 
@@ -27,9 +28,10 @@ class Mostrar{
         
         return $resultados;
     }
-    
+
+
     function getInsumo($id){
-        $querry = "SELECT * FROM insumo WHERE IDInsumo = :id";
+        $querry = "SELECT * FROM insumos WHERE IDInsumo = :id";
         $array = [":id"=>$id];
         $resultados = $this->base->mostrar($querry, $array);
         return $resultados;
