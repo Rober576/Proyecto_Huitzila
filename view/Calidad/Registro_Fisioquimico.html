@@ -10,20 +10,19 @@
 </head>
 <body>
         <header>
-        <div class="header_superior">
-            <div class="titulo">
-
-                <div class="nombre_ventana">
+            <div class="header_superior">
+                <div class="img-ventana">
                     <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+                    
+                </div>
+                <div class="nombre_ventana">
                     <h1 class="nombre_Ventana">Calidad</h1>
                 </div>
-
+            
+                <div class="boton-cerrar-session">
+                    <button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
+                </div>
             </div>
-
-            <div class="boton-cerrar-session">
-
-            </div>
-        </div>
 
         <!-- Menu Desplegable -->
 		<div class="container_menu">
@@ -39,67 +38,27 @@
 						<li>
 							<a href="#">
 							<i ></i>
-							Registro de análisis general
+							Análisis general
 							</a>
 			
 							<ul>
-							<li><a >Registrar</a></li>
-							<li><a >Consultar</a></li>
+								<li><a href="../Calidad/Registro_General.html">Registro de análisis</a></li>
+                                <li><a href="../Calidad/Mostrar_Calidad.html">Consultar análisis</a></li>
 							</ul>
 						</li>
 		
 						<li>
 							<a href="#">
 								<i ></i>
-								Registro de análisis fisioquímico
+								Análisis fisioquímico
 							</a>
 				
 							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Consultar</a></li>
-							</ul>
-						</li>
-
-                        <li>
-							<a href="#">
-								<i ></i>
-								Consultar análisis generales
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Consultar</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#">
-								<i ></i>
-								Consultar análisis fisioquímicos
-							</a>
-				
-							<ul>
-								<li><a href="../Calidad/Registro_General.html">Registro de análisis general</a></li>
-                                <li><a href="../Calidad/Registro_Fisioquimico.html">Registro de análisis fisioquímico</a></li>
-                                <li><a href="../Calidad/Mostrar_Calidad.html">Consultar análisis generales</a></li>
-                                <li><a href="../Calidad/Mostrar_Fisioquimico.html">Consultar análisis fisioquímicos</a></li>
+								<li><a href="../Calidad/Registro_Fisioquimico.html">Registro de análisis</a></li>
+                                <li><a href="../Calidad/Mostrar_Fisioquimico.html">Consultar análisis</a></li>
                                 <li><a href="../Calidad/Valores_Min_Max.html">Valores mínimos y máximos</a></li>
 							</ul>
 						</li>
-
-                        <li>
-							<a href="#">
-								<i ></i>
-								Valores mínimos y máximos
-							</a>
-				
-							<ul>
-								<li><a >Registrar</a></li>
-								<li><a >Consultar</a></li>
-							</ul>
-						</li>
-
-                        
 
 					</ul>
         		</nav>
