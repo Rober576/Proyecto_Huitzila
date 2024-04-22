@@ -36,7 +36,7 @@ form_datos.tanque.addEventListener('input', (e) => {
 
 form_datos.edad.addEventListener('input', (e) => {
     let valorInput = e.target.value;
-    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+    valorInput = valorInput.match(/^\d{0,3}(\.\d{0,2})?/)[0];
 
     form_datos.edad.value = valorInput;
 
