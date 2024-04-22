@@ -17,7 +17,7 @@ function buscar_datos(consulta) {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(response.statusText);
         }
         return response.text();
     })
@@ -29,7 +29,7 @@ function buscar_datos(consulta) {
     });
 }
 
-// Llama a buscar_datos() al cargar la página
+// llama a buscar_datos() al cargar la página
 buscar_datos();
 
 // Escucha el evento keyup en el elemento con el ID 'busqueda'
@@ -43,32 +43,32 @@ document.getElementById('buscar-txt').addEventListener('keyup', function() {
 });
 
 function mostrarDatos(datos){
-    cuerpo_tabla.innerHTML = '';
-    
+    console.log(datos);
+    cuerpo_tabla.innerHTML = '';    
 
-    if(datos.length == 0){
+    if(datos.length == 0){   
         tablaResultado.style.display = 'none';
         mensaje.style.display = 'block';
     }
 
     else{
         tablaResultado.style.display = 'block';
-        mensaje.style.display = 'none';
+        mensaje.style.display = 'none'
 
         for(i = 0; i < datos.length; i++){
             var row = document.createElement('tr');
             var id_col = document.createElement('td');
-            var nom_col = document.createElement('td');
+            var nombre_col = document.createElement('td');
             var desc_col = document.createElement('td');
-            var uni_col = document.createElement('td');
+            var unidades_col = document.createElement('td');    
             var exist_col = document.createElement('td');
-            var date_col = document.createElement('td');
+            var fecha_col = document.createElement('td');
             var smin_col = document.createElement('td');
             var smax_col = document.createElement('td');
-            var cost_col = document.createElement('td');
-    
-            var acciones = document.createElement('td')
-            var link_eliminar = document.createElement('a')
+            var costo_col = document.createElement('td');
+
+            var acciones = document.createElement('td');
+            var link_eliminar = document.createElement('a');
             link_eliminar.style.background = '#1d4d25';
             link_eliminar.style.color = 'white';
             link_eliminar.style.border = 'none';
@@ -76,9 +76,9 @@ function mostrarDatos(datos){
             link_eliminar.style.fontSize = '16px';
             link_eliminar.style.padding = '5px 12px';
             link_eliminar.style.borderRadius = '5px';
-            link_eliminar.style.textDecoration = 'none';
+            link_eliminar.style.textDecoration = 'none'
 
-            var link_editar = document.createElement('a')
+            var link_editar = document.createElement('a');
             link_editar.style.background = '#1d4d25';
             link_editar.style.color = 'white';
             link_editar.style.border = 'none';
@@ -88,26 +88,25 @@ function mostrarDatos(datos){
             link_editar.style.borderRadius = '5px';
             link_editar.style.textDecoration = 'none';
 
-
             id_col.innerHTML = datos[i][0]
             row.appendChild(id_col);
-            nom_col.innerHTML = datos[i][1]
-            row.appendChild(nom_col);
+            nombre_col.innerHTML = datos[i][1]
+            row.appendChild(nombre_col);
             desc_col.innerHTML = datos[i][2]
             row.appendChild(desc_col);
-            uni_col.innerHTML = datos[i][3]
-            row.appendChild(uni_col);
+            unidades_col.innerHTML = datos[i][3]
+            row.appendChild(unidades_col);
             exist_col.innerHTML = datos[i][4]
             row.appendChild(exist_col);
-            date_col.innerHTML = datos[i][5]
-            row.appendChild(date_col);
+            fecha_col.innerHTML = datos[i][5]
+            row.appendChild(fecha_col);
             smin_col.innerHTML = datos[i][6]
             row.appendChild(smin_col);
             smax_col.innerHTML = datos[i][7]
             row.appendChild(smax_col);
-            cost_col.innerHTML = datos[i][8]
-            row.appendChild(cost_col);
-            
+            costo_col.innerHTML = datos[i][8]
+            row.appendChild(costo_col);
+
             link_eliminar.innerHTML = "Eliminar";
             link_eliminar.dataset.id = datos[i][0];
 
@@ -159,5 +158,4 @@ function mostrarDatos(datos){
             
         }
     }
-    
 }
