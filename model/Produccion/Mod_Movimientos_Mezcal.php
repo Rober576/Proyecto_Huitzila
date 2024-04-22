@@ -129,8 +129,8 @@ class  modificarMez extends Crud_bd{
             $IDMovimiento = $this->obtenerIDMovimiento($tipo);
             $datos=$this->obtenerInicio($lote2);
         
-            $datosArray = json_decode($datos, true);
-        
+            //$datosArray = json_decode($datos, true);
+            $datosArray = $datos;
             $inicialVolumen = $datosArray['FinalVolumen'];
             $inicialPorcentaje = $datosArray['FinalPorcentaje'];
         

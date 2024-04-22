@@ -33,7 +33,7 @@ form_ingreso_agave.procedencia.addEventListener('input', (e) => {
 
     form_ingreso_agave.procedencia.value = valorInput
         // Eliminar caracteres especiales excepto los permitidos
-        .replace(/[^a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\s#\-/,]/g, '')
+        .replace(/[^a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ.\-/,]/g, '')
         // Reemplazar más de un espacio en blanco por solo un espacio
         .replace(/\s{2,}/g, ' ')
        
