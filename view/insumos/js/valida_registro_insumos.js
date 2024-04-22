@@ -46,6 +46,10 @@ insumos_form.Identificador.addEventListener('input', (e) =>{
 
     // Elimina los simbolos especiales del valor de entrada
     valorInput = valorInput.replace(/[^a-zA-Z0-9]/g, '');
+    //Elimina los caracteres extra cuando sobrepasa de los 40
+    if (valorInput.length > 40) {
+        valorInput = valorInput.substring(0, 40);
+    }
 
 
     // Asigna el valor al campo
@@ -67,8 +71,11 @@ insumos_form.Nombre.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
     // Elimina los simbolos especiales del valor de entrada
-    valorInput = valorInput.replace(/[^a-zA-Z0-9.]/g, '');
-
+    valorInput = valorInput.replace(/[^a-zA-Z0-9.\s]/g, '');
+    //Elimina los caracteres extra cuando sobrepasa de los 50
+    if (valorInput.length > 50) {
+        valorInput = valorInput.substring(0, 50);
+    }
 
     // Asigna el valor al campo
     insumos_form.Nombre.value = valorInput;
@@ -89,6 +96,10 @@ insumos_form.Descripcion.addEventListener('keyup', (e) =>{
 
     // Elimina los simbolos especiales del valor de entrada excepto (puntos, comas, guiones bajos y guiones)
     valorInput = valorInput.replace(/[^\w\s\d.,_-]/g, '');
+    //Elimina los caracteres extra cuando sobrepasa de los 100
+    if (valorInput.length > 100) {
+        valorInput = valorInput.substring(0, 100);
+    }
 
 
     // Asigna el valor al campo

@@ -36,7 +36,7 @@ formulario.addEventListener('submit', function (e)
                     const form= document.getElementById('advanced-form');
                     form.reset();
                     alert("Registro de plaga exitoso");
-                    window.location.href = "../../../view/Agricola/Plagas_y_Herbicidas/Vista_Plagas.html";
+                    window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Plagas.html";
 
                     
                 }
@@ -60,7 +60,7 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
-            window.location.href = "../../../view/Agricola/Plagas_y_Herbicidas/Vista_Plagas.html";
+            window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Plagas.html";
             
         }
     });

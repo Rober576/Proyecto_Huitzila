@@ -68,6 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Establecer el campo de entrada de la edad como habilitado y con un color de fondo blanco
             inputEdad.disabled = false;
             inputEdad.style.backgroundColor = 'white';
+            if (inputEdad.value.trim() === "") { 
+                inputEdad.style.border = '3px solid red'; // Resaltar el campo con un borde rojo
+                const guardar = document.getElementById('submitButton');
+                guardar.disabled=true;
+               
+            } 
         }
     });
 });

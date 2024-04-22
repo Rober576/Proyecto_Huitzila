@@ -11,19 +11,18 @@
 <body>
     <header>
 		<div class="header_superior">
-			<div class="titulo">
-
-				<div class="nombre_ventana">
-					<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
-					<h1 class="nombre_Ventana">Agrícola</h1>
-				</div>
-
-			</div>
-
-			<div class="boton-cerrar-session">
+			<div class="img-ventana">
+				<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
 				
 			</div>
-		</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Agricola</h1>
+			</div>
+		
+            <div class="boton-cerrar-session">
+				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/login/Logout.php' ">Cerrar sesión</button>
+            </div>
+        </div>
 
 		<!-- Menu Desplegable -->
 		<div class="container_menu">
@@ -111,84 +110,84 @@
 	<main>
 
 
-    <section class="section-main">
-        <div class="cabezera">
-			<h4 class="h4">Modificar</h4>
-		</div>
-		<br>
-		<p class="subtitulo-1"> Ingreso de plantación</p>
-        <br>
-        <p class="subtitulo-2">Datos de plantación</p>
-		<hr>
-            <form id="advanced-form">
-				<div class="formulario-datos">
-					<div>
-						<label for="codPlantacion">Clave del plantación:<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="codPlantacion" name="codPlantacion"  class="styled-input" required readonly>
+		<section class="section-main">
+			<div class="cabezera">
+				<h4 class="h4">Registrar</h4>
+			</div>
+			<br>
+			<p class="subtitulo-1"> Ingreso de plantación</p>
+			<br>
+			<p class="subtitulo-2">Datos de plantación</p>
+			<hr>
+				<form id="advanced-form">
+					<div class="formulario-datos">
+						<div>
+							<label for="codPlantacion">Clave del plantación<span class="campo-obligatorio">*</span></label>
+							<input type="text" id="codPlantacion" name="codPlantacion"  class="styled-input" title="La clave debe de tener maximo 10 caracteres, solo numeros y letras" required>
+						</div>
+						<div>
+							<label for="superfPre">Superficie<span class="campo-obligatorio">*</span></label>
+							<input type="text" id="superfPre" name="superfPre" class="styled-input" title="La Superficie debe de tener maximo 10 caracteres, solo numeros y decimnales" required>
+						</div>
+						<div>
+							<label for="canPlan">Cantidad de plantas<span class="campo-obligatorio">*</span></label>
+							<input type="text" id="canPlan" name="canPlan"  class="styled-input" title="La cantidad de plantas debe de tener maximo 10 caracteres, solo numeros" required>
+						</div>
 					</div>
-					<div>
-					    <label for="superfPre">Superficie:<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="superfPre" name="superfPre" class="styled-input" required>
+					<div class="formulario-datos2">
+						<div>
+							<label for="fecPlant">Fecha de plantación<span class="campo-obligatorio">*</span></label>
+							<input type="date" id="fecPlant" name="fecPlant" class="styled-input" title="selecciones la fecha de la plantación" required>
+						</div>
+						<div>
+							<label for="tipPlanta">Tipo de planta<span class="campo-obligatorio">*</span></label>
+							<select id="tipPlanta" name="tipPlanta" class="styled-input" title="Seleccione un tipo de planta"></select>
+						</div>
 					</div>
-                    <div>
-						<label for="canPlan">Cantidad de plantas:<span class="campo-obligatorio">*</span></label>
-						<input type="number" id="canPlan" name="canPlan"  class="styled-input"  required>
-					</div>
+	
+		</section>
+		<section class="section-main">
+			<p class="subtitulo-2">General</p>
+			<hr>
+			<div class="formulario-datos">
+				<div>
+					<label for="nomTraba">Nombre del trabajador<span class="campo-obligatorio">*</span></label>
+					<input type="text" id="nomTraba" name="nomTraba"  class="styled-input" title="El nombre de trabajador debe de tener maximo 30 caracteres, solo numeros y letras" required >
 				</div>
-                <div class="formulario-datos">
-                    <div>
-                        <label for="fecPlant">Fecha de plantación:<span class="campo-obligatorio">*</span></label>
-						<input type="date" id="fecPlant" name="fecPlant" class="styled-input" required>
-                    </div>
-                    <div>
-                        <label for="tipPlanta">Tipo de planta:<span class="campo-obligatorio">*</span></label>
-                        <select id="tipPlanta" name="tipPlanta" class="styled-input"></select>
-                    </div>
-                </div>
-
-    </section>
-    <section class="section-main">
-        <p class="subtitulo-2">General</p>
-		<hr>
-        <div class="formulario-datos">
-            <div>
-                <label for="nomTraba">Nombre del trabajador<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="nomTraba" name="nomTraba"  class="styled-input" required>
-            </div>
-            <div>
-                <label for="datVec">Datos del vehículo<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="datVec" name="datVec"  class="styled-input" required>
-            </div>
-            <div>
-                <label for="costGas">Costos de gasolina<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="costGas" name="costGas"  class="styled-input" required>
-            </div>
-        </div>
-        <div class="formulario-datos">
-            <div>
-                <label for="cosMate">Costo de material<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="cosMate" name="cosMate"  class="styled-input" required>
-            </div>
-            <div>
-                <label for="fecIni">Fecha de inicio<span class="campo-obligatorio">*</span></label>
-                <input type="date" id="fecIni" name="fecIni"  class="styled-input" required>
-            </div>
-            <div>
-                <label for="fecFin">Fecha de finalización<span class="campo-obligatorio">*</span></label>
-                <input type="date" id="fecFin" name="fecFin"  class="styled-input" required>
-            </div>
-        </div>
-				<div class="grupo-boton-reg">
-					<div class="boton_registrar">
-                		<button type="submit" id="submitButton">Modificar</button>
-						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
-					</div>
+				<div>
+					<label for="datVec">Datos del vehículo<span class="campo-obligatorio">*</span></label>
+					<input type="text" id="datVec" name="datVec"  class="styled-input" title="Los datos del vehículo debe de tener maximo 70 caracteres, solo numeros y letras y caracteres especiales (#,(),-)" required>
 				</div>
-            </form>
-        </div>
-    </section>
-    
-	</main>
+				<div>
+					<label for="costGas">Costos de gasolina<span class="campo-obligatorio">*</span></label>
+					<input type="text" id="costGas" name="costGas"  class="styled-input" title="El costo de la gasolina debe de tener maximo 10 caracteres, solo numeros y 2 decimnales" required >
+				</div>
+			</div>
+			<div class="formulario-datos">
+				<div>
+					<label for="cosMate">Costo de material<span class="campo-obligatorio">*</span></label>
+					<input type="text" id="cosMate" name="cosMate"  class="styled-input" title="El costo del material debe de tener maximo 10 caracteres, solo numeros y 2 decimnales" required>
+				</div>
+				<div>
+					<label for="fecIni">Fecha de inicio<span class="campo-obligatorio">*</span></label>
+					<input type="date" id="fecIni" name="fecIni"  class="styled-input" title="Seleccione la fecha de inicio" required>
+				</div>
+				<div>
+					<label for="fecFin">Fecha de finalización<span class="campo-obligatorio">*</span></label>
+					<input type="date" id="fecFin" name="fecFin"  class="styled-input" title="Seleccione la fecha de finalización" required>
+				</div>
+			</div>
+					<div class="grupo-boton-reg">
+						<div class="boton_registrar">
+							<button type="submit" id="submitButton">Registrar</button>
+							<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+		
+		</main>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
