@@ -1,5 +1,4 @@
 <?php
-include_once("../../model/Insumos/Registro_Modificar_Insumos.php");
 include_once("../../model/Insumos/Mostrar_Producto.php");
 
 $id = $_GET['id'];
