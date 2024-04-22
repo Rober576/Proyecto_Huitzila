@@ -107,10 +107,6 @@ function mostrarDatos(datos){
             row.appendChild(smax_col);
             cost_col.innerHTML = datos[i][8]
             row.appendChild(cost_col);
-
-
-            console.log("link_eliminar:", link_eliminar);
-
             
             link_eliminar.innerHTML = "Eliminar";
             link_eliminar.dataset.id = datos[i][0];

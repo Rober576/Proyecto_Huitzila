@@ -104,11 +104,7 @@ function mostrarDatos(datos){
             row.appendChild(smax_col);
             smin_col.innerHTML = datos[i][6];
             row.appendChild(smin_col);
-            
-
-            console.log("link_eliminar:", link_eliminar);
-
-            
+        
             link_eliminar.innerHTML = "Eliminar";
             link_eliminar.dataset.id = datos[i][0];
 
