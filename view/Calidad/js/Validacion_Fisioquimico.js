@@ -24,14 +24,14 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 const expresion = {
     Clave: /^[a-zA-Z0-9]{1,10}$/,
-    Alcohol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Extracto: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Metanol: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Superiores: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Aldheídos: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Furfural: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Plomo: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    Cobre: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    Alcohol: /^\d{1,3}\.\d{1,4}$/,
+    Extracto: /^\d{1,3}\.\d{1,4}$/,
+    Metanol: /^\d{1,3}\.\d{1,4}$/,
+    Superiores: /^\d{1,3}\.\d{1,4}$/,
+    Aldheídos: /^\d{1,3}\.\d{1,4}$/,
+    Furfural: /^\d{1,3}\.\d{1,4}$/,
+    Plomo: /^\d{1,3}\.\d{1,4}$/,
+    Cobre: /^\d{1,3}\.\d{1,4}$/,
 }
 
 var clave_analisis = document.getElementById('clave_analisis');
