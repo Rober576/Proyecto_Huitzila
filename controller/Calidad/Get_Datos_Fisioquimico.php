@@ -1,5 +1,6 @@
 <?php
 include_once('../../model/Calidad/Mostrar_Fisicoquimico.php');
+include_once('../../model/Calidad/Modificar_Fisicoquimico.php');
 include_once('../../view/Calidad/Registro_Fisioquimico.html');
 $lote=$_GET["id"];
 echo $lote;
