@@ -40,6 +40,8 @@ if ($resultado) {
                     <th>plomo</th>
                     <th>Cobre</th>
                     <th>Documento</th>
+                    <th>Fisioquimico</th>
+                    
                 </tr>
             </thead>
             <tbody>';
@@ -69,6 +71,10 @@ if ($resultado) {
         $salida .= '<td class="' . $clase_css . '">';
         $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Abrir_Fisioquimico.php?id=' . $id . '\', \'_blank\')">Abrir</button>';
         $salida .= '</td>';
+        $salida .= '<td class="' . $clase_css . '">';
+        $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_Fisioquimico.html?id=' . $id . '\', \'_blank\')">Registro Fisioquimico</button>';
+        $salida .= '</td>';
+        
 
         $salida .= '</tr>';
     }
