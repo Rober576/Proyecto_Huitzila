@@ -132,7 +132,7 @@ input[type="password"] {
 button[type="submit"] {
     font-family: 'FuentePrincipal', sans-serif;
     background-color: #1d4d25;
-    
+    margin-top: 5px;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -143,7 +143,7 @@ button[type="submit"] {
 button[type="button"] {
     font-family: 'FuentePrincipal', sans-serif;
     background-color: #1d4d25;
-    
+    margin-top: 5px;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -197,7 +197,6 @@ table {
     border: 1px solid #000000;
     background-color: #e0ccae;
     color: #000000;
-    margin-bottom: 20px;
 }
 
 th, td {
