@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Consultar cremas, destilados y licores</title>
 
     <link rel="stylesheet" href="..\../public/css/Plantilla.css">
     <link rel="stylesheet" href="..\../public/css/Plantilla_Menu.css">
     <link rel="stylesheet" href="..\../public/css/cssProduccion.css">
+	<script src="../../controller/Produccion/js/Mostrar_Mezcal.js"></script>
+	
 </head>
 <body>
     <header>
@@ -17,7 +19,7 @@
 				
 			</div>
 			<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Producción</h1>
+				<h1 class="nombre_Ventana">Cremas, destilados y licores</h1>
 			</div>
 			<div class="boton-cerrar-session">
 				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
@@ -64,8 +66,8 @@
 							</a>
 			
 							<ul>
-                                <li><a href="../../view/Produccion/Registro_Movimientos.html">Registrar</a></li>
-                                <li><a href="../../view/Produccion/Mostrar_Movimientos_Mezcal.html">Consultar</a></li>
+							<li><a href="../../view/Produccion/Registro_Movimientos.html">Registrar</a></li>
+							<li><a href="../../view/Produccion/Mostrar_Movimientos_Mezcal.html">Consultar</a></li>
 							</ul>
 						</li>
                         <li>
@@ -74,8 +76,8 @@
 							 Cremas, destilados y licores
 							</a>
 							<ul>
-								<li><a href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html">Registrar</a></li>
-								<li><a href="../../view/Produccion/Mostrar_Cremas_Destilados_Licores.html">Consultar</a></li>
+							<li><a href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html">Registrar</a></li>
+							<li><a href="../../view/Produccion/Mostrar_Cremas_Destilados_Licores.html">Consultar</a></li>
 							</ul>
 						</li>
                         <li>
@@ -96,20 +98,46 @@
 	</header>
 
     <main>
-        <section class="section-main">
-			<div class="cabezera">
-				<h4 class="centered" >Bienvenido a Producción</h4>
-			</div>
-			<br>
-        </section>
     </main>
+
+    <div class="tabla_titulo"><h2>Mostrar cremas, destilados y licores</h2>
+        <br></div>    
+    <section class="table-container" id="tabla_Des_Lic_Crem">
+        <table>
+            <thead>
+                <tr>
+                  
+                    <th>No. de lote</th>
+					<th>Tanque</th>
+                    <th>Tipo</th>
+                    <th>Clase</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                    <td><div class="acciones">
+                        <button class="boton-modificar" type="submit">Modificar</button>
+                        <button class="boton-eliminar" type="submit">Eliminar</button>
+                    </div></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-
-    <script src="js/Registro_Bitacora.js"></script>
-    <script src="js/Validacion_Bitacora.js"></script>
-
+	<script src="../../view\Produccion\js\Rutas_de_Interfaz_Mezcal.js"> </script>
 </body>
 </html>
