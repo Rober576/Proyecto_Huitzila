@@ -76,7 +76,7 @@ if ($lotes) {
                 $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Abrir_Fisioquimico.php?id=' . $id . '\', \'_blank\')">Abrir</button>';
                 $salida .= '</td>';
                 $salida .= '<td class="' . $clase_css . '">';
-                $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_Fisioquimico.html?id=' . $lote["Lote"] . '\', \'_blank\')">Registro Fisioquimico</button>';
+                $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Get_Datos_Fisioquimico.php?id=' . $lote["Lote"] . '\', \'_blank\')">Registro Fisioquimico</button>';
                 $salida .= '</td>';
             }
         } else {

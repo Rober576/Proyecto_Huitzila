@@ -1,7 +1,7 @@
 <?php
 
 include('../../config/Crud_bd.php');
-class MostrarCampos{
+class MostrarCampos extends Crud_bd{
     private $base;
 
     function instancias(){
@@ -17,8 +17,10 @@ class MostrarCampos{
     }
 
     function getEjemplo($lote){
+        $this->conexion_bd();
         $query2 = "SELECT * FROM analisisficoquimico WHERE Lote='$lote'";
-        $resultados2 = $this->base->mostrar($query2);
+        $resultados2 = $this->mostrar($query2);
+        $this->cerrar_conexion();
         return $resultados2;
     }
 
