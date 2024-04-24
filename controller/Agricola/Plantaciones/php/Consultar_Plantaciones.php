@@ -33,7 +33,7 @@ if ($resultado) {
         <tbody>';
 
     foreach ($resultado as $fila) {
-        $Plantacion =  $fila["ClavePlantacion"];
+        $Plantacion =  $fila["Clave de la Plantacion"];
         $id_boton =$Plantacion;
 
         $base->instancias();
@@ -52,7 +52,7 @@ if ($resultado) {
             
 
             $salida .= '<td>' . $TipoP . '</td>';
-            $salida .= '<td>' . $fil["NombreTrabajador"] . '</td>';
+            $salida .= '<td>' . $fil["Nombre del Trabajador"] . '</td>';
             $salida .= '<td>' . $fil["DatosVehiculo"] . '</td>';
             $salida .= '<td>' . $fil["CostoGasolina"] . '</td>';
             $salida .= '<td>' . $fil["CostoMaterial"] . '</td>';
