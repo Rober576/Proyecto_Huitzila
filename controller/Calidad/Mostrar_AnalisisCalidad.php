@@ -54,7 +54,7 @@ if ($resultado) {
 
     $salida .= '</tbody></table>';
 } else {
-    $salida .= 'No se encontraron analisis registrados';
+    $salida .= 'No se encontraron análisis registrados';
 }
 
 echo $salida;
