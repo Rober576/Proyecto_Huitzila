@@ -9,15 +9,20 @@ class MostrarCampos{
         $this->base->conexion_bd();
     }
     //hace la consulta principal de los datos de las certificaciones
-    function getEjemplo(){
-        $query = "SELECT * FROM analisisficoquimico";
+
+    function getLotes(){
+        $query = "SELECT * FROM registromezcal";
         $resultados = $this->base->mostrar($query);
-        $this->base->cerrar_conexion();
         return $resultados;
+    }
+
+    function getEjemplo($lote){
+        $query2 = "SELECT * FROM analisisficoquimico WHERE Lote='$lote'";
+        $resultados2 = $this->base->mostrar($query2);
+        return $resultados2;
     }
 
 }
 
-$obj = new MostrarCampos();
-$obj->instancias();
+
 ?>
