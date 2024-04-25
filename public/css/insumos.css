@@ -55,3 +55,35 @@ button.Boton_cancelar{
 .nombre_Ventana{
     text-align: center;
 }
+.botonesEditarYEliminar{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: auto;
+}
+.botonElimyEdi{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: auto;
+    height: 50em;
+}
+
+.botonesEditarYEliminar:hover,.botonElimyEdi:hover{
+    background-color: #1d4d25;
+}
+th{
+    width: auto;
+    border: 1px solid #080808;
+    padding: 12px;
+    position: sticky;
+    text-align: center;
+}

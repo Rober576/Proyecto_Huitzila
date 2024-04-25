@@ -63,14 +63,7 @@ function mostrarDatos(datos){
             costo_unitario_col.innerHTML = datos[i][3];
             btn_especifico.textContent = 'Específico';
 
-            btn_especifico.style.background = '#1d4d25';
-            btn_especifico.style.color = 'white';
-            btn_especifico.style.border = 'none';
-            btn_especifico.style.fontFamily = 'FuentePrincipal, sans-serif';
-            btn_especifico.style.fontSize = '16px';
-            btn_especifico.style.padding = '5px 12px';
-            btn_especifico.style.borderRadius = '5px';
-            btn_especifico.style.textDecoration = 'none';
+            btn_especifico.className = "botonesEditarYEliminar";
 
             btn_especifico.addEventListener('click', function(event) {
                 event.preventDefault(); 

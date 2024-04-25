@@ -68,24 +68,11 @@ function mostrarDatos(datos){
     
             var acciones = document.createElement('td')
             var link_eliminar = document.createElement('a')
-            link_eliminar.style.background = '#1d4d25';
-            link_eliminar.style.color = 'white';
-            link_eliminar.style.border = 'none';
-            link_eliminar.style.fontFamily = 'FuentePrincipal, sans-serif';
-            link_eliminar.style.fontSize = '16px';
-            link_eliminar.style.padding = '5px 12px';
-            link_eliminar.style.borderRadius = '5px';
-            link_eliminar.style.textDecoration = 'none';
+            
+            link_eliminar.className = "botonesEditarYEliminar";
 
             var link_editar = document.createElement('a')
-            link_editar.style.background = '#1d4d25';
-            link_editar.style.color = 'white';
-            link_editar.style.border = 'none';
-            link_editar.style.fontFamily = 'FuentePrincipal, sans-serif';
-            link_editar.style.fontSize = '16px';
-            link_editar.style.padding = '5px 12px';
-            link_editar.style.borderRadius = '5px';
-            link_editar.style.textDecoration = 'none';
+            link_editar.className = "botonesEditarYEliminar";;
 
 
             id_col.innerHTML = datos[i][0]
