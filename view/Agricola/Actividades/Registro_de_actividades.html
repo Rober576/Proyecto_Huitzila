@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
 	<script src="../Actividades/js/Verificacio_de_gastos.js"></script>
+	<script src="../../../controller/Agricola/Actividades/js/Tabla_Actividades.js"></script>
 </head>
 <body>
     <header>
@@ -17,7 +18,7 @@
 				
 			</div>
 			<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Agricola</h1>
+				<h1 class="nombre_Ventana">Agrìcola</h1>
 			</div>
 		
             <div class="boton-cerrar-session">
@@ -126,13 +127,13 @@
 								<input type="date" id="fechaIni" name="fechaIni" class="styled-input" required>
 							</div>
 							<div>
-								<label for="fechaFin">Fecha de Fin de la actividad<span class="campo-obligatorio">*</span></label>
+								<label for="fechaFin">Fecha de fin de la actividad</label>
 								<input type="date" id="fechaFin" name="fechaFin" class="styled-input" readonly>
 							</div>
 					</div>
 					<div>
 						<div>
-							<label for="descAct">Descripcion de la actividad<span class="campo-obligatorio">*</span></label>
+							<label for="descAct">Descripciòn de la actividad<span class="campo-obligatorio">*</span></label>
 							<textarea id="descAct" name="descAct" rows="4"></textarea>
 						</div>
 					</div>
@@ -158,11 +159,11 @@
 					<input type="text" id="gasGas" name="gasGas" class="styled-input" required>
 				</div>
 				<div>
-					<label for="desVei">Datos del vehiculo<span class="campo-obligatorio">*</span></label>
+					<label for="desVei">Datos del vehìculo<span class="campo-obligatorio">*</span></label>
 					<input type="text" id="desVei" name="desVei" class="styled-input" required>
 				</div>
 				<div>
-					<label for="gasLiq">Gasto de liquidos ($)</label>
+					<label for="gasLiq">Gasto de lìquidos ($)</label>
 					<input type="text" id="gasLiq" name="gasLiq" class="styled-input">
 				</div>
 				<div>
@@ -174,13 +175,13 @@
 					<input type="text" id="gasExt" name="gasExt" class="styled-input">
 				</div>
 			</div>
-			<div class="formulario-datos2">
+			<div class="formulario-datos2-3">
 				<div>
 					<label for="actDes">Actividad desarrollada:</label>
 					<textarea id="actDes" name="actDes" class="styled-input" rows="4"></textarea>
 				</div>
 				<div>
-					<label for="diaLunes">Seleccione la los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
+					<label for="diaLunes">Seleccione los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
 					<br>
 					<div class="checklist">
 						<div class="columnacheck">
@@ -188,14 +189,14 @@
 							<br>
 							<input type="checkbox" id="diaMartes" name="diaMartes" class="custom-checkbox">Martes
 							<br>
-							<input type="checkbox" id="diaMiercoles" name="diaMiercoles" class="custom-checkbox">Miercoles
+							<input type="checkbox" id="diaMiercoles" name="diaMiercoles" class="custom-checkbox">Mièrcoles
 						</div>
 						<div class="columnacheck">
 							<input type="checkbox" id="diaJueves" name="diaJueves" class="custom-checkbox">Jueves
 							<br>
 							<input type="checkbox" id="diaViernes" name="diaViernes" class="custom-checkbox">Viernes
 							<br>
-							<input type="checkbox" id="diaSabado" name="diaSabado" class="custom-checkbox">Sabado
+							<input type="checkbox" id="diaSabado" name="diaSabado" class="custom-checkbox">Sàbado
 						</div>
 					</div>	
 				</div>
@@ -206,21 +207,22 @@
 		</section>
 
 		<section id="section3" class="section-main">
-			<table>
+			<table id="tablaActividades">
 				<thead>
 					<tr>
 						<th>Nombre del trabajador</th>
-						<th>Dias trabajados</th>
-						<th>actividade desarrollada</th>
+						<th>Dìas trabajados</th>
+						<th>Actividad desarrollada</th>
 						<th>Gasolina</th>
-						<th>Datos del vehiculo</th>
-						<th>Liquidos</th>
+						<th>Datos del vehìculo</th>
+						<th>Lìquidos</th>
 						<th>Compra de material</th>
 						<th>Gastos extras</th>
-						<th>Total</th>
-						<th>Eliminar</th>
+						<th>Acciones</th>
 					</tr>
 				</thead>
+				<tbody>
+				</tbody>
 			</table>
 			</div>	
 		</section>
