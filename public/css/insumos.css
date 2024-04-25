@@ -7,8 +7,8 @@ input[type="number"]{
     box-sizing: border-box;
 }
 button.Boton_cancelar{
-    background-color: #C7B392;
-    color: black;
+    background-color: #a77753;
+    color: rgb(255, 250, 250);
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
