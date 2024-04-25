@@ -115,15 +115,19 @@
 				<p class="subtitulo-1">Registro de la actividad</p>
 				<hr>
 				<form id="advanced-form">
-					<div class="formulario-datos2">
+					<div class="formulario-datos">
 						<div>
 							<label for="actividadSele">Seleccione la actividad realizada<span class="campo-obligatorio">*</span></label>
 							<select id="actividadSele" name="actividadSele" class="styled-input" required></select>
 						</div>
-						<div>
-							<label for="fechaIni">Seleccione la fecha de inico de la actividad<span class="campo-obligatorio">*</span></label>
-							<input type="date" id="fechaIni" name="fechaIni" class="styled-input" required>
-						</div>
+							<div>
+								<label for="fechaIni">Seleccione la fecha de inico de la actividad<span class="campo-obligatorio">*</span></label>
+								<input type="date" id="fechaIni" name="fechaIni" class="styled-input" required>
+							</div>
+							<div>
+								<label for="fechaFin">Fecha de Fin de la actividad<span class="campo-obligatorio">*</span></label>
+								<input type="date" id="fechaFin" name="fechaFin" class="styled-input" readonly>
+							</div>
 					</div>
 					<div>
 						<div>
@@ -205,12 +209,15 @@
 				<thead>
 					<tr>
 						<th>Nombre del trabajador</th>
+						<th>Dias trabajados</th>
+						<th>actividade desarrollada</th>
 						<th>Gasolina</th>
 						<th>Datos del vehiculo</th>
 						<th>Liquidos</th>
 						<th>Compra de material</th>
 						<th>Gastos extras</th>
 						<th>Total</th>
+						<th>Eliminar</th>
 					</tr>
 				</thead>
 			</table>
