@@ -66,21 +66,20 @@ insumos_form.Identificador.addEventListener('input', (e) =>{
 });
 
 
-// Escuchador de eventos para el campo Nombre
+
 insumos_form.Nombre.addEventListener('input', (e) =>{
     let valorInput = e.target.value;
 
-    // Elimina los simbolos especiales del valor de entrada
-    valorInput = valorInput.replace(/[^a-zA-Z0-9.\s]/g, '');
-    //Elimina los caracteres extra cuando sobrepasa de los 50
+    
+    valorInput = valorInput.replace(/[^a-zA-Z0-9ñÑ.\s]/g, '');
+
     if (valorInput.length > 50) {
         valorInput = valorInput.substring(0, 50);
     }
 
-    // Asigna el valor al campo
     insumos_form.Nombre.value = valorInput;
 
-    // Verifica con la expresión regular
+
     if(!expresion.Nombre.test(valorInput)){
         insumos_form.Nombre.style.border = "5px solid red";
         bandera2 = false;
@@ -89,6 +88,7 @@ insumos_form.Nombre.addEventListener('input', (e) =>{
         bandera2 = true;
     }
 });
+
 
 // Escuchador de eventos para el campo Descripcion
 insumos_form.Descripcion.addEventListener('keyup', (e) =>{

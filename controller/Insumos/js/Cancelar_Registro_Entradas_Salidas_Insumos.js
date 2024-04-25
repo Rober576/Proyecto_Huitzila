@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var confirmacion = confirm("¿Estás seguro de que deseas cancelar?");
             
             if (confirmacion) {
-                window.location.href = "../../view/insumos/Principal_Insumos.html";
+                window.location.href = "../../view/insumos/Mostrar_Movimiento_Insumos_General.html";
             }
         });
     }
