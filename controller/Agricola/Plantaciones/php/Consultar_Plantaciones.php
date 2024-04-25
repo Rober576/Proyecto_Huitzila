@@ -15,7 +15,7 @@ if ($resultado) {
     <table border="1">
     <thead>
         <tr>
-        <th>ClavePlantación</th>
+        <th>Clave de la plantación</th>
         <th>Superficie</th>
         <th>Cantidad de plantas</th>
         <th>Fecha de plantación</th>
@@ -33,7 +33,7 @@ if ($resultado) {
         <tbody>';
 
     foreach ($resultado as $fila) {
-        $Plantacion =  $fila["Clave de la Plantacion"];
+        $Plantacion =  $fila["ClavePlantacion"];
         $id_boton =$Plantacion;
 
         $base->instancias();
@@ -52,7 +52,7 @@ if ($resultado) {
             
 
             $salida .= '<td>' . $TipoP . '</td>';
-            $salida .= '<td>' . $fil["Nombre del Trabajador"] . '</td>';
+            $salida .= '<td>' . $fil["NombreTrabajador"] . '</td>';
             $salida .= '<td>' . $fil["DatosVehiculo"] . '</td>';
             $salida .= '<td>' . $fil["CostoGasolina"] . '</td>';
             $salida .= '<td>' . $fil["CostoMaterial"] . '</td>';
