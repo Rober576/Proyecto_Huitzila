@@ -1,7 +1,6 @@
 <?php
 include_once('../../model/Calidad/Mostrar_Fisicoquimico.php');
-include_once('../../model/Calidad/Modificar_Fisicoquimico.php');
-include_once('../../view/Calidad/Registro_Fisioquimico.html');
+include_once('../../view/Calidad/Editar_Fisioquimico.html');
 $lote=$_GET["id"];
 echo $lote;
 
@@ -19,6 +18,7 @@ $cobre=$resultado[0]['Cobre'];
 $referencia=$resultado[0]['Referencia'];
 $cumplimiento=$resultado[0]['cumplimiento'];
 $nombreDoc=$resultado[0]['NombreDocumento'];
+
 ?>
 
 <script languaje="javascript">
