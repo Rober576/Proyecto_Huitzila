@@ -157,10 +157,23 @@ a.btngenerala{
     gap: 20px;
 }
 
-.checklist{
-    align-content: center; 
+.checklist {
+    text-align: center; 
+    margin-top: 10px; 
 }
 
-.radioList{
-    align-content: center;
+.checklist input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.radioList {
+    text-align: center;
+}
+
+.radioList input[type="radio"] {
+    margin-right: 10px; 
+}
+
+.anade {
+    float: right;
 }
