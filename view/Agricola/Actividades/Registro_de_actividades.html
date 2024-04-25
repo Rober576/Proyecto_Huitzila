@@ -115,7 +115,7 @@
 				<p class="subtitulo-1">Registro de la actividad</p>
 				<hr>
 				<form id="advanced-form">
-					<div class="formulario-datos">
+					<div class="formulario-datos2">
 						<div>
 							<label for="actividadSele">Seleccione la actividad realizada<span class="campo-obligatorio">*</span></label>
 							<select id="actividadSele" name="actividadSele" class="styled-input" required></select>
@@ -124,33 +124,19 @@
 							<label for="fechaIni">Seleccione la fecha de inico de la actividad<span class="campo-obligatorio">*</span></label>
 							<input type="date" id="fechaIni" name="fechaIni" class="styled-input" required>
 						</div>
-						<div>
-							<label for="diaLunes">Seleccione la los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
-							<br>
-							<div class="checklist">
-								<input type="checkbox" id="diaLunes" name="diaLunes" class="custom-checkbox">Lunes
-								<input type="checkbox" id="diaMartes" name="diaMartes" class="custom-checkbox">Martes
-								<input type="checkbox" id="diaMiercoles" name="diaMiercoles" class="custom-checkbox">Miercoles
-								<br>
-								<input type="checkbox" id="diaJueves" name="diaJueves" class="custom-checkbox">Jueves
-								<input type="checkbox" id="diaViernes" name="diaViernes" class="custom-checkbox">Viernes
-								<input type="checkbox" id="diaSabado" name="diaSabado" class="custom-checkbox">Sabado
-							</div>	
-						</div>
 					</div>
-					<div class="formulario-datos2-3">
+					<div>
 						<div>
 							<label for="descAct">Descripcion de la actividad<span class="campo-obligatorio">*</span></label>
 							<textarea id="descAct" name="descAct" rows="4"></textarea>
 						</div>
-						<div>
-							<label for="cosPre">¿Hubo costos implicados?<span class="campo-obligatorio">*</span></label>
-							<br>
-							<div class="radioList">
-								<input type="radio" id="cosPre" name="cosPre" value="si">Si
-								<br>
-								<input type="radio" id="cosPre" name="cosPre" value="no">No
-							</div>
+					</div>
+					<div>
+						<label for="cosPre">¿Hubo costos implicados?<span class="campo-obligatorio">*</span></label>
+						<br>
+						<div class="radioList">
+							<input type="radio" id="cosPre" name="cosPre" value="si">Si
+							<input type="radio" id="cosPre" name="cosPre" value="no">No
 						</div>
 					</div>
 		</section>
@@ -183,6 +169,32 @@
 					<input type="text" id="gasExt" name="gasExt" class="styled-input">
 				</div>
 			</div>
+			<div class="formulario-datos2">
+				<div>
+					<label for="actDes">Actividad desarrollada:</label>
+					<textarea id="actDes" name="actDes" class="styled-input" rows="4"></textarea>
+				</div>
+				<div>
+					<label for="diaLunes">Seleccione la los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
+					<br>
+					<div class="checklist">
+						<div class="columnacheck">
+							<input type="checkbox" id="diaLunes" name="diaLunes" class="custom-checkbox">Lunes
+							<br>
+							<input type="checkbox" id="diaMartes" name="diaMartes" class="custom-checkbox">Martes
+							<br>
+							<input type="checkbox" id="diaMiercoles" name="diaMiercoles" class="custom-checkbox">Miercoles
+						</div>
+						<div class="columnacheck">
+							<input type="checkbox" id="diaJueves" name="diaJueves" class="custom-checkbox">Jueves
+							<br>
+							<input type="checkbox" id="diaViernes" name="diaViernes" class="custom-checkbox">Viernes
+							<br>
+							<input type="checkbox" id="diaSabado" name="diaSabado" class="custom-checkbox">Sabado
+						</div>
+					</div>	
+				</div>
+			</div>
 			<div>
 				<button type="button" id="anadirGasto" class="anade">Añadir</button>
 			</div>
@@ -198,6 +210,7 @@
 						<th>Liquidos</th>
 						<th>Compra de material</th>
 						<th>Gastos extras</th>
+						<th>Total</th>
 					</tr>
 				</thead>
 			</table>

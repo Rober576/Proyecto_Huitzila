@@ -152,16 +152,29 @@ a.btngenerala{
 }
 
 .checklist {
-    text-align: center; 
-    margin-top: 10px; 
+    text-align: center;
+    margin-top: 10px;
 }
 
-.checklist input[type="checkbox"] {
-    margin-right: 10px;
+.columnacheck {
+    display: inline-block;
+    vertical-align: top; /* Alinea las columnas arriba */
+    width: 45%; /* Ancho de las columnas */
 }
+
+.columnacheck input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.columnacheck label {
+    display: inline-block;
+    width: calc(100% - 25px); /* El ancho de la etiqueta es el 100% menos el espacio para el checkbox y el margen derecho */
+    margin-right: 20px; /* Espacio a la derecha de la etiqueta */
+}
+
 
 .radioList {
-    text-align: center;
+    text-align: left;
 }
 
 .radioList input[type="radio"] {
