@@ -160,6 +160,7 @@ a.btngenerala{
     display: inline-block;
     vertical-align: top; /* Alinea las columnas arriba */
     width: 45%; /* Ancho de las columnas */
+    text-align: left; /* Alinear elementos a la izquierda dentro de la columna */
 }
 
 .columnacheck input[type="checkbox"] {
@@ -171,7 +172,6 @@ a.btngenerala{
     width: calc(100% - 25px); /* El ancho de la etiqueta es el 100% menos el espacio para el checkbox y el margen derecho */
     margin-right: 20px; /* Espacio a la derecha de la etiqueta */
 }
-
 
 .radioList {
     text-align: left;
