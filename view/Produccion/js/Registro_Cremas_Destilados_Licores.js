@@ -18,12 +18,12 @@ formulario.addEventListener('submit', function (e) {
             console.error('Error:', data);
         } else {
             alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-            location.href="../../view/Produccion/Registro_Mezcal.html";
+            location.href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html";
         }        
     })
     .catch(error => {
         alert("Registro exitoso");
-        location.href="../../view/Produccion/Registro_Mezcal.html";
+        location.href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html";
         console.error('Error:', error.message);
     });
 });
@@ -130,7 +130,7 @@ formulario.cancelar.addEventListener('click', function (e){
 
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='Registro_Mezcal.html';
+      window.location.href='Registro_Cremas_Destilados_Licores.html';
     }
 
     
