@@ -68,7 +68,7 @@ function EventoEliminar() {
                     confirmarEliminacion(id);
 
                 } else if (data === "NoSePuedeEliminar") {
-                    alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+                    alert('No se puede eliminar. La planta está siendo usada en otro modulo.');
                 }
             })
             .catch(error => console.error('Error al procesar la solicitud:', error));
