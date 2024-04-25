@@ -1,11 +1,19 @@
 var formulario = document.getElementById('advanced-form');
-
+bandera1=true;
+bandera2=true;
+bandera3=true;
+bandera4=true;
+bandera5=true;
+bandera6=true;
+bandera7=true;
+bandera8=true;
+bandera9=true;
 formulario.addEventListener('submit', function (e)
 {
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Calidad/Registro_Fisioquimico.php', {
+    fetch('../../controller/Calidad/Modificar_Fisioquimico.php', {
         method: 'POST',
         body: datos
     })

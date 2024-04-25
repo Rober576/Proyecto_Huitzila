@@ -143,3 +143,18 @@ a.btngenerala{
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+.formulario-datos2-3{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.checklist{
+    align-content: center; 
+}
+
+.radioList{
+    align-content: center;
+}

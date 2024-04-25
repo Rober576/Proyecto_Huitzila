@@ -20,7 +20,7 @@ if ($resultado) {
         <tr>
         <th>Nombre </th>
         <th>Nombre científico</th>
-        <th>Descripción</th>
+        <th>Tratamiento</th>
         <th>Acciones</th>
         </tr>
     </thead>

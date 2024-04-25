@@ -1,7 +1,7 @@
 <?php
 include('../../config/Crud_bd.php');
 
-class Registro_cuotas
+class Modificar
 {
     private $base;
 
@@ -13,7 +13,6 @@ class Registro_cuotas
 
     function insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $archivo)
     {
-       
         $query = "SELECT * FROM valoresminmax";
         $resultados = $this->base->mostrar($query);
         $resultados=$resultados[0];
@@ -44,12 +43,10 @@ class Registro_cuotas
             $cumplimiento=2;
         }
 
-        $referencia = 1;
-        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Referencia, cumplimiento, NombreDocumento)
-                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Referencia, :cumplimiento, :NombreDocumento)";
+        $Referencia = 1;
+        $q1 = "UPDATE analisisficoquimico SET Clave=:Clave, Alcohol=:Alcohol, ExtractoSeco=:ExtractoSeco, Metanol=:Metanol, AlcoholesSuperiores=:AlcoholesSuperiores, Aldehidos=:Aldehidos, Furfural=:Furfural, Plomo=:Plomo, Cobre=:Cobre, Referencia=:Referencia, cumplimiento=:cumplimiento, NombreDocumento=:NombreDocumento WHERE Lote=:Lote";
         $a1 = [
-        ":Clave" => $Clave, 
-        ":Lote" => $Lote, 
+        ":Clave" => $Clave,   
         ":Alcohol" => $Alcohol, 
         ":ExtractoSeco" => $Extracto, 
         ":Metanol" => $Metanol, 
@@ -58,9 +55,10 @@ class Registro_cuotas
         ":Furfural" => $Furfural, 
         ":Plomo" => $Plomo, 
         ":Cobre" => $Cobre, 
-        ":Referencia" => $referencia, 
+        ":Referencia" => $Referencia, 
         ":cumplimiento" => $cumplimiento, 
-        ":NombreDocumento" => $archivo];
+        ":NombreDocumento" => $archivo,
+        ":Lote" => $Lote];
         $querry = $q1;
         $parametros = $a1;
 

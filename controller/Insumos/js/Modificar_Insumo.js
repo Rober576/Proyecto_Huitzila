@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data === 'exito') {
                 form.reset();
                 alert("Se han modificado los datos");
-                window.location.href = '../../view/Insumos/Mostrar_Insumos.html';
+                window.location.href = '../../view/insumos/Mostrar_Insumos.html';
             }
         });
     }
