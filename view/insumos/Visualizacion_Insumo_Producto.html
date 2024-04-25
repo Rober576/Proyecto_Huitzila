@@ -125,32 +125,42 @@
             </div>
             <p class="subtitulo-1">Insumo por producto</p>
             <hr>
-
-            <div class="tablas">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th colspan="5">Datos de insumo por productos</th>
-                            <th colspan=""></th>
-                        </tr>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Insumo</th>
-                            <th>Cantidad</th>
-                            <th>Costo unitario</th>
-                            <th>Costo total</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Las filas de esta sección deben ser generadas dinámicamente con los datos de los insumos -->
-                    </tbody>
-                </table>
-            </div>
+			<br>
+			<form id="formulario" name="formulario">
+				
+				<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+				<span id="mensaje">No se encontraron resultados</span>
+				
+				<div class="tablas">
+					<section class="header_table" id="tablaResultado">
+						<table border="1">
+							<thead>
+								<tr>
+									<th colspan="5">Datos de insumo por productos</th>
+									<th colspan=""></th>
+								</tr>
+								<tr>
+									<th>Producto</th>
+									<th>Insumo</th>
+									<th>Cantidad</th>
+									<th>Costo unitario</th>
+									<th>Costo total</th>
+									<th>Acciones</th>
+								</tr>
+							</thead>
+							<tbody id="cuerpo"></tbody>
+						</table>
+					</section>
+				</div>
+			</form>
         </section>
     </main>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+
+	<script src="js/Mostrar_Insumo_por_Producto.js"></script>
+	<script src="../../controller/Insumos/js/Eliminar_Insumo_por_Producto.js"></script>
+
 </body>
 </html>
