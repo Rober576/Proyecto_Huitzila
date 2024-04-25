@@ -50,7 +50,7 @@ if ($lotes) {
     foreach ($lotes as $lote) {
         // Asignar una clase CSS condicionalmente según el valor de $fila['cumplimiento']
         $resultado = $base->getEjemplo($lote['Lote']);
-        $salida .= '<tr>';
+        
         if($resultado){
             foreach($resultado as $fila) {
                 if ($fila['cumplimiento'] == 1) {
@@ -62,6 +62,7 @@ if ($lotes) {
                 }
         
                 $id = $fila['NombreDocumento'];
+                $salida .= '<tr>';
                 $salida .= '<td class="' . $clase_css . '">' . $lote["Lote"] . '</td>';
                 $salida .= '<td class="' . $clase_css . '">' . $fila["Alcohol"] . '</td>';
                 $salida .= '<td class="' . $clase_css . '">' . $fila["ExtractoSeco"] . '</td>';
@@ -78,10 +79,11 @@ if ($lotes) {
                 $salida .= '<td class="' . $clase_css . '">';
                 $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Get_Datos_Fisioquimico.php?id=' . $lote["Lote"] . '\', \'_blank\')">Registro Fisioquimico</button>';
                 $salida .= '</td>';
+                $salida .= '</tr>';
             }
         } else {
             $clase_css = 'fila-naranja';
-    
+            $salida .= '<tr>';
             $salida .= '<td class="' . $clase_css . '">' . $lote["Lote"] . '</td>';
             $salida .= '<td class="' . $clase_css . '">' . '' . '</td>';
             $salida .= '<td class="' . $clase_css . '">' . '' . '</td>';
@@ -96,8 +98,9 @@ if ($lotes) {
             $salida .= '<td class="' . $clase_css . '">';
             $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_Fisioquimico.html?id=' . $lote["Lote"] . '\', \'_blank\')">Registro Fisioquimico</button>';
             $salida .= '</td>';
+            $salida .= '</tr>';
         }
-        $salida .= '</tr>';
+        
         
     }
 
