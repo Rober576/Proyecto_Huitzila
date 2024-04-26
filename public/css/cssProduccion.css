@@ -88,6 +88,15 @@ footer {
     text-align: center;
     padding: 10px 0;}
 
+.imagen_principal {
+    
+        background-image: url('../../public/Imagen_Principal_Produccion.jpg');
+        background-size: cover; 
+        background-repeat: no-repeat; 
+    
+    
+}
+
 @media screen and (min-width: 600px) {
     .section-form {
         grid-template-columns: repeat(2, 1fr);
