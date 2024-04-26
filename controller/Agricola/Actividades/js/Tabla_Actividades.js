@@ -1,3 +1,13 @@
+// Aquí creas tus listas correspondientes
+const listaNombreTrabajador = [];
+const listaDiasSeleccionados = [];
+const listaDescripcion = [];
+const listaGastoGasolina = [];
+const listaDatosVehiculo = [];
+const listaGastoLiquidos = [];
+const listaCompraMaterial = [];
+const listaGastosExtras = [];
+
 function agregarFilaATabla() {
     const nombreTrabajador = document.getElementById("nomTrab").value;
     const gastoGasolina = document.getElementById("gasGas").value;
@@ -35,6 +45,16 @@ function agregarFilaATabla() {
     nuevaFila.appendChild(crearCelda(gastosExtras));
     nuevaFila.appendChild(BotonEliminar());
 
+    listaNombreTrabajador.push(nombreTrabajador);
+    listaDiasSeleccionados.push(diasSeleccionados);
+    listaDescripcion.push(descripcion);
+    listaGastoGasolina.push(gastoGasolina);
+    listaDatosVehiculo.push(datosVehiculo);
+    listaGastoLiquidos.push(gastoLiquidos);
+    listaCompraMaterial.push(compraMaterial);
+    listaGastosExtras.push(gastosExtras);
+    guardarListasEnLocalStorage()
+
     tabla.appendChild(nuevaFila);
 
     limpiarCampos();
@@ -54,7 +74,21 @@ function BotonEliminar() {                                         ///Botonnnnnn
 
     botonEliminar.addEventListener("click", function () {
         const fila = botonEliminar.parentNode.parentNode;
+        const indiceFila = fila.rowIndex - 1; // Restamos 1 porque los índices de las filas comienzan en 0
+
         fila.remove();
+
+        // Eliminar los elementos correspondientes de las listas
+        listaNombreTrabajador.splice(indiceFila, 1);
+        listaDiasSeleccionados.splice(indiceFila, 1);
+        listaDescripcion.splice(indiceFila, 1);
+        listaGastoGasolina.splice(indiceFila, 1);
+        listaDatosVehiculo.splice(indiceFila, 1);
+        listaGastoLiquidos.splice(indiceFila, 1);
+        listaCompraMaterial.splice(indiceFila, 1);
+        listaGastosExtras.splice(indiceFila, 1);
+        guardarListasEnLocalStorage()
+
     });
 
     celda.appendChild(botonEliminar);
@@ -89,3 +123,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const boton = document.getElementById("anadirGasto");
     boton.addEventListener("click", agregarFilaATabla);
 });
+
+
+
+// Función para guardar las listas en el localStorage del navegador
+function guardarListasEnLocalStorage() {
+    localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
+    localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
+    localStorage.setItem('listaDescripcion', JSON.stringify(listaDescripcion));
+    localStorage.setItem('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
+    localStorage.setItem('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
+    localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
+    localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
+    localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
+}
