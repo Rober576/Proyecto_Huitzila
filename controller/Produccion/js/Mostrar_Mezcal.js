@@ -22,7 +22,6 @@ function buscar_datos(consulta) {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
     };
-
     xhr.onerror = function() {
         console.error("Error al realizar la solicitud.");
     };
