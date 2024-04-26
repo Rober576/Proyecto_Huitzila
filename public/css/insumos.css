@@ -93,3 +93,29 @@ th{
 td {
     white-space: nowrap;
 }
+
+/* Estilos para el contenedor de la imagen */
+.imagen-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Ancho máximo para evitar que la imagen se extienda demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilos para el envoltorio de la imagen */
+.imagen-wrapper {
+    position: relative; /* Establece el posicionamiento relativo para que la imagen se posicione correctamente */
+    padding-bottom: 100%; /* Proporción de aspecto (ratio) deseada para la imagen (aquí es 4:3) */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del envoltorio */
+}
+
+/* Estilos para la imagen dentro del envoltorio */
+.imagen-wrapper img {
+    position:absolute; /* Establece el posicionamiento absoluto para la imagen */
+    width: 100%; /* Ocupa todo el ancho disponible del envoltorio */
+    height: 100%; /* Ocupa todo el alto disponible del envoltorio */
+    object-fit: cover; /* Escala la imagen para cubrir el envoltorio manteniendo la relación de aspecto */
+    border-radius: 50px;
+    
+    padding: 30px;
+
+}
