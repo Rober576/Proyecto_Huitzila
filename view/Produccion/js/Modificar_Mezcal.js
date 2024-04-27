@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inputEdad.style.backgroundColor = 'white';
             if (inputEdad.value.trim() === "") { 
                 inputEdad.style.border = '3px solid red'; // Resaltar el campo con un borde rojo
-                const guardar = document.getElementById('submitButton');
+                const guardar = document.getElementById('boton_registrar');
                 guardar.disabled=true;
                
             } 

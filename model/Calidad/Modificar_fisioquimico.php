@@ -11,7 +11,7 @@ class Modificar
         $this->base->conexion_bd();
     }
 
-    function insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre, $archivo)
+    function insertar($Clave, $Lote, $Alcohol, $Extracto, $Metanol, $Superiores, $Aldehidos, $Furfural, $Plomo, $Cobre)
     {
         $query = "SELECT * FROM valoresminmax";
         $resultados = $this->base->mostrar($query);
@@ -44,7 +44,7 @@ class Modificar
         }
 
         $Referencia = 1;
-        $q1 = "UPDATE analisisficoquimico SET Clave=:Clave, Alcohol=:Alcohol, ExtractoSeco=:ExtractoSeco, Metanol=:Metanol, AlcoholesSuperiores=:AlcoholesSuperiores, Aldehidos=:Aldehidos, Furfural=:Furfural, Plomo=:Plomo, Cobre=:Cobre, Referencia=:Referencia, cumplimiento=:cumplimiento, NombreDocumento=:NombreDocumento WHERE Lote=:Lote";
+        $q1 = "UPDATE analisisficoquimico SET Clave=:Clave, Alcohol=:Alcohol, ExtractoSeco=:ExtractoSeco, Metanol=:Metanol, AlcoholesSuperiores=:AlcoholesSuperiores, Aldehidos=:Aldehidos, Furfural=:Furfural, Plomo=:Plomo, Cobre=:Cobre, Referencia=:Referencia, cumplimiento=:cumplimiento WHERE Lote=:Lote";
         $a1 = [
         ":Clave" => $Clave,   
         ":Alcohol" => $Alcohol, 
@@ -57,7 +57,6 @@ class Modificar
         ":Cobre" => $Cobre, 
         ":Referencia" => $Referencia, 
         ":cumplimiento" => $cumplimiento, 
-        ":NombreDocumento" => $archivo,
         ":Lote" => $Lote];
         $querry = $q1;
         $parametros = $a1;
