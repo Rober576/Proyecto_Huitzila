@@ -119,3 +119,12 @@ td {
     padding: 30px;
 
 }
+.imagen_principal {
+    /* Establece la imagen de fondo */
+    background-image: url('../../public/Principal_Envasado.jpg');
+    background-size:cover;
+    background-repeat:repeat;
+    position: relative; 
+}
+
+
