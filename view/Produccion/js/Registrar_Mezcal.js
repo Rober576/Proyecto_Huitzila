@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error al obtener categorías:', error));
 
-    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clases')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clasesMez')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     })
-    .catch(error => console.error('Error al obtener clases:', error));
+    .catch(error => console.error('Error al obtener clasesMez:', error));
 
     fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=especies')
     .then(response => response.json())
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedOption === "Blanco") {
             inputEdadLabel.textContent = "Edad"; // Restaurar texto original del label
             inputEdadLabel.classList.add('campo-bloqueado'); // Añadir clase para cambiar el estilo del label
-            asterisco.classList.remove('campo-obligatorio'); // Remover clase para quitar el asterisco rojo
+            //asterisco.classList.remove('campo-obligatorio'); // Remover clase para quitar el asterisco rojo
             inputEdadLabel.appendChild(asterisco); // Añadir asterisco al label
             // Establecer el campo de entrada de la edad como deshabilitado y con un color de fondo gris claro
             inputEdad.disabled = true;

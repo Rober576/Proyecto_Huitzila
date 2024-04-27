@@ -1,11 +1,10 @@
 <?php
-include_once('../../model/Produccion/Registrar_Mezcal.php');
+include_once('../../model/Produccion/Registro_Cremas_Destilados_Licores.php');
 
 // Obtener datos del formulario
 $lote = $_POST['lote'];
-$tanque = $_POST['tanque'];
-$categoria = $_POST['categoria'];
-$especie = $_POST['especie'];
+//$tanque = $_POST['tanque'];
+$tipo = $_POST['tipo'];
 $clase = $_POST['clase'];
 $edad = $_POST['edad'];
 
@@ -14,7 +13,7 @@ $obj = new NuevosCampos();
 $obj->conexion();
 
 // Realizar la inserción
-$resultado = $obj->insertar($lote, $tanque, $categoria, $clase, $edad, $especie);
+$resultado = $obj->insertar($lote, $tipo, $clase, $edad);
 
 // Comprobar el resultado y enviar el mensaje correspondiente
 if ($resultado === true) {

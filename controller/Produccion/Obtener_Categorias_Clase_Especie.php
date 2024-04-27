@@ -33,6 +33,18 @@ class ControladorDatos {
         return json_encode($clases);
     }
 
+    function obtenerClasesMez() {
+        $query = "SELECT Clase_Mezcal FROM clasemezcal WHERE MezcalDestilado = 'M'";
+        $result = $this->base->mostrar($query);
+    
+        $clases = array();
+        foreach ($result as $row) {
+            $clases[] = $row['Clase_Mezcal'];
+        }
+    
+        return json_encode($clases);
+    }
+
     function obtenerEspecies() {
         $query = "SELECT NombrePlanta FROM plantas";
         $result = $this->base->mostrar($query);
@@ -68,6 +80,18 @@ class ControladorDatos {
     
         return json_encode($lotes);
     }
+
+    function obtenerDestilado() {
+        $query = "SELECT NombreDestilado FROM tipodestilado";
+        $result = $this->base->mostrar($query);
+    
+        $destilados = array();
+        foreach ($result as $row) {
+            $destilados[] = $row['NombreDestilado'];
+        }
+    
+        return json_encode($destilados);
+    }
 }
 
 $controlador = new ControladorDatos();
@@ -87,9 +111,15 @@ switch ($tipo) {
     case 'lote':
         echo $controlador->obtenerLote();
         break;
-        
+    case 'clasesMez':
+        echo $controlador->obtenerClasesMez();
+        break;
+    case 'destilado':
+        echo $controlador->obtenerDestilado();
+        break;
     default:
         echo $controlador->obtenerCategorias();
         break;
 }
+
 ?>
