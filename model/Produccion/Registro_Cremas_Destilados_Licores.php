@@ -32,7 +32,6 @@ class NuevosCampos{
         }
     }
     
-
     function buscar_lote($lote){
         // No es necesario llamar a $this->base->conexion_bd() aquí, ya que debería haberse establecido previamente
         $consulta = "SELECT * FROM registrodestilado WHERE Lote='$lote'";
@@ -41,7 +40,7 @@ class NuevosCampos{
         return $resultados;
     }
 
-    function insertar($lote, $tipo, $clase, $edad){
+    function insertar($lote, $tipo, $clase, $edad, $tanque){
         // Verificar si el lote ya existe en la base de datos
         $loteExistente = $this->buscar_lote($lote);
         
@@ -55,14 +54,15 @@ class NuevosCampos{
         $IDTipo = $this->obtenerIDTipo($tipo);
 
         if ($IDClase !== false && $IDTipo !== false) {
-            $q1 = "INSERT INTO registrodestilado (Lote, IdTipoDes, IDClase, Edad) 
-                    VALUES (:lote, :IDTipo, :IDClase, :edad)";
+            $q1 = "INSERT INTO registrodestilado (Lote, IdTipoDes, IDClase, Edad, tanque) 
+                    VALUES (:lote, :IDTipo, :IDClase, :edad, :tanque)";
             
             $params = array(
                 ":lote" => $lote,
                 ":IDTipo" => $IDTipo,
                 ":IDClase" => $IDClase,
-                ":edad" => $edad
+                ":edad" => $edad,
+                ":tanque" => $tanque
             );
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
