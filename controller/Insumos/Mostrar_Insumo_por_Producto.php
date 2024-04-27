@@ -21,13 +21,13 @@ if(isset($_POST['consulta'])) {
 
     }
 
-    $producto = ['produ', 'insum', 'cant', 'costU', 'costT'];
+    $producto = ['produ', 'insum', 'cant', 'costA', 'costT'];
 
     for($i = 0; $i < count($resultados); $i++){
-        $producto[0] = $resultados[$i]["Producto"];
-        $producto[1] = $resultados[$i]["Insumo"];
+        $producto[0] = $resultados[$i]["IDProducto"];
+        $producto[1] = $resultados[$i]["IDInsumos"];
         $producto[2] = $resultados[$i]["Cantidad"];
-        $producto[3] = $resultados[$i]["CostoUnitario"];
+        $producto[3] = $resultados[$i]["CostoActual"];
         $producto[4] = $resultados[$i]["CostoTotal"];
         array_push($datos, $producto);
     }
