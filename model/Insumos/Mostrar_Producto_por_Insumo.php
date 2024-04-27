@@ -11,13 +11,13 @@ class Mostrar{
 
     function busqueda(?string $parametro = null){
         if($parametro == null){
-            $querry = "SELECT * FROM productoporinsumo";
+            $querry = "SELECT * FROM insumosproductos";
             $resultados = $this->base->mostrar($querry);
         }
 
         else{
-            $querry = "SELECT * FROM productoporinsumo WHERE Producto LIKE :q OR Insumo LIKE :q OR Cantidad 
-            LIKE :q OR CostoUnitario LIKE :q OR CostoTotal LIKE :q";
+            $querry = "SELECT * FROM insumosproductos WHERE IDProducto LIKE :q OR IDInsumos LIKE :q OR Cantidad 
+            LIKE :q OR CostoActual LIKE :q OR CostoTotal LIKE :q";
 
             $array = [":q"=>'%'.$parametro.'%'];
 
@@ -28,7 +28,7 @@ class Mostrar{
     }
     
     function getProducto_por_Insumo($id){
-        $querry = "SELECT * FROM productoporinsumo WHERE Producto = :id";
+        $querry = "SELECT * FROM insumosproductos WHERE IDProducto = :id";
         $array = [":id"=>$id];
         $resultados = $this->base->mostrar($querry, $array);
         return $resultados;

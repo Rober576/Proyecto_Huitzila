@@ -57,10 +57,10 @@ function mostrarDatos(datos){
 
         for(i = 0; i < datos.length; i++){
             var row = document.createElement('tr');
-            var produ = document.createElement('td');
-            var insumo = document.createElement('td');
+            var idprodu = document.createElement('td');
+            var idinsumo = document.createElement('td');
             var cant = document.createElement('td');
-            var costU = document.createElement('td');
+            var costA = document.createElement('td');
             var costT = document.createElement('td');
             
             var acciones = document.createElement('td')
@@ -85,15 +85,15 @@ function mostrarDatos(datos){
             link_editar.style.textDecoration = 'none';
 
 
-            produ.innerHTML = datos[i][0]
-            row.appendChild(produ);
-            insumo.innerHTML = datos[i][7];
-            row.appendChild(insumo);
-            cant.innerHTML = datos[i][1];
+            idprodu.innerHTML = datos[i][0]
+            row.appendChild(idprodu);
+            idinsumo.innerHTML = datos[i][1];
+            row.appendChild(idinsumo);
+            cant.innerHTML = datos[i][2];
             row.appendChild(cant);
-            costU.innerHTML = datos[i][2];
-            row.appendChild(costU);
-            costT.innerHTML = datos[i][3];
+            costA.innerHTML = datos[i][3];
+            row.appendChild(costA);
+            costT.innerHTML = datos[i][4];
             row.appendChild(costT);
         
             link_eliminar.innerHTML = "Eliminar";
@@ -111,23 +111,23 @@ function mostrarDatos(datos){
                     method: 'GET'
                 })
                 .then(response => response.json())
-                /*
+                
                 .then(data => {
 
                     if(data === 'exito'){
                         alert('Eliminado con éxito');
                         window.location.reload();
-                    }
-
+                    }/*
+                    
                     else if(data === 'movimientos'){
                         alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
                     }
 
                     else{
                         alert(data)
-                    }
+                    }*/
                     
-                })*/
+                })
                 .catch(error => {
                     console.error('Error al eliminar el registro:', error);
                 });
