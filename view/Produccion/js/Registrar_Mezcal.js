@@ -9,22 +9,24 @@ formulario.addEventListener('submit', function (e) {
         method: 'POST',
         body: datos
     })
-  
     .then(res => res.json())
     .then(data => {
-        console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
-        if (data === "Lote existente") {
-            alert(data); // Mostrar mensaje del servidor
+         // Manejar la respuesta del servidor
+         if (data === "existente") {
+            alert("Lote existente");
             console.error('Error:', data);
+        } else if (data === "exitoso") {
+            alert("Registro exitoso");
+            // Redirigir a otra página después de un registro exitoso
+            location.href = "../../view/Produccion/Registro_Mezcal.html";
         } else {
-            alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-            location.href="../../view/Produccion/Registro_Mezcal.html";
-        }        
+            // Mostrar cualquier otro mensaje de error
+            alert(data);
+        }       
     })
     .catch(error => {
-        alert("Registro exitoso");
-        location.href="../../view/Produccion/Registro_Mezcal.html";
-        console.error('Error:', error.message);
+        console.error('Error en la solicitud fetch:', error);
+        // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones de manejo de errores
     });
 });
 

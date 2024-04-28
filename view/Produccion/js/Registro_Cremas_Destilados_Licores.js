@@ -1,46 +1,53 @@
+// Obtener el formulario y agregar un evento de escucha para el envío
 var formulario = document.getElementById('form_datos');
-
 formulario.addEventListener('submit', function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Evitar el envío del formulario por defecto
 
+    // Obtener los datos del formulario
     var datos = new FormData(formulario);
 
     fetch('../../controller/Produccion/Registro_Cremas_Destilados_Licores.php', {
         method: 'POST',
         body: datos
     })
-  
     .then(res => res.json())
     .then(data => {
-        console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
-        if (data === "Lote existente") {
-            alert(data); // Mostrar mensaje del servidor
+         // Manejar la respuesta del servidor
+         if (data === "existente") {
+            alert("Lote existente");
             console.error('Error:', data);
+        } else if (data === "exitoso") {
+            alert("Registro exitoso");
+            // Redirigir a otra página después de un registro exitoso
+            location.href = "../../view/Produccion/Registro_Cremas_Destilados_Licores.html";
         } else {
-            alert("Registro exitoso"); // Mostrar mensaje de éxito sin comillas extras innecesarias
-            location.href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html";
-        }        
+            // Mostrar cualquier otro mensaje de error
+            alert(data);
+        }       
     })
     .catch(error => {
-        alert("Registro exitoso");
-        location.href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html";
-        console.error('Error:', error.message);
+        console.error('Error en la solicitud fetch:', error);
+        // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones de manejo de errores
     });
+    
+    
 });
 
-
+// Agregar un evento de escucha cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Obtener elementos del DOM
     var selectTipo = document.getElementById('tipo');
     var selectClase = document.getElementById('clase');
 
+    // Obtener categorías de destilado y clases mediante solicitudes fetch
     fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=destilado')
     .then(response => response.json())
     .then(data => {
+        // Iterar sobre los datos y crear opciones para el select
         data.forEach(item => {
             var option = document.createElement('option');
             option.value = item;
             option.textContent = item;
-
             if (selectTipo) {
                 selectTipo.appendChild(option);
             }
@@ -51,73 +58,64 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=clases')
     .then(response => response.json())
     .then(data => {
+        // Iterar sobre los datos y crear opciones para el select
         data.forEach(item => {
             var option = document.createElement('option');
             option.value = item;
             option.textContent = item;
-
             if (selectClase) {
                 selectClase.appendChild(option);
             }
         });
     })
     .catch(error => console.error('Error al obtener clases:', error));
-
 });
 
+// Agregar otro evento de escucha cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Obtener elementos del DOM
     var selectClase = document.getElementById('clase');
     var inputEdadLabel = document.querySelector('label[for="edad"]');
     var inputEdad = document.getElementById('edad'); // Corregido para seleccionar por ID
     var asterisco = document.querySelector('.campo-obligatorio');
 
-    // Se establecen los estilos iniciales del campo de entrada de la edad
+    // Establecer estilos iniciales para el campo de entrada de la edad
     inputEdad.disabled = true;
     inputEdad.style.backgroundColor = 'lightgrey';
 
+    // Agregar un evento de escucha para cambiar la edad según la clase seleccionada
     selectClase.addEventListener('change', function() {
         var selectedOption = selectClase.value;
         
-        // Si se selecciona "Blanco", se bloquea el campo de entrada de la edad y se borra su valor
         if (selectedOption === "Blanco" || selectedOption === "Abocado") {
-            inputEdadLabel.textContent = "Edad"; // Restaurar texto original del label
-            inputEdadLabel.classList.add('campo-bloqueado'); // Añadir clase para cambiar el estilo del label
-            //asterisco.classList.remove('campo-obligatorio'); // Remover clase para quitar el asterisco rojo
-            inputEdadLabel.appendChild(asterisco); // Añadir asterisco al label
-            // Establecer el campo de entrada de la edad como deshabilitado y con un color de fondo gris claro
+            // Si se selecciona "Blanco" o "Abocado", bloquear el campo de entrada de la edad
+            inputEdadLabel.textContent = "Edad";
+            inputEdadLabel.classList.add('campo-bloqueado');
+            inputEdadLabel.appendChild(asterisco);
             inputEdad.disabled = true;
             inputEdad.style.backgroundColor = 'lightgrey';
         } else {
-            // Cambiar el texto del label según la clase seleccionada
+            // Habilitar el campo de entrada de la edad y cambiar el texto del label según la clase seleccionada
             if (selectedOption === "Reposado") {
                 inputEdadLabel.textContent = "Meses";
             } else if (selectedOption === "Añejo") {
                 inputEdadLabel.textContent = "Años";
             }
-            asterisco.classList.add('campo-obligatorio'); // Añadir clase para el asterisco rojo
-            inputEdadLabel.appendChild(asterisco); // Añadir asterisco al label
-            inputEdadLabel.classList.remove('campo-bloqueado'); // Remover clase cuando el campo no está bloqueado
-            // Establecer el campo de entrada de la edad como habilitado y con un color de fondo blanco
+            asterisco.classList.add('campo-obligatorio');
+            inputEdadLabel.appendChild(asterisco);
+            inputEdadLabel.classList.remove('campo-bloqueado');
             inputEdad.disabled = false;
             inputEdad.style.backgroundColor = 'white';
         }
     });
 });
 
-
-
-
-
-//responde cuando hay un click en el boton cancelar
+// Agregar un evento de escucha para el botón "cancelar"
 formulario.cancelar.addEventListener('click', function (e){
     e.preventDefault();
-    let urlAct = window.location+''
-
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
-      window.location.href='Registro_Cremas_Destilados_Licores.html';
+        // Redirigir al usuario a otra página si confirma la cancelación
+        window.location.href='Registro_Cremas_Destilados_Licores.html';
     }
-
-    
-})
-
+});

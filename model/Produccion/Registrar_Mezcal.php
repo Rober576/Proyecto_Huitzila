@@ -41,15 +41,6 @@ class NuevosCampos{
     }
 
     function insertar($lote, $tanque, $categoria, $clase, $edad, $especie){
-        // Verificar si el lote ya existe en la base de datos
-        $loteExistente = $this->buscar_lote($lote);
-        
-        // Si el lote existe, mostrar una alerta y no realizar la inserción
-        if ($loteExistente) {
-            return false; // No se realizó la inserción
-        }
-
-        // Si el lote no existe, proceder con la inserción
         $IDClase = $this->obtenerIDClase($clase);
         $IDCategoria = $this->obtenerIDCategoria($categoria);
 
