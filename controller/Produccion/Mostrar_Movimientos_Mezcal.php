@@ -39,7 +39,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["Categoria"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-        $salida .= '<td>' . $fila["Edad"] . '</td>';
+        $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>';
         $salida .= '<td>';
         $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">Específico</button>';
         $salida .= ' ';
