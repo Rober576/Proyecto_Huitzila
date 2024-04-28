@@ -41,8 +41,7 @@ if ($resultado) {
         $salida .= '<td>' . $fila["tanque"] . '</td>';
         $salida .= '<td>' . $fila["Categoria"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-        $salida .= '<td>' . $fila["Edad"] . '</td>';
-
+        $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>'; // Modificación aquí
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
