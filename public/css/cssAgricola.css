@@ -192,3 +192,15 @@ a.btngenerala{
 .anade {
     float: right;
 }
+  
+  .contTot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+  
+  .totalTabla label,
+  .totalTabla input {
+    margin-left: 10px;
+  }
+  
