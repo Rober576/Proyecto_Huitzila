@@ -97,7 +97,7 @@ function BotonEliminar() {                                         ///Botonnnnnn
     const celda = document.createElement("td");
     const botonEliminar = document.createElement("button");
     botonEliminar.textContent = "Eliminar";
-    botonEliminar.className = "btn-eliminar"; 
+    botonEliminar.className = "btn-eliminar Boton_Tabla"; 
 
     botonEliminar.addEventListener("click", function () {
         const fila = botonEliminar.parentNode.parentNode;
@@ -124,8 +124,6 @@ function BotonEliminar() {                                         ///Botonnnnnn
 
     celda.appendChild(botonEliminar);
     return celda;
-
-
     
 }
 
