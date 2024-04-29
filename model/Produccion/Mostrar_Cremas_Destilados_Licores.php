@@ -40,6 +40,19 @@ class MostrarCDL extends Crud_bd {
         $this->cerrar_conexion();
         return $resultados;
     }
+
+    function buscar_datos3($id){
+        $this->conexion_bd();
+        $consulta = "SELECT registrodestilado.Lote, registrodestilado.tanque, tipodestilado.NombreDestilado, 
+        clasemezcal.Clase_Mezcal, registrodestilado.Edad FROM registrodestilado, tipodestilado, clasemezcal 
+        WHERE clasemezcal.IDClase=registrodestilado.IDClase and tipodestilado.IdTipoDes=registrodestilado.IdTipoDes 
+        and registrodestilado.Lote='$id'";
+                        
+        $resultados = $this->mostrar($consulta);
+     
+        $this->cerrar_conexion();
+        return $resultados;
+    }
 }
 ?>
 
