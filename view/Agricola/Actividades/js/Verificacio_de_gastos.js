@@ -12,7 +12,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (siSelected) {
             section2.style.display = 'block';
             section3.style.display = 'block';
-        } else {
+            const CantidadTrabajado = document.getElementById("canFecha").value;
+            console.log(CantidadTrabajado)
+
+            const actividadSele = document.getElementById('semSele');
+
+            if (CantidadTrabajado === "") {
+                actividadSele.innerHTML = '';
+
+            } else {
+                for (let i = 1; i <= CantidadTrabajado; i++) {
+                    const item = `Semana ${i}`; 
+                    var option = document.createElement('option');
+                    option.value = item;
+                    option.textContent = item;
+                    if (actividadSele) {
+                        actividadSele.appendChild(option);
+                    }    
+                }
+            }
+            
+
+
+
+
+
+        }else {
             // Si se selecciona 'No', mostrar solo la tercera sección y ocultar la segunda
             section2.style.display = 'none';
             section3.style.display = 'none';
