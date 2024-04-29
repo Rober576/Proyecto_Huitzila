@@ -39,6 +39,6 @@ formulario.cancelar.addEventListener('click', function (e){
     var resp = confirm("Los cambios realizados no se guardarán, ¿desea continuar?");
     if(resp ==  true){
         // Redirigir al usuario a otra página si confirma la cancelación
-        window.location.href='Registro_Cremas_Destilados_Licores.html';
+        window.location.href='../../view/Produccion/Mostrar_Cremas_Destilados_Licores.html';
     }
 });

@@ -10,10 +10,10 @@ class MostrarCDL extends Crud_bd {
     }
 
     function getInfo(){
-        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
+        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.NombreDestilado
         FROM registrodestilado rm
         INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
-        INNER JOIN categoriamezcal cat ON rm.IdTipoDes = cat.IDCategoria";
+        INNER JOIN tipodestilado cat ON rm.IdTipoDes = cat.IdTipoDes";
 
         $resultados = $this->base->mostrar($query);
         $this->base->cerrar_conexion();
@@ -29,10 +29,10 @@ class MostrarCDL extends Crud_bd {
     }
     function buscar_datos($id){
         $this->conexion_bd();
-        $consulta = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
+        $consulta = "SELECT rm.*, cm.Clase_Mezcal, cat.NombreDestilado
                         FROM registrodestilado rm
                         INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
-                        INNER JOIN categoriamezcal cat ON rm.IdTipoDes = cat.IDCategoria
+                        INNER JOIN tipodestilado cat ON rm.IdTipoDes = cat.IdTipoDes
                         WHERE rm.Lote = '$id'";
                         
         $resultados = $this->mostrar($consulta);
