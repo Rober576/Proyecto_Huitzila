@@ -13,8 +13,6 @@ $destilado=$resultado[0]['NombreDestilado'];
 $mezcal=$resultado[0]['Clase_Mezcal'];
 $edad=$resultado[0]['Edad'];
 
-echo $mezcal;
-
 ?>
 <!-- script para poner los valores en los campos correspondientes -->
 
