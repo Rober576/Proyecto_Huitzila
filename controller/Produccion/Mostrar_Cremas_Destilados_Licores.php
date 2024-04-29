@@ -41,7 +41,12 @@ if ($resultado) {
         $salida .= '<td>' . $fila["tanque"] . '</td>';
         $salida .= '<td>' . $fila["NombreDestilado"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-        $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>'; // Modificación aquí
+        if ($fila["Clase_Mezcal"] == 'Añejo') {
+            $salida .= '<td>' . $fila["Edad"] . " Años" . '</td>';
+        } else {
+            $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]." Meses") . '</td>';;
+        }
+        
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
