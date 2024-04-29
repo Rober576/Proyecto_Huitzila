@@ -39,7 +39,7 @@ if ($resultado) {
         
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["tanque"] . '</td>';
-        $salida .= '<td>' . $fila["Categoria"] . '</td>';
+        $salida .= '<td>' . $fila["NombreDestilado"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>'; // Modificación aquí
         $salida .= '<td>';
