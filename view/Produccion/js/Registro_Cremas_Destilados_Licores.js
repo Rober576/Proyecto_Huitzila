@@ -94,6 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
             inputEdadLabel.appendChild(asterisco);
             inputEdad.disabled = true;
             inputEdad.style.backgroundColor = 'lightgrey';
+
+            // Si hay información en el campo de texto, borrarla
+            inputEdad.value = '';
+
         } else {
             // Habilitar el campo de entrada de la edad y cambiar el texto del label según la clase seleccionada
             if (selectedOption === "Reposado") {
