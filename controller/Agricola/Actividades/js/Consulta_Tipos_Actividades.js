@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     .catch(error => console.error('Error al obtener actividades:', error));
-});
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+
     var selePlaga = document.getElementById('selePlaga');
         //OBTENER LAS PLAGAS REGISTRADOS E INSERTARLOS EN LA COMBO
 
@@ -35,5 +36,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     })
 
-    .catch(error => console.error('Error al obtener actividades:', error));
+    .catch(error => console.error('Error al obtener plagas:', error));
+
+
+    var seleHerbicida = document.getElementById('seleHerbicida');
+        //OBTENER LAS PLAGAS REGISTRADOS E INSERTARLOS EN LA COMBO
+
+    fetch('../../../controller/Agricola/Actividades/php/Consultar_Tipos_Actividades.php?tipo=herbicidas')
+    .then(response => response.json())  
+    .then(data => {
+        data.forEach(item => {
+            var option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+            if (seleHerbicida) {
+                seleHerbicida.appendChild(option);
+            }
+        });
+    })
+
+    .catch(error => console.error('Error al obtener herbicidas:', error));
+
+    
 });
+
+
+    

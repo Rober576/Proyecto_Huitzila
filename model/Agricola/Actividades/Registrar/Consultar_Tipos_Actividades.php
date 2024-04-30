@@ -32,5 +32,17 @@ class ControladorDatos {
 
         return json_encode($Plagas);
     }
+
+    function obtenerHerbicidas() {
+        $query = "SELECT NombreHerbicidas FROM herbicidas";
+        $result = $this->base->mostrar($query);
+
+        $Herbicidas = array();
+        foreach ($result as $row) {
+            $Herbicidas[] = $row['NombreHerbicidas'];
+        }
+
+        return json_encode($Herbicidas);
+    }
 }
 ?>
