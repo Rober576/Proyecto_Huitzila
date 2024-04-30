@@ -11,7 +11,6 @@ function buscar_datos(consulta) {
     // Configurar la solicitud GET
     xhr.open('GET', url, true);
 
-    // Definir la función de retorno de llamada (callback) para manejar la respuesta
     xhr.onload = function() {
         if (xhr.status === 200) {
 
@@ -52,7 +51,7 @@ function agregarEventosEliminar() {
 
                          if (data === "Eliminado") {
                             alert("Registro eliminado correctamente.");
-                            location.reload(); // Recargar la página después de la eliminación
+                            location.reload();
                         } else {
                             console.error('Error: Respuesta inesperada del servidor.');
                         }
