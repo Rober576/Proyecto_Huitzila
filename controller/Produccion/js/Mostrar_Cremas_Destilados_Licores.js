@@ -16,7 +16,6 @@ function buscar_datos(consulta) {
 
             document.getElementById("tabla_Des_Lic_Crem").innerHTML = xhr.responseText;
             agregarEventosEliminar();
-            agregarEventosEditar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
@@ -61,20 +60,7 @@ function agregarEventosEliminar() {
     }
 }
 
-function agregarEventosEditar() {
 
-    var botonesModificar = document.querySelectorAll(".boton-modificar");
-
-    // Agrega el evento click a cada botón de modificar
-    for (var j = 0; j < botonesModificar.length; j++) {
-        botonesModificar[j].addEventListener('click', function(e) {
-
-            window.location.href = "#";
-
-           
-        });
-    }
-}
 
 
 
