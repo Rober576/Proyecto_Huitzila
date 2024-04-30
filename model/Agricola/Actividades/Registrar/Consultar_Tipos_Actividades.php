@@ -20,5 +20,17 @@ class ControladorDatos {
 
         return json_encode($actividades);
     }
+
+    function obtenerPlagas() {
+        $query = "SELECT Nombre FROM plagas";
+        $result = $this->base->mostrar($query);
+
+        $Plagas = array();
+        foreach ($result as $row) {
+            $Plagas[] = $row['Nombre'];
+        }
+
+        return json_encode($Plagas);
+    }
 }
 ?>

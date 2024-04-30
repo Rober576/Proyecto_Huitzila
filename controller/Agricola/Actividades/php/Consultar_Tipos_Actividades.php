@@ -9,5 +9,9 @@ switch ($tipo) {
     case 'actividades':
         echo $controlador->obtenerActividades();
         break;
+
+    case 'plagas':
+        echo $controlador->obtenerPlagas();
+        break;
 }
 ?>

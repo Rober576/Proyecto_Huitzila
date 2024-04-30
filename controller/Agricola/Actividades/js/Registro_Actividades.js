@@ -19,16 +19,19 @@ formulario.addEventListener('submit', function (e) {
     cargarListasDesdeLocalStorage();
     var datos = new FormData(formulario);
 
-    // Guardar las listas actualizadas en localStorage después de actualizarlas
-    localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
-    localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
-    localStorage.setItem('listaDescripcion', JSON.stringify(listaDescripcion));
-    localStorage.setItem('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
-    localStorage.setItem('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
-    localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
-    localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
-    localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
-    localStorage.setItem('listaSemana', JSON.stringify(listaSemana));
+    
+
+
+    // Convertir las listas a cadenas JSON y agregarlas al FormData
+    datos.append('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
+    datos.append('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
+    datos.append('listaDescripcion', JSON.stringify(listaDescripcion));
+    datos.append('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
+    datos.append('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
+    datos.append('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
+    datos.append('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
+    datos.append('listaGastosExtras', JSON.stringify(listaGastosExtras));
+    datos.append('listaSemana', JSON.stringify(listaSemana));
     
     // Mostrar las listas en la consola
     console.log(listaNombreTrabajador);

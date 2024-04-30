@@ -39,7 +39,12 @@ formulario.addEventListener('submit', function (e)
                     window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Plagas.html";
 
                     
+                } else {
+                    const form= document.getElementById('advanced-form');
+                    form.reset();
+                    alert("El nombre de la plaga ya existe");
                 }
+
             })
         }
     })
