@@ -205,11 +205,16 @@ a.btngenerala{
   }
   
   .activo_en_pagina {
-    background-color: #a77753; /* Cambia el color de fondo */
-    color: #ffffff; /* Cambia el color del texto */
-    box-shadow: #080808;
+    color: black; /* Cambia el color del texto */
+    position: relative; /* Establece la posición relativa para el posicionamiento absoluto del borde */
 }
 
-.activo_en_pagina:hover {
-    color: #080808; /* Cambia el color del texto */
+.activo_en_pagina:after {
+    content: ''; /* Agrega contenido generado para la franja */
+    position: absolute; /* Establece la posición absoluta */
+    bottom: 0; /* Coloca la franja en la parte inferior del elemento */
+    left: 0; /* Coloca la franja en el borde izquierdo del elemento */
+    width: 100%; /* Establece el ancho de la franja al 100% del ancho del elemento */
+    height: 5px; /* Establece la altura de la franja */
+    background-color: #a77753; /* Color de la franja */
 }
