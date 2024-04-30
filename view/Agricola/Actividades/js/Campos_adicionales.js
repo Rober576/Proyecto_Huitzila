@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
             campoTexto1.style.display = "none";
             campoTexto2.style.display = "none";
 
-            campoHerb.required = flase
+            campoHerb.required = false
             campoPlaga.required = false
         }
     }
