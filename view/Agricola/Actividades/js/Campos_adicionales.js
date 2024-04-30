@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var radioSi = document.querySelector('.radioList input[value="si"]');
     var radioNo = document.querySelector('.radioList input[value="no"]');
 
+    var nomTrab = document.getElementById("nomTrab");
+    var actDes = document.getElementById("actDes");
+    var semSele = document.getElementById("semSele");
+
     var section2 = document.getElementById('section2');
     var section3 = document.getElementById('section3');
 
@@ -30,6 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (siSelected) {
             section2.style.display = 'block';
             section3.style.display = 'block';
+
+            nomTrab.required = true;
+            actDes.required = true;
+            semSele.required = true;
+
             const CantidadTrabajado = document.getElementById("canFecha").value;
             console.log(CantidadTrabajado)
 
@@ -61,8 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
             section2.style.display = 'none';
             section3.style.display = 'none';
 
-            
-
+            nomTrab.required = false;
+            actDes.required = false;
+            semSele.required = false;
         }
     }
 
@@ -85,6 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     var actividadSele = document.getElementById("actividadSele");
+
+    var campoPlaga = document.getElementById("selePlaga");
+    var campoHerb = document.getElementById("seleHerbicida");
+    
     var campoTexto1 = document.getElementById("campo1");
     var campoTexto2 = document.getElementById("campo2");
 
@@ -95,14 +109,23 @@ document.addEventListener("DOMContentLoaded", function() {
             // Mostrar ambos campos si se selecciona "Control de plagas: Químico"
             campoTexto1.style.display = "block";
             campoTexto2.style.display = "block";
+
+            campoHerb.required = true
+            campoPlaga.required = true
         } else if (actividadSele.value === "Control de plagas: Biológico") {
             // Mostrar solo el primer campo si se selecciona "Control de plagas: Biológico"
             campoTexto1.style.display = "block";
             campoTexto2.style.display = "none";
+
+            campoPlaga.required = true
+            campoHerb.required = false
         } else {
             // Ocultar ambos campos si no se selecciona ninguna opción específica
             campoTexto1.style.display = "none";
             campoTexto2.style.display = "none";
+
+            campoHerb.required = flase
+            campoPlaga.required = false
         }
     }
 
