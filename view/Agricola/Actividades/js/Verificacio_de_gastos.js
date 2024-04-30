@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var section2 = document.getElementById('section2');
     var section3 = document.getElementById('section3');
 
+
+    function eliminarTodo() {
+        const tabla = document.getElementById("tablaActividades");
+    
+        while (tabla.rows.length > 1) { 
+            tabla.deleteRow(1);
+        }
+    }
+
+    function tablaContieneElementos(tablaId) {
+        const tabla = document.getElementById(tablaId);
+        if (tabla.rows.length > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // Función para manejar la visibilidad de las secciones
     function toggleSections(siSelected) {
         // Si se selecciona 'Sí', mostrar la segunda sección y ocultar la tercera
@@ -15,7 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const CantidadTrabajado = document.getElementById("canFecha").value;
             console.log(CantidadTrabajado)
 
+
             const actividadSele = document.getElementById('semSele');
+            const General = document.getElementById("cosGenral").value;
+            console.log(General)
+            const CostoGeneral = parseFloat(General);
+            document.getElementById("total").value = CostoGeneral;
 
             if (CantidadTrabajado === "") {
                 actividadSele.innerHTML = '';
@@ -28,19 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     option.textContent = item;
                     if (actividadSele) {
                         actividadSele.appendChild(option);
-                    }    
+                    } 
+                         
                 }
             }
-            
-
-
-
-
 
         }else {
-            // Si se selecciona 'No', mostrar solo la tercera sección y ocultar la segunda
+            eliminarTodo();
             section2.style.display = 'none';
             section3.style.display = 'none';
+
+            
+
         }
     }
 
@@ -55,5 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     radioNo.addEventListener('change', function() {
         toggleSections(false);
     });
+
+
+
+
 });
 
