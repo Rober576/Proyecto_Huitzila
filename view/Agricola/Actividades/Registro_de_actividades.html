@@ -127,11 +127,15 @@
 								<input type="date" id="fechaIni" name="fechaIni" class="styled-input" required>
 							</div>
 							<div>
-								<label for="fechaFin">Fecha de fin de la actividad</label>
-								<input type="date" id="fechaFin" name="fechaFin" class="styled-input" readonly>
+								<label for="canFecha">Cantidad de semanas trabajadas<span class="campo-obligatorio">*</span></label>
+								<input type="number" id="canFecha" name="canFecha" class="styled-input" required>
 							</div>
 					</div>
-					<div>
+					<div class="formulario-datos2">
+						<div>
+							<label for="cosGenral">Gostos generales ($)<span class="campo-obligatorio">*</span></label>
+							<input type="text" id="cosGenral" name="cosGenral" class="styled-input" required>
+						</div>
 						<div>
 							<label for="descAct">Descripciòn de la actividad<span class="campo-obligatorio">*</span></label>
 							<textarea id="descAct" name="descAct" rows="4"></textarea>
@@ -152,15 +156,15 @@
 			<div class="formulario-datos">
 				<div>
 					<label for="nomTrab">Nombre del trabajador<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="nomTrab" name="nomTrab" class="styled-input" required>
+					<input type="text" id="nomTrab" name="nomTrab" class="styled-input">
 				</div>
 				<div>
 					<label for="gasGas">Gasto de la gasolina ($)<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="gasGas" name="gasGas" class="styled-input" required>
+					<input type="text" id="gasGas" name="gasGas" class="styled-input">
 				</div>
 				<div>
 					<label for="desVei">Datos del vehìculo<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="desVei" name="desVei" class="styled-input" required>
+					<input type="text" id="desVei" name="desVei" class="styled-input">
 				</div>
 				<div>
 					<label for="gasLiq">Gasto de lìquidos ($)</label>
@@ -175,10 +179,14 @@
 					<input type="text" id="gasExt" name="gasExt" class="styled-input">
 				</div>
 			</div>
-			<div class="formulario-datos2-3">
+			<div class="formulario-datos">
 				<div>
 					<label for="actDes">Actividad desarrollada:</label>
 					<textarea id="actDes" name="actDes" class="styled-input" rows="4"></textarea>
+				</div>
+				<div>
+					<label for="semSele">Seleccione la semana<span class="campo-obligatorio">*</span></label>
+					<select id="semSele" name="semSele" class="styled-input"></select>
 				</div>
 				<div>
 					<label for="diaLunes">Seleccione los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
@@ -212,6 +220,7 @@
 					<tr>
 						<th>Nombre del trabajador</th>
 						<th>Dìas trabajados</th>
+						<th>Semana</th>
 						<th>Actividad desarrollada</th>
 						<th>Gasolina</th>
 						<th>Datos del vehìculo</th>
@@ -224,7 +233,13 @@
 				<tbody>
 				</tbody>
 			</table>
-			</div>	
+
+			<div class="contTot">
+				<div class="totalTabla">
+					<label for="total">Total:</label>
+					<input type="text" id="total" name="total" class="styled-input" readonly>
+				</div>	
+			</div>
 		</section>
 
 		<section class="section-main">
@@ -241,5 +256,6 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
+<script src="../../../controller/Agricola/Actividades/js/Consulta_Tipos_Actividades.js"></script>
 <script src="../../../controller/Agricola/Actividades/js/Registro_Actividades.js"></script>
 </html>

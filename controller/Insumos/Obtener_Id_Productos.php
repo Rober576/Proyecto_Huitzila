@@ -10,7 +10,7 @@ function obtenerIdProductos() {
     $crud_bd->conexion_bd();
 
     
-    $query = "SELECT IDProducto FROM productoterminado";
+    $query = "SELECT IDProducto, ProductoTerminado FROM productoterminado";
 
     
     $result = $crud_bd->mostrar($query);

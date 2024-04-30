@@ -33,7 +33,7 @@ function llenarListaProductos(datosProductos) {
     datosProductos.forEach(producto => {
         const option = document.createElement('option');
         option.value = producto.IDProducto;
-        option.textContent = `${producto.IDProducto}`;
+        option.textContent = `${producto.IDProducto} - ${producto.ProductoTerminado}`;
         selectProductos.appendChild(option);
         
     });

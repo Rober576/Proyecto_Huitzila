@@ -36,13 +36,19 @@ form_datos.tanque.addEventListener('input', (e) => {
 
 form_datos.edad.addEventListener('input', (e) => {
     let valorInput = e.target.value;
-    valorInput = valorInput.match(/^\d{0,3}(\.\d{0,2})?/)[0];
-
-    form_datos.edad.value = valorInput;
-
-
-    // Obtener el valor del campo de clase
     let claseSeleccionada = document.getElementById('clase').value;
+
+    if (claseSeleccionada === "Reposado") {
+        // Permitir valores como si fueran meses, con un máximo de 11 meses
+        valorInput = valorInput.match(/^\d{0,2}(\.\d{0,2})?/)[0];
+        // Verificar si el valor es mayor a 11 y ajustarlo si es necesario
+        if (parseFloat(valorInput) > 11) {
+            valorInput = '11';
+        }
+    } else {
+        // Validar la edad estándar
+        valorInput = valorInput.match(/^\d{0,3}(\.\d{0,2})?/)[0];
+    }
 
     // Limitar la longitud a 50 caracteres
     if (valorInput.length > 50) {
@@ -56,8 +62,12 @@ form_datos.edad.addEventListener('input', (e) => {
         // Restablecer estilo del campo de edad
         form_datos.edad.removeAttribute("style");
         edad = true;
+    } else if (claseSeleccionada === "Reposado") {
+        // Permitir valores como si fueran meses, no aplicar validación de edad
+        form_datos.edad.removeAttribute("style");
+        edad = true;
     } else {
-        // Aplicar validación de edad si la clase no es "Blanco"
+        // Aplicar validación de edad si la clase no es "Blanco" ni "Reposado"
         if (!valorInput || !expresiones.edad.test(valorInput)) {
             form_datos.edad.style.border = "3px solid red";
             edad = false;

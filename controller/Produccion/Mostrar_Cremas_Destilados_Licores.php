@@ -39,13 +39,18 @@ if ($resultado) {
         
         $salida .= '<td>' . $fila["Lote"] . '</td>';
         $salida .= '<td>' . $fila["tanque"] . '</td>';
-        $salida .= '<td>' . $fila["Categoria"] . '</td>';
+        $salida .= '<td>' . $fila["NombreDestilado"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-        $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>'; // Modificación aquí
+        if ($fila["Clase_Mezcal"] == 'Añejo') {
+            $salida .= '<td>' . $fila["Edad"] . " Años" . '</td>';
+        } else {
+            $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]." Meses") . '</td>';;
+        }
+        
         $salida .= '<td>';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
         $salida .= ' ';
-        $salida .= '<button  onclick="window.location.href="  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
+        $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Cremas_Destilados_Licores.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }
