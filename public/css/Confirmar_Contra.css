@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+body {
+    font-family: 'FuentePrincipal', sans-serif;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    background-color: #F0EDE8;
+}
+
+.logo_ciscig{
+    padding-right: 10px;
+    width: 210px;
+}
+
+.contentP{
+    width: 30em;
+    height: 35em;
+    margin: 4.5em auto;
+    border-radius: 2%;
+    background-color: #143419;
+    box-shadow: 0px 0px 5px 0px gray;
+}  
+
+.boton{
+    text-align: center;
+    align-items: center;
+}
+
+.contLogo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    object-fit: cover;
+    width: 40%;
+    margin: 1em auto;
+}
+
+.label-2{
+    color: white;
+    margin: 8px 0px 8px 0px;    ;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}  
+
+.label-3{
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+} 
+
+.campos{
+    width: 70%;
+    height: 8em;
+    margin: 1em auto;
+}
+
+.camposM{
+    width: 80%;
+    height: 8em;
+    margin: 1em auto;
+} 
+
+.mensaje{
+    width: 90%;
+    height: 1.5em;
+    color: red;
+}
+
+.info{
+    text-align: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #07a3eb;
+}
+
+.input-format{
+    background-color: #fff;
+
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*-------------------------------- Animaciones de las cajas de texto ----------------------*/
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+input[type="file"],
+textarea,
+select {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="password"] {
+    margin-right: 5px;
+}
+
+.boton-registrar{
+    font-family: 'FuentePrincipal', sans-serif;
+    background-color: #a77753;
+    margin-top: 5px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.boton-registrar:hover{
+    background: #735137;
+    transition: 300ms all;
+}
