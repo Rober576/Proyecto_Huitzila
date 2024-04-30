@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
-	<script src="../Actividades/js/Verificacio_de_gastos.js"></script>
+	<script src="../Actividades/js/Campos_adicionales.js"></script>
 	<script src="../../../controller/Agricola/Actividades/js/Tabla_Actividades.js"></script>
 </head>
 <body>
@@ -137,8 +137,18 @@
 							<input type="text" id="cosGenral" name="cosGenral" class="styled-input" required>
 						</div>
 						<div>
-							<label for="descAct">Descripciòn de la actividad<span class="campo-obligatorio">*</span></label>
+							<label for="descAct">Descripciòn de la actividad</label>
 							<textarea id="descAct" name="descAct" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="formulario-datos2">
+						<div id="campo1">
+							<label for="selePlaga">Plaga<span class="campo-obligatorio">*</span></label>
+							<select id="selePlaga" name="selePlaga" class="styled-input" required></select>
+						</div>
+						<div id="campo2">
+							<label for="seleHerbicida">Herbicida<span class="campo-obligatorio">*</span></label>
+							<select id="seleHerbicida" name="seleHerbicida" class="styled-input" required></select>
 						</div>
 					</div>
 					<div>
@@ -159,12 +169,12 @@
 					<input type="text" id="nomTrab" name="nomTrab" class="styled-input" required>
 				</div>
 				<div>
-					<label for="gasGas">Gasto de la gasolina ($)<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="gasGas" name="gasGas" class="styled-input" required>
+					<label for="gasGas">Gasto de la gasolina ($)</label>
+					<input type="text" id="gasGas" name="gasGas" class="styled-input">
 				</div>
 				<div>
-					<label for="desVei">Datos del vehìculo<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="desVei" name="desVei" class="styled-input" required>
+					<label for="desVei">Datos del vehìculo</label>
+					<input type="text" id="desVei" name="desVei" class="styled-input">
 				</div>
 				<div>
 					<label for="gasLiq">Gasto de lìquidos ($)</label>
@@ -181,12 +191,12 @@
 			</div>
 			<div class="formulario-datos">
 				<div>
-					<label for="actDes">Actividad desarrollada:</label>
-					<textarea id="actDes" name="actDes" class="styled-input" rows="4"></textarea>
+					<label for="actDes">Actividad desarrollada:<span class="campo-obligatorio">*</span></label>
+					<textarea id="actDes" name="actDes" class="styled-input" rows="4" required></textarea>
 				</div>
 				<div>
 					<label for="semSele">Seleccione la semana<span class="campo-obligatorio">*</span></label>
-					<select id="semSele" name="semSele" class="styled-input"></select>
+					<select id="semSele" name="semSele" class="styled-input" required></select>
 				</div>
 				<div>
 					<label for="diaLunes">Seleccione los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
