@@ -1,6 +1,6 @@
 let banderaLote = false;
 let banderaTanque = false;
-let banderaEdad = false;
+let banderaEdad = true;
 
 let botonRegistrar = document.getElementById("submitButton");
 
