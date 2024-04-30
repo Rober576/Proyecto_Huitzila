@@ -32,6 +32,7 @@ formulario.addEventListener('submit', function (e)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                try{
                 if (data === 'exito') {
                     const form= document.getElementById('advanced-form');
                     form.reset();
@@ -40,6 +41,12 @@ formulario.addEventListener('submit', function (e)
 
                     
                 } else {
+                    const form= document.getElementById('advanced-form');
+                    form.reset();
+                    alert("El nombre de la plaga ya existe");
+                }
+                }
+                catch{
                     const form= document.getElementById('advanced-form');
                     form.reset();
                     alert("El nombre de la plaga ya existe");
