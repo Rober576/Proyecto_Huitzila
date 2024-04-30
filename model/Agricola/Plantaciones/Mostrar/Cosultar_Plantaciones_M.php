@@ -46,7 +46,7 @@ class Mostrar {
     }
 
     function getInfo_Plantaciones($claveplantacion) {
-        $query = "SELECT Superficie, CantidadPlantas, Fecha, NombreTrabajador, DatosVehiculo, CostoGasolina, CostoMaterial, FechaInicio, FechaFinal FROM plantaciones WHERE ClavePlantacion= :codigoP";
+        $query = "SELECT Superficie, CantidadPlantas, Fecha FROM plantaciones WHERE ClavePlantacion= :codigoP";
         $resultados = $this->base->mostrar($query, [":codigoP" => $claveplantacion]);
         $this->base->cerrar_conexion();
         return $resultados;
