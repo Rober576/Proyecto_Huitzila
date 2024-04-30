@@ -102,24 +102,35 @@ function BotonEliminar() {                                         ///Botonnnnnn
     botonEliminar.addEventListener("click", function () {
         const fila = botonEliminar.parentNode.parentNode;
         const indiceFila = fila.rowIndex - 1; // Restamos 1 porque los índices de las filas comienzan en 0
-
-        fila.remove();
-
-        // Eliminar los elementos correspondientes de las listas
-        listaNombreTrabajador.splice(indiceFila, 1);
-        listaDiasSeleccionados.splice(indiceFila, 1);
-        listaDescripcion.splice(indiceFila, 1);
-        listaGastoGasolina.splice(indiceFila, 1);
-        listaDatosVehiculo.splice(indiceFila, 1);
-        listaGastoLiquidos.splice(indiceFila, 1);
-        listaCompraMaterial.splice(indiceFila, 1);
-        listaGastosExtras.splice(indiceFila, 1);
-        listaSemana.splice(indiceFila, 1);
-        guardarListasEnLocalStorage()
-
-        Sumaa();
-
-
+    
+        // Mostrar un cuadro de confirmación
+        const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta fila?");
+    
+        if (confirmacion) {
+            // Si el usuario confirma, eliminar la fila y actualizar las listas
+            fila.remove();
+    
+            // Eliminar los elementos correspondientes de las listas
+            listaNombreTrabajador.splice(indiceFila, 1);
+            listaDiasSeleccionados.splice(indiceFila, 1);
+            listaDescripcion.splice(indiceFila, 1);
+            listaGastoGasolina.splice(indiceFila, 1);
+            listaDatosVehiculo.splice(indiceFila, 1);
+            listaGastoLiquidos.splice(indiceFila, 1);
+            listaCompraMaterial.splice(indiceFila, 1);
+            listaGastosExtras.splice(indiceFila, 1);
+            listaSemana.splice(indiceFila, 1);
+    
+            guardarListasEnLocalStorage(); // Guardar en el almacenamiento local
+            Sumaa(); // Realizar alguna acción adicional
+        } else {
+            // Si el usuario cancela, no hacer nada
+            console.log("Eliminación cancelada");
+            const radioSi = document.getElementById("cosPre");
+            const radioNo = document.getElementById("cosPre");
+            radioSi.checked = true;
+            radioNo.checked = false;
+        }
     });
 
     celda.appendChild(botonEliminar);

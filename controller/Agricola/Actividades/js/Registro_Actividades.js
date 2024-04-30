@@ -28,7 +28,8 @@ formulario.addEventListener('submit', function (e) {
     localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
     localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
     localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
-
+    localStorage.setItem('listaSemana', JSON.stringify(listaSemana));
+    
     // Mostrar las listas en la consola
     console.log(listaNombreTrabajador);
     console.log(listaDiasSeleccionados);
@@ -38,6 +39,7 @@ formulario.addEventListener('submit', function (e) {
     console.log(listaGastoLiquidos);
     console.log(listaCompraMaterial);
     console.log(listaGastosExtras);
+    console.log(listaSemana);
 
 
         
@@ -53,7 +55,7 @@ formulario.addEventListener('submit', function (e) {
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro de actividad exitoso");
-            window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";    
+          //  window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";    
         }
     })
 
@@ -74,7 +76,7 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
-            window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";
+          //  window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";
             
         }
     });

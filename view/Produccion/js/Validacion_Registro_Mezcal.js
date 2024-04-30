@@ -77,20 +77,34 @@ function validarTanque() {
     }
 }
 
-// Función para validar el campo de edad
+// Función para validar el campo de edad o meses
 function validarEdad() {
-    let valorInput = Formulario.edad.value;
+    let elementoSelect = document.getElementById("clase");
+    let valorSeleccionado = elementoSelect.value;
+    
+    //console.log(valorSeleccionado);
 
-    // Eliminar todos los caracteres no permitidos
-    valorInput = valorInput.replace(/[^0-9]/g, ''); // Solo se permiten números
+    let valorInput = Formulario.edad.value.trim();
 
-    // Actualizar el valor del campo con los caracteres permitidos
+    if (valorInput === "") {
+        Formulario.edad.value = "";
+        return; 
+    }
+
+    if (valorSeleccionado === "Añejo") {
+        valorInput = valorInput.replace(/[^0-9]/g, '');
+        valorInput = valorInput.substring(0, 3);
+    } else {
+        valorInput = valorInput.replace(/[^0-9]/g, '');
+    }
+
     Formulario.edad.value = valorInput;
 
-    // Validar si la entrada coincide con la expresión regular para la clave
-    if (!expresion.edad.test(valorInput)) {
+    if (valorSeleccionado === "Reposado" && (parseInt(valorInput) < 1 || parseInt(valorInput) > 11)) {
+        Formulario.edad.style.border = "5px solid red"; 
         banderaEdad = false;
     } else {
+        Formulario.edad.removeAttribute("style"); 
         banderaEdad = true;
     }
 }
