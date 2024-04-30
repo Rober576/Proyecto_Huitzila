@@ -21,12 +21,6 @@ if ($resultado) {
         <th>Fecha de plantación</th>
         <th>Campo sembrado</th>
         <th>Tipo de planta</th>
-        <th>Nombre del trabajador</th>
-        <th>Datos del vehñículo</th>
-        <th>Costos de gasolina</th>
-        <th>Costos de material</th>
-        <th>Fecha de inicio</th>
-        <th>Fecha de finalización</th>
         <th>Acciones</th>
         </tr>
     </thead>
@@ -48,16 +42,7 @@ if ($resultado) {
             $salida .= '<td>' . $fil["CantidadPlantas"] . '</td>';
             $salida .= '<td>' . $fil["Fecha"] . '</td>';
             $salida .= '<td>' . $NombreA . '</td>';
-
-            
-
             $salida .= '<td>' . $TipoP . '</td>';
-            $salida .= '<td>' . $fil["NombreTrabajador"] . '</td>';
-            $salida .= '<td>' . $fil["DatosVehiculo"] . '</td>';
-            $salida .= '<td>' . $fil["CostoGasolina"] . '</td>';
-            $salida .= '<td>' . $fil["CostoMaterial"] . '</td>';
-            $salida .= '<td>' . $fil["FechaInicio"] . '</td>';
-            $salida .= '<td>' . $fil["FechaFinal"] . '</td>';
 
             }
         $salida .= '<td>';
