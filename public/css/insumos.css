@@ -133,3 +133,7 @@ td {
     box-shadow: #080808;
 }
 
+.activo_en_pagina:hover {
+    color: #020202; /* Cambia el color del texto */
+}
+
