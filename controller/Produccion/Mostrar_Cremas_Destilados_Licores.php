@@ -60,4 +60,3 @@ if ($resultado) {
 }
  echo $salida;
 ?>
-<script src="../../../controller/Produccion/js/Eliminar_Lote.js"></script>
