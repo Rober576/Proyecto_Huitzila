@@ -204,3 +204,12 @@ a.btngenerala{
     margin-left: 10px;
   }
   
+  .activo_en_pagina {
+    background-color: #a77753; /* Cambia el color de fondo */
+    color: #ffffff; /* Cambia el color del texto */
+    box-shadow: #080808;
+}
+
+.activo_en_pagina:hover {
+    color: #080808; /* Cambia el color del texto */
+}
