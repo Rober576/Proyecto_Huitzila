@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="../../public/css/Codigo_Recupera_Contra.css">
     <title>Código de recuperación</title>
 </head>
+
 <body>
     <div class="contentP">
         <div class="contLogo">
             <img class="img" src="../../public/mezcal-logo.webp" alt="">
-        </div> 
+        </div>
         <br>
         <p class="label-2">Código de recuperación</p>
         <form action="" id="formulario">
@@ -19,14 +21,41 @@
             <div class="campos">
                 <p class="label-3">Ingrese su código de recuperación</p>
                 <div class="input-codigo">
-                    <input type="email" class="input-format" id="codigo" name="codigo" maxlength="8"  title="Ingresa los 8 dígitos del código de recuperación.">
+                    <input type="text" class="input-format" id="codigo" name="codigo" maxlength="8"
+                        title="Ingresa los 8 dígitos del código de recuperación.">
                 </div>
-            </div> 
-    
+            </div>
+
+            <input type="hidden" id="correo" name="correo" readonly>
+            <input type="hidden" id="codigo2" name="codigo2" readonly>
+
             <div class="boton">
-                <button type="submit" class= "boton-registrar" id="submitButton">Verificar</button>
+                <button type="submit" class="boton-registrar" id="submitButton">Verificar</button>
             </div>
         </form>
+
+        <script>
+            // Función para obtener el valor del parámetro de la URL
+            function obtenerValorParametro(nombreParametro) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(nombreParametro);
+            }
+
+            // Obtener el valor de los parámetros 'correo' y 'codigo' de la URL
+            var correo = obtenerValorParametro('parametro');
+            var codigo = obtenerValorParametro('codigo1');
+
+            // Verificar si se obtuvieron los valores de correo y código
+            if (correo && codigo) {
+                // Asignar los valores a los campos del formulario
+                document.getElementById('correo').value = correo;
+                document.getElementById('codigo2').value = codigo;
+            } else {
+                console.log('No se proporcionaron el correo electrónico y/o el código de recuperación.');
+            }
+        </script>
     </div>
+    <script src="../../controller/Recuperar_Contraseña/js/Codigo_Recupera_Contra.js"></script>
 </body>
+
 </html>
