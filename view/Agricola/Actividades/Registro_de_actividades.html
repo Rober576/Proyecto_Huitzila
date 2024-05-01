@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
-	<script src="../Actividades/js/Verificacio_de_gastos.js"></script>
+	<script src="../Actividades/js/Campos_adicionales.js"></script>
 	<script src="../../../controller/Agricola/Actividades/js/Tabla_Actividades.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 				
 			</div>
 			<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Agrìcola</h1>
+				<h1 class="nombre_Ventana">Agrícola</h1>
 			</div>
 		
             <div class="boton-cerrar-session">
@@ -38,7 +38,7 @@
 					<ul>
 		
 						<li>
-							<a href="#">
+							<a href="#" class="activo_en_pagina">
 								<i ></i>
 								Predios y plantas
 							</a>
@@ -137,12 +137,22 @@
 							<input type="text" id="cosGenral" name="cosGenral" class="styled-input" required>
 						</div>
 						<div>
-							<label for="descAct">Descripciòn de la actividad<span class="campo-obligatorio">*</span></label>
+							<label for="descAct">Descripciòn de la actividad</label>
 							<textarea id="descAct" name="descAct" rows="4"></textarea>
 						</div>
 					</div>
+					<div class="formulario-datos2">
+						<div id="campo1">
+							<label for="selePlaga">Plaga<span class="campo-obligatorio">*</span></label>
+							<select id="selePlaga" name="selePlaga" class="styled-input" required></select>
+						</div>
+						<div id="campo2">
+							<label for="seleHerbicida">Herbicida<span class="campo-obligatorio">*</span></label>
+							<select id="seleHerbicida" name="seleHerbicida" class="styled-input" required></select>
+						</div>
+					</div>
 					<div>
-						<label for="cosPre">¿Hubo costos implicados?<span class="campo-obligatorio">*</span></label>
+						<label for="cosPre">¿Hubo costos adicionales implicados?<span class="campo-obligatorio">*</span></label>
 						<br>
 						<div class="radioList">
 							<input type="radio" id="cosPre" name="cosPre" value="si">Si
@@ -156,14 +166,14 @@
 			<div class="formulario-datos">
 				<div>
 					<label for="nomTrab">Nombre del trabajador<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="nomTrab" name="nomTrab" class="styled-input">
+					<input type="text" id="nomTrab" name="nomTrab" class="styled-input" required>
 				</div>
 				<div>
-					<label for="gasGas">Gasto de la gasolina ($)<span class="campo-obligatorio">*</span></label>
+					<label for="gasGas">Gasto de la gasolina ($)</label>
 					<input type="text" id="gasGas" name="gasGas" class="styled-input">
 				</div>
 				<div>
-					<label for="desVei">Datos del vehìculo<span class="campo-obligatorio">*</span></label>
+					<label for="desVei">Datos del vehìculo</label>
 					<input type="text" id="desVei" name="desVei" class="styled-input">
 				</div>
 				<div>
@@ -181,12 +191,12 @@
 			</div>
 			<div class="formulario-datos">
 				<div>
-					<label for="actDes">Actividad desarrollada:</label>
-					<textarea id="actDes" name="actDes" class="styled-input" rows="4"></textarea>
+					<label for="actDes">Actividad desarrollada:<span class="campo-obligatorio">*</span></label>
+					<textarea id="actDes" name="actDes" class="styled-input" rows="4" required></textarea>
 				</div>
 				<div>
 					<label for="semSele">Seleccione la semana<span class="campo-obligatorio">*</span></label>
-					<select id="semSele" name="semSele" class="styled-input"></select>
+					<select id="semSele" name="semSele" class="styled-input" required></select>
 				</div>
 				<div>
 					<label for="diaLunes">Seleccione los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>

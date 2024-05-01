@@ -11,13 +11,11 @@ function buscar_datos(consulta) {
     // Configurar la solicitud GET
     xhr.open('GET', url, true);
 
-    // Definir la función de retorno de llamada (callback) para manejar la respuesta
     xhr.onload = function() {
         if (xhr.status === 200) {
 
             document.getElementById("tabla_Des_Lic_Crem").innerHTML = xhr.responseText;
             agregarEventosEliminar();
-            agregarEventosEditar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
         }
@@ -52,7 +50,7 @@ function agregarEventosEliminar() {
 
                          if (data === "Eliminado") {
                             alert("Registro eliminado correctamente.");
-                            location.reload(); // Recargar la página después de la eliminación
+                            location.reload();
                         } else {
                             console.error('Error: Respuesta inesperada del servidor.');
                         }
@@ -62,20 +60,7 @@ function agregarEventosEliminar() {
     }
 }
 
-function agregarEventosEditar() {
 
-    var botonesModificar = document.querySelectorAll(".boton-modificar");
-
-    // Agrega el evento click a cada botón de modificar
-    for (var j = 0; j < botonesModificar.length; j++) {
-        botonesModificar[j].addEventListener('click', function(e) {
-
-            window.location.href = "#";
-
-           
-        });
-    }
-}
 
 
 

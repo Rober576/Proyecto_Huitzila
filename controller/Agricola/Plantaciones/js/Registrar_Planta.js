@@ -40,6 +40,11 @@ formulario.addEventListener('submit', function (e)
 
                     
                 }
+                else {
+                    const form= document.getElementById('advanced-form');
+                    form.reset();
+                    alert("El nombre de la planta ya existe");
+                }
             })
         }
     })
