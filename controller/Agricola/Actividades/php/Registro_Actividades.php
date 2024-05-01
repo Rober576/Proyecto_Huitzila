@@ -21,6 +21,15 @@ if ($NombreHerbicida == ""){
     $NombreHerbicida = NULL;
 }
 
+if ($Tipo_Actividad == "Control de plagas: Químico"){
+    //no hace nada
+} else if ($Tipo_Actividad == "Control de plagas: Biológico"){
+    $NombreHerbicida = Null;
+} else{
+    $NombrePlaga = Null;
+    $NombreHerbicida = Null;
+}
+
 
 $listaNombreTrabajador = json_decode($_POST['listaNombreTrabajador'], true);
 $listaDiasSeleccionados = json_decode($_POST['listaDiasSeleccionados'], true);
@@ -43,7 +52,7 @@ if ($CostosImplicados == "no"){
     //instanciar la clase y llamar la funcion para insertar
     $obj = new NuevosCampos();
     $obj->conexion();
-    $obj->insertarActividadConTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Costos_Generales, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana);
+    $obj->insertarActividadConTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Total, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana);
     echo json_encode('exito');
 }
 ?>

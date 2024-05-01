@@ -48,6 +48,7 @@
             $parametros = $a1;           
             
             $this->base->insertar_eliminar_actualizar($querry, $parametros);
+            
 
         
         }
@@ -92,7 +93,7 @@
 
 
              for ($i = 0; $i < count($listaNombreTrabajador); $i++){
-                $NoSemana = $listaSemana[$i];
+                $NoSemana = (int)str_replace("Semana ", "", $listaSemana[$i]);
                 $NombreTrabajador = $listaNombreTrabajador[$i];
                 $ActividadDesarrollada = $listaDescripcion[$i];
 
