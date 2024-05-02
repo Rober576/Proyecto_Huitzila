@@ -218,3 +218,7 @@ a.btngenerala{
     height: 5px; /* Establece la altura de la franja */
     background-color: #a77753; /* Color de la franja */
 }
+
+table {
+      white-space: nowrap;
+      }

@@ -3,11 +3,11 @@ const contenedor_tabla = document.getElementById("tablaResultado")
 contenedor_tabla.style.display = 'none';
 
 function buscar_datos(consulta) {
-    // Construye los parámetros de la consulta
+    
     const params = new URLSearchParams();
     params.append('consulta', consulta);
 
-    // Realiza la solicitud fetch
+    
     fetch('../../controller/Insumos/Mostrar_Insumo_por_Producto.php', {
         method: 'POST',
         headers: {
@@ -29,10 +29,10 @@ function buscar_datos(consulta) {
     });
 }
 
-// Llama a buscar_datos() al cargar la página
+
 buscar_datos();
 
-// Escucha el evento keyup en el elemento con el ID 'busqueda'
+
 document.getElementById('buscar-txt').addEventListener('keyup', function() {
     var valorBusqueda = this.value;
     if (valorBusqueda != "") {
@@ -44,6 +44,7 @@ document.getElementById('buscar-txt').addEventListener('keyup', function() {
 
 function mostrarDatos(datos){
     cuerpo_tabla.innerHTML = '';
+    console.log(datos);
     
 
     if(datos.length == 0){
@@ -62,6 +63,10 @@ function mostrarDatos(datos){
             var cant = document.createElement('td');
             var costA = document.createElement('td');
             var costT = document.createElement('td');
+            
+
+            
+
             
             var acciones = document.createElement('td')
             var link_eliminar = document.createElement('a')
@@ -85,7 +90,7 @@ function mostrarDatos(datos){
             link_editar.style.textDecoration = 'none';
 
 
-            idprodu.innerHTML = datos[i][0]
+            idprodu.innerHTML = datos[i][0];
             row.appendChild(idprodu);
             idinsumo.innerHTML = datos[i][1];
             row.appendChild(idinsumo);
@@ -95,18 +100,20 @@ function mostrarDatos(datos){
             row.appendChild(costA);
             costT.innerHTML = datos[i][4];
             row.appendChild(costT);
+            
+            
         
             link_eliminar.innerHTML = "Eliminar";
             link_eliminar.dataset.id = datos[i][0];
 
             link_eliminar.addEventListener('click', function(event) {
-            event.preventDefault(); // Evita que el enlace siga el href
+            event.preventDefault(); 
 
             if (confirm('¿Estás seguro de eliminar el registro?')) {
-                // Obtiene el ID del atributo 'data' del enlace
+                
                 const id = this.dataset.id;
 
-                // Realiza la solicitud fetch para eliminar el registro
+                
                 fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
                     method: 'GET'
                 })
@@ -140,7 +147,7 @@ function mostrarDatos(datos){
             acciones.appendChild(document.createElement('br'));
     
             link_editar.innerHTML = "Editar";
-            link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][0];
+            link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][5];
             acciones.appendChild(link_editar);
     
             row.appendChild(acciones);

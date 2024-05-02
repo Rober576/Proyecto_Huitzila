@@ -26,6 +26,9 @@
                 <input type="text" class="input-format" id="contra2" name="contra2" maxlength="40" placeholder="Ingresa tu contraseña nueva"
                     title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial (., ',' , _, +, *, /,!,@,#,$).">
                 <br>
+
+                <input type="hidden" id="correo" name="correo" readonly>
+
                 <div class="boton">
                     <button type="submit" class= "boton-registrar" id="submitButton">Guardar</button>
                 </div>
@@ -33,6 +36,27 @@
             <br>
             
         </form>
+
+        <script>
+            // Función para obtener el valor del parámetro de la URL
+            function obtenerValorParametro(nombreParametro) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(nombreParametro);
+            }
+
+            // Obtener el valor de los parámetros 'correo' y 'codigo' de la URL
+            var correo = obtenerValorParametro('parametro1');
+
+            // Verificar si se obtuvieron los valores de correo y código
+            if (correo) {
+                // Asignar los valores a los campos del formulario
+                document.getElementById('correo').value = correo;
+            } else {
+                console.log('No se proporcionó el correo electrónico.');
+            }
+        </script>
     </div>
+    <script src="js/validacion.js"></script>
+    <script src="../../controller/Recuperar_Contraseña/js/Confirmar_Contra.js"></script>
 </body>
 </html>

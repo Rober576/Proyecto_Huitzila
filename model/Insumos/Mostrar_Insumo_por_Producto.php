@@ -26,12 +26,14 @@ class Mostrar{
         
         return $resultados;
     }
-    
-    function getProducto_por_Insumo($id){
-        $querry = "SELECT * FROM insumosproductos WHERE IDProducto = :id";
+
+  
+    function getInsumo($id){
+        $query = "SELECT * FROM insumosproductos WHERE NoInsumo = :id";
         $array = [":id"=>$id];
-        $resultados = $this->base->mostrar($querry, $array);
+        $resultados = $this->base->mostrar($query, $array);
         return $resultados;
     }
+    
 }
 ?>
