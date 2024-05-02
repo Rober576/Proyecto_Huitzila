@@ -45,8 +45,15 @@ class Registro{
         ];
 
         $this->base->insertar_eliminar_actualizar($consulta_insertar, $parametros);
+    } 
+    
+    function actualizarExistencia($c1, $actualizarExistencia){
+        $query = "UPDATE insumos SET Existencia = ? WHERE IDInsumo = ?";
+        $existencia = intval($actualizarExistencia);
+        $params = array($existencia, $c1);
+        $this->base->insertar_eliminar_actualizar($query, $params);
         $this->base->cerrar_conexion();
-    }    
+    }
 }
 
 ?>

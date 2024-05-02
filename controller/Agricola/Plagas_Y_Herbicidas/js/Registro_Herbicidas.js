@@ -37,8 +37,12 @@ formulario.addEventListener('submit', function (e)
                     form.reset();
                     alert("Registro de herbicida exitoso");
                     window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";
-
+                
                     
+                } else {
+                    const form= document.getElementById('advanced-form');
+                    form.reset();
+                    alert("El nombre del herbicida ya existe");
                 }
             })
         }

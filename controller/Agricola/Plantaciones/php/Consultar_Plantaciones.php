@@ -45,7 +45,7 @@ if ($resultado) {
             $salida .= '<td>' . $TipoP . '</td>';
 
             }
-        $salida .= '<td>';
+        $salida .= '<td class="botones-columna">';
         $salida .= '<button id="' . $id_boton . '" class="boton-eliminarP Boton_Tabla eliminar-elemento" data-id="'.$Plantacion.'">Eliminar</Button>';
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificarP Boton_Tabla obtener-informacion" data-id="'.$Plantacion.'">Editar</button>';

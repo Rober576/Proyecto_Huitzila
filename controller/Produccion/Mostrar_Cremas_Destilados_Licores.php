@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Incluye el archivo de la clase
-include_once('../../model/Produccion/Mostrar_Cremas_Destilados_licores.php');
+include_once('../../model/Produccion/Mostrar_Cremas_Destilados_Licores.php');
 
 try {
     // Instancia la clase MostrarCDL

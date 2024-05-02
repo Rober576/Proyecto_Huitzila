@@ -1,14 +1,14 @@
 <?php
-include_once('../../model/Insumos/Mostrar_Producto_por_Insumo.php');
+include_once('../../model/Insumos/Mostrar_Insumo_por_Producto.php');
 
 $salida = "";
 $base = new Mostrar;
 $base->instancias();
 $datos = [];
 
-// Verifica si se recibió un valor para la consulta
+
 if(isset($_POST['consulta'])) {
-    // Recibe el valor de la consulta
+    
     $consulta = $_POST['consulta'];
 
     if($consulta == 'undefined'){
@@ -21,7 +21,7 @@ if(isset($_POST['consulta'])) {
 
     }
 
-    $producto = ['produ', 'insum', 'cant', 'costA', 'costT'];
+    $producto = ['produ', 'insum', 'cant', 'costA', 'costT', 'noMov'];
 
     for($i = 0; $i < count($resultados); $i++){
         $producto[0] = $resultados[$i]["IDProducto"];
@@ -29,6 +29,7 @@ if(isset($_POST['consulta'])) {
         $producto[2] = $resultados[$i]["Cantidad"];
         $producto[3] = $resultados[$i]["CostoActual"];
         $producto[4] = $resultados[$i]["CostoTotal"];
+        $producto[5] = $resultados[$i]["NoInsumo"];
         array_push($datos, $producto);
     }
 
@@ -36,7 +37,6 @@ if(isset($_POST['consulta'])) {
 
     
 } else {
-    // Si no se recibió ninguna consulta, puedes devolver un mensaje de error o manejar la situación según tus necesidades
     echo json_encode("No se recibió ninguna consulta.");
 }
 ?>

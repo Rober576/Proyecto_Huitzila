@@ -218,3 +218,9 @@ a.btngenerala{
     height: 5px; /* Establece la altura de la franja */
     background-color: #a77753; /* Color de la franja */
 }
+
+.botones-columna {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos para indicar texto truncado */
+}
