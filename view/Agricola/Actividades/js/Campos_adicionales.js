@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var radioSi = document.querySelector('.radioList input[value="si"]');
     var radioNo = document.querySelector('.radioList input[value="no"]');
 
-    var siRadio = document.getElementById("cosPreSi");
-    var noRadio = document.getElementById("cosPreNo");
-
     var nomTrab = document.getElementById("nomTrab");
     var actDes = document.getElementById("actDes");
     var semSele = document.getElementById("semSele");
@@ -13,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var section2 = document.getElementById('section2');
     var section3 = document.getElementById('section3');
 
+    var cantSemanas = document.getElementById('canFecha');
     
 
 
@@ -51,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
             nomTrab.required = true;
             actDes.required = true;
             semSele.required = true;
+
+            cantSemanas.readOnly = true;
 
             const CantidadTrabajado = document.getElementById("canFecha").value;
 
@@ -91,9 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
               
             section2.style.display = 'none';
             section3.style.display = 'none';
+
             nomTrab.required = false;
             actDes.required = false;
             semSele.required = false;
+
+            cantSemanas.readOnly = false;
 
             
         }
