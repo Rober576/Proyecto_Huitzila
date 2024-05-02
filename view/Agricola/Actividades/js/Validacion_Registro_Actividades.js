@@ -85,13 +85,13 @@ function Validar_Costo_General() {
 
    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d{2})\d+/g, '');
 
-    if (valorInput.length > 7) {
-        valorInput = valorInput.slice(0, 7);
+    if (valorInput.length > 10) {
+        valorInput = valorInput.slice(0, 10);
     }
 
    Formulario.cosGenral.value = valorInput;
 
-   if (!/^(\d{1,7}(\.\d{0,2})?)?$/.test(valorInput) || valorInput.trim() === "") {
+   if (!/^(\d{1,10}(\.\d{0,2})?)?$/.test(valorInput) || valorInput.trim() === "") {
         Formulario.cosGenral.style.border = "5px solid red";
         bandera2 = false;
     } else {
