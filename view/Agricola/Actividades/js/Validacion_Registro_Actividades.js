@@ -8,6 +8,7 @@ let botonRegistrar = document.getElementById("submitButton");
 
 window.addEventListener('load', (event) => {
     Validar_Cantidad_Semanas();
+    Validar_Costo_General()
 });
 
 
@@ -83,7 +84,14 @@ function Validar_Cantidad_Semanas() {
 function Validar_Costo_General() {
     let valorInput = Formulario.cosGenral.value;
 
+    if (valorInput.trim() === "") {
+        valorInput = "0";
+    }
+
+
    valorInput = valorInput.replace(/[^\d.]+|(?<=\.\d{2})\d+/g, '');
+
+   valorInput = valorInput.replace(/^0+(?=\d)/, '');
 
     if (valorInput.length > 10) {
         valorInput = valorInput.slice(0, 10);
