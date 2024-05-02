@@ -16,11 +16,15 @@ formulario.addEventListener('submit', function (e)
     .then(data => {
         console.log(data);
         if (data.exito) {
-            const form= document.getElementById('formulario');
             const codigo = data.codigo;
+
+            sessionStorage.setItem('correo', correo);
+            sessionStorage.setItem('codigo', codigo);
+
+            const form= document.getElementById('formulario');
             form.reset();
-            alert("Se ha enviado un código de recuperación a tú correo");
-            window.location.href = '../../view/Recuperar_Contraseña/Codigo_Recupera_Contra.html?parametro=' + encodeURIComponent(correo) + '&codigo1=' + encodeURIComponent(codigo);
+            alert("Se ha enviado un código de recuperación a tu correo");
+            window.location.href = '../../view/Recuperar_Contraseña/Codigo_Recupera_Contra.html';
         }
     })
 })
