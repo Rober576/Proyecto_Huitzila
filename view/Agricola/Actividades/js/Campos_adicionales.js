@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var section2 = document.getElementById('section2');
     var section3 = document.getElementById('section3');
 
+    var campoSemanas = document.getElementById('canFecha');
 
     function eliminarTodo() {
         const tabla = document.getElementById("tablaActividades");
@@ -38,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
             nomTrab.required = true;
             actDes.required = true;
             semSele.required = true;
+
+            campoSemanas.readOnly = true;
 
             const CantidadTrabajado = document.getElementById("canFecha").value;
             console.log(CantidadTrabajado)
@@ -73,6 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             nomTrab.required = false;
             actDes.required = false;
             semSele.required = false;
+
+            campoSemanas.readOnly = false;
         }
     }
 
