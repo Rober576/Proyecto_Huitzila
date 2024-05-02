@@ -96,9 +96,18 @@
     	</div>
 	</header>
 
+	
+
     <main>
         <form class="section-main" id="form_ingreso_agave">
-		
+			
+			<div class="grupo-botones">
+				<div class="botones_movimiento_general">
+					<button id="boton_fechas" type="button">Filtrar por fechas</button>
+					<button id="boton_excel" type="button">Descargar excel</button>
+				</div>
+			</div>
+			
             <section class="table-container2" id="tablaMovimientos">
 				<table>
 					<thead>
@@ -164,10 +173,33 @@
                 
         </form>
     </main>
+
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="fechas-container">
+				<div class="fecha-container">
+					<label class="label_datos" for="fecha_inicio">Fecha de inicio<span class="campo-obligatorio">*</span></label>
+					<input class="campo_fechas" type="date" id="fecha_inicio" name="fecha_inicio" title="Selecciona una fecha" required>
+				</div>
+				<div class="fecha-container">
+					<label class="label_datos" for="fecha_fin">Fecha de fin<span class="campo-obligatorio">*</span></label>
+					<input class="campo_fechas" type="date" id="fecha_fin" name="fecha_fin" title="Selecciona una fecha" required>
+				</div>
+			</div>
+			<button class="aceptar" id="boton_filtrar" type="submit">Filtrar</button>
+		</div>
+	</div>
+	
+
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 
 	<script src="../../controller/Produccion/js/Mostrar_Movimiento_General_Mezcal.js"> </script>
+	<script src="../../view/Produccion/js/Movimiento_General_Busqueda_Fechas.js"></script>
 </body>
+
+
+
 </html>
