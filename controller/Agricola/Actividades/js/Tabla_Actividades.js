@@ -1,3 +1,5 @@
+
+
 // Aquí creas tus listas correspondientes
 const listaNombreTrabajador = [];
 const listaDiasSeleccionados = [];
@@ -93,6 +95,9 @@ function crearCelda(texto) {
 }
 
 
+
+
+
 function BotonEliminar() {                                         ///Botonnnnnnnnnnnnnnnn aquiiiiiiiiiii
     const celda = document.createElement("td");
     const botonEliminar = document.createElement("button");
@@ -140,11 +145,11 @@ function BotonEliminar() {                                         ///Botonnnnnn
 
 function limpiarCampos() {
     document.getElementById("nomTrab").value = "";
-    document.getElementById("gasGas").value = "";
+    document.getElementById("gasGas").value = "0";
     document.getElementById("desVei").value = "";
-    document.getElementById("gasLiq").value = "";
-    document.getElementById("gasMat").value = "";
-    document.getElementById("gasExt").value = "";
+    document.getElementById("gasLiq").value = "0";
+    document.getElementById("gasMat").value = "0";
+    document.getElementById("gasExt").value = "0";
     document.getElementById("actDes").value = "";
 
     const checkboxes = [
@@ -171,8 +176,26 @@ function limpiarCampos() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const boton = document.getElementById("anadirGasto");
-    boton.addEventListener("click", agregarFilaATabla);
+    boton.addEventListener("click", procesarResultado);
 });
+
+
+function procesarResultado() {
+    const resultado = central();
+
+    if (resultado) {
+        console.log('La validación fue exitosa.');
+        agregarFilaATabla()
+        
+    } else {
+        console.log('La validación falló.');
+        alert("Por favor, revisa todos los campos")
+        
+    }
+}
+
+
+
 
 
 
