@@ -35,24 +35,20 @@
         </form>
 
         <script>
-            // Función para obtener el valor del parámetro de la URL
-            function obtenerValorParametro(nombreParametro) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(nombreParametro);
-            }
+            document.addEventListener("DOMContentLoaded", function() {
+                var correo = sessionStorage.getItem('correo');
+                var codigo = sessionStorage.getItem('codigo');
 
-            // Obtener el valor de los parámetros 'correo' y 'codigo' de la URL
-            var correo = obtenerValorParametro('parametro');
-            var codigo = obtenerValorParametro('codigo1');
+                if (correo && codigo) {
+                    document.getElementById('correo').value = correo;
+                    document.getElementById('codigo2').value = codigo;
+                } else {
+                    console.log('No se proporcionaron el correo electrónico y/o el código de recuperación.');
+                }
 
-            // Verificar si se obtuvieron los valores de correo y código
-            if (correo && codigo) {
-                // Asignar los valores a los campos del formulario
-                document.getElementById('correo').value = correo;
-                document.getElementById('codigo2').value = codigo;
-            } else {
-                console.log('No se proporcionaron el correo electrónico y/o el código de recuperación.');
-            }
+                sessionStorage.removeItem('correo');
+                sessionStorage.removeItem('codigo');
+            });
         </script>
     </div>
     <script src="../../controller/Recuperar_Contraseña/js/Codigo_Recupera_Contra.js"></script>
