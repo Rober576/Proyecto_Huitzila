@@ -1,9 +1,16 @@
+let entradaOSalida;
+let cantidadSeleccionada;
+
 document.addEventListener('DOMContentLoaded', function () {
     const entradaSalidaSelect = document.getElementById('Entrada_Salida');
     const idMovimientoSelect = document.getElementById('ID_Movimiento');
+    
 
     entradaSalidaSelect.addEventListener('change', function() {
         const valorSeleccionado = this.value;
+        entradaOSalida = this.value;
+        
+
 
         Array.from(idMovimientoSelect.options).forEach(option => {
             option.style.display = 'none';
@@ -34,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const costoUnitarioInput = document.getElementById('Costo_Unitario');
     const cantidadInput = document.getElementById('Cantidad');
     const costoTotalInput = document.getElementById('Costo_Total');
+    let existenciaInsumos;
+    let actualizarExistencia;
 
     idInsumosSelect.addEventListener('change', function() {
         const id = this.value;
@@ -49,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.length > 0) {
                     const item = data[0]; 
                     costoUnitarioInput.value = item.Costo;
+                    existenciaInsumos = item.Existencia;
+                    
                     document.getElementById('Id_insumos').style.border = "none";
                     idInsumosSelect.setCustomValidity('');
                 } else {
@@ -62,10 +73,20 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 
+
+    cantidadInput.addEventListener('keydown', function(event) {
+        const key = event.key;
+        const isNumber = (key >= '0' && key <= '9') || key === 'Backspace';
+        if (!isNumber) {
+            event.preventDefault();
+        }
+    });
+
     cantidadInput.addEventListener('input', function() {
         const cantidad = parseInt(this.value);
+        cantidadSeleccionada = parseInt(this.value);
         
-        if (!isNaN(cantidad) && cantidad > 0) {
+        if (!isNaN(cantidad) && cantidad >= 0) {
             if (costoUnitarioInput.value.trim() !== '') {
                 const costoUnitario = parseFloat(costoUnitarioInput.value);
                 const costoTotal = costoUnitario * cantidad;
@@ -85,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validarFormulario()) { 
             var datos = new FormData(this);
+            datos.append('actualizarExistencia', actualizarExistencia);
 
             fetch("../../controller/Insumos/Registro_Entradas_Salidas_Insumos.php", {
                 method: 'POST',
@@ -122,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (fecha === '') {
             validacionExitosa = false;
         }
-    
-    
+        
+        
         if (destino === '') {
             document.getElementById('Destino').style.border = "5px solid red";
             validacionExitosa = false;
@@ -131,9 +153,18 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('Destino').style.border = "none";
         }
     
-        if (cantidad === '') {
+        if (cantidad === '' || cantidad < 1) {
             document.getElementById('Cantidad').style.border = "5px solid red";
             validacionExitosa = false;
+        } else {
+            document.getElementById('Cantidad').style.border = "none";
+        }
+
+        if (cantidad < 1) {
+            alert("La cantidad debe ser mayor o igual a 1.")
+            document.getElementById('Cantidad').style.border = "5px solid red";
+            validacionExitosa = false;
+            
         } else {
             document.getElementById('Cantidad').style.border = "none";
         }
@@ -167,6 +198,27 @@ document.addEventListener('DOMContentLoaded', function () {
             
         } else {
             document.getElementById('ID_Movimiento').style.border = "none";
+        }
+
+
+        if(entradaOSalida === 'Entrada'){
+            actualizarExistencia = parseInt(existenciaInsumos) + parseInt(cantidadSeleccionada);
+
+        }else if(entradaOSalida === 'Salida'){
+
+            if (existenciaInsumos >= cantidadSeleccionada){
+                actualizarExistencia = parseInt(existenciaInsumos) - parseInt(cantidadSeleccionada);
+                document.getElementById('Cantidad').style.border = "none";
+                if (cantidad < 1){
+                    document.getElementById('Cantidad').style.border = "5px solid red"; 
+                }
+
+            }else{
+                alert("Insumos insuficientes. La cantidad de ese insumo es de " + parseInt(existenciaInsumos) + ", por favor, seleccione una cantidad menor.")
+                validacionExitosa = false;
+                document.getElementById('Cantidad').style.border = "5px solid red";
+            }
+
         }
     
         return validacionExitosa;
