@@ -39,13 +39,13 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Superficie"] . '</td>';
         $salida .= '<td>' . $fila["DescripcionArea"] . '</td>';
 
-        $salida .= '<td>';
+        $salida .= '<td class="botones-columna">';
         $salida .= '<button id="' . $id_boton . '" class="boton-ver-plantacion Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Ver plantación</button>';
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-agragar-plantacion Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Agregar plantación</button>';
         $salida .= '</td>';
     
-        $salida .= '<td>';
+        $salida .= '<td class="botones-columna">';
         $salida .= '<button id="' . $id_boton . '" class="boton-eliminar Boton_Tabla eliminar-elemento" data-id="'.$CodigoA.'">Eliminar</Button>';
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificar Boton_Tabla obtener-informacion" data-id="'.$CodigoA.'">Editar</button>';

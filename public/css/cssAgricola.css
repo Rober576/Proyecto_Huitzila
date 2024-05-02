@@ -219,6 +219,8 @@ a.btngenerala{
     background-color: #a77753; /* Color de la franja */
 }
 
-table {
-      white-space: nowrap;
-      }
+.botones-columna {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos para indicar texto truncado */
+}
