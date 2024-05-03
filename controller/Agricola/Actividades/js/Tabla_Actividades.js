@@ -11,6 +11,8 @@ const listaCompraMaterial = [];
 const listaGastosExtras = [];
 const listaSemana = [];
 
+
+
 function agregarFilaATabla() {
     const nombreTrabajador = document.getElementById("nomTrab").value;
     const gastoGasolina = document.getElementById("gasGas").value;
@@ -94,6 +96,13 @@ function crearCelda(texto) {
     return celda;
 }
 
+function logInput() {
+    Sumaa();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("cosGenral").addEventListener("input", logInput);
+});
 
 
 
