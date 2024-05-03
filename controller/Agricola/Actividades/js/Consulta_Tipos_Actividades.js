@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 selePlaga.appendChild(option);
             }
         });
+
+        var optionAgregar = document.createElement('option');
+        optionAgregar.value = 'agregar';
+        optionAgregar.textContent = 'Agregar nueva plaga';
+        selePlaga.appendChild(optionAgregar);
     })
 
     .catch(error => console.error('Error al obtener plagas:', error));
@@ -53,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 seleHerbicida.appendChild(option);
             }
         });
+
+        var optionAgregar = document.createElement('option');
+        optionAgregar.value = 'agregar';
+        optionAgregar.textContent = 'Agregar nuevo herbicida';
+        seleHerbicida.appendChild(optionAgregar);
     })
 
     .catch(error => console.error('Error al obtener herbicidas:', error));

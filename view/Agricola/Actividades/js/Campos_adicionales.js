@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var section2 = document.getElementById('section2');
     var section3 = document.getElementById('section3');
 
+    var cantSemanas = document.getElementById('canFecha');
+    
+
 
     function eliminarTodo() {
         const tabla = document.getElementById("tablaActividades");
@@ -17,16 +20,24 @@ document.addEventListener('DOMContentLoaded', function() {
         while (tabla.rows.length > 1) { 
             tabla.deleteRow(1);
         }
+    
+
     }
 
     function tablaContieneElementos(tablaId) {
         const tabla = document.getElementById(tablaId);
-        if (tabla.rows.length > 1) {
-            return true;
-        } else {
-            return false;
+        return tabla.rows.length > 1; 
+    }
+
+    function limpiarOpciones(actividadSele) {
+        if (actividadSele) {
+            while (actividadSele.firstChild) {
+                actividadSele.removeChild(actividadSele.firstChild);
+            }
         }
     }
+
+
 
     // Función para manejar la visibilidad de las secciones
     function toggleSections(siSelected) {
@@ -39,42 +50,68 @@ document.addEventListener('DOMContentLoaded', function() {
             actDes.required = true;
             semSele.required = true;
 
+            cantSemanas.readOnly = true;
+
             const CantidadTrabajado = document.getElementById("canFecha").value;
-            console.log(CantidadTrabajado)
 
 
             const actividadSele = document.getElementById('semSele');
             const General = document.getElementById("cosGenral").value;
-            console.log(General)
             const CostoGeneral = parseFloat(General);
             document.getElementById("total").value = CostoGeneral;
 
-            if (CantidadTrabajado === "") {
-                actividadSele.innerHTML = '';
-
-            } else {
-                for (let i = 1; i <= CantidadTrabajado; i++) {
-                    const item = `Semana ${i}`; 
-                    var option = document.createElement('option');
-                    option.value = item;
-                    option.textContent = item;
-                    if (actividadSele) {
-                        actividadSele.appendChild(option);
-                    } 
-                         
-                }
+            limpiarOpciones(actividadSele);
+            for (let i = 1; i <= CantidadTrabajado; i++) {
+                const item = `Semana ${i}`; 
+                var option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                if (actividadSele) {
+                    actividadSele.appendChild(option);
+                } 
+                        
             }
 
         }else {
-            eliminarTodo();
+
+            const tieneElementos = tablaContieneElementos("tablaActividades");
+            if (tieneElementos) {
+                const confirmacion = confirm("Se eliminará todos los datos de la tabla de gastos");
+                if (confirmacion) {
+                    eliminarTodo();
+                    section2.style.display = 'none';
+                    section3.style.display = 'none';
+                } else {
+                    console.log("no eliminacion ");
+                    var radioSi = document.getElementById("cosPre");
+                    radioSi.checked = true;
+                }
+                       
+            } else {
+              
             section2.style.display = 'none';
             section3.style.display = 'none';
 
             nomTrab.required = false;
             actDes.required = false;
             semSele.required = false;
+
+            cantSemanas.readOnly = false;
+
+            
+        }
+
+
+
+            
+
+            
+
+            
         }
     }
+
+    
 
     // Ocultar las secciones al cargar la página
     toggleSections(radioSi.checked); // Mostrar la sección 2 si 'Si' está marcado inicialmente
