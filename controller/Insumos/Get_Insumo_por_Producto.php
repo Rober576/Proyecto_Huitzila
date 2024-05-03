@@ -30,4 +30,5 @@ include_once("../../view/insumos/Editar_Insumo_Por_Producto.html");
     document.getElementById('Cantidad').value = '<?php echo $cantidad; ?>';
     document.getElementById('Costo_uni').value = '<?php echo $costo_uni; ?>';
     document.getElementById('Costo_tot').value = '<?php echo $costo_tot; ?>';
+    document.getElementById('NoInsumo').value = '<?php echo $no_movimiento; ?>';
 </script>

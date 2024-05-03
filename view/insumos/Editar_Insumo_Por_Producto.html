@@ -134,15 +134,16 @@
 			<form class="formulario" id="insumos_form">
 				<div class="formulario-colum">
                     
+					<input type="hidden" id="NoInsumo" name="NoInsumo" value="valor_aqui">
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="Id_Productos" name="Id_Productos" title="Identificador de los productos terminados." required readonly>
+						<input type="text" id="Id_Productos" name="Id_Productos" title="El identificador de los productos terminados no se puede modificar." required readonly>
 					</div>
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Insumos<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="Id_Insumos" name="Id_Insumos" title="Identificador de los Insumos terminados." required readonly>
+						<input type="text" id="Id_Insumos" name="Id_Insumos" title="El identificador de los Insumos no se puede modificar." required readonly>
 				
 					</div>
 				
@@ -154,12 +155,12 @@
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Costo">Costo unitario<span class="campo-obligatorio">*</span></label>
-					<input type="number" id="Costo_uni" name="Costo" title="Costo del insumo de uno (Conformado por caracteres decimales)." required>
+					<input type="number" id="Costo_uni" name="Costo Actual" title="Costo del insumo de uno (Conformado por caracteres decimales)." required>
 				</div>
 
                 <div class="grupo1">
 					<label class="label_datos" for="Costo">Costo total<span class="campo-obligatorio">*</span></label>
-					<input type="number" id="Costo_tot" name="Costo" title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
+					<input type="number" id="Costo_tot" name="Costo Total" title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
 				</div>
 
 			</div>
@@ -180,5 +181,9 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+
+	<script src="../../controller/Insumos/js/Modificar_Insumo_por_Producto.js"></script>
+	<script src="../../controller/Insumos/js/Cancelar_Modificar_Insumo_por_Producto.js"></script>
+
 </body>
 </html>
