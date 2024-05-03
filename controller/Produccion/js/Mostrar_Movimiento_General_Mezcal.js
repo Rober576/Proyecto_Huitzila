@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById("boton_filtrar").addEventListener("click", function(event) {
     event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+    
 
     const urlParams = new URLSearchParams(window.location.search);
     const lote = urlParams.get('Lote'); // Verificar el valor de Lote en la consola
@@ -58,11 +59,30 @@ document.getElementById("boton_filtrar").addEventListener("click", function(even
     var fecha_inicio = document.getElementById("fecha_inicio").value;
     var fecha_fin = document.getElementById("fecha_fin").value;
 
+    if(fecha_inicio==='' || fecha_fin===''){
+        alert("Debes de seleccionar fechas");
+    }else{
+
     // Redireccionar a la página con los parámetros de lote y fechas
     window.location.href = '../../view/Produccion/Movimiento_General_Mezcal.html?' + new URLSearchParams({
         Lote: lote,
         fecha_inicio: fecha_inicio,
         fecha_fin: fecha_fin
+    
+    });
+    }
+
+    // No es necesario llamar buscar_datos aquí, ya que la página se redireccionará y se cargará nuevamente
+});
+
+document.getElementById("boton_limpiar").addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+    const urlParams = new URLSearchParams(window.location.search);
+    const lote = urlParams.get('Lote'); // Verificar el valor de Lote en la consola
+    
+    // Redireccionar a la página con los parámetros de lote y fechas
+    window.location.href = '../../view/Produccion/Movimiento_General_Mezcal.html?' + new URLSearchParams({
+        Lote: lote
     });
 
     // No es necesario llamar buscar_datos aquí, ya que la página se redireccionará y se cargará nuevamente
