@@ -104,7 +104,7 @@ function mostrarDatos(datos){
             
         
             link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.dataset.id = datos[i][0];
+            link_eliminar.dataset.id = datos[i][5];
 
             link_eliminar.addEventListener('click', function(event) {
             event.preventDefault(); 

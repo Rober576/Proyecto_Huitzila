@@ -10,8 +10,8 @@ class EliminarInsumoProducto{
     }
 
     function eliminar($id){
-
-        $query = "DELETE FROM insumosproductos WHERE IDProducto = :id";
+        
+        $query = "DELETE FROM insumosproductos WHERE NoInsumo = :id";
         $this->base->insertar_eliminar_actualizar($query, [":id" => $id]);
         $this->base->cerrar_conexion();
 
