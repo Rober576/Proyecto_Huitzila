@@ -16,7 +16,7 @@ class MostrarMez extends Crud_bd {
         movimientomezcal.DestinoProcedencia, movimientomezcal.VolumenAgua, movimientomezcal.MermasVolumen, movimientomezcal.MermasPorcentaje, 
         movimientomezcal.Volumen55, movimientomezcal.FinalVolumen, movimientomezcal.FinalPorcentaje FROM registromezcal, categoriamezcal, 
         clasemezcal, movimientomezcal, tipomovimiento WHERE registromezcal.IDClase=clasemezcal.IDClase and registromezcal.IDCategoria=categoriamezcal.IDCategoria 
-        and registromezcal.Lote=movimientomezcal.Lote and tipomovimiento.IdMovimiento=movimientomezcal.IdMovimiento and movimientomezcal.Lote=:lote";
+        and registromezcal.Lote=movimientomezcal.Lote and tipomovimiento.IdMovimiento=movimientomezcal.IdMovimiento and movimientomezcal.Lote=:lote ORDER BY movimientomezcal.Fecha";
         $resultados = $this->base->mostrar($query, [":lote" => $lote]);
         $this->base->cerrar_conexion();
         return $resultados;
