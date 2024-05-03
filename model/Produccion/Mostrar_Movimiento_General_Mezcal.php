@@ -45,5 +45,23 @@ class MostrarMez extends Crud_bd {
         $this->base->cerrar_conexion();
         return $resultados2;
     }
+
+    function filtrado($lote, $fecha_inicio, $fecha_fin){
+        $this->base->conexion_bd();
+        $query = "SELECT tipomovimiento.Movimiento, DATE_FORMAT(movimientomezcal.Fecha, '%d-%m-%Y') AS Fecha, movimientomezcal.Lote, categoriamezcal.Categoria, clasemezcal.Clase_Mezcal, 
+        registromezcal.Tanque, movimientomezcal.Volumen, movimientomezcal.PorcentajeAlcohol, movimientomezcal.EntradaSalida, 
+        movimientomezcal.DestinoProcedencia, movimientomezcal.VolumenAgua, movimientomezcal.MermasVolumen, movimientomezcal.MermasPorcentaje, 
+        movimientomezcal.Volumen55, movimientomezcal.FinalVolumen, movimientomezcal.FinalPorcentaje 
+FROM registromezcal, categoriamezcal, clasemezcal, movimientomezcal, tipomovimiento 
+WHERE registromezcal.IDClase=clasemezcal.IDClase 
+    AND registromezcal.IDCategoria=categoriamezcal.IDCategoria 
+    AND registromezcal.Lote=movimientomezcal.Lote 
+    AND tipomovimiento.IdMovimiento=movimientomezcal.IdMovimiento 
+    AND movimientomezcal.Lote=:lote
+    AND movimientomezcal.Fecha BETWEEN :fecha_inicio AND :fecha_fin;";
+        $resultados = $this->base->mostrar($query, [":lote" => $lote, ":fecha_inicio" => $fecha_inicio, ":fecha_fin" => $fecha_fin]);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
 }
 ?>
