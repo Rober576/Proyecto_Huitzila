@@ -27,7 +27,7 @@ footer {
     display: flex;
     /* flex-direction: column; */
     /* align-self: flex-end; */
-    width: 100%;
+    width: 80%;
     justify-content: space-between;
 }
 
@@ -51,14 +51,14 @@ footer {
 
 /* Estilos para la tabla */
 .table-container {
-    width: 80%;
+    width: 100%;
     color: #B37E56;
     margin: 0 auto;
     justify-content: space-between;
     overflow-x: auto;
 }
 .table-container2 {
-    width: 100%;
+    width: 80%;
     color: #B37E56;
     margin: 0 auto;
     justify-content: space-between;

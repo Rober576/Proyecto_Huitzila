@@ -27,7 +27,7 @@ hr {
     background-color: #C7B392;
     }
 td,th{
-    width: calc(100% / 14);
+    width: calc(100% / 20);
 }
 .tabla_titulo {
     width: 80%;
@@ -122,3 +122,7 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* th {
+    width: 0%;
+} */
