@@ -93,12 +93,15 @@ document.getElementById("boton_excel").addEventListener("click", function(event)
     
     const urlParams = new URLSearchParams(window.location.search);
     const lote = urlParams.get('Lote'); // Verificar el valor de Lote en la consola
+    const fecha_inicio  = urlParams.get('fecha_inicio');
+    const fecha_fin = urlParams.get('fecha_fin');
 
-    // Obtener valores de las fechas seleccionadas
-    var fecha_inicio = document.getElementById("fecha_inicio").value;
-    var fecha_fin = document.getElementById("fecha_fin").value;
 
-    if(fecha_inicio == null && fecha_fin == null) {
+    console.log(lote);
+    console.log(fecha_fin);
+    console.log(fecha_inicio);
+
+    if((fecha_inicio == null || fecha_inicio=='') && (fecha_fin == null || fecha_inicio=='')) {
         // Solo se envía el parámetro Lote si no se especificaron fechas
         window.location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?' + new URLSearchParams({
             Lote: lote
