@@ -1,9 +1,13 @@
+let entradaOSalida;
+let cantidadSeleccionada;
+
 document.addEventListener('DOMContentLoaded', function () {
     const entradaSalidaSelect = document.getElementById('Entrada_Salida');
     const idMovimientoSelect = document.getElementById('ID_Movimiento');
 
     entradaSalidaSelect.addEventListener('change', function() {
         const valorSeleccionado = this.value;
+        entradaOSalida = this.value;
 
         Array.from(idMovimientoSelect.options).forEach(option => {
             option.style.display = 'none';
@@ -34,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const costoUnitarioInput = document.getElementById('Costo_Unitario');
     const cantidadInput = document.getElementById('Cantidad');
     const costoTotalInput = document.getElementById('Costo_Total');
+    let existenciaProductos;
+    let actualizarExistencia;
 
     idInsumosSelect.addEventListener('change', function() {
         const id = this.value;
@@ -49,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.length > 0) {
                     const item = data[0]; 
                     costoUnitarioInput.value = item.CostoUltimo;
+                    existenciaProductos = item.Cantidad;
+                    
                     document.getElementById('Id_productos').style.border = "none";
                     idInsumosSelect.setCustomValidity('');
                 } else {
@@ -62,8 +70,18 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 
+    cantidadInput.addEventListener('keydown', function(event) {
+        const key = event.key;
+        const isNumber = (key >= '0' && key <= '9') || key === 'Backspace';
+        if (!isNumber) {
+            event.preventDefault();
+        }
+    });
+
+
     cantidadInput.addEventListener('input', function() {
         const cantidad = parseInt(this.value);
+        cantidadSeleccionada = parseInt(this.value);
         
         if (!isNaN(cantidad) && cantidad > 0) {
             if (costoUnitarioInput.value.trim() !== '') {
@@ -85,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validarFormulario()) { 
             var datos = new FormData(this);
+            datos.append('actualizarExistencia', actualizarExistencia);
 
             fetch("../../controller/Insumos/Registro_Entradas_Salidas_Productos.php", {
                 method: 'POST',
@@ -137,6 +156,15 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             document.getElementById('Cantidad').style.border = "none";
         }
+
+        if (cantidad < 1) {
+            alert("La cantidad debe ser mayor o igual a 1.")
+            document.getElementById('Cantidad').style.border = "5px solid red";
+            validacionExitosa = false;
+            
+        } else {
+            document.getElementById('Cantidad').style.border = "none";
+        }
     
         if (costoUnitario === '') {
             alert('Por favor, ingrese un ID de insumos que ya se encuentre registrado en el sistema.');
@@ -167,6 +195,26 @@ document.addEventListener('DOMContentLoaded', function () {
             
         } else {
             document.getElementById('ID_Movimiento').style.border = "none";
+        }
+
+        if(entradaOSalida === 'Entrada'){
+            actualizarExistencia = parseInt(existenciaProductos) + parseInt(cantidadSeleccionada);
+
+        }else if(entradaOSalida === 'Salida'){
+
+            if (existenciaProductos >= cantidadSeleccionada){
+                actualizarExistencia = parseInt(existenciaProductos) - parseInt(cantidadSeleccionada);
+                document.getElementById('Cantidad').style.border = "none";
+                if (cantidad < 1){
+                    document.getElementById('Cantidad').style.border = "5px solid red"; 
+                }
+
+            }else{
+                alert("Productos insuficientes. La cantidad de ese producto es de " + parseInt(existenciaProductos) + ", por favor, seleccione una cantidad menor.")
+                validacionExitosa = false;
+                document.getElementById('Cantidad').style.border = "5px solid red";
+            }
+
         }
     
         return validacionExitosa;

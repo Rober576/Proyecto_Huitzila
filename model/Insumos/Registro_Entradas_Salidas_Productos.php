@@ -45,8 +45,16 @@ class Registro{
         ];
 
         $this->base->insertar_eliminar_actualizar($consulta_insertar, $parametros);
-        $this->base->cerrar_conexion();
+        
     }    
+
+    function actualizarExistencia($c1, $actualizarExistencia){
+        $query = "UPDATE productoterminado SET Cantidad = ? WHERE IDProducto = ?";
+        $existencia = intval($actualizarExistencia);
+        $params = array($existencia, $c1);
+        $this->base->insertar_eliminar_actualizar($query, $params);
+        $this->base->cerrar_conexion();
+    }
 }
 
 ?>

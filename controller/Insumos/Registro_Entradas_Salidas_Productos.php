@@ -1,6 +1,7 @@
 <?php
 include_once('../../model/Insumos/Registro_Entradas_Salidas_Productos.php');
 
+$actualizarExistencia = $_POST["actualizarExistencia"];
 
 if(isset($_POST["Id_productos"], $_POST["Fecha"], $_POST["Entrada_Salida"], $_POST["ID_Movimiento"], $_POST["Destino"], $_POST["Cantidad"], $_POST["Costo_Unitario"], $_POST["Costo_Total"])) {
     $c1 = $_POST["Id_productos"];
@@ -18,6 +19,7 @@ if(isset($_POST["Id_productos"], $_POST["Fecha"], $_POST["Entrada_Salida"], $_PO
         $obj = new Registro();
         $obj->conexion();
         $obj->insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8);
+        $obj->actualizarExistencia($c1, $actualizarExistencia);
         echo json_encode('exito');
     } else {
         
