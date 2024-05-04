@@ -87,3 +87,29 @@ document.getElementById("boton_limpiar").addEventListener("click", function(even
 
     // No es necesario llamar buscar_datos aquí, ya que la página se redireccionará y se cargará nuevamente
 });
+
+document.getElementById("boton_excel").addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const lote = urlParams.get('Lote'); // Verificar el valor de Lote en la consola
+
+    // Obtener valores de las fechas seleccionadas
+    var fecha_inicio = document.getElementById("fecha_inicio").value;
+    var fecha_fin = document.getElementById("fecha_fin").value;
+
+    if(fecha_inicio == null && fecha_fin == null) {
+        // Solo se envía el parámetro Lote si no se especificaron fechas
+        window.location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?' + new URLSearchParams({
+            Lote: lote
+        });
+    } else {
+        // Redireccionar a la página con los parámetros de lote y fechas
+        window.location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?' + new URLSearchParams({
+            Lote: lote,
+            fecha_inicio: fecha_inicio,
+            fecha_fin: fecha_fin
+        });
+    }
+
+});
