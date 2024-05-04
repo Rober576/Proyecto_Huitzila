@@ -86,9 +86,10 @@ $bordeEstilo = [
 ];
 $estilo->applyFromArray($bordeEstilo);
 
-/*
+
 //Extraemos los datos
-if ($_GET['fecha_inicio'] == 'null'){
+//
+if ($_GET['fecha_inicio']=='x'){
     
     $resultado1=$base->buscador_menor($lote);
     foreach ($resultado1 as $fila1){
@@ -105,12 +106,13 @@ if ($_GET['fecha_inicio'] == 'null'){
     $resultado = $base->buscador($lote);
     
 
-    if ($resultado){
-        //valor de la celda donde empiezan los datos
-        $i=9;
-
-        foreach($resultado as $fila){
-            if ($fila['Fecha'] == $fecha){
+    if ($resultado) {
+        // Valor de la celda donde empiezan los datos
+    
+        $indice_resultado2 = 0;
+        for ($i = 0; $i < count($resultado); $i++) {
+            $fila = $resultado[$i];
+            if ($fila['Fecha'] == $fecha) {
                 $valFecha = $fila['Fecha'];
                 $noLote = $fila["Lote"];
                 $analisisFQ = 'S/A';
@@ -135,8 +137,8 @@ if ($_GET['fecha_inicio'] == 'null'){
                     $indice_resultado2++;
                 }
             }
-        
-            if ($fila["Movimiento"] == 'Merma'){
+    
+            if ($fila["Movimiento"] == 'Merma') {
                 if ($fila["EntradaSalida"] == 'entrada'){
                     $procedencia = $fila["DestinoProcedencia"];
                     $volumenEnt = $fila["Volumen"];
@@ -193,40 +195,50 @@ if ($_GET['fecha_inicio'] == 'null'){
                     $alcVolFinal = $fila["FinalPorcentaje"];
                 }
             }
-        
+    
             // Poner los datos en las celdas
-            $hoja->setCellValue('B'.strval($i), $fecha)
-                 ->setCellValue('C'.strval($i), $noLote)
-                 ->setCellValue('D'.strval($i), $analisisFQ)
-                 ->setCellValue('E'.strval($i), $categoria)
-                 ->setCellValue('F'.strval($i), $clase)
-                 ->setCellValue('G'.strval($i), $tanque)
-                 ->setCellValue('H'.strval($i), $volumen)
-                 ->setCellValue('I'.strval($i), $alcVol)
-                 ->setCellValue('J'.strval($i), $procedencia)
-                 ->setCellValue('K'.strval($i), $volumenEnt)
-                 ->setCellValue('L'.strval($i), $alcVolEnt)
-                 ->setCellValue('M'.strval($i), $volAgua)
-                 ->setCellValue('N'.strval($i), $destino)
-                 ->setCellValue('O'.strval($i), $volumenSal)
-                 ->setCellValue('P'.strval($i), $alcVolSal)
-                 ->setCellValue('Q'.strval($i), $volumenMerma)
-                 ->setCellValue('R'.strval($i), $alcVolMerma)
-                 ->setCellValue('S'.strval($i), $alcVol55)
-                 ->setCellValue('T'.strval($i), $volumenFinal)
-                 ->setCellValue('U'.strval($i), $alcVolFinal);
-        
+            $hoja->setCellValue('B' . strval($i + 11), $valFecha)
+                ->setCellValue('C' . strval($i + 11), $noLote)
+                ->setCellValue('D' . strval($i + 11), $analisisFQ)
+                ->setCellValue('E' . strval($i + 11), $categoria)
+                ->setCellValue('F' . strval($i + 11), $clase)
+                ->setCellValue('G' . strval($i + 11), $tanque)
+                ->setCellValue('H' . strval($i + 11), $volumen)
+                ->setCellValue('I' . strval($i + 11), $alcVol)
+                ->setCellValue('J'.strval($i+11), $procedencia)
+                ->setCellValue('K'.strval($i+11), $volumenEnt)
+                ->setCellValue('L'.strval($i+11), $alcVolEnt)
+                ->setCellValue('M'.strval($i+11), $volAgua)
+                ->setCellValue('N'.strval($i+11), $destino)
+                ->setCellValue('O'.strval($i+11), $volumenSal)
+                ->setCellValue('P'.strval($i+11), $alcVolSal)
+                ->setCellValue('Q'.strval($i+11), $volumenMerma)
+                ->setCellValue('R'.strval($i+11), $alcVolMerma)
+                ->setCellValue('S'.strval($i+11), $alcVol55)
+                ->setCellValue('T'.strval($i+11), $volumenFinal)
+                ->setCellValue('U' . strval($i + 11), $alcVolFinal);
+    
             // Aplicar estilo a las celdas
             for ($col = 'B'; $col <= 'U'; $col++) {
-                $estilo = $hoja->getStyle($col . strval($i));
+                $estilo = $hoja->getStyle($col . strval($i + 11));
+            
+                // Ajustar el color de fondo de la celda
+                $estilo->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+                $estilo->getFill()->getStartColor()->setARGB('FFE7E6E6');
+            
+                // Establecer los bordes de la celda
+                $estilo->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+            
+                // Ajustar la alineación del contenido de la celda
                 $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
                 $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            
+                // Ajustar la fuente de la celda
                 $estilo->getFont()->setName("Arial")->setSize(11);
             }
-        
-            $i++;
-        }        
+        }
     }
+    
 }
 else{
     $lote = $_GET['lote'];   
@@ -250,9 +262,10 @@ else{
 
     if ($filtrado){
         //valor de la celda donde empiezan los datos
-        $i=9;
+        $indice_resultado2 = 0;
 
-        foreach($filtrado as $fila){
+        for ($i = 0; $i < count($filtrado); $i++) {
+            $fila = $filtrado[$i];
             if ($fila['Fecha'] == $fecha){
                 $valFecha = $fila['Fecha'];
                 $noLote = $fila["Lote"];
@@ -338,40 +351,49 @@ else{
             }
         
             // Poner los datos en las celdas
-            $hoja->setCellValue('B'.strval($i), $fecha)
-                    ->setCellValue('C'.strval($i), $noLote)
-                    ->setCellValue('D'.strval($i), $analisisFQ)
-                    ->setCellValue('E'.strval($i), $categoria)
-                    ->setCellValue('F'.strval($i), $clase)
-                    ->setCellValue('G'.strval($i), $tanque)
-                    ->setCellValue('H'.strval($i), $volumen)
-                    ->setCellValue('I'.strval($i), $alcVol)
-                    ->setCellValue('J'.strval($i), $procedencia)
-                    ->setCellValue('K'.strval($i), $volumenEnt)
-                    ->setCellValue('L'.strval($i), $alcVolEnt)
-                    ->setCellValue('M'.strval($i), $volAgua)
-                    ->setCellValue('N'.strval($i), $destino)
-                    ->setCellValue('O'.strval($i), $volumenSal)
-                    ->setCellValue('P'.strval($i), $alcVolSal)
-                    ->setCellValue('Q'.strval($i), $volumenMerma)
-                    ->setCellValue('R'.strval($i), $alcVolMerma)
-                    ->setCellValue('S'.strval($i), $alcVol55)
-                    ->setCellValue('T'.strval($i), $volumenFinal)
-                    ->setCellValue('U'.strval($i), $alcVolFinal);
-        
+            $hoja->setCellValue('B' . strval($i + 11), $valFecha)
+                ->setCellValue('C' . strval($i + 11), $noLote)
+                ->setCellValue('D' . strval($i + 11), $analisisFQ)
+                ->setCellValue('E' . strval($i + 11), $categoria)
+                ->setCellValue('F' . strval($i + 11), $clase)
+                ->setCellValue('G' . strval($i + 11), $tanque)
+                ->setCellValue('H' . strval($i + 11), $volumen)
+                ->setCellValue('I' . strval($i + 11), $alcVol)
+                ->setCellValue('J'.strval($i+11), $procedencia)
+                ->setCellValue('K'.strval($i+11), $volumenEnt)
+                ->setCellValue('L'.strval($i+11), $alcVolEnt)
+                ->setCellValue('M'.strval($i+11), $volAgua)
+                ->setCellValue('N'.strval($i+11), $destino)
+                ->setCellValue('O'.strval($i+11), $volumenSal)
+                ->setCellValue('P'.strval($i+11), $alcVolSal)
+                ->setCellValue('Q'.strval($i+11), $volumenMerma)
+                ->setCellValue('R'.strval($i+11), $alcVolMerma)
+                ->setCellValue('S'.strval($i+11), $alcVol55)
+                ->setCellValue('T'.strval($i+11), $volumenFinal)
+                ->setCellValue('U' . strval($i + 11), $alcVolFinal);
+    
             // Aplicar estilo a las celdas
             for ($col = 'B'; $col <= 'U'; $col++) {
-                $estilo = $hoja->getStyle($col . strval($i));
+                $estilo = $hoja->getStyle($col . strval($i + 11));
+            
+                // Ajustar el color de fondo de la celda
+                $estilo->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+                $estilo->getFill()->getStartColor()->setARGB('FFE7E6E6');
+            
+                // Establecer los bordes de la celda
+                $estilo->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+            
+                // Ajustar la alineación del contenido de la celda
                 $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
                 $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            
+                // Ajustar la fuente de la celda
                 $estilo->getFont()->setName("Arial")->setSize(11);
             }
-        
-            $i++;
         }
             
     }
-}*/
+}
 
 //definir los tamaños de las columnas
 $hoja->getColumnDimension('A')->setWidth(10);

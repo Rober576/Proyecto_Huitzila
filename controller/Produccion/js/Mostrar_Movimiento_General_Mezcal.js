@@ -96,23 +96,24 @@ document.getElementById("boton_excel").addEventListener("click", function(event)
     const fecha_inicio  = urlParams.get('fecha_inicio');
     const fecha_fin = urlParams.get('fecha_fin');
 
+    var loteCodificado = encodeURIComponent(lote);
+    var fechaInicioCodificada = encodeURIComponent(fecha_inicio);
+    var fechaFinCodificada = encodeURIComponent(fecha_fin);
 
     console.log(lote);
     console.log(fecha_fin);
     console.log(fecha_inicio);
 
     if((fecha_inicio == null || fecha_inicio=='') && (fecha_fin == null || fecha_inicio=='')) {
-        // Solo se envía el parámetro Lote si no se especificaron fechas
-        window.location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?' + new URLSearchParams({
-            Lote: lote
-        });
+        // Construir la URL con los datos codificados
+        fechaInicioCodificada=encodeURIComponent('x');
+        var url = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada;
+        window.location.href = url;
     } else {
         // Redireccionar a la página con los parámetros de lote y fechas
-        window.location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?' + new URLSearchParams({
-            Lote: lote,
-            fecha_inicio: fecha_inicio,
-            fecha_fin: fecha_fin
-        });
+        // Construir la URL con los datos codificados
+        var url = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada + '&fecha_fin=' + fechaFinCodificada;
+        window.location.href = url;
     }
 
 });
