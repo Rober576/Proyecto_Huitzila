@@ -37,24 +37,6 @@
             
         </form>
 
-        <script>
-            // Función para obtener el valor del parámetro de la URL
-            function obtenerValorParametro(nombreParametro) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(nombreParametro);
-            }
-
-            // Obtener el valor de los parámetros 'correo' y 'codigo' de la URL
-            var correo = obtenerValorParametro('parametro1');
-
-            // Verificar si se obtuvieron los valores de correo y código
-            if (correo) {
-                // Asignar los valores a los campos del formulario
-                document.getElementById('correo').value = correo;
-            } else {
-                console.log('No se proporcionó el correo electrónico.');
-            }
-        </script>
     </div>
     <script src="js/validacion.js"></script>
     <script src="../../controller/Recuperar_Contraseña/js/Confirmar_Contra.js"></script>
