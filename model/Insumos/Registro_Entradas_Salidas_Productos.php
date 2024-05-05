@@ -15,7 +15,7 @@ class Registro{
         return $resultado;
     }
 
-    function insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8){
+    function insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8, $actualizarExistencia){
         
         $consulta_ultimo_numero = "SELECT MAX(NumeroMovimiento) AS ultimo_numero FROM movimientoproductos WHERE IDProducto = ?";
         $resultado = $this->consultar($consulta_ultimo_numero, [$c1]);
@@ -30,8 +30,8 @@ class Registro{
         }
 
         
-        $consulta_insertar = "INSERT INTO movimientoproductos (NumeroMovimiento, IDProducto, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $consulta_insertar = "INSERT INTO movimientoproductos (NumeroMovimiento, IDProducto, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal, CantidadRestante)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $parametros = [
             $numero_movimiento,
             $c1,
@@ -41,7 +41,8 @@ class Registro{
             $c5,
             $c6,
             $c7,
-            $c8
+            $c8,
+            $actualizarExistencia
         ];
 
         $this->base->insertar_eliminar_actualizar($consulta_insertar, $parametros);
