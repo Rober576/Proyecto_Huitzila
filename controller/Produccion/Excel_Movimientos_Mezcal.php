@@ -3,15 +3,21 @@ ini_set('display_errors', 1);
 //importar los archivos necesarios
 use PhpOffice\PhpSpreadsheet\Style\Color;
 
+include_once('../../model/Produccion/Mostrar_Movimiento_General_Mezcal.php');
 require '../../controller/CrearExcel/vendor/autoload.php';
 
 $color = new Color('000000');
+
+//consulta para obtener los datos
+$base = new MostrarMez();
+$base->instancias();
+$lote = $_GET['lote']; 
 
 //crear el objeto des excel
 $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 //establecer las propiedades del archivo
-$spreadsheet->getProperties()->setTitle("Movimientos de Mezcal Lote  XXXX")->setCreator("Casa Mezcal Huitzila")
+$spreadsheet->getProperties()->setTitle("Movimientos de Mezcal Lote ".$lote)->setCreator("Casa Mezcal Huitzila")
 ->setCategory("Movimientos de Mezcal")->setCompany("Casa Mezcal Huitzila")->setLastModifiedBy("Casa Mezcal Huitzila");
 
 //establecer la hoja en la que vamos a trabajar
@@ -81,13 +87,313 @@ $bordeEstilo = [
 $estilo->applyFromArray($bordeEstilo);
 
 
-//crear un objeto de estilo para ajustar el texto de descripcion
-$style = [
-    'alignment' => [
-        'wrapText' => true]];
+//Extraemos los datos
+//
+if ($_GET['fecha_inicio']=='x'){
+    
+    $resultado1=$base->buscador_menor($lote);
+    foreach ($resultado1 as $fila1){
+        $fecha=$fila1["fecha"];
+    }
 
-//AQUI VA EL CUERPO ----------------------------- FALTA
+    $resultado3=$base->buscador_menor1($lote);
+    foreach ($resultado3 as $fila3){
+        $fecha1=$fila3["fecha"];
+    }
 
+    $resultado2=$base->datos_finales($fecha1);
+
+    $resultado = $base->buscador($lote);
+    
+
+    if ($resultado) {
+        // Valor de la celda donde empiezan los datos
+    
+        $indice_resultado2 = 0;
+        for ($i = 0; $i < count($resultado); $i++) {
+            $fila = $resultado[$i];
+            if ($fila['Fecha'] == $fecha) {
+                $valFecha = $fila['Fecha'];
+                $noLote = $fila["Lote"];
+                $analisisFQ = 'S/A';
+                $categoria = $fila["Categoria"];
+                $clase = $fila["Clase_Mezcal"];
+                $tanque = $fila["Tanque"];
+                $volumen = '0.00';
+                $alcVol = '0.00';
+            } else {
+                if ($indice_resultado2 < count($resultado2)) {
+                    // Agregar datos de $fila y $fila2 al $salida
+                    $fila2 = $resultado2[$indice_resultado2];
+                    $valFecha = $fila['Fecha'];
+                    $noLote = $fila["Lote"];
+                    $analisisFQ = 'S/A';
+                    $categoria = $fila["Categoria"];
+                    $clase = $fila["Clase_Mezcal"];
+                    $tanque = $fila["Tanque"];
+                    $volumen = $fila2["final"];
+                    $alcVol = $fila2["porcentaje"];
+                    // Incrementar el índice de $resultado2
+                    $indice_resultado2++;
+                }
+            }
+    
+            if ($fila["Movimiento"] == 'Merma') {
+                if ($fila["EntradaSalida"] == 'entrada'){
+                    $procedencia = $fila["DestinoProcedencia"];
+                    $volumenEnt = $fila["Volumen"];
+                    $alcVolEnt = $fila["PorcentajeAlcohol"];
+                    $volAgua = $fila["VolumenAgua"];
+                    $destino = '';
+                    $volumenSal = '';
+                    $alcVolSal = '';
+                    $volumenMerma = $fila["MermasVolumen"];
+                    $alcVolMerma = $fila["MermasPorcentaje"];
+                    $alcVol55 = $fila["Volumen55"];
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                } else if ($fila["EntradaSalida"] == 'salida'){
+                    $procedencia = '';
+                    $volumenEnt = '';
+                    $alcVolEnt = '';
+                    $volAgua = '';
+                    $destino = $fila["DestinoProcedencia"];
+                    $volumenSal = $fila["Volumen"];
+                    $alcVolSal = $fila["PorcentajeAlcohol"];
+                    $volumenMerma = $fila["MermasVolumen"];
+                    $alcVolMerma = $fila["MermasPorcentaje"];
+                    $alcVol55 = $fila["Volumen55"];
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                }
+            } else {
+                if ($fila["EntradaSalida"] == 'entrada'){
+                    $procedencia = $fila["DestinoProcedencia"];
+                    $volumenEnt = $fila["Volumen"];
+                    $alcVolEnt = $fila["PorcentajeAlcohol"];
+                    $volAgua = $fila["VolumenAgua"];
+                    $destino = '';
+                    $volumenSal = '';
+                    $alcVolSal = '';
+                    $volumenMerma = '';
+                    $alcVolMerma = '';
+                    $alcVol55 = '';
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                } else if ($fila["EntradaSalida"] == 'salida'){
+                    $procedencia = '';
+                    $volumenEnt = '';
+                    $alcVolEnt = '';
+                    $volAgua = '';
+                    $destino = $fila["DestinoProcedencia"];
+                    $volumenSal = $fila["Volumen"];
+                    $alcVolSal = $fila["PorcentajeAlcohol"];
+                    $volumenMerma = '';
+                    $alcVolMerma = '';
+                    $alcVol55 = '';
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                }
+            }
+    
+            // Poner los datos en las celdas
+            $hoja->setCellValue('B' . strval($i + 11), $valFecha)
+                ->setCellValue('C' . strval($i + 11), $noLote)
+                ->setCellValue('D' . strval($i + 11), $analisisFQ)
+                ->setCellValue('E' . strval($i + 11), $categoria)
+                ->setCellValue('F' . strval($i + 11), $clase)
+                ->setCellValue('G' . strval($i + 11), $tanque)
+                ->setCellValue('H' . strval($i + 11), $volumen)
+                ->setCellValue('I' . strval($i + 11), $alcVol)
+                ->setCellValue('J'.strval($i+11), $procedencia)
+                ->setCellValue('K'.strval($i+11), $volumenEnt)
+                ->setCellValue('L'.strval($i+11), $alcVolEnt)
+                ->setCellValue('M'.strval($i+11), $volAgua)
+                ->setCellValue('N'.strval($i+11), $destino)
+                ->setCellValue('O'.strval($i+11), $volumenSal)
+                ->setCellValue('P'.strval($i+11), $alcVolSal)
+                ->setCellValue('Q'.strval($i+11), $volumenMerma)
+                ->setCellValue('R'.strval($i+11), $alcVolMerma)
+                ->setCellValue('S'.strval($i+11), $alcVol55)
+                ->setCellValue('T'.strval($i+11), $volumenFinal)
+                ->setCellValue('U' . strval($i + 11), $alcVolFinal);
+    
+            // Aplicar estilo a las celdas
+            for ($col = 'B'; $col <= 'U'; $col++) {
+                $estilo = $hoja->getStyle($col . strval($i + 11));
+            
+                // Ajustar el color de fondo de la celda
+                $estilo->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+                $estilo->getFill()->getStartColor()->setARGB('FFE7E6E6');
+            
+                // Establecer los bordes de la celda
+                $estilo->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+            
+                // Ajustar la alineación del contenido de la celda
+                $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            
+                // Ajustar la fuente de la celda
+                $estilo->getFont()->setName("Arial")->setSize(11);
+            }
+        }
+    }
+    
+}
+else{
+    $lote = $_GET['lote'];   
+    $fecha_inicio=$_GET['fecha_inicio'];
+    $fecha_fin=$_GET['fecha_fin'];
+
+    $resultado1=$base->buscador_menor($lote);
+    foreach ($resultado1 as $fila1){
+        $fecha=$fila1["fecha"];
+    }
+
+    $resultado3=$base->buscador_menor1($lote);
+    foreach ($resultado3 as $fila3){
+        $fecha1=$fila3["fecha"];
+    }
+
+    $resultado2=$base->datos_finales($fecha1);
+
+    $filtrado = $base->filtrado($lote, $fecha_inicio, $fecha_fin);
+    
+
+    if ($filtrado){
+        //valor de la celda donde empiezan los datos
+        $indice_resultado2 = 0;
+
+        for ($i = 0; $i < count($filtrado); $i++) {
+            $fila = $filtrado[$i];
+            if ($fila['Fecha'] == $fecha){
+                $valFecha = $fila['Fecha'];
+                $noLote = $fila["Lote"];
+                $analisisFQ = 'S/A';
+                $categoria = $fila["Categoria"];
+                $clase = $fila["Clase_Mezcal"];
+                $tanque = $fila["Tanque"];
+                $volumen = '0.00';
+                $alcVol = '0.00';
+            } else {
+                if ($indice_resultado2 < count($resultado2)) {
+                    // Agregar datos de $fila y $fila2 al $salida
+                    $fila2 = $resultado2[$indice_resultado2];
+                    $valFecha = $fila['Fecha'];
+                    $noLote = $fila["Lote"];
+                    $analisisFQ = 'S/A';
+                    $categoria = $fila["Categoria"];
+                    $clase = $fila["Clase_Mezcal"];
+                    $tanque = $fila["Tanque"];
+                    $volumen = $fila2["final"];
+                    $alcVol = $fila2["porcentaje"];
+                    // Incrementar el índice de $resultado2
+                    $indice_resultado2++;
+                }
+            }
+        
+            if ($fila["Movimiento"] == 'Merma'){
+                if ($fila["EntradaSalida"] == 'entrada'){
+                    $procedencia = $fila["DestinoProcedencia"];
+                    $volumenEnt = $fila["Volumen"];
+                    $alcVolEnt = $fila["PorcentajeAlcohol"];
+                    $volAgua = $fila["VolumenAgua"];
+                    $destino = '';
+                    $volumenSal = '';
+                    $alcVolSal = '';
+                    $volumenMerma = $fila["MermasVolumen"];
+                    $alcVolMerma = $fila["MermasPorcentaje"];
+                    $alcVol55 = $fila["Volumen55"];
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                } else if ($fila["EntradaSalida"] == 'salida'){
+                    $procedencia = '';
+                    $volumenEnt = '';
+                    $alcVolEnt = '';
+                    $volAgua = '';
+                    $destino = $fila["DestinoProcedencia"];
+                    $volumenSal = $fila["Volumen"];
+                    $alcVolSal = $fila["PorcentajeAlcohol"];
+                    $volumenMerma = $fila["MermasVolumen"];
+                    $alcVolMerma = $fila["MermasPorcentaje"];
+                    $alcVol55 = $fila["Volumen55"];
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                }
+            } else {
+                if ($fila["EntradaSalida"] == 'entrada'){
+                    $procedencia = $fila["DestinoProcedencia"];
+                    $volumenEnt = $fila["Volumen"];
+                    $alcVolEnt = $fila["PorcentajeAlcohol"];
+                    $volAgua = $fila["VolumenAgua"];
+                    $destino = '';
+                    $volumenSal = '';
+                    $alcVolSal = '';
+                    $volumenMerma = '';
+                    $alcVolMerma = '';
+                    $alcVol55 = '';
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                } else if ($fila["EntradaSalida"] == 'salida'){
+                    $procedencia = '';
+                    $volumenEnt = '';
+                    $alcVolEnt = '';
+                    $volAgua = '';
+                    $destino = $fila["DestinoProcedencia"];
+                    $volumenSal = $fila["Volumen"];
+                    $alcVolSal = $fila["PorcentajeAlcohol"];
+                    $volumenMerma = '';
+                    $alcVolMerma = '';
+                    $alcVol55 = '';
+                    $volumenFinal = $fila["FinalVolumen"];
+                    $alcVolFinal = $fila["FinalPorcentaje"];
+                }
+            }
+        
+            // Poner los datos en las celdas
+            $hoja->setCellValue('B' . strval($i + 11), $valFecha)
+                ->setCellValue('C' . strval($i + 11), $noLote)
+                ->setCellValue('D' . strval($i + 11), $analisisFQ)
+                ->setCellValue('E' . strval($i + 11), $categoria)
+                ->setCellValue('F' . strval($i + 11), $clase)
+                ->setCellValue('G' . strval($i + 11), $tanque)
+                ->setCellValue('H' . strval($i + 11), $volumen)
+                ->setCellValue('I' . strval($i + 11), $alcVol)
+                ->setCellValue('J'.strval($i+11), $procedencia)
+                ->setCellValue('K'.strval($i+11), $volumenEnt)
+                ->setCellValue('L'.strval($i+11), $alcVolEnt)
+                ->setCellValue('M'.strval($i+11), $volAgua)
+                ->setCellValue('N'.strval($i+11), $destino)
+                ->setCellValue('O'.strval($i+11), $volumenSal)
+                ->setCellValue('P'.strval($i+11), $alcVolSal)
+                ->setCellValue('Q'.strval($i+11), $volumenMerma)
+                ->setCellValue('R'.strval($i+11), $alcVolMerma)
+                ->setCellValue('S'.strval($i+11), $alcVol55)
+                ->setCellValue('T'.strval($i+11), $volumenFinal)
+                ->setCellValue('U' . strval($i + 11), $alcVolFinal);
+    
+            // Aplicar estilo a las celdas
+            for ($col = 'B'; $col <= 'U'; $col++) {
+                $estilo = $hoja->getStyle($col . strval($i + 11));
+            
+                // Ajustar el color de fondo de la celda
+                $estilo->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
+                $estilo->getFill()->getStartColor()->setARGB('FFE7E6E6');
+            
+                // Establecer los bordes de la celda
+                $estilo->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+            
+                // Ajustar la alineación del contenido de la celda
+                $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            
+                // Ajustar la fuente de la celda
+                $estilo->getFont()->setName("Arial")->setSize(11);
+            }
+        }
+            
+    }
+}
 
 //definir los tamaños de las columnas
 $hoja->getColumnDimension('A')->setWidth(10);
@@ -116,7 +422,7 @@ $hoja->getRowDimension(10)->setRowHeight(30);
 
 //guardar el archivo
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="Movimientos de Mezcal Lote XXXX'. '.Xlsx"');
+header('Content-Disposition: attachment;filename="Movimientos de Mezcal Lote '.$lote. '.Xlsx"');
 header('Cache-Control: max-age=0');
 
 $writer = PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');

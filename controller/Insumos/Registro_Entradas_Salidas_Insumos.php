@@ -18,7 +18,7 @@ if(isset($_POST["Id_insumos"], $_POST["Fecha"], $_POST["Entrada_Salida"], $_POST
         
         $obj = new Registro();
         $obj->conexion();
-        $obj->insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8);
+        $obj->insertar($c1, $c2, $c3, $c4, $c5, $c6, $c7, $c8, $actualizarExistencia);
         $obj->actualizarExistencia($c1, $actualizarExistencia);
         echo json_encode('exito');
     } else {
