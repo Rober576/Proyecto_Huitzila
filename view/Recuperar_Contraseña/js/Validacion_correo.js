@@ -1,16 +1,34 @@
 let bandera1=false;
 
-let botonRegistrar = document.getElementById("submitButton");
-botonRegistrar.addEventListener("click", (e) =>{
-    if(bandera1 == true){
-        console.log("Registro exitoso");
-    }
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", function(e) {
+    let correo = document.getElementById("usuario").value;
+    let bandera1 = true; 
 
-    else{
-        alert("Correo no valido");
-        e.preventDefault();
+    if (bandera1) {
+        e.preventDefault(); 
+        let correoSistema = false;
+
+        fetch('../../../controller/Recuperar_Contraseña/Obtener_Correos.php?tipo=correos')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    if (correo === item) {
+                        correoSistema = true;
+                    }
+                });
+                if (!correoSistema) {
+                    alert("Correo no registrado");
+                } else {
+                    formulario.submit(); 
+                }
+            })
+            .catch(error => console.error('Error al obtener los correos:', error));
+    } else {
+        alert("Correo no válido");
+        e.preventDefault(); 
     }
-})
+});
 
 const expresion = {
     email:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
