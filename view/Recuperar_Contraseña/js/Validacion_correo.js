@@ -1,29 +1,25 @@
 let bandera1=false;
 
-let formulario = document.getElementById("formulario");
-formulario.addEventListener("submit", function(e) {
+var formulario = document.getElementById('formulario');
+
+formulario.addEventListener('submit', function (e) {
     let correo = document.getElementById("usuario").value;
-    let bandera1 = true; 
-
+    e.preventDefault();
     if (bandera1) {
-        e.preventDefault(); 
         let correoSistema = false;
-
+        let correoValido;
         fetch('../../../controller/Recuperar_Contraseña/Obtener_Correos.php?tipo=correos')
             .then(response => response.json())
             .then(data => {
-                data.forEach(item => {
-                    if (correo === item) {
-                        correoSistema = true;
-                    }
-                });
-                if (!correoSistema) {
+                correoValido = data.includes(correo);
+                if (!correoValido) { 
                     alert("Correo no registrado");
                 } else {
-                    formulario.submit(); 
+                    procesarEnvioCorreoValido();
                 }
             })
             .catch(error => console.error('Error al obtener los correos:', error));
+        
     } else {
         alert("Correo no válido");
         e.preventDefault(); 
