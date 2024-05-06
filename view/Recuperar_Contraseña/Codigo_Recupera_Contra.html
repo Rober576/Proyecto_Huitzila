@@ -21,8 +21,8 @@
             <div class="campos">
                 <p class="label-3">Ingrese su código de recuperación</p>
                 <div class="input-codigo">
-                    <input type="text" class="input-format" id="codigo" name="codigo" maxlength="8"
-                        title="Ingresa los 8 dígitos del código de recuperación.">
+                    <input type="number" class="input-format" id="codigo" name="codigo" maxlength="8"
+                        title="Ingresa los 8 dígitos del código de recuperación." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                 </div>
             </div>
 
