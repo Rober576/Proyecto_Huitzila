@@ -9,19 +9,13 @@ class ModificarCampos {
         $this->base->conexion_bd();
     }
 
-    function modificarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $NombreTrabajador, $DatosVehiculo, $CostoGasolina, $CostoMaterial, $FechaInicio, $FechaFinal, $NombrePlanta) {
+    function modificarPlantacion($ClavePlantacion, $Superficie, $CantidadPlantas, $Fecha, $NombrePlanta) {
         // Consulta para actualizar los datos en la tabla de plantaciones
 
         $queryPlantacion = "UPDATE plantaciones 
                             SET Superficie = :superficie, 
                                 CantidadPlantas = :cantidad, 
-                                Fecha = :fecha, 
-                                NombreTrabajador = :trabajador, 
-                                DatosVehiculo = :vehiculo, 
-                                CostoGasolina = :gasolina, 
-                                CostoMaterial = :material, 
-                                FechaInicio = :inicio, 
-                                FechaFinal = :final 
+                                Fecha = :fecha 
                             WHERE ClavePlantacion = :clave";
         
         // Parámetros para la consulta de actualización
@@ -29,12 +23,6 @@ class ModificarCampos {
             ":superficie" => $Superficie,
             ":cantidad" => $CantidadPlantas,
             ":fecha" => $Fecha,
-            ":trabajador" => $NombreTrabajador,
-            ":vehiculo" => $DatosVehiculo,
-            ":gasolina" => $CostoGasolina,
-            ":material" => $CostoMaterial,
-            ":inicio" => $FechaInicio,
-            ":final" => $FechaFinal,
             ":clave" => $ClavePlantacion
         ];
     
