@@ -106,8 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validarFormulario()) { 
             var datos = new FormData(this);
+            //###################
             datos.append('actualizarExistencia', actualizarExistencia);
-
+            console.log(actualizarExistencia);
             fetch("../../controller/Insumos/Registro_Entradas_Salidas_Insumos.php", {
                 method: 'POST',
                 body: datos
