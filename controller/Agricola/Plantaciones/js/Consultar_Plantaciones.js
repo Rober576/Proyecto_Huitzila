@@ -65,9 +65,9 @@ function EventoActividad() {
     var botonesModificar = document.querySelectorAll(".boton-RegistroA");
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-            window.location.href = "#";
             var id = e.target.id;
             console.log(id)
+            window.location.href = '../../../view/Agricola/Actividades/Registro_de_actividades.html?plantacion=' + id;
         });
     }
 }

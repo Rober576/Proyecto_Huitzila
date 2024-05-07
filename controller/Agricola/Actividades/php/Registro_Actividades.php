@@ -2,7 +2,7 @@
 // Recoger los valores de los campos del formulario
 include_once('../../../../model/Agricola/Actividades/Registrar/Registro_Actividades.php');
 
-$Clave_Plantacion = "L1234";
+$Clave_Plantacion = $_POST["plantacion"];
 
 $Tipo_Actividad = $_POST["actividadSele"];
 $Fecha_Inicio = $_POST["fechaIni"];
