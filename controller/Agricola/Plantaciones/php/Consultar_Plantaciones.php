@@ -21,6 +21,7 @@ if ($resultado) {
         <th>Fecha de plantación</th>
         <th>Campo sembrado</th>
         <th>Tipo de planta</th>
+        <th>Registrar actividades</th>
         <th>Acciones</th>
         </tr>
     </thead>
@@ -45,6 +46,11 @@ if ($resultado) {
             $salida .= '<td>' . $TipoP . '</td>';
 
             }
+
+        $salida .= '<td class="botones-columna">';
+        $salida .= '<button id="' . $id_boton . '" class="boton-RegistroA Boton_Tabla Registrar-Actividad" data-id="'.$Plantacion.'">Actividad</Button>';
+        $salida .= '</td>';
+
         $salida .= '<td class="botones-columna">';
         $salida .= '<button id="' . $id_boton . '" class="boton-eliminarP Boton_Tabla eliminar-elemento" data-id="'.$Plantacion.'">Eliminar</Button>';
         $salida .= ' | ';

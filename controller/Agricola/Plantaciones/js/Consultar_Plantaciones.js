@@ -18,6 +18,7 @@ function buscar_datos2(consulta) {
             var tabla2 = document.getElementById("tabla2");
             if (tabla2) {
                 tabla2.innerHTML = xhr.responseText;
+                EventoActividad();
                 EventoEliminarP();
                 EventoEditarP();
             } else {
@@ -60,7 +61,16 @@ function EventoEditarP() {
 }
 
 
-
+function EventoActividad() {
+    var botonesModificar = document.querySelectorAll(".boton-RegistroA");
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+            window.location.href = "#";
+            var id = e.target.id;
+            console.log(id)
+        });
+    }
+}
 
 
 
