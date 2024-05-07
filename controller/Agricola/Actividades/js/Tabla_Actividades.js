@@ -86,7 +86,8 @@ function Sumaa(){
     const CostoGeneral = parseFloat(General);
 
     let suma = sumaGasolina + sumaLiquidos + sumaMaterial + sumaExtra+ CostoGeneral;
-    document.getElementById("total").value = suma;
+    let sumaRedondeada = suma.toFixed(2);
+    document.getElementById("total").value = sumaRedondeada;
 
 }
 

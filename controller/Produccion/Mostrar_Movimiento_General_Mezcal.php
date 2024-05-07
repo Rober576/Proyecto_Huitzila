@@ -175,6 +175,19 @@ if ($_GET['fecha_inicio'] == 'null') {
     $lote = $_GET['lote'];   
     $fecha_inicio=$_GET['fecha_inicio'];
     $fecha_fin=$_GET['fecha_fin'];
+
+    $resultado1=$base->buscador_menor($lote);
+    foreach ($resultado1 as $fila1){
+        $fecha=$fila1["fecha"];
+    }
+
+    $resultado3=$base->buscador_menor1($lote);
+    foreach ($resultado3 as $fila3){
+        $fecha1=$fila3["fecha"];
+    }
+
+    $resultado2=$base->datos_finales($fecha1);
+
     $filtrado = $base->filtrado($lote, $fecha_inicio, $fecha_fin);
     
 
@@ -215,16 +228,39 @@ if ($_GET['fecha_inicio'] == 'null') {
                         </tr>
                     </thead>
                     <tbody>';
+        $indice_resultado2 = 0;
         foreach ($filtrado as $fila){
-            $salida .= '<tr>';
-            $Lote= $fila['Lote'];
-            $Fecha =$fila['Fecha'];
-            $salida .= '<td>' . $fila["Fecha"] . '</td>';
-            $salida .= '<td>' . $fila["Lote"] . '</td>';
-            $salida .= '<td>' . "S/A" . '</td>';
-            $salida .= '<td>' . $fila["Categoria"] . '</td>';
-            $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
-            $salida .= '<td>' . $fila["Tanque"] . '</td>';
+            if ($fila['Fecha']==$fecha){
+                $salida .= '<tr>';
+                $Lote= $fila['Lote'];
+                $Fecha =$fila['Fecha'];
+                $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                $salida .= '<td>' . $fila["Lote"] . '</td>';
+                $salida .= '<td>' . "S/A" . '</td>';
+                $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                $salida .= '<td>' . "0.00" . '</td>';
+                $salida .= '<td>' . "0.00" . '</td>';
+            }else {
+                // Si la fecha no coincide, verificar si hay datos en $resultado2
+                if ($indice_resultado2 <= count($resultado2)) {
+                    // Agregar datos de $fila y $fila2 al $salida
+                    $fila2 = $resultado2[$indice_resultado2];
+                    $salida .= '<tr>';
+                    $salida .= '<td>' . $fila["Fecha"] . '</td>';
+                    $salida .= '<td>' . $fila["Lote"] . '</td>';
+                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $fila["Categoria"] . '</td>';
+                    $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
+                    $salida .= '<td>' . $fila["Tanque"] . '</td>';
+                    $salida .= '<td>' . $fila2["final"] . '</td>';
+                    $salida .= '<td>' . $fila2["porcentaje"] . '</td>';
+                    
+                    // Incrementar el índice de $resultado2
+                    $indice_resultado2++;
+                }
+            }
 
             if ($fila["Movimiento"]=='Merma'){
                 if ($fila["EntradaSalida"]=='entrada'){

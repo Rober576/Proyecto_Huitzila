@@ -46,10 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
             section2.style.display = 'block';
             section3.style.display = 'block';
 
-            nomTrab.required = true;
-            actDes.required = true;
-            semSele.required = true;
-
             cantSemanas.readOnly = true;
 
             const CantidadTrabajado = document.getElementById("canFecha").value;

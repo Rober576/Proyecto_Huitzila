@@ -100,11 +100,6 @@
 
     <main>
 
-			<script languaje="javascript">
-				function generar() {
-				  location.href = '../../controller/Produccion/Excel_Movimientos_Mezcal.php';
-				}
-			  </script>
 
 			<div class="grupo-botonExcel">
 				<div class="contenedor_izquierdo">
@@ -123,12 +118,13 @@
 
 					<div class="boton_fechas">
 						<button class="aceptar" id="boton_filtrar" type="submit">Filtrar</button>
+						<button class="aceptar" id="boton_limpiar" type="submit">Limpiar</button>
 					</div>
 				</div>		
 						
 				<div class="contenedor_derecho">
 					<div class="boton_registrar">
-						<button id="boton_excel" type="button" onclick="generar()">Descargar Excel</button>
+						<button id="boton_excel" type="submit" >Descargar Excel</button>
 					</div>
 				</div>
 

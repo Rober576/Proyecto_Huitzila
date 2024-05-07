@@ -133,7 +133,7 @@
 
 				
 			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+				<div class="formulario-colum" id="camposDinamicosContainer">
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
@@ -144,7 +144,7 @@
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Insumos<span class="campo-obligatorio">*</span></label>
-						<select id="Id_Insumos" name="Id_Insumos" title="Identificador de los Insumos terminados." required>
+						<select id="Id_insumos" name="Id_insumos" title="Identificador de los Insumos terminados." required>
 							<option disabled selected>Seleccionar opción</option>
 						</select>
 					</div>
@@ -157,15 +157,26 @@
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Costo">Costo unitario<span class="campo-obligatorio">*</span></label>
-					<input type="number" id="Costo" name="Costo" title="Costo del insumo de uno (Conformado por caracteres decimales)." required>
+					<input type="text" id="UCosto" name="UCosto" title="Costo del insumo de uno (Conformado por caracteres decimales)." required>
 				</div>
 
                 <div class="grupo1">
 					<label class="label_datos" for="Costo">Costo total<span class="campo-obligatorio">*</span></label>
-					<input type="number" id="Costo" name="Costo" title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
+					<input type="text" id="CostoT" name="CostoT" readonly 
+					title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
+				</div>
+
+				<div class="grupo1">
+					<label class="label_datos" for="ID">Lote de producción<span class="campo-obligatorio">*</span></label>
+					<select id="Id_lotes" name="Id_lotes" title="Identificador de los productos terminados." required>
+						<option disabled selected>Seleccionar opción</option>
+					</select>
 				</div>
 
 			</div>
+
+					<!-- Botón para agregar más conjuntos de campos -->
+					<button id="agregarCampos" class="Boton_cancelar">Agregar productos por insumos</button>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
@@ -183,5 +194,10 @@
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+	<script src="../../controller/Insumos/js/Mostrar_ID.js"></script>
+	
+	<script src="../../view/insumos/js/Valida_Reg_Insumo_Por_Producto.js"></script>
+	<script src="../../controller/Insumos/js/Registro_Insumo_Por_Producto.js"></script>
+	<script src="js/Agrega_campos_de_insumos_por porductos.js"></script>
 </body>
 </html>

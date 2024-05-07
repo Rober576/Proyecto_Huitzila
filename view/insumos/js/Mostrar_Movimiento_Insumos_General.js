@@ -78,7 +78,7 @@ function mostrarDatos(datos){
 
             btn_especifico.addEventListener('click', function(event) {
                 event.preventDefault(); 
-                window.location.href = 'Mostrar_Movimiento_Insumos_General.html';
+                window.location.href = 'Mostrar_Movimiento_Insumos_Especifico.html';
             });
 
             row.appendChild(id_col);

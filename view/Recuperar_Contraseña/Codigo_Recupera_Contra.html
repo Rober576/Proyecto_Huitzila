@@ -21,8 +21,8 @@
             <div class="campos">
                 <p class="label-3">Ingrese su código de recuperación</p>
                 <div class="input-codigo">
-                    <input type="text" class="input-format" id="codigo" name="codigo" maxlength="8"
-                        title="Ingresa los 8 dígitos del código de recuperación.">
+                    <input type="input" class="input-format" id="codigo" name="codigo" maxlength="8"
+                        title="Ingresa los 8 dígitos del código de recuperación." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                 </div>
             </div>
 
@@ -51,6 +51,7 @@
             });
         </script>
     </div>
+    <script src="js/Validacion_codigo.js"></script>
     <script src="../../controller/Recuperar_Contraseña/js/Codigo_Recupera_Contra.js"></script>
 </body>
 

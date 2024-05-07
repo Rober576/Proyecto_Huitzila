@@ -9,8 +9,6 @@ $objeto = new MostrarMez();
 if(isset($_GET["Lote"]) && isset($_GET["NumeroMovimiento"])) {
     $lote = $_GET["Lote"];
     $numeroMovimiento = $_GET["NumeroMovimiento"];
-    
-    
     // Luego llamas a la función buscar_datos_GET pasando $id y $numeroMovimiento
     $resultado = $resultado = $objeto->buscar_datos_Get($lote, $numeroMovimiento);
 } else {
@@ -28,12 +26,14 @@ $volumen3= $resultado[0]['Volumen55'];
 $volumen_merma=$resultado[0]['MermasVolumen'];
 $alc_vol_merma=$resultado[0]['MermasPorcentaje'];
 
-
 ?>
 <script language="javascript">
     console.log("entro al get")
     var lote = "<?php echo $lote2 ?>";
     var volumenn3= "<?php echo $volumen3 ?>"
+    var numero="<?php echo $numeroMovimiento ?>"
+    console.log("lote",lote);
+    console.log("numero de movimiento",numero)
    
     console.log("lote:", lote);  
     document.getElementById("lote").value=lote;
@@ -44,15 +44,9 @@ $alc_vol_merma=$resultado[0]['MermasPorcentaje'];
     document.getElementById("volumen").value = "<?php echo $volumen ?>";
     document.getElementById("alc_vol").value = "<?php echo $concentracion ?>";
     document.getElementById("vol_agua").value="<?php echo $volumen2 ?>";
-    //document.getElementById("alc_vol55").value= volumenn3;
-    console.log("volumen3",volumenn3)
     document.getElementById("volumen_merma").value="<?php echo $volumen_merma ?>";
     document.getElementById("alc_vol_merma").value="<?php echo $alc_vol_merma ?>";
     document.getElementById("alc_vol55").value="<?php echo $volumen3 ?>";
-    
-    
-
-   // Declarar la variable movimiento en un ámbito global
 var movimiento;
 
 document.addEventListener('DOMContentLoaded', function() {

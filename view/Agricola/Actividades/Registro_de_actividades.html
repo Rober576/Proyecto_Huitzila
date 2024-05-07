@@ -133,22 +133,26 @@
 					</div>
 					<div class="formulario-datos2">
 						<div>
-							<label for="cosGenral">Gostos generales ($)<span class="campo-obligatorio">*</span></label>
-							<input type="text" id="cosGenral" name="cosGenral" class="styled-input" required>
+							<label for="cosGenral">Gastos generales ($)<span class="campo-obligatorio">*</span></label>
+							<input type="text" id="cosGenral" name="cosGenral" class="styled-input" title="El gasto general debe de tener maximo 10 caracteres, solo numeros y decimnales" required>
 						</div>
 						<div>
 							<label for="descAct">Descripción de la actividad</label>
-							<textarea id="descAct" name="descAct" rows="4"></textarea>
+							<textarea id="descAct" name="descAct" rows="4"  title="La descripción debe de contener un máximo de 300 caracteres"></textarea>
 						</div>
 					</div>
 					<div class="formulario-datos2">
 						<div id="campo1">
 							<label for="selePlaga">Plaga<span class="campo-obligatorio">*</span></label>
-							<select id="selePlaga" name="selePlaga" class="styled-input" required></select>
+							<select id="selePlaga" name="selePlaga" class="styled-input" required>
+								<option></option>
+							</select>
 						</div>
 						<div id="campo2">
 							<label for="seleHerbicida">Herbicida<span class="campo-obligatorio">*</span></label>
-							<select id="seleHerbicida" name="seleHerbicida" class="styled-input" required></select>
+							<select id="seleHerbicida" name="seleHerbicida" class="styled-input" required>
+								<option></option>
+							</select>
 						</div>
 					</div>
 					<div>
@@ -166,37 +170,37 @@
 			<div class="formulario-datos">
 				<div>
 					<label for="nomTrab">Nombre del trabajador<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="nomTrab" name="nomTrab" class="styled-input" required>
+					<input type="text" id="nomTrab" name="nomTrab" class="styled-input" title="El nombre debe contener máximo 40 caracteres, solo deben de ser letras">
 				</div>
 				<div>
 					<label for="gasGas">Gasto de la gasolina ($)</label>
-					<input type="text" id="gasGas" name="gasGas" class="styled-input">
+					<input type="text" id="gasGas" name="gasGas" class="styled-input" title="El gasto debe de tener maximo 10 caracteres, solo numeros y decimnales">
 				</div>
 				<div>
 					<label for="desVei">Datos del vehìculo</label>
-					<input type="text" id="desVei" name="desVei" class="styled-input">
+					<input type="text" id="desVei" name="desVei" class="styled-input" title="Debe contener máximo 10 caracteres, solo deben de ser letras y números">
 				</div>
 				<div>
 					<label for="gasLiq">Gasto de lìquidos ($)</label>
-					<input type="text" id="gasLiq" name="gasLiq" class="styled-input">
+					<input type="text" id="gasLiq" name="gasLiq" class="styled-input" title="El gasto debe de tener maximo 10 caracteres, solo numeros y decimnales">
 				</div>
 				<div>
 					<label for="gasMat">Compra de material ($)</label>
-					<input type="text" id="gasMat" name="gasMat" class="styled-input">
+					<input type="text" id="gasMat" name="gasMat" class="styled-input" title="El gasto debe de tener maximo 10 caracteres, solo numeros y decimnales">
 				</div>
 				<div>
 					<label for="gasExt">Gastos extras ($)</label>
-					<input type="text" id="gasExt" name="gasExt" class="styled-input">
+					<input type="text" id="gasExt" name="gasExt" class="styled-input" title="El gasto debe de tener maximo 10 caracteres, solo numeros y decimnales">
 				</div>
 			</div>
 			<div class="formulario-datos">
 				<div>
 					<label for="actDes">Actividad desarrollada:<span class="campo-obligatorio">*</span></label>
-					<textarea id="actDes" name="actDes" class="styled-input" rows="4" required></textarea>
+					<textarea id="actDes" name="actDes" class="styled-input" rows="4" title="La descripción debe de contener un máximo de 300 caracteres"></textarea>
 				</div>
 				<div>
 					<label for="semSele">Seleccione la semana<span class="campo-obligatorio">*</span></label>
-					<select id="semSele" name="semSele" class="styled-input" required></select>
+					<select id="semSele" name="semSele" class="styled-input"></select>
 				</div>
 				<div>
 					<label for="diaLunes">Seleccione los dias tabajados en la actividad<span class="campo-obligatorio">*</span></label>
