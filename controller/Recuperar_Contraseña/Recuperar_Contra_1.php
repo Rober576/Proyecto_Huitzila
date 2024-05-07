@@ -1,7 +1,7 @@
 <?php
 
 $correo = $_POST["usuario"];
-$codigo = mt_rand(10000000, 99999999);
+$codigo = mt_rand(100000, 999999);
 
 
 
