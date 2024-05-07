@@ -10,11 +10,11 @@ class EliminarCampos{
     }
 
 
-    function eliminar($Lote){
+    function eliminar($lote){
     
-        // No existe el lote, proceder con la eliminación
+
         $query = "DELETE FROM registrodestilado WHERE Lote = :Lote";
-        $this->base->insertar_eliminar_actualizar($query, [":Lote" => $Lote]);
+        $this->base->insertar_eliminar_actualizar($query, [":Lote" => $lote]);
         $this->base->cerrar_conexion();
     
         return true; 
