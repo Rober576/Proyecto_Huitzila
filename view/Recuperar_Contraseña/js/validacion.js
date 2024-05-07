@@ -4,11 +4,13 @@ let bandera2=false;
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
     if(bandera1 == true && bandera2 == true){
+        
         console.log("Registro exitoso");
+        
     }
 
     else{
-        if(email2.value!=email.value) {
+        if(contra1.value!=contra2.value) {
             alert("Las contraseñas no coinciden");
         } else {
             alert("Datos incorrectos");
@@ -18,7 +20,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#.-_+/])[A-Za-z\d@$!%*?&#.-_+/]{8,}$/,
 }
 
 
