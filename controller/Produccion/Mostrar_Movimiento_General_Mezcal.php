@@ -23,16 +23,20 @@ if ($_GET['fecha_inicio'] == 'null') {
     $resultado = $base->buscador($lote);
 
     $resultados4=$base->fisicoquimico($lote);
-    foreach ($resultados4 as $fila4){
-        $cumplimiento=$fila4["cumplimiento"];
-    }
-    
-    if ($cumplimiento=="0"){
+    if ($resultados4==false){
         $analisis="S/A";
-    }else if ($cumplimiento=="1"){
-        $analisis="Aprobado";
-    }else if ($cumplimiento=="2"){
-        $analisis="No aprobado";
+    }else{
+        foreach ($resultados4 as $fila4){
+            $cumplimiento=$fila4["cumplimiento"];
+        }
+        
+        if ($cumplimiento=="0"){
+            $analisis="S/A";
+        }else if ($cumplimiento=="1"){
+            $analisis="Aprobado";
+        }else if ($cumplimiento=="2"){
+            $analisis="No aprobado";
+        }
     }
     
 
