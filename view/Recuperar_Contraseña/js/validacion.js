@@ -20,7 +20,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#.-_+/])[A-Za-z\d@$!%*?&#.-_+/]{8,}$/,
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_+@$!%*?&#.-/])[A-Za-z\d_+@$!%*?&#.-/]{8,}$/,
 }
 
 
