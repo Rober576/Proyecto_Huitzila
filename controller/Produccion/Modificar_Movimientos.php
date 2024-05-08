@@ -17,7 +17,7 @@ $volumen3 = isset($_POST['alc_vol55']) ? $_POST['alc_vol55'] : 0;
 $volumen2 = isset($_POST['vol_agua']) ? $_POST['vol_agua'] : 0;
 $alc_vol_merma = isset($_POST['alc_vol_merma']) ? $_POST['alc_vol_merma'] : 0;
 $volumen_merma = isset($_POST['volumen_merma']) ? $_POST['volumen_merma'] : 0;
-$u = $objeto->actualizar($lote2, $numero,$fecha, $tipo, $procedencia, $movimiento, $volumen, $volumen2, $concentracion,$volumen3,$alc_vol_merma,$volumen_merma);
+$u = $objeto->actualizar($lote2, $numero,$fecha, $tipo, $procedencia, $movimiento, $volumen, $volumen2, $concentracion,$volumen3,$alc_vol_merma,$volumen_merma,$numeroMovimiento);
 
 if ($u == true) {
     echo json_encode('exito');
