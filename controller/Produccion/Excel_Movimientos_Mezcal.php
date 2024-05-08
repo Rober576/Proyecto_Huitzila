@@ -104,7 +104,22 @@ if ($_GET['fecha_inicio']=='x'){
     $resultado2=$base->datos_finales($fecha1);
 
     $resultado = $base->buscador($lote);
-    
+    $resultados4=$base->fisicoquimico($lote);
+    if ($resultados4==false){
+        $analisis="S/A";
+    }else{
+        foreach ($resultados4 as $fila4){
+            $cumplimiento=$fila4["cumplimiento"];
+        }
+        
+        if ($cumplimiento=="0"){
+            $analisis="S/A";
+        }else if ($cumplimiento=="1"){
+            $analisis="Aprobado";
+        }else if ($cumplimiento=="2"){
+            $analisis="No aprobado";
+        }
+    }
 
     if ($resultado) {
         // Valor de la celda donde empiezan los datos
@@ -115,7 +130,7 @@ if ($_GET['fecha_inicio']=='x'){
             if ($fila['Fecha'] == $fecha) {
                 $valFecha = $fila['Fecha'];
                 $noLote = $fila["Lote"];
-                $analisisFQ = 'S/A';
+                $analisisFQ = $analisis;
                 $categoria = $fila["Categoria"];
                 $clase = $fila["Clase_Mezcal"];
                 $tanque = $fila["Tanque"];
@@ -127,7 +142,7 @@ if ($_GET['fecha_inicio']=='x'){
                     $fila2 = $resultado2[$indice_resultado2];
                     $valFecha = $fila['Fecha'];
                     $noLote = $fila["Lote"];
-                    $analisisFQ = 'S/A';
+                    $analisisFQ = $analisis;
                     $categoria = $fila["Categoria"];
                     $clase = $fila["Clase_Mezcal"];
                     $tanque = $fila["Tanque"];
@@ -232,6 +247,7 @@ if ($_GET['fecha_inicio']=='x'){
                 // Ajustar la alineación del contenido de la celda
                 $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
                 $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+                $estilo->getAlignment()->setWrapText(true); 
             
                 // Ajustar la fuente de la celda
                 $estilo->getFont()->setName("Arial")->setSize(11);
@@ -258,6 +274,23 @@ else{
     $resultado2=$base->datos_finales($fecha1);
 
     $filtrado = $base->filtrado($lote, $fecha_inicio, $fecha_fin);
+
+    $resultados4=$base->fisicoquimico($lote);
+    if ($resultados4==false){
+        $analisis="S/A";
+    }else{
+        foreach ($resultados4 as $fila4){
+            $cumplimiento=$fila4["cumplimiento"];
+        }
+        
+        if ($cumplimiento=="0"){
+            $analisis="S/A";
+        }else if ($cumplimiento=="1"){
+            $analisis="Aprobado";
+        }else if ($cumplimiento=="2"){
+            $analisis="No aprobado";
+        }
+    }
     
 
     if ($filtrado){
@@ -269,7 +302,7 @@ else{
             if ($fila['Fecha'] == $fecha){
                 $valFecha = $fila['Fecha'];
                 $noLote = $fila["Lote"];
-                $analisisFQ = 'S/A';
+                $analisisFQ = $analisis;
                 $categoria = $fila["Categoria"];
                 $clase = $fila["Clase_Mezcal"];
                 $tanque = $fila["Tanque"];
@@ -281,7 +314,7 @@ else{
                     $fila2 = $resultado2[$indice_resultado2];
                     $valFecha = $fila['Fecha'];
                     $noLote = $fila["Lote"];
-                    $analisisFQ = 'S/A';
+                    $analisisFQ = $analisis;
                     $categoria = $fila["Categoria"];
                     $clase = $fila["Clase_Mezcal"];
                     $tanque = $fila["Tanque"];
@@ -386,6 +419,7 @@ else{
                 // Ajustar la alineación del contenido de la celda
                 $estilo->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
                 $estilo->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+                $estilo->getAlignment()->setWrapText(true); 
             
                 // Ajustar la fuente de la celda
                 $estilo->getFont()->setName("Arial")->setSize(11);
