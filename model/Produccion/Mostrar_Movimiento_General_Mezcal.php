@@ -52,14 +52,22 @@ class MostrarMez extends Crud_bd {
         registromezcal.Tanque, movimientomezcal.Volumen, movimientomezcal.PorcentajeAlcohol, movimientomezcal.EntradaSalida, 
         movimientomezcal.DestinoProcedencia, movimientomezcal.VolumenAgua, movimientomezcal.MermasVolumen, movimientomezcal.MermasPorcentaje, 
         movimientomezcal.Volumen55, movimientomezcal.FinalVolumen, movimientomezcal.FinalPorcentaje 
-FROM registromezcal, categoriamezcal, clasemezcal, movimientomezcal, tipomovimiento 
-WHERE registromezcal.IDClase=clasemezcal.IDClase 
-    AND registromezcal.IDCategoria=categoriamezcal.IDCategoria 
-    AND registromezcal.Lote=movimientomezcal.Lote 
-    AND tipomovimiento.IdMovimiento=movimientomezcal.IdMovimiento 
-    AND movimientomezcal.Lote=:lote
-    AND movimientomezcal.Fecha BETWEEN :fecha_inicio AND :fecha_fin;";
+        FROM registromezcal, categoriamezcal, clasemezcal, movimientomezcal, tipomovimiento 
+        WHERE registromezcal.IDClase=clasemezcal.IDClase 
+        AND registromezcal.IDCategoria=categoriamezcal.IDCategoria 
+        AND registromezcal.Lote=movimientomezcal.Lote 
+        AND tipomovimiento.IdMovimiento=movimientomezcal.IdMovimiento 
+        AND movimientomezcal.Lote=:lote
+        AND movimientomezcal.Fecha BETWEEN :fecha_inicio AND :fecha_fin;";
         $resultados = $this->base->mostrar($query, [":lote" => $lote, ":fecha_inicio" => $fecha_inicio, ":fecha_fin" => $fecha_fin]);
+        $this->base->cerrar_conexion();
+        return $resultados;
+    }
+
+    function fisicoquimico($lote){
+        $this->base->conexion_bd();
+        $query = "SELECT cumplimiento FROM analisisficoquimico WHERE Lote=:lote";
+        $resultados = $this->base->mostrar($query, [":lote" => $lote]);
         $this->base->cerrar_conexion();
         return $resultados;
     }

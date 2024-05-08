@@ -19,6 +19,13 @@ formulario.addEventListener('submit', function (e) {
     cargarListasDesdeLocalStorage();
     var datos = new FormData(formulario);
 
+    var plantacion = obtenerParametroURL('plantacion');
+            console.log(plantacion);
+
+            if (plantacion !== null && plantacion !== ""){
+                datos.append('plantacion', plantacion);
+            }
+
     
 
 
@@ -58,7 +65,7 @@ formulario.addEventListener('submit', function (e) {
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro de actividad exitoso");
-          //  window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";    
+            window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html';    
         }
     })
 
@@ -79,15 +86,12 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
-          //  window.location.href = "../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html";
+            window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html';
             
         }
     });
 
-
-
-
-
-
-    
-
+    function obtenerParametroURL(parametro) {
+        var parametrosURL = new URLSearchParams(window.location.search);
+        return parametrosURL.get(parametro);
+      }

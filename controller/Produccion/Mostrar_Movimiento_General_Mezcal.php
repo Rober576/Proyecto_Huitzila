@@ -21,6 +21,19 @@ if ($_GET['fecha_inicio'] == 'null') {
     $resultado2=$base->datos_finales($fecha1);
 
     $resultado = $base->buscador($lote);
+
+    $resultados4=$base->fisicoquimico($lote);
+    foreach ($resultados4 as $fila4){
+        $cumplimiento=$fila4["cumplimiento"];
+    }
+    
+    if ($cumplimiento=="0"){
+        $analisis="S/A";
+    }else if ($cumplimiento=="1"){
+        $analisis="Aprobado";
+    }else if ($cumplimiento=="2"){
+        $analisis="No aprobado";
+    }
     
 
     if ($resultado) {
@@ -68,7 +81,7 @@ if ($_GET['fecha_inicio'] == 'null') {
                 $Fecha =$fila['Fecha'];
                 $salida .= '<td>' . $fila["Fecha"] . '</td>';
                 $salida .= '<td>' . $fila["Lote"] . '</td>';
-                $salida .= '<td>' . "S/A" . '</td>';
+                $salida .= '<td>' . $analisis . '</td>';
                 $salida .= '<td>' . $fila["Categoria"] . '</td>';
                 $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
                 $salida .= '<td>' . $fila["Tanque"] . '</td>';
@@ -82,7 +95,7 @@ if ($_GET['fecha_inicio'] == 'null') {
                     $salida .= '<tr>';
                     $salida .= '<td>' . $fila["Fecha"] . '</td>';
                     $salida .= '<td>' . $fila["Lote"] . '</td>';
-                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $analisis . '</td>';
                     $salida .= '<td>' . $fila["Categoria"] . '</td>';
                     $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
                     $salida .= '<td>' . $fila["Tanque"] . '</td>';
@@ -189,6 +202,19 @@ if ($_GET['fecha_inicio'] == 'null') {
     $resultado2=$base->datos_finales($fecha1);
 
     $filtrado = $base->filtrado($lote, $fecha_inicio, $fecha_fin);
+
+    $resultados4=$base->fisicoquimico($lote);
+    foreach ($resultados4 as $fila4){
+        $cumplimiento=$fila4["cumplimiento"];
+    }
+    
+    if ($cumplimiento=="0"){
+        $analisis="S/A";
+    }else if ($cumplimiento=="1"){
+        $analisis="Aprobado";
+    }else if ($cumplimiento=="2"){
+        $analisis="No aprobado";
+    }
     
 
     if ($filtrado) {
@@ -236,7 +262,7 @@ if ($_GET['fecha_inicio'] == 'null') {
                 $Fecha =$fila['Fecha'];
                 $salida .= '<td>' . $fila["Fecha"] . '</td>';
                 $salida .= '<td>' . $fila["Lote"] . '</td>';
-                $salida .= '<td>' . "S/A" . '</td>';
+                $salida .= '<td>' . $analisis . '</td>';
                 $salida .= '<td>' . $fila["Categoria"] . '</td>';
                 $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
                 $salida .= '<td>' . $fila["Tanque"] . '</td>';
@@ -250,7 +276,7 @@ if ($_GET['fecha_inicio'] == 'null') {
                     $salida .= '<tr>';
                     $salida .= '<td>' . $fila["Fecha"] . '</td>';
                     $salida .= '<td>' . $fila["Lote"] . '</td>';
-                    $salida .= '<td>' . "S/A" . '</td>';
+                    $salida .= '<td>' . $analisis. '</td>';
                     $salida .= '<td>' . $fila["Categoria"] . '</td>';
                     $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
                     $salida .= '<td>' . $fila["Tanque"] . '</td>';
