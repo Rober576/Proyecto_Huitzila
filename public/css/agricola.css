@@ -29,3 +29,51 @@
         display: block; /* Asegura que el elemento sea tratado como un bloque */
         width: fit-content;
 }
+
+/* Estilos para el contenedor de la imagen */
+.imagen-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Ancho máximo para evitar que la imagen se extienda demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilos para el envoltorio de la imagen */
+.imagen-wrapper {
+    position: relative; /* Establece el posicionamiento relativo para que la imagen se posicione correctamente */
+    padding-bottom: 100%; /* Proporción de aspecto (ratio) deseada para la imagen (aquí es 4:3) */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del envoltorio */
+}
+
+/* Estilos para la imagen dentro del envoltorio */
+.imagen-wrapper img {
+    position:absolute; /* Establece el posicionamiento absoluto para la imagen */
+    width: 100%; /* Ocupa todo el ancho disponible del envoltorio */
+    height: 100%; /* Ocupa todo el alto disponible del envoltorio */
+    object-fit: cover; /* Escala la imagen para cubrir el envoltorio manteniendo la relación de aspecto */
+    border-radius: 50px;
+    
+    padding: 30px;
+
+}
+.imagen_principal {
+    /* Establece la imagen de fondo */
+    background-image: url('../../public/jimador\ huitzila.jpg');
+    background-size:cover;
+    background-repeat:repeat;
+    position: relative; 
+}
+
+.activo_en_pagina {
+    color: black; /* Cambia el color del texto */
+    position: relative; /* Establece la posición relativa para el posicionamiento absoluto del borde */
+}
+
+.activo_en_pagina:after {
+    content: ''; /* Agrega contenido generado para la franja */
+    position: absolute; /* Establece la posición absoluta */
+    bottom: 0; /* Coloca la franja en la parte inferior del elemento */
+    left: 0; /* Coloca la franja en el borde izquierdo del elemento */
+    width: 100%; /* Establece el ancho de la franja al 100% del ancho del elemento */
+    height: 5px; /* Establece la altura de la franja */
+    background-color: #a77753; /* Color de la franja */
+}
