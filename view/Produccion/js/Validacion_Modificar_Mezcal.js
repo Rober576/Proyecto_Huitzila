@@ -37,13 +37,16 @@ form_datos.tanque.addEventListener('input', (e) => {
 form_datos.edad.addEventListener('input', (e) => {
     let valorInput = e.target.value;
     let claseSeleccionada = document.getElementById('clase').value;
+    form_datos.edad.value = valorInput;
+
 
     if (claseSeleccionada === "Reposado") {
         // Permitir valores como si fueran meses, con un máximo de 11 meses
         valorInput = valorInput.match(/^\d{0,2}(\.\d{0,2})?/)[0];
         // Verificar si el valor es mayor a 11 y ajustarlo si es necesario
-        if (parseFloat(valorInput) > 11) {
-            valorInput = '11';
+        if  (parseInt(valorInput) < 1 || parseInt(valorInput) > 11) {
+            form_datos.edad.style.border = "5px solid red"; 
+            edad = false;
         }
     } else {
         // Validar la edad estándar
@@ -63,9 +66,15 @@ form_datos.edad.addEventListener('input', (e) => {
         form_datos.edad.removeAttribute("style");
         edad = true;
     } else if (claseSeleccionada === "Reposado") {
-        // Permitir valores como si fueran meses, no aplicar validación de edad
+          // Verificar si el valor es mayor a 11 y ajustarlo si es necesario
+        if  (parseInt(valorInput) < 1 || parseInt(valorInput) > 11) {
+        form_datos.edad.style.border = "5px solid red"; 
+        edad = false;
+        }
+        else{
+            // Permitir valores como si fueran meses, no aplicar validación de edad
         form_datos.edad.removeAttribute("style");
-        edad = true;
+        edad = true;}
     } else {
         // Aplicar validación de edad si la clase no es "Blanco" ni "Reposado"
         if (!valorInput || !expresiones.edad.test(valorInput)) {
@@ -79,10 +88,6 @@ form_datos.edad.addEventListener('input', (e) => {
 
     validar(edad);
 });
-
-
-
-// Expresiones regulares para validar los campos
 
 
 function validar(bandera){
