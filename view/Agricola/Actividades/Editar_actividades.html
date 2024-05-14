@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de actividades</title>
+    <title>Modificar actividades</title>
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
-	<script src="../Actividades/js/Campos_adicionales.js"></script>
 	<script src="../../../controller/Agricola/Actividades/js/Tabla_Actividades.js"></script>
 </head>
 <body>
@@ -87,26 +86,16 @@
 	<main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Registrar</h4>
+				<h4 class="h4">Modificar</h4>
 			</div>
 				<br>
-				<p class="subtitulo-1">Registro de la actividad</p>
+				<p class="subtitulo-1">Modificar actividad</p>
 				<hr>
 				<form id="advanced-form">
-					<div class="formulario-datos2">
-						<div>
-							<label for="predioSele">Seleccione el predio<span class="campo-obligatorio">*</span></label>
-							<select id="predioSele" name="predioSele" class="styled-input"></select>
-						</div>
-						<div>
-							<label for="platacionSele">Seleccione la plantación<span class="campo-obligatorio">*</span></label>
-							<select id="platacionSele" name="platacionSele" class="styled-input"></select>
-						</div>
-					</div>
 					<div class="formulario-datos">
 						<div>
 							<label for="actividadSele">Seleccione la actividad realizada<span class="campo-obligatorio">*</span></label>
-							<select id="actividadSele" name="actividadSele" class="styled-input"></select>
+							<select id="actividadSele" name="actividadSele" class="styled-input" ></select>
 						</div>
 							<div>
 								<label for="fechaIni">Seleccione la fecha de inicio de la actividad<span class="campo-obligatorio">*</span></label>
@@ -141,17 +130,9 @@
 							</select>
 						</div>
 					</div>
-					<div>
-						<label for="cosPre">¿Hubo costos adicionales implicados?<span class="campo-obligatorio">*</span></label>
-						<br>
-						<div class="radioList">
-							<input type="radio" id="cosPre" name="cosPre" value="si">Si
-							<input type="radio" id="cosPre" name="cosPre" value="no" checked>No
-						</div>
-					</div>
 		</section>
 		<section id="section2" class="section-main">
-			<p class="subtitulo-1">Registro de gastos</p>
+			<p class="subtitulo-1">Modificar gastos</p>
 			<hr>
 			<div class="formulario-datos">
 				<div>
