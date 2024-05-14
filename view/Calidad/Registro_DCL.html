@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisis individual</title>
+    <title>Registro de destilados, cremas y licores</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+	<!-- <script src="../../view/Calidad/js/Verificar_Permiso_Calidad.js" defer></script> -->
 </head>
-
 <body>
-    <header>
+        <header>
         <div class="header_superior">
 			<div class="img-ventana">
 				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
@@ -75,55 +74,53 @@
     <main>
         <section class="section-main">
             <div class="cabezera">
-                <h4 class="h4">Analsis Individual</h4>
+                <h4 class="h4">Registro</h4>
             </div>
             <br>
-            <p class="subtitulo-1"> Datos del analisis</p>
+            <p class="subtitulo-1">Destilados, cremas y licores</p>
             <hr>
             <br>
+
+            <!-- Formulario de datos generales -->
             <form class="formulario-datos" id="advanced-form">
 
-                <input type="hidden" name="id" id="inputId">
-
                 <div class="grupo1">
-                    <label class="label_datos" for="loteC">Lote</label>
-                    <input type="text" id="lote_cal" name="lote_cal" required readonly title="El Lote no puede ser modificada.">
+                    <label class="label_datos" for="lote">Lote<span class="required">*</span></label>
+                    <select id="lote" name="lote" required title="Selecciona un lote">
+                    </select>
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="azucares">Azucares<span class="required">*</span>:</label>
-                    <input type="text" id="azucares_cal" name="azucares_cal" required readonly title="Los azucares no puede ser modificada.">
+                    <label class="label_datos" for="alcohol">Alcohol<span class="required">*</span></label>
+                    <input type="text" id="alcohol" name="alcohol" maxlength="13"  required title="En alcohol solo se permiten valores numéricos.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="madurez">Madurez<span class="required">*</span>:</label>
-                    <input type="text" id="madurez_cal" name="madurez_cal" required readonly title="La madurez no puede ser modificada.">
+                    <label class="label_datos" for="metanol">Metanol<span class="required">*</span></label>
+                    <input type="text" id="metanol" name="metanol" maxlength="13"  required title="En metanol solo se permiten valores numéricos.">
                 </div>
 
                 <div class="grupo1">
-                    <label class="label_datos" for="TamMat">Tamaño Materia</label>
-                    <input type="text" id="tamañomateria_cal" name="tamañomateria_cal" required readonly title="El tamaño de la materia no puede ser modificada.">
-                </div>              
-
-
+                    <label class="label_datos" for="alc_sup">Alcoholes superiores<span class="required">*</span></label>
+                    <input type="text" id="alc_sup" name="alc_sup" maxlength="13"  required title="En alcoholes superiores prima solo se permiten valores numéricos.">
+                </div>
 
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
-						<a class="Boton_cancelar" href="Mostrar_Calidad.html" id="cancelarButton">Regresar</a>
+                        <button type="submit" id="submitButton">Guardar</button>
+                        <a class="Boton_cancelar" href="Mostrar_Calidad.html" id="cancelarButton">Cancelar</a>
                     </div>
                 </div>
 
             </form>
+            
         </section>
     </main>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-
-    <script src="../../controller/Calidad/js/Mostrar_AnalisisIndividual.js"></script>
-    <script src="../../controller/Calidad/js/Cancelar_AnalisisIndividual.js"></script>
-    
+    <script src="js/Validacion_DCL.js"></script>
+    <script src="../../controller/Calidad/js/Registro_Calidad.js"></script>
 </body>
-
 </html>
