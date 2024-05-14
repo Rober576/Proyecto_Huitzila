@@ -38,7 +38,7 @@ if ($lotes) {
                     <th>Alcoholes superiores</th>
                     <th>Aldehidos</th>
                     <th>Furfural</th>
-                    <th>plomo</th>
+                    <th>Plomo</th>
                     <th>Cobre</th>
                     <th>Documento</th>
                     <th>Fisioquimico</th>
