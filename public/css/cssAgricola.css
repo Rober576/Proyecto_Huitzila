@@ -134,7 +134,7 @@ button.btngeneral:hover{
     background-color: #1d4d25;
 }
 
-a.btngenerala{
+a.btngeneral{
     text-decoration: none; /* Quita el subrayado del enlace */
     color: inherit; /* Utiliza el color de texto heredado */
     cursor: pointer; /* Cambia el cursor al estilo de un botón */
