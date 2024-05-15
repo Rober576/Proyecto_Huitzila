@@ -1,62 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const addButton = document.getElementById('agregarCampos');
-    const container = document.getElementById('camposDinamicosContainer');
-    let contador = 0;
+const cuerpo_tabla = document.getElementById("cuerpo");
+const contenedor_tabla = document.getElementById("tablaResultado")
+contenedor_tabla.style.display = 'none';
 
-    addButton.addEventListener('click', function() {
-        contador++;
+var registros = []
 
-        // Creamos un nuevo conjunto de campos
-        const nuevoCampo = document.createElement('div');
-        nuevoCampo.classList.add('formulario-colum');
-        nuevoCampo.id = 'campo-' + contador;
+insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
 
-        nuevoCampo.innerHTML = `
-            <div class="grupo1">
-                <label class="label_datos" for="Id_productos">Productos<span class="campo-obligatorio">*</span></label>
-                <select id="Id_productos" name="Id_productos" title="Identificador de los productos terminados." required>
-                    <option disabled selected>Seleccionar opción</option>
-                    <!-- Agrega opciones según tus necesidades -->
-                </select>
-            </div>
-            <div class="grupo1">
-                <label class="label_datos" for="Id_insumos">Insumos<span class="campo-obligatorio">*</span></label>
-                <select id="Id_insumos" name="Id_insumos" title="Identificador de los Insumos terminados." required>
-                    <option disabled selected>Seleccionar opción</option>
-                    <!-- Agrega opciones según tus necesidades -->
-                </select>
-            </div>
-            <div class="grupo1">
-                <label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span></label>
-                <input type="number" id="Cantidad" name="Cantidad" title="Unidades en las que se mide el insumo." required>
-            </div>
-            <div class="grupo1">
-                <label class="label_datos" for="UCosto">Costo unitario<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="UCosto" name="UCosto" title="Costo del insumo unitario." required>
-            </div>
-            <div class="grupo1">
-                <label class="label_datos" for="CostoT">Costo total<span class="campo-obligatorio">*</span></label>
-                <input type="text" id="CostoT" name="CostoT" readonly title="Costo total del insumo." required>
-            </div>
-            <div class="grupo1">
-                <label class="label_datos" for="Id_lotes">Lote de producción<span class="campo-obligatorio">*</span></label>
-                <select id="Id_lotes" name="Id_lotes" title="Identificador del lote de producción." required>
-                    <option disabled selected>Seleccionar opción</option>
-                    <!-- Agrega opciones según tus necesidades -->
-                </select>
-            </div>
-            <button type="button" onclick="eliminarCampo(${contador})" class="Boton_cancelar">Eliminar Campos</button>
-        `;
-        
-        // Agregamos el nuevo conjunto de campos al contenedor
-        container.appendChild(nuevoCampo);
-    });
 
-    // Función para eliminar un campo específico
-    window.eliminarCampo = function(id) {
-        const campoEliminar = document.getElementById('campo-' + id);
-        if (campoEliminar) {
-            container.removeChild(campoEliminar);
-        }
-    };
-});
+function mostrarDatos(){
+    contenedor_tabla.style.display = 'block';
+    prod = document.getElementById('Id_productos').value;
+    insumos = document.getElementById('Id_insumos').value;
+    cantidad = document.getElementById('Cantidad').value;
+    costoU = document.getElementById('UCosto').value;
+    costoT = document.getElementById('CostoT').value;
+    lote = document.getElementById('Id_lotes').value;
+
+    var row = document.createElement('tr');
+    var prod_col = document.createElement('td');
+    var insumos_col = document.createElement('td');
+    var cantidad_col = document.createElement('td');
+    var costoU_col = document.createElement('td');
+    var costoT_col = document.createElement('td');
+    var lote_col = document.createElement('td');
+
+    prod_col.innerHTML = prod;
+    row.appendChild(prod_col);
+    insumos_col.innerHTML = insumos;
+    row.appendChild(insumos_col);
+    cantidad_col.innerHTML = cantidad;
+    row.appendChild(cantidad_col);
+    costoU_col.innerHTML = costoU;
+    row.appendChild(costoU_col);
+    costoT_col.innerHTML = costoT;
+    row.appendChild(costoT_col);
+    lote_col.innerHTML = lote;
+    row.appendChild(lote_col);
+
+    cuerpo_tabla.appendChild(row);
+
+    registros.push([prod, insumos, cantidad, costoU, costoT, lote]);
+    console.log(registros);
+
+    document.getElementById('Id_productos').value = ''
+    document.getElementById('Id_insumos').value = ''
+    document.getElementById('Cantidad').value = ''
+    document.getElementById('UCosto').value = ''
+    document.getElementById('CostoT').value = ''
+    document.getElementById('Id_lotes').value = ''
+}
+
+

@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar movimiento insumos</title>
+    <title>Producción de Lotes</title>
+
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
-	<link rel="stylesheet" href="../../public/css/insumos.css">
-	
-	
-    
+    <link rel="stylesheet" href="../../public/css/insumos.css">
 </head>
 <body>
     <header>
@@ -19,7 +17,7 @@
 				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
 				</div>
 				<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Movimiento general insumos</h1>
+				<h1 class="nombre_Ventana">Producción de lotes</h1>
 			</div>
 
 			<div class="boton-cerrar-session">
@@ -76,7 +74,7 @@
 						</li>
 
 						<li>
-							<a href="" class="activo_en_pagina">
+							<a>
 								<i ></i>
 								Movimiento insumo
 							</a>
@@ -84,7 +82,7 @@
                             
 							<ul>
 								<li><a href="Registro_Entradas_Salidas_Insumos.html">Registrar</a></li>
-                                <li><a href="Mostrar_Movimiento_Insumos_General.html" class="activo_en_pagina">Consultar</a></li>
+                                <li><a href="Mostrar_Movimiento_Insumos_General.html">Consultar</a></li>
 							</ul>
 						</li>
 						<li>
@@ -111,18 +109,20 @@
                                 <li><a href="Visualizacion_Insumo_Producto.html">Consultar</a></li>
 							</ul>
 						</li>
-		
-						<li>
-							<a href="">
+
+                        <li>
+							<a href="" class="activo_en_pagina" >
 								<i ></i>
 								Producción de lotes
 							</a>
 				
                             
 							<ul>
-								<li><a href="Produccion_Lote.html" >Registrar</a></li>
+								<li><a href="Produccion_Lote.html" class="activo_en_pagina">Registrar</a></li>
 							</ul>
 						</li>
+		
+						
 		
 						
 					</ul>
@@ -131,58 +131,52 @@
     	</div>
 	</header>
 
-    
-<main>
-
-    <section class="section-main">
-		<div class="cabezera">
-			<h4 class="h4">Movimiento insumos</h4>
-
-		</div>
-		<br>
-		<p class="subtitulo-1">Vista general de movimiento de insumos</p>
-		<hr>
-		<br>
-
-		<form id="formulario" name="formulario">
-			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
-			<span id="mensaje">No se encontraron resultados</span>
-
-			<div class="tablas">
-				<section class="header_table" id="tablaResultado">
-	
-					<table border="1">
-						<tr>
-							<th colspan="5">Datos generales de los movimientos de insumos</th>
-							
-						</tr>
-						<tr>
-							<th>Identificador</th>
-							<th>Nombre</th>
-							<th>Cantidad</th>
-							<th>Costo unitario</th>	
-                            <th>Acciones</th>
-						</tr>
-						<tbody id="cuerpo"></tbody>
-						
-					</table>
-				</section>
+    <main>
+		<section class="section-main">
+			<div class="cabezera">
+				<h4 class="h4">Registro</h4>
 			</div>
-		</form>
+			<br>
+			<p class="subtitulo-1">Datos de lotes</p>
+			<hr>
+			<br>
+
+				
+			<form class="formulario" id="Producción_Lote">
+				<div class="formulario-colum">
+
+
+					<div class="grupo1">
+						<label class="label_datos" for="seleccionar_producto">Seleccionar producto<span class="campo-obligatorio">*</span></label>
+						<select id="seleccionar_producto" name="seleccionar_producto" title="seleccionar producto." required>
+							<option disabled selected>Seleccionar opción</option>
+						</select>
+					</div>
+
+					<div class="grupo1">
+						<label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span></label>
+						<input type="number" id="Cantidad" name="Cantidad" title="Cantidad que se registrará." required>
+					</div>
+					
+				
+					
+				
+				
+				<div class="grupo-boton-reg">
+					<div class="boton_produccion">
+						<button type="submit" id="produccion">Producir</button>
+					</div>
+				</div>
+			</form>
 		
-	</section>
-</main>
+		</section>
+        
+    </main>
 
 
-
-	<br><br><br><br><br><br>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-	
-	
-	<script src="js/Mostrar_Movimiento_Insumos_General.js"></script>
 
-	
 </body>
 </html>
