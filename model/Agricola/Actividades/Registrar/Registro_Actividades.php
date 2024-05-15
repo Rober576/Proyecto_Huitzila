@@ -11,7 +11,7 @@
         }
 
         //manda las consultas para insertar en la tabla de plantas
-        function insertarActividadSinTrabajadores($ClavePlantacion, $Fecha, $nombreActividad, $NombrePlaga, $NombreHerbicida, $Costo, $CostoFinal, $Descripcion){
+        function insertarActividadSinTrabajadores($ClavePlantacion, $Fecha, $nombreActividad, $NombrePlaga, $NombreHerbicida, $Costo, $CostoFinal, $Descripcion, $Semanas){
 
            // Recuperar id de la actividad seleccionada
             $consultaId = "SELECT IdActividad FROM actividadespredios WHERE Actividad = '$nombreActividad'";
@@ -39,9 +39,9 @@
 
             $NumeracionActividad = $max + 1;
 
-            $q1 = "INSERT INTO actividadplantacion (ClavePlantacion, Fecha, IdActividad, NombrePlaga, NombreHerbicida, Costo, NumeracionActividad, CostoFinal, Descripcion)
-            VALUES(:c1, :c2, :c3, :c4, :c5, :c6, :c7, :c8, :c9)";
-            $a1= [":c1"=>$ClavePlantacion, ":c2"=>$Fecha, ":c3"=>$IdActividad, ":c4"=>$NombrePlaga, ":c5"=>$NombreHerbicida, ":c6"=>$Costo, ":c7"=>$NumeracionActividad, ":c8"=>$CostoFinal, ":c9"=>$Descripcion];
+            $q1 = "INSERT INTO actividadplantacion (ClavePlantacion, Fecha, IdActividad, NombrePlaga, NombreHerbicida, Costo, NumeracionActividad, CostoFinal, Descripcion, Semana)
+            VALUES(:c1, :c2, :c3, :c4, :c5, :c6, :c7, :c8, :c9, :c10)";
+            $a1= [":c1"=>$ClavePlantacion, ":c2"=>$Fecha, ":c3"=>$IdActividad, ":c4"=>$NombrePlaga, ":c5"=>$NombreHerbicida, ":c6"=>$Costo, ":c7"=>$NumeracionActividad, ":c8"=>$CostoFinal, ":c9"=>$Descripcion, ":c10"=>$Semanas];
             //acomoda todo en arreglos para mandarlos al CRUD, Puedes meter varios arreglos en un solo arreglo
             
             $querry = $q1;
@@ -53,7 +53,7 @@
         
         }
 
-        function insertarActividadConTrabajadores($ClavePlantacion, $Fecha, $nombreActividad, $NombrePlaga, $NombreHerbicida, $Costo, $CostoFinal, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana){
+        function insertarActividadConTrabajadores($ClavePlantacion, $Fecha, $nombreActividad, $NombrePlaga, $NombreHerbicida, $Costo, $CostoFinal, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana, $Semanas){
 
             // Recuperar id de la actividad seleccionada
              $consultaId = "SELECT IdActividad FROM actividadespredios WHERE Actividad = '$nombreActividad'";
@@ -81,9 +81,9 @@
  
              $NumeracionActividad = $max + 1;
  
-             $q1 = "INSERT INTO actividadplantacion (ClavePlantacion, Fecha, IdActividad, NombrePlaga, NombreHerbicida, Costo, NumeracionActividad, CostoFinal, Descripcion)
-             VALUES(:c1, :c2, :c3, :c4, :c5, :c6, :c7, :c8, :c9)";
-             $a1= [":c1"=>$ClavePlantacion, ":c2"=>$Fecha, ":c3"=>$IdActividad, ":c4"=>$NombrePlaga, ":c5"=>$NombreHerbicida, ":c6"=>$Costo, ":c7"=>$NumeracionActividad, ":c8"=>$CostoFinal, ":c9"=>$Descripcion];
+             $q1 = "INSERT INTO actividadplantacion (ClavePlantacion, Fecha, IdActividad, NombrePlaga, NombreHerbicida, Costo, NumeracionActividad, CostoFinal, Descripcion, Semana)
+             VALUES(:c1, :c2, :c3, :c4, :c5, :c6, :c7, :c8, :c9, :c10)";
+             $a1= [":c1"=>$ClavePlantacion, ":c2"=>$Fecha, ":c3"=>$IdActividad, ":c4"=>$NombrePlaga, ":c5"=>$NombreHerbicida, ":c6"=>$Costo, ":c7"=>$NumeracionActividad, ":c8"=>$CostoFinal, ":c9"=>$Descripcion, ":c10"=>$Semanas];
              //acomoda todo en arreglos para mandarlos al CRUD, Puedes meter varios arreglos en un solo arreglo
              
              $querry = $q1;

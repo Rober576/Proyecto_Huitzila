@@ -44,5 +44,21 @@ class ControladorDatos {
 
         return json_encode($Herbicidas);
     }
+
+    function obtenerPredios() {
+        $query = "SELECT Nombre, CodigoArea FROM predios";
+        $result = $this->base->mostrar($query);
+    
+        $Predios = array();
+        foreach ($result as $row) {
+            $Predios[] = array(
+                'Nombre' => $row['Nombre'],
+                'CodigoArea' => $row['CodigoArea']
+            );
+        }
+    
+        return json_encode($Predios);
+    }
+    
 }
 ?>

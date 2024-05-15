@@ -2,7 +2,7 @@
 // Recoger los valores de los campos del formulario
 include_once('../../../../model/Agricola/Actividades/Registrar/Registro_Actividades.php');
 
-$Clave_Plantacion = $_POST["plantacion"];
+$Clave_Plantacion = $_POST["platacionSele"];
 
 $Tipo_Actividad = $_POST["actividadSele"];
 $Fecha_Inicio = $_POST["fechaIni"];
@@ -46,13 +46,13 @@ if ($CostosImplicados == "no"){
     //instanciar la clase y llamar la funcion para insertar
     $obj = new NuevosCampos();
     $obj->conexion();
-    $obj->insertarActividadSinTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Costos_Generales, $Descripcion);
+    $obj->insertarActividadSinTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Costos_Generales, $Descripcion, $Semanas);
     echo json_encode('exito');
 } else{
     //instanciar la clase y llamar la funcion para insertar
     $obj = new NuevosCampos();
     $obj->conexion();
-    $obj->insertarActividadConTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Total, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana);
+    $obj->insertarActividadConTrabajadores($Clave_Plantacion, $Fecha_Inicio, $Tipo_Actividad, $NombrePlaga,$NombreHerbicida, $Costos_Generales, $Total, $Descripcion, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana, $Semanas);
     echo json_encode('exito');
 }
 ?>
