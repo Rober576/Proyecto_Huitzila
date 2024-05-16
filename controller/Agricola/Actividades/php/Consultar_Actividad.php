@@ -43,8 +43,12 @@ if ($resultado) {
         $salida .= '<button id="' . $id_boton . '" class="boton-eliminar Boton_Tabla eliminar-elemento" data-id="'.$Numeracion.'">Eliminar</Button>';
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificar Boton_Tabla obtener-informacion" data-id="'.$Numeracion.'">Editar</button>';
+        $salida .= ' | ';
+        $salida .= '<button id="' . $id_boton . '" class="boton-vermas Boton_Tabla obtener-Masinformacion" data-id="'.$Numeracion.'">Ver Mas</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
+
+
     }
 
     $salida .= '</tbody></table>';

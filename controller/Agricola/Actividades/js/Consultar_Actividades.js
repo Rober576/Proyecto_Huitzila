@@ -26,6 +26,10 @@ function buscar_datos(consulta, plantacion) {
             var tabla2 = document.getElementById("tabla");
             if (tabla2) {
                 tabla2.innerHTML = xhr.responseText;
+                EventoEditar();
+                EventoEliminar();
+                EventoVerMas();
+                
             } else {
                 console.log("elementos");
             }
@@ -35,6 +39,48 @@ function buscar_datos(consulta, plantacion) {
     };
 
     xhr.send();
+}
+
+function EventoEditar() {
+    var botonesModificar = document.querySelectorAll(".boton-modificar");
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+            window.location.href = "#";
+            var selectPlanta = document.getElementById('plantacionSele');
+            var id = e.target.id;
+            var valorSeleccionado = selectPlanta.value;
+            console.log("Plantacion:", valorSeleccionado);
+            console.log("Actividad:", id)
+        });
+    }
+}
+
+function EventoEliminar() {
+    var botonesModificar = document.querySelectorAll(".boton-eliminar");
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+            window.location.href = "#";
+            var selectPlanta = document.getElementById('plantacionSele');
+            var id = e.target.id;
+            var valorSeleccionado = selectPlanta.value;
+            console.log("Plantacion:", valorSeleccionado);
+            console.log("Actividad:", id)
+        });
+    }
+}
+
+function EventoVerMas() {
+    var botonesModificar = document.querySelectorAll(".boton-vermas");
+    for (var j = 0; j < botonesModificar.length; j++) {
+        botonesModificar[j].addEventListener('click', function(e) {
+            window.location.href = "#";
+            var selectPlanta = document.getElementById('plantacionSele');
+            var id = e.target.id;
+            var valorSeleccionado = selectPlanta.value;
+            console.log("Plantacion:", valorSeleccionado);
+            console.log("Actividad:", id)
+        });
+    }
 }
 
 document.addEventListener('keyup', function(event) {
