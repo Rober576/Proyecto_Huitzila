@@ -21,7 +21,6 @@ predioSeleccionado.addEventListener("change", function() {
 
 function cambiarPlantacionesCombo() {
     var platacionSelect = document.getElementById('platacionSele');
-        //OBTENER LAS PLANTACIONES DE UN PREDIO E INSERTARLOS EN LA COMBO
 
     var predioSeleccionado = document.getElementById("predioSele");
     var valorSeleccionado = predioSeleccionado.value;
@@ -59,14 +58,9 @@ function hayPlantacionEnURL(plantacion) {
        
         var valorSeleccionado = data[0];
         console.log(valorSeleccionado);
-
-        // Obtén una referencia al elemento select
         var selectElement = document.getElementById("predioSele");
-
-        // Itera sobre las opciones para encontrar la que tiene el valor deseado
         for (var i = 0; i < selectElement.options.length; i++) {
             if (selectElement.options[i].value === valorSeleccionado) {
-                // Establece el atributo selected en la opción deseada
                 selectElement.options[i].selected = true;
                 break;
             }
