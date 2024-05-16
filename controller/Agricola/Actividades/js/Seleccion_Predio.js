@@ -98,37 +98,59 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error al obtener datos de las plantaciones:', error));
     }
 
-    function limpiarTabla() {
-        var tabla2 = document.getElementById("tabla");
-        while (tabla2.firstChild) {
-            tabla2.removeChild(tabla2.firstChild);
+    function limpiarTabla2() {
+        var tabla = document.getElementById("tabla");
+        var mensaje = document.getElementById("mensaje");
+        console.log("mensaje")
+    
+        if (tabla) {
+            var filasDatos = tabla.querySelectorAll("tr");
+    
+            // Eliminar todas las filas de datos
+            for (var i = 1; i < filasDatos.length; i++) {
+                filasDatos[i].remove();
+            }
+    
+            // Si hay un mensaje, insertar el encabezado de la tabla
+            if (mensaje) {
+                tabla.innerHTML = '<thead>' + tabla.rows[0].innerHTML + '</thead>';
+                console.log("Hay mensaje")
+            }
+        } else {
+            console.log("No se encontró la tabla.");
         }
     }
+    
+    
+    
 
-
+    //Selecciona Predio
     selectPredio.addEventListener('change', function() {
         var filtroSeleccionado = obtenerValorRadioSeleccionado();
         if (filtroSeleccionado === 'Todos') {
+            limpiarTabla2();
             Todos(filtroSeleccionado);
         } else if (filtroSeleccionado === 'Cosechados') {
+            limpiarTabla2();
             Cosechados(filtroSeleccionado);
         } else if (filtroSeleccionado === 'No cosechados') {
+            limpiarTabla2();
             NoCosechados(filtroSeleccionado);
         }
     });
-
+    //Cambia el radio del
     radioButtons.forEach(function(radioButton) {
         radioButton.addEventListener('change', function() {
             var filtroSeleccionado = obtenerValorRadioSeleccionado();
             //console.log("Filtro sel:", filtroSeleccionado);
             if (filtroSeleccionado === 'Todos') {
-                limpiarTabla();
+                limpiarTabla2();
                 Todos(filtroSeleccionado);
             } else if (filtroSeleccionado === 'Cosechados') {
-                limpiarTabla();
+                limpiarTabla2();
                 Cosechados(filtroSeleccionado);
             } else if (filtroSeleccionado === 'No cosechados') {
-                limpiarTabla();
+                limpiarTabla2();
                 NoCosechados(filtroSeleccionado);
             }
 
