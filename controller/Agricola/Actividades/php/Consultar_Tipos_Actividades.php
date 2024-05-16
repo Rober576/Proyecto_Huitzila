@@ -17,5 +17,8 @@ switch ($tipo) {
     case 'herbicidas':
         echo $controlador->obtenerHerbicidas();
         break;
+    case 'predios':
+        echo $controlador->obtenerPredios();
+        break;
 }
 ?>

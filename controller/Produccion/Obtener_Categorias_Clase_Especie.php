@@ -69,6 +69,18 @@ class ControladorDatos {
         return json_encode($movimiento);
     }
 
+    function obtenerLote_Des() {
+        $query = "SELECT Lote FROM registrodestilado";
+        $result = $this->base->mostrar($query);
+    
+        $lotes = array();
+        foreach ($result as $row) {
+            $lotes[] = $row['Lote'];
+        }
+    
+        return json_encode($lotes);
+    }
+
     function obtenerLote() {
         $query = "SELECT Lote FROM registromezcal";
         $result = $this->base->mostrar($query);
@@ -110,6 +122,9 @@ switch ($tipo) {
         break;
     case 'lote':
         echo $controlador->obtenerLote();
+        break;
+    case 'lote_Des':
+        echo $controlador->obtenerLote_Des();
         break;
     case 'clasesMez':
         echo $controlador->obtenerClasesMez();

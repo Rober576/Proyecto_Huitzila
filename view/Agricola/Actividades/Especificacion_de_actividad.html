@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Predio</title>
+    <title>Especificación de actividades</title>
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
+	<script src="../../../controller/Agricola/Actividades/js/Tabla_Actividades.js"></script>
 </head>
 <body>
     <header>
@@ -36,7 +37,7 @@
 					<ul>
 		
 						<li>
-							<a href="#"class="activo_en_pagina">
+							<a href="#">
 								<i ></i>
 								Predios y plantas
 							</a>
@@ -66,7 +67,7 @@
 						</li>
 
 						<li>
-							<a href="#" >
+							<a href="#" class="activo_en_pagina">
 								<i ></i>
 								Control de actividades
 							</a>
@@ -82,52 +83,67 @@
       		</div>
     	</div>
 	</header>
-
 	<main>
-    <section class="section-main">
-        <div class="cabezera">
-			<h4 class="h4">Modificar</h4>
-		</div>
-		<br>
-		<p class="subtitulo-1"> Modificar Predio</p>
-		<hr>
-            <form id="advanced-form">
-				<div class="formulario-datos">
-					<div>
-						<label for="codArea">Clave del predio</label>
-						<input type="text" id="codArea" name="codArea" required readonly  class="styled-input">
-					</div>
-					<div>
-						<label for="nomPred">Nombre del predio<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="nomPred" name="nomPred" title="El nombre de predio debe contener máximo 20 caracteres, de los cuales solo deben de ser letras y números" required  class="styled-input">
-					</div>
-					<div>
-					<label for="superfPre">Superficie (Ha)<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="superfPre" name="superfPre" class="styled-input" title="La superficie del predio debe contener un máximo de 5 caracteres, de los cuales solo deben de ser números" required>
-					</div>
-				</div>
-                <div>
-                    <label for="descPre">Descripción</label>
-                    <textarea id="descPre" name="desdescPrec" rows="4" title="La descripción debe de contener un máximo de 120 caracteres"></textarea>
+		<section id="section2" class="section-main">
+			<p class="subtitulo-1">Especificación de actividades</p>
+			<hr>
+            <div class="formulario-datos2">
+                <div id="campo1">
+                    <label for="selePlaga">Plaga<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="selePlaga" name="selePlaga" class="styled-input" readonly>
                 </div>
-                
-				<div class="grupo-boton-reg">
-					<div class="boton_registrar">
-						<button type="submit" id="submitButton">Guardar</button>
-						<button type="button" id="cancelButton" class="Boton_cancelar">Cancelar</button>
-					</div>
-				</div>
+                <div id="campo2">
+                    <label for="seleHerbicida">Herbicida<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="seleHerbicida" name="seleHerbicida" class="styled-input" readonly>
+                </div>
+            </div>
+		</section>
 
-            </form>
-        </div>
-    </section>
+		<section id="section3" class="table-container">
+			<table id="tablaActividades">
+				<thead>
+					<tr>
+						<th>Nombre del trabajador</th>
+						<th>Dìas trabajados</th>
+						<th>Semana</th>
+						<th>Actividad desarrollada</th>
+						<th>Gasolina</th>
+						<th>Datos del vehículo</th>
+						<th>Lìquidos</th>
+						<th>Compra de material</th>
+						<th>Gastos extras</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+			<div class="contTot">
+				<div class="totalTabla">
+					<label for="total">Total:</label>
+					<input type="text" id="total" name="total" class="styled-input" readonly>
+				</div>	
+			</div>
+		</section>
+
+		<section class="section-main">
+			<div class="grupo-boton-reg">
+				<div class="boton_registrar">
+					<a href="../Actividades/Vista_actividades.html"><button type="button" id="cancelButton" class="Boton_cancelar">Regresar</button></a>
+				</div>
+		</section>
+
+	</form>
 	</main>
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
-</html>
+<script src="../../../controller/Agricola/Actividades/js/Consulta_Tipos_Actividades.js"></script>
+<script src="js/Agregar_Nueva_Plaga.js"></script>
+<script src="js/Agregar_Nuevo_Herbicida.js"></script>
+<script src="../../../controller/Agricola/Actividades/js/Registro_Actividades.js"></script>
+<script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividades.js"></script>
+<script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividad_Trabajador.js"></script>
 
-<script src="../../../controller/Agricola/Predios/js/Llenado_Campos_Modificar_Predio.js"></script>
-<script src="../../../controller/Agricola/Predios/js/Modificar_Datos_Predio.js"></script>
-<script src="../../../view/Agricola/Predios/js/Validacion_Registro_Predios.js"></script>
+</html>
