@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar movimientos de cremas, destilados y licores</title>
+    <title>Movimientos específicos cremas, destilados y licores</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
     <link rel="stylesheet" href="../../public/css/cssProduccion.css">
-	<!-- <script src="../../controller/Produccion/js/Mostrar_Movimientos_Mezcal.js"></script> -->
+	<!-- <script src="../../controller/Produccion/js/Mostrar_Movimiento_Especifico_Mezcal.js"></script> -->
 </head>
 <body>
     <header>
@@ -105,9 +105,11 @@
 						<tr>
 						  
 							<th>No. de lote</th>
-							<th>Categoría</th>
-							<th>Clase </th>
-							<th>Edad</th>
+							<th>Movimiento</th>
+							<th>Volumen</th>
+							<th>% Concentracion de alc.</th>
+							<th>Vol a 55% alc.</th>
+							<th>Volumen de agua</th>
 						   <th>Acciones</th>
 							
 						</tr>
@@ -118,9 +120,11 @@
 							<td></td>
 							<td></td>
 							<td></td>
+							<td></td>
+							<td></td>
 							<td><div class="acciones">
-								<button class="boton-modificar" type="submit">Específico</button>
-								<button class="boton-eliminar" type="submit">General</button>
+								<button class="boton-modificar" type="button">Modificar</button>
+								<button class="boton-eliminar" type="submit">Eliminar</button>
 							</div></td>
 							
 						</tr>
@@ -131,9 +135,10 @@
                 
         </form>
     </main>
+
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-	<!-- <script src="../../view/Produccion/js/Rutas_de_Interfaz_Movimientos_Mezcal.js"> </script> -->
+	<!-- <script src="../../view/Produccion/js/Rutas_de_Interfaz_Movimiento_Especifico_Mezcal.js"> </script> -->
 </body>
 </html>
