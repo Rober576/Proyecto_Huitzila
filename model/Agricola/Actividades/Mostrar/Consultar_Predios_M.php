@@ -10,15 +10,19 @@ class ControladorDatos {
     }
 
     function obtenerPredios() {
-        $query = "SELECT Nombre FROM predios";
+        $query = "SELECT CodigoArea, Nombre FROM predios";
         $result = $this->base->mostrar($query);
-
-        $especies = array();
+    
+        $predios = array();
         foreach ($result as $row) {
-            $especies[] = $row['Nombre'];
+            $predio = array(
+                'ClaveArea' => $row['CodigoArea'],
+                'Nombre' => $row['Nombre']
+            );
+            $predios[] = $predio;
         }
-
-        return json_encode($especies);
+    
+        return json_encode($predios);
     }
 
 }
