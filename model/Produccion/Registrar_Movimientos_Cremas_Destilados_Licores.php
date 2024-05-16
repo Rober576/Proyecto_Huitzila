@@ -10,7 +10,7 @@ class NuevosCampos {
     }
 
     function obtenerIDLote($lote) {
-        $q = "SELECT Lote FROM registromezcal WHERE Lote = :lote";
+        $q = "SELECT Lote FROM registrodestilado WHERE Lote = :lote";
         $params = array(":Lote" => $lote);
         
         $resultado = $this->base->mostrar($q, $params);
@@ -39,7 +39,7 @@ class NuevosCampos {
             SELECT 
                 IFNULL(m.FinalVolumen, 0) AS FinalVolumen,
                 IFNULL(m.FinalPorcentaje, 0) AS FinalPorcentaje
-            FROM movimientomezcal m
+            FROM movimientodestilado m
             WHERE m.Lote = '$lote'
             ORDER BY m.NumeroMovimiento DESC
             LIMIT 1
@@ -50,26 +50,27 @@ class NuevosCampos {
         if (!empty($result)) {
             return json_encode($result[0]);
         } else {
-
+            // Si no hay resultados, retornar 0 para ambos valores
             return json_encode(array('FinalVolumen' => 0, 'FinalPorcentaje' => 0));
         }
     }
 
     function calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol, $tipoES) {
-
+        // Convertir a números de punto flotante
         $inicialVolumen = floatval($inicialVolumen);
         $volumen = floatval($volumen);
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
     
-
+        // Inicializar variables para FinalVolumen y FinalPorcentaje
         $finalVolumen = 0;
         $finalPorcentaje = 0;
-
+    
+        // Verificar el tipo de movimiento
         if ($tipoES == 'entrada') {
-
+            // Sumar volumen
             $finalVolumen = $inicialVolumen + $volumen;
-
+            // Calcular porcentaje
             if ($inicialVolumen == 0) {
                 $finalPorcentaje = $alc_vol;
             } else {
@@ -78,32 +79,33 @@ class NuevosCampos {
         } elseif ($tipoES == 'salida') {
             // Restar volumen
             $finalVolumen = $inicialVolumen - $volumen;
-
+            // Si el volumen inicial es 0, el porcentaje también será 0
             if ($inicialVolumen == 0) {
                 $finalPorcentaje = 0;
             } else {
-
+                // Calcular porcentaje
                 $finalVolumen = $inicialVolumen - $volumen;
             }
         }
-
+    
+        // Devolver los resultados
         return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
     }
 
     function verificarRegistro($lote, $fecha) {
-
+        // Verificar si existe algún registro para el lote
         $query = "
             SELECT COUNT(*) AS count
-            FROM movimientomezcal
+            FROM movimientodestilado
             WHERE Lote = '$lote'
         ";
         $result = $this->base->mostrar($query);
         
         if (!empty($result) && $result[0]['count'] > 0) {
-
+            // Si hay al menos un registro para el lote, obtener el número de movimiento más alto y su fecha
             $query = "
                 SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha
-                FROM movimientomezcal
+                FROM movimientodestilado
                 WHERE Lote = '$lote'
             ";
             $result = $this->base->mostrar($query);
@@ -111,16 +113,16 @@ class NuevosCampos {
             $numeroMovimiento = $result[0]['MaxNumeroMovimiento'];
             $fechaUltimoRegistro = $result[0]['Fecha'];
     
-
+            // Verificar si la fecha que se quiere ingresar es mayor o igual a la última fecha registrada
             if ($fecha >= $fechaUltimoRegistro) {
-
+                // Devolver el número de movimiento más alto más uno
                 return $numeroMovimiento + 1;
             } else {
-
+                // La fecha es menor que la última fecha registrada
                 return "La fecha ingresada es menor que la ultima fecha registrada";
             }
         } else {
-
+            // Si no hay registros para el lote, retornar 1 como primer número de movimiento
             return 0;
         }
     }
@@ -147,12 +149,12 @@ class NuevosCampos {
         
 
         
-
+            // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-            $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
-                    VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
+            $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+                    VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
             
             $params = array(
                 ":Lote" => $lote,
@@ -173,9 +175,9 @@ class NuevosCampos {
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
             $this->base->cerrar_conexion();
-            return true;
+            return true; // La inserción se realizó correctamente
         } else {
-
+            // Si la fecha no es válida, devolver el mensaje de error
             return $verificacion;
         }
     }

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var formulario = document.getElementById('form_ingreso_cremas');
+    var formulario = document.getElementById('form_ingreso_agave');
 
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var datos = new FormData(formulario);
 
 
-        fetch('../../controller/Produccion/Registrar_Movimientos.php', {
+        fetch('../../controller/Produccion/Registrar_Movimientos_Cremas_Destilados_Licores.php', {
             method: 'POST',
             body: datos
         })
         .then(res => res.json()) 
         .then(data => {
-            console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
+            console.error(data.trim()); 
             console.log("Entro4")
             if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
                 // Mostrar mensaje de error si la fecha ingresada es menor que la última fecha registrada
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Si la inserción es exitosa, redireccionar a la página de éxito
                 alert("Registro exitoso");
-                location.href = "../../view/Produccion/Registro_Movimientos.html";
+                location.href = "../../view/Produccion/Registrar_Movimientos_Cremas_Destilados_Licores.html";
             }      
         })
         .catch(error => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var selectCategoria = document.getElementById('lote');
 
-    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote')
+    fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote_Des')
     .then(response => response.json())
     .then(data => {
         data.forEach(item => {
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var vol55Label = document.querySelector('label[for="alc_vol55"]');
     var vol55Input = document.getElementById('alc_vol55');
 
+    // Iniciar desactivado el campo alc_vol55 y establecer color de fondo gris
     vol55Input.disabled = true;
     vol55Input.style.backgroundColor = 'lightgrey';
 
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Desbloquear la entrada de texto
             volAguaInput.disabled = false;
-            volAguaInput.style.backgroundColor = 'white'; 
+            volAguaInput.style.backgroundColor = 'white'; // Restaurar color original
         } else if (tipoSelect.value === 'salida') {
             procedenciaLabel.textContent = 'Destino';
             asterisco.classList.add('campo-obligatorio');
@@ -112,9 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Bloquear la entrada de texto
             volAguaInput.disabled = true;
-            volAguaInput.style.backgroundColor = 'lightgrey';
+            volAguaInput.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
 
-
+            // Si hay información en el campo de texto, borrarla
             volAguaInput.value = '';
         }
     });
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = false;
-            vol55Input.style.backgroundColor = 'white';
+            vol55Input.style.backgroundColor = 'white'; // Restaurar color original
         } else {
             vol55Label.textContent = 'Vol a 55% alc.';
             var asterisco = document.createElement('span');
@@ -135,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
             asterisco.classList.add('campo-obligatorio');
             vol55Label.appendChild(asterisco);
             vol55Input.disabled = true;
-            vol55Input.style.backgroundColor = 'lightgrey'; 
-            vol55Input.value = ''; 
+            vol55Input.style.backgroundColor = 'lightgrey'; // Cambiar color a gris
+            vol55Input.value = ''; // Vaciar el campo si no es "merma"
         }
     });
 });
