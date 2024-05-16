@@ -14,7 +14,6 @@ function mostrarDatos(){
     cantidad = document.getElementById('Cantidad').value;
     costoU = document.getElementById('UCosto').value;
     costoT = document.getElementById('CostoT').value;
-    lote = document.getElementById('Id_lotes').value;
 
     var row = document.createElement('tr');
     var prod_col = document.createElement('td');
@@ -22,7 +21,7 @@ function mostrarDatos(){
     var cantidad_col = document.createElement('td');
     var costoU_col = document.createElement('td');
     var costoT_col = document.createElement('td');
-    var lote_col = document.createElement('td');
+
 
     prod_col.innerHTML = prod;
     row.appendChild(prod_col);
@@ -34,12 +33,11 @@ function mostrarDatos(){
     row.appendChild(costoU_col);
     costoT_col.innerHTML = costoT;
     row.appendChild(costoT_col);
-    lote_col.innerHTML = lote;
-    row.appendChild(lote_col);
+
 
     cuerpo_tabla.appendChild(row);
 
-    registros.push([prod, insumos, cantidad, costoU, costoT, lote]);
+    registros.push([prod, insumos, cantidad, costoU, costoT]);
     console.log(registros);
 
     document.getElementById('Id_productos').value = ''
@@ -47,7 +45,7 @@ function mostrarDatos(){
     document.getElementById('Cantidad').value = ''
     document.getElementById('UCosto').value = ''
     document.getElementById('CostoT').value = ''
-    document.getElementById('Id_lotes').value = ''
+
 }
 
 

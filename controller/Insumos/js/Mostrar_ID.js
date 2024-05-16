@@ -14,21 +14,6 @@ function obtenerProductos() {
     });
 }
 
-function obtenerLotes() {
-    fetch('../../controller/Insumos/Obtener_Lotes.php')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Ocurrió un error al obtener los datos de los insumos.');
-        }
-        return response.json();
-    })
-    .then(data => {
-        llenarListaLotes(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
 
 function obtenerInsumos() {
     fetch('../../controller/Insumos/Obtener_Id_Insumos.php')
@@ -48,7 +33,6 @@ function obtenerInsumos() {
 
 window.addEventListener('DOMContentLoaded', obtenerProductos);
 window.addEventListener('DOMContentLoaded', obtenerInsumos);
-window.addEventListener('DOMContentLoaded', obtenerLotes);
 
 document.getElementById('insumos_form').addEventListener('submit', function(event) {
     
@@ -113,9 +97,8 @@ function llenarListaInsumos(datosInsumos) {
 function validarFormulario() {
     const selectInsumos = document.getElementById('Id_insumos');
     const selectProductos = document.getElementById('Id_productos');
-    const selectLotes = document.getElementById('Id_lotes');
     
-    if (selectInsumos.value === '' || selectProductos.value === '' || selectLotes.value === '') {
+    if (selectInsumos.value === '' || selectProductos.value === '') {
         alert('Por favor, seleccione una opción.');
         return false; 
     }
@@ -131,24 +114,4 @@ document.getElementById('insumos_form').addEventListener('submit', function(even
     }
 });
 
-function llenarListaLotes(datosProductos) {
-    const selectProductos = document.getElementById('Id_lotes');
 
-    
-    selectProductos.innerHTML = '';
-
-    
-    const optionDefault = document.createElement('option');
-    optionDefault.value = '';
-    optionDefault.textContent = 'Seleccionar opción';
-    optionDefault.selected = true; 
-    selectProductos.appendChild(optionDefault);
-
-    
-    for(i = 0; i < datosProductos.length; i++){
-        const option = document.createElement('option');
-        option.value = datosProductos[i];
-        option.textContent = datosProductos[i];
-        selectProductos.appendChild(option);
-    }
-}

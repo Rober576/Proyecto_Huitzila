@@ -56,6 +56,106 @@ insumos_form.UCosto.addEventListener("keyup", (e) =>{
     }
 });
 
+insumos_form.Cantidad.addEventListener("keyup", (e) =>{
+    let valorInput = e.target.value;
+    insumos_form.Cantidad.value = valorInput
+    
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+
+    //elimina las letras
+    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
+
+
+    if (verificarPuntos(valorInput) == true) {
+        Cantidad.style.border = "3px solid red";
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.Cantidad.value = valorInput;
+        cu = false
+    }
+
+    //elimina el tercer decimal
+    if (validarDecimales(valorInput) == true) {
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.Cantidad.value = valorInput;
+    }
+
+    //elimina el primer caracter si es un punto
+    if (primeroNum(valorInput) == true) {
+        Cantidad.style.border = "3px solid red";
+        valorInput = valorInput.substr(1, valorInput.length);
+        insumos_form.Cantidad.value = valorInput;
+        cu = false
+    }
+    
+    if(expresiones.costo.test(e.target.value)){
+        Cantidad.removeAttribute("style");
+        cu = true
+        var costo = parseFloat(insumos_form.UCosto.value) * parseFloat(insumos_form.Cantidad.value);
+        CostoT.value = costo.toFixed(2);
+    }
+    else{
+        Cantidad.style.border = "3px solid red";
+        cu = false
+    }
+});
+
+insumos_form.CantidadM.addEventListener("keyup", (e) =>{
+    let valorInput = e.target.value;
+    insumos_form.CantidadM.value = valorInput
+    
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+
+    //elimina las letras
+    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
+
+
+    if (verificarPuntos(valorInput) == true) {
+        CantidadM.style.border = "3px solid red";
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.CantidadM.value = valorInput;
+        cu = false
+    }
+
+    //elimina el tercer decimal
+    if (validarDecimales(valorInput) == true) {
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.CantidadM.value = valorInput;
+    }
+
+    //elimina el primer caracter si es un punto
+    if (primeroNum(valorInput) == true) {
+        CantidadM.style.border = "3px solid red";
+        valorInput = valorInput.substr(1, valorInput.length);
+        insumos_form.CantidadM.value = valorInput;
+        cu = false
+    }
+    
+    if(expresiones.costo.test(e.target.value)){
+        CantidadM.removeAttribute("style");
+        cu = true
+        
+    }
+    else{
+        CantidadM.style.border = "3px solid red";
+        cu = false
+    }
+});
+
+
 //funcion para verificar que la cadena no tenga mas de un punto
 function verificarPuntos(cadena){
     var puntos = 0;
