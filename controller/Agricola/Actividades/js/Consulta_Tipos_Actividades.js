@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
     var predioSelect = document.getElementById('predioSele');
     fetch('../../../controller/Agricola/Actividades/php/Consultar_Tipos_Actividades.php?tipo=predios')
         .then(response => response.json())  
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .catch(error => console.error('Error al obtener herbicidas:', error));
 
-    
-});
+
+
 
 
     
