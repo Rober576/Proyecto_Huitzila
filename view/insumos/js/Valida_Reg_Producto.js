@@ -4,9 +4,9 @@ let nom = true
 let des = true
 let smax = true
 let smin = true
-let cprom = true
-let cu = true
-let can = true
+// let cprom = true
+// let cu = true
+// let can = true
 
 //variables para los campos de texto
 identificador = document.getElementById("Identificador");
@@ -14,9 +14,9 @@ nombre = document.getElementById("Nombre");
 descripcion = document.getElementById("Descripcion");
 stockma = document.getElementById("Stockma");
 stockmi = document.getElementById("Stockmi");
-costoProm = document.getElementById("CProm");
-ultimoCosto = document.getElementById("UCosto");
-cant = document.getElementById("cantidad");
+// costoProm = document.getElementById("CProm");
+// ultimoCosto = document.getElementById("UCosto");
+// cant = document.getElementById("cantidad");
 
 //listener del click del boton
 let botonRegistrar = document.getElementById("registrar");
@@ -46,15 +46,15 @@ botonRegistrar.addEventListener("click", (e) =>{
         stockmi.style.border = "3px solid red";
     }
 
-    else if(cprom == false){
-        e.preventDefault()
-        costoProm.style.border = "3px solid red";
-    }
+    // else if(cprom == false){
+    //     e.preventDefault()
+    //     costoProm.style.border = "3px solid red";
+    // }
 
-    else if(cu == false){
-        e.preventDefault()
-        ultimoCosto.style.border = "3px solid red";
-    }
+    // else if(cu == false){
+    //     e.preventDefault()
+    //     ultimoCosto.style.border = "3px solid red";
+    // }
 
 
     else{
@@ -191,120 +191,120 @@ insumos_form.Descripcion.addEventListener("keyup", (e) =>{
     }
 });
 
-insumos_form.CProm.addEventListener("keyup", (e) =>{
-    let valorInput = e.target.value;
-    insumos_form.CProm.value = valorInput
+// insumos_form.CProm.addEventListener("keyup", (e) =>{
+//     let valorInput = e.target.value;
+//     insumos_form.CProm.value = valorInput
     
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
+//     //elimina los espacios en blanco
+//     .replace(/\s+/g, '')
 
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+//     //elimina caracteres especiales
+//     .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
 
-    //elimina las letras
-    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|Í¶ÓÚ]/g, '')
+//     //elimina las letras
+//     .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|Í¶ÓÚ]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+//     //elimina el ultimo espacio en blanco
+//     .trim()
 
 
-    if (verificarPuntos(valorInput) == true) {
-        CProm.style.border = "3px solid red";
-        valorInput = valorInput.substr(0, valorInput.length - 1);
-        insumos_form.CProm.value = valorInput;
-        cprom = false
-    }
+//     if (verificarPuntos(valorInput) == true) {
+//         CProm.style.border = "3px solid red";
+//         valorInput = valorInput.substr(0, valorInput.length - 1);
+//         insumos_form.CProm.value = valorInput;
+//         cprom = false
+//     }
 
-    //elimina el tercer decimal
-    if (validarDecimales(valorInput) == true) {
-        valorInput = valorInput.substr(0, valorInput.length - 1);
-        insumos_form.CProm.value = valorInput;
-    }
+//     //elimina el tercer decimal
+//     if (validarDecimales(valorInput) == true) {
+//         valorInput = valorInput.substr(0, valorInput.length - 1);
+//         insumos_form.CProm.value = valorInput;
+//     }
 
-    //elimina el primer caracter si es un punto
-    if (primeroNum(valorInput) == true) {
-        CProm.style.border = "3px solid red";
-        valorInput = valorInput.substr(1, valorInput.length);
-        insumos_form.CProm.value = valorInput;
-        cprom = false
-    }
+//     //elimina el primer caracter si es un punto
+//     if (primeroNum(valorInput) == true) {
+//         CProm.style.border = "3px solid red";
+//         valorInput = valorInput.substr(1, valorInput.length);
+//         insumos_form.CProm.value = valorInput;
+//         cprom = false
+//     }
     
-    if(expresiones.precio.test(e.target.value)){
-        CProm.removeAttribute("style");
-        cprom = true
-    }
-    else{
-        CProm.style.border = "3px solid red";
-        cprom = false
-    }
-});
+//     if(expresiones.precio.test(e.target.value)){
+//         CProm.removeAttribute("style");
+//         cprom = true
+//     }
+//     else{
+//         CProm.style.border = "3px solid red";
+//         cprom = false
+//     }
+// });
 
-insumos_form.UCosto.addEventListener("keyup", (e) =>{
-    let valorInput = e.target.value;
-    insumos_form.UCosto.value = valorInput
+// insumos_form.UCosto.addEventListener("keyup", (e) =>{
+//     let valorInput = e.target.value;
+//     insumos_form.UCosto.value = valorInput
     
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
+//     //elimina los espacios en blanco
+//     .replace(/\s+/g, '')
 
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+//     //elimina caracteres especiales
+//     .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
 
-    //elimina las letras
-    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|Í¶ÓÚ]/g, '')
+//     //elimina las letras
+//     .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|Í¶ÓÚ]/g, '')
     
-    //elimina el ultimo espacio en blanco
-    .trim()
+//     //elimina el ultimo espacio en blanco
+//     .trim()
 
 
-    if (verificarPuntos(valorInput) == true) {
-        UCosto.style.border = "3px solid red";
-        valorInput = valorInput.substr(0, valorInput.length - 1);
-        insumos_form.UCosto.value = valorInput;
-        cu = false
-    }
+//     if (verificarPuntos(valorInput) == true) {
+//         UCosto.style.border = "3px solid red";
+//         valorInput = valorInput.substr(0, valorInput.length - 1);
+//         insumos_form.UCosto.value = valorInput;
+//         cu = false
+//     }
 
-    //elimina el tercer decimal
-    if (validarDecimales(valorInput) == true) {
-        valorInput = valorInput.substr(0, valorInput.length - 1);
-        insumos_form.UCosto.value = valorInput;
-    }
+//     //elimina el tercer decimal
+//     if (validarDecimales(valorInput) == true) {
+//         valorInput = valorInput.substr(0, valorInput.length - 1);
+//         insumos_form.UCosto.value = valorInput;
+//     }
 
-    //elimina el primer caracter si es un punto
-    if (primeroNum(valorInput) == true) {
-        UCosto.style.border = "3px solid red";
-        valorInput = valorInput.substr(1, valorInput.length);
-        insumos_form.UCosto.value = valorInput;
-        cu = false
-    }
+//     //elimina el primer caracter si es un punto
+//     if (primeroNum(valorInput) == true) {
+//         UCosto.style.border = "3px solid red";
+//         valorInput = valorInput.substr(1, valorInput.length);
+//         insumos_form.UCosto.value = valorInput;
+//         cu = false
+//     }
     
-    if(expresiones.precio.test(e.target.value)){
-        UCosto.removeAttribute("style");
-        cu = true
-    }
-    else{
-        UCosto.style.border = "3px solid red";
-        cu = false
-    }
-});
+//     if(expresiones.precio.test(e.target.value)){
+//         UCosto.removeAttribute("style");
+//         cu = true
+//     }
+//     else{
+//         UCosto.style.border = "3px solid red";
+//         cu = false
+//     }
+// });
 
-insumos_form.cantidad.addEventListener("keyup", (e) =>{
-    let valorInput = e.target.value;
-    insumos_form.cantidad.value = valorInput
+// insumos_form.cantidad.addEventListener("keyup", (e) =>{
+//     let valorInput = e.target.value;
+//     insumos_form.cantidad.value = valorInput
     
-    //eliminar los carateres no permitidos
-    .replace(/\s+/g, '')
+//     //eliminar los carateres no permitidos
+//     .replace(/\s+/g, '')
 
-    .replace(/[^0-9]/g, '')
+//     .replace(/[^0-9]/g, '')
     
-    if(expresiones.stock.test(e.target.value)){
-        cantidad.removeAttribute("style");
-        can = true
-    }
-    else{
-        cantidad.style.border = "3px solid red";
-        can = false
-    }
-});
+//     if(expresiones.stock.test(e.target.value)){
+//         cantidad.removeAttribute("style");
+//         can = true
+//     }
+//     else{
+//         cantidad.style.border = "3px solid red";
+//         can = false
+//     }
+// });
 
 //funcion para verificar que la cadena no tenga mas de un punto
 function verificarPuntos(cadena){
