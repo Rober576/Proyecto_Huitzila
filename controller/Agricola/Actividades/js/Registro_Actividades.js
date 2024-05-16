@@ -19,13 +19,6 @@ formulario.addEventListener('submit', function (e) {
     cargarListasDesdeLocalStorage();
     var datos = new FormData(formulario);
 
-    var plantacion = obtenerParametroURL('plantacion');
-            console.log(plantacion);
-
-            if (plantacion !== null && plantacion !== ""){
-                datos.append('plantacion', plantacion);
-            }
-
     
 
 

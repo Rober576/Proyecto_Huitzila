@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
+	 
 </head>
 <body>
     <header>
@@ -73,7 +74,7 @@
 				
 							<ul>
 								<li><a href="../Actividades/Registro_de_actividades.html">Registrar actividad</a></li>
-								<li><a href="">Consultar actividades</a></li>
+								<li><a href="../Actividades/Vista_actividades.html">Consultar actividades</a></li>
 							</ul>
 						</li>
 
@@ -92,11 +93,15 @@
             <div class="formulario-datos">
                 <div>
                     <label for="predioSele">Seleccione el predio<span class="campo-obligatorio">*</span></label>
-                    <select id="predioSele" name="predioSele" class="styled-input"></select>
+                    <select id="predioSele" name="predioSele" class="styled-input">
+						<option disabled hidden selected>Seleccione una opción</option>
+					</select>
                 </div>
                 <div>
                     <label for="plantacionSele">Seleccione la plantación<span class="campo-obligatorio">*</span></label>
-                    <select id="plantacionSele" name="plantacionSele" class="styled-input"></select>
+                    <select id="plantacionSele" name="plantacionSele" class="styled-input">
+						<option disabled hidden selected>Seleccione una opción</option>
+					</select>
                 </div>
                 <div>
                     <label for="radioFiltro">Seleccione el tipo de campo<span class="campo-obligatorio">*</span></label>
@@ -109,7 +114,7 @@
                 </div>
             </div>
             </section>
-            <section class="table-container">
+            <section class="table-container", id="tabla">
             <table>
                 <tr>
                     <th>Actividad realizada</th>
@@ -126,5 +131,11 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 </body>
+
+<script src="../../../controller/Agricola/Actividades/js/Consulta_Predios.js"></script>
+<script src="../../../controller/Agricola/Actividades/js/Seleccion_Predio.js"></script>
+<script src="../../../controller/Agricola/Actividades/js/Consultar_Actividades.js"></script>
+
+
 
 </html>

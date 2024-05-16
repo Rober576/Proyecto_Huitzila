@@ -10,9 +10,9 @@ class RegProducto{
         $this->nombre = $_POST['Nombre'];
         $this->smin = $_POST['Stockmi'];
         $this->smax = $_POST['Stockma'];
-        $this->cprom = $_POST['CProm'];
-        $this->cu = $_POST['UCosto'];
-        $this->cantidad = $_POST['cantidad'];
+        $this->cprom = 0; //$_POST['CProm'];
+        $this->cu = 0; //$_POST['UCosto'];
+        $this->cantidad = 0; //$_POST['cantidad'];
 
         $this ->base = new RegistroProducto();
         $this->base->instancias();

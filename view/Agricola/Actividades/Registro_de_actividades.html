@@ -75,7 +75,7 @@
 				
 							<ul>
 								<li><a href="../Actividades/Registro_de_actividades.html">Registrar actividad</a></li>
-								<li><a href="">Consultar actividades</a></li>
+								<li><a href="../Actividades/Vista_actividades.html">Consultar actividades</a></li>
 							</ul>
 						</li>
 
@@ -96,11 +96,15 @@
 					<div class="formulario-datos2">
 						<div>
 							<label for="predioSele">Seleccione el predio<span class="campo-obligatorio">*</span></label>
-							<select id="predioSele" name="predioSele" class="styled-input"></select>
+							<select id="predioSele" name="predioSele" class="styled-input">
+								<option disabled hidden selected>Seleccione una opción</option>
+							</select>
 						</div>
 						<div>
 							<label for="platacionSele">Seleccione la plantación<span class="campo-obligatorio">*</span></label>
-							<select id="platacionSele" name="platacionSele" class="styled-input"></select>
+							<select id="platacionSele" name="platacionSele" class="styled-input">
+								<option disabled hidden selected>Seleccione una opción</option>
+							</select>
 						</div>
 					</div>
 					<div class="formulario-datos">
@@ -259,6 +263,7 @@
 <script src="../../../controller/Agricola/Actividades/js/Consulta_Tipos_Actividades.js"></script>
 <script src="js/Agregar_Nueva_Plaga.js"></script>
 <script src="js/Agregar_Nuevo_Herbicida.js"></script>
+<script src="../../../controller/Agricola/Actividades/js/Consultar_Plantaciones.js"></script>
 <script src="../../../controller/Agricola/Actividades/js/Registro_Actividades.js"></script>
 <script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividades.js"></script>
 <script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividad_Trabajador.js"></script>
