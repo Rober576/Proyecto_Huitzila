@@ -1,28 +1,70 @@
-
-
-// Aquí creas tus listas correspondientes
 const listaNombreTrabajador = [];
-const listaDiasSeleccionados = [];
-const listaDescripcion = [];
-const listaGastoGasolina = [];
-const listaDatosVehiculo = [];
-const listaGastoLiquidos = [];
-const listaCompraMaterial = [];
-const listaGastosExtras = [];
-const listaSemana = [];
-
+    const listaDiasSeleccionados = [];
+    const listaDescripcion = [];
+    const listaGastoGasolina = [];
+    const listaDatosVehiculo = [];
+    const listaGastoLiquidos = [];
+    const listaCompraMaterial = [];
+    const listaGastosExtras = [];
+    const listaSemana = [];
 
 function Lista(){
+    const listaNombreTrabajador = [];
+    const listaDiasSeleccionados = [];
+    const listaDescripcion = [];
+    const listaGastoGasolina = [];
+    const listaDatosVehiculo = [];
+    const listaGastoLiquidos = [];
+    const listaCompraMaterial = [];
+    const listaGastosExtras = [];
+    const listaSemana = [];
+
     const tabla = document.getElementById("tablaActividades");
     if (tabla.rows.length > 1) {
         console.log("Hay elementos antes de agregar");
         const numeroDeFilas = tabla.rows.length;
+
+        
+
         for (let i = 1; i < numeroDeFilas; i++) {
             const fila = tabla.rows[i];
-            for (let j = 0; j < fila.cells.length-1; j++) {
-                console.log(`Fila ${i}, Columna ${j}: ${fila.cells[j].textContent}`);
-            }
+            const Nombre = fila.cells[0].textContent;
+            const Dias = fila.cells[1].textContent;
+            const Semana = fila.cells[2].textContent;
+            const Actividad = fila.cells[3].textContent;
+            const Gas = fila.cells[4].textContent;
+            const Vehiculo = fila.cells[5].textContent;
+            const Liquidos = fila.cells[6].textContent;
+            const Material = fila.cells[7].textContent;
+            const GasExtra = fila.cells[8].textContent;
+
+            listaNombreTrabajador.push(Nombre);
+            listaDiasSeleccionados.push(Dias);
+            listaDescripcion.push(Actividad);
+            listaGastoGasolina.push(Gas);
+            listaDatosVehiculo.push(Vehiculo);
+            listaGastoLiquidos.push(Liquidos);
+            listaCompraMaterial.push(Material);
+            listaGastosExtras.push(GasExtra);
+            listaSemana.push(Semana);
+            const total1 = listaCompraMaterial.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+            const total2 = listaGastoGasolina.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+            const total3 = listaGastoLiquidos.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+            const total4 = listaGastosExtras.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+            const General = document.getElementById("cosGenral").value;
+            const CostoGeneral = parseFloat(General);
+            const Final= total1+total2+total3+total4+CostoGeneral
+
+            let sumaRedondeada = Final.toFixed(2);
+            document.getElementById("total").value = sumaRedondeada;
+
+            console.log(Final)
+
+            guardarListasEnLocalStorage()
+
         }
+        console.log(listaGastoGasolina)
+
     } else {
         console.log("La tabla no contiene más elementos.");
     }
@@ -32,7 +74,7 @@ function Lista(){
 
 
 function agregarFilaATabla() {
-    Lista();
+    
 
     const nombreTrabajador = document.getElementById("nomTrab").value;
     const gastoGasolina = document.getElementById("gasGas").value;
@@ -59,6 +101,7 @@ function agregarFilaATabla() {
         .map(cb => cb.nombre);
 
     const diasString = diasSeleccionados.join(", ");
+    console.log(diasString) 
 
     const tabla = document.getElementById("tablaActividades");
     const nuevaFila = document.createElement("tr");
@@ -74,42 +117,13 @@ function agregarFilaATabla() {
     nuevaFila.appendChild(crearCelda(gastosExtras));
     nuevaFila.appendChild(BotonEliminar());
 
-    listaNombreTrabajador.push(nombreTrabajador);
-    listaDiasSeleccionados.push(diasSeleccionados);
-    listaDescripcion.push(descripcion);
-    listaGastoGasolina.push(gastoGasolina);
-    listaDatosVehiculo.push(datosVehiculo);
-    listaGastoLiquidos.push(gastoLiquidos);
-    listaCompraMaterial.push(compraMaterial);
-    listaGastosExtras.push(gastosExtras);
-    listaSemana.push(Semana);
-    guardarListasEnLocalStorage()
 
     tabla.appendChild(nuevaFila);
 
-    Sumaa();
+    Lista();
     limpiarCampos();
 }
 
-function Sumaa(){
-    const General = document.getElementById("cosGenral").value;
-    function sumaLista(lista) {
-        return lista.reduce((acumulador, valor) => {
-            const numero = parseFloat(valor);
-            return isNaN(numero) ? acumulador : acumulador + numero;
-        }, 0);
-    }
-    let sumaGasolina = sumaLista(listaGastoGasolina);
-    let sumaLiquidos = sumaLista(listaGastoLiquidos);
-    let sumaMaterial = sumaLista(listaCompraMaterial);
-    let sumaExtra =sumaLista(listaGastosExtras);
-    const CostoGeneral = parseFloat(General);
-
-    let suma = sumaGasolina + sumaLiquidos + sumaMaterial + sumaExtra+ CostoGeneral;
-    let sumaRedondeada = suma.toFixed(2);
-    document.getElementById("total").value = sumaRedondeada;
-
-}
 
 function crearCelda(texto) {
     const celda = document.createElement("td");
@@ -118,7 +132,7 @@ function crearCelda(texto) {
 }
 
 function logInput() {
-    Sumaa();
+    Lista();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -128,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-function BotonEliminar() {                                         ///Botonnnnnnnnnnnnnnnn aquiiiiiiiiiii
+function BotonEliminar() {                                  
     const celda = document.createElement("td");
     const botonEliminar = document.createElement("button");
     botonEliminar.textContent = "Eliminar";
@@ -136,35 +150,15 @@ function BotonEliminar() {                                         ///Botonnnnnn
 
     botonEliminar.addEventListener("click", function () {
         const fila = botonEliminar.parentNode.parentNode;
-        const indiceFila = fila.rowIndex - 1; // Restamos 1 porque los índices de las filas comienzan en 0
     
-        // Mostrar un cuadro de confirmación
         const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta fila?");
     
         if (confirmacion) {
-            // Si el usuario confirma, eliminar la fila y actualizar las listas
             fila.remove();
-    
-            // Eliminar los elementos correspondientes de las listas
-            listaNombreTrabajador.splice(indiceFila, 1);
-            listaDiasSeleccionados.splice(indiceFila, 1);
-            listaDescripcion.splice(indiceFila, 1);
-            listaGastoGasolina.splice(indiceFila, 1);
-            listaDatosVehiculo.splice(indiceFila, 1);
-            listaGastoLiquidos.splice(indiceFila, 1);
-            listaCompraMaterial.splice(indiceFila, 1);
-            listaGastosExtras.splice(indiceFila, 1);
-            listaSemana.splice(indiceFila, 1);
-    
-            guardarListasEnLocalStorage(); // Guardar en el almacenamiento local
-            Sumaa(); // Realizar alguna acción adicional
+            Lista();
+
         } else {
-            // Si el usuario cancela, no hacer nada
             console.log("Eliminación cancelada");
-            const radioSi = document.getElementById("cosPre");
-            const radioNo = document.getElementById("cosPre");
-            radioSi.checked = true;
-            radioNo.checked = false;
         }
     });
 
@@ -172,8 +166,6 @@ function BotonEliminar() {                                         ///Botonnnnnn
     return celda;
     
 }
-
-
 
 function limpiarCampos() {
     document.getElementById("nomTrab").value = "";
@@ -202,7 +194,6 @@ function limpiarCampos() {
         actividadSele.value = 'Semana 1'; 
     }
 
-
 }
 
 
@@ -227,11 +218,6 @@ function procesarResultado() {
 }
 
 
-
-
-
-
-// Función para guardar las listas en el localStorage del navegador
 function guardarListasEnLocalStorage() {
     localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
     localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
