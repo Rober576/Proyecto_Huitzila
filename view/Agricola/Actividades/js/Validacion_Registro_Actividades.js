@@ -237,7 +237,7 @@ function toggleSections() {
         const actividadSele = document.getElementById('semSele');
         const General = document.getElementById("cosGenral").value;
         const CostoGeneral = parseFloat(General);
-        document.getElementById("total").value = CostoGeneral;
+        //document.getElementById("total").value = CostoGeneral;
 
         limpiarOpciones(actividadSele);
         for (let i = 1; i <= CantidadTrabajado; i++) {
