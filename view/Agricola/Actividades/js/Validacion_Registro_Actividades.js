@@ -18,7 +18,14 @@ let botonRegistrar = document.getElementById("submitButton");
 
 window.addEventListener('load', (event) => {
     Validar_Cantidad_Semanas();
+    try{
+    let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
     Validar_Cantidad_Semanas2();
+    }catch{
+
+    }
+    
+    
     Validar_Costo_General()
 });
 
@@ -258,7 +265,13 @@ function toggleSections() {
 Formulario = document.getElementById("advanced-form");
 
 Formulario.canFecha.addEventListener('input', Validar_Cantidad_Semanas);
-Formulario.canFecha2.addEventListener('input', Validar_Cantidad_Semanas2);
+try{
+    Formulario.canFecha2.addEventListener('input', Validar_Cantidad_Semanas2);
+}
+catch{
+    
+}
+
 Formulario.cosGenral.addEventListener('input', Validar_Costo_General);
 Formulario.descAct.addEventListener('input', Validar_Descripcion_Actividad);
 
