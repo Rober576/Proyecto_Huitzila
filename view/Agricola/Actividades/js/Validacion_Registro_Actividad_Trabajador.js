@@ -52,7 +52,7 @@ function central(){
         console.log(bandera8)
         console.log(bandera9)
         console.log(bandera10)
-        console.log(bandera11)
+     
   
       
         return false
