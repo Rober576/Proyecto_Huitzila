@@ -1,29 +1,34 @@
 <?php
-include_once("../../model/Insumos/Insumos_Por_Producto.php");
+include_once('../..//model/Insumos/Insumos_Por_Producto.php');
+// Verificar si se ha recibido una solicitud POST con datos
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtener el cuerpo de la solicitud
+    $json = file_get_contents('php://input');
 
-$base = new Insumo();
+    // Decodificar el JSON recibido
+    $matriz = json_decode($json, true);
 
-$productos = $_POST['Id_productos'];
-$insumos = $_POST['Id_insumos'];
-$cantidad = $_POST['Cantidad'];
-$costoU = $_POST['UCosto'];
-$costoT = $_POST['CostoT'];
-$lote = $_POST['Id_lotes'];
+    // Verificar si la decodificación fue exitosa
+    if (json_last_error() === JSON_ERROR_NONE) {
+        $base = new Insumo();
+        $no = $base->obtenerNo()[0]['No'] + 1;
+        
 
-if($base->obtenerNo()[0]['No'] == null){
-    $no_actual = 1;
+        for($i = 0; $i < count($matriz); $i++){
+            $no = $no + $i;
+            array_push($matriz[$i], $no);
+        }
 
-}else{
-    $no_actual = floatval($base->obtenerNo()[0]['No']) + 1;
+        $base->regsitrarIP($matriz);
+
+        echo json_encode("todo chido");
+
+
+    } else {
+        echo json_encode("fallo al decodificar el JSON");
+    }
+
+} else {
+    echo json_encode("no se recibio nada");
 }
-
-
-
-$base->regsitrarIP($productos, $insumos, $cantidad, $costoU, $costoT, $lote, $no_actual);
-
-echo json_encode('todo chido')
-
-
-
-
 ?>

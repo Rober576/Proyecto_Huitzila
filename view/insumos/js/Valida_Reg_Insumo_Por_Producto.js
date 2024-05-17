@@ -155,6 +155,54 @@ insumos_form.CantidadM.addEventListener("keyup", (e) =>{
     }
 });
 
+insumos_form.CantidadM_T.addEventListener("keyup", (e) =>{
+    let valorInput = e.target.value;
+    insumos_form.CantidadM_T.value = valorInput
+    
+    //elimina los espacios en blanco
+    .replace(/\s+/g, '')
+
+    //elimina caracteres especiales
+    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
+
+    //elimina las letras
+    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
+    
+    //elimina el ultimo espacio en blanco
+    .trim()
+
+
+    if (verificarPuntos(valorInput) == true) {
+        CantidadM_T.style.border = "3px solid red";
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.CantidadM_T.value = valorInput;
+        cu = false
+    }
+
+    //elimina el tercer decimal
+    if (validarDecimales(valorInput) == true) {
+        valorInput = valorInput.substr(0, valorInput.length - 1);
+        insumos_form.CantidadM_T.value = valorInput;
+    }
+
+    //elimina el primer caracter si es un punto
+    if (primeroNum(valorInput) == true) {
+        CantidadM_T.style.border = "3px solid red";
+        valorInput = valorInput.substr(1, valorInput.length);
+        insumos_form.CantidadM_T.value = valorInput;
+        cu = false
+    }
+    
+    if(expresiones.costo.test(e.target.value)){
+        CantidadM_T.removeAttribute("style");
+        cu = true
+        
+    }
+    else{
+        CantidadM_T.style.border = "3px solid red";
+        cu = false
+    }
+});
 
 //funcion para verificar que la cadena no tenga mas de un punto
 function verificarPuntos(cadena){

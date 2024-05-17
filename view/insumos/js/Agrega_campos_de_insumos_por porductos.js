@@ -1,10 +1,16 @@
 const cuerpo_tabla = document.getElementById("cuerpo");
 const contenedor_tabla = document.getElementById("tablaResultado")
 contenedor_tabla.style.display = 'none';
+const total_titulo = document.createElement('tr')
+const totalCell = document.createElement('td');
+totalCell.colSpan = "8"; // Ajusta el número de columnas según tus necesidades
+total_titulo.innerHTML = '';
+var total = 0
 
 var registros = []
 
 insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
+insumos_form.registrar.addEventListener('click', guardarMezcal);
 
 
 function mostrarDatos(){
@@ -33,12 +39,22 @@ function mostrarDatos(){
     row.appendChild(costoU_col);
     costoT_col.innerHTML = costoT;
     row.appendChild(costoT_col);
+    total += parseFloat(costoT);
 
 
     cuerpo_tabla.appendChild(row);
 
-    registros.push([prod, insumos, cantidad, costoU, costoT]);
+    
+    totalCell.innerHTML = 'Total: ' + total;
+    totalCell.style.textAlign = 'right';
+
+    total_titulo.appendChild(totalCell);
+    cuerpo_tabla.appendChild(total_titulo);
+
+
+    registros.push([prod, insumos, cantidad, costoU, costoT, null]);
     console.log(registros);
+    
 
     document.getElementById('Id_productos').value = ''
     document.getElementById('Id_insumos').value = ''
@@ -46,6 +62,39 @@ function mostrarDatos(){
     document.getElementById('UCosto').value = ''
     document.getElementById('CostoT').value = ''
 
+}
+
+function guardarMezcal(){
+    mezcal = document.getElementById('Mezcal').value;
+    cantidad = document.getElementById('CantidadM').value;
+    total_m = document.getElementById('CantidadM_T').value;
+    registros.push([null, null, cantidad, null, total_m, mezcal]);
+    console.log(registros);
+
+    fetch('../../controller/Insumos/Registro_Insumo_Por_Producto.php', {
+        method: 'POST',
+        body: JSON.stringify(registros),
+        headers: {
+            "Content-Type": "application/json"
+        }
+
+    })
+
+    //recibe el mensaje para mandarlo como alerta
+    .then(res => res.json())
+    .then(data =>
+    {
+        //el registro fue exitoso
+        if (data === 'todo chido') {
+            alert("Registro exitoso");
+            //location.href = '../../view/insumos/Registro_Producto.html';
+        }
+
+        //los datos no pasaron alguna validacion
+        else {
+            alert(data);
+        }
+    })
 }
 
 
