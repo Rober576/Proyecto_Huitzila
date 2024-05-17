@@ -8,6 +8,7 @@ let botonRegistrar = document.getElementById("submitButton");
 
 window.addEventListener('load', (event) => {
     Validar_Cantidad_Semanas();
+    Validar_Cantidad_Semanas2();
     Validar_Costo_General()
 });
 
@@ -15,6 +16,7 @@ window.addEventListener('load', (event) => {
 botonRegistrar.addEventListener("click", (e) =>{
 
     Validar_Cantidad_Semanas()
+    Validar_Cantidad_Semanas2()
     Validar_Costo_General()
     Validar_Descripcion_Actividad()
    
@@ -78,6 +80,34 @@ function Validar_Cantidad_Semanas() {
     } else {
         Formulario.canFecha.removeAttribute("style");
         bandera1 = true;
+    }
+}
+function Validar_Cantidad_Semanas2() {
+    let valorInput = Formulario.canFecha2.value;
+
+    valorInput = valorInput.replace(/[^\d]/g, '');
+
+    if (valorInput.length > 1) {
+        valorInput = valorInput.slice(0, 1);
+    }
+
+    if (!/^[1-4]$/.test(valorInput)) {
+        valorInput = "1";
+    }
+
+    Formulario.canFecha.value = valorInput;
+
+    if (parseInt(valorInput) < 1 || parseInt(valorInput) > 4) {
+        Formulario.canFecha.style.border = "5px solid red";
+        bandera1 = false;
+    } else {
+        Formulario.canFecha.removeAttribute("style");
+        bandera1 = true;
+    }
+
+    // Verificar y deshabilitar el campo si el valor es 4
+    if (parseInt(valorInput) === 4) {
+        Formulario.canFecha.disabled = true;
     }
 }
 
@@ -148,7 +178,25 @@ function Validar_Fecha() {
 
 
 
+window.onload = function() {
+    let valorInicial = Formulario.canFecha2.value;
 
+    valorInicial = valorInicial.replace(/[^\d]/g, '');
+
+    if (valorInicial.length > 1) {
+        valorInicial = valorInicial.slice(0, 1);
+    }
+
+    if (!/^[1-4]$/.test(valorInicial)) {
+        valorInicial = "1";
+    }
+
+    Formulario.canFecha.value = valorInicial;
+
+    if (parseInt(valorInicial) === 4) {
+        Formulario.canFecha.disabled = true;
+    }
+};
 
 
 
@@ -160,6 +208,7 @@ function Validar_Fecha() {
 Formulario = document.getElementById("advanced-form");
 
 Formulario.canFecha.addEventListener('input', Validar_Cantidad_Semanas);
+Formulario.canFecha2.addEventListener('input', Validar_Cantidad_Semanas2);
 Formulario.cosGenral.addEventListener('input', Validar_Costo_General);
 Formulario.descAct.addEventListener('input', Validar_Descripcion_Actividad);
 

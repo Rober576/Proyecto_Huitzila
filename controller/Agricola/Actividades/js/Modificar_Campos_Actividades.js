@@ -1,4 +1,5 @@
 var id = localStorage.getItem('id');
+var plantacion = localStorage.getItem('plantacion');
 var formulario = document.getElementById('advanced-form');
 
 formulario.addEventListener('submit', function (e) {
@@ -8,6 +9,7 @@ formulario.addEventListener('submit', function (e) {
     if (confirm("¿Estás seguro de que deseas realizar las modificaciones?")) {
         var datos = new FormData(formulario);
         datos.append('id', id);
+        datos.append('plantacion', plantacion);
         fetch('../../../controller/Agricola/Actividades/php/Actualizar_Datos_Actividades.php', {
             method: 'POST',
             body: datos
@@ -19,7 +21,7 @@ formulario.addEventListener('submit', function (e) {
                 // Alerta de éxito
                 alert("¡Los datos se han guardado exitosamente!");
                 // Redirigir después de aceptar la alerta
-                window.location.href = '../../../view/Agricola/Actividades/';            //falta la vista de thania
+                window.location.href = '../../../view/Agricola/Actividades/Vista_actividades.html';            
             }
         })
         .catch(error => {
@@ -33,6 +35,6 @@ formulario.addEventListener('submit', function (e) {
 // Agregar evento de clic al botón "Cancelar"
 document.getElementById('cancelButton').addEventListener('click', function() {
     if (confirm("¿Estás seguro de que deseas cancelar la Modificación? Los cambios se perderán")){
-        window.location.href = '../../../view/Agricola/Actividades/';         //falta la vista de thania
+        window.location.href = '../../../view/Agricola/Actividades/Vista_actividades.html';         
     }
 });

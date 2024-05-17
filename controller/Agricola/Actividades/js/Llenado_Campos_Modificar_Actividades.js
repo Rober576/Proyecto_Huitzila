@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
        
             // Rellenar los campos del formulario con los datos obtenidos de actividadplantacion
             document.getElementById('fechaIni').value = data.actividadplantacion[0].Fecha;
-            document.getElementById('canFecha').value = data.actividadplantacion[0].Semana;
+            document.getElementById('canFecha2').value = data.actividadplantacion[0].Semana;
             document.getElementById('cosGenral').value = data.actividadplantacion[0].Costo;
             document.getElementById('descAct').value = data.actividadplantacion[0].Descripcion;
             document.getElementById('selePlaga').value = data.actividadplantacion[0].NombrePlaga;
@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
                 case "3":
                     actividadValue = 'Mantenimiento: Mecánico (rastra, subsuelo, arado)';
+                    break;
+                case "4":
+                    actividadValue = 'Control de plagas: Químico';
                     break;
                 case "5":
                     actividadValue = 'Control de plagas: Biológico';
