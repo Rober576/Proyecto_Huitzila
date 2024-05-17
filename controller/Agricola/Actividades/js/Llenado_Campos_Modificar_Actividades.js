@@ -16,8 +16,78 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('selePlaga').value = data.actividadplantacion[0].NombrePlaga;
             document.getElementById('seleHerbicida').value = data.actividadplantacion[0].NombreHerbicida;
 
-            // Comparar el valor de IdActividad y asignar el campo correspondiente
+            filas = data.reporteactividad.length;
+            console.log("Número de filas: " + filas);
+
+            General=parseFloat(data.actividadplantacion[0].Costo) || 0;
+            GastoT=0+General;
+
+            for (let i = 0; i < data.reporteactividad.length; i++) {
+                Nombre= data.reporteactividad[i].NombreTrabajador;
+                lunes= data.reporteactividad[i].Lunes;
+                martes= data.reporteactividad[i].Martes;
+                miercoles= data.reporteactividad[i].Miercoles;
+                jueves= data.reporteactividad[i].Jueves;
+                viernes= data.reporteactividad[i].Viernes;
+                sabado= data.reporteactividad[i].Sabado;
+                NoSemanas='Semana '+ data.reporteactividad[i].NoSemana;
+                Actividad= data.reporteactividad[i].ActividadDesarrollada;
+                let Gas = parseFloat(data.reporteactividad[i].Gasolina) || 0;
+                Vehiculo= data.reporteactividad[i].Vehiculos;
+                let Liquido = parseFloat(data.reporteactividad[i].Liquidos) || 0;
+                let Material = parseFloat(data.reporteactividad[i].Materia) || 0;
+                let GastosE = parseFloat(data.reporteactividad[i].GastosExtras) || 0;
+
+                GastoT = GastoT+ Liquido + Material + GastosE+ Gas;
+
+                let diasSeleccionados = [];
+
+
+                if (data.reporteactividad[i].Lunes== 1) {
+                    diasSeleccionados.push('Lunes')
+                }
+                if (data.reporteactividad[i].Martes== 1) {
+                    diasSeleccionados.push('Martes'); 
+                }
+                if (data.reporteactividad[i].Miercoles== 1) {
+                    diasSeleccionados.push('Miércoles');  
+                }
+                if (data.reporteactividad[i].Jueves== 1) {
+                    diasSeleccionados.push('Jueves');
+                }
+                if (data.reporteactividad[i].Viernes== 1) {
+                    diasSeleccionados.push('Viernes');
+                }
+                if (data.reporteactividad[i].Sabado== 1) {
+                    diasSeleccionados.push('Sábado');
+                }
+
+                const tabla = document.getElementById("tablaActividades");
+                const nuevaFila = document.createElement("tr");
+
+
+
+                nuevaFila.appendChild(crearCelda(Nombre));
+                nuevaFila.appendChild(crearCelda(diasSeleccionados.join(', ')));
+                nuevaFila.appendChild(crearCelda(NoSemanas));
+                nuevaFila.appendChild(crearCelda(Actividad));
+                nuevaFila.appendChild(crearCelda(Gas));
+                nuevaFila.appendChild(crearCelda(Vehiculo));
+                nuevaFila.appendChild(crearCelda(Liquido));
+                nuevaFila.appendChild(crearCelda(Material));
+                nuevaFila.appendChild(crearCelda(GastosE));
+                nuevaFila.appendChild(BotonEliminar());
+
+                tabla.appendChild(nuevaFila);
+
+            }
+
+            console.log(GastoT)
+            
+            document.getElementById('total').value = GastoT;
             var actividadValue = '';
+
+
             switch (data.actividadplantacion[0].IdActividad) {
                 case "1":
                     actividadValue = 'Plantación';
@@ -47,11 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     actividadValue = 'Cosecha';
                     break;
                 default:
-                    actividadValue = ''; // Caso por defecto
+                    actividadValue = '';
                     break;
             }
-
-            // Seleccionar la opción en el combobox (select)
             var actividadSelect = document.getElementById('actividadSele');
             var options = actividadSelect.options;
 
@@ -64,5 +132,43 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             console.log('No hay datos disponibles de actividadplantacion o el formato de los datos es incorrecto.');
         }
+
+        function crearCelda(texto) {
+            const celda = document.createElement("td");
+            celda.textContent = texto;
+            return celda;
+        }
+
+        function BotonEliminar() {                                         
+            const celda = document.createElement("td");
+            const botonEliminar = document.createElement("button");
+            botonEliminar.textContent = "Eliminar";
+            botonEliminar.className = "btn-eliminar Boton_Tabla"; 
+        
+            botonEliminar.addEventListener("click", function () {   //////Funcion de eliminarrrrrrrrr 
+                const fila = botonEliminar.parentNode.parentNode;
+            
+                const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta fila?");
+            
+                if (confirmacion) {
+                    fila.remove();
+
+                } else {
+                    console.log("Eliminación cancelada");
+                }
+            });
+        
+            celda.appendChild(botonEliminar);
+            return celda;
+            
+        }
+
+
+
+
     } 
+
+    
+
+
 );
