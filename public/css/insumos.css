@@ -93,7 +93,9 @@ th{
 td {
     white-space: nowrap;
 }
-
+td,th{
+    width: calc(100% / 12);
+}
 /* Estilos para el contenedor de la imagen */
 .imagen-container {
     width: 100%; /* Ocupa todo el ancho disponible */
