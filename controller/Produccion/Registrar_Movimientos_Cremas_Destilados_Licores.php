@@ -32,8 +32,8 @@ try {
         echo json_encode('Registro exitoso');
     }elseif ($resultado === "La fecha ingresada") {
         echo json_encode("La fecha ingresada es menor que la ultima fecha registrada");
-    } elseif ($resultado === false) {
-        echo json_encode("Lote existente");
+    } elseif ($resultado === "Error Volumen") {
+        echo json_encode("Error Volumen");
     }
     
 } catch (Exception $e) {

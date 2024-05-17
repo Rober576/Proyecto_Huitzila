@@ -87,13 +87,37 @@
 		<section id="section2" class="section-main">
 			<p class="subtitulo-1">Especificación de actividades</p>
 			<hr>
+			<div class="formulario-datos">
+				<div>
+					<label for="actividadSele">Seleccione la actividad realizada</label>
+					<input type="text" id="actividadSele" name="actividadSele" class="styled-input" readonly>
+				</div>
+					<div>
+						<label for="fechaIni">Seleccione la fecha de inicio de la actividad</label>
+						<input type="date" id="fechaIni" name="fechaIni" class="styled-input" readonly>
+					</div>
+					<div>
+						<label for="canFecha">Cantidad de semanas trabajadas</label>
+						<input type="number" id="canFecha2" name="canFecha" class="styled-input" readonly>
+					</div>
+			</div>
+			<div class="formulario-datos2">
+				<div>
+					<label for="cosGenral">Gastos generales ($)</label>
+					<input type="text" id="cosGenral" name="cosGenral" class="styled-input" title="El gasto general debe de tener maximo 10 caracteres, solo numeros y decimnales" readonly>
+				</div>
+				<div>
+					<label for="descAct">Descripción de la actividad</label>
+					<textarea id="descAct" name="descAct" rows="4"  title="La descripción debe de contener un máximo de 300 caracteres" readonly></textarea>
+				</div>
+			</div>
             <div class="formulario-datos2">
                 <div id="campo1">
-                    <label for="selePlaga">Plaga<span class="campo-obligatorio">*</span></label>
+                    <label for="selePlaga">Plaga</label>
                     <input type="text" id="selePlaga" name="selePlaga" class="styled-input" readonly>
                 </div>
                 <div id="campo2">
-                    <label for="seleHerbicida">Herbicida<span class="campo-obligatorio">*</span></label>
+                    <label for="seleHerbicida">Herbicida</label>
                     <input type="text" id="seleHerbicida" name="seleHerbicida" class="styled-input" readonly>
                 </div>
             </div>
@@ -145,5 +169,5 @@
 <script src="../../../controller/Agricola/Actividades/js/Registro_Actividades.js"></script>
 <script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividades.js"></script>
 <script src="../../../view/Agricola/Actividades/js/Validacion_Registro_Actividad_Trabajador.js"></script>
-
+<script src="js/Campos_adicionales_2.js"></script>
 </html>
