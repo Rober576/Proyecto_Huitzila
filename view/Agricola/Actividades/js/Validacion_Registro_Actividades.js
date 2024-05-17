@@ -1,9 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 var bandera1 = false;
 var bandera2 = false;
 var bandera3 = false;
 
 var paso = false;
 
+Formulario = document.getElementById("advanced-form");
+let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
+let minimoPermitido = parseInt(valorInicial);
 var bandera11= false;
 
 let botonRegistrar = document.getElementById("submitButton");
@@ -57,6 +62,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 function Validar_Cantidad_Semanas() {
+
     let valorInput = Formulario.canFecha.value;
 
    
@@ -148,40 +154,46 @@ function Validar_Fecha() {
 
 }
 
-
-
-
 function Validar_Cantidad_Semanas2() {
-    let valorInicial = Formulario.canFecha2.value;
+
+    if (paso == false) {
+        let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
+  
+        // Si el valor inicial es 4, deshabilitar el campo y salir de la función
+        if (valorInicial === "4") {
+            Formulario.canFecha2.disabled = true;
+        }
+        paso = true;
+    }
+
+    else{
     
-    if (paso !== false) {
-        // Usar el valor inicial para establecer el límite inferior
-        valorInicial = parseInt(valorInicial.replace(/[^\d]/g, ''));
-    }
-    
-    paso = true;
+        let valorInput = Formulario.canFecha2.value.trim().replace(/[^\d]/g, ''); // Obtener el valor del campo y eliminar espacios en blanco
+      
+        if (valorInput<minimoPermitido){
+            
+            Formulario.canFecha2.value=minimoPermitido
+        }
 
-    let valorInput = Formulario.canFecha2.value;
+        // Limitar el número de caracteres a uno
+        if (valorInput.length > 1) {
+            valorInput = valorInput.slice(0, 1);
+        }
 
-    valorInput = valorInput.replace(/[^\d]/g, '');
+        // Si el valor de entrada es menor que el mínimo permitido, establecerlo como el mínimo permitido
+        valorInput = Math.max(minimoPermitido, parseInt(valorInput));
 
-    if (valorInput.length > 1) {
-        valorInput = valorInput.slice(0, 1);
-    }
+        // Establecer el valor en el campo
+        Formulario.canFecha2.value = valorInput;
 
-    // Usar el valor inicial para establecer el rango en la expresión regular
-    if (!new RegExp(`^${valorInicial}-4$`).test(valorInput)) {
-        valorInput = "1";
-    }
-
-    Formulario.canFecha.value = valorInput;
-
-    if (parseInt(valorInput) < 1 || parseInt(valorInput) > 4) {
-        Formulario.canFecha.style.border = "5px solid red";
-        bandera1 = false;
-    } else {
-        Formulario.canFecha.removeAttribute("style");
-        bandera1 = true;
+        // Validar el rango permitido y aplicar estilo correspondiente
+        if (parseInt(valorInput) > 4) {
+            Formulario.canFecha2.style.border = "5px solid red";
+            bandera1 = false;
+        } else {
+            Formulario.canFecha2.removeAttribute("style");
+            bandera1 = true;
+        }
     }
 }
 
@@ -196,3 +208,4 @@ Formulario.descAct.addEventListener('input', Validar_Descripcion_Actividad);
 
 Formulario.fechaIni.addEventListener('input', Validar_Fecha);
 
+})
