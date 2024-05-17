@@ -176,13 +176,6 @@
 					title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
 				</div>
 
-				<div class="grupo1">
-					<label class="label_datos" for="ID">Lote de producción<span class="campo-obligatorio">*</span></label>
-					<select id="Id_lotes" name="Id_lotes" title="Identificador de los productos terminados." required>
-						<option disabled selected>Seleccionar opción</option>
-					</select>
-				</div>
-
 
 			</div>
 			<div  id="camposDinamicosContainer">
@@ -205,7 +198,6 @@
 									<th>Cantidad</th>
 									<th>Costo unitario</th>
 									<th>Costo total</th>	
-									<th>Lote de producción</th>
 								</tr>
 								<tbody id="cuerpo"></tbody>
 								
@@ -241,7 +233,7 @@
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
-						<button type="submit" id="registrar">Enviar</button>
+						<button type="button" id="registrar">Enviar</button>
 						<button type="button" id="Cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
@@ -258,7 +250,7 @@
 	<script src="../../controller/Insumos/js/Mostrar_ID.js"></script>
 	
 	<script src="../../view/insumos/js/Valida_Reg_Insumo_Por_Producto.js"></script>
-	<script src="../../controller/Insumos/js/Registro_Insumo_Por_Producto.js"></script>
+	<!-- <script src="../../controller/Insumos/js/Registro_Insumo_Por_Producto.js"></script> -->
 	<script src="js/Agrega_campos_de_insumos_por porductos.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var formulario = document.getElementById('form_ingreso_agave');
+    var formulario = document.getElementById('form_ingreso_cremas');
 
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -13,16 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(res => res.json()) 
         .then(data => {
-            console.error(data.trim()); 
+
             console.log("Entro4")
+            console.log(data)
             if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
-                // Mostrar mensaje de error si la fecha ingresada es menor que la última fecha registrada
                 alert("Error: La fecha ingresada es menor que la última fecha registrada");
                 console.error("Error: La fecha ingresada es menor que la ultima fecha registrada");
             } else {
-                // Si la inserción es exitosa, redireccionar a la página de éxito
                 alert("Registro exitoso");
-                location.href = "../../view/Produccion/Registrar_Movimientos_Cremas_Destilados_Licores.html";
+                location.href = "../../view/Produccion/Registro_Movimiento_Cremas_Destilados_Licores.html";
             }      
         })
         .catch(error => {

@@ -21,7 +21,6 @@ try {
     $alc_vol55 = isset($_POST['alc_vol55']) ? $_POST['alc_vol55'] : 0;
     $agua = isset($_POST['vol_agua']) ? $_POST['vol_agua'] : 0;
 
-    // Instanciar la clase y llamar la función para insertar
     $obj = new NuevosCampos();
     $obj->conexion();
 
@@ -30,12 +29,13 @@ try {
 
     // Comprobar el resultado y enviar el mensaje correspondiente
     if ($resultado === true) {
-        echo json_encode(array('status' => 'success', 'message' => 'Registro exitoso'));
-    } elseif ($resultado === "La fecha ingresada es menor que la ultima fecha registrada") {
-        echo json_encode(array('status' => 'error', 'message' => 'La fecha ingresada es menor que la última fecha registrada'));
+        echo json_encode('Registro exitoso');
+    }elseif ($resultado === "La fecha ingresada") {
+        echo json_encode("La fecha ingresada es menor que la ultima fecha registrada");
     } elseif ($resultado === false) {
-        echo json_encode(array('status' => 'error', 'message' => 'Lote existente'));
+        echo json_encode("Lote existente");
     }
+    
 } catch (Exception $e) {
     echo json_encode(array('status' => 'error', 'message' => $e->getMessage()));
 }

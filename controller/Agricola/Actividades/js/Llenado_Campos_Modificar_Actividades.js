@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 case "3":
                     actividadValue = 'Mantenimiento: Mecánico (rastra, subsuelo, arado)';
                     break;
+                case "4":
+                    actividadValue = 'Control de plagas: Químico';
+                    break;
                 case "5":
                     actividadValue = 'Control de plagas: Biológico';
                     break;
