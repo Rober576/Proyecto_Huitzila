@@ -20,11 +20,19 @@ class Insumo extends Crud_bd{
         return $resultados;
     }
 
-    public function regsitrarIP($producto, $insumo, $cantidad, $costoU, $costoT, $lote, $no){
-        $querry = "INSERT INTO insumosproductos (IdProducto, IdInsumos, Cantidad, CostoActual, CostoTotal, NoInsumo, Mezcal)
-         VALUES (:prod, :insumo, :cantidad, :cu, :ct, :noInsumo, :lotes)";
-        $arre = [":prod" => $producto, ":insumo" => $insumo, ":cantidad" => $cantidad, ":cu" => $costoU, ":ct" => $costoT, ":lotes" => $lote, ":noInsumo" => $no];
-        $this->insertar_eliminar_actualizar($querry, $arre);
+    public function regsitrarIP($matriz){
+        $consultas = array();
+        $datos = array();
+
+        for($i = 0; $i < count($matriz); $i++){
+            $querry = "INSERT INTO insumosproductos (IDproducto, IDInsumos, Cantidad, CostoActual, 
+            CostoTotal, Mezcal, NoInsumo) VALUES (:prod, :ins, :cant, :costo, :costot, :mezcal, :num)";
+            $arre = ["prod" => $matriz[$i][0], "ins" => $matriz[$i][1], "cant" => $matriz[$i][2], "costo" => $matriz[$i][3], "costot" => $matriz[$i][4], "mezcal" => $matriz[$i][5], "num" => $matriz[$i][6] ];
+            array_push($datos, $arre);
+            array_push($consultas, $querry);
+        }
+
+        $this->insertar_eliminar_actualizar($consultas, $datos);
     }
 }
 ?>

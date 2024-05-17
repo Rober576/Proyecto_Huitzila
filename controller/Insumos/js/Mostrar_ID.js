@@ -113,7 +113,7 @@ function llenarListaInsumos(datosInsumos) {
 function validarFormulario() {
     const selectInsumos = document.getElementById('Id_insumos');
     const selectProductos = document.getElementById('Id_productos');
-    const selectLotes = document.getElementById('Id_lotes');
+    const selectLotes = document.getElementById('Mezcal');
     
     if (selectInsumos.value === '' || selectProductos.value === '' || selectLotes.value === '') {
         alert('Por favor, seleccione una opción.');
@@ -132,7 +132,7 @@ document.getElementById('insumos_form').addEventListener('submit', function(even
 });
 
 function llenarListaLotes(datosProductos) {
-    const selectProductos = document.getElementById('Id_lotes');
+    const selectProductos = document.getElementById('Mezcal');
 
     
     selectProductos.innerHTML = '';
