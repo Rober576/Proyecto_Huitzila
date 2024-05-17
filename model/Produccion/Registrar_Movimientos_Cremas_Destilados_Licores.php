@@ -10,8 +10,8 @@ class NuevosCampos {
     }
 
     function obtenerIDLote($lote) {
-        $q = "SELECT Lote FROM registrodestilado WHERE Lote = :lote";
-        $params = array(":Lote" => $lote);
+        $q = "SELECT IDLote FROM registrodestilado WHERE Lote = :lote";
+        $params = array(":lote" => $lote);
         
         $resultado = $this->base->mostrar($q, $params);
 
@@ -34,18 +34,20 @@ class NuevosCampos {
             return false;
         }
     }
+
     function obtenerInicio($lote) {
         $query = "
             SELECT 
-                IFNULL(m.FinalVolumen, 0) AS FinalVolumen,
-                IFNULL(m.FinalPorcentaje, 0) AS FinalPorcentaje
-            FROM movimientodestilado m
-            WHERE m.Lote = '$lote'
-            ORDER BY m.NumeroMovimiento DESC
+                IFNULL(FinalVolumen, 0) AS FinalVolumen,
+                IFNULL(FinalPorcentaje, 0) AS FinalPorcentaje
+            FROM movimientodestilado
+            WHERE Lote = :lote
+            ORDER BY NumeroMovimiento DESC
             LIMIT 1
         ";
     
-        $result = $this->base->mostrar($query);
+        $params = array(":lote" => $lote);
+        $result = $this->base->mostrar($query, $params);
     
         if (!empty($result)) {
             return json_encode($result[0]);
@@ -97,33 +99,32 @@ class NuevosCampos {
         $query = "
             SELECT COUNT(*) AS count
             FROM movimientodestilado
-            WHERE Lote = '$lote'
+            WHERE Lote = :lote
         ";
-        $result = $this->base->mostrar($query);
+        $params = array(":lote" => $lote);
+        $result = $this->base->mostrar($query, $params);
         
         if (!empty($result) && $result[0]['count'] > 0) {
-            // Si hay al menos un registro para el lote, obtener el número de movimiento más alto y su fecha
+
             $query = "
                 SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha
                 FROM movimientodestilado
-                WHERE Lote = '$lote'
+                WHERE Lote = :lote
             ";
-            $result = $this->base->mostrar($query);
+            $result = $this->base->mostrar($query, $params);
     
             $numeroMovimiento = $result[0]['MaxNumeroMovimiento'];
             $fechaUltimoRegistro = $result[0]['Fecha'];
     
-            // Verificar si la fecha que se quiere ingresar es mayor o igual a la última fecha registrada
+
             if ($fecha >= $fechaUltimoRegistro) {
-                // Devolver el número de movimiento más alto más uno
                 return $numeroMovimiento + 1;
             } else {
-                // La fecha es menor que la última fecha registrada
-                return "La fecha ingresada es menor que la ultima fecha registrada";
+                return "La fecha ingresada";
             }
         } else {
-            // Si no hay registros para el lote, retornar 1 como primer número de movimiento
-            return 0;
+
+            return 1;
         }
     }
     
@@ -153,33 +154,34 @@ class NuevosCampos {
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-            $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
-                    VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
-            
-            $params = array(
-                ":Lote" => $lote,
-                ":Fecha" => $fecha,
-                ":IDMovimiento" => $IDMovimiento, 
-                ":Volumen" => $volumen,
-                ":PorcentajeAlcohol" => $alc_vol,
-                ":EntradaSalida" => $tipoES,
-                ":DestinoProcedencia" => $procedencia,
-                "VolumenAgua"=>$agua,
-                ":MermasVolumen" => $volumen_merma, 
-                ":MermasPorcentaje" => $alc_vol_merma, 
-                ":Volumen55" => $alc_vol55,
-                ":FinalVolumen" => $finalVolumen, 
-                ":FinalPorcentaje" => $finalPorcentaje,
-                ":NumeroMovimiento"=>$verificacion
-            );
-            
-            $this->base->insertar_eliminar_actualizar($q1, $params);
-            $this->base->cerrar_conexion();
-            return true; // La inserción se realizó correctamente
-        } else {
-            // Si la fecha no es válida, devolver el mensaje de error
-            return $verificacion;
-        }
-    }
-     }
+            $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+            VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
+    
+    $params = array(
+        ":Lote" => $lote,
+        ":Fecha" => $fecha,
+        ":IDMovimiento" => $IDMovimiento, 
+        ":Volumen" => $volumen,
+        ":PorcentajeAlcohol" => $alc_vol,
+        ":EntradaSalida" => $tipoES,
+        ":VolumenAgua" => $agua,
+        ":DestinoProcedencia" => $procedencia,
+        ":MermasVolumen" => $volumen_merma, 
+        ":MermasPorcentaje" => $alc_vol_merma, 
+        ":Volumen55" => $alc_vol55,
+        ":FinalVolumen" => $finalVolumen, 
+        ":FinalPorcentaje" => $finalPorcentaje,
+        ":NumeroMovimiento"=>$verificacion
+    );
+    
+    $this->base->insertar_eliminar_actualizar($q1, $params);
+    $this->base->cerrar_conexion();
+    return true; 
+} else {
+
+    return $verificacion;
+}
+}
+}
 ?>
+
