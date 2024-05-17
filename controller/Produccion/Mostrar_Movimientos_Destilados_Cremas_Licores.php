@@ -1,5 +1,5 @@
 <?php
-include_once('../../model/Produccion/Mostrar_Movimientos_Destilados_Cremas_LicoresM.php');
+include_once('../../model/Produccion/Mostrar_Movimientos_Cremas_Destilados_LicoresM.php');
 
 
 $base = new MostrarMez();
@@ -20,9 +20,9 @@ if ($resultado) {
             <tr>
                 
                 <th>No. de Lote</th>
-                <th>Categoría</th>
                 <th>Clase</th>
                 <th>Edad</th>
+                <th>Tipo destilado</th>
                 <th>Acciones</th>
                 
                 
@@ -37,13 +37,13 @@ if ($resultado) {
         
         
         $salida .= '<td>' . $fila["Lote"] . '</td>';
-        $salida .= '<td>' . $fila["Categoria"] . '</td>';
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>';
+        $salida .= '<td>' . $fila["NombreDestilado"] . '</td>';
         $salida .= '<td>';
-        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">Específico</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">Específico</button>';
         $salida .= ' ';
-        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Mezcal.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">General</button>';
+        $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Cremas_Destilados_Licores.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">General</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
     }

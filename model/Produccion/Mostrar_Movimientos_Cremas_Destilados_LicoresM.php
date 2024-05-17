@@ -10,10 +10,10 @@ class MostrarMez extends Crud_bd {
     }
 
     function getInfo(){
-        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
-                  FROM registromezcal rm
+        $query = "SELECT rm.Lote, cm.Clase_Mezcal, rm.Edad, rm.tanque, td.NombreDestilado
+                  FROM registrodestilado rm
                   INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
-                  INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria";
+                  INNER JOIN tipodestilado td ON rm.IdTipoDes = td.IdTipoDes";
         
         $resultados = $this->base->mostrar($query);
         $this->base->cerrar_conexion();
@@ -21,18 +21,23 @@ class MostrarMez extends Crud_bd {
     }
 
     function buscador($busqueda){
-        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR IDCategoria LIKE :categoria OR IDClase LIKE :clase OR Edad LIKE :busqueda";
+        $query = "SELECT rm.Lote, cm.Clase_Mezcal, rm.Edad, rm.tanque, td.NombreDestilado
+                  FROM registrodestilado rm
+                  INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
+                  INNER JOIN tipodestilado td ON rm.IdTipoDes = td.IdTipoDes
+                  WHERE rm.Lote LIKE :busqueda OR rm.IDClase LIKE :busqueda OR rm.Edad LIKE :busqueda";
+        
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
         return $resultados;
-
     }
+    
     function buscar_datos($id){
         $this->conexion_bd();
-        $consulta = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
-                        FROM registromezcal rm
+        $consulta = "SELECT rm.Lote, cm.Clase_Mezcal, rm.Edad, rm.tanque, td.NombreDestilado
+                        FROM registrodestilado rm
                         INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
-                        INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria";
+                        INNER JOIN tipodestilado td ON rm.IdTipoDes = td.IdTipoDes";
         $resultados = $this->mostrar($consulta);
      
         $this->cerrar_conexion();
@@ -40,5 +45,3 @@ class MostrarMez extends Crud_bd {
     }
 }
 ?>
-
-

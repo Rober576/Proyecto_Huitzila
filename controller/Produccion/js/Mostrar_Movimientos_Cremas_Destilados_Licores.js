@@ -1,6 +1,6 @@
 
 function buscar_datos(consulta) {
-    var url = '../../controller/Produccion/Mostrar_Movimientos_Cremas_Destilados_Licores.php';
+    var url = '../../controller/Produccion/Mostrar_Movimientos_Destilados_Cremas_Licores.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
@@ -14,7 +14,7 @@ function buscar_datos(consulta) {
     xhr.onload = function() {
         if (xhr.status === 200) {
 
-            document.getElementById("tabla_Des_Lic_Crem").innerHTML = xhr.responseText;
+            document.getElementById("form_ingreso_agave").innerHTML = xhr.responseText;
             agregarEventosEliminar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
