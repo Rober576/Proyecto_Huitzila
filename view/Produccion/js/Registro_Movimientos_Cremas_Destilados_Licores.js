@@ -19,7 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
                 alert("Error: La fecha ingresada es menor que la última fecha registrada");
                 console.error("Error: La fecha ingresada es menor que la ultima fecha registrada");
-            } else {
+            } 
+            else if(data.trim() ==="Error Volumen"){
+                alert("Error: El volumen de salida es mallor al volumen existente");
+
+            } 
+            else {
                 alert("Registro exitoso");
                 location.href = "../../view/Produccion/Registro_Movimiento_Cremas_Destilados_Licores.html";
             }      

@@ -58,19 +58,18 @@ class NuevosCampos {
     }
 
     function calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol, $tipoES) {
-        // Convertir a números de punto flotante
+
         $inicialVolumen = floatval($inicialVolumen);
         $volumen = floatval($volumen);
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
-    
-        // Inicializar variables para FinalVolumen y FinalPorcentaje
+
         $finalVolumen = 0;
         $finalPorcentaje = 0;
     
-        // Verificar el tipo de movimiento
+
         if ($tipoES == 'entrada') {
-            // Sumar volumen
+
             $finalVolumen = $inicialVolumen + $volumen;
             // Calcular porcentaje
             if ($inicialVolumen == 0) {
@@ -78,24 +77,19 @@ class NuevosCampos {
             } else {
                 $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $alc_vol)) / ($finalVolumen);
             }
-        } elseif ($tipoES == 'salida') {
-            // Restar volumen
-            $finalVolumen = $inicialVolumen - $volumen;
-            // Si el volumen inicial es 0, el porcentaje también será 0
-            if ($inicialVolumen == 0) {
-                $finalPorcentaje = 0;
-            } else {
-                // Calcular porcentaje
+            return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
+        } else if ($tipoES == 'salida') {
+            if ($inicialVolumen > $volumen || $inicialVolumen == $volumen ) {
                 $finalVolumen = $inicialVolumen - $volumen;
+                return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $inicialPorcentaje);
+            } else {
+                return array('FinalVolumen' => "Error Volumen", 'FinalPorcentaje' => "Error Volumen");
             }
         }
-    
-        // Devolver los resultados
-        return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
     }
 
     function verificarRegistro($lote, $fecha) {
-        // Verificar si existe algún registro para el lote
+
         $query = "
             SELECT COUNT(*) AS count
             FROM movimientodestilado
@@ -140,6 +134,7 @@ class NuevosCampos {
         
             $inicialVolumen = $datosArray['FinalVolumen'];
             $inicialPorcentaje = $datosArray['FinalPorcentaje'];
+            
         
             $inicialVolumen = floatval($inicialVolumen);
             $volumen = floatval($volumen);
@@ -148,35 +143,40 @@ class NuevosCampos {
             
             $resultado = $this->calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol,$tipoES);
         
-
-        
-            // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-            $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
-            VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
-    
-    $params = array(
-        ":Lote" => $lote,
-        ":Fecha" => $fecha,
-        ":IDMovimiento" => $IDMovimiento, 
-        ":Volumen" => $volumen,
-        ":PorcentajeAlcohol" => $alc_vol,
-        ":EntradaSalida" => $tipoES,
-        ":VolumenAgua" => $agua,
-        ":DestinoProcedencia" => $procedencia,
-        ":MermasVolumen" => $volumen_merma, 
-        ":MermasPorcentaje" => $alc_vol_merma, 
-        ":Volumen55" => $alc_vol55,
-        ":FinalVolumen" => $finalVolumen, 
-        ":FinalPorcentaje" => $finalPorcentaje,
-        ":NumeroMovimiento"=>$verificacion
-    );
-    
-    $this->base->insertar_eliminar_actualizar($q1, $params);
-    $this->base->cerrar_conexion();
-    return true; 
+            if ($finalVolumen=="Error Volumen"){
+                return $finalVolumen;
+            }
+            else{
+                
+                $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+                VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
+        
+                $params = array(
+                    ":Lote" => $lote,
+                    ":Fecha" => $fecha,
+                    ":IDMovimiento" => $IDMovimiento, 
+                    ":Volumen" => $volumen,
+                    ":PorcentajeAlcohol" => $alc_vol,
+                    ":EntradaSalida" => $tipoES,
+                    ":VolumenAgua" => $agua,
+                    ":DestinoProcedencia" => $procedencia,
+                    ":MermasVolumen" => $volumen_merma, 
+                    ":MermasPorcentaje" => $alc_vol_merma, 
+                    ":Volumen55" => $alc_vol55,
+                    ":FinalVolumen" => $finalVolumen, 
+                    ":FinalPorcentaje" => $finalPorcentaje,
+                    ":NumeroMovimiento"=>$verificacion
+                );
+                
+                $this->base->insertar_eliminar_actualizar($q1, $params);
+                $this->base->cerrar_conexion();
+                return true; 
+            }
+
+
 } else {
 
     return $verificacion;
