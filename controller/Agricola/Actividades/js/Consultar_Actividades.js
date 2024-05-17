@@ -97,12 +97,37 @@ function EventoVerMas() {
     var botonesModificar = document.querySelectorAll(".boton-vermas");
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-            window.location.href = "#";
+            e.preventDefault(); // Previene la acción predeterminada del botón
+
             var selectPlanta = document.getElementById('plantacionSele');
             var id = e.target.id;
             var valorSeleccionado = selectPlanta.value;
+
             console.log("Plantacion:", valorSeleccionado);
-            console.log("Actividad:", id)
+            console.log("Actividad:", id);
+
+            localStorage.setItem('id', id);
+            localStorage.setItem('plantacion', valorSeleccionado);
+
+            var url = '../../../controller/Agricola/Actividades/php/Modificar_Datos_Actividades.php?id=' + id + '&plantacion=' + valorSeleccionado;
+
+            fetch(url, {
+                method: 'GET',
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); 
+            })
+            .then(function(data) {
+                localStorage.setItem('data', JSON.stringify(data));
+                window.location.href = '../../../view/Agricola/Actividades/Especificacion_de_actividad.html';
+            })
+            .catch(function(error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+
         });
     }
 }

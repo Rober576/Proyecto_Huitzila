@@ -5,10 +5,13 @@ var bandera2 = false;
 var bandera3 = false;
 
 var paso = false;
-
-Formulario = document.getElementById("advanced-form");
-let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
-let minimoPermitido = parseInt(valorInicial);
+try{
+    Formulario = document.getElementById("advanced-form");
+    let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
+    let minimoPermitido = parseInt(valorInicial);
+}catch{
+    
+}
 var bandera11= false;
 
 let botonRegistrar = document.getElementById("submitButton");
