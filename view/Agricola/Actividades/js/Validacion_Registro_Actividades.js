@@ -164,6 +164,7 @@ function Validar_Cantidad_Semanas2() {
             Formulario.canFecha2.disabled = true;
         }
         paso = true;
+        toggleSections()
     }
 
     else{
@@ -174,7 +175,7 @@ function Validar_Cantidad_Semanas2() {
             
             Formulario.canFecha2.value=minimoPermitido
         }
-
+        toggleSections()
         // Limitar el número de caracteres a uno
         if (valorInput.length > 1) {
             valorInput = valorInput.slice(0, 1);
@@ -193,9 +194,61 @@ function Validar_Cantidad_Semanas2() {
         } else {
             Formulario.canFecha2.removeAttribute("style");
             bandera1 = true;
+    
         }
     }
 }
+
+
+
+
+function limpiarOpciones(actividadSele) {
+    if (actividadSele) {
+        while (actividadSele.firstChild) {
+            actividadSele.removeChild(actividadSele.firstChild);
+        }
+    }
+}
+
+
+
+// Función para manejar la visibilidad de las secciones
+function toggleSections() {
+    // Si se selecciona 'Sí', mostrar la segunda sección y ocultar la tercera
+    
+        section2.style.display = 'block';
+        section3.style.display = 'block';
+
+
+
+        const CantidadTrabajado = document.getElementById("canFecha2").value;
+
+
+        const actividadSele = document.getElementById('semSele');
+        const General = document.getElementById("cosGenral").value;
+        const CostoGeneral = parseFloat(General);
+        document.getElementById("total").value = CostoGeneral;
+
+        limpiarOpciones(actividadSele);
+        for (let i = 1; i <= CantidadTrabajado; i++) {
+            const item = `Semana ${i}`; 
+            var option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+            if (actividadSele) {
+                actividadSele.appendChild(option);
+            } 
+                    
+        }
+
+    }
+
+
+
+
+
+
+
 
 
 
