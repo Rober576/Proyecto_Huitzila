@@ -2,6 +2,8 @@ var bandera1 = false;
 var bandera2 = false;
 var bandera3 = false;
 
+var paso = false;
+
 var bandera11= false;
 
 let botonRegistrar = document.getElementById("submitButton");
@@ -82,34 +84,7 @@ function Validar_Cantidad_Semanas() {
         bandera1 = true;
     }
 }
-function Validar_Cantidad_Semanas2() {
-    let valorInput = Formulario.canFecha2.value;
 
-    valorInput = valorInput.replace(/[^\d]/g, '');
-
-    if (valorInput.length > 1) {
-        valorInput = valorInput.slice(0, 1);
-    }
-
-    if (!/^[1-4]$/.test(valorInput)) {
-        valorInput = "1";
-    }
-
-    Formulario.canFecha.value = valorInput;
-
-    if (parseInt(valorInput) < 1 || parseInt(valorInput) > 4) {
-        Formulario.canFecha.style.border = "5px solid red";
-        bandera1 = false;
-    } else {
-        Formulario.canFecha.removeAttribute("style");
-        bandera1 = true;
-    }
-
-    // Verificar y deshabilitar el campo si el valor es 4
-    if (parseInt(valorInput) === 4) {
-        Formulario.canFecha.disabled = true;
-    }
-}
 
 function Validar_Costo_General() {
     let valorInput = Formulario.cosGenral.value;
@@ -176,32 +151,39 @@ function Validar_Fecha() {
 
 
 
-
-
-window.onload = function() {
+function Validar_Cantidad_Semanas2() {
     let valorInicial = Formulario.canFecha2.value;
+    
+    if (paso !== false) {
+        // Usar el valor inicial para establecer el límite inferior
+        valorInicial = parseInt(valorInicial.replace(/[^\d]/g, ''));
+    }
+    
+    paso = true;
 
-    valorInicial = valorInicial.replace(/[^\d]/g, '');
+    let valorInput = Formulario.canFecha2.value;
 
-    if (valorInicial.length > 1) {
-        valorInicial = valorInicial.slice(0, 1);
+    valorInput = valorInput.replace(/[^\d]/g, '');
+
+    if (valorInput.length > 1) {
+        valorInput = valorInput.slice(0, 1);
     }
 
-    if (!/^[1-4]$/.test(valorInicial)) {
-        valorInicial = "1";
+    // Usar el valor inicial para establecer el rango en la expresión regular
+    if (!new RegExp(`^${valorInicial}-4$`).test(valorInput)) {
+        valorInput = "1";
     }
 
-    Formulario.canFecha.value = valorInicial;
+    Formulario.canFecha.value = valorInput;
 
-    if (parseInt(valorInicial) === 4) {
-        Formulario.canFecha.disabled = true;
+    if (parseInt(valorInput) < 1 || parseInt(valorInput) > 4) {
+        Formulario.canFecha.style.border = "5px solid red";
+        bandera1 = false;
+    } else {
+        Formulario.canFecha.removeAttribute("style");
+        bandera1 = true;
     }
-};
-
-
-
-
-
+}
 
 
 
