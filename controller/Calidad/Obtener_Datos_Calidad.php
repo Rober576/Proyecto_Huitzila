@@ -35,6 +35,25 @@ class ControladorDatos {
 
         return json_encode($valores);
     }
+
+    function obtenerValores2() {
+        $query = "SELECT * FROM valoresminmaxdcl";
+        $result = $this->base->mostrar($query);
+
+        $valores = array();
+        foreach ($result as $row) {
+            $valores[] = array(
+                'PorcentajeAlcoholMin' => $row['PorcentajeAlcoholMin'],
+                'PorcentajeAlcoholMax' => $row['PorcentajeAlcoholMax'],
+                'MetanolMin' => $row['MetanolMin'],
+                'MetanolMax' => $row['MetanolMax'],
+                'AlcoholesSuperioresMin' => $row['AlcoholesSuperioresMin'],
+                'AlcoholesSuperioresMax' => $row['AlcoholesSuperioresMax'],
+            );
+        }
+
+        return json_encode($valores);
+    }
 }
 
 $controlador = new ControladorDatos();
@@ -44,6 +63,9 @@ $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : '';
 switch ($tipo) {
     case 'minmax':
         echo $controlador->obtenerValores();
+        break;
+    case 'minmaxDCL':
+        echo $controlador->obtenerValores2();
         break;
 }
 ?>
