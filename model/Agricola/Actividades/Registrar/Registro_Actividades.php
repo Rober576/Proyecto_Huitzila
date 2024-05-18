@@ -24,6 +24,13 @@
                 
             }
 
+            if ($IdActividad == 9){
+                $consultaCocechar = "UPDATE plantaciones SET Cocechada = :cocechar WHERE ClavePlantacion = :clave";
+                $parametrosCocechar = [":cocechar" => 1, ":clave" => $ClavePlantacion];
+                $this->base->insertar_eliminar_actualizar($consultaCocechar, $parametrosCocechar);
+            } 
+            
+
 
             $consultaNumeracion = "SELECT NumeracionActividad FROM  actividadplantacion WHERE ClavePlantacion = '$ClavePlantacion'";
             $numeraciones = $this->base->mostrar($consultaNumeracion);
@@ -65,6 +72,13 @@
                  $IdActividad = $ids[0]["IdActividad"];
                  
              }
+
+             if ($IdActividad == 9){
+                $consultaCocechar = "UPDATE plantaciones SET Cocechada = :cocechar WHERE ClavePlantacion = :clave";
+                $parametrosCocechar = [":cocechar" => 1, ":clave" => $ClavePlantacion];
+                $this->base->insertar_eliminar_actualizar($consultaCocechar, $parametrosCocechar);
+            } 
+            
  
  
              $consultaNumeracion = "SELECT NumeracionActividad FROM  actividadplantacion WHERE ClavePlantacion = '$ClavePlantacion'";

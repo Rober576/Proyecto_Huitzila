@@ -47,6 +47,43 @@ function cambiarPlantacionesCombo() {
 
 }
 
+function cambiarPlantacionesCombo2() {
+    var platacionSelect = document.getElementById('platacionSele');
+
+    var predioSeleccionado = document.getElementById("predioSele");
+    var valorSeleccionado = predioSeleccionado.value;
+
+    console.log(valorSeleccionado , "func 2");
+
+    platacionSelect.innerHTML = "";
+
+    var plantSelecionar = obtenerParametroURL('plantacion');
+    fetch('../../../controller/Agricola/Actividades/php/Consultar_Plantaciones.php?plantacion='+valorSeleccionado)
+    .then(response => response.json())  
+    .then(data => {
+        data.forEach(item => {
+            var option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+            if (item == plantSelecionar){
+                option.selected = true;
+            }
+            if (platacionSelect) {
+                platacionSelect.appendChild(option);
+            }
+        });
+    })
+
+    .catch(error => console.error('Error al obtener plantaciones:', error));
+
+
+    
+    
+        
+        
+
+}
+
 function hayPlantacionEnURL(plantacion) {
     console.log(plantacion)
     fetch('../../../controller/Agricola/Actividades/php/Consultar_Predios.php?predio='+plantacion)
@@ -66,7 +103,7 @@ function hayPlantacionEnURL(plantacion) {
             }
         }
 
-        cambiarPlantacionesCombo();
+        cambiarPlantacionesCombo2();
     })
 
     .catch(error => console.error('Error al obtener plantaciones:', error));
