@@ -1,5 +1,5 @@
 <?php
-require_once('../../model/Produccion/Mod_Movimientos_Mezcal.php');
+require_once('../../model/Produccion/Modificar_Movimientos_Cremas_Destilados_LicoresM.php');
 $objeto = new modificarMez();
 $lote2 = $_POST["lote"];
 $numero =$_POST["numero"];

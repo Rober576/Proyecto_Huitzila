@@ -161,7 +161,7 @@ form_ingreso_agave.vol_agua.addEventListener('input', (e) => {
 });
 
 function validar(bandera){
-    const guardar = document.getElementById('submitButton');
+    const guardar = document.getElementById('boton_registrar');
 
     if(bandera == false){              
         guardar.disabled=true;

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var datos = new FormData(formulario);
 
         // Realizar una petición fetch para enviar los datos del formulario
-        fetch('../../controller/Produccion/Modificar_Movimientos.php', {
+        fetch('../../controller/Produccion/Modificar_Movimientos_Cremas_Destilados_Licores.php', {
             method: 'POST',
             body: datos
         })
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error:', data);
             } else {
                 alert("Modificación exitosa");
-                location.href = "../../view/Produccion/Movimiento_Especifico_Mezcal.html";
+                location.href = "../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html";
             }
         })
         .catch(error => {

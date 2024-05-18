@@ -97,16 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-/*document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lote = urlParams.get('Lote');
-    if (lote !== null)  {
-        // Llamar a la función buscar_datos con el valor de Lote como consulta
-        buscar_datos(lote);
-    } else {
-        console.error("error en el lote")
-        
-    }*/
+
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
