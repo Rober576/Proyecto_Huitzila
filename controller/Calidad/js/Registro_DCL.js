@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function (e)
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro exitoso");
-            window.location.href = '../../view/Calidad/Mostrar_Calidad.html';
+            window.location.href = '../../view/Calidad/Mostrar_DCL.html';
         }
     })
 })
