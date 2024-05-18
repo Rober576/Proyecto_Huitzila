@@ -61,7 +61,7 @@ if ($lotes) {
                 $salida .= '<td class="' . $clase_css . '">' . $fila["AlcoholesSuperiores"] . '</td>';
         
                 $salida .= '<td class="' . $clase_css . '">';
-                $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_DCL.html?id=' . $lote["Lote"] . '\', \'_blank\')">Registro destilados, cremas y licores</button>';
+                $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_DCL.html?id=' . $lote["Lote"] . '\', \'_blank\')">Registro general</button>';
                 $salida .= '</td>';
             }
         } 
