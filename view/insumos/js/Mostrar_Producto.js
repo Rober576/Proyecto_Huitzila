@@ -81,9 +81,9 @@ function mostrarDatos(datos){
             row.appendChild(desc_col);
             //cprom_col.innerHTML = datos[i][2];
             //row.appendChild(cprom_col);
-            ucost_col.innerHTML = datos[i][3];
+            ucost_col.innerHTML = datos[i][2];
             row.appendChild(ucost_col);
-            cant_col.innerHTML = datos[i][4];
+            cant_col.innerHTML = datos[i][3];
             row.appendChild(cant_col);
             smax_col.innerHTML = datos[i][5];
             row.appendChild(smax_col);

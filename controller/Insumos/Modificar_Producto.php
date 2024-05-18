@@ -2,7 +2,7 @@
 include_once('../../model/Insumos/Modificar_Producto.php');
 
 class Modificar{
-    private $id, $nombre, $desc, $smin, $smax, $cprom, $cu, $cantidad, $base;
+    private $id, $nombre, $desc, $smin, $smax, $base; // $cprom, $cu, $cantidad, 
 
     function instancias(){
 
@@ -11,9 +11,9 @@ class Modificar{
         $this->desc = $_POST['Descripcion'];
         $this->smin = $_POST['Stockmi'];
         $this->smax = $_POST['Stockma'];
-        $this->cprom = $_POST['CProm'];
-        $this->cu = $_POST['UCosto'];
-        $this->cantidad = $_POST['cantidad'];
+        // $this->cprom = $_POST['CProm'];
+        // $this->cu = $_POST['UCosto'];
+        // $this->cantidad = $_POST['cantidad'];
 
         $this ->base = new EditarProducto();
         $this->base->instancias();
@@ -21,7 +21,7 @@ class Modificar{
 
     function actualizar(){
     
-        $this->base->actualizar($this->id, $this->nombre, $this->desc, $this->smin, $this->smax, $this->cprom, $this->cu, $this->cantidad);
+        $this->base->actualizar($this->id, $this->nombre, $this->desc, $this->smin, $this->smax); //$this->cprom, $this->cu, $this->cantidad);
         echo json_encode('todo chido');
     }
 }

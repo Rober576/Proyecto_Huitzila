@@ -10,11 +10,11 @@ class EditarProducto{
     }
 
     //da de alta un producto
-    function actualizar($id, $nombre, $desc, $smin, $smax, $cprom, $cu, $cantidad){
+    function actualizar($id, $nombre, $desc, $smin, $smax){ //$cprom, $cu, $cantidad){
         $querry = "UPDATE productoterminado SET Descripcion = :descr, ProductoTerminado = :nom, StockMinimo = :smin, 
-        StockMaximo = :smax, CostoProm = :cprom,CostoUltimo = :cu, Cantidad = :cantidad WHERE IDProducto = :id";
+        StockMaximo = :smax WHERE IDProducto = :id"; //CostoProm = :cprom,CostoUltimo = :cu, Cantidad = :cantidad 
 
-        $array = [':id'=>$id, ':nom'=>$nombre, ':descr'=>$desc, ':smin'=>$smin, ':smax'=>$smax, ':cprom'=>$cprom, ':cu'=>$cu, ':cantidad'=>$cantidad];
+        $array = [':id'=>$id, ':nom'=>$nombre, ':descr'=>$desc, ':smin'=>$smin, ':smax'=>$smax]; //':cprom'=>$cprom, ':cu'=>$cu, ':cantidad'=>$cantidad];
 
         $this->base->insertar_eliminar_actualizar($querry, $array);
     }
