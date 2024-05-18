@@ -75,12 +75,22 @@ switch ($RespActivRealizada) {
 
 }
 
+$listaNombreTrabajador = json_decode($_POST['listaNombreTrabajador'], true);
+$listaDiasSeleccionados = json_decode($_POST['listaDiasSeleccionados'], true);
+$listaDescripcion = json_decode($_POST['listaDescripcion'], true);
+$listaGastoGasolina = json_decode($_POST['listaGastoGasolina'], true);
+$listaDatosVehiculo = json_decode($_POST['listaDatosVehiculo'], true);
+$listaGastoLiquidos = json_decode($_POST['listaGastoLiquidos'], true);
+$listaCompraMaterial = json_decode($_POST['listaCompraMaterial'], true);
+$listaGastosExtras = json_decode($_POST['listaGastosExtras'], true);
+$listaSemana = json_decode($_POST['listaSemana'], true);
+
 // Instanciar la clase y llamar la función para insertar
 $obj = new NuevosCampos();
 $obj->conexion();
 
 try {
-    $obj->editar($id, $plantacion, $Fecha, $ActivRealizada, $Plaga, $Herbicida, $GastGenerales, $Descri, $Semanas);
+    $obj->editar($id, $plantacion, $Fecha, $ActivRealizada, $Plaga, $Herbicida, $GastGenerales, $Descri, $Semanas, $listaNombreTrabajador, $listaDiasSeleccionados, $listaDescripcion, $listaGastoGasolina, $listaDatosVehiculo, $listaGastoLiquidos, $listaCompraMaterial, $listaGastosExtras, $listaSemana);
     echo json_encode('exito');
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);

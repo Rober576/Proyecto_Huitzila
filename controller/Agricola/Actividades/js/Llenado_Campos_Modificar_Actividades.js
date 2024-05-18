@@ -187,8 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             const Material = fila.cells[7].textContent;
                             const GasExtra = fila.cells[8].textContent;
 
+                            let arrayDias = Dias.split(', ');
+
                             listaNombreTrabajador.push(Nombre);
-                            listaDiasSeleccionados.push(Dias);
+                            listaDiasSeleccionados.push(arrayDias);
                             listaDescripcion.push(Actividad);
                             listaGastoGasolina.push(Gas);
                             listaDatosVehiculo.push(Vehiculo);

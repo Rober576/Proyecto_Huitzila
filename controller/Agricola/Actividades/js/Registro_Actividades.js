@@ -10,6 +10,7 @@ function cargarListasDesdeLocalStorage() {
     let listaGastoLiquidos = JSON.parse(localStorage.getItem('listaGastoLiquidos')) || [];
     let listaCompraMaterial = JSON.parse(localStorage.getItem('listaCompraMaterial')) || [];
     let listaGastosExtras = JSON.parse(localStorage.getItem('listaGastosExtras')) || [];
+    let listaSemana = JSON.parse(localStorage.getItem('listaSemana')) || [];
 }
 
 console.log('registro Actividades');
@@ -58,7 +59,7 @@ formulario.addEventListener('submit', function (e) {
             const form= document.getElementById('advanced-form');
             form.reset();
             alert("Registro de actividad exitoso");
-            window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html';    
+            window.location.href = '../../../view/Agricola/Actividades/Vista_actividades.html';    
         }
     })
 
@@ -79,7 +80,7 @@ var cancelButton = document.getElementById("cancelButton");
             
             // Limpiar los campos del formulario
             formulario1.reset();
-            window.location.href = '../../../view/Agricola/Predios/Vista_Predios.html';
+            window.location.href = '../../../view/Agricola/Actividades/Vista_actividades.html';
             
         }
     });
