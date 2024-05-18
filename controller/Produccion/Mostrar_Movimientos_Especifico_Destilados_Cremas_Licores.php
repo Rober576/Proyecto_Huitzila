@@ -38,8 +38,7 @@ if (isset($_GET['lote'])) {
             $salida .= '<td>';
             $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '@' . $NumeroMovimiento . '">Eliminar</button>';
             $salida .= ' ';
-            //$salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Movimiento.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '@' . $NumeroMovimiento . '">Modificar</button>';
-            $salida .= '<button onclick="window.location.href=\'../../controller/Produccion/Get_Movimiento.php?Lote='.$Lote.'&NumeroMovimiento='.$NumeroMovimiento.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '@' . $NumeroMovimiento . '">Modificar</button>';
+            $salida .= '<button onclick="window.location.href=\'../../controller/Produccion/Get_Movimiento_Cremas_Destilados_Licores.php?Lote='.$Lote.'&NumeroMovimiento='.$NumeroMovimiento.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '@' . $NumeroMovimiento . '">Modificar</button>';
 
             $salida .= '</td>';
             $salida .= '</tr>';
