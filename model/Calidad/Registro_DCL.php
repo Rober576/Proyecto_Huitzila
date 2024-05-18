@@ -29,7 +29,7 @@ class Registro_DCL
     }
 
     $referencia = 1;
-    $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, Metanol, AlcoholesSuperiores, Referencia, cumplimiento)
+    $q1 = "INSERT INTO analisisdestilado (Clave, Lote, PorcentajeAlcohol, Metanol, AlcoholesSuperiores, Referencia, cumplimiento)
             VALUES(:Clave, :Lote, :Alcohol, :Metanol, :AlcoholesSuperiores, :Referencia, :cumplimiento)";
     $a1 = [
         ":Clave" => $Clave,
