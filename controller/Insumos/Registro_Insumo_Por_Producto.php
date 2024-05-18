@@ -1,5 +1,5 @@
 <?php
-include_once('../..//model/Insumos/Insumos_Por_Producto.php');
+include_once('../../model/Insumos/Insumos_Por_Producto.php');
 // Verificar si se ha recibido una solicitud POST con datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener el cuerpo de la solicitud
