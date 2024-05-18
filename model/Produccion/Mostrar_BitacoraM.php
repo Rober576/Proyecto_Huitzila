@@ -17,7 +17,7 @@ class MostrarBit extends Crud_bd{
     }
 
     function buscador($busqueda){
-        $query = "SELECT * FROM bitacoramezcal WHERE Fecha LIKE :busqueda OR Procedencia LIKE :busqueda OR Costo LIKE :busqueda OR Lote LIKE :busqueda OR KgEntrada LIKE :busqueda OR FechaEntrada LIKE :busqueda OR NoGuia LIKE :busqueda OR NombrePlanta LIKE :busqueda OR KgAgave LIKE :busqueda OR Brix LIKE :busqueda OR KgArt LIKE :busqueda OR KgCoccion LIKE :busqueda OR FechaInicio LIKE :busqueda OR FechaFinal LIKE :busqueda OR KgArtCoccion LIKE :busqueda";
+        $query = "SELECT * FROM bitacoramezcal WHERE Procedencia LIKE :busqueda OR Costo LIKE :busqueda OR Lote LIKE :busqueda OR FechaEntrada LIKE :busqueda OR NoGuia LIKE :busqueda OR NombrePlanta LIKE :busqueda OR KgAgave LIKE :busqueda OR Brix LIKE :busqueda OR KgArt LIKE :busqueda OR KgCoccion LIKE :busqueda OR FechaInicio LIKE :busqueda OR FechaFinal LIKE :busqueda ";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
         return $resultados;
