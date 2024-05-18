@@ -1,8 +1,6 @@
 <?php
-//include_once('../../model/Produccion/Mostrar_Movimiento_Especifico_MezcalM.php');
+include_once('../../model/Produccion/Mostrar_Movimientos_Especifico_Destilados_Cremas_LicoresM.php');
 include_once('../../view/Produccion/Modificar_Movimientos_Cremas_Destilados_Licores.html');
-
-
 
 $objeto = new MostrarMez();
 

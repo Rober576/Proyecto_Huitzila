@@ -2,7 +2,7 @@ var formulario = document.getElementById('form_ingreso_agave');
 var respuesta = document.getElementById('respuesta');
 console.log("entro a modificar_movimientos")
 // Responde cuando hay un click en el boton "Guardar"
-document.getElementById('submitButton').addEventListener('click', function (e) {
+document.getElementById('boton_registrar').addEventListener('click', function (e) {
     e.preventDefault(); // Prevenir el envío del formulario por defecto
     console.log("Mensaje de prueba en la consola");
     var datos = new FormData(formulario);
@@ -34,7 +34,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
             var lotE = parametrosURL.get('Lote');
             console.log('lote',lotE)
             // Redirigir a movimiento_espeficico.html con el parámetro 'lote'
-            //location.href = "../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=" + lotE;
+            location.href = "../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html?Lote=" + lotE;
           
             }
     })
@@ -55,7 +55,7 @@ formulario.cancelar.addEventListener('click', function (e){
         var lotE = parametrosURL.get('Lote');
         console.log('lote',lotE)
         // Redirigir a movimiento_espeficico.html con el parámetro 'lote'
-        //location.href = "../../view/Produccion/Movimiento_Especifico_Mezcal.html?Lote=" + lotE;
+        location.href = "../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html?Lote=" + lotE;
      }
 
     
