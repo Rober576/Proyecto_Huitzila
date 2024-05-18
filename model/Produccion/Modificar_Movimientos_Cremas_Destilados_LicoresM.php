@@ -137,7 +137,7 @@ class  modificarMez extends Crud_bd{
         $finalVolumen = $resultado['FinalVolumen'];
         $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-        $consulta = "UPDATE movimientomezcal
+        $consulta = "UPDATE movimientodestilado
          SET IdMovimiento=:idMovimiento ,
          Fecha=:fecha,
         EntradaSalida=:tipo,
