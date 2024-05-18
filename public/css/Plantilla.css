@@ -68,6 +68,10 @@ main{
     margin-bottom: 5px;
     font-weight: bold;
 }
+.label_datos_check {
+    display: block;
+    margin-bottom: 5px;
+}
 .subtitulo-1{
     color: var(--color-black);
     font-size: 1.75rem;
@@ -75,6 +79,9 @@ main{
 }
 .grupo-checks{
     display: flex;
+}
+.grupo-checks2{
+    grid-column: 2;
 }
 
 input[type="text"],
