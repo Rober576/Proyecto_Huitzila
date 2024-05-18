@@ -1,28 +1,21 @@
-const listaNombreTrabajador = [];
-    const listaDiasSeleccionados = [];
-    const listaDescripcion = [];
-    const listaGastoGasolina = [];
-    const listaDatosVehiculo = [];
-    const listaGastoLiquidos = [];
-    const listaCompraMaterial = [];
-    const listaGastosExtras = [];
-    const listaSemana = [];
+
 
 function Lista(){
-    const listaNombreTrabajador = [];
-    const listaDiasSeleccionados = [];
-    const listaDescripcion = [];
-    const listaGastoGasolina = [];
-    const listaDatosVehiculo = [];
-    const listaGastoLiquidos = [];
-    const listaCompraMaterial = [];
-    const listaGastosExtras = [];
-    const listaSemana = [];
-
     const tabla = document.getElementById("tablaActividades");
+
     if (tabla.rows.length > 1) {
         console.log("Hay elementos antes de agregar");
         const numeroDeFilas = tabla.rows.length;
+
+        const listaNombreTrabajador = [];
+        const listaDiasSeleccionados = [];
+        const listaDescripcion = [];
+        const listaGastoGasolina = [];
+        const listaDatosVehiculo = [];
+        const listaGastoLiquidos = [];
+        const listaCompraMaterial = [];
+        const listaGastosExtras = [];
+        const listaSemana = [];
 
         
 
@@ -60,10 +53,23 @@ function Lista(){
 
             console.log(Final)
 
-            guardarListasEnLocalStorage()
-
         }
         console.log(listaGastoGasolina)
+
+        localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
+        localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
+        localStorage.setItem('listaSemana', JSON.stringify(listaSemana));
+        localStorage.setItem('listaDescripcion', JSON.stringify(listaDescripcion));
+        localStorage.setItem('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
+        localStorage.setItem('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
+        localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
+        localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
+        localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
+        
+        //Mostrar una lista horrible 
+        let listaGastosExtrasString = localStorage.getItem('listaGastosExtras');
+        let listaGastosExtra= JSON.parse(listaGastosExtrasString);
+        console.log("Listas horribles",listaGastosExtra);
 
     } else {
         console.log("La tabla no contiene más elementos.");
@@ -217,16 +223,3 @@ function procesarResultado() {
     }
 }
 
-
-function guardarListasEnLocalStorage() {
-    localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
-    localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
-    localStorage.setItem('listaSemana', JSON.stringify(listaSemana));
-    localStorage.setItem('listaDescripcion', JSON.stringify(listaDescripcion));
-    localStorage.setItem('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
-    localStorage.setItem('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
-    localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
-    localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
-    localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
-    
-}
