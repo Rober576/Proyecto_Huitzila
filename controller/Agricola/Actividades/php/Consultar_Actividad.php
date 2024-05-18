@@ -19,7 +19,7 @@ if ($resultado) {
         <th>Fecha de inicio</th>
         <th>Semanas trabajadas</th>
         <th>Gastos generales</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Acciones</th>
         </tr>
     </thead>
