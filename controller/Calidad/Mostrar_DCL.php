@@ -35,7 +35,7 @@ if ($lotes) {
                     <th>Porcentaje de alcohol</th>
                     <th>Metanol</th>
                     <th>Alcoholes superiores</th>
-                    <th>DCL</th>
+                    <th>Destilados, cremas y licores</th>
                     
                 </tr>
             </thead>
@@ -61,7 +61,7 @@ if ($lotes) {
                 $salida .= '<td class="' . $clase_css . '">' . $fila["AlcoholesSuperiores"] . '</td>';
         
                 $salida .= '<td class="' . $clase_css . '">';
-                $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Get_Datos_Fisioquimico.php?id=' . $lote["Lote"] . '\', \'_blank\')">Registro Fisioquimico</button>';
+                $salida .= '<button type="submit" onclick="window.open(\'../../view/Calidad/Registro_DCL.html?id=' . $lote["Lote"] . '\', \'_blank\')">Registro destilados, cremas y licores</button>';
                 $salida .= '</td>';
             }
         } 
