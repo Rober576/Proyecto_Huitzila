@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(data)
             if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
                 alert("Error: La fecha ingresada es menor que la última fecha registrada");
-                console.error("Error: La fecha ingresada es menor que la ultima fecha registrada");
+                console.error("Error: La fecha ingresada es menor que la última fecha registrada");
             } 
             else if(data.trim() ==="Error Volumen"){
-                alert("Error: El volumen de salida es mallor al volumen existente");
+                alert("Error: El volumen de salida es mayor al volumen existente");
 
             } 
             else {
