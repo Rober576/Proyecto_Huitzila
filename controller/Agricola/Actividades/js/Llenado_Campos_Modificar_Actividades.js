@@ -85,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             console.log(GastoT)
+            Lista();
+            
             
             document.getElementById('total').value = GastoT;
 
@@ -245,8 +247,86 @@ document.addEventListener('DOMContentLoaded', function() {
             
         }
 
+        
+        function Lista(){
+            const tabla = document.getElementById("tablaActividades");
 
-    
+            if (tabla.rows.length > 1) {
+                console.log("Hay elementos antes de agregar");
+                const numeroDeFilas = tabla.rows.length;
+
+                const listaNombreTrabajador = [];
+                const listaDiasSeleccionados = [];
+                const listaDescripcion = [];
+                const listaGastoGasolina = [];
+                const listaDatosVehiculo = [];
+                const listaGastoLiquidos = [];
+                const listaCompraMaterial = [];
+                const listaGastosExtras = [];
+                const listaSemana = [];
+
+                
+
+                for (let i = 1; i < numeroDeFilas; i++) {
+                    const fila = tabla.rows[i];
+                    const Nombre = fila.cells[0].textContent;
+                    const Dias = fila.cells[1].textContent;
+                    const Semana = fila.cells[2].textContent;
+                    const Actividad = fila.cells[3].textContent;
+                    const Gas = fila.cells[4].textContent;
+                    const Vehiculo = fila.cells[5].textContent;
+                    const Liquidos = fila.cells[6].textContent;
+                    const Material = fila.cells[7].textContent;
+                    const GasExtra = fila.cells[8].textContent;
+
+                    let arrayDias = Dias.split(', ');
+
+                    listaNombreTrabajador.push(Nombre);
+                    listaDiasSeleccionados.push(arrayDias);
+                    listaDescripcion.push(Actividad);
+                    listaGastoGasolina.push(Gas);
+                    listaDatosVehiculo.push(Vehiculo);
+                    listaGastoLiquidos.push(Liquidos);
+                    listaCompraMaterial.push(Material);
+                    listaGastosExtras.push(GasExtra);
+                    listaSemana.push(Semana);
+                    const total1 = listaCompraMaterial.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+                    const total2 = listaGastoGasolina.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+                    const total3 = listaGastoLiquidos.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+                    const total4 = listaGastosExtras.reduce((acumulador, valor) => acumulador + parseFloat(valor), 0);
+                    const General = document.getElementById("cosGenral").value;
+                    const CostoGeneral = parseFloat(General);
+                    const Final= total1+total2+total3+total4+CostoGeneral
+
+                    let sumaRedondeada = Final.toFixed(2);
+                    document.getElementById("total").value = sumaRedondeada;
+
+                    console.log(Final)
+
+                }
+
+                console.log(listaGastoGasolina)
+
+                localStorage.setItem('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
+                localStorage.setItem('listaDiasSeleccionados', JSON.stringify(listaDiasSeleccionados));
+                localStorage.setItem('listaSemana', JSON.stringify(listaSemana));
+                localStorage.setItem('listaDescripcion', JSON.stringify(listaDescripcion));
+                localStorage.setItem('listaGastoGasolina', JSON.stringify(listaGastoGasolina));
+                localStorage.setItem('listaDatosVehiculo', JSON.stringify(listaDatosVehiculo));
+                localStorage.setItem('listaGastoLiquidos', JSON.stringify(listaGastoLiquidos));
+                localStorage.setItem('listaCompraMaterial', JSON.stringify(listaCompraMaterial));
+                localStorage.setItem('listaGastosExtras', JSON.stringify(listaGastosExtras));
+                
+                //Mostrar una lista horrible 
+                let listaGastosExtrasString = localStorage.getItem('listaGastosExtras');
+                let listaGastosExtra= JSON.parse(listaGastosExtrasString);
+                console.log("Listas horribles",listaGastosExtra);
+
+            } else {
+                console.log("La tabla no contiene más elementos.");
+            }
+
+            }
 
 
 
