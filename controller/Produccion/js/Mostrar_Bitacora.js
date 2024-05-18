@@ -1,23 +1,16 @@
-
 function buscar_datos(consulta) {
-
     var url = '../../controller/Produccion/Mostrar_Bitacora.php';
 
     if (consulta !== "") {
         url += '?consulta=' + consulta;
     }
 
-    // Crear una nueva instancia de XMLHttpRequest
     var xhr = new XMLHttpRequest();
-    // Configurar la solicitud GET
     xhr.open('GET', url, true);
 
-    // Definir la función de retorno de llamada (callback) para manejar la respuesta
     xhr.onload = function() {
         if (xhr.status === 200) {
-
             document.getElementById("tabla_Bit").innerHTML = xhr.responseText;
-            console.log("estro aqui")
             agregarEventosEliminar();
             agregarEventosEditar();
         } else {
@@ -29,14 +22,11 @@ function buscar_datos(consulta) {
         console.error("Error al realizar la solicitud.");
     };
 
-
     xhr.send();
 }
 
 function agregarEventosEliminar() {
-    // Selecciona todos los botones con la clase "boton-eliminar"
     var botonesEliminar = document.querySelectorAll(".boton-eliminar");
-
 
     for (var i = 0; i < botonesEliminar.length; i++) {
         botonesEliminar[i].addEventListener('click', function(e) {
@@ -59,29 +49,27 @@ function agregarEventosEliminar() {
 }
 
 function agregarEventosEditar() {
-
     var botonesModificar = document.querySelectorAll(".boton-modificar");
 
-    // Agrega el evento click a cada botón de modificar
     for (var j = 0; j < botonesModificar.length; j++) {
         botonesModificar[j].addEventListener('click', function(e) {
-
             window.location.href = "#";
         });
     }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos("");
 });
 
-
-document.addEventListener('keyup', function(event) {
-
-    if (event.target.id === 'busqueda') {
-        var valorBusqueda = event.target.value.trim(); 
-        buscar_datos(valorBusqueda);
+document.addEventListener("DOMContentLoaded", function() {
+    var buscarInput = document.getElementById('buscar-txt');
+    if (buscarInput) {
+        buscarInput.addEventListener('input', function(event) {
+            var valorBusqueda = event.target.value.trim(); 
+            buscar_datos(valorBusqueda);
+        });
     }
 });
+
+
