@@ -63,13 +63,11 @@ class NuevosCampos {
         $volumen = floatval($volumen);
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
-
+    
         $finalVolumen = 0;
         $finalPorcentaje = 0;
     
-
         if ($tipoES == 'entrada') {
-
             $finalVolumen = $inicialVolumen + $volumen;
             // Calcular porcentaje
             if ($inicialVolumen == 0) {
@@ -79,13 +77,14 @@ class NuevosCampos {
             }
             return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
         } else if ($tipoES == 'salida') {
-            if ($inicialVolumen > $volumen || $inicialVolumen == $volumen ) {
+            if ($volumen > $inicialVolumen) {        
+                return array('FinalVolumen' => "Error Volumen", 'FinalPorcentaje' => "Error Volumen");
+            } else  {
                 $finalVolumen = $inicialVolumen - $volumen;
                 return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $inicialPorcentaje);
-            } else {
-                return array('FinalVolumen' => "Error Volumen", 'FinalPorcentaje' => "Error Volumen");
-            }
+            } 
         }
+
     }
 
     function verificarRegistro($lote, $fecha) {
@@ -146,11 +145,7 @@ class NuevosCampos {
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
 
-            if ($finalVolumen=="Error Volumen"){
-                return $finalVolumen;
-            }
-            else{
-                
+            if (is_numeric($finalVolumen)){
                 $q1 = "INSERT INTO movimientodestilado (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
                 VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
         
@@ -174,6 +169,10 @@ class NuevosCampos {
                 $this->base->insertar_eliminar_actualizar($q1, $params);
                 $this->base->cerrar_conexion();
                 return true; 
+                
+            }
+            else{
+                return $finalVolumen;
             }
 
 
