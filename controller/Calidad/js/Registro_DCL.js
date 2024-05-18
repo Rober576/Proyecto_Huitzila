@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function (e)
 
 var selectCategoria = document.getElementById('lote');
 
-fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote')
+fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote_Des')
 .then(response => response.json())
 .then(data => {
     data.forEach(item => {
