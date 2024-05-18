@@ -1,18 +1,13 @@
 <?php
 include_once('../../model/Calidad/Registro_DCL.php');
-$calidad = new Registro_Calidad();
+$Clave = $_POST["clave_analisis"];
 $Lote = $_POST["lote"];
-$Alcohol = $_POST["alcohol"];
-$Metanol= $_POST["metanol"];
+$PorcentajeAlcohol = $_POST["alcohol"];
+$Metanol = $_POST["metanol"];
 $AlcoholesSuperiores = $_POST["alc_sup"];
 
-$u=$calidad->insertar($Lote, $Alcohol, $Metanol, $AlcoholesSuperiores);
-    if($u==true){
-        echo json_encode('exito');
-        
-    }else{
-        echo json_encode('no exito');
-        
-    }
+$reg = new Registro_DCL();
+$reg->conexion();
+$reg->insertar($Clave, $Lote, $PorcentajeAlcohol,  $Metanol, $AlcoholesSuperiores);
 
 ?>

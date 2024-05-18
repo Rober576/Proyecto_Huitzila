@@ -1,10 +1,11 @@
 let bandera1=false;
 let bandera2=false;
 let bandera3=false;
+let bandera4=false;
 
 let botonRegistrar = document.getElementById("submitButton");
 botonRegistrar.addEventListener("click", (e) =>{
-    if(bandera1 == true && bandera2 == true && bandera3 == true){
+    if(bandera1 == true && bandera2 == true && bandera3 == true && bandera4 == true){
         console.log("Registro exitoso");
     }
 
@@ -14,15 +15,36 @@ botonRegistrar.addEventListener("click", (e) =>{
     }
 })
 
-const expresion = {
+const expre = {
+    Clave: /^[a-zA-Z0-9]{1,10}$/,
     Alcohol: /^\d{1,8}(\.\d{1,2})$/,
     Metanol: /^\d{1,8}(\.\d{1,2})$/,
-    AlcoholSuperiores: /^\d{1,8}(\.\d{1,2})$/,
+    AlcoholesSuperiores: /^\d{1,8}(\.\d{1,2})$/,
 }
-
+var clave_analisis = document.getElementById('clave_analisis');
 var alcohol = document.getElementById('alcohol');
 var metanol = document.getElementById('metanol');
 var alc_sup = document.getElementById('alc_sup');
+
+clave_analisis.addEventListener('keyup', (e) => {
+    let valorInput = e.target.value;
+    clave_analisis.value = valorInput
+
+    .replace(/[^a-zA-Z0-9]/g, '')
+    .trim();
+
+
+    if (!expre.Clave.test(valorInput)) {
+        clave_analisis.style.border = "5px solid red";
+        bandera1 = false;
+    }
+
+    else {
+        clave_analisis.removeAttribute("style");
+        bandera1 = true;
+    }
+});
+
 alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
     alcohol.value = valorInput
@@ -31,14 +53,14 @@ alcohol.addEventListener('keyup', (e) => {
     .trim();
 
 
-    if (!expresion.Alcohol.test(valorInput)) {
+    if (!expre.Alcohol.test(valorInput)) {
         alcohol.style.border = "5px solid red";
-        bandera1 = false;
+        bandera2 = false;
     }
 
     else {
         alcohol.removeAttribute("style");
-        bandera1 = true;
+        bandera2 = true;
     }
 });
 
@@ -51,12 +73,12 @@ metanol.addEventListener('keyup', (e) => {
     .trim();
 
 
-    if (!expresion.Metanol.test(valorInput)) {
+    if (!expre.Metanol.test(valorInput)) {
         metanol.style.border = "5px solid red";
-        bandera2 = false;
+        bandera3 = false;
     } else {
         metanol.removeAttribute("style");
-        bandera2 = true;
+        bandera3 = true;
     }
 });
 
@@ -68,13 +90,11 @@ alc_sup.addEventListener('keyup', (e) => {
     .replace(/[^0-9.]/g, '')
     .trim();
 
-   
-
-    if (!expresion.AlcoholSuperiores.test(valorInput)) {
+    if (!expre.AlcoholesSuperiores.test(valorInput)) {
         alc_sup.style.border = "5px solid red";
-        bandera3 = false;
+        bandera4 = false;
     } else {
         alc_sup.removeAttribute("style");
-        bandera3 = true;
+        bandera4 = true;
     }
 });
