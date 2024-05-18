@@ -59,7 +59,7 @@ function mostrarDatos(datos){
             var row = document.createElement('tr');
             var id_col = document.createElement('td');
             var desc_col = document.createElement('td');
-            var cprom_col = document.createElement('td');
+            //var cprom_col = document.createElement('td');
             var ucost_col = document.createElement('td');
             var cant_col = document.createElement('td');
             var smax_col = document.createElement('td');
@@ -79,8 +79,8 @@ function mostrarDatos(datos){
             row.appendChild(nombre);
             desc_col.innerHTML = datos[i][1];
             row.appendChild(desc_col);
-            cprom_col.innerHTML = datos[i][2];
-            row.appendChild(cprom_col);
+            //cprom_col.innerHTML = datos[i][2];
+            //row.appendChild(cprom_col);
             ucost_col.innerHTML = datos[i][3];
             row.appendChild(ucost_col);
             cant_col.innerHTML = datos[i][4];

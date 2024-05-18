@@ -34,5 +34,22 @@ class Insumo extends Crud_bd{
 
         $this->insertar_eliminar_actualizar($consultas, $datos);
     }
+
+
+    //Insertar el total en el registro de productos.
+    public function insertarCosto($matriz){
+        $costoTotal = 0;
+
+        for ($i = 0; $i < count($matriz); $i++){
+            $costoTotal += $matriz[$i][4];
+        }
+        
+        $consulta = "UPDATE productoterminado SET CostoUltimo = :costoTotal WHERE IDProducto = :ID";
+        $IDProducto = $matriz[0][0];
+        $datos = array("ID" => $IDProducto, "costoTotal" => $costoTotal);
+        $this->insertar_eliminar_actualizar($consulta, $datos);
+    }
+
+
 }
 ?>

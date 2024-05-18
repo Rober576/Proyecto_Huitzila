@@ -20,8 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $base->regsitrarIP($matriz);
+        $base->insertarCosto($matriz);
 
         echo json_encode("todo chido");
+
+        
 
 
     } else {
