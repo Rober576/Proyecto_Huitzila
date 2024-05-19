@@ -13,12 +13,12 @@ class Registro_DCL
 
     function insertar($Clave, $Lote, $Alcohol, $Metanol, $Superiores)
 {
-    $query = "SELECT * FROM valoresminmax";
+    $query = "SELECT * FROM valoresminmaxdcl";
     $resultados = $this->base->mostrar($query);
     $resultados = $resultados[0];
 
     $cumplimiento = 1;
-    if ($Alcohol < $resultados['ALCVolMin'] || $Alcohol > $resultados['ALCVolMax']) {
+    if ($Alcohol < $resultados['PorcentajeAlcoholMin'] || $Alcohol > $resultados['PorcentajeAlcoholMax']) {
         $cumplimiento = 2;
     }
     if ($Metanol < $resultados['MetanolMin'] || $Metanol > $resultados['MetanolMax']) {
