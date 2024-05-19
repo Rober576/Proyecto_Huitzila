@@ -18,12 +18,7 @@ let botonRegistrar = document.getElementById("submitButton");
 
 window.addEventListener('load', (event) => {
     Validar_Cantidad_Semanas();
-    try{
-    let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
-    Validar_Cantidad_Semanas2();
-    }catch{
 
-    }
     
     
     Validar_Costo_General()
