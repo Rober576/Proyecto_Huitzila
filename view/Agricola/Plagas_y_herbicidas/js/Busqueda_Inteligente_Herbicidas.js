@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Mostrar mensaje si no se encontraron coincidencias
         if (!algunaCoincidencia) {
+            // Ocultar la tabla
+            tabla.style.display = "none";
+
             // Eliminar mensajes existentes
             const mensajes = tablaContainer.querySelectorAll("p");
             mensajes.forEach(function(mensaje) {
@@ -46,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
             mensaje.textContent = "No se encontraron resultados";
             tablaContainer.appendChild(mensaje);
         } else {
-            // Si hay coincidencias, eliminar mensajes
+            // Si hay coincidencias, asegurarse de mostrar la tabla y eliminar mensajes
+            tabla.style.display = "";
+
             const mensajes = tablaContainer.querySelectorAll("p");
             mensajes.forEach(function(mensaje) {
                 mensaje.parentNode.removeChild(mensaje);
