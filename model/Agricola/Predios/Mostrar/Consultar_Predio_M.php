@@ -1,7 +1,7 @@
 <?php
 include('../../../../config/Crud_bd.php');
 
-class Mostrar {
+class Mostrar extends Crud_bd{
     private $base;
 
     function instancias(){

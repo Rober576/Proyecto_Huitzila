@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('keyup', function(event) {
-    if (event.target.id === 'busqueda') {
-        var valorBusqueda = event.target.value.trim(); 
+    if (event.target.id === 'buscar-txt') {
+        var valorBusqueda = event.target.value.trim();
         buscar_datos(valorBusqueda);
     }
 });

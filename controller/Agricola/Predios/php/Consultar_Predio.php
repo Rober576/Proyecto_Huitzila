@@ -4,8 +4,8 @@ include_once('../../../../model/Agricola/Predios/Mostrar/Consultar_Predio_M.php'
 $base = new Mostrar();
 $base->instancias();
 
-if (isset($_POST['consulta'])) {
-    $busqueda = $_POST['consulta'];
+if (isset($_GET['consulta'])) {
+    $busqueda = $_GET['consulta'];
     $resultado = $base->buscador($busqueda);
 } else {
     $resultado = $base->getInfo();
