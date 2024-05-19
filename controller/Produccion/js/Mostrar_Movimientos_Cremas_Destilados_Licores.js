@@ -63,20 +63,19 @@ function agregarEventosEliminar() {
 
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
     buscar_datos("");
 });
 
-
-document.addEventListener('keyup', function(event) {
-
-    if (event.target.id === 'busqueda') {
-        var valorBusqueda = event.target.value.trim(); 
-        buscar_datos(valorBusqueda);
+document.addEventListener("DOMContentLoaded", function() {
+    var buscarInput = document.getElementById('buscar-txt');
+    if (buscarInput) {
+        buscarInput.addEventListener('input', function(event) {
+            var valorBusqueda = event.target.value.trim(); 
+            buscar_datos(valorBusqueda);
+        });
     }
 });
-
 
 
 
