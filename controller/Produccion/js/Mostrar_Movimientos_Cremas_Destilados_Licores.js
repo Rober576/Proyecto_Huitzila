@@ -14,7 +14,7 @@ function buscar_datos(consulta) {
     xhr.onload = function() {
         if (xhr.status === 200) {
 
-            document.getElementById("form_ingreso_agave").innerHTML = xhr.responseText;
+            document.getElementById("tablaMovimientos").innerHTML = xhr.responseText;
             agregarEventosEliminar();
         } else {
             console.error("Error al realizar la solicitud:", xhr.statusText);
