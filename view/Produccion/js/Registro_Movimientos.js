@@ -16,10 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
             console.log("Entro4")
             if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
-                // Mostrar mensaje de error si la fecha ingresada es menor que la última fecha registrada
-                alert("Error: La fecha ingresada es menor que la última fecha registrada");
-                console.error("Error: La fecha ingresada es menor que la ultima fecha registrada");
-            } else {
+
+                console.error("Error: La fecha ingresada es menor que la última fecha registrada");
+            } 
+            else if(data.trim() ==="Error Volumen"){
+                alert("Error: El volumen de salida es mayor al volumen existente");
+
+            }  else {
                 // Si la inserción es exitosa, redireccionar a la página de éxito
                 alert("Registro exitoso");
                 location.href = "../../view/Produccion/Registro_Movimientos.html";
