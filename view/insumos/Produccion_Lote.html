@@ -143,17 +143,17 @@
 			<br>
 
 				
-			<form class="formulario" id="Producción_Lote">
+			<form class="formulario" id="insumos_form">
 				<div class="formulario-colum">
 
 					<div class="grupo1">
 						<label class="label_datos" for="Lote">Lote<span class="campo-obligatorio">*</span></label>
-						<input type="text" id="Lote" name="Lote" title="El lote conformado de caracteres alfanuméricos." required maxlength="5">
+						<input type="text" id="Lote" name="Lote" title="El lote conformado de 5 caracteres alfanuméricos." >
 					</div>
 
 					<div class="grupo1">
-						<label class="label_datos" for="seleccionar_producto">Seleccionar producto<span class="campo-obligatorio">*</span></label>
-						<select id="Id_productos" name="Id_productos" title="seleccionar producto." required>
+						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
+						<select id="Id_productos" name="Id_productos" title="Identificador de los productos terminados." required>
 							<option disabled selected>Seleccionar opción</option>
 						</select>
 					</div>
@@ -183,7 +183,9 @@
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
 
+	<script src="../../view/insumos/js/Valida_Reg_Prod_Lotes.js"></script>
 	<script src="../../controller/Insumos/js/Mostrar_ID.js"></script>
+	
 
 </body>
 </html>
