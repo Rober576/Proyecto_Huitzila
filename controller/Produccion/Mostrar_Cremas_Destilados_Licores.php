@@ -13,8 +13,8 @@ try {
     $base->instancias();
 
     // Verifica si se envió un formulario
-    if (isset($_POST['lote'])) {
-        $busqueda = $_POST['lote'];
+    if (isset($_GET['consulta'])) {
+        $busqueda = $_GET['consulta'];
         $resultado = $base->buscador($busqueda);
     } else {
         $resultado = $base->getInfo();

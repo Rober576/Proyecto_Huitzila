@@ -19,14 +19,20 @@ class MostrarCDL extends Crud_bd {
         $this->base->cerrar_conexion();
         return $resultados;
     }
-
     function buscador($busqueda){
-        $query = "SELECT * FROM registrodestilado WHERE Lote LIKE :busqueda OR IDClase LIKE :clase OR Edad LIKE :busqueda OR tanque LIKE :busqueda OR IdTipoDes LIKE :busqueda";
-        $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
+        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.NombreDestilado
+                  FROM registrodestilado rm
+                  INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
+                  INNER JOIN tipodestilado cat ON rm.IdTipoDes = cat.IdTipoDes
+                  WHERE rm.Lote LIKE :busqueda OR cm.Clase_Mezcal LIKE :busqueda  OR rm.Edad LIKE :busqueda OR rm.tanque LIKE :busqueda OR cat.NombreDestilado LIKE :busqueda";
+        $resultados = $this->base->mostrar($query, [
+            ":busqueda" => "%".$busqueda."%",
+        ]);
         $this->base->cerrar_conexion();
         return $resultados;
-
     }
+    
+    
     function buscar_datos($id){
         $this->conexion_bd();
         $consulta = "SELECT rm.*, cm.Clase_Mezcal, cat.NombreDestilado
