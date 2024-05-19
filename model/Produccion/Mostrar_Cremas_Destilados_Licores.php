@@ -24,7 +24,7 @@ class MostrarCDL extends Crud_bd {
                   FROM registrodestilado rm
                   INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
                   INNER JOIN tipodestilado cat ON rm.IdTipoDes = cat.IdTipoDes
-                  WHERE rm.Lote LIKE :busqueda OR cm.Clase_Mezcal LIKE :busqueda  OR rm.Edad LIKE :busqueda OR rm.tanque LIKE :busqueda OR cat.NombreDestilado LIKE :busqueda";
+                  WHERE rm.Lote LIKE :busqueda ";
         $resultados = $this->base->mostrar($query, [
             ":busqueda" => "%".$busqueda."%",
         ]);
