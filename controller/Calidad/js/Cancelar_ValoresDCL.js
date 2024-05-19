@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var confirmacion = confirm("¿Estás seguro de que deseas cancelar?");
             
             if (confirmacion) {
-                window.location.href = "../../view/Calidad/Valores_Min_Max.html"; // Cambiar por la ruta correcta
+                window.location.href = "../../view/Calidad/Mostrar_DCL.html"; // Cambiar por la ruta correcta
             }
         });
     }

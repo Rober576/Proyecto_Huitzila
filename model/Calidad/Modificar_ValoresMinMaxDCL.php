@@ -9,9 +9,9 @@ class Actualizar_MinMax{
         $this->base->conexion_bd();
     }
 
-    function actualizar($PorcentajeAlcoholMin, $PorcentajeAlcoholMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin, $AlcoholesSuperioresMax){
+    function actualizar($PorcentajeAlcoholMin, $PorcentajeAlcoholMax, $MetanolMin, $MetanolMax, $AlcoholesSuperioresMin){
 
-        $q1 = "UPDATE valoresminmaxdcl SET PorcentajeAlcoholMin = :PorcentajeAlcoholMin, PorcentajeAlcoholMax = :PorcentajeAlcoholMax, MetanolMin = :MetanolMin, MetanolMax = :MetanolMax, AlcoholesSuperioresMin = :AlcoholesSuperioresMin, AlcoholesSuperioresMax = :AlcoholesSuperioresMax";
+        $q1 = "UPDATE valoresminmaxdcl SET PorcentajeAlcoholMin = :PorcentajeAlcoholMin, PorcentajeAlcoholMax = :PorcentajeAlcoholMax, MetanolMin = :MetanolMin, MetanolMax = :MetanolMax, AlcoholesSuperioresMin = :AlcoholesSuperioresMin";
         
         // Supongo que tienes algún identificador único en la tabla para saber qué fila actualizar, así que lo agrego a la consulta.
 
@@ -21,7 +21,6 @@ class Actualizar_MinMax{
             ":MetanolMin" => $MetanolMin,
             ":MetanolMax" => $MetanolMax,
             ":AlcoholesSuperioresMin" => $AlcoholesSuperioresMin,
-            ":AlcoholesSuperioresMax" => $AlcoholesSuperioresMax,
             // Supongamos que `id` es el identificador único
         ];
 

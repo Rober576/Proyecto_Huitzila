@@ -24,19 +24,7 @@ formulario.addEventListener('submit', function (e) {
         alert("Los valores mínimo y máximo para el metanol no pueden ser iguales.");
         return; 
     }
-     
-    var alcoholes_superiores_min_value = parseFloat(alcoholes_superiores_min.value);
-    var alcoholes_superiores_max_value = parseFloat(alcoholes_superiores_max.value);
-
-    if (alcoholes_superiores_min_value > alcoholes_superiores_max_value) {
-        alert("El valor mínimo no puede ser mayor que el valor máximo para los alcoholes superiores.");
-        return; 
-    } else if (alcoholes_superiores_min_value === alcoholes_superiores_max_value) {
-        alert("Los valores mínimo y máximo para los alcoholes superiores no pueden ser iguales.");
-        return; 
-    }
- 
-   
+    
    
     var datos = new FormData(formulario);
     fetch('../../controller/Calidad/Modificar_ValoresMinMaxDCL.php', {
@@ -50,17 +38,16 @@ formulario.addEventListener('submit', function (e) {
             const form = document.getElementById('advanced-form');
             form.reset();
             alert("Modificacion exitosa");
-            window.location.href = '../../view/Calidad/Valores_Min_Max.html';
+            window.location.href = '../../view/Calidad/Mostrar_DCL.html';
         }
     })
 });
 
 var porcentaje_alcohol_min = document.getElementById('min_alcohol');
 var porcentaje_alcohol_max = document.getElementById('max_alcohol');
-var metanol_min = document.getElementById('min_ext_seco');
-var metanol_max = document.getElementById('max_ext_seco');
-var alcoholes_superiores_min = document.getElementById('min_metanol');
-var alcoholes_superiores_max = document.getElementById('max_metanol');
+var metanol_min = document.getElementById('min_metanol');
+var metanol_max = document.getElementById('max_metanol');
+var alcoholes_superiores_min = document.getElementById('min_alc_sup');
 
 fetch('../../controller/Calidad/Obtener_Datos_Calidad.php?tipo=minmaxDCL')
 .then(response => response.json())
@@ -71,7 +58,6 @@ fetch('../../controller/Calidad/Obtener_Datos_Calidad.php?tipo=minmaxDCL')
         metanol_min.value = item['MetanolMin'];
         metanol_max.value = item['MetanolMax'];
         alcoholes_superiores_min.value = item['AlcoholesSuperioresMin'];
-        alcoholes_superiores_max.value = item['AlcoholesSuperioresMax'];
     });
 })
 .catch(error => console.error('Error al obtener categorías:', error));
