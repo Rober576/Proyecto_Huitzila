@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de calidad</title>
+    <link rel="stylesheet" href="../../public/css/cssMostrar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!--AQUI AY QUE METER EL CONTENIDO DE LA TABLA CREAR OTRO ARCHIVO PARA PODER LLENAR LA TABLA-->
+    <!--<script src="../../controller/Calidad/js/Mostrar_Fisicoquimico.js"></script>-->
+
+    <title>Consulta de control de calidad</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
-	<!-- <script src="../../view/Calidad/js/Verificar_Permiso_Calidad.js" defer></script> -->
 </head>
+
 <body>
-        <header>
+    <header>
         <div class="header_superior">
 			<div class="img-ventana">
 				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
@@ -26,8 +34,8 @@
         </div>
 
         <!-- Menu Desplegable -->
-		<div class="container_menu">
-			<div class="menu">
+        <div class="container_menu">
+            <div class="menu">
 				<input type="checkbox" id="check__menu">
 				
 				<label id="label__check" for="check__menu">
@@ -60,7 +68,6 @@
 							</ul>
 						</li>
 
-
                         <li>
 							<a href="#">
 								<i ></i>
@@ -84,62 +91,39 @@
                                 <li><a href="../Calidad/Mostrar_Control_Calidad.html">Consultar análisis</a></li>
 							</ul>
 						</li>
+
 					</ul>
         		</nav>
       		</div>
-    	</div>
+        </div>
     </header>
 
     <main>
         <section class="section-main">
             <div class="cabezera">
-                <h4 class="h4">Registro</h4>
+                <h4 class="h4">Consulta</h4>
             </div>
+
             <br>
-            <p class="subtitulo-1"> Datos del ánalisis general</p>
+            <p class="subtitulo-1"> Control de calidad</p>
             <hr>
             <br>
 
-            <!-- Formulario de datos generales -->
-            <form class="formulario-datos" id="advanced-form">
+            <div class="tablas">
+                <section class="header_table" id="tablaResultado">
 
-                <div class="grupo1">
-                    <label class="label_datos" for="lote">Lote<span class="required">*</span></label>
-                    <select id="lote" name="lote" required title="Selecciona un lote">
-                    </select>
-                </div>
+                    <table border="1">
+ 
+                    </table>
+                </section>
+            </div>
 
-                <div class="grupo1">
-                    <label class="label_datos" for="azucares">Azucares<span class="required">*</span></label>
-                    <input type="text" id="azucares" name="azucares" maxlength="13"  required title="En azúcares solo se permiten valores numéricos.">
-                </div>
-
-                <div class="grupo1">
-                    <label class="label_datos" for="madurez">Madurez<span class="required">*</span></label>
-                    <input type="text" id="madurez" name="madurez" maxlength="13"  required title="En madurez solo se permiten valores numéricos.">
-                </div>
-
-                <div class="grupo1">
-                    <label class="label_datos" for="mat_prima">Materia prima (tamaño)<span class="required">*</span></label>
-                    <input type="text" id="mat_prima" name="mat_prima" maxlength="13"  required title="En Materia prima solo se permiten valores numéricos.">
-                </div>
-
-                <div class="grupo-boton-reg">
-                    <div class="boton_registrar">
-                        <button type="submit" id="submitButton">Guardar</button>
-                        <a class="Boton_cancelar" href="Mostrar_Calidad.html" id="cancelarButton">Cancelar</a>
-                    </div>
-                </div>
-
-            </form>
-            
         </section>
     </main>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
-    <script src="js/Validacion_General.js"></script>
-    <script src="../../controller/Calidad/js/Registro_Calidad.js"></script>
 </body>
+
 </html>
