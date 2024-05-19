@@ -4,8 +4,8 @@ include_once('../../model/Produccion/Mostrar_Movimientos_Cremas_Destilados_Licor
 
 $base = new MostrarMez();
 $base->instancias();
-if (isset($_POST['consulta'])) {
-    $busqueda = $_POST['consulta'];
+if (isset($_GET['consulta'])) {
+    $busqueda = $_GET['consulta'];
     $resultado = $base->buscador($busqueda);
 } else {
     $resultado = $base->getInfo();

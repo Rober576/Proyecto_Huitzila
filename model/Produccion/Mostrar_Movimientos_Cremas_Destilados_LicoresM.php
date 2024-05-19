@@ -25,7 +25,7 @@ class MostrarMez extends Crud_bd {
                   FROM registrodestilado rm
                   INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
                   INNER JOIN tipodestilado td ON rm.IdTipoDes = td.IdTipoDes
-                  WHERE rm.Lote LIKE :busqueda OR rm.IDClase LIKE :busqueda OR rm.Edad LIKE :busqueda";
+                  WHERE rm.Lote LIKE :busqueda OR cm.Clase_Mezcal LIKE :busqueda OR rm.Edad LIKE :busqueda OR td.NombreDestilado LIKE :busqueda";
         
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();

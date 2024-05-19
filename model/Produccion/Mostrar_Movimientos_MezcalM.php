@@ -21,7 +21,11 @@ class MostrarMez extends Crud_bd {
     }
 
     function buscador($busqueda){
-        $query = "SELECT * FROM registromezcal WHERE Lote LIKE :busqueda OR IDCategoria LIKE :categoria OR IDClase LIKE :clase OR Edad LIKE :busqueda";
+        $query = "SELECT rm.*, cm.Clase_Mezcal, cat.Categoria
+        FROM registromezcal rm 
+        INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
+        INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria
+        WHERE rm.Lote LIKE :busqueda OR cat.Categoria LIKE :busqueda OR cm.Clase_Mezcal LIKE :busqueda OR rm.Edad LIKE :busqueda";
         $resultados = $this->base->mostrar($query, [":busqueda" => "%".$busqueda."%"]);
         $this->base->cerrar_conexion();
         return $resultados;
