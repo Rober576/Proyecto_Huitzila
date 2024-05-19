@@ -12,7 +12,7 @@ if (isset($_GET['predio'])) {
 
 if ($resultado) {
     $salida .= '
-    <table border="1">
+    <table border="1" id="tablaPlants" name="tablaPlants">
     <thead>
         <tr>
         <th>ClavePlantación</th>
@@ -72,3 +72,4 @@ echo $salida;
     $salida .= 'No se encontraron resultados';
 }
 ?>
+
