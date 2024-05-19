@@ -35,11 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Mostrar mensaje si no se encontraron coincidencias
         if (!algunaCoincidencia) {
-            // Eliminar la tabla si existe
-            const tablaExistente = document.getElementById("tablaPlants");
-            if (tablaExistente) {
-                tablaExistente.style.display = "none";
-            }
+            // Ocultar la tabla
+            tabla.style.display = "none";
 
             // Eliminar mensajes existentes
             const mensajes = tablaContainer.querySelectorAll("p");
@@ -53,10 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             tablaContainer.appendChild(mensaje);
         } else {
             // Si hay coincidencias, asegurarse de mostrar la tabla y eliminar mensajes
-            const tablaExistente = document.getElementById("tablaPlants");
-            if (tablaExistente) {
-                tablaExistente.style.display = "";
-            }
+            tabla.style.display = "";
 
             const mensajes = tablaContainer.querySelectorAll("p");
             mensajes.forEach(function(mensaje) {
