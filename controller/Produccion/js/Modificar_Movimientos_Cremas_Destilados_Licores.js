@@ -26,9 +26,9 @@ document.getElementById('boton_registrar').addEventListener('click', function (e
     .then(data => {
         console.log("Después de fetch"); // Agregado para depuración
         console.log("Mensaje de prueba",data); // Agregado para depuración
-        if (data.trim() === "id") {
+        if (data.trim() === 'Error Volumen') {
             alert("Hubo un error");
-        } else if(data.trim) {
+        } else {
             alert("Actualización exitosa");
             var parametrosURL = new URLSearchParams(window.location.search);
             var lotE = parametrosURL.get('Lote');
