@@ -17,9 +17,9 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 const expre = {
     Clave: /^[a-zA-Z0-9]{1,10}$/,
-    Alcohol: /^\d+(\.\d+)?$/,
-    Metanol: /^\d+(\.\d+)?$/,
-    AlcoholesSuperiores: /^\d+(\.\d+)?$/,
+    Alcohol: /^\d+(\.\d{1,2})?$/,
+    Metanol: /^\d+(\.\d{1,2})?$/,
+    AlcoholesSuperiores: /^\d+(\.\d{1,2})?$/,
 }
 var clave_analisis = document.getElementById('clave_analisis');
 var alcohol = document.getElementById('alcohol');

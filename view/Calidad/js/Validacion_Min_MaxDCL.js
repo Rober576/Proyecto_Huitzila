@@ -20,11 +20,11 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 
 const expresion = {
-    ALCVolMin: /^\d+(\.\d+)?$/ ,
-    ALCVolMax: /^\d+(\.\d+)?$/,
-    MetanolMin: /^\d+(\.\d+)?$/,
-    MetanolMax: /^\d+(\.\d+)?$/,
-    AlcoholesSuperioresMin: /^\d+(\.\d+)?$/,
+    ALCVolMin: /^\d+(\.\d{1,2})?$/ ,
+    ALCVolMax: /^\d+(\.\d{1,2})?$/,
+    MetanolMin: /^\d+(\.\d{1,2})?$/,
+    MetanolMax: /^\d+(\.\d{1,2})?$/,
+    AlcoholesSuperioresMin: /^\d+(\.\d{1,2})?$/,
 }
 
 var min_alcohol = document.getElementById('min_alcohol');
