@@ -132,9 +132,9 @@ function mostrarDatos(datos){
             acciones.appendChild(document.createElement('br'));
             acciones.appendChild(document.createElement('br'));
     
-            link_editar.innerHTML = "Editar";
-            link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][5];
-            acciones.appendChild(link_editar);
+            // link_editar.innerHTML = "Editar";
+            // link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][5];
+            // acciones.appendChild(link_editar);
     
             row.appendChild(acciones);
             cuerpo_tabla.appendChild(row);
