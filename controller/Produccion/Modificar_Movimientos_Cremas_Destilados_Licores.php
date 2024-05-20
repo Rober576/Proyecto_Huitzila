@@ -26,3 +26,4 @@ if ($u == true) {
     echo json_encode('Error al actualizar el movimiento.');
 }
 ?>
+
