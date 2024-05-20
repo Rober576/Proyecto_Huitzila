@@ -2,6 +2,7 @@
 include_once('../../model/Insumos/Mostrar_Insumo_por_Producto.php');
 
 $salida = "";
+$id= $_GET['id'];
 $base = new Mostrar;
 $base->instancias();
 $datos = [];
@@ -12,7 +13,7 @@ if(isset($_POST['consulta'])) {
     $consulta = $_POST['consulta'];
 
     if($consulta == 'undefined'){
-        $resultados = $base->busqueda();
+        $resultados = $base->getProducto($id);
 
     }
 

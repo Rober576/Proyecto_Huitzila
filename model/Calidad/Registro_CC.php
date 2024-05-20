@@ -11,21 +11,29 @@ class Registro_CC
         $this->base->conexion_bd();
     }
 
-    function insertar($Clave)
+    function insertar($Lote,$Embasado,$Sellado,$Etiqueta,$SinAbolladuras,$Color)
 {
     
-    $q1 = "INSERT INTO analisisdestilado (Clave)
-            VALUES(:Clave)";
+    $q1 = "INSERT INTO controlcalidad (Lote,Embasado,Sellado,Etiqueta,SinAbolladuras,Color)
+            VALUES(:Lote,:Embasado,:Sellado,:Etiqueta,:SinAbolladuras,:Color)";
     $a1 = [
-        ":Clave" => $Clave,
-
+        ":Lote" => $Lote,
+        ":Embasado" => $Embasado,
+        ":Sellado" => $Sellado,
+        ":Etiqueta" => $Etiqueta,
+        ":SinAbolladuras" => $SinAbolladuras,
+        ":Color" => $Color,
     ];
     $querry = $q1;
     $parametros = $a1;
 
+    
+
     $this->base->insertar_eliminar_actualizar($querry, $parametros);
     $this->base->cerrar_conexion();
     echo json_encode('exito');
+
+    
 }
 
 }

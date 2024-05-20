@@ -87,9 +87,37 @@ function EventoEliminar() {
             var selectPlanta = document.getElementById('plantacionSele');
             var id = e.target.id;
             var valorSeleccionado = selectPlanta.value;
-            console.log("Plantacion:", valorSeleccionado);
-            console.log("Actividad:", id)
+            console.log(" Eliminar Plantacion:", valorSeleccionado);
+            console.log(" Eliminar Actividad:", id)
+            confirmacion(e,id,valorSeleccionado);
         });
+    }
+}
+
+
+
+function confirmacion(e, id, valorSeleccionado) {
+    // Preguntar al usuario si está seguro de eliminar el registro
+    if (confirm('¿Estás seguro de eliminar el registro?')) {
+        // Prevenir la acción predeterminada del evento
+        e.preventDefault();
+
+        // Realizar la solicitud fetch al script PHP para eliminar el registro
+        fetch(`../../../controller/Agricola/Actividades/php/Eliminar_Actividades.php?id=${id}&valorSeleccionado=${valorSeleccionado}`, {
+            method: 'GET',
+        })
+        
+        .then(res => res.json())
+        .then(data => {
+            alert('Eliminado con éxito');
+            location.reload(); // Recargar la página después de eliminar el registro
+        })
+        .catch(error => {
+            console.error('Error al eliminar el registro:', error);
+            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+        });
+    } else {
+        // Si el usuario cancela, no se hace nada
     }
 }
 

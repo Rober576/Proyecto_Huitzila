@@ -1,21 +1,14 @@
 const cuerpo_tabla = document.getElementById("cuerpo");
 const contenedor_tabla = document.getElementById("tablaResultado")
 contenedor_tabla.style.display = 'none';
-let currentURL = window.location.href;
-console.log('URL completo:', currentURL);
 
-// Obtener el valor del parámetro 'id'
-let queryString = window.location.search;
-let urlParams = new URLSearchParams(queryString);
-let id = urlParams.get('id');
-console.log('Valor del parámetro id:', id);
 function buscar_datos(consulta) {
     
     const params = new URLSearchParams();
     params.append('consulta', consulta);
 
     
-    fetch('../../controller/Insumos/Mostrar_Insumo_por_Producto.php?id='+id, {
+    fetch('../../controller/Insumos/Mostrar_Insumo_por_Producto_Especifico.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -68,7 +61,7 @@ function mostrarDatos(datos){
             var idprodu = document.createElement('td');
             var idinsumo = document.createElement('td');
             var cant = document.createElement('td');
-            var costA = document.createElement('td');
+            //var costA = document.createElement('td');
             var costT = document.createElement('td');
             
 
@@ -89,15 +82,15 @@ function mostrarDatos(datos){
             row.appendChild(idinsumo);
             cant.innerHTML = datos[i][2];
             row.appendChild(cant);
-            costA.innerHTML = datos[i][3];
-            row.appendChild(costA);
-            costT.innerHTML = datos[i][4];
+            //costA.innerHTML = datos[i][3];
+            //row.appendChild(costA);
+            costT.innerHTML = datos[i][3];
             row.appendChild(costT);
             
             
         
             link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.dataset.id = datos[i][5];
+            link_eliminar.dataset.id = datos[i][4];
 
             link_eliminar.addEventListener('click', function(event) {
             event.preventDefault(); 
@@ -139,18 +132,13 @@ function mostrarDatos(datos){
             acciones.appendChild(document.createElement('br'));
             acciones.appendChild(document.createElement('br'));
     
-            link_editar.innerHTML = "Editar";
-            link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][5];
-            acciones.appendChild(link_editar);
+             link_editar.innerHTML = "Editar";
+             link_editar.href = "../../view/insumos/Visualizacion_Insumo_Producto_Especifico.html?id="+datos[i][0];
+             acciones.appendChild(link_editar);
     
             row.appendChild(acciones);
             cuerpo_tabla.appendChild(row);
             
         }
     }
-    
-
-    
-
-    
 }
