@@ -38,6 +38,8 @@ min_alcohol.addEventListener('keyup', (e) => {
     min_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -57,6 +59,8 @@ max_alcohol.addEventListener('keyup', (e) => {
     max_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -77,6 +81,8 @@ min_metanol.addEventListener('keyup', (e) => {
     min_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -96,6 +102,8 @@ max_metanol.addEventListener('keyup', (e) => {
     max_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -116,6 +124,8 @@ min_alc_sup.addEventListener('keyup', (e) => {
     min_alc_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 

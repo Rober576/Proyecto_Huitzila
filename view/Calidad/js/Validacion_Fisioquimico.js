@@ -69,6 +69,8 @@ alcohol.addEventListener('keyup', (e) => {
     alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -87,6 +89,8 @@ ext_seco.addEventListener('keyup', (e) => {
     ext_seco.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -106,6 +110,8 @@ metanol.addEventListener('keyup', (e) => {
     metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -124,6 +130,8 @@ alcohol_sup.addEventListener('keyup', (e) => {
     alcohol_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -143,6 +151,8 @@ aldehidos.addEventListener('keyup', (e) => {
     aldehidos.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -161,6 +171,8 @@ furfural.addEventListener('keyup', (e) => {
     furfural.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -180,6 +192,8 @@ plomo.addEventListener('keyup', (e) => {
     plomo.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -198,6 +212,8 @@ cobre.addEventListener('keyup', (e) => {
     cobre.value = valorInput
 
     .replace(/[^0-9.]/g, '')
+    .replace(/(\.\d{2})\d+/, '$1')
+    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
