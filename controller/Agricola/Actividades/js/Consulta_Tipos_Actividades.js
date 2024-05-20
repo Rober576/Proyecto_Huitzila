@@ -78,4 +78,5 @@ function inicializarSelects() {
     // Esperar a que todas las peticiones fetch se completen
     return Promise.all([fetchPredios, fetchActividades, fetchPlagas, fetchHerbicidas]);
 }
+
 inicializarSelects()
