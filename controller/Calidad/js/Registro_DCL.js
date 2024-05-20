@@ -23,18 +23,12 @@ formulario.addEventListener('submit', function (e)
 
 
 var selectCategoria = document.getElementById('lote');
+var urlParams = new URLSearchParams(window.location.search);
+var id = urlParams.get('id');
+var option = document.createElement('option');
+option.value = id;
+option.textContent = id;
 
-fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote_Des')
-.then(response => response.json())
-.then(data => {
-    data.forEach(item => {
-        var option = document.createElement('option');
-        option.value = item;
-        option.textContent = item;
-
-        if (selectCategoria) {
-            selectCategoria.appendChild(option);
-        }
-    });
-})
-.catch(error => console.error('Error al obtener categorías:', error));
+if (selectCategoria) {
+    selectCategoria.appendChild(option);
+}
