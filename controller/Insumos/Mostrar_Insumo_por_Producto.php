@@ -2,7 +2,7 @@
 include_once('../../model/Insumos/Mostrar_Insumo_por_Producto.php');
 
 $salida = "";
-$id= $_POST['id'];
+$id= $_GET['id'];
 $base = new Mostrar;
 $base->instancias();
 $datos = [];
@@ -18,7 +18,7 @@ if(isset($_POST['consulta'])) {
     }
 
     else{
-        $resultados = $base->getProducto($id);
+        $resultados = $base->busqueda($consulta);
 
     }
 
