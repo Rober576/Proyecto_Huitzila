@@ -18,6 +18,7 @@ document.getElementById('insumos_form').addEventListener('submit', function (eve
                 const form = document.getElementById('insumos_form');
                 form.reset();
                 alert("Registro exitoso");
+                location.reload();
             }
         })
        
