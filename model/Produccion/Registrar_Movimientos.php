@@ -56,40 +56,31 @@ class NuevosCampos {
     }
 
     function calcularFinal($inicialVolumen, $volumen, $inicialPorcentaje, $alc_vol, $tipoES) {
-        // Convertir a números de punto flotante
         $inicialVolumen = floatval($inicialVolumen);
         $volumen = floatval($volumen);
         $inicialPorcentaje = floatval($inicialPorcentaje);
         $alc_vol = floatval($alc_vol);
     
-        // Inicializar variables para FinalVolumen y FinalPorcentaje
         $finalVolumen = 0;
         $finalPorcentaje = 0;
     
-        // Verificar el tipo de movimiento
         if ($tipoES == 'entrada') {
-            // Sumar volumen
             $finalVolumen = $inicialVolumen + $volumen;
-            // Calcular porcentaje
             if ($inicialVolumen == 0) {
                 $finalPorcentaje = $alc_vol;
             } else {
                 $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $alc_vol)) / ($finalVolumen);
             }
-        } elseif ($tipoES == 'salida') {
-            // Restar volumen
-            $finalVolumen = $inicialVolumen - $volumen;
-            // Si el volumen inicial es 0, el porcentaje también será 0
-            if ($inicialVolumen == 0) {
-                $finalPorcentaje = 0;
-            } else {
-                // Calcular porcentaje
+            return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
+        } else if ($tipoES == 'salida') {
+            if ($volumen > $inicialVolumen) {        
+                return array('FinalVolumen' => "Error Volumen", 'FinalPorcentaje' => "Error Volumen");
+            } else  {
                 $finalVolumen = $inicialVolumen - $volumen;
-            }
+                return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $inicialPorcentaje);
+            } 
         }
-    
-        // Devolver los resultados
-        return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
+
     }
 
     function verificarRegistro($lote, $fecha) {
@@ -149,9 +140,11 @@ class NuevosCampos {
         
 
         
-            // Ahora puedes acceder a los valores de FinalVolumen y FinalPorcentaje
+
             $finalVolumen = $resultado['FinalVolumen'];
             $finalPorcentaje = $resultado['FinalPorcentaje'];
+
+            if (is_numeric($finalVolumen)){
 
             $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
                     VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
@@ -175,9 +168,12 @@ class NuevosCampos {
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
             $this->base->cerrar_conexion();
-            return true; // La inserción se realizó correctamente
+            return true;
+        }
+        else{
+            return $finalVolumen;
+        }
         } else {
-            // Si la fecha no es válida, devolver el mensaje de error
             return $verificacion;
         }
     }

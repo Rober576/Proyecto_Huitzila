@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotes aprobados de mezcal</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../public/css/insumos.css">
+	<script src="../../controller/Insumos/js/Mostrar_MezcalP.js"></script>
+	
 </head>
 <body>
     <header>
@@ -138,31 +140,39 @@
                 <h4 class="h4">Mezcal</h4>
             </div>
             <p class="subtitulo-1">Lotes de producción aprobados</p>
-            <hr>
-			<br>
 			
-			<form id="formulario" name="formulario">	
+            <hr>
+			
+			<br>
+			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+		
+			<form id="formulario" name="formulario">
 				
 				<div class="tablas">
 					<section class="header_table" id="tablaResultado">
-						<table>
-							<thead>
-								<tr class="titulo_tabla">
-									<th>Lote</th>
-									<th>Tipo</th>
-									<th>Edad</th>
-									<th>Categoría</th>
-									<th>Volumen</th>
-									<th>% Concentracion de alc.</th>
-								</tr>
-							</thead>
-			
-						</table>
-					</section>
-				</div>
-			</form>
-        </section>
-    </main>
+		
+						<table border="1">
+							
+							<tr class="titulo_tabla">
+								<th>Lote</th>
+								<th>Especie</th>
+								<th>Edad</th>
+								<th>Categoría</th>
+								<th>Volumen</th>
+								<th>% Concentracion de alc.</th>
+							</tr>
+						</thead>
+						<tbody id="cuerpo"></tbody>
+						
+					</table>
+				</section>
+			</div>
+		</form>
+		
+	</section>
+</main>
+
+	
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
