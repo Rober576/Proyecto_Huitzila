@@ -44,7 +44,7 @@ if ($resultado) {
         $salida .= ' | ';
         $salida .= '<button id="' . $id_boton . '" class="boton-modificar Boton_Tabla obtener-informacion" data-id="'.$Numeracion.'">Editar</button>';
         $salida .= ' | ';
-        $salida .= '<button id="' . $id_boton . '" class="boton-vermas Boton_Tabla obtener-Masinformacion" data-id="'.$Numeracion.'">Ver Mas</button>';
+        $salida .= '<button id="' . $id_boton . '" class="boton-vermas Boton_Tabla obtener-Masinformacion" data-id="'.$Numeracion.'">Ver Más</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
 
