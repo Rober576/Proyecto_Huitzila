@@ -26,6 +26,12 @@ class Mostrar{
         
         return $resultados;
     }
+    function getProducto($id){
+        $query = "SELECT * FROM insumosproductos WHERE IDProducto = :id";
+        $array = [":id"=>$id];
+        $resultados = $this->base->mostrar($query, $array);
+        return $resultados;
+    }
 
   
     function getInsumo($id){
