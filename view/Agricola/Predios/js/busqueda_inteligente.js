@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let encontrado = false;
 
             // Recorrer las celdas de cada fila
-            for (let j = 0; j < celdas.length; j++) {
+            for (let j = 0; j < celdas.length -2; j++) {
                 const texto = celdas[j].textContent || celdas[j].innerText;
                 if (texto.toLowerCase().indexOf(filtro) > -1) {
                     encontrado = true;
