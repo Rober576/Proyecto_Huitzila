@@ -10,7 +10,7 @@ class MostrarMez extends Crud_bd {
     }
 
     function getInfo() {
-        $query = "SELECT rm.*, rm.Lote, rm.NombrePlanta, rm.Edad, cat.Categoria, mm.Volumen, mm.PorcentajeAlcohol
+        $query = "SELECT rm. *, rm.Lote, rm.NombrePlanta, rm.Edad, cat.Categoria, mm.Volumen, mm.PorcentajeAlcohol
                   FROM registromezcal rm
                   INNER JOIN clasemezcal cm ON rm.IDClase = cm.IDClase
                   INNER JOIN categoriamezcal cat ON rm.IDCategoria = cat.IDCategoria

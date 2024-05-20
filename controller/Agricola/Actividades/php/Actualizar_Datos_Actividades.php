@@ -6,7 +6,7 @@ $id = $_POST["id"];
 $plantacion = $_POST["plantacion"];
 $RespActivRealizada = $_POST["actividadSele"];
 $Fecha = $_POST["fechaIni"];
-$Semanas = $_POST["canFecha"];
+$Semanas = $_POST["canFecha2"];
 $GastGenerales = $_POST["cosGenral"];
 $Descri = $_POST["descAct"];
 
