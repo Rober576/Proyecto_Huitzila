@@ -107,12 +107,12 @@ document.getElementById("boton_excel").addEventListener("click", function(event)
     if((fecha_inicio == null || fecha_inicio=='') && (fecha_fin == null || fecha_inicio=='')) {
         // Construir la URL con los datos codificados
         fechaInicioCodificada=encodeURIComponent('x');
-        var url = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada;
+        var url = '../../controller/Produccion/Excel_Movimientos_Destilados.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada;
         window.location.href = url;
     } else {
         // Redireccionar a la página con los parámetros de lote y fechas
         // Construir la URL con los datos codificados
-        var url = '../../controller/Produccion/Excel_Movimientos_Mezcal.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada + '&fecha_fin=' + fechaFinCodificada;
+        var url = '../../controller/Produccion/Excel_Movimientos_Destilados.php?lote=' + loteCodificado + '&fecha_inicio=' + fechaInicioCodificada + '&fecha_fin=' + fechaFinCodificada;
         window.location.href = url;
     }
 

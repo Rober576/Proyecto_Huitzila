@@ -28,20 +28,20 @@ botonRegistrar.addEventListener("click", (e) =>{
 
 
 const expresion = {
-    ALCVolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/ ,
-    ALCVolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    ExtractoSecoMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    ExtractoSecoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    MetanolMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    MetanolMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    AlcoholesSuperioresMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    AlcoholesSuperioresMax	: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    AldehidosMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    AldehidosMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    FurfuralMin: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    FurfuralMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    PlomoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
-    ArsenicoMax: /^(100(\.00?)?|\d{1,2}(\.\d{1,2})?)$/,
+    ALCVolMin: /^\d+(\.\d+)?$/ ,
+    ALCVolMax: /^\d+(\.\d+)?$/,
+    ExtractoSecoMin: /^\d+(\.\d+)?$/,
+    ExtractoSecoMax: /^\d+(\.\d+)?$/,
+    MetanolMin: /^\d+(\.\d+)?$/,
+    MetanolMax: /^\d+(\.\d+)?$/,
+    AlcoholesSuperioresMin: /^\d+(\.\d+)?$/,
+    AlcoholesSuperioresMax: /^\d+(\.\d+)?$/,
+    AldehidosMin: /^\d+(\.\d+)?$/,
+    AldehidosMax: /^\d+(\.\d+)?$/,
+    FurfuralMin: /^\d+(\.\d+)?$/,
+    FurfuralMax: /^\d+(\.\d+)?$/,
+    PlomoMax: /^\d+(\.\d+)?$/,
+    ArsenicoMax: /^\d+(\.\d+)?$/,
 }
 
 var min_alcohol = document.getElementById('min_alcohol');

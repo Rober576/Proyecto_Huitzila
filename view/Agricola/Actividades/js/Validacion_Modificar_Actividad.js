@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let botonRegistrar = document.getElementById("submitButton");
     
     window.addEventListener('load', (event) => {
-        Validar_Cantidad_Semanas();
-    
+  
         Validar_Cantidad_Semanas2()
         
         Validar_Costo_General()
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     botonRegistrar.addEventListener("click", (e) =>{
     
-        Validar_Cantidad_Semanas()
+   
         Validar_Cantidad_Semanas2()
         Validar_Costo_General()
         Validar_Descripcion_Actividad()
@@ -183,6 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (valorInput.length > 1) {
                 valorInput = valorInput.slice(0, 1);
             }
+            
+            if (!/^[1-4]$/.test(valorInput)) {
+                valorInput = "1";
+            }
     
             // Si el valor de entrada es menor que el mínimo permitido, establecerlo como el mínimo permitido
             valorInput = Math.max(minimoPermitido, parseInt(valorInput));
@@ -257,13 +260,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     Formulario = document.getElementById("advanced-form");
     
-    Formulario.canFecha.addEventListener('input', Validar_Cantidad_Semanas);
-    try{
-        Formulario.canFecha2.addEventListener('input', Validar_Cantidad_Semanas2);
-    }
-    catch{
-        
-    }
+    
+    Formulario.canFecha2.addEventListener('input', Validar_Cantidad_Semanas2);
+  
     
     Formulario.cosGenral.addEventListener('input', Validar_Costo_General);
     Formulario.descAct.addEventListener('input', Validar_Descripcion_Actividad);
