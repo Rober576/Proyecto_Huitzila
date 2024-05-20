@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', (event) => {
         Validar_Cantidad_Semanas();
     
-        
+        Validar_Cantidad_Semanas2()
         
         Validar_Costo_General()
     });
