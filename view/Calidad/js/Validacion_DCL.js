@@ -47,11 +47,10 @@ clave_analisis.addEventListener('keyup', (e) => {
 
 alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -68,12 +67,11 @@ alcohol.addEventListener('keyup', (e) => {
 
 metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
 
     metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -88,12 +86,11 @@ metanol.addEventListener('keyup', (e) => {
 
 alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
 
     alc_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
     if (!expre.AlcoholesSuperiores.test(valorInput)) {

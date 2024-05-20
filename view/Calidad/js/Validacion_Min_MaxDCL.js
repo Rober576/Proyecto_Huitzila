@@ -35,11 +35,10 @@ var min_alc_sup = document.getElementById('min_alc_sup');
 
 min_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -56,11 +55,10 @@ min_alcohol.addEventListener('keyup', (e) => {
 
 max_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -78,11 +76,10 @@ max_alcohol.addEventListener('keyup', (e) => {
 
 min_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -99,11 +96,10 @@ min_metanol.addEventListener('keyup', (e) => {
 
 max_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -121,11 +117,10 @@ max_metanol.addEventListener('keyup', (e) => {
 
 min_alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_alc_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 

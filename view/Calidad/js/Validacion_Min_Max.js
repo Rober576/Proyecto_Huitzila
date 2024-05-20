@@ -61,11 +61,10 @@ var max_arsenico = document.getElementById('max_arsenico');
 
 min_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -82,11 +81,10 @@ min_alcohol.addEventListener('keyup', (e) => {
 
 max_alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -104,11 +102,10 @@ max_alcohol.addEventListener('keyup', (e) => {
 
 min_ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_ext_seco.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -125,11 +122,10 @@ min_ext_seco.addEventListener('keyup', (e) => {
 
 max_ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_ext_seco.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -147,11 +143,10 @@ max_ext_seco.addEventListener('keyup', (e) => {
 
 min_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -168,11 +163,10 @@ min_metanol.addEventListener('keyup', (e) => {
 
 max_metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -190,11 +184,10 @@ max_metanol.addEventListener('keyup', (e) => {
 
 min_alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_alc_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -211,11 +204,10 @@ min_alc_sup.addEventListener('keyup', (e) => {
 
 max_alc_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_alc_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -233,11 +225,10 @@ max_alc_sup.addEventListener('keyup', (e) => {
 
 min_aldehidos.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_aldehidos.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -254,11 +245,10 @@ min_aldehidos.addEventListener('keyup', (e) => {
 
 max_aldehidos.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_aldehidos.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -276,11 +266,10 @@ max_aldehidos.addEventListener('keyup', (e) => {
 
 min_furfural.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     min_furfural.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -297,11 +286,11 @@ min_furfural.addEventListener('keyup', (e) => {
 
 max_furfural.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     max_furfural.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -321,11 +310,11 @@ max_furfural.addEventListener('keyup', (e) => {
 max_plomo.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     max_plomo.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -342,12 +331,13 @@ max_plomo.addEventListener('keyup', (e) => {
 max_arsenico.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     max_arsenico.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
+
 
     if (!expresion.ArsenicoMax.test(valorInput)) {
         max_arsenico.style.border = "5px solid red";

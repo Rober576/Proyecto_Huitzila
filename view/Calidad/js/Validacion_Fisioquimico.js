@@ -66,11 +66,11 @@ clave_analisis.addEventListener('keyup', (e) => {
 alcohol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     alcohol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -86,11 +86,11 @@ alcohol.addEventListener('keyup', (e) => {
 ext_seco.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     ext_seco.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -107,11 +107,11 @@ ext_seco.addEventListener('keyup', (e) => {
 metanol.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     metanol.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -127,11 +127,11 @@ metanol.addEventListener('keyup', (e) => {
 alcohol_sup.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     alcohol_sup.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -148,11 +148,11 @@ alcohol_sup.addEventListener('keyup', (e) => {
 aldehidos.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     aldehidos.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -168,11 +168,11 @@ aldehidos.addEventListener('keyup', (e) => {
 furfural.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     furfural.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
@@ -189,11 +189,11 @@ furfural.addEventListener('keyup', (e) => {
 plomo.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     plomo.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
 
@@ -209,11 +209,11 @@ plomo.addEventListener('keyup', (e) => {
 cobre.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
 
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
+
     cobre.value = valorInput
 
     .replace(/[^0-9.]/g, '')
-    .replace(/(\.\d{2})\d+/, '$1')
-    .replace(/(\..*)\./g, '$1')
     .trim();
 
    
