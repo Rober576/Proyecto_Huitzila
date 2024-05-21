@@ -3,15 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 var bandera1 = false;
 var bandera2 = false;
 var bandera3 = false;
+var bandera20 = false;
 
-var paso = false;
-try{
-    Formulario = document.getElementById("advanced-form");
-    let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
-    let minimoPermitido = parseInt(valorInicial);
-}catch{
-    
-}
 var bandera11= false;
 
 let botonRegistrar = document.getElementById("submitButton");
@@ -28,7 +21,7 @@ window.addEventListener('load', (event) => {
 botonRegistrar.addEventListener("click", (e) =>{
 
     Validar_Cantidad_Semanas()
-    Validar_Cantidad_Semanas2()
+  
     Validar_Costo_General()
     Validar_Descripcion_Actividad()
    
@@ -36,7 +29,7 @@ botonRegistrar.addEventListener("click", (e) =>{
     
 
 
-    if(bandera1 == true && bandera2 == true && bandera3 == true  && bandera11 == true){
+    if(bandera1 == true && bandera2 == true && bandera3 == true  && bandera11 == true && bandera20 == true){
        console.log("Registro exitoso");
     }
     else{
@@ -59,6 +52,9 @@ botonRegistrar.addEventListener("click", (e) =>{
         }
         if (bandera11 == false){
             Formulario.fechaIni.style.border = "5px solid red"; 
+        }
+        if (bandera20 == false){
+            Formulario.platacionSele.style.border = "5px solid red"; 
         }
     }
       
@@ -93,6 +89,18 @@ function Validar_Cantidad_Semanas() {
     } else {
         Formulario.canFecha.removeAttribute("style");
         bandera1 = true;
+    }
+}
+
+function Validar_Plantacion_Seleccionada() {
+    let seleccion = Formulario.platacionSele.value;
+
+    if (seleccion.trim() === "") {
+        Formulario.plantacionSele.style.border = "5px solid red";
+        bandera20 = false;
+    } else {
+        Formulario.plantacionSele.removeAttribute("style");
+        bandera20 = true;
     }
 }
 
@@ -159,50 +167,6 @@ function Validar_Fecha() {
 
 }
 
-function Validar_Cantidad_Semanas2() {
-
-    if (paso == false) {
-        let valorInicial = Formulario.canFecha2.value.trim(); // Obtener el valor inicial y eliminar espacios en blanco
-  
-        // Si el valor inicial es 4, deshabilitar el campo y salir de la función
-        if (valorInicial === "4") {
-            Formulario.canFecha2.disabled = true;
-        }
-        paso = true;
-        toggleSections()
-    }
-
-    else{
-    
-        let valorInput = Formulario.canFecha2.value.trim().replace(/[^\d]/g, ''); // Obtener el valor del campo y eliminar espacios en blanco
-      
-        if (valorInput<minimoPermitido){
-            
-            Formulario.canFecha2.value=minimoPermitido
-        }
-        toggleSections()
-        // Limitar el número de caracteres a uno
-        if (valorInput.length > 1) {
-            valorInput = valorInput.slice(0, 1);
-        }
-
-        // Si el valor de entrada es menor que el mínimo permitido, establecerlo como el mínimo permitido
-        valorInput = Math.max(minimoPermitido, parseInt(valorInput));
-
-        // Establecer el valor en el campo
-        Formulario.canFecha2.value = valorInput;
-
-        // Validar el rango permitido y aplicar estilo correspondiente
-        if (parseInt(valorInput) > 4) {
-            Formulario.canFecha2.style.border = "5px solid red";
-            bandera1 = false;
-        } else {
-            Formulario.canFecha2.removeAttribute("style");
-            bandera1 = true;
-    
-        }
-    }
-}
 
 
 
@@ -214,39 +178,6 @@ function limpiarOpciones(actividadSele) {
         }
     }
 }
-
-
-
-// Función para manejar la visibilidad de las secciones
-function toggleSections() {
-    // Si se selecciona 'Sí', mostrar la segunda sección y ocultar la tercera
-    
-        section2.style.display = 'block';
-        section3.style.display = 'block';
-
-
-
-        const CantidadTrabajado = document.getElementById("canFecha2").value;
-
-
-        const actividadSele = document.getElementById('semSele');
-        const General = document.getElementById("cosGenral").value;
-        const CostoGeneral = parseFloat(General);
-        //document.getElementById("total").value = CostoGeneral;
-
-        limpiarOpciones(actividadSele);
-        for (let i = 1; i <= CantidadTrabajado; i++) {
-            const item = `Semana ${i}`; 
-            var option = document.createElement('option');
-            option.value = item;
-            option.textContent = item;
-            if (actividadSele) {
-                actividadSele.appendChild(option);
-            } 
-                    
-        }
-
-    }
 
 
 
@@ -269,7 +200,7 @@ catch{
 
 Formulario.cosGenral.addEventListener('input', Validar_Costo_General);
 Formulario.descAct.addEventListener('input', Validar_Descripcion_Actividad);
-
+Formulario.platacionSele.addEventListener('input', Validar_Plantacion_Seleccionada);
 Formulario.fechaIni.addEventListener('input', Validar_Fecha);
 
 })
