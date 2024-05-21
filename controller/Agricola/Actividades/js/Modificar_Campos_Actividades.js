@@ -2,7 +2,6 @@ var id = localStorage.getItem('id');
 var plantacion = localStorage.getItem('plantacion');
 var formulario = document.getElementById('advanced-form');
 
-
 formulario.addEventListener('submit', function (e) {
     e.preventDefault();
     
@@ -15,8 +14,6 @@ formulario.addEventListener('submit', function (e) {
     let listaCompraMaterial = JSON.parse(localStorage.getItem('listaCompraMaterial')) || [];
     let listaGastosExtras = JSON.parse(localStorage.getItem('listaGastosExtras')) || [];
     let listaSemana = JSON.parse(localStorage.getItem('listaSemana')) || [];
-
-   
 
     console.log(listaNombreTrabajador);
     console.log(listaDiasSeleccionados);
@@ -31,8 +28,17 @@ formulario.addEventListener('submit', function (e) {
     // Confirmación antes de enviar
     if (confirm("¿Estás seguro de que deseas realizar las modificaciones?")) {
         var datos = new FormData(formulario);
+        var canFecha2 = document.getElementById('canFecha2');
+        if (canFecha2.disabled) {
+            canFecha2.disabled = false;
+            
+        }
+        var datos = new FormData(formulario);
+
         datos.append('id', id);
         datos.append('plantacion', plantacion);
+
+
 
         // Convertir las listas a cadenas JSON y agregarlas al FormData
         datos.append('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
@@ -53,6 +59,9 @@ formulario.addEventListener('submit', function (e) {
         .then(data => {
             console.log(data);
             if (data === 'exito') {
+                // Activar el campo canFecha2 si está desactivado
+               
+
                 // Alerta de éxito
                 alert("¡Los datos se han guardado exitosamente!");
                 // Redirigir después de aceptar la alerta

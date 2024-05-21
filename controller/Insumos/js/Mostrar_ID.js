@@ -63,20 +63,21 @@ function llenarListaProductos(datosProductos) {
     const selectProductos = document.getElementById('Id_productos');
 
     
-    selectProductos.innerHTML = '';
+
 
     
-    const optionDefault = document.createElement('option');
+    /*const optionDefault = document.createElement('option');
     optionDefault.value = '';
     optionDefault.textContent = 'Seleccionar opción';
     optionDefault.selected = true; 
-    selectProductos.appendChild(optionDefault);
+    selectProductos.appendChild(optionDefault);*/
 
     
     datosProductos.forEach(producto => {
         const option = document.createElement('option');
         option.value = producto.IDProducto;
         option.textContent = `${producto.IDProducto} - ${producto.ProductoTerminado}`;
+        
         selectProductos.appendChild(option);
         
     });
@@ -109,6 +110,9 @@ function llenarListaInsumos(datosInsumos) {
     
 }
 
+document.getElementById('Id_insumos').addEventListener('change', function() {
+    
+})
 
 function validarFormulario() {
     const selectInsumos = document.getElementById('Id_insumos');

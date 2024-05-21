@@ -16,7 +16,7 @@ let urlParams = new URLSearchParams(queryString);
 let id = urlParams.get('id');
 console.log('Valor del parámetro id:', id);
 
-prod = document.getElementById("Id_productos").value=id;
+//prod = document.getElementById("Id_productos").value=id;
 
 
 insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
@@ -70,7 +70,7 @@ function mostrarDatos(){
     console.log(registros);
     
 
-    // document.getElementById('Id_productos').value = ''
+    document.getElementById('Id_productos').disabled=true;
     document.getElementById('Id_insumos').value = ''
     document.getElementById('Cantidad').value = ''
     document.getElementById('UCosto').value = ''
@@ -112,41 +112,24 @@ function guardarMezcal(){
     })
 }
 
+document.getElementById('Id_insumos').addEventListener('change', function() {
+    prod = document.getElementById('Id_insumos').value;
+    console.log(prod);
+    fetch('../../controller/Insumos/Obtener_Costo.php?id=' + prod)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Ocurrió un error al obtener los datos');
+        }
+        return response.json();
+    })
 
-document.addEventListener('DOMContentLoaded', function () {
-    const idInsumosSelect = document.getElementById('Id_insumos');
-    const costoUnitarioInput = document.getElementById('UCosto');
+    .then(data => {
+        console.log(data);
+        document.getElementById('UCosto').value = data;
 
-    idInsumosSelect.addEventListener('change', function() {
-        const id = this.value;
-        
-        fetch(`../../controller/Insumos/Obtener_Entradas_Salidas_Insumos.php?id=${id}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ocurrió un error al obtener los datos');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.length > 0) {
-                    const item = data[0]; 
-                    costoUnitarioInput.value = item.Costo;
+        var total = parseFloat(document.getElementById('UCosto').value) * parseFloat(document.getElementById('Cantidad').value);
+        document.getElementById('CostoT').value = total.toFixed(2);
+    })
+})
 
-                    // Calcula el costo total
-                    var costo = parseFloat(insumos_form.UCosto.value) * parseFloat(insumos_form.Cantidad.value);
-                    CostoT.value = costo.toFixed(2);
-                    
-                    
-                    document.getElementById('Id_insumos').style.border = "none";
-                    idInsumosSelect.setCustomValidity('');
-                } else {
-                    idInsumosSelect.setCustomValidity('Por favor, seleccione una opción de la lista');
-                    document.getElementById('Id_insumos').style.border = "5px solid red";
-                    costoUnitarioInput.value = '';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    });
-});
+
