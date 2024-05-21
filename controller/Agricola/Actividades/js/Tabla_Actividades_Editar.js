@@ -2,6 +2,7 @@
 
 function Lista(){
     const tabla = document.getElementById("tablaActividades");
+    document.getElementById('canFecha2').disabled = true;
 
     if (tabla.rows.length > 1) {
         console.log("Hay elementos antes de agregar");
