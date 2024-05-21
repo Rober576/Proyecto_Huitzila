@@ -15,9 +15,9 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    Azucares: /^\d{1,8}(\.\d{1,2})$/,
-    Madurez: /^\d{1,8}(\.\d{1,2})$/,
-    Materia: /^\d{1,8}(\.\d{1,2})$/,
+    Azucares: /^\d+(\.\d{1,2})?$/,
+    Madurez: /^\d+(\.\d{1,2})?$/,
+    Materia: /^\d+(\.\d{1,2})?$/,
 }
 
 var azucares = document.getElementById('azucares');
@@ -25,6 +25,7 @@ var madurez = document.getElementById('madurez');
 var mat_prima = document.getElementById('mat_prima');
 azucares.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     azucares.value = valorInput
 
     .replace(/[^0-9.]/g, '')
@@ -44,7 +45,7 @@ azucares.addEventListener('keyup', (e) => {
 
 madurez.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
-
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
     madurez.value = valorInput
 
     .replace(/[^0-9.]/g, '')
@@ -62,6 +63,7 @@ madurez.addEventListener('keyup', (e) => {
 
 mat_prima.addEventListener('keyup', (e) => {
     let valorInput = e.target.value;
+    valorInput = valorInput.match(/^\d{0,6}(\.\d{0,2})?/)[0];
 
     mat_prima.value = valorInput
 

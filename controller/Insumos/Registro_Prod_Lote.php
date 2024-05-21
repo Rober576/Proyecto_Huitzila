@@ -9,6 +9,27 @@ $c3 = $_POST["Cantidad"];
 //instanciar la clase y llamar la funcion para insertar
 $obj = new Registro_Prod_Lotes();
 $obj->conexion();
-$obj->insertar($c1, $c2, $c3);
-echo json_encode('exito');
+
+/*
+if($obj->verifica_insumos($c2, $c3)){
+    echo"Si se puede registrar";
+
+    $obj->insertar($c1, $c2, $c3);
+    echo json_encode('exito');
+}else{
+    echo"NO se puede registrar";
+    echo json_encode('fallido');
+    
+}*/
+$valida = $obj->verifica_insumos($c2,$c3);
+
+if($valida == true){
+    //$obj->insertar($c1, $c2, $c3);
+    
+    echo json_encode('exito');
+} else{
+    echo json_encode('fallido');
+}
+
+
 ?>

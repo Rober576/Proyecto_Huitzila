@@ -21,7 +21,7 @@ window.addEventListener('load', (event) => {
 botonRegistrar.addEventListener("click", (e) =>{
 
     Validar_Cantidad_Semanas()
-  
+    Validar_Plantacion_Seleccionada()
     Validar_Costo_General()
     Validar_Descripcion_Actividad()
    

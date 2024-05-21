@@ -13,9 +13,14 @@ class Registro_CC
 
     function insertar($Lote,$Embasado,$Sellado,$Etiqueta,$SinAbolladuras,$Color)
 {
-    
-    $q1 = "INSERT INTO controlcalidad (Lote,Embasado,Sellado,Etiqueta,SinAbolladuras,Color)
-            VALUES(:Lote,:Embasado,:Sellado,:Etiqueta,:SinAbolladuras,:Color)";
+    $cumplimiento=2;
+
+    if($Embasado==1 && $Sellado==1 && $Etiqueta==1 && $SinAbolladuras==1 && $Color==1) {
+        $cumplimiento=1;
+    }
+
+    $q1 = "INSERT INTO controlcalidad (Lote,Embasado,Sellado,Etiqueta,SinAbolladuras,Color,cumplimiento)
+            VALUES(:Lote,:Embasado,:Sellado,:Etiqueta,:SinAbolladuras,:Color, :cumplimiento)";
     $a1 = [
         ":Lote" => $Lote,
         ":Embasado" => $Embasado,
@@ -23,6 +28,7 @@ class Registro_CC
         ":Etiqueta" => $Etiqueta,
         ":SinAbolladuras" => $SinAbolladuras,
         ":Color" => $Color,
+        ":cumplimiento"=> $cumplimiento,
     ];
     $querry = $q1;
     $parametros = $a1;
