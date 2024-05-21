@@ -65,12 +65,10 @@ function mostrarDatos(datos){
             var costT = document.createElement('td');
             
 
-            
-
-            
+    
             var acciones = document.createElement('td')
-            var link_eliminar = document.createElement('a')
-            link_eliminar.className = 'botonesEditarYEliminar';
+            var link_crear_receta = document.createElement('a')
+            link_crear_receta.className = 'botonesEditarYEliminar';
 
             var link_editar = document.createElement('a')
             link_editar.className = 'botonesEditarYEliminar';
@@ -89,11 +87,49 @@ function mostrarDatos(datos){
             
             
         
-            link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.innerHTML = "Registrar receta";
-            link_eliminar.href = "../../view/insumos/Registro_Insumo_Por_Producto.html?id="+datos[i][0];
+        //     link_eliminar.innerHTML = "Eliminar";
+        //     link_eliminar.dataset.id = datos[i][4];
 
-            acciones.appendChild(link_eliminar);
+        //     link_eliminar.addEventListener('click', function(event) {
+        //     event.preventDefault(); 
+
+        //     if (confirm('¿Estás seguro de eliminar el registro?')) {
+                
+        //         const id = this.dataset.id;
+
+                
+        //         fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
+        //             method: 'GET'
+        //         })
+        //         .then(response => response.json())
+                
+        //         .then(data => {
+
+        //             if(data === 'exito'){
+        //                 alert('Eliminado con éxito');
+        //                 window.location.reload();
+        //             }/*
+                    
+        //             else if(data === 'movimientos'){
+        //                 alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
+        //             }
+
+        //             else{
+        //                 alert(data)
+        //             }*/
+                    
+        //         })
+        //         .catch(error => {
+        //             console.error('Error al eliminar el registro:', error);
+        //         });
+        //     }
+        // });
+
+        // //     acciones.appendChild(link_eliminar);
+
+            link_crear_receta.innerHTML = "Crear receta";
+            link_crear_receta.href = "../../view/insumos/Registro_Insumo_Por_Producto.html?id="+datos[i][0];
+            acciones.appendChild(link_crear_receta);  
 
             acciones.appendChild(document.createElement('br'));
             acciones.appendChild(document.createElement('br'));

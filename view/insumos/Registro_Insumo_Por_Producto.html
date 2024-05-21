@@ -148,9 +148,10 @@
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
-						<select id="Id_productos" name="Id_productos" title="Identificador de los productos terminados." required>
+						<input type="text" id="Id_productos" name="Id_productos" title="El identificador no se puede editar." required readonly>
+						<!-- <select id="Id_productos" name="Id_productos" title="Identificador de los productos terminados." required>
 							<option disabled selected>Seleccionar opción</option>
-						</select>
+						</select> -->
 					</div>
 				
                     <div class="grupo1">
@@ -168,7 +169,7 @@
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Costo">Costo unitario<span class="campo-obligatorio">*</span></label>
-					<input type="text" id="UCosto" name="UCosto" title="Costo del insumo de uno (Conformado por caracteres decimales)." required>
+					<input type="text" id="UCosto" name="UCosto" title="Obtenido automáticamente de los insumos registrados, no se puede editar." required readonly>
 				</div>
 
                 <div class="grupo1">
@@ -235,7 +236,7 @@
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button type="button" id="registrar">Enviar</button>
-						<button type="button" id="Cancelar" class="Boton_cancelar">Cancelar</button>
+						<button type="button" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
@@ -253,5 +254,6 @@
 	<script src="../../view/insumos/js/Valida_Reg_Insumo_Por_Producto.js"></script>
 	<!-- <script src="../../controller/Insumos/js/Registro_Insumo_Por_Producto.js"></script> -->
 	<script src="js/Agrega_campos_de_insumos_por porductos.js"></script>
+	<script src="../../controller/Insumos/js/Cancelar_Registro_Insumos_Por_Productos.js"></script>
 </body>
 </html>

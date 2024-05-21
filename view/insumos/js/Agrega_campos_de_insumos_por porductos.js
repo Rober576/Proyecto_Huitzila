@@ -8,6 +8,16 @@ total_titulo.innerHTML = '';
 var total = 0
 
 var registros = []
+var registros_mezcal = []
+
+
+let queryString = window.location.search;
+let urlParams = new URLSearchParams(queryString);
+let id = urlParams.get('id');
+console.log('Valor del parámetro id:', id);
+
+prod = document.getElementById("Id_productos").value=id;
+
 
 insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
 insumos_form.registrar.addEventListener('click', guardarMezcal);
@@ -15,7 +25,11 @@ insumos_form.registrar.addEventListener('click', guardarMezcal);
 
 function mostrarDatos(){
     contenedor_tabla.style.display = 'block';
-    prod = document.getElementById('Id_productos').value;
+
+    if (!prod) {
+        prod = document.getElementById('Id_productos').value;
+    }
+    // prod = document.getElementById('Id_productos').value;
     insumos = document.getElementById('Id_insumos').value;
     cantidad = document.getElementById('Cantidad').value;
     costoU = document.getElementById('UCosto').value;
@@ -56,7 +70,7 @@ function mostrarDatos(){
     console.log(registros);
     
 
-    document.getElementById('Id_productos').value = ''
+    // document.getElementById('Id_productos').value = ''
     document.getElementById('Id_insumos').value = ''
     document.getElementById('Cantidad').value = ''
     document.getElementById('UCosto').value = ''
@@ -65,10 +79,11 @@ function mostrarDatos(){
 }
 
 function guardarMezcal(){
+    id_producto = id; 
     mezcal = document.getElementById('Mezcal').value;
     cantidad = document.getElementById('CantidadM').value;
     total_m = document.getElementById('CantidadM_T').value;
-    registros.push([null, null, cantidad, null, total_m, mezcal]);
+    registros.push([id_producto, null, cantidad, null, total_m, mezcal]);
     console.log(registros);
 
     fetch('../../controller/Insumos/Registro_Insumo_Por_Producto.php', {
@@ -87,7 +102,7 @@ function guardarMezcal(){
         //el registro fue exitoso
         if (data === 'todo chido') {
             alert("Registro exitoso");
-            //location.href = '../../view/insumos/Registro_Producto.html';
+            location.href = '../../view/insumos/Visualizacion_Insumo_Producto.html';
         }
 
         //los datos no pasaron alguna validacion
@@ -98,3 +113,36 @@ function guardarMezcal(){
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const idInsumosSelect = document.getElementById('Id_insumos');
+    const costoUnitarioInput = document.getElementById('UCosto');
+
+    idInsumosSelect.addEventListener('change', function() {
+        const id = this.value;
+        
+        fetch(`../../controller/Insumos/Obtener_Entradas_Salidas_Insumos.php?id=${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ocurrió un error al obtener los datos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.length > 0) {
+                    const item = data[0]; 
+                    costoUnitarioInput.value = item.Costo;
+                    
+                    
+                    document.getElementById('Id_insumos').style.border = "none";
+                    idInsumosSelect.setCustomValidity('');
+                } else {
+                    idInsumosSelect.setCustomValidity('Por favor, seleccione una opción de la lista');
+                    document.getElementById('Id_insumos').style.border = "5px solid red";
+                    costoUnitarioInput.value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+});
