@@ -51,7 +51,7 @@ function mostrarDatos(datos){
         tablaResultado.style.display = 'none';
         mensaje.style.display = 'block';
     }
-    
+
     else{
         tablaResultado.style.display = 'block';
         mensaje.style.display = 'none';
@@ -65,73 +65,63 @@ function mostrarDatos(datos){
             var costTot = document.createElement('td');
 
             var acciones = document.createElement('td')
-            var link_crear_receta = document.createElement('a')
-            link_crear_receta.className = 'botonesEditarYEliminar';
 
-            var link_editar = document.createElement('a')
-            link_editar.className = 'botonesEditarYEliminar';
+            var link_eliminar = document.createElement('a')
+            link_eliminar.className = 'botonesEditarYEliminar';
 
             
             lote.innerHTML = datos[i][0];
             row.appendChild(lote);
-            prod.innerHTML = datos[i][1];
-            row.appendChild(prod);
-            cant.innerHTML = datos[i][2];
+            cant.innerHTML = datos[i][1];
             row.appendChild(cant);
-    
-            
-            
+            prod.innerHTML = datos[i][2];
+            row.appendChild(prod);
+            precUni.innerHTML = datos[i][3];
+            row.appendChild(precUni);
+            costTot.innerHTML = datos[i][4];
+            row.appendChild(costTot);
         
-        //     link_eliminar.innerHTML = "Eliminar";
-        //     link_eliminar.dataset.id = datos[i][4];
+        
+            link_eliminar.innerHTML = "Eliminar";
+            link_eliminar.dataset.id = datos[i][2];
 
-        //     link_eliminar.addEventListener('click', function(event) {
-        //     event.preventDefault(); 
+            link_eliminar.addEventListener('click', function(event) {
+            event.preventDefault(); 
 
-        //     if (confirm('¿Estás seguro de eliminar el registro?')) {
+            if (confirm('¿Estás seguro de eliminar el registro?')) {
                 
-        //         const id = this.dataset.id;
+                const id = this.dataset.id;
 
                 
-        //         fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
-        //             method: 'GET'
-        //         })
-        //         .then(response => response.json())
+                fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
                 
-        //         .then(data => {
+                .then(data => {
 
-        //             if(data === 'exito'){
-        //                 alert('Eliminado con éxito');
-        //                 window.location.reload();
-        //             }/*
+                    if(data === 'exito'){
+                        alert('Eliminado con éxito');
+                        window.location.reload();
+                    }/*
                     
-        //             else if(data === 'movimientos'){
-        //                 alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
-        //             }
+                    else if(data === 'movimientos'){
+                        alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
+                    }
 
-        //             else{
-        //                 alert(data)
-        //             }*/
+                    else{
+                        alert(data)
+                    }*/
                     
-        //         })
-        //         .catch(error => {
-        //             console.error('Error al eliminar el registro:', error);
-        //         });
-        //     }
-        // });
+                })
+                .catch(error => {
+                    console.error('Error al eliminar el registro:', error);
+                });
+            }
+        });
 
-        // //     acciones.appendChild(link_eliminar);
+            acciones.appendChild(link_eliminar);
 
-            link_crear_receta.innerHTML = "Crear receta";
-            link_crear_receta.href = "../../view/insumos/Registro_Insumo_Por_Producto.html?id="+datos[i][0];
-            acciones.appendChild(link_crear_receta);  
-
-            acciones.appendChild(document.createElement('br'));
-            acciones.appendChild(document.createElement('br'));
-    
-             link_editar.innerHTML = "Ver Insumos";
-             link_editar.href = "../../view/insumos/Visualizacion_Insumo_Producto_Especifico.html?id="+datos[i][0];
-             acciones.appendChild(link_editar);
     
             row.appendChild(acciones);
             cuerpo_tabla.appendChild(row);

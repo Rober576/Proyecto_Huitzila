@@ -24,12 +24,14 @@ if(isset($_POST['consulta'])) {
 
     }
 
-    $producto = ['lote', 'prod', 'can'];
+    $producto = ['lote', 'can', 'prod', 'cosUni', 'cosTot' ];
 
     for($i = 0; $i < count($resultados); $i++){
         $producto[0] = $resultados[$i]["Lote"];
-        $producto[1] = $resultados[$i]["Producto"];
-        $producto[2] = $resultados[$i]["Cantidad"];
+        $producto[1] = $resultados[$i]["Cantidad"];
+        $producto[2] = $resultados[$i]["Producto"];
+        $producto[3] = $resultados[$i]["CostoUnitario"];
+        $producto[4] = $resultados[$i]["CostoTotal"];
         array_push($datos, $producto);
     }
 
