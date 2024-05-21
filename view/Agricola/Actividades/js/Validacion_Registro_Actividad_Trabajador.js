@@ -113,37 +113,43 @@ function Validar_Gasto_Gasolina() {
 function Validar_Datos_Vehiculo() {
     let valorInput = Formulario.desVei.value;
 
-   if (valorInput.trim() !== "") {
-       if (valorInput.length > 10) {
-            valorInput = valorInput.slice(0, 10);
+    if (valorInput.trim() !== "") {
+        if (valorInput.length > 40) {
+            valorInput = valorInput.slice(0, 40);
         }
 
-       valorInput = valorInput.replace(/[^a-zA-Z0-9\s]/g, '');
+        valorInput = valorInput.replace(/[^a-zA-Z0-9\s]/g, '');
 
-  
         if (/^[a-zA-Z0-9\s]*$/.test(valorInput)) {
             bandera6 = true;
         } else {
-           bandera6 = false;
+            bandera6 = false;
         }
+
+        Formulario.desVei.value = valorInput;
     } else {
         bandera6 = true;
     }
 }
-
 function Validar_Gastos_Liquidos() {
-    let valorInput = Formulario.gasLiq.value;
+    let valorInput = Formulario.gasLiq.value.trim();
 
-    if (valorInput.trim() === "") {
+    if (valorInput === "") {
         valorInput = "0";
     }
 
- 
-    valorInput = valorInput.replace(/^0+(?=\d)/, '');
+    valorInput = valorInput.replace(/[^0-9.]/g, '');
 
-   if (valorInput.length > 10) {
-        valorInput = valorInput.slice(0, 10);
+    let partes = valorInput.split('.');
+    if (partes[0].length > 10) {
+        partes[0] = partes[0].slice(0, 10);
     }
+
+    if (partes.length > 1 && partes[1].length > 2) {
+        partes[1] = partes[1].slice(0, 2);
+    }
+
+    valorInput = partes.join('.');
 
     Formulario.gasLiq.value = valorInput;
 
@@ -155,6 +161,8 @@ function Validar_Gastos_Liquidos() {
         bandera7 = true;
     }
 }
+
+
 
 function Validar_Compra_Material() {
     let valorInput = Formulario.gasMat.value;
