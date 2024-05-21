@@ -2,7 +2,6 @@
 
 function Lista(){
     const tabla = document.getElementById("tablaActividades");
-    document.getElementById('canFecha2').disabled = true;
 
     if (tabla.rows.length > 1) {
         console.log("Hay elementos antes de agregar");
@@ -185,6 +184,7 @@ function limpiarCampos() {
     document.getElementById("gasMat").value = "0";
     document.getElementById("gasExt").value = "0";
     document.getElementById("actDes").value = "";
+    document.getElementById('canFecha2').disabled = true;
 
     const checkboxes = [
         "diaLunes",
