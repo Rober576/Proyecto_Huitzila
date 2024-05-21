@@ -5,14 +5,14 @@ class modificarMez extends Crud_bd {
      
     // Función para obtener el ID de la clase a partir de su nombre
     function obteneridMovimiento($tipo) {
-        echo json_encode($tipo);
+       
         $q = "SELECT IdMovimiento FROM tipomovimiento WHERE Movimiento = :movimiento";
         $params = array(":movimiento" => $tipo);
         
-        $resultado = $this->mostrar($q, $params);
+        $u = $this->mostrar($q, $params);
 
-        if ($resultado) {
-            return $resultado[0]['IdMovimiento'];
+        if ($u) {
+            return $u[0]['IdMovimiento'];
         } else {
             return false;
         }
@@ -34,7 +34,7 @@ class modificarMez extends Crud_bd {
     
         if (!empty($result)) {
             // Mostrar el número de movimiento en la consola
-            echo "Número de movimiento1: " . $result[0]['NumeroMovimiento'] . "\n";
+            
             return $result[0];
         } else {
             // Si no hay resultados, retornar un array con valores predeterminados
@@ -58,20 +58,18 @@ class modificarMez extends Crud_bd {
             } else {
                 $finalPorcentaje = (($inicialPorcentaje * $inicialVolumen) + ($volumen * $concentracion)) / ($finalVolumen);
             }
-        } elseif ($movimiento == 'salida') {
-            // Restar volumen
-            $finalVolumen = $inicialVolumen - $volumen;
-            // Si el volumen inicial es 0, el porcentaje también será 0
-            if ($inicialVolumen == 0) {
-                $finalPorcentaje = 0;
-            } else {
-                // Calcular porcentaje
+            return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
+        } else if ($movimiento == 'salida') {
+            
+            if ($volumen > $inicialVolumen) {        
+                return array('FinalVolumen' => "Error Volumen", 'FinalPorcentaje' => "Error Volumen");
+            } else  {
                 $finalVolumen = $inicialVolumen - $volumen;
-            }
+                return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $inicialPorcentaje);
+            } 
         }
-        return array('FinalVolumen' => $finalVolumen, 'FinalPorcentaje' => $finalPorcentaje);
-    }
 
+    }
     function verificarRegistro($lote2, $fecha) {
         // Verificar si existe algún registro para el lote
         $query = "
@@ -96,7 +94,7 @@ class modificarMez extends Crud_bd {
             if ($fecha >= $fechaUltimoRegistro) {
                 return $numeroMovimiento + 1;
             } else {
-                return "La fecha ingresada es menor que la ultima fecha registrada";
+                return "La fecha ingresada";
             }
         } else {
             return 0;

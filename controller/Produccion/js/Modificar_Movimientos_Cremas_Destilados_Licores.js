@@ -1,14 +1,10 @@
 var formulario = document.getElementById('form_ingreso_agave');
 var respuesta = document.getElementById('respuesta');
-console.log("entro a modificar_movimientos")
-// Responde cuando hay un click en el boton "Guardar"
+
 document.getElementById('boton_registrar').addEventListener('click', function (e) {
-    e.preventDefault(); // Prevenir el envío del formulario por defecto
-    console.log("Mensaje de prueba en la consola");
+    e.preventDefault(); 
     var datos = new FormData(formulario);
-    console.log("Antes de fetch"); // Agregado para depuración
-    
-    
+   
     var movimiento = obtenerParametroURL('NumeroMovimiento');
     console.log(movimiento);
 
@@ -22,13 +18,18 @@ document.getElementById('boton_registrar').addEventListener('click', function (e
         method: 'POST',
         body: datos
     })
-    .then(res => res.text()) // Cambiado a text() para manejar cualquier tipo de respuesta
+    .then(res => res.json()) // Cambiado a text() para manejar cualquier tipo de respuesta
     .then(data => {
-        console.log("Después de fetch"); // Agregado para depuración
-        console.log("Mensaje de prueba",data); // Agregado para depuración
-        if (data.trim() === 'Error Volumen') {
-            alert("Hubo un error");
-        } else {
+        console.error(data.trim()); // Trim para eliminar espacios en blanco alrededor del mensaje
+        console.log("data",data)
+        if (data.trim() === "La fecha ingresada es menor que la ultima fecha registrada") {
+
+            console.error("Error: La fecha ingresada es menor que la última fecha registrada");
+        } 
+        else if(data.trim() ==="Error Volumen"){
+            alert("Error: El volumen de salida es mayor al volumen existente");
+
+        }  else {
             alert("Actualización exitosa");
             var parametrosURL = new URLSearchParams(window.location.search);
             var lotE = parametrosURL.get('Lote');
@@ -37,12 +38,14 @@ document.getElementById('boton_registrar').addEventListener('click', function (e
             location.href = "../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html?Lote=" + lotE;
           
             }
+  
     })
     .catch(error => {
-        console.error('Error en la solicitud fetch:', error); // Agregado para manejar errores de fetch
-        alert("Hubo un error en la solicitud"); // Muestra un mensaje de error genérico
+        console.error('Error:', error.message);
     });
-});
+
+    });
+
 
 // Responde cuando hay un click en el boton "Cancelar"
 formulario.cancelar.addEventListener('click', function (e){
