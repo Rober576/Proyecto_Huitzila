@@ -10,11 +10,11 @@ botonProducir.addEventListener("click", (e) => {
     // se revisa si todas las entradas son válidas
     if (bandera1 && bandera2 && bandera3) {
         // si todas son válidas se muestra un mensaje de éxito
-        console.log("Registro exitoso");
+        console.log("Datos validados");
     } else {
         // si alguna no es válida se cancela el envío
         //alert("Uno o más campos están vacios o son incorrectos \nPor favor verifique nuevamente.")
-        console.log("Envío cancelado");
+        console.log("Datos no validos");
         e.preventDefault();
         alert("Por favor rellene todos los campos");
     }

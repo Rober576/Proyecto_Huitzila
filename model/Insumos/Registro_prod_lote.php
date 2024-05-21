@@ -92,7 +92,7 @@
         
                 // Insertar en la tabla movimientoproductos
                 $q6 = "INSERT INTO movimientoproductos (IDProducto, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal, NumeroMovimiento, CantidadRestante) 
-                       VALUES (:c2, NOW(), 'Entrada', 1, 'producción', :c3, :costoUnitario, :costoTotal, :nuevoNumeroMovimiento, :cantidadRestante)";
+                       VALUES (:c2, NOW(), 'Entrada', 1, 'Producción', :c3, :costoUnitario, :costoTotal, :nuevoNumeroMovimiento, :cantidadRestante)";
                 $a6 = [
                     ":c2" => $c2,
                     ":c3" => $c3,
@@ -105,7 +105,7 @@
         
 
                 // Movimientos para los insumos -------------------------------------------------------------------------------------------
-                /*
+                
                 // Consulta para obtener los insumos necesarios para el producto
                 $consultaInsumos = "SELECT IDInsumos, Cantidad FROM insumosproductos WHERE IDProducto = :c2";
                 $parametrosInsumos = [":c2" => $c2];
@@ -118,17 +118,60 @@
                     $cantidadNecesaria = $insumo['Cantidad'] * $c3;
 
                     // Consulta para obtener la existencia del insumo
-                    $consultaExistencia = "SELECT Existencia, StockMinimo FROM insumos WHERE IDInsumo = :IDInsumoo";
+                    $consultaExistencia = "SELECT Existencia FROM insumos WHERE IDInsumo = :IDInsumoo";
                     $parametrosExistencia = [":IDInsumoo" => $IDInsumo];
-
                     // Ejecutar la consulta
                     $resultado = $this->base->mostrar($consultaExistencia, $parametrosExistencia);
                     
+                    
+                    // Decrementa la cantidad de existencia en la tabla de insumos del insumo que se está iterando
+                    $querry_resInsumos = "UPDATE insumos SET Existencia = Existencia - :cantNes WHERE IDInsumo = :IdInsumo";
+                    $data_resInsumos = [":cantNes" => $cantidadNecesaria, ":IdInsumo" => $IDInsumo];
+                    $this->base->insertar_eliminar_actualizar($querry_resInsumos, $data_resInsumos);
 
+                    
+                    // Obtener el CostoUltimo del insumo
+                    $q7 = "SELECT Costo FROM insumos WHERE IDInsumo = :IdInsumoo";
+                    $a7 = [":IdInsumoo" => $IDInsumo];
+                    $resultado = $this->base->mostrar($q7, $a7);
+                    $costoUnitario = $resultado[0]['Costo'];
+            
+
+                    // Calcular el costo total del insumo
+                    $costoTotal = $costoUnitario * $cantidadNecesaria;
+            
+                    // Obtener el último NumeroMovimiento para el producto específico
+                    $q8 = "SELECT MAX(NumeroMovimiento) AS UltimoMovimiento FROM movimientoinsumos WHERE IDInsumo = :IdInsumooo";
+                    $a8 = [":IdInsumooo" => $IDInsumo];
+                    $resultado = $this->base->mostrar($q8, $a8);
+                    $ultimoMovimiento = $resultado[0]['UltimoMovimiento'];
+                    $nuevoNumeroMovimiento = $ultimoMovimiento ? $ultimoMovimiento + 1 : 1;
+
+            
+                    // Obtener la cantidad restante del insumo en su tabla
+                    $q9 = "SELECT Existencia FROM insumos WHERE IDInsumo = :IdInsumooo";
+                    $resultado = $this->base->mostrar($q9, $a8);
+                    $cantidadRestante = $resultado[0]['Cantidad'];
+            
+                    // Insertar en la tabla movimientoproductos
+                    $q10 = "INSERT INTO movimientoinsumos (IDinsumo, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal, NumeroMovimiento, CantidadRestante) 
+                        VALUES (:c2, NOW(), 'Salida', 1, 'Producción', :c3, :costoUnitario, :costoTotal, :nuevoNumeroMovimiento, :cantidadRestante)";
+                    $a10 = [
+                        ":c2" => $IDInsumo,
+                        ":c3" => $cantidadNecesaria,
+                        ":costoUnitario" => $costoUnitario,
+                        ":costoTotal" => $costoTotal,
+                        ":nuevoNumeroMovimiento" => $nuevoNumeroMovimiento,
+                        ":cantidadRestante" => $cantidadRestante
+                    ];
+                    $this->base->insertar_eliminar_actualizar($q10, $a10);
+                    
+
+                    // Movimientos para mezcal -------------------------------------------------------------------------------------------
 
 
                 
-                }*/
+                }
                 
 
                 // Confirmar la transacción

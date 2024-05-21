@@ -24,9 +24,10 @@ if($obj->verifica_insumos($c2, $c3)){
 $valida = $obj->verifica_insumos($c2,$c3);
 
 if($valida == true){
+    echo"Si se puede";
     //$obj->insertar($c1, $c2, $c3);
-    
     echo json_encode('exito');
+    
 } else{
     echo json_encode('fallido');
 }
