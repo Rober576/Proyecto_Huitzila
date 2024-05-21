@@ -3,7 +3,8 @@ let ct = true
 
 
 const expresiones = {
-    costo :  /^[0-9]+(.([0-9])+)*$/
+    costo :  /^[0-9]+(.([0-9])+)*$/,
+    cantidad: /^[0-9]+$/
 }
 
 insumos_form.UCosto.addEventListener("keyup", (e) =>{
@@ -60,19 +61,8 @@ insumos_form.Cantidad.addEventListener("keyup", (e) =>{
     let valorInput = e.target.value;
     insumos_form.Cantidad.value = valorInput
     
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
-
-    //elimina las letras
-    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
-    
-    //elimina el ultimo espacio en blanco
-    .trim()
-
-
+    .replace(/\D/g, '') 
+    .trim();
     if (verificarPuntos(valorInput) == true) {
         Cantidad.style.border = "3px solid red";
         valorInput = valorInput.substr(0, valorInput.length - 1);
@@ -94,7 +84,7 @@ insumos_form.Cantidad.addEventListener("keyup", (e) =>{
         cu = false
     }
     
-    if(expresiones.costo.test(e.target.value)){
+    if(expresiones.cantidad.test(e.target.value)){
         Cantidad.removeAttribute("style");
         cu = true
         var costo = parseFloat(insumos_form.UCosto.value) * parseFloat(insumos_form.Cantidad.value);
@@ -110,17 +100,8 @@ insumos_form.CantidadM.addEventListener("keyup", (e) =>{
     let valorInput = e.target.value;
     insumos_form.CantidadM.value = valorInput
     
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
-
-    //elimina las letras
-    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
-    
-    //elimina el ultimo espacio en blanco
-    .trim()
+    .replace(/\D/g, '') 
+    .trim();
 
 
     if (verificarPuntos(valorInput) == true) {
@@ -144,7 +125,7 @@ insumos_form.CantidadM.addEventListener("keyup", (e) =>{
         cu = false
     }
     
-    if(expresiones.costo.test(e.target.value)){
+    if(expresiones.cantidad.test(e.target.value)){
         CantidadM.removeAttribute("style");
         cu = true
         
@@ -159,16 +140,7 @@ insumos_form.CantidadM_T.addEventListener("keyup", (e) =>{
     let valorInput = e.target.value;
     insumos_form.CantidadM_T.value = valorInput
     
-    //elimina los espacios en blanco
-    .replace(/\s+/g, '')
-
-    //elimina caracteres especiales
-    .replace(/[☺☻♥♦•○◙♂♀üâäàåçê♪ëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒª`´¨°º¿⌐¬½¼«»÷±~!¡@#$%^&^*()_+\-=\[\]{};':" \\|,<>\/?]/g, '')
-
-    //elimina las letras
-    .replace(/[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMéáíóúñÑªº¿®ÁÉ±|.Í¶ÓÚ]/g, '')
-    
-    //elimina el ultimo espacio en blanco
+    .replace(/\D/g, '') // borra todo lo que no sea un dígito (0-9)
     .trim()
 
 
@@ -193,7 +165,7 @@ insumos_form.CantidadM_T.addEventListener("keyup", (e) =>{
         cu = false
     }
     
-    if(expresiones.costo.test(e.target.value)){
+    if(expresiones.cantidad.test(e.target.value)){
         CantidadM_T.removeAttribute("style");
         cu = true
         

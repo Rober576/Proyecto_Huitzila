@@ -37,7 +37,7 @@ botonRegistrar.addEventListener("click", (e) =>{
 })
 
 const expresion = {
-    nombre: /^(?=.*[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ.])[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s.]+$/
+    nombre: /^(?=.*[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ])[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]*\.?[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]*$/
 };
 
 
