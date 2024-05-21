@@ -8,7 +8,7 @@ formulario.addEventListener('submit', function (e) {
     if (bandera1) {
         let correoSistema = false;
         let correoValido;
-        fetch('../../../controller/Recuperar_Contraseña/Obtener_Correos.php?tipo=correos')
+        fetch('../../controller/Recuperar_Contraseña/Obtener_Correos.php?tipo=correos')
             .then(response => response.json())
             .then(data => {
                 correoValido = data.includes(correo);

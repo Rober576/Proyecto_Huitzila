@@ -131,6 +131,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.length > 0) {
                     const item = data[0]; 
                     costoUnitarioInput.value = item.Costo;
+
+                    // Calcula el costo total
+                    var costo = parseFloat(insumos_form.UCosto.value) * parseFloat(insumos_form.Cantidad.value);
+                    CostoT.value = costo.toFixed(2);
                     
                     
                     document.getElementById('Id_insumos').style.border = "none";
