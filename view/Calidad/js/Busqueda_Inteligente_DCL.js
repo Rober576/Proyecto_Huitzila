@@ -1,10 +1,9 @@
-// public/js/Busqueda_Inteligente_Ficoquimico.js
-
 $(document).ready(function () {
     $('#buscar-txt').on('keyup', function () {
         var value = $(this).val().toLowerCase();
         $('#tablaResultado table tbody tr').filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            var textToSearch = $(this).children('td').slice(0, -2).text().toLowerCase();
+            $(this).toggle(textToSearch.indexOf(value) > -1);
         });
     });
 });
