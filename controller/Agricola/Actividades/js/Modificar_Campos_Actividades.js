@@ -28,12 +28,17 @@ formulario.addEventListener('submit', function (e) {
     // Confirmación antes de enviar
     if (confirm("¿Estás seguro de que deseas realizar las modificaciones?")) {
         var datos = new FormData(formulario);
-        datos.append('id', id);
-        datos.append('plantacion', plantacion);
         var canFecha2 = document.getElementById('canFecha2');
         if (canFecha2.disabled) {
             canFecha2.disabled = false;
+            
         }
+        var datos = new FormData(formulario);
+
+        datos.append('id', id);
+        datos.append('plantacion', plantacion);
+
+
 
         // Convertir las listas a cadenas JSON y agregarlas al FormData
         datos.append('listaNombreTrabajador', JSON.stringify(listaNombreTrabajador));
