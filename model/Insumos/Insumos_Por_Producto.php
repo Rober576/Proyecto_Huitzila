@@ -50,6 +50,12 @@ class Insumo extends Crud_bd{
         $this->insertar_eliminar_actualizar($consulta, $datos);
     }
 
+    public function obtenerCosto($id){
+        $querry = "SELECT Costo FROM insumos WHERE IDInsumo = :id";
+        $datos = array("id" => $id);
+        $resultados = $this->mostrar($querry, $datos);
+        return $resultados;
+    }
 
 }
 ?>
