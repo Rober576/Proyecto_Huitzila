@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function (e)
 
 var selectCategoria = document.getElementById('lote');
 
-fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote_Des')
+fetch('../../controller/Calidad/Obtener_Lotes.php')
 .then(response => response.json())
 .then(data => {
     data.forEach(item => {
@@ -37,4 +37,4 @@ fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lot
         }
     });
 })
-.catch(error => console.error('Error al obtener categorías:', error));
+.catch(error => console.error('Error al obtener Lotes:', error));
