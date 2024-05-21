@@ -18,81 +18,69 @@
 <body>
     <header>
         <div class="header_superior">
-			<div class="img-ventana">
-				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
-				
-			</div>
-			<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Documentos de analisis fisicoquimicos</h1>
-			</div>
-		
+            <div class="img-ventana">
+                <img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+            </div>
+            <div class="nombre_ventana">
+                <h1 class="nombre_Ventana">Documentos de analisis fisicoquimicos</h1>
+            </div>
             <div class="boton-cerrar-session">
-				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
+                <button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
             </div>
         </div>
 
         <!-- Menu Desplegable -->
         <div class="container_menu">
             <div class="menu">
-				<input type="checkbox" id="check__menu">
-				
-				<label id="label__check" for="check__menu">
-					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
-				</label>
-				<nav>
-					<ul>
-		
-						<li>
-							<a href="#" >
-							<i ></i>
-							Análisis general
-							</a>
-			
-							<ul>
-								<li><a href="../Calidad/Registro_General.html">Registro de análisis</a></li>
+                <input type="checkbox" id="check__menu">
+                <label id="label__check" for="check__menu">
+                    <i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                            <i ></i>
+                            Análisis general
+                            </a>
+                            <ul>
+                                <li><a href="../Calidad/Registro_General.html">Registro de análisis</a></li>
                                 <li><a href="../Calidad/Mostrar_Calidad.html">Consultar análisis</a></li>
-							</ul>
-						</li>
-		
-						<li>
-							<a href="#" class="activo_en_pagina">
-								<i ></i>
-								Análisis fisicoquímico
-							</a>
-				
-							<ul>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="activo_en_pagina">
+                                <i ></i>
+                                Análisis fisicoquímico
+                            </a>
+                            <ul>
                                 <li><a href="../Calidad/Mostrar_Fisioquimico.html">Consultar análisis</a></li>
                                 <li><a href="../Calidad/Valores_Min_Max.html">Valores mínimos y máximos</a></li>
-							</ul>
-						</li>
-
+                            </ul>
+                        </li>
                         <li>
-							<a href="#">
-								<i ></i>
-								Destilados, cremas y licores
-							</a>
-				
-							<ul>
+                            <a href="#">
+                                <i ></i>
+                                Destilados, cremas y licores
+                            </a>
+                            <ul>
                                 <li><a href="../Calidad/Mostrar_DCL.html">Registro de análisis</a></li>
                                 <li><a href="../Calidad/Valores_Min_Max_DCL.html">Valores mínimos y máximos</a></li>
-							</ul>
-						</li>
-
+                            </ul>
+                        </li>
                         <li>
-							<a href="#">
-								<i ></i>
-								Control de calidad
-							</a>
-				
-							<ul>
+                            <a href="#">
+                                <i ></i>
+                                Control de calidad
+                            </a>
+                            <ul>
                                 <li><a href="../Calidad/Registro_Control_Calidad.html">Registro de análisis</a></li>
                                 <li><a href="../Calidad/Mostrar_Control_Calidad.html">Consultar análisis</a></li>
-							</ul>
-						</li>
-
-					</ul>
-        		</nav>
-      		</div>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -101,28 +89,53 @@
             <div class="cabezera">
                 <h4 class="h4">Consulta</h4>
             </div>
-
             <br>
             <p class="subtitulo-1"> Análisis fisicoquímico</p>
             <hr>
             <br>
             <input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
-
             <div class="tablas">
-                <section class="header_table" id="tablaResultado">
-
-                    <table border="1">
- 
-                    </table>
-                </section>
+            <section class="header_table" id="tablaResultado">
+                <table border="1">
+                    <table border='1'>
+                        <thead>
+                            <tr>
+                                <td class='fila-verde'>Cumple</td>
+                                <td class='fila-rojo'>No cumple</td>
+                                <td class='fila-naranja'>Pendiente</td>
+                            </tr>
+                        </thead>
+                        </table> <br>";
+                       
+                                <table border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Lote</th>
+                                            <th>Alcohol</th>
+                                            <th>Extracto seco</th>
+                                            <th>Metanol</th>
+                                            <th>Alcoholes superiores</th>
+                                            <th>Aldehidos</th>
+                                            <th>Furfural</th>
+                                            <th>Plomo</th>
+                                            <th>Cobre</th>
+                                            <th>Documento</th>
+                                            <th>Fisioquimico</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                </table>
+            </section>
+                
             </div>
-
         </section>
     </main>
 
     <footer>
         <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
     </footer>
+    <script src="js/Busqueda_Inteligente_Ficoquimico.js"></script>
 </body>
 
 </html>
