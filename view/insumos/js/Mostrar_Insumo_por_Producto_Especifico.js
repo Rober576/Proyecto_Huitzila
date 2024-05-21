@@ -90,49 +90,15 @@ function mostrarDatos(datos){
             
         
             link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.dataset.id = datos[i][4];
-
-            link_eliminar.addEventListener('click', function(event) {
-            event.preventDefault(); 
-
-            if (confirm('¿Estás seguro de eliminar el registro?')) {
-                
-                const id = this.dataset.id;
-
-                
-                fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
-                    method: 'GET'
-                })
-                .then(response => response.json())
-                
-                .then(data => {
-
-                    if(data === 'exito'){
-                        alert('Eliminado con éxito');
-                        window.location.reload();
-                    }/*
-                    
-                    else if(data === 'movimientos'){
-                        alert('No se ha podido eliminar el registro, ya que tiene movimientos asociados')
-                    }
-
-                    else{
-                        alert(data)
-                    }*/
-                    
-                })
-                .catch(error => {
-                    console.error('Error al eliminar el registro:', error);
-                });
-            }
-        });
+            link_eliminar.innerHTML = "Registrar receta";
+            link_eliminar.href = "../../view/insumos/Registro_Insumo_Por_Producto.html?id="+datos[i][0];
 
             acciones.appendChild(link_eliminar);
 
             acciones.appendChild(document.createElement('br'));
             acciones.appendChild(document.createElement('br'));
     
-             link_editar.innerHTML = "Editar";
+             link_editar.innerHTML = "Ver Insumos";
              link_editar.href = "../../view/insumos/Visualizacion_Insumo_Producto_Especifico.html?id="+datos[i][0];
              acciones.appendChild(link_editar);
     

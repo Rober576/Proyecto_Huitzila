@@ -26,11 +26,17 @@ if(isset($_POST['consulta'])) {
 
     for($i = 0; $i < count($resultados); $i++){
         $producto[0] = $resultados[$i]["IDProducto"];
-        $producto[1] = $resultados[$i]["IDInsumos"];
+        if ($resultados[$i]["IDInsumos"] == null){
+            $producto[1] = "Mezcal ".$resultados[$i]["Mezcal"];
+        }
+        else{
+            $producto[1] = "Insumo ".$resultados[$i]["IDInsumos"];
+        }
         $producto[2] = $resultados[$i]["Cantidad"];
         $producto[3] = $resultados[$i]["CostoActual"];
         $producto[4] = $resultados[$i]["CostoTotal"];
         $producto[5] = $resultados[$i]["NoInsumo"];
+        $producto[6] = $resultados[$i]["Mezcal"];
         array_push($datos, $producto);
     }
 
