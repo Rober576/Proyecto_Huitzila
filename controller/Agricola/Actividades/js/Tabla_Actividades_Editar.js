@@ -184,6 +184,7 @@ function limpiarCampos() {
     document.getElementById("gasMat").value = "0";
     document.getElementById("gasExt").value = "0";
     document.getElementById("actDes").value = "";
+    document.getElementById('canFecha2').disabled = true;
 
     const checkboxes = [
         "diaLunes",
