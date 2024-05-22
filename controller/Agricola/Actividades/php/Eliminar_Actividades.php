@@ -12,8 +12,6 @@ el registro se elimina directamente*/
 // Utiliza $_GET para obtener el valor del ID desde la URL
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $plantacion = isset($_GET['valorSeleccionado']) ? $_GET['valorSeleccionado'] : null;
-
-
 $base->eliminar($id, $plantacion);
 
 ?>

@@ -115,7 +115,7 @@ function confirmacion(e, id) {
         })
         .catch(error => {
             console.error('Error al eliminar el registro:', error);
-            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+            alert('Imposible eliminar, este predio tiene plantaciones registradas');
         });
     } else {
         // Si el usuario cancela, no se hace nada

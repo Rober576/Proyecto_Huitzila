@@ -73,6 +73,26 @@ function EventoActividad() {
 }
 
 
+function verificarEliminacion(id) {
+    fetch('../../../controller/Agricola/Plantaciones/php/Verificar_Plantacion.php?id=' + id, {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.registroExiste) {
+                // El registro existe, no hacemos nada más
+                alert('Imposible eliminar plantación, tiene actividades registradas.');
+            } else {
+                // El registro no existe, llamamos a otra función
+                confirmarEliminacion(id);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+
 
 
 function confirmarEliminacion(id) {
@@ -101,7 +121,7 @@ function EventoEliminarP() {
     for (var j = 0; j < botonesEliminar.length; j++) {
         botonesEliminar[j].addEventListener('click', function(e) {
             var id = e.target.id;
-            confirmarEliminacion(id);
+            verificarEliminacion(id);
         });
     }
 }

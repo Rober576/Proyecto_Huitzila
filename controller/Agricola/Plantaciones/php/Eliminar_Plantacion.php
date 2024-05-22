@@ -12,5 +12,4 @@ el registro se elimina directamente*/
 // Utiliza $_GET para obtener el valor del ID desde la URL
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $base->eliminar($id);
-echo json_encode('Eliminado con éxito');
 ?>

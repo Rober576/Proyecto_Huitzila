@@ -11,28 +11,27 @@ class EliminarCampos{
 
     function eliminar($id, $plantacion){
         
-            // Consulta para verificar registros en reporteactividad
-            $queryCheck = "SELECT * FROM reporteactividad WHERE NumeracionActividad = :id AND ClavePlantacion = :plantacion";
+           
             $parametrosCheck = [":id" => $id, ":plantacion" => $plantacion];
-            
-        
-            $registros = $this->base->mostrar($queryCheck, $parametrosCheck);
-    
-            // Si existen registros en reporteactividad, eliminarlos
-            if (!empty($registros)) {
-                $queryEliminar = "DELETE FROM reporteactividad WHERE NumeracionActividad = :id AND ClavePlantacion = :plantacion";
-                $this->base->insertar_eliminar_actualizar($queryEliminar, $parametrosCheck);
-            }
-    
             // Eliminar la actividad en actividaplantacion
             $queryEliminarActividad = "DELETE FROM actividadplantacion WHERE NumeracionActividad = :id AND ClavePlantacion = :plantacion";
             $this->base->insertar_eliminar_actualizar($queryEliminarActividad, $parametrosCheck);
     
             $this->base->cerrar_conexion();
-            return;
+            
         
         
     }
     
 }
+// Utiliza $_GET para obtener el valor del ID desde la URL
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$plantacion = isset($_GET['valorSeleccionado']) ? $_GET['valorSeleccionado'] : null;
+
+// Creamos una instancia de la clase EliminarCampos y la utilizamos para eliminar el registro
+$base = new EliminarCampos();
+$base->instancias();
+$base->eliminar($id,$plantacion);
+
 ?>
+

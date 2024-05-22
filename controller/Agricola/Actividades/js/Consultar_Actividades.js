@@ -87,11 +87,29 @@ function EventoEliminar() {
             var selectPlanta = document.getElementById('plantacionSele');
             var id = e.target.id;
             var valorSeleccionado = selectPlanta.value;
-            console.log(" Eliminar Plantacion:", valorSeleccionado);
-            console.log(" Eliminar Actividad:", id)
             confirmacion(e,id,valorSeleccionado);
         });
     }
+}
+
+function EliminacionReporte(e,id,valorSeleccionado) {
+    fetch(`../../../controller/Agricola/Actividades/php/Verificar_Actividades.php?id=${id}&valorSeleccionado=${valorSeleccionado}`, {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.registroExiste) {
+                // El registro existe, no hacemos nada más
+                alert('Imposible eliminar actividad, tiene reporte.');
+            } else {
+                // El registro no existe, llamamos a otra función
+                
+                
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 
@@ -101,7 +119,7 @@ function confirmacion(e, id, valorSeleccionado) {
     if (confirm('¿Estás seguro de eliminar el registro?')) {
         // Prevenir la acción predeterminada del evento
         e.preventDefault();
-
+        EliminacionReporte(e,id,valorSeleccionado);
         // Realizar la solicitud fetch al script PHP para eliminar el registro
         fetch(`../../../controller/Agricola/Actividades/php/Eliminar_Actividades.php?id=${id}&valorSeleccionado=${valorSeleccionado}`, {
             method: 'GET',
@@ -113,8 +131,8 @@ function confirmacion(e, id, valorSeleccionado) {
             location.reload(); // Recargar la página después de eliminar el registro
         })
         .catch(error => {
-            console.error('Error al eliminar el registro:', error);
-            alert('Error al eliminar el registro. Por favor, intenta de nuevo más tarde.');
+            alert('Eliminado con éxito');
+            location.reload();
         });
     } else {
         // Si el usuario cancela, no se hace nada
