@@ -11,6 +11,19 @@
             $this->base->conexion_bd();
         }
 
+        //Función para buscar si el lote ya existe
+        function busca_lote($c1) {
+            $consultaLote = "SELECT Lote FROM produccionlotes WHERE Lote = :c1";
+            $arrayLote = [":c1" => $c1];
+
+            $resultado = $this->base->mostrar($consultaLote, $arrayLote);
+            if (count($resultado) == 0) {
+                //$this->base->cerrar_conexion();
+                return true; // Si no se encuentra el insumo, retornar false
+            } else{
+                return false;
+            }
+        }
 
         // Función para verificar insumos
         function verifica_insumos($c2, $c3) {
