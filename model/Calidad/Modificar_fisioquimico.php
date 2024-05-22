@@ -1,5 +1,4 @@
 <?php
-include('../../config/Crud_bd.php');
 
 class Registro_cuotas
 {

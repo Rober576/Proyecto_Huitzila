@@ -1,6 +1,6 @@
 <?php
 include_once('../../model/Calidad/Mostrar_Fisicoquimico.php');
-include_once('../../model/Calidad/Modificar_Fisicoquimico.php');
+include_once('../../model/Calidad/Modificar_Fisioquimico.php');
 include_once('../../view/Calidad/Registro_Fisioquimico.html');
 $lote=$_GET["id"];
 echo $lote;
@@ -35,5 +35,15 @@ $nombreDoc=$resultado[0]['NombreDocumento'];
     document.getElementById("plomo").value = "<?php echo $plomo ?>";
     document.getElementById("cobre").value = "<?php echo $cobre ?>";
     document.getElementById("doc_ref").setAttribute = "<?php echo $nombreDoc ?>";
+
+    bandera1=true;
+    bandera2=true;
+    bandera3=true;
+    bandera4=true;
+    bandera5=true;
+    bandera6=true;
+    bandera7=true;
+    bandera8=true;
+    bandera9=true;
 </script>
 
