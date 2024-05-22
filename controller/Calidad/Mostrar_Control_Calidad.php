@@ -94,7 +94,7 @@ if ($lotes) {
                 $salida .= '<td class="' . $clase_css . '">' . $fila["SinAbolladuras"] . '</td>';
                 $salida .= '<td class="' . $clase_css . '">' . $fila["Color"] . '</td>';
                 $salida .= '<td class="' . $clase_css . '">';
-                $salida .= '<button type="submit">Editar</button>';
+                $salida .= '<button type="submit" onclick="window.open(\'../../controller/Calidad/Get_Datos_Fisioquimico.php?id=' . $lote["Lote"] . '\', \'_blank\')">Editar</button>';
                 $salida .= '</td>';
             }
         } else {
