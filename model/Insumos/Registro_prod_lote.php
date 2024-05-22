@@ -25,26 +25,29 @@
                 $IDInsumo = $insumo['IDInsumos'];
                 $cantidadNecesaria = $insumo['Cantidad'] * $c3;
 
-                // Consulta para obtener la existencia del insumo
-                $consultaExistencia = "SELECT Existencia, StockMinimo FROM insumos WHERE IDInsumo = :IDInsumoo";
-                $parametrosExistencia = [":IDInsumoo" => $IDInsumo];
+                if(!is_null($IDInsumo)) {
+                    // Consulta para obtener la existencia del insumo
+                    $consultaExistencia = "SELECT Existencia, StockMinimo FROM insumos WHERE IDInsumo = :IDInsumoo";
+                    $parametrosExistencia = [":IDInsumoo" => $IDInsumo];
 
-                // Ejecutar la consulta
-                $resultado = $this->base->mostrar($consultaExistencia, $parametrosExistencia);
-                
-                if (count($resultado) == 0) {
-                    //$this->base->cerrar_conexion();
-                    return false; // Si no se encuentra el insumo, retornar false
+                    // Ejecutar la consulta
+                    $resultado = $this->base->mostrar($consultaExistencia, $parametrosExistencia);
+                    
+                    if (count($resultado) == 0) {
+                        //$this->base->cerrar_conexion();
+                        return false; // Si no se encuentra el insumo, retornar false
+                    }
+
+                    $existencia = $resultado[0]['Existencia'];
+                    $stockMinimo = $resultado[0]['StockMinimo'];
+
+                    // Verificar si hay suficiente existencia y no baja del stock mínimo
+                    if ($existencia < $cantidadNecesaria || ($existencia - $cantidadNecesaria) < $stockMinimo) {
+                        //$this->base->cerrar_conexion();
+                        return false; // No hay suficiente insumo o baja del stock mínimo
+                    }
                 }
-
-                $existencia = $resultado[0]['Existencia'];
-                $stockMinimo = $resultado[0]['StockMinimo'];
-
-                // Verificar si hay suficiente existencia y no baja del stock mínimo
-                if ($existencia < $cantidadNecesaria || ($existencia - $cantidadNecesaria) < $stockMinimo) {
-                    //$this->base->cerrar_conexion();
-                    return false; // No hay suficiente insumo o baja del stock mínimo
-                }
+                           
             }
             //$this->base->cerrar_conexion();
             return true; // Todos los insumos tienen suficiente existencia
