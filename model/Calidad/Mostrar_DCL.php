@@ -11,7 +11,7 @@ class MostrarCampos extends Crud_bd{
     //hace la consulta principal de los datos de las certificaciones
 
     function getLotes(){
-        $query = "SELECT * FROM registromezcal";
+        $query = "SELECT * FROM registrodestilado";
         $resultados = $this->base->mostrar($query);
         return $resultados;
     }
