@@ -25,7 +25,8 @@
                 <h1 class="nombre_Ventana">Análisis fisicoquímico</h1>
             </div>
             <div class="boton-cerrar-session">
-                <button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
+                <button class="btn-cerrar-session btn"
+                    onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
             </div>
         </div>
 
@@ -40,8 +41,8 @@
                     <ul>
                         <li>
                             <a href="#">
-                            <i ></i>
-                            Análisis general
+                                <i></i>
+                                Análisis general
                             </a>
                             <ul>
                                 <li><a href="../Calidad/Registro_General.html">Registro de análisis</a></li>
@@ -50,7 +51,7 @@
                         </li>
                         <li>
                             <a href="#" class="activo_en_pagina">
-                                <i ></i>
+                                <i></i>
                                 Análisis fisicoquímico
                             </a>
                             <ul>
@@ -60,7 +61,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i ></i>
+                                <i></i>
                                 Destilados, cremas y licores
                             </a>
                             <ul>
@@ -70,7 +71,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i ></i>
+                                <i></i>
                                 Control de calidad
                             </a>
                             <ul>
@@ -95,9 +96,8 @@
             <br>
             <input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
             <div class="tablas">
-            <section class="header_table" id="tablaResultado">
-                <table border="1">
-                    <table border='1'>
+                <section class="header_table" id="tablaResultado">
+                    <table border="1">
                         <thead>
                             <tr>
                                 <td class='fila-verde'>Cumple</td>
@@ -105,29 +105,27 @@
                                 <td class='fila-naranja'>Pendiente</td>
                             </tr>
                         </thead>
-                        </table> <br>";
-                       
-                                <table border="1">
-                                    <thead>
-                                        <tr>
-                                            <th>Lote</th>
-                                            <th>Alcohol</th>
-                                            <th>Extracto seco</th>
-                                            <th>Metanol</th>
-                                            <th>Alcoholes superiores</th>
-                                            <th>Aldehidos</th>
-                                            <th>Furfural</th>
-                                            <th>Plomo</th>
-                                            <th>Cobre</th>
-                                            <th>Documento</th>
-                                            <th>Fisioquimico</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                </table>
-            </section>
-                
+                    </table> <br>
+
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Lote</th>
+                                <th>Alcohol</th>
+                                <th>Extracto seco</th>
+                                <th>Metanol</th>
+                                <th>Alcoholes superiores</th>
+                                <th>Aldehidos</th>
+                                <th>Furfural</th>
+                                <th>Plomo</th>
+                                <th>Cobre</th>
+                                <th>Documento</th>
+                                <th>Fisioquimico</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </section>
+                <div id="no-results" style="display:none;">No se encontraron resultados</div>
             </div>
         </section>
     </main>
