@@ -25,6 +25,12 @@ document.getElementById('insumos_form').addEventListener('submit', function (eve
                 form.reset();
                 alert("Registro fallido.\nNo se cuenta con insumos suficientes para producir este lote");
                 location.reload();
+            } 
+            else if(data === 'existente'){
+                const form = document.getElementById('insumos_form');
+                form.reset();
+                alert("Registro fallido.\nEl lote que se intenta registrar ya existe");
+                location.reload();
             }
         })
        

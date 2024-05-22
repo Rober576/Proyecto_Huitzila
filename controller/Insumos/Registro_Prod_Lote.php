@@ -21,16 +21,26 @@ if($obj->verifica_insumos($c2, $c3)){
     echo json_encode('fallido');
     
 }*/
-$valida = $obj->verifica_insumos($c2,$c3);
 
-if($valida === true){
-    //echo"Si se puede";
-    $obj->insertar($c1, $c2, $c3);
-    echo json_encode('exito');
+$searchLote = $obj->busca_lote($c1);
+if($searchLote === true){
     
+    $valida = $obj->verifica_insumos($c2,$c3);
+
+    if($valida === true){
+        //echo"Si se puede";
+        $obj->insertar($c1, $c2, $c3);
+        echo json_encode('exito');
+        
+    } else{
+        echo json_encode('fallido');
+    }
 } else{
-    echo json_encode('fallido');
+    echo json_encode('existente');
 }
+
+
+
 
 
 ?>
