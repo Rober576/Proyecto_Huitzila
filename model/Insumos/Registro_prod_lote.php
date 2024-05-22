@@ -69,7 +69,7 @@
                 $c5 = $costoUnitario * $c3;
 
                 // Consulta para insertar en la tabla produccionlotes
-                $q1 = "INSERT INTO produccionlotes (Lote, Producto, Cantidad, CostoUnitario, CostoTotal) VALUES(:c1, :c2, :c3)";
+                $q1 = "INSERT INTO produccionlotes (Lote, Producto, Cantidad, CostoUnitario, CostoTotal) VALUES(:c1, :c2, :c3, :c4, :c5)";
                 $a1 = [":c1"=>$c1, ":c2"=>$c2, ":c3"=>$c3, ":c4"=>$c4, ":c5"=>$c5];
                 
                 $querry = $q1;
