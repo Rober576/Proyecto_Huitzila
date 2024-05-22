@@ -34,7 +34,7 @@
                 
                 if (count($resultado) == 0) {
                     //$this->base->cerrar_conexion();
-                    $bandera = false; // Si no se encuentra el insumo, retornar false
+                    return false; // Si no se encuentra el insumo, retornar false
                 }
 
                 $existencia = $resultado[0]['Existencia'];
@@ -52,14 +52,27 @@
 
         // Función para insertar los campos en la BD
         function insertar($c1, $c2, $c3){
-            try {
+            //try {
                 // Iniciar una transacción
-                $this->base->beginTransaction();
+                //$this->base->beginTransaction();
                 
+                // Obtener el CostoUltimo del producto
+                $querry1 = "SELECT CostoUltimo FROM productoterminado WHERE IDProducto = :c2";
+                $array1 = [":c2" => $c2];
+                $resultado = $this->base->mostrar($querry1, $array1);
+                $costoUnitario = $resultado[0]['CostoUltimo'];
+
+                $c4 = $costoUnitario;
+                $c5 = $costoUnitario * $c3;
+
                 // Consulta para insertar en la tabla produccionlotes
-                $q1 = "INSERT INTO produccionlotes (Lote, Producto, Cantidad) VALUES(:c1, :c2, :c3)";
-                $a1 = [":c1"=>$c1, ":c2"=>$c2, ":c3"=>$c3];
-                $this->base->insertar_eliminar_actualizar($q1, $a1);
+                $q1 = "INSERT INTO produccionlotes (Lote, Producto, Cantidad, CostoUnitario, CostoTotal) VALUES(:c1, :c2, :c3)";
+                $a1 = [":c1"=>$c1, ":c2"=>$c2, ":c3"=>$c3, ":c4"=>$c4, ":c5"=>$c5];
+                
+                $querry = $q1;
+                $parametros = $a1;
+
+                $this->base->insertar_eliminar_actualizar($querry, $parametros);
         
                 // Movimientos para los productos -------------------------------------------------------------------------------------------        
                 
@@ -103,7 +116,7 @@
                 ];
                 $this->base->insertar_eliminar_actualizar($q6, $a6);
         
-
+                
                 // Movimientos para los insumos -------------------------------------------------------------------------------------------
                 
                 // Consulta para obtener los insumos necesarios para el producto
@@ -111,26 +124,25 @@
                 $parametrosInsumos = [":c2" => $c2];
 
                 // Ejecutar la consulta
-                $insumos = $this->base->mostrar($consultaInsumos, $parametrosInsumos);
-                $bandera = true;
-                foreach ($insumos as $insumo) {
-                    $IDInsumo = $insumo['IDInsumos'];
-                    $cantidadNecesaria = $insumo['Cantidad'] * $c3;
+                $filas_insumos = $this->base->mostrar($consultaInsumos, $parametrosInsumos);
+                foreach ($filas_insumos as $insumoo) {
+                    $IDInsumo = $insumoo['IDInsumos'];
+                    $cantidadNecesaria = $insumoo['Cantidad'] * $c3;
 
                     // Consulta para obtener la existencia del insumo
-                    $consultaExistencia = "SELECT Existencia FROM insumos WHERE IDInsumo = :IDInsumoo";
-                    $parametrosExistencia = [":IDInsumoo" => $IDInsumo];
+                    $consultaExistencia = "SELECT Existencia FROM insumos WHERE IDInsumo = :IDInsumo";
+                    $parametrosExistencia = [":IDInsumo" => $IDInsumo];
                     // Ejecutar la consulta
                     $resultado = $this->base->mostrar($consultaExistencia, $parametrosExistencia);
                     
                     
                     // Decrementa la cantidad de existencia en la tabla de insumos del insumo que se está iterando
-                    $querry_resInsumos = "UPDATE insumos SET Existencia = Existencia - :cantNes WHERE IDInsumo = :IdInsumo";
-                    $data_resInsumos = [":cantNes" => $cantidadNecesaria, ":IdInsumo" => $IDInsumo];
+                    $querry_resInsumos = "UPDATE insumos SET Existencia = Existencia - :cantNes WHERE IDInsumo = :IDInsumo";
+                    $data_resInsumos = [":cantNes" => $cantidadNecesaria, ":IDInsumo" => $IDInsumo];
                     $this->base->insertar_eliminar_actualizar($querry_resInsumos, $data_resInsumos);
 
                     
-                    // Obtener el CostoUltimo del insumo
+                    // Obtener el costo del insumo
                     $q7 = "SELECT Costo FROM insumos WHERE IDInsumo = :IdInsumoo";
                     $a7 = [":IdInsumoo" => $IDInsumo];
                     $resultado = $this->base->mostrar($q7, $a7);
@@ -151,10 +163,10 @@
                     // Obtener la cantidad restante del insumo en su tabla
                     $q9 = "SELECT Existencia FROM insumos WHERE IDInsumo = :IdInsumooo";
                     $resultado = $this->base->mostrar($q9, $a8);
-                    $cantidadRestante = $resultado[0]['Cantidad'];
+                    $cantidadRestante = $resultado[0]['Existencia'];
             
                     // Insertar en la tabla movimientoproductos
-                    $q10 = "INSERT INTO movimientoinsumos (IDinsumo, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal, NumeroMovimiento, CantidadRestante) 
+                    $q10 = "INSERT INTO movimientoinsumos (IDInsumo, Fecha, EntradaSalida, IdMovimiento, Destino, Cantidad, CostoUnitario, CostoTotal, NumeroMovimiento, CantidadRestante) 
                         VALUES (:c2, NOW(), 'Salida', 1, 'Producción', :c3, :costoUnitario, :costoTotal, :nuevoNumeroMovimiento, :cantidadRestante)";
                     $a10 = [
                         ":c2" => $IDInsumo,
@@ -164,26 +176,25 @@
                         ":nuevoNumeroMovimiento" => $nuevoNumeroMovimiento,
                         ":cantidadRestante" => $cantidadRestante
                     ];
-                    $this->base->insertar_eliminar_actualizar($q10, $a10);
-                    
-
-                    // Movimientos para mezcal -------------------------------------------------------------------------------------------
-
-
-                
+                    $this->base->insertar_eliminar_actualizar($q10, $a10);                
                 }
                 
+                // Movimientos para mezcal -------------------------------------------------------------------------------------------
+            $this->base->cerrar_conexion();
+                                
 
-                // Confirmar la transacción
-                $this->base->commit();
+            // Confirmar la transacción
+            /*$this->base->commit();
             } catch (Exception $e) {
                 // Revertir la transacción en caso de error
+                //echo "Error al realizar el registro: ",$e;
                 $this->base->rollBack();
                 throw $e;
             } finally {
                 // Cerrar la conexión
                 $this->base->cerrar_conexion();
-            }
+            }*/
+            
         }
         
         /*
