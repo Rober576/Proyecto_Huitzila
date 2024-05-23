@@ -14,9 +14,13 @@ class Registro_DCL
     function insertar($Clave, $Lote, $Alcohol, $Metanol, $Superiores)
 {
     $lote_existente = $this->verificar_lote_existente($Lote);
+    $clave_existente = $this->verificar_clave_existente($Clave);
+
             
     if ($lote_existente) {
         echo json_encode('loterep');
+    }else if ($clave_existente) {
+        echo json_encode('claverep');
     }else {
 
         $query = "SELECT * FROM valoresminmaxdcl";
@@ -57,6 +61,18 @@ class Registro_DCL
 function verificar_lote_existente($lote){
     $q2 = "SELECT COUNT(*) as count FROM analisisdestilado WHERE Lote = :Lote";
     $a2 = [":Lote" => $lote];
+    $resultado = $this->base->mostrar($q2, $a2);
+    
+    if ($resultado && $resultado[0]['count'] > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function verificar_clave_existente($Clave){
+    $q2 = "SELECT COUNT(*) as count FROM analisisdestilado WHERE Clave = :Clave";
+    $a2 = [":Clave" => $Clave];
     $resultado = $this->base->mostrar($q2, $a2);
     
     if ($resultado && $resultado[0]['count'] > 0) {

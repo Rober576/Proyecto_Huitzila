@@ -19,6 +19,8 @@ formulario.addEventListener('submit', function (e)
             window.location.href = '../../view/Calidad/Mostrar_DCL.html';
         } else if(data==='loterep') {
             alert("Ese lote ya esta registrado");
+        }else if(data==='claverep') {
+            alert("Esa clave ya esta registrada");
         }
     })
 })
