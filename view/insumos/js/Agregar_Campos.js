@@ -19,8 +19,26 @@ console.log('Valor del parámetro id:', id);
 prod = document.getElementById("Id_productos").value=id;
 
 
-insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
-insumos_form.registrar.addEventListener('click', guardarMezcal);
+insumos_form.agregarCampos.addEventListener('click', function valida(e){
+    if(document.getElementById('Id_insumos').value == '' || document.getElementById('Cantidad').value == '' || document.getElementById('UCosto').value == '' || document.getElementById('CostoT').value == ''){
+        alert('Por favor llene todos los campos de la sección Datos de insumos por productos'); 
+    }
+    
+    else{
+        mostrarDatos();
+    }
+});
+
+
+insumos_form.registrar.addEventListener('click', function valida(e){
+    if(document.getElementById('Mezcal').value == '' || document.getElementById('CantidadM').value == '' || document.getElementById('CantidadM_T').value == ''){
+        alert('Por favor llene todos los campos de la sección Datos de Mezcal'); 
+    }
+    
+    else{
+        guardarMezcal();
+    }
+})
 
 
 function mostrarDatos(){
