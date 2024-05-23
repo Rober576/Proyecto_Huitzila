@@ -17,6 +17,8 @@ formulario.addEventListener('submit', function (e)
             form.reset();
             alert("Registro exitoso");
             window.location.href = '../../view/Calidad/Mostrar_DCL.html';
+        } else if(data==='loterep') {
+            alert("Ese lote ya esta registrado");
         }
     })
 })
