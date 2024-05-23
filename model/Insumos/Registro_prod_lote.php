@@ -191,7 +191,7 @@
                 // Movimientos para los insumos -------------------------------------------------------------------------------------------
                 
                 // Consulta para obtener los insumos necesarios para el producto
-                $consultaInsumos = "SELECT IDInsumos, Cantidad FROM insumosproductos WHERE IDProducto = :c2  AND IDInsumos != NULL";
+                $consultaInsumos = "SELECT IDInsumos, Cantidad FROM insumosproductos WHERE IDProducto = :c2  AND IDInsumos IS NOT NULL";
                 $parametrosInsumos = [":c2" => $c2];
 
                 // Ejecutar la consulta

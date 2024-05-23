@@ -5,7 +5,9 @@ $c1 = $_POST["Lote"];
 $c2 = $_POST["Id_productos"];
 $c3 = $_POST["Cantidad"];
 $cantidadMezcal = 0;
-
+/*$c1 = "ZZZZ4";
+$c2 = "Huitzila1Lt";
+$c3 = 5;*/
 
 //instanciar la clase y llamar la funcion para insertar
 $obj = new Registro_Prod_Lotes();
