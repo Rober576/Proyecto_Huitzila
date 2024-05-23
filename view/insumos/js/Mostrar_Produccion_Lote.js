@@ -83,7 +83,7 @@ function mostrarDatos(datos){
         
         
             link_eliminar.innerHTML = "Eliminar";
-            link_eliminar.dataset.id = datos[i][2];
+            link_eliminar.dataset.id = datos[i][0];
 
             link_eliminar.addEventListener('click', function(event) {
             event.preventDefault(); 
@@ -93,7 +93,7 @@ function mostrarDatos(datos){
                 const id = this.dataset.id;
 
                 
-                fetch("../../controller/Insumos/Eliminar_Insumo_por_Producto.php?id=" + id, {
+                fetch("../../controller/Insumos/Eliminar_Lote.php?id=" + id, {
                     method: 'GET'
                 })
                 .then(response => response.json())
