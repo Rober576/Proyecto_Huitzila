@@ -38,7 +38,7 @@
             }
             
         }
-        /*function movimientoMezcal($c2){
+        function movimientoMezcal($c2){
             $consultaMezcal = "SELECT Mezcal, Volumen,Cantidad FROM insumosproductos,registromezcal WHERE Mezcal = Lote AND IDProducto = :c2 AND IDInsumos IS NULL";
             $parametrosMezcal = [":c2" => $c2];
 
@@ -46,16 +46,14 @@
             $mezcal = $this->base->mostrar($consultaMezcal, $parametrosMezcal);
             $lote = $mezcal[0]["Mezcal"];
             $query = "
-            SELECT 
-                IFNULL(m.FinalVolumen, 0) AS FinalVolumen,
-                IFNULL(m.FinalPorcentaje, 0) AS FinalPorcentaje
-            FROM movimientomezcal m
-            WHERE m.Lote = '$lote'
-            ORDER BY m.NumeroMovimiento DESC
-            LIMIT 1
+                SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha,FinalVolumen,FinalPorcentaje
+                FROM movimientomezcal
+                WHERE Lote = '$lote'
             ";
-        
             $result = $this->base->mostrar($query);
+    
+            $numeroMovimiento = $result[0]['MaxNumeroMovimiento'];
+            $fecha = $result[0]['Fecha'];
             $Volfinal = $result[0]['FinalVolumen'] - $mezcal[0]["Cantidad"] * $c3;
             $Porcfinal = $result[0]['FinalPorcentaje'];
             $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
@@ -67,7 +65,7 @@
                 ":IDMovimiento" => 1, 
                 ":Volumen" => $volumen,
                 ":PorcentajeAlcohol" => $Porcfinal,
-                ":EntradaSalida" => "Entrada",
+                ":EntradaSalida" => "Salida",
                 ":DestinoProcedencia" => $procedencia,
                 "VolumenAgua"=>0,
                 ":MermasVolumen" => 0, 
@@ -75,12 +73,12 @@
                 ":Volumen55" => 0,
                 ":FinalVolumen" => $Volfinal, 
                 ":FinalPorcentaje" => $Porcfinal,
-                ":NumeroMovimiento"=>$verificacion
+                ":NumeroMovimiento"=>$numeroMovimiento
             );
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
             $this->base->cerrar_conexion();
-        }*/
+        }
         // Función para verificar insumos
         function verifica_insumos($c2, $c3) {
             // Consulta para obtener los insumos necesarios para el producto
