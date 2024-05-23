@@ -31,7 +31,7 @@ if($searchLote === true){
     if($valida === true){
         if($validaMezcal != 0){
         //echo"Si se puede";
-        //$obj->insertar($c1, $c2, $c3);
+        $obj->insertar($c1, $c2, $c3);
         echo json_encode('exito');
         }else{
             echo json_encode('fallido2');
