@@ -25,7 +25,7 @@ class Insumo extends Crud_bd{
         $datos = array();
 
         for($i = 0; $i < count($matriz); $i++){
-            $querry = "INSERT INTO insumosproductos (IDproducto, IDInsumos, Cantidad, CostoActual, 
+            $querry = "INSERT INTO insumosproductos (IDProducto, IDInsumos, Cantidad, CostoActual, 
             CostoTotal, Mezcal, NoInsumo) VALUES (:prod, :ins, :cant, :costo, :costot, :mezcal, :num)";
             $arre = ["prod" => $matriz[$i][0], "ins" => $matriz[$i][1], "cant" => $matriz[$i][2], "costo" => $matriz[$i][3], "costot" => $matriz[$i][4], "mezcal" => $matriz[$i][5], "num" => $matriz[$i][6] ];
             array_push($datos, $arre);

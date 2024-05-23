@@ -16,7 +16,7 @@ let urlParams = new URLSearchParams(queryString);
 let id = urlParams.get('id');
 console.log('Valor del parámetro id:', id);
 
-//prod = document.getElementById("Id_productos").value=id;
+prod = document.getElementById("Id_productos").value=id;
 
 
 insumos_form.agregarCampos.addEventListener('click', mostrarDatos);
@@ -29,7 +29,7 @@ function mostrarDatos(){
     if (!prod) {
         prod = document.getElementById('Id_productos').value;
     }
-    // prod = document.getElementById('Id_productos').value;
+    prod = document.getElementById('Id_productos').value;
     insumos = document.getElementById('Id_insumos').value;
     cantidad = document.getElementById('Cantidad').value;
     costoU = document.getElementById('UCosto').value;
@@ -70,7 +70,7 @@ function mostrarDatos(){
     console.log(registros);
     
 
-    document.getElementById('Id_productos').disabled=true;
+    //document.getElementById('Id_productos').disabled=true;
     document.getElementById('Id_insumos').value = ''
     document.getElementById('Cantidad').value = ''
     document.getElementById('UCosto').value = ''
