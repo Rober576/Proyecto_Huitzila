@@ -17,6 +17,8 @@ formulario.addEventListener('submit', function (e)
             form.reset();
             alert("Registro realizado con exito");
             window.location.href = '../../view/Calidad/Mostrar_Control_Calidad.html';
+        }else if(data==='loterep') {
+            alert("Ese lote ya esta analizado");
         }
     })
 })
