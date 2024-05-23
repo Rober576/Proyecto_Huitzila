@@ -1,9 +1,8 @@
 <?php
 include_once('../../model/Calidad/Mostrar_DCL.php');
 //include_once('../../model/Calidad/Modificar_DCL.php');
-include_once('../../view/Calidad/Registro_DCL.html');
+include_once('../../view/Calidad/Editar_DCL.html');
 $lote=$_GET["id"];
-echo $lote;
 
 $objeto=new MostrarCampos();
 $resultado=$objeto->getEjemplo($lote);
@@ -21,5 +20,10 @@ $alcoholesSup=$resultado[0]['AlcoholesSuperiores'];
     document.getElementById("alcohol").value = "<?php echo $alcohol?>";
     document.getElementById("metanol").value = "<?php echo $metanol ?>";
     document.getElementById("alc_sup").value = "<?php echo $alcoholesSup ?>";
+
+    bandera1=true;
+    bandera2=true;
+    bandera3=true;
+    bandera4=true;
 </script>
 

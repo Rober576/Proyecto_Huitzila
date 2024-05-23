@@ -4,7 +4,7 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Calidad/Registro_Calidad.php', {
+    fetch('../../controller/Calidad/Modificar_DCL.php', {
         method: 'POST',
         body: datos
     })
@@ -15,16 +15,27 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro realizado con exito");
-            window.location.href = '../../view/Calidad/Mostrar_Calidad.html';
-        }
+            alert("Modificacion realizada con exito");
+            window.location.href = '../../view/Calidad/Mostrar_DCL.html';
+        } 
     })
 })
 
 
 var selectCategoria = document.getElementById('lote');
+var urlParams = new URLSearchParams(window.location.search);
+var id = urlParams.get('id');
+if (id){
+var option = document.createElement('option');
+option.value = id;
+option.textContent = id;
 
-fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote')
+if (selectCategoria) {
+    selectCategoria.appendChild(option);
+}}else{
+
+
+fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lote_Des')
 .then(response => response.json())
 .then(data => {
     data.forEach(item => {
@@ -37,4 +48,4 @@ fetch('../../controller/Produccion/Obtener_Categorias_Clase_Especie.php?tipo=lot
         }
     });
 })
-.catch(error => console.error('Error al obtener categorías:', error));
+.catch(error => console.error('Error al obtener categorías:', error));}

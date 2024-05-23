@@ -24,7 +24,63 @@
                 return false;
             }
         }
+        function verifica_mezcal($c2,$c3){
+            $consultaMezcal = "SELECT Mezcal, Volumen,Cantidad FROM insumosproductos,registromezcal WHERE Mezcal = Lote AND IDProducto = :c2 AND IDInsumos IS NULL";
+            $parametrosMezcal = [":c2" => $c2];
 
+            // Ejecutar la consulta
+            $mezcal = $this->base->mostrar($consultaMezcal, $parametrosMezcal);
+            $bandera = true;
+            if ($mezcal[0]["Volumen"] >= $c3 * $mezcal[0]["Cantidad"]) {
+                return $mezcal[0]["Cantidad"] * $c3;
+            } else {
+                return 0;
+            }
+            
+        }
+        /*function movimientoMezcal($c2){
+            $consultaMezcal = "SELECT Mezcal, Volumen,Cantidad FROM insumosproductos,registromezcal WHERE Mezcal = Lote AND IDProducto = :c2 AND IDInsumos IS NULL";
+            $parametrosMezcal = [":c2" => $c2];
+
+            // Ejecutar la consulta
+            $mezcal = $this->base->mostrar($consultaMezcal, $parametrosMezcal);
+            $lote = $mezcal[0]["Mezcal"];
+            $query = "
+            SELECT 
+                IFNULL(m.FinalVolumen, 0) AS FinalVolumen,
+                IFNULL(m.FinalPorcentaje, 0) AS FinalPorcentaje
+            FROM movimientomezcal m
+            WHERE m.Lote = '$lote'
+            ORDER BY m.NumeroMovimiento DESC
+            LIMIT 1
+            ";
+        
+            $result = $this->base->mostrar($query);
+            $Volfinal = $result[0]['FinalVolumen'] - $mezcal[0]["Cantidad"] * $c3;
+            $Porcfinal = $result[0]['FinalPorcentaje'];
+            $q1 = "INSERT INTO movimientomezcal (Lote, Fecha, IDMovimiento, Volumen, PorcentajeAlcohol, EntradaSalida, DestinoProcedencia,VolumenAgua, MermasVolumen, MermasPorcentaje, Volumen55, FinalVolumen, FinalPorcentaje, NumeroMovimiento) 
+                    VALUES (:Lote, :Fecha, :IDMovimiento, :Volumen, :PorcentajeAlcohol, :EntradaSalida, :DestinoProcedencia,:VolumenAgua, :MermasVolumen, :MermasPorcentaje, :Volumen55, :FinalVolumen, :FinalPorcentaje, :NumeroMovimiento)";
+            
+            $params = array(
+                ":Lote" => $lote,
+                ":Fecha" => date('Y-m-d'),
+                ":IDMovimiento" => 1, 
+                ":Volumen" => $volumen,
+                ":PorcentajeAlcohol" => $Porcfinal,
+                ":EntradaSalida" => "Entrada",
+                ":DestinoProcedencia" => $procedencia,
+                "VolumenAgua"=>0,
+                ":MermasVolumen" => 0, 
+                ":MermasPorcentaje" => 0, 
+                ":Volumen55" => 0,
+                ":FinalVolumen" => $Volfinal, 
+                ":FinalPorcentaje" => $Porcfinal,
+                ":NumeroMovimiento"=>$verificacion
+            );
+            
+            $this->base->insertar_eliminar_actualizar($q1, $params);
+            $this->base->cerrar_conexion();
+        }*/
         // Función para verificar insumos
         function verifica_insumos($c2, $c3) {
             // Consulta para obtener los insumos necesarios para el producto

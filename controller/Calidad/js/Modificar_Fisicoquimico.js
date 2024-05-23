@@ -5,7 +5,7 @@ formulario.addEventListener('submit', function (e)
     e.preventDefault();
 
     var datos= new FormData(formulario);
-    fetch('../../controller/Calidad/Registro_Fisioquimico.php', {
+    fetch('../../controller/Calidad/Modificar_Fisicoquimico.php', {
         method: 'POST',
         body: datos
     })
@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro realizado con exito");
+            alert("Modificacion realizada con exito");
             window.location.href = '../../view/Calidad/Mostrar_Fisioquimico.html';
         }
     })

@@ -1,4 +1,5 @@
 <?php
+include('../../config/Crud_bd.php');
 
 class Registro_cuotas
 {
@@ -44,8 +45,8 @@ class Registro_cuotas
         }
 
         $referencia = 1;
-        $q1 = "INSERT INTO analisisficoquimico (Clave, Lote, Alcohol, ExtractoSeco, Metanol, AlcoholesSuperiores, Aldehidos, Furfural, Plomo, Cobre, Referencia, cumplimiento, NombreDocumento)
-                VALUES(:Clave, :Lote, :Alcohol, :ExtractoSeco, :Metanol, :AlcoholesSuperiores, :Aldehidos, :Furfural, :Plomo, :Cobre, :Referencia, :cumplimiento, :NombreDocumento)";
+        $q1 = "UPDATE analisisficoquimico SET Lote=:Lote, Alcohol=:Alcohol, ExtractoSeco=:ExtractoSeco, Metanol=:Metanol, AlcoholesSuperiores=:AlcoholesSuperiores, Aldehidos=:Aldehidos, Furfural=:Furfural, Plomo=:Plomo, Cobre=:Cobre, Referencia=:Referencia, cumplimiento=:cumplimiento, NombreDocumento=:NombreDocumento
+                WHERE Clave=:Clave";
         $a1 = [
         ":Clave" => $Clave, 
         ":Lote" => $Lote, 
