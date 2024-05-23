@@ -2,7 +2,6 @@
 include_once('../../model/Calidad/Mostrar_Fisicoquimico.php');
 include_once('../../view/Calidad/Editar_Fisioquimico.html');
 $lote=$_GET["id"];
-echo $lote;
 
 $objeto=new MostrarCampos();
 $resultado=$objeto->getEjemplo($lote);

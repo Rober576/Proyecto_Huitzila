@@ -1,39 +1,55 @@
 <?php
 include_once('../../model/Calidad/Mostrar_Control_Calidad.php');
-include_once('../../model/Calidad/Modificar_Fisicoquimico.php');
-include_once('../../view/Calidad/Registro_Fisioquimico.html');
+include_once('../../view/Calidad/Editar_CC.html');
 $lote=$_GET["id"];
-echo $lote;
 
 $objeto=new MostrarCampos();
 $resultado=$objeto->getEjemplo($lote);
-$clave=$resultado[0]['Clave'];
-$alcohol=$resultado[0]['Alcohol'];
-$extractoSec=$resultado[0]['ExtractoSeco'];
-$metanol=$resultado[0]['Metanol'];
-$alcoholesSup=$resultado[0]['AlcoholesSuperiores'];
-$aldehidos=$resultado[0]['Aldehidos'];
-$furfal=$resultado[0]['Furfural'];
-$plomo=$resultado[0]['Plomo'];
-$cobre=$resultado[0]['Cobre'];
-$referencia=$resultado[0]['Referencia'];
+$id=$resultado[0]['ID'];
+$embasado=$resultado[0]['Embasado'];
+$sellado=$resultado[0]['Sellado'];
+$etiqueta=$resultado[0]['Etiqueta'];
+$sinabolladuras=$resultado[0]['SinAbolladuras'];
+$color=$resultado[0]['Color'];
 $cumplimiento=$resultado[0]['cumplimiento'];
-$nombreDoc=$resultado[0]['NombreDocumento'];
 ?>
 
 <script languaje="javascript">
-    document.getElementById("clave_analisis").value = "<?php echo $clave ?>";
-    document.getElementById("clave_analisis").readOnly = true;
     document.getElementById("lote").value = "<?php echo $lote ?>";
     document.getElementById("lote").readOnly = true;
-    document.getElementById("alcohol").value = "<?php echo $alcohol?>";
-    document.getElementById("ext_seco").value = "<?php echo $extractoSec ?>";
-    document.getElementById("metanol").value = "<?php echo $metanol ?>";
-    document.getElementById("alcohol_sup").value = "<?php echo $alcoholesSup ?>";
-    document.getElementById("aldehidos").value = "<?php echo $aldehidos ?>";
-    document.getElementById("furfural").value = "<?php echo $furfal ?>";
-    document.getElementById("plomo").value = "<?php echo $plomo ?>";
-    document.getElementById("cobre").value = "<?php echo $cobre ?>";
-    document.getElementById("doc_ref").setAttribute = "<?php echo $nombreDoc ?>";
+    // Checkbox control1
+    if (<?php echo $embasado ?> == 1) {
+        document.getElementById("control1").checked = true;
+    } else {
+        document.getElementById("control1").checked = false;
+    }
+    
+    // Checkbox control2
+    if (<?php echo $sellado ?> == 1) {
+        document.getElementById("control2").checked = true;
+    } else {
+        document.getElementById("control2").checked = false;
+    }
+    
+    // Checkbox control3
+    if (<?php echo $etiqueta ?> == 1) {
+        document.getElementById("control3").checked = true;
+    } else {
+        document.getElementById("control3").checked = false;
+    }
+    
+    // Checkbox control4
+    if (<?php echo $sinabolladuras ?> == 1) {
+        document.getElementById("control4").checked = true;
+    } else {
+        document.getElementById("control4").checked = false;
+    }
+    
+    // Checkbox control5
+    if (<?php echo $color ?> == 1) {
+        document.getElementById("control5").checked = true;
+    } else {
+        document.getElementById("control5").checked = false;
+    }
 </script>
 
