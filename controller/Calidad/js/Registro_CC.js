@@ -15,7 +15,7 @@ formulario.addEventListener('submit', function (e)
         if (data === 'exito') {
             const form= document.getElementById('advanced-form');
             form.reset();
-            alert("Registro exitoso");
+            alert("Registro realizado con exito");
             window.location.href = '../../view/Calidad/Mostrar_Control_Calidad.html';
         }
     })

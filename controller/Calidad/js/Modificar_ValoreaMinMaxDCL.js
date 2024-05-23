@@ -37,7 +37,7 @@ formulario.addEventListener('submit', function (e) {
         if (data === 'exito') {
             const form = document.getElementById('advanced-form');
             form.reset();
-            alert("Modificacion exitosa");
+            alert("Modificacion realizada con exito");
             window.location.href = '../../view/Calidad/Mostrar_DCL.html';
         }
     })
