@@ -38,13 +38,14 @@
             }
             
         }
-        function movimientoMezcal($c2){
+        function movimientoMezcal($c2,$c3){
             $consultaMezcal = "SELECT Mezcal, Volumen,Cantidad FROM insumosproductos,registromezcal WHERE Mezcal = Lote AND IDProducto = :c2 AND IDInsumos IS NULL";
             $parametrosMezcal = [":c2" => $c2];
 
             // Ejecutar la consulta
             $mezcal = $this->base->mostrar($consultaMezcal, $parametrosMezcal);
             $lote = $mezcal[0]["Mezcal"];
+            echo $lote;
             $query = "
                 SELECT MAX(NumeroMovimiento) AS MaxNumeroMovimiento, Fecha,FinalVolumen,FinalPorcentaje
                 FROM movimientomezcal
@@ -52,7 +53,7 @@
             ";
             $result = $this->base->mostrar($query);
     
-            $numeroMovimiento = $result[0]['MaxNumeroMovimiento'];
+            $numeroMovimiento = $result[0]['MaxNumeroMovimiento']+1;
             $fecha = $result[0]['Fecha'];
             $Volfinal = $result[0]['FinalVolumen'] - $mezcal[0]["Cantidad"] * $c3;
             $Porcfinal = $result[0]['FinalPorcentaje'];
@@ -63,10 +64,10 @@
                 ":Lote" => $lote,
                 ":Fecha" => date('Y-m-d'),
                 ":IDMovimiento" => 1, 
-                ":Volumen" => $volumen,
+                ":Volumen" => $mezcal[0]["Cantidad"] * $c3,
                 ":PorcentajeAlcohol" => $Porcfinal,
-                ":EntradaSalida" => "Salida",
-                ":DestinoProcedencia" => $procedencia,
+                ":EntradaSalida" => "salida",
+                ":DestinoProcedencia" => "Envasado",
                 "VolumenAgua"=>0,
                 ":MermasVolumen" => 0, 
                 ":MermasPorcentaje" => 0, 
