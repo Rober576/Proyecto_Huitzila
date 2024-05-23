@@ -13,3 +13,18 @@
     height: 5px; /* Establece la altura de la franja */
     background-color: #a77753; /* Color de la franja */
 }
+
+#mensaje {
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+    background-color: #E9E0D1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    display: block; /* Asegura que el div esté visible */
+    
+}

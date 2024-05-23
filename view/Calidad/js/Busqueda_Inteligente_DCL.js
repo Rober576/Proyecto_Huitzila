@@ -9,14 +9,14 @@ $(document).ready(function () {
 
         if (rows.length === 0 && value !== "") {
             $('#tablaResultado').hide(); // Ocultar la tabla solo si se ha ingresado texto de búsqueda
-            $('#no-results').show(); // Mostrar mensaje de no resultados
+            $('#mensaje').show(); // Mostrar mensaje de no resultados
         } else {
             $('#tablaResultado').show(); // Mostrar la tabla si hay resultados
-            $('#no-results').hide(); // Ocultar mensaje de no resultados
+            $('#mensaje').hide(); // Ocultar mensaje de no resultados
         }
     });
 
     // Ocultar mensaje de no resultados y mostrar la tabla al cargar la página
-    $('#no-results').hide();
+    $('#mensaje').hide();
     $('#tablaResultado').show();
 });
