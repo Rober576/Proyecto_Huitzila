@@ -182,3 +182,13 @@ footer {
     margin: 0 20px; 
     width: 100%;
 }
+
+.nombre_Largo {
+    grid-template-columns: 1fr 1.1fr 1fr;
+    justify-content: center;
+    gap: 0;
+}
+
+.nombre_Ventana {
+    text-align: center;
+}
