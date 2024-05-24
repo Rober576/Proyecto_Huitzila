@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar ingreso de agave</title>
+    <title>Producción</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -115,7 +115,7 @@
                 <div class="grupo1">
                     <label class="label_datos" for="procedencia">Procedencia<span class="campo-obligatorio">*</span></label>
                     <select id="procedencia" name="procedencia" required>
-                        <option value="">Selecciona</option>
+                        <option disabled hidden selected>Seleccione una opción</option>                        
                         <option value="procedencia1">Interno</option>
                         <option value="procedencia2">Externo</option>
                     </select>
@@ -123,7 +123,7 @@
 
                 <div class="grupo1">
                     <label class="label_datos" for="costo">Costo<span class="campo-obligatorio">*</span></label>
-                    <input type="text" id="costo" name="costo" maxlength="12" 
+                    <input type="text" id="costo" name="costo" class="tipo_dinero" maxlength="12" 
                     title="El costo debe contener máximo 12 caracteres, solo números positivos 
                     enteros o decimales" required>
                 </div>
@@ -173,7 +173,7 @@
                 </div>
             </section>
 
-            <section class="section-form">
+            <section class="section-form section-form-final">
                 <br>
                 <p class="subtitulo-1"> Ingreso de agave</p>
                 <hr>
@@ -184,6 +184,12 @@
                     enteros o decimales" required>
                 </div>
                 <div class="grupo1">
+                    <label class="label_datos" for="art">Art (kg)<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="art2" name="art2" maxlength="12"
+                    title="El art (kg) debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>                
+                <div class="grupo1">
                     <label class="label_datos" for="fecha_inicio">Fecha de inicio<span class="campo-obligatorio">*</span></label>
                     <input type="date" id="fecha_inicio" name="fecha_inicio" title="Selecciona una fecha" required>
                 </div>
@@ -192,18 +198,14 @@
                     <input type="date" id="fecha_fin" name="fecha_fin" title="Selecciona una fecha" required>
                 </div>
                 
-                <div class="grupo1">
-                    <label class="label_datos" for="art">Art (kg)<span class="campo-obligatorio">*</span></label>
-                    <input type="text" id="art2" name="art2" maxlength="12"
-                    title="El art (kg) debe contener máximo 12 caracteres, solo números positivos 
-                    enteros o decimales" required>
-                </div>
+                
             </section>
 
                 <div class="grupo-boton-reg">
                     <div class="boton_registrar">
                         <button id="boton_registrar" type="submit">Guardar</button>
-                        <button name="cancelar" id="cancelar" type="submit">Cancelar</button>
+                        <button name="cancelar" id="cancelar" type="submit" class="Boton_cancelar">Cancelar</button>
+
                     </div>
                 </div>
                 
