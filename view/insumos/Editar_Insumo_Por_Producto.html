@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edición insumos por productos</title>
+    <title>Envasado</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -61,16 +61,7 @@
 						</li>
 
 
-						<li>
-							<a href="">
-								<i ></i>
-								Inventario
-							</a>
-							<ul>
-								<li><a href="../../view/insumos/Inventario_Insumos.html">Insumos</a></li>
-								<li><a href="../../view/insumos/Inventario_Productos.html">Productos</a></li>
-							</ul>
-						</li>
+						
 
 						<li>
 							<a href="">
@@ -134,7 +125,7 @@
     <main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Edición de insumos por productos</h4>
+				<h4 class="h4">Modificar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de insumos por productos</p>
@@ -142,10 +133,11 @@
 			<br>
 
 				
-			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+			<form class="advanced-form" id="insumos_form">
+				
                     
 					<input type="hidden" id="NoInsumo" name="NoInsumo" value="valor_aqui">
+				<div class="formulario-datos2">
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
@@ -157,6 +149,9 @@
 						<input type="text" id="Id_Insumos" name="Id_Insumos" title="El identificador de los Insumos no se puede modificar." required readonly>
 				
 					</div>
+
+				</div>
+				<div class="formulario-datos">
 				
 				
 				<div class="grupo1">
@@ -173,18 +168,22 @@
 					<label class="label_datos" for="Costo">Costo total<span class="campo-obligatorio">*</span></label>
 					<input type="number" id="Costo_tot" name="Costo Total" title="Costo del insumo de todo (Conformado por caracteres decimales)." required>
 				</div>
-
 			</div>
+			
+		</section>
+		<br>
+
+			
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
-						<button type="submit" id="registrar">Enviar</button>
+						<button type="submit" id="registrar">Guardar</button>
 						<button type="button" id="Cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
 		
-		</section>
+		
         
     </main>
 

@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar insumos</title>
+    <title>Envasado</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
 	<link rel="stylesheet" href="../../public/css/insumos.css">
-	<link rel="stylesheet" href="../../public/css/Productos_insumos.css">
     
 </head>
 <body>
@@ -53,7 +52,7 @@
 						</li>
 
 						<li>
-							<a href="">
+							<a href="" class="activo_en_pagina">
 								<i ></i>
 								Productos
 							</a>
@@ -64,16 +63,7 @@
 						</li>
 
 
-						<li>
-							<a href="">
-								<i ></i>
-								Inventario
-							</a>
-							<ul>
-								<li><a href="../../view/insumos/Inventario_Insumos.html">Insumos</a></li>
-								<li><a href="../../view/insumos/Inventario_Productos.html">Productos</a></li>
-							</ul>
-						</li>
+						
 
 						<li>
 							<a href="">
@@ -136,15 +126,15 @@
     <main>
         <section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Edición de productos</h4>
+				<h4 class="h4">Modificar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de los productos</p>
 			<hr>
 			<br>
 
-			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+			<form class="advanced-form" id="insumos_form">
+				<div class="formulario-datos2">
 				
 					<div class="grupo1">
 						<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span></label>
@@ -204,16 +194,18 @@
 					}
 				}
 			</script>
+		</section>
+		<br>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
-						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" id="Cancelar" onclick="cancelar()">Cancelar</button>
+						<button type="submit" id="registrar">Guardar</button>
+						<button type="button" id="Cancelar" onclick="cancelar()" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
 		
-		</section>
+		
         
     </main>
 

@@ -68,11 +68,13 @@ function mostrarDatos(datos){
             var costo_col = document.createElement('td');
 
             var acciones = document.createElement('td');
-            var link_eliminar = document.createElement('a');
-            link_eliminar.className = "botonesEditarYEliminar";
+            acciones.className = "botones-columna";
+            var link_eliminar = document.createElement('button');
+            link_eliminar.className = "Boton_Tabla";
+
 
             var link_editar = document.createElement('a');
-            link_editar.className = "botonesEditarYEliminar";
+            link_editar.className = "Boton_Tabla tx";
 
             id_col.innerHTML = datos[i][0]
             row.appendChild(id_col);
@@ -132,8 +134,10 @@ function mostrarDatos(datos){
 
             acciones.appendChild(link_eliminar);
 
-            acciones.appendChild(document.createElement('br'));
-            acciones.appendChild(document.createElement('br'));
+            var separador = document.createTextNode(' | ');
+        
+            // Añade el nodo de texto al final del elemento "acciones"
+            acciones.appendChild(separador);
     
             link_editar.innerHTML = "Editar";
             link_editar.href = "../../controller/Insumos/Get_Insumo.php?id="+datos[i][0];

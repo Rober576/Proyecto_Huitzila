@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar insumos</title>
+    <title>Envasado</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -38,7 +38,7 @@
 					<ul>
 		
 						<li>
-							<a href="../../view/insumos/Principal_Insumos.html">
+							<a href="../../view/insumos/Principal_Insumos.html" class="activo_en_pagina">
 								<i ></i>
 								Insumos
 							</a>
@@ -63,16 +63,7 @@
 						</li>
 
 
-						<li>
-							<a href="">
-								<i ></i>
-								Inventario
-							</a>
-							<ul>
-								<li><a href="../../view/insumos/Inventario_Insumos.html">Insumos</a></li>
-								<li><a href="../../view/insumos/Inventario_Productos.html">Productos</a></li>
-							</ul>
-						</li>
+						
 
 						<li>
 							<a href="">
@@ -135,15 +126,15 @@
     <main>
         <section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Edición de insumos</h4>
+				<h4 class="h4">Modificar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de los insumos</p>
 			<hr>
 			<br>
 
-			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+			<form class="advanced-form" id="insumos_form">
+				<div class="formulario-datos">
 					<input type="hidden" name="id" value="">
 				
 				<div class="grupo1">
@@ -162,6 +153,9 @@
 					<label class="label_datos" for="Unidades">Unidades<span class="campo-obligatorio">*</span></label>
 					<input type="text" id="Unidades" name="Unidades" title="Unidades en las que se mide el insumo (conformado por 10 caracteres de solo letras)." required>
 				</div>
+
+				</div>
+				<div class="formulario-datos2">
 					
 				<div class="grupo1">
 					<label class="label_datos" for="Exitencia">Existencia<span class="campo-obligatorio">*</span></label>
@@ -172,6 +166,9 @@
 					<label class="label_datos" for="FechaReg">Fecha de registro<span class="campo-obligatorio">*</span></label>
 					<input type="date" id="FechaReg" name="FechaReg" title="Fecha de la última compra del insumo (Puede escribirla como mes/día/año o hacer click en el calendario y seleccionarla)." required>
 				</div>
+
+				</div>
+				<div class="formulario-datos">
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span></label>
@@ -188,20 +185,25 @@
 					<input type="number" id="Costo" name="Costo" title="Costo del insumo (conformado por caracteres decimales)." required>
 				</div>
 
+				</div>
+
 			</div>
 				<div class="grupo1">
 					<label class="label_datos" for="Nombre">Descripción</label>
 					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
 				</div>
+
+			</section> 
+			<br>
 				
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
-						<button type="submit" id="registrar">Enviar</button>
+						<button type="submit" id="registrar">Guardar</button>
 						<button type="button" id="cancelar" class="Boton_cancelar">Cancelar</button>
 					</div>
 				</div>
 			</form>
-        </section> 
+        
     </main>
 
     <footer>

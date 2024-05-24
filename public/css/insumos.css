@@ -1,3 +1,44 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+.formulario-datos2{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formulario-datos2-3{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.botones-columna {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 12px;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos para indicar texto truncado */
+}
+
+.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.tx{
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.Boton_Tabla:hover{
+    background-color: #1d4d25;
+}
 input[type="number"]{
     width: 100%;
     padding: 10px;
@@ -90,12 +131,11 @@ th{
     position: sticky;
     text-align: center;
 }
-td {
-    white-space: nowrap;
-}
+
 td,th{
     width: calc(100% / 12);
 }
+
 /* Estilos para el contenedor de la imagen */
 .imagen-container {
     width: 100%; /* Ocupa todo el ancho disponible */
