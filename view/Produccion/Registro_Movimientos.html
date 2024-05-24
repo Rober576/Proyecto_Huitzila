@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Movimientos</title>
+    <title>Producción</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -18,7 +18,7 @@
 				
 			</div>
 			<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Movimientos de mezcal</h1>
+				<h1 class="nombre_Ventana">Movimientos de Mezcal</h1>
 			</div>
 			<div class="boton-cerrar-session">
 				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
@@ -103,17 +103,18 @@
                     <h4 class="h4">Registrar</h4>
                 </div>
                 <br>
-                <p class="subtitulo-1"> Movimientos de mezcal</p>
+                <p class="subtitulo-1"> Datos de movimientos de Mezcal</p>
                 <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="lote">Lote<span class="campo-obligatorio">*</span></label>
                     <select id="lote" name="lote" required>
-                        <option value="">Selecciona</option>
+                        <option disabled hidden selected>Seleccione una opción</option>  
                     </select>
                 </div>
 				<div class="grupo1">
                     <label class="label_datos" for="tipo">Movimiento<span class="campo-obligatorio">*</span></label>
                     <select id="tipo" name="tipo" required>
+						<option disabled hidden selected>Seleccione una opción</option>  
                     </select>
                 </div>
 				<div class="grupo1">
@@ -123,6 +124,7 @@
 				<div class="grupo1">
                     <label class="label_datos" for="mov">Tipo<span class="campo-obligatorio">*</span></label>
                     <select id="mov" name="mov" required>
+						<option disabled hidden selected>Seleccione una opción</option>  
                         <option value="entrada">Entrada</option>
                         <option value="salida">Salida</option>
                     </select>
@@ -138,16 +140,19 @@
 					title="El volumen debe contener máximo 6 números positivos" required>
                 </div>
 
-                <div class="grupo1">
-                    <label class="label_datos" for="alc_vol">% Concentración de alc.<span class="campo-obligatorio">*</span></label>
-                    <input type="text" id="alc_vol" name="alc_vol"  
-					title="El % de concentración de alcohol debe contener números positivos entre 0 y 100" required>
-                </div>
-				<div class="grupo1">
-                    <label class="label_datos" for="vol_agua">Volumen de agua<span class="campo-obligatorio">*</span></label>
-                    <input type="text" id="vol_agua" name="vol_agua"  
-					title="El volumen de agua debe contener máximo 6 números positivos" required>
-                </div>
+				<div class="contenedor-inferior">
+					<div class="grupo2">
+						<label class="label_datos" for="alc_vol">% Concentración de alc.<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="alc_vol" name="alc_vol"  
+						title="El % de concentración de alcohol debe contener números positivos entre 0 y 100" required>
+					</div>
+					<div class="grupo2">
+						<label class="label_datos" for="vol_agua">Volumen de agua<span class="campo-obligatorio">*</span></label>
+						<input type="text" id="vol_agua" name="vol_agua"  
+						title="El volumen de agua debe contener máximo 6 números positivos" required>
+					</div>
+				</div>
+                
 
 				
 
@@ -180,7 +185,8 @@
 				<div class="grupo-boton-reg">
 					<div class="boton_registrar">
 						<button id="boton_registrar" type="submit">Registrar</button>
-						<button name="cancelar" id="cancelar" type="submit">Cancelar</button>
+						<button name="cancelar" id="cancelar" type="submit" class="Boton_cancelar"
+						>Cancelar</button>
 					</div>
 				</div>
 			
