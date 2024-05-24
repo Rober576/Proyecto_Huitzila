@@ -196,12 +196,20 @@ a.btngeneral{
   .contTot {
     display: flex;
     justify-content: flex-end;
-    margin-top: auto;
+    margin-top: 10px;
+  }
+
+  .totalTabla{
+    display: flex;
+    align-items: center;
   }
   
-  .totalTabla label,
-  .totalTabla input {
-    margin-left: 10px;
+  .totalTabla label{
+    margin-right: 10px;
+  }
+
+  .totalTabla input{
+    text-align: right;
   }
   
   .activo_en_pagina {
