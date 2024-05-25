@@ -40,9 +40,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["Clase_Mezcal"] . '</td>';
         $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>';
         $salida .= '<td>' . $fila["NombreDestilado"] . '</td>';
-        $salida .= '<td>';
+        $salida .= '<td class="acciones">';
         $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_Especifico_Cremas_Destilados_Licores.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">Específico</button>';
-        $salida .= ' ';
+        $salida .= ' | ';
         $salida .= '<button onclick="window.location.href=\'../../view/Produccion/Movimiento_General_Cremas_Destilados_Licores.html?Lote=' . $fila['Lote'] . '\'" class="boton-modificar" type="button">General</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
