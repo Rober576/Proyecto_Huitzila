@@ -51,9 +51,9 @@ try {
             } else {
                 $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"] . " Meses") . '</td>';
             }
-            $salida .= '<td>';
+            $salida .= '<td class="acciones">';
             $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
-            $salida .= ' ';
+            $salida .= ' | ';
             $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Cremas_Destilados_Licores.php?id=' . $Lote . '\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
             $salida .= '</td>';
             $salida .= '</tr>';

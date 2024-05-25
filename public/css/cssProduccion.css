@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    
 
     
 }
@@ -20,12 +21,24 @@ hr {
     margin: 10px;
 }
 
-#cancelar {
-    background-color: #C7B392;
-    }
-#cancelButton {
-    background-color: #C7B392;
-    }
+.grupo-boton-reg button.Boton_cancelar{
+    background-color: #a77753;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 300ms;
+}
+
+.grupo-boton-reg button.Boton_cancelar:hover{
+    background-color: #735137;
+    transition: 300ms all;
+}
+
 td,th{
     width: calc(100% / 20);
 }
@@ -43,19 +56,6 @@ td,th{
     padding: 20px;
     border-left: none;
     }
-}
-
-
-
-.acciones {
-    display: flex;
-    justify-content: space-around;
-
-    button[type="submit"] {
-    padding: 5px 10px;
-    font-size: 16px;
-    margin: 5px;
-}
 }
 
 th {
@@ -123,6 +123,76 @@ footer {
     }
 }
 
-/* th {
-    width: 0%;
-} */
+/* Añadir una clase específica para la última sección */
+.section-form-final {
+    grid-template-columns: repeat(2, 1fr); /* Forzar a 2 columnas */
+}
+
+/* Mantener las otras media queries */
+@media screen and (min-width: 600px) {
+    .section-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .section-form {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* No aplicar el ajuste de 3 columnas a la última sección */
+@media screen and (min-width: 900px) {
+    .section-form-final {
+        grid-template-columns: repeat(2, 1fr); /* Asegurar 2 columnas */
+    }
+}
+.tipo_dinero {
+    text-align: right;
+}
+
+.contenedor-inferior {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grupo1 {
+    margin: 0 20px; 
+}
+
+.grupo2 {
+    margin: 0 20px; 
+    width: 100%;
+}
+
+.nombre_Largo {
+    grid-template-columns: 1fr 1.1fr 1fr;
+    justify-content: center;
+    gap: 0;
+}
+
+.nombre_Ventana {
+    text-align: center;
+}
+
+
+.acciones {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+button.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.Boton_Tabla:hover{
+    background-color: #1d4d25;
+}

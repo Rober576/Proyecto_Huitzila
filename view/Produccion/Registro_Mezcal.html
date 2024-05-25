@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro mezcal</title>
+    <title>Producción</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -102,7 +102,7 @@
                     <h4 class="h4">Registrar</h4>
                 </div>
                 <br>
-                <p class="subtitulo-1"> Datos generales de mezcal</p>
+                <p class="subtitulo-1"> Datos generales de Mezcal</p>
                 <hr>
                 <div class="grupo1">
                     <label class="label_datos" for="lote">Lote<span class="campo-obligatorio">*</label>
@@ -116,16 +116,21 @@
                 </div>
                 <div class="grupo1">
                     <label class="label_datos" for="categoria">Categoría<span class="campo-obligatorio">*</label>
-                    <select id="categoria" name="categoria" class="styled-input" required></select>
+                    <select id="categoria" name="categoria" required>
+						<option disabled hidden selected>Seleccione una opción</option>
+					</select>
                 </div>
                 <div class="grupo1">
                     <label class="label_datos" for="especie">Especie<span class="campo-obligatorio">*</label>
-                    <select id="especie" name="especie"required >
+                    <select id="especie" name="especie"required>
+						<option disabled hidden selected>Seleccione una opción</option>
                     </select>
                 </div>
                 <div class="grupo1">
                     <label class="label_datos" for="clase">Clase<span class="campo-obligatorio">*</label>
-                    <select id="clase" name="clase" class="styled-input" required></select>
+                    <select id="clase" name="clase" required>
+						<option disabled hidden selected>Seleccione una opción</option>
+					</select>
                 </div>
                 <div class="grupo1">
                     <label class="label_datos"for="edad">Edad<span class="campo-obligatorio">*</label>
@@ -137,7 +142,7 @@
             <div class="grupo-boton-reg">
                 <div class="boton_registrar">
                     <button type="submit" id="submitButton">Registrar</button>
-					<button name="cancelar" id="cancelar" type="submit">Cancelar</button>
+					<button name="cancelar" id="cancelar" type="submit" class="Boton_cancelar">Cancelar</button>
                 </div>
             </div>      
         </form>

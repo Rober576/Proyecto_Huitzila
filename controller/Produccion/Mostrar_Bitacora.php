@@ -54,9 +54,9 @@ if ($resultado) {
         $salida .= '<td>' . $fila["FechaFinal"] . '</td>';
         $salida .= '<td>' . $fila["KgArtCoccion"] . '</td>';
 
-        $salida .= '<td>';
+        $salida .= '<td class="acciones">';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Guia . '">Eliminar</button>';
-        $salida .= ' ';
+        $salida .= ' | ';
         $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Bitacora.php?id='.$Guia.'\'"  class="boton-modificar" type="submit" data-id="' . $Guia . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';
