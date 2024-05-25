@@ -58,19 +58,6 @@ td,th{
     }
 }
 
-
-
-.acciones {
-    display: flex;
-    justify-content: space-around;
-
-    button[type="submit"] {
-    padding: 5px 10px;
-    font-size: 16px;
-    margin: 5px;
-}
-}
-
 th {
     text-align: center;
 }
@@ -136,10 +123,6 @@ footer {
     }
 }
 
-/* th {
-    width: 0%;
-} */
-
 /* Añadir una clase específica para la última sección */
 .section-form-final {
     grid-template-columns: repeat(2, 1fr); /* Forzar a 2 columnas */
@@ -191,4 +174,25 @@ footer {
 
 .nombre_Ventana {
     text-align: center;
+}
+
+
+.acciones {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+button.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.Boton_Tabla:hover{
+    background-color: #1d4d25;
 }
