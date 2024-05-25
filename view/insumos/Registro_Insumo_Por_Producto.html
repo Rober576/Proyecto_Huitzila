@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envasado</title>
+    <title>Registro insumos por productos</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -17,7 +17,7 @@
 				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
 				</div>
 				<div class="nombre_ventana">
-				<h1 class="nombre_Ventana">Insumos por proucto</h1>
+				<h1 class="nombre_Ventana">Insumos por productos</h1>
 			</div>
 
 			<div class="boton-cerrar-session">
@@ -62,7 +62,7 @@
 						</li>
 
 
-						<!--<li>
+						<li>
 							<a href="">
 								<i ></i>
 								Inventario
@@ -71,7 +71,7 @@
 								<li><a href="Inventario_Insumos.html">Insumos</a></li>
 								<li><a href="Inventario_Productos.html">Productos</a></li>
 							</ul>
-						</li>-->
+						</li>
 
 						<li>
 							<a href="">
@@ -203,6 +203,8 @@
 								<tbody id="cuerpo"></tbody>
 								
 							</table>
+						</table>
+						<div class="totalFura" id="todos_totales"> </div>
 						</section>
 		
 			<div class="cabezera">
@@ -231,16 +233,16 @@
 						<input type="text" id="CantidadM_T" name="CantidadM_T" title="Costo del mezcal de uno (Conformado por caracteres decimales)." required>
 					</div>
 					</div>
+				
+				<div class="grupo-boton-reg">
+					<div class="boton_registrar">
+						<button type="button" id="registrar">Enviar</button>
+						<button type="button" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
+					</div>
+				</div>
 			</form>
 		
 		</section>
-
-		<div class="grupo-boton-reg">
-			<div class="boton_registrar">
-				<button type="button" id="registrar">Registrar</button>
-				<button type="button" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
-			</div>
-		</div>
         
     </main>
 

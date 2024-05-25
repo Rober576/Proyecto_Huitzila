@@ -1,5 +1,6 @@
 const cuerpo_tabla = document.getElementById("cuerpo");
 const contenedor_tabla = document.getElementById("tablaResultado")
+const resultado = document.getElementById("todos_totales")
 contenedor_tabla.style.display = 'none';
 const total_titulo = document.createElement('tr')
 const totalCell = document.createElement('td');
@@ -60,6 +61,8 @@ function mostrarDatos(){
     var costoU_col = document.createElement('td');
     var costoT_col = document.createElement('td');
 
+    var totalportodo = document.createElement("input");
+
 
     prod_col.innerHTML = prod;
     row.appendChild(prod_col);
@@ -76,12 +79,17 @@ function mostrarDatos(){
 
     cuerpo_tabla.appendChild(row);
 
+
+    var nuevo = document.createElement("div");
+    nuevo
+    
+
     
     totalCell.innerHTML = 'Total: ' + total;
     totalCell.style.textAlign = 'right';
 
-    total_titulo.appendChild(totalCell);
-    cuerpo_tabla.appendChild(total_titulo);
+    total_titulo.appendChild(nuevo);
+    resultado.innerHTML = "<div class='totalTabla'><label for='total'>Total: </label> <input type='text' name='' id='' class='styled-input' value="+total+"  readonly> </div>";
 
 
     registros.push([prod, insumos, cantidad, costoU, costoT, null]);
