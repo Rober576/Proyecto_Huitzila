@@ -236,3 +236,10 @@ a.btngeneral{
 .select-readonly {
     pointer-events: none;
 }
+
+.conFil{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20px;
+}
