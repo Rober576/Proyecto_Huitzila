@@ -141,10 +141,10 @@ function BotonEliminar() {                                         ///Botonnnnnn
         } else {
             // Si el usuario cancela, no hacer nada
             console.log("Eliminación cancelada");
-            const radioSi = document.getElementById("cosPre");
-            const radioNo = document.getElementById("cosPre");
-            radioSi.checked = true;
-            radioNo.checked = false;
+            //const radioSi = document.getElementById("cosPre");
+            //const radioNo = document.getElementById("cosPre");
+            //radioSi.checked = true;
+            //radioNo.checked = false;
         }
     });
 
