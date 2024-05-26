@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if (valorSeleccionado === 'Entrada') {
             
-            for (let i = 0; i <= 4; i++) {
+            for (let i = 1; i <= 4; i++) {
                 idMovimientoSelect.options[i].style.display = 'block';
             }
         } else if (valorSeleccionado === 'Salida') {

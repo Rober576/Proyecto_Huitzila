@@ -132,7 +132,7 @@
     <main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Registro</h4>
+				<h4 class="h4">Registrar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos del productos</p>
@@ -141,7 +141,7 @@
 
 				
 			<form class="formulario" id="Entradas_Salidas_productos_form">
-				<div class="formulario-colum">
+				<div class="formulario-datos">
 
 
 					<div class="grupo1">
@@ -152,15 +152,11 @@
 					</div>
 
 					
-					<div class="grupo1">
-						<label class="label_datos" for="Fecha">Fecha<span class="campo-obligatorio">*</span></label>
-						<input type="date" id="Fecha" name="Fecha" title="Fecha en la que se realizó el registro." required>
-					</div>
-
+					
 					<div class="grupo1">
 						<label class="label_datos" for="Entrada_Salida">Entrada/Salida<span class="campo-obligatorio">*</span></label>
 						<select id="Entrada_Salida" name="Entrada_Salida" title="Indica si es un movimiento de entrada o salida." required>
-							<option value="">Selecciona una opción</option>
+							<option value="" style="display: none;">Selecciona una opción</option>
 							<option value="Entrada">Entrada</option>
 							<option value="Salida">Salida</option>
 						</select>
@@ -171,7 +167,7 @@
 					<div class="grupo1">
 						<label class="label_datos" for="ID Movimiento">ID movimiento<span class="campo-obligatorio">*</span></label>
 						<select name="ID_Movimiento" id="ID_Movimiento">
-							<option value="">Selecciona una opción</option>
+							<option value="" style="display: none;">Selecciona una opción</option>
 							<option value="1">1 - Producción</option>
 							<option value="2">2 - Devoluciones</option>
 							<option value="3">3 - Cancelaciones de venta</option>
@@ -181,6 +177,11 @@
 							<option value="7">7 - Traspaso</option>
 						</select>
 					</div>
+					<div class="grupo1">
+						<label class="label_datos" for="Fecha">Fecha<span class="campo-obligatorio">*</span></label>
+						<input type="date" id="Fecha" name="Fecha" title="Fecha en la que se realizó el registro." required>
+					</div>
+
 
 					<div class="grupo1">
 						<label class="label_datos" for="Destino">Destino<span class="campo-obligatorio">*</span></label>
@@ -191,6 +192,9 @@
 						<label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span></label>
 						<input type="number" id="Cantidad" name="Cantidad" title="Cantidad que se registrará." required>
 					</div>
+					
+					</div>
+					<div class="formulario-datos2">
 
 					<div class="grupo1">
 						<label class="label_datos" for="Costo unitario">Costo unitario<span class="campo-obligatorio">*</span></label>
