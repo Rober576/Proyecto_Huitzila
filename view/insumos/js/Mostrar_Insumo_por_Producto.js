@@ -76,6 +76,7 @@ function mostrarDatos(datos){
 
             
             var acciones = document.createElement('td')
+            acciones.className = "botones-columna";
             var link_eliminar = document.createElement('a')
             link_eliminar.className = 'botonesEditarYEliminar';
 
@@ -136,8 +137,9 @@ function mostrarDatos(datos){
 
             acciones.appendChild(link_eliminar);
 
-            acciones.appendChild(document.createElement('br'));
-            acciones.appendChild(document.createElement('br'));
+            var textoseparador = document.createElement("label");
+            textoseparador.innerHTML = " | ";
+            acciones.appendChild(textoseparador);
     
             link_editar.innerHTML = "Editar";
             link_editar.href = "../../controller/Insumos/Get_Insumo_por_Producto.php?id="+datos[i][5];
