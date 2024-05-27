@@ -2,7 +2,7 @@ const cuerpo_tabla = document.getElementById("cuerpo");
 const contenedor_tabla = document.getElementById("tablaResultado")
 contenedor_tabla.style.display = 'none';
 const total_titulo = document.createElement('tr')
-const totalCell = document.createElement('td');
+const totalCell = document.createElement('h3');
 totalCell.colSpan = "8"; // Ajusta el número de columnas según tus necesidades
 total_titulo.innerHTML = '';
 var total = 0
@@ -67,9 +67,9 @@ function mostrarDatos(){
     row.appendChild(insumos_col);
     cantidad_col.innerHTML = cantidad;
     row.appendChild(cantidad_col);
-    costoU_col.innerHTML = costoU;
+    costoU_col.innerText = parseFloat(costoU).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
     row.appendChild(costoU_col);
-    costoT_col.innerHTML = costoT;
+    costoT_col.innerHTML =parseFloat(costoT).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
     row.appendChild(costoT_col);
     total += parseFloat(costoT);
 
@@ -77,7 +77,7 @@ function mostrarDatos(){
     cuerpo_tabla.appendChild(row);
 
     
-    totalCell.innerHTML = 'Total: ' + total;
+    totalCell.innerHTML = 'Total: ' + total.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
     totalCell.style.textAlign = 'right';
 
     total_titulo.appendChild(totalCell);
