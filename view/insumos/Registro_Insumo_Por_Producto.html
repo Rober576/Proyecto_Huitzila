@@ -134,7 +134,7 @@
     <main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Registro</h4>
+				<h4 class="h4">Registrar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de insumos por productos</p>
@@ -143,7 +143,7 @@
 
 				
 			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+				<div class="formulario-datos">
 				
                     <div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
@@ -165,6 +165,9 @@
 					<label class="label_datos" for="Unidades">Cantidad<span class="campo-obligatorio">*</span></label>
 					<input type="text" id="Cantidad" name="Cantidad" title="Unidades en las que se mide el insumo (Conformado por 10 caracteres de solo letras)." required>
 				</div>
+
+				</div>
+				<div class="formulario-datos2">
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Costo">Costo unitario<span class="campo-obligatorio">*</span></label>
@@ -203,6 +206,8 @@
 								<tbody id="cuerpo"></tbody>
 								
 							</table>
+						</table>
+						<div class="totalFura" id="todos_totales"> </div>
 						</section>
 		
 			<div class="cabezera">
@@ -212,7 +217,7 @@
 			<hr>
 			<br>
 
-					<div class="formulario-colum">
+					<div class="formulario-datos">
 					<div class="grupo1">
 						<label class="label_datos" for="ID">Mezcal<span class="campo-obligatorio">*</span></label>
 						<select id="Mezcal" name="Mezcal" title="Identificador del mezcal" required>
@@ -232,15 +237,17 @@
 					</div>
 					</div>
 				
-				<div class="grupo-boton-reg">
-					<div class="boton_registrar">
-						<button type="button" id="registrar">Enviar</button>
-						<button type="button" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
-					</div>
-				</div>
-			</form>
+				
 		
 		</section>
+
+		<div class="grupo-boton-reg">
+			<div class="boton_registrar">
+				<button type="button" id="registrar">Enviar</button>
+				<button type="button" id="Boton_cancelar" class="Boton_cancelar">Cancelar</button>
+			</div>
+		</div>
+	</form>
         
     </main>
 

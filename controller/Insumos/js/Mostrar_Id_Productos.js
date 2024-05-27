@@ -32,6 +32,7 @@ function llenarListaProductos(datosProductos) {
 
     const optionDefault = document.createElement('option');
     optionDefault.value = '';
+    optionDefault.style.display = 'none';
     optionDefault.textContent = 'Seleccionar opción';
     optionDefault.selected = true; 
     selectProductos.appendChild(optionDefault);

@@ -25,6 +25,7 @@ function llenarListaInsumos(datosInsumos) {
     
     const optionDefault = document.createElement('option');
     optionDefault.value = '';
+    optionDefault.style.display = "none";
     optionDefault.textContent = 'Seleccionar opción';
     optionDefault.selected = true; 
     selectInsumos.appendChild(optionDefault);

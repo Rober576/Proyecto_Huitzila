@@ -49,9 +49,9 @@ if ($resultado) {
         }
 
         $salida .= '<td>' . $fila["Categoria"] . '</td>';
-        $salida .= '<td>';
+        $salida .= '<td class="acciones">';
         $salida .= '<button  href="#"  class="boton-eliminar" type="submit" data-id="' . $Lote . '">Eliminar</button>';
-        $salida .= ' ';
+        $salida .= ' | ';
         $salida .= '<button  onclick="window.location.href=\'../../controller/Produccion/Get_Mezcal.php?id='.$Lote.'\'"  class="boton-modificar" type="submit" data-id="' . $Lote . '">Modificar</button>';
         $salida .= '</td>';
         $salida .= '</tr>';

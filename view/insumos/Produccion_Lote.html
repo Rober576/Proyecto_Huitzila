@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producción de Lotes</title>
+    <title>Envasado</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -62,7 +62,7 @@
 						</li>
 
 
-						<li>
+						<!--<li>
 							<a href="">
 								<i ></i>
 								Inventario
@@ -71,7 +71,7 @@
 								<li><a href="Inventario_Insumos.html">Insumos</a></li>
 								<li><a href="Inventario_Productos.html">Productos</a></li>
 							</ul>
-						</li>
+						</li>-->
 
 						<li>
 							<a>
@@ -134,7 +134,7 @@
     <main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Registro</h4>
+				<h4 class="h4">Registrar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de lotes</p>
@@ -143,7 +143,7 @@
 
 				
 			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+				<div class="formulario-datos">
 
 					<div class="grupo1">
 						<label class="label_datos" for="Lote">Lote<span class="campo-obligatorio">*</span></label>
@@ -153,7 +153,7 @@
 					<div class="grupo1">
 						<label class="label_datos" for="ID">Productos<span class="campo-obligatorio">*</span></label>
 						<select id="Id_productos" name="Id_productos" title="Identificador de los productos terminados." required>
-							<option disabled selected>Seleccionar opción</option>
+							<option disabled selected style="display: none;">Seleccionar opción</option>
 						</select>
 					</div>
 
@@ -161,20 +161,16 @@
 						<label class="label_datos" for="Cantidad">Cantidad<span class="campo-obligatorio">*</span></label>
 						<input type="number" id="Cantidad" name="Cantidad" title="Cantidad que se registrará." required>
 					</div>
-					
-				
-					
-				
-				
-				<div class="grupo-boton-reg">
-					<div class="boton_produccion">
-						<button type="submit" id="produccion">Producir</button>
-					</div>
-				</div>
-			</form>
+			
 		
 		</section>
-        
+		<div class="grupo-boton-reg">
+			<div class="boton_produccion">
+				<button type="submit" id="produccion">Registrar</button>
+			</div>
+		</div>
+	</form>
+
     </main>
 
 

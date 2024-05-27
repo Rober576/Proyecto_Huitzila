@@ -67,11 +67,12 @@ function mostrarDatos(datos){
 
     
             var acciones = document.createElement('td')
+            acciones.className = "botones-columna";
             var link_crear_receta = document.createElement('a')
-            link_crear_receta.className = 'botonesEditarYEliminar';
+            link_crear_receta.className = 'botonesEditarYEliminar tx';
 
             var link_editar = document.createElement('a')
-            link_editar.className = 'botonesEditarYEliminar';
+            link_editar.className = 'botonesEditarYEliminar tx';
 
 
             idprodu.innerHTML = datos[i][0];
@@ -129,14 +130,23 @@ function mostrarDatos(datos){
 
             link_crear_receta.innerHTML = "Crear receta";
             link_crear_receta.href = "../../view/insumos/Registro_Insumo_Por_Producto.html?id="+datos[i][0];
-            acciones.appendChild(link_crear_receta);  
+            //acciones.appendChild(link_crear_receta);  
 
-            acciones.appendChild(document.createElement('br'));
-            acciones.appendChild(document.createElement('br'));
+            //acciones.appendChild(document.createElement('br'));
+            //acciones.appendChild(document.createElement('br'));
     
              link_editar.innerHTML = "Ver Insumos";
              link_editar.href = "../../view/insumos/Visualizacion_Insumo_Producto_Especifico.html?id="+datos[i][0];
              acciones.appendChild(link_editar);
+
+             var dentro_delDiv = document.createElement('div');
+            dentro_delDiv.className = "none";
+            dentro_delDiv.appendChild(link_crear_receta);
+            var textoseparador = document.createElement("label"); 
+            textoseparador.innerHTML = " | ";
+            dentro_delDiv.appendChild(textoseparador);
+            dentro_delDiv.appendChild(link_editar);
+            acciones.appendChild(dentro_delDiv);
     
             row.appendChild(acciones);
             cuerpo_tabla.appendChild(row);

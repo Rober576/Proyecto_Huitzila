@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro insumos</title>
+    <title>Envasado</title>
 
     <link rel="stylesheet" href="../../public/css/Plantilla.css">
     <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
@@ -62,7 +62,7 @@
 						</li>
 
 
-						<li>
+						<!--<li>
 							<a href="">
 								<i ></i>
 								Inventario
@@ -71,7 +71,7 @@
 								<li><a href="Inventario_Insumos.html">Insumos</a></li>
 								<li><a href="Inventario_Productos.html">Productos</a></li>
 							</ul>
-						</li>
+						</li>-->
 
 						<li>
 							<a href="">
@@ -132,7 +132,7 @@
     <main>
 		<section class="section-main">
 			<div class="cabezera">
-				<h4 class="h4">Registro</h4>
+				<h4 class="h4">Registrar</h4>
 			</div>
 			<br>
 			<p class="subtitulo-1">Datos de los insumos</p>
@@ -141,7 +141,7 @@
 
 				
 			<form class="formulario" id="insumos_form">
-				<div class="formulario-colum">
+				<div class="formulario-datos">
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Compras">Identificador<span class="campo-obligatorio">*</span></label>
@@ -174,6 +174,8 @@
 					<label class="label_datos" for="Stockmi">Stock minimo<span class="campo-obligatorio">*</span></label>
 					<input type="number" id="Stockmi" name="Stockmi" title="Cantidad mínima del insumo (Conformado por caracteres enteros)." required>
 				</div>
+
+				</div><div class="formulario-datos2">
 				
 				<div class="grupo1">
 					<label class="label_datos" for="Stockma">Stock máximo<span class="campo-obligatorio">*</span></label>
@@ -191,15 +193,17 @@
 					<textarea name="Descripcion" id="Descripcion" cols="30" rows="10" class="NoResizable" title="Descripción del insumo de máximo 100 caracteres incluyendo letras, números y símbolos ('.', ',', '_', '-')"></textarea>
 				</div>
 				
-				<div class="grupo-boton-reg">
-					<div class="boton_registrar">
-						<button type="submit" id="registrar">Enviar</button>
-						<button type="button" id="Cancelar" class="Boton_cancelar">Cancelar</button>
-					</div>
-				</div>
-			</form>
+			
 		
 		</section>
+
+		<div class="grupo-boton-reg">
+			<div class="boton_registrar">
+				<button type="submit" id="registrar">Registrar</button>
+				<button type="button" id="Cancelar" class="Boton_cancelar">Cancelar</button>
+			</div>
+		</div>
+	</form>
         
     </main>
 

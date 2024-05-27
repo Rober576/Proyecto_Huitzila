@@ -13,6 +13,10 @@ if (!empty($insumo)) {
     $costo_uni = $insumo[0]['CostoActual'];
     $costo_tot = $insumo[0]['CostoTotal'];
     $no_movimiento = $insumo[0]['NoInsumo'];
+
+    if ($id_insumo == ''){
+        $id_insumo = $insumo[0]['Mezcal'];
+    }
     
 } else {
     
