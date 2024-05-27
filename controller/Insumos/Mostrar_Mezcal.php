@@ -38,7 +38,7 @@ if ($resultado) {
         $salida .= '<td>' . ($fila["Edad"] == -1 ? '-' : $fila["Edad"]) . '</td>';
         $salida .= '<td>' . $fila["Categoria"] . '</td>';
         $salida .= '<td>' . $fila["Volumen"] . '</td>';
-        $salida .= '<td>' . $fila["PorcentajeAlcohol"] . '</td>';
+        $salida .= '<td>' . $fila["Concentracion"] . '</td>';
      
         $salida .= '</tr>';
     }
