@@ -69,10 +69,10 @@ function mostrarDatos(datos){
             var acciones = document.createElement('td')
             acciones.className = "botones-columna";
             var link_crear_receta = document.createElement('a')
-            link_crear_receta.className = 'botonesEditarYEliminar';
+            link_crear_receta.className = 'botonesEditarYEliminar tx';
 
             var link_editar = document.createElement('a')
-            link_editar.className = 'botonesEditarYEliminar';
+            link_editar.className = 'botonesEditarYEliminar tx';
 
 
             idprodu.innerHTML = datos[i][0];

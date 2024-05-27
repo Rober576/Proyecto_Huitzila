@@ -81,7 +81,7 @@ function mostrarDatos(datos){
             link_eliminar.className = 'botonesEditarYEliminar';
 
             var link_editar = document.createElement('a')
-            link_editar.className = 'botonesEditarYEliminar';
+            link_editar.className = 'botonesEditarYEliminar tx';
 
 
             idprodu.innerHTML = datos[i][0];
