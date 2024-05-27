@@ -101,48 +101,42 @@
     </header>
 
     <main>
-        <section class="section-main">
-            <div class="cabezera">
-                <h4 class="h4">Consulta</h4>
-            </div>
-
-            <br>
-            <p class="subtitulo-1"> Control de calidad</p>
-            <hr>
+        <div class="tabla_titulo">
+            <h2>Consultar control de calidad</h2>
             <br>
             <input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
-            <div class="tablas">
-                <section class="header_table" id="tablaResultado">
+        </div>
+        <br>
+            <section class="table-container" id="tablaResultado">
 
-                    <table border="1">
-                        <table border='1'>
-                            <thead>
-                                <tr>
-                                    <td class='fila-verde'>Cumple</td>
-                                    <td class='fila-rojo'>No cumple</td>
-                                    <td class='fila-naranja'>Pendiente</td>
-                                </tr>
-                            </thead>
-                            </table> <br>";
-                           
-                                <table border="1">
-                                    <thead>
-                                        <tr>
-                                            <th>Lote</th>
-                                            <th>Embasado correcto</th>
-                                            <th>Producto correctamente sellado</th>
-                                            <th>Etiqueta correctamente colocada</th>
-                                            <th>Envase sin abolladuras</th>
-                                            <th>Color de liquido correcto</th>
-                                            <th>Editar</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                <table border="1">
+                    <table border='1'>
+                        <thead>
+                            <tr>
+                                <td class='fila-verde'>Cumple</td>
+                                <td class='fila-rojo'>No cumple</td>
+                                <td class='fila-naranja'>Pendiente</td>
+                            </tr>
+                        </thead>
+                        </table> <br>";
+                        
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Lote</th>
+                                        <th>Embasado correcto</th>
+                                        <th>Producto correctamente sellado</th>
+                                        <th>Etiqueta correctamente colocada</th>
+                                        <th>Envase sin abolladuras</th>
+                                        <th>Color de liquido correcto</th>
+                                        <th>Editar</th>
+                                        
+                                    </tr>
+                                </thead>
+                            <tbody>
                     </table>
-                    </table>
-                </section>
-            </div>
+                </table>
+            </section>
             <span id="mensaje"  >No se encontraron resultados</span>
         </section>
     </main>
