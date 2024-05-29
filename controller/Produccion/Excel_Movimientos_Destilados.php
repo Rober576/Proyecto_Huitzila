@@ -40,7 +40,7 @@ $estilo->getFont()->setName("Times New Roman")->setSize(12); //cambiar el tipo d
 
 //encabezados lugar y responsable
 $hoja -> setCellValue('C6', "LUGAR: LOPEZ MATEOS, HUITZILA, TEÚL DE GONZÁLEZ ORTEGA, ZACATECAS ") -> 
-setCellValue("C7", "RESPONSABLE: LQ. JILBERTO DAVILA PUENTES");
+setCellValue("C7", "RESPONSABLE: ");
 
 $estilo = $hoja->getStyle('C6:C7');
 $estilo->getFont()->setBold(true)->setSize(12)->getColor()->setARGB('FF000000');
