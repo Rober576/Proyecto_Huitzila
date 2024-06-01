@@ -78,6 +78,13 @@
             );
             
             $this->base->insertar_eliminar_actualizar($q1, $params);
+            $q2 = "UPDATE registromezcal SET Volumen = :FinalVolumen, ConCentracion = :FinalPorcentaje WHERE Lote = :Lote";
+            $params = array(
+                ":FinalVolumen" => $Volfinal,
+                ":FinalPorcentaje" => $Porcfinal,
+                ":Lote" => $lote
+            );
+            $this->base->insertar_eliminar_actualizar($q2, $params);
             $this->base->cerrar_conexion();
         }
         // Función para verificar insumos
