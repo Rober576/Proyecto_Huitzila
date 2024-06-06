@@ -7,5 +7,4 @@ Este software se proporciona "tal cual" sin garantía de ningún tipo, ya sea ex
 
 Cualquier consulta sobre el uso, distribución o licenciamiento de este software debe dirigirse a la Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur.
 
-
-...
+2024
