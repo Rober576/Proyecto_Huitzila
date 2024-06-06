@@ -4,9 +4,9 @@
 * Este archivo crea las consultas para una base de datos en phpmyadmin
 */
 define("HOST", "mysql:host=localhost;");
-define("DBNAME", "dbname=proyhuitzila");
-define("USUARIO", "practicamvc");
-define("PASSWORD", 'Leo1234@');
+define("DBNAME", "dbname=u481931575_sishuitzila");
+define("USUARIO", "u481931575_usrhuitzila");
+define("PASSWORD", 'USRhuitzila123*');
 
 
 class Crud_bd{
