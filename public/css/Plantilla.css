@@ -1,0 +1,350 @@
+/* Estilos generales */
+
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+body {
+    font-family: 'FuentePrincipal', sans-serif;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    background-color: #F0EDE8;
+}
+
+.container {
+    width: 80%;
+    color: #B37E56;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+
+
+img.logo_ciscig {
+    padding-right: 10px;
+    width: 200px;
+}
+
+section {
+    background-color: #E9E0D1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13rem;
+    padding-bottom: 2rem;
+    margin-bottom: 50px;
+}
+
+/* Main y section */
+.section-main{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.formulario-datos{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.label_datos {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.label_datos_check {
+    display: block;
+    margin-bottom: 5px;
+}
+.subtitulo-1{
+    color: var(--color-black);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.grupo-checks{
+    display: flex;
+}
+.grupo-checks2{
+    grid-column: 2;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+input[type="file"],
+textarea,
+select {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="password"] {
+    margin-right: 5px;
+}
+
+.grupo2{
+    grid-column: span 3;
+}
+.grupo-boton-reg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 3;
+}
+
+
+
+
+/* Mostrar fisioquimico */
+.fila-verde {
+    background-color: rgb(168, 219, 168);
+}
+
+.fila-rojo {
+    background-color: rgb(235, 188, 188);
+}
+
+.fila-naranja {
+    background-color: rgb(248, 211, 154);
+}
+
+
+
+
+
+button[type="submit"] {
+    font-family: 'FuentePrincipal', sans-serif;
+    background-color: #1d4d25;
+    margin-top: 5px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button[type="button"] {
+    font-family: 'FuentePrincipal', sans-serif;
+    background-color: #1d4d25;
+    margin-top: 5px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.h4{
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+hr{
+    border-color: #B37E56;
+}
+
+button[type="submit"]:hover {
+    background-color: #143419;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para la tabla */
+.table-container {
+    width: 80%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+.table-container2 {
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    background-color: #e0ccae;
+    color: #000000;
+}
+
+th, td {
+    width: auto;
+    border: 1px solid #080808;
+    padding: 12px;
+    position: sticky; 
+    text-align: center;
+}
+th {
+    background-color: #c3a77a;
+}
+
+/* Hover sobre las filas */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #143419;
+    box-shadow: 0 0 5px #143419;
+}
+
+/* Estilos para botones de envío */
+button[type="submit"] {
+    transition: background-color 0.3s;
+}
+
+
+
+/* Estilos para el hover de inputs */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:focus,
+textarea:hover,
+select:hover {
+    border-color: #143419;
+}
+
+.styled-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.styled-input:focus {
+    outline: none;
+    border-color: #143419;
+    box-shadow: 0 0 5px #143419;
+}
+
+.styled-input:hover {
+    border-color: #143419;
+}
+
+
+
+
+
+.barra-busqueda {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms all;
+}
+.grupo-input-busqueda{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.input-form-busqueda{
+    width: 30%;
+}
+
+/* Estilos para pantallas de 600px o menos */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu-toggle i {
+        font-size: 24px;
+    }
+
+    #check__menu:checked ~ nav {
+        display: block;
+    }
+}
+
+/* Estilos para pantallas de 1100px o menos */
+@media screen and (max-width: 1100px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+.required {
+    color: red; 
+  }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/Confirmar_Contra.css">
+    <title>Confirmación de contraseña</title>
+</head>
+<body>
+    <div class="contentP">
+        <div class="contLogo">
+            <img class="img" src="../../public/mezcal-logo.webp" alt="">
+        </div> 
+        <br>
+        <p class="label-2">Confirmación de contraseña</p>
+        <form action="" id="formulario">
+            <br>
+            <div class="campos">
+                <p class="label-3">Ingrese su nueva contraseña</p>
+                <p class="label-3">Contraseña</p>
+                <input type="password" class="input-format" id="contra1" name="contra1" maxlength="40" placeholder="Ingresa tu nueva contraseña"
+                    title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial (. , _ , +, *, /,!,@,#,$)." required> 
+        
+                <p class="label-3">Ingresa nuevamente tu contraseña</p>
+                <input type="password" class="input-format" id="contra2" name="contra2" maxlength="40" placeholder="Ingresa tu contraseña nueva"
+                    title="La contraseña debe contener entre 8 y 16 caracteres, de los cuales al menos uno debe ser una mayúscula, minúscula, un número y un carácter especial (. , _ , +, *, /,!,@,#,$)." required>
+                <br>
+
+                <input type="hidden" id="correo" name="correo" readonly>
+
+                <div class="boton">
+                    <button type="submit" class= "boton-registrar" id="submitButton">Guardar</button>
+                </div>
+            </div> 
+            <br>
+            
+        </form>
+
+    </div>
+    <script src="js/validacion.js"></script>
+    <script src="../../controller/Recuperar_Contraseña/js/Confirmar_Contra.js"></script>
+</body>
+</html>

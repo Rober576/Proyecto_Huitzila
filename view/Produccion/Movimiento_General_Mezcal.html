@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción</title>
+
+	<link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+    <link rel="stylesheet" href="../../public/css/cssMovimientos_Mezcal_General.css">
+	<link rel="stylesheet" href="../../public/css/cssProduccion.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior nombre_Largo">
+            <div class="img-ventana">
+				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+				
+			</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Movimientos de Mezcal</h1>
+			</div>
+			<div class="boton-cerrar-session">
+				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
+            </div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+						<li>
+							<a href="#">
+								<i ></i>
+								Ingreso de agave
+							</a>
+				
+							<ul>
+                                <li><a href="../../view/Produccion/Registro_Bitacora.html">Registrar</a></li>
+								<li><a href="../../view/Produccion/Mostrar_Bitacora.html">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Mezcal
+							</a>
+			
+							<ul>
+							<li><a href="../../view/Produccion/Registro_Mezcal.html">Registrar</a></li>
+							<li><a href="../../view/Produccion/Mostrar_Mezcal.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#" class="activo_en_pagina">
+							<i ></i>
+							Movimientos de mezcal
+							</a>
+			
+							<ul>
+							<li><a href="../../view/Produccion/Registro_Movimientos.html">Registrar</a></li>
+							<li><a href="../../view/Produccion/Mostrar_Movimientos_Mezcal.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							 Cremas, destilados y licores
+							</a>
+							<ul>
+								<li><a href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html">Registrar</a></li>
+								<li><a href="../../view/Produccion/Mostrar_Cremas_Destilados_Licores.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							Movimientos de cremas, destilados y licores
+							</a>
+			
+							<ul>
+								<li><a href="../../view/Produccion/Registro_Movimiento_Cremas_Destilados_Licores.html">Registrar</a></li>
+								<li><a href="../../view/Produccion/Mostrar_Movimientos_Cremas_Destilados_Licores.html">Consultar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+	
+
+    <main>
+
+
+			<div class="grupo-botonExcel">
+				<div class="contenedor_izquierdo">
+					<div class="fecha-container">
+						<label class="label_datos" for="fecha_inicio">Fecha inicial<span class="campo-obligatorio">*</span></label>
+						<input class="campo_fechas" type="date" id="fecha_inicio" name="fecha_inicio" title="Selecciona una fecha" required>
+					</div>
+
+					<div class="fecha-container">
+						<label class="label_datos" for="fecha_fin">Fecha final<span class="campo-obligatorio">*</span></label>
+						<input class="campo_fechas" type="date" id="fecha_fin" name="fecha_fin" title="Selecciona una fecha" required>
+					</div>
+					<input type="hidden" id="fecha_inicio_hidden" name="fecha_inicio_hidden">
+					<input type="hidden" id="fecha_fin_hidden" name="fecha_fin_hidden">
+
+
+					<div class="boton_fechas">
+						<button class="aceptar" id="boton_filtrar" type="submit">Filtrar</button>
+						<button class="aceptar" id="boton_limpiar" type="submit">Limpiar</button>
+					</div>
+				</div>		
+						
+				<div class="contenedor_derecho">
+					<div class="boton_registrar">
+						<button id="boton_excel" type="submit" >Descargar Excel</button>
+					</div>
+				</div>
+
+				
+				
+			</div>
+
+					
+			
+            <section class="table-container2" id="tablaMovimientos">
+				<table>
+					<thead>
+						<tr >
+                            <th rowspan="2" class="columna">Fecha</th>
+							<th rowspan="2" class="columna">No. de lote</th>
+                            <th rowspan="2" class="columna"># Análisis fisicoquímico</th>
+							<th rowspan="2" class="columna">Categoría</th>
+							<th rowspan="2" class="columna">Clase </th>
+							<th rowspan="2" class="columna">Tanque</th>
+                            <th colspan="2">Inventario inicial</th>	
+                            <th colspan="4">Entradas</th>	
+                            <th colspan="3">Salidas</th>	
+                            <th colspan="3">Mermas o saldo a favor</th>	
+                            <th colspan="2">Inventario final teórico
+                                
+                            </th>			
+						</tr>
+                        <tr>
+                            <th class="columna">Volumen</th>
+                            <th class="columna">% Alc. Vol.</th>
+                            <th class="columna">Procedencia</th>
+                            <th class="columna">Volumen</th>
+                            <th class="columna">% Alc. Vol.</th>
+                            <th class="columna">Volumen de agua</th>
+                            <th class="columna">Destino</th>
+                            <th class="columna">Volumen</th>
+                            <th class="columna">% Alc. Vol</th>
+                            <th class="columna">Volumen</th>
+                            <th class="columna">% Alc. Vol</th>
+                            <th class="columna">Vol a 55% Alc. Vol.</th>
+                            <th class="columna">Volumen</th>
+                            <th class="columna">% Alc. Vol</th>
+                        </tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<br>
+                
+        </form>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+
+	<script src="../../controller/Produccion/js/Mostrar_Movimiento_General_Mezcal.js"> </script>
+	<!-- <script src="../../view/Produccion/js/Movimiento_General_Busqueda_Fechas.js"></script> -->
+</body>
+
+
+
+</html>

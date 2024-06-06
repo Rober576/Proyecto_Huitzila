@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agrícola</title>
+        <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
+        <link rel="stylesheet" href="../../../public/css/Plantilla.css">
+        <link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
+        <script src="../../../controller/Agricola/Predios/js/Consultar_Predio.js"></script>     
+        <script src="../../../controller/Agricola/Plantaciones/js/Consultar_Plantaciones.js"></script>
+
+
+        
+        
+    </head>
+<body>
+    <header>
+        <div class="header_superior">
+			<div class="img-ventana">
+				<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
+				
+			</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Predios y plantas</h1>
+			</div>
+		
+            <div class="boton-cerrar-session">
+				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../../controller/Login/Logout.php' ">Cerrar sesión</button>
+            </div>
+        </div>
+
+       <!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#"class="activo_en_pagina">
+								<i ></i>
+								Predios y plantas
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Predios/Registro_Predios.html">Registrar predios</a></li>
+								<li><a href="../../../view/Agricola/Predios/Vista_Predios.html">Consultar predios</a></li>
+								<hr>
+								<li><a href="../../../view/Agricola/Predios/Registro_Plantas.html">Registrar plantas</a></li>
+								<li><a href="../../../view/Agricola/Predios/Vista_Plantas.html">Consultar plantas</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Plagas y herbicidas
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Registro_Plagas.html">Registrar plagas</a></li>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Vista_Plagas.html">Consultar plagas</a></li>
+								<hr>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Registro_Herbicidas.html">Registrar herbicidas</a></li>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html">Consultar herbicidas</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" >
+								<i ></i>
+								Control de actividades
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Actividades/Registro_de_actividades.html">Registrar</a></li>
+								<li><a href="../../../view/Agricola/Actividades/Vista_actividades.html">Consultar</a></li>
+							</ul>
+						</li>
+
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <div class="tabla_titulo">
+            <h2>Plantaciones</h2>
+            <br>
+			<input type="text" id="buscar-txt" name="buscar-txt" placeholder="Buscar">
+        </div>
+        <br> 
+        </div> 
+        <section class="table-container" id="tabla2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clave de plantación</th>
+                        <th>Superficie</th>
+                        <th>Cantidad de plantas</th>
+                        <th>Fecha de plantación</th>
+                        <th>Campo sembrado</th>
+                        <th>Tipo de planta</th>
+                        <th>Actividades</th>
+						<th>Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+    </main>
+	<footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+<script src="js/busqueda_inteligente.js"></script>
+</html>
+
+
+

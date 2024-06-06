@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción</title>
+
+    <link rel="stylesheet" href="../../public/css/Plantilla.css">
+    <link rel="stylesheet" href="../../public/css/Plantilla_Menu.css">
+    <link rel="stylesheet" href="../../public/css/cssProduccion.css">
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+            <div class="img-ventana">
+				<img class="logo_mezcal" src="../../public/mezcal-logo.webp" width="30px" alt="">
+				
+			</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Ingreso de agave</h1>
+			</div>
+			<div class="boton-cerrar-session">
+				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../controller/Login/Logout.php' ">Cerrar sesión</button>
+            </div>
+		</div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+						<li>
+							<a href="#" class="activo_en_pagina">
+								<i ></i>
+								Ingreso de agave
+							</a>
+				
+							<ul>
+                                <li><a href="../../view/Produccion/Registro_Bitacora.html">Registrar</a></li>
+								<li><a href="../../view/Produccion/Mostrar_Bitacora.html">Consultar</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+							<i ></i>
+							Mezcal
+							</a>
+			
+							<ul>
+							<li><a href="../../view/Produccion/Registro_Mezcal.html">Registrar</a></li>
+							<li><a href="../../view/Produccion/Mostrar_Mezcal.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							Movimientos de mezcal
+							</a>
+			
+							<ul>
+                                <li><a href="../../view/Produccion/Registro_Movimientos.html">Registrar</a></li>
+                                <li><a href="../../view/Produccion/Mostrar_Movimientos_Mezcal.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							 Cremas, destilados y licores
+							</a>
+							<ul>
+                                <li><a href="../../view/Produccion/Registro_Cremas_Destilados_Licores.html">Registrar</a></li>
+                                <li><a href="../../view/Produccion/Mostrar_Cremas_Destilados_Licores.html">Consultar</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#">
+							<i ></i>
+							Movimientos de cremas, destilados y licores
+							</a>
+			
+							<ul>
+                                <li><a href="../../view/Produccion/Registro_Movimiento_Cremas_Destilados_Licores.html">Registrar</a></li>
+                                <li><a href="../../view/Produccion/Mostrar_Movimientos_Cremas_Destilados_Licores.html">Consultar</a></li>
+							</ul>
+						</li>
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+
+    <main>
+        <form class="section-main" id="form_ingreso_agave">
+            <section class="section-form">
+                <div class="cabezera">
+                    <h4 class="h4">Registrar</h4>
+                </div>
+                <br>
+                <p class="subtitulo-1"> Ingreso de agave</p>
+                <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="lote">Lote<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="lote" name="lote" maxlength="5" 
+                    title="El lote debe contener máximo 5 caracteres, letras y/o números." required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="procedencia">Procedencia<span class="campo-obligatorio">*</span></label>
+                    <select id="procedencia" name="procedencia" required>
+                        <option disabled hidden selected>Seleccione una opción</option>                        
+                        <option value="procedencia1">Interno</option>
+                        <option value="procedencia2">Externo</option>
+                    </select>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="costo">Costo<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="costo" name="costo" class="tipo_Costo" maxlength="12" 
+                    title="El costo debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+            </section>
+
+            <section class="section-form">
+            <br>
+              <p class="subtitulo-1">Registro en bitácora</p>
+              <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha">Fecha<span class="campo-obligatorio">*</span></label>
+                    <input type="date" id="fecha" name="fecha" title="Selecciona una fecha" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="guia">No. de guía<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="guia" name="guia" maxlength="6" 
+                    title="El No. de guía debe contener un No. de guía no existente de máximo 6 caracteres, 
+                    de los cuales 5 deben ser números y 1 letra" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="especie">Especie<span class="campo-obligatorio">*</span></label>
+                    <select id="especie" name="especie" required>
+                        <option disabled hidden selected>Seleccione una opción</option>  
+                    </select>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="agave">Agave (kg)<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="agave" name="agave" maxlength="12"
+                    title="El agave (kg) debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="brix">Brix<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="brix" name="brix" maxlength="12"
+                    title="El brix debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+
+                <div class="grupo1">
+                    <label class="label_datos" for="art">Art (kg)<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="art" name="art" maxlength="12"
+                    title="El art (kg) debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+            </section>
+
+            <section class="section-form section-form-final">
+                <br>
+                <p class="subtitulo-1"> Ingreso de agave</p>
+                <hr>
+                <div class="grupo1">
+                    <label class="label_datos" for="coccion">Cocción<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="coccion" name="coccion" maxlength="12"
+                    title="La cocción debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="art">Art (kg)<span class="campo-obligatorio">*</span></label>
+                    <input type="text" id="art2" name="art2" maxlength="12"
+                    title="El art (kg) debe contener máximo 12 caracteres, solo números positivos 
+                    enteros o decimales" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha_inicio">Fecha de inicio<span class="campo-obligatorio">*</span></label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" title="Selecciona una fecha" required>
+                </div>
+                <div class="grupo1">
+                    <label class="label_datos" for="fecha_fin">Fecha de fin<span class="campo-obligatorio">*</span></label>
+                    <input type="date" id="fecha_fin" name="fecha_fin" title="Selecciona una fecha" required>
+                </div>
+                
+            </section>
+
+                <div class="grupo-boton-reg">
+                    <div class="boton_registrar">
+                        <button id="boton_registrar" type="submit">Registrar</button>
+                        <button name="cancelar" id="cancelar" type="submit" class="Boton_cancelar">Cancelar</button>
+                    </div>
+                </div>
+                
+        </form>
+    </main>
+
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+
+    <script src="js/Registro_Bitacora.js"></script>
+    <script src="js/Validacion_Bitacora.js"></script>
+
+</body>
+</html>

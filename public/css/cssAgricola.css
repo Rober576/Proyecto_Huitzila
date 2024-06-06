@@ -1,0 +1,245 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #ffffff; /* Cambiar color de fondo según sea necesario */
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #143419;
+    box-shadow: 0 0 5px #143419;
+}
+
+input[type="date"]:hover {
+    border-color: #143419;
+}
+
+h1.titulo_form{
+    font-size: 48;
+    color: #B37E56;
+}
+
+hr{
+    margin: 20px;
+    border: none; 
+    height: 3px; /* Set the hr color */ 
+    color: #B37E56; /* old IE */ 
+    background-color: #B37E56; /* Modern Browsers */
+}
+
+.grupo-boton-reg button.Boton_cancelar{
+    background-color: #a77753;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 300ms;
+}
+
+.grupo-boton-reg button.Boton_cancelar:hover{
+    background-color: #735137;
+    transition: 300ms all;
+}
+
+button.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.Boton_Tabla:hover{
+    background-color: #1d4d25;
+}
+
+.tabla_titulo {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    /* font-weight: 800; */
+    
+    hr {
+    width: 80%;
+    /* margin: 0 auto; */
+    padding: 20px;
+    border-left: none;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+input[type="number"],
+textarea {
+ font-family:"FuentePrincipal" ;
+}
+
+textarea{
+    resize: none;
+}
+
+/* Estilos para el campo obligatorio */
+.campo-obligatorio {
+    color: red; /* Color rojo para resaltar */
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    margin-left: 5px; /* Espaciado a la izquierda */
+}
+
+.section-main{
+    font-weight: bold;
+}
+
+.titbot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titbot button{
+    margin-left: auto;
+}
+
+button.btngeneral{
+    font-family: 'FuentePrincipal', sans-serif;
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.btngeneral:hover{
+    background-color: #1d4d25;
+}
+
+a.btngeneral{
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Utiliza el color de texto heredado */
+    cursor: pointer; /* Cambia el cursor al estilo de un botón */
+    background: none; /* Elimina cualquier fondo del enlace */
+    border: none; /* Elimina cualquier borde del enlace */
+    padding: 0; /* Elimina el relleno del enlace */
+    font: inherit; /* Utiliza la fuente heredada */
+    outline: none; /* Quita el contorno del enlace al enfocarlo */
+}
+
+.formulario-datos2{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formulario-datos2-3{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.checklist {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.columnacheck {
+    display: inline-block;
+    vertical-align: top; /* Alinea las columnas arriba */
+    width: 45%; /* Ancho de las columnas */
+    text-align: left; /* Alinear elementos a la izquierda dentro de la columna */
+}
+
+.columnacheck input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.columnacheck label {
+    display: inline-block;
+    width: calc(100% - 25px); /* El ancho de la etiqueta es el 100% menos el espacio para el checkbox y el margen derecho */
+    margin-right: 20px; /* Espacio a la derecha de la etiqueta */
+}
+
+.radioList {
+    text-align: left;
+}
+
+.radioList input[type="radio"] {
+    margin-right: 10px; 
+}
+
+.anade {
+    float: right;
+}
+  
+  .contTot {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .totalTabla{
+    display: flex;
+    align-items: center;
+  }
+  
+  .totalTabla label{
+    margin-right: 10px;
+  }
+
+  .totalTabla input{
+    text-align: right;
+  }
+  
+  .activo_en_pagina {
+    color: black; /* Cambia el color del texto */
+    position: relative; /* Establece la posición relativa para el posicionamiento absoluto del borde */
+}
+
+.activo_en_pagina:after {
+    content: ''; /* Agrega contenido generado para la franja */
+    position: absolute; /* Establece la posición absoluta */
+    bottom: 0; /* Coloca la franja en la parte inferior del elemento */
+    left: 0; /* Coloca la franja en el borde izquierdo del elemento */
+    width: 100%; /* Establece el ancho de la franja al 100% del ancho del elemento */
+    height: 5px; /* Establece la altura de la franja */
+    background-color: #a77753; /* Color de la franja */
+}
+
+.botones-columna {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos para indicar texto truncado */
+}
+
+.select-readonly {
+    pointer-events: none;
+}
+
+.conFil{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20px;
+}

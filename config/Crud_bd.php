@@ -4,7 +4,7 @@
 * Este archivo crea las consultas para una base de datos en phpmyadmin
 */
 define("HOST", "mysql:host=localhost;");
-define("DBNAME", "dbname=baseejemplo");
+define("DBNAME", "dbname=proyhuitzila");
 define("USUARIO", "practicamvc");
 define("PASSWORD", 'Leo1234@');
 
@@ -68,6 +68,29 @@ class Crud_bd{
         }
     }
 
+    public function consultar($consultaEscrita, ?array $arrayAsociativo = null){
+        try {
+            $this->conexion->beginTransaction();
+            if ($arrayAsociativo == null) {
+                $sentencia = $this->conexion->query($consultaEscrita);
+            } else {
+                $sentencia = $this->conexion->prepare($consultaEscrita);
+                $sentencia->execute($arrayAsociativo);
+            }
+            $this->conexion->commit();
+            $filas = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            $sentencia = null;
+            return $filas;
+        } catch (\Exception $e) {
+            if ($this->conexion->inTransaction()) {
+                $this->conexion->rollback();
+                die("Error: " . $e->getMessage());
+                echo "Linea del error: " . $e->getLine();
+            }
+            throw $e;
+        }
+    }
+
     public function insertar_eliminar_actualizar($consultaEscrita, $arrayAsociativo){
         /**
          * Esta funcion perminte insertar, eliminar, los parametros de busqueda y modificacion 
@@ -104,7 +127,6 @@ class Crud_bd{
        
 
     }
-
 
 
     public function cerrar_conexion()

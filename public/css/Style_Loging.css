@@ -1,0 +1,242 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.content h1 {
+    color: hsl(0, 82%, 7%); /* Color café */
+}
+
+.container {
+    position: relative;
+    height: 100%;
+}
+
+.background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    right: 5%; /* Ajusta el valor según sea necesario */
+    transform: translateY(-50%);
+    width: 30%;
+    height: 55%;
+    background-color: rgba(255, 255, 255, 0.3); /* Color de fondo blanco con mayor transparencia */
+    border-radius: 20px; /* Ajusta el radio de las esquinas del rectángulo */
+    padding: 5%; /* Ajusta el espaciado dentro del rectángulo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    position: absolute; /* Cambia la posición a relativa */
+    margin-top: center; /* Añade margen superior automático */
+    margin-bottom: center; /* Añade margen inferior automático */
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2; /* Asegura que la imagen esté encima del rectángulo gris */
+    width: 20%;  /*Ajusta el ancho según sea necesario */
+    max-width: 150px; /* Define un ancho máximo */
+    height: auto;  /*Ajusta la altura según sea necesario */
+
+}
+
+.overlay-custom {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 40%; /* Ajusta el ancho del cuadrado gris según sea necesario */
+    height: 55%; /* Ajusta la altura del cuadrado gris según sea necesario */
+    background-color: rgba(128, 128, 128, 0.3); /* Color de fondo gris con transparencia */
+    border-radius: 10px; /* Ajusta el radio de las esquinas del cuadrado */
+}
+
+.custom-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Asegura que la imagen esté encima del cuadrado gris */
+    width: 80%;  /*Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Ajusta la altura según sea necesario */
+    border-radius: 10px; /* Ajusta el radio para hacerla circular */
+}
+
+
+.content{
+    text-align: center;
+    color: white;
+    padding: 11%;
+}
+.content_2{
+    margin-bottom: 4em;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: right;
+
+}
+
+.input-group a {
+    position: relative;
+    text-align: center; /* Alinea el texto al centro */
+    color: black; /* Cambia el color del hipervínculo si es necesario */
+    text-decoration: none; /* Elimina el subrayado del hipervínculo */
+    font-size: 26px;
+    display: block; /* Hace que el enlace ocupe todo el ancho disponible */
+    margin-top: 10px; /* Agrega un espacio en la parte superior */
+}
+
+
+.input-group a:hover {
+    color: red; /* Cambia el color del hipervínculo al pasar el cursor sobre él */
+}
+
+.input-group input, .input-group button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 50%; /* Ancho estándar para todos los elementos de entrada y botones */
+    font-size: 26px; /* Tamaño de letra estándar */
+}
+
+.input-group input[type="text"], .input-group input[type="password"] {
+    width: 150%; /* Ancho ajustado */
+    font-size: 26px; /* Ajusta el tamaño de la fuente */
+    margin: 1%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black; /* Color café */
+    background: transparent; /* Fondo transparente */
+    color: black; /* Color de texto café */
+
+}
+
+.input-group input[type="text"]:focus, .input-group input[type="password"]:focus {
+    outline: none;
+    border-bottom: 2px solid #A52A2A; /* Cambio de color al enfocar */
+    font-size: 26px;
+}
+
+.input-group button {
+    border: 2px solid black; /* Borde negro */
+    font-size: 26px;
+
+}
+
+.error-message {
+    color: #b62525;
+    display: block;
+    text-align: center;
+    font-size: 26px;
+}
+.forgot-password a{
+    font-size: 12px;
+ }
+
+@media screen and (max-width: 480px) {
+    .overlay-custom{
+        display: none;
+    }
+    .overlay {
+        width: 90%;
+    }
+    
+    
+/* Estilos base */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Cambiado a un valor porcentual */
+    max-width: 400px; /* Ancho máximo */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    padding-top: 5%;
+    width: 80%;
+    max-width: 100px;
+}
+
+.overlay-custom {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 10px;
+}
+
+.custom-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    padding: 20px; /* Reducido el relleno */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.input-group a {
+    margin: 10px 0; /* Ajustes de margen */
+}
+
+.input-group input, .input-group button {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0; /* Ajustes de margen */
+}
+
+/* Estilos para pantallas más pequeñas */
+
+@media screen and (max-width: 768px) {
+    .overlay {
+        height: 80%;
+        width: 80%;
+        max-width: 300px;
+    }
+}
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/Style_Loging.css">
+    <title>Interfaz de Usuario</title>
+</head>
+<body>
+    <div class="container">
+        <img src="../public/imagen_fondo.jpg" alt="Background Image" class="background-img">
+        <div class="overlay">
+            <div class="content_2">
+                    <img src="../public/perfilusuario.jpg" alt="Imagen de perfil del usuario" class="profile-img">
+            </div>
+            <div class="content">
+                <form id="login_form" action="../controller/Login/Login_Control.php" method="post">
+                    <div class="input-group">
+                        
+                        <input type="text" placeholder="Correo" name="Correo" id="Correo" oninput="validarCorreo();" onkeypress="validarTecla(event);">
+                        <span id="mensaje-error" class="error-message"></span>
+                        <input type="password" placeholder="Contraseña" name="Password" id="Password" oninput="borrarMensajeErrorPassword();">
+                        <span id="mensaje-error-password" class="error-message"></span>
+                        <br>
+                        <a href="Recuperar_Contraseña/Recuperar_Contra_1.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                        <br>
+                        <button type="submit" id="ingresar">ENTRAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-custom">
+        <img src="../public/mezcal-logo.webp" alt="Imagen personalizada" class="custom-img">
+    </div>
+
+    <script src="../controller/Login/js/Validaciones.js"></script>
+    <!-- <script src="../controller/Login/js/Login.js"></script> -->
+    <!--action="../controller/Login/Login_Control.php" method="post"-->
+
+</body>
+</html>

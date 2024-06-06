@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrícola</title>
+    <link rel="stylesheet" href="../../../public/css/cssAgricola.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla_Menu.css">
+	<link rel="stylesheet" href="../../../public/css/Plantilla.css">
+
+</head>
+<body>
+    <header>
+		<div class="header_superior">
+			<div class="img-ventana">
+				<img class="logo_mezcal" src="../../../public/mezcal-logo.webp" width="30px" alt="">
+				
+			</div>
+			<div class="nombre_ventana">
+				<h1 class="nombre_Ventana">Control de actividades</h1>
+			</div>
+		
+            <div class="boton-cerrar-session">
+				<button class="btn-cerrar-session btn" onclick="window.location.href = '../../../controller/Login/Logout.php' ">Cerrar sesión</button>
+            </div>
+        </div>
+
+		<!-- Menu Desplegable -->
+		<div class="container_menu">
+			<div class="menu">
+				<input type="checkbox" id="check__menu">
+				
+				<label id="label__check" for="check__menu">
+					<i class="fa-sharp fa-solid fa-bars icon__menu"></i>
+				</label>
+				<nav>
+					<ul>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Predios y plantas
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Predios/Registro_Predios.html">Registrar predios</a></li>
+								<li><a href="../../../view/Agricola/Predios/Vista_Predios.html">Consultar predios</a></li>
+								<hr>
+								<li><a href="../../../view/Agricola/Predios/Registro_Plantas.html">Registrar plantas</a></li>
+								<li><a href="../../../view/Agricola/Predios/Vista_Plantas.html">Consultar plantas</a></li>
+							</ul>
+						</li>
+		
+						<li>
+							<a href="#">
+								<i ></i>
+								Plagas y herbicidas
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Registro_Plagas.html">Registrar plagas</a></li>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Vista_Plagas.html">Consultar plagas</a></li>
+								<hr>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Registro_Herbicidas.html">Registrar herbicidas</a></li>
+								<li><a href="../../../view/Agricola/Plagas_y_herbicidas/Vista_Herbicidas.html">Consultar herbicidas</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="activo_en_pagina">
+								<i ></i>
+								Control de actividades
+							</a>
+				
+							<ul>
+								<li><a href="../../../view/Agricola/Actividades/Registro_de_actividades.html">Registrar</a></li>
+								<li><a href="../../../view/Agricola/Actividades/Vista_actividades.html">Consultar</a></li>
+							</ul>
+						</li>
+
+					</ul>
+        		</nav>
+      		</div>
+    	</div>
+	</header>
+	<main>
+		<section id="section2" class="section-main">
+			<p class="subtitulo-1">Especificación de actividades</p>
+			<hr>
+			<div class="formulario-datos">
+				<div>
+					<label for="actividadSele">Seleccione la actividad realizada</label>
+					<select id="actividadSele" name="actividadSele" class="styled-input select-readonly" ></select>
+				</div>
+					<div>
+						<label for="fechaIni">Seleccione la fecha de inicio de la actividad</label>
+						<input type="date" id="fechaIni" name="fechaIni" class="styled-input" readonly>
+					</div>
+					<div>
+						<label for="canFecha">Cantidad de semanas trabajadas</label>
+						<input type="number" id="canFecha2" name="canFecha" class="styled-input" readonly>
+					</div>
+			</div>
+			<div class="formulario-datos2">
+				<div>
+					<label for="cosGenral">Gastos generales ($)</label>
+					<input type="text" id="cosGenral" name="cosGenral" class="styled-input" title="El gasto general debe de tener maximo 10 caracteres, solo numeros y decimnales" readonly>
+				</div>
+				<div>
+					<label for="descAct">Descripción de la actividad</label>
+					<textarea id="descAct" name="descAct" rows="4"  title="La descripción debe de contener un máximo de 300 caracteres" readonly></textarea>
+				</div>
+			</div>
+            <div class="formulario-datos2">
+                <div id="campo1">
+                    <label for="selePlaga">Plaga</label>
+                    <input type="text" id="selePlaga" name="selePlaga" class="styled-input" readonly>
+                </div>
+                <div id="campo2">
+                    <label for="seleHerbicida">Herbicida</label>
+                    <input type="text" id="seleHerbicida" name="seleHerbicida" class="styled-input" readonly>
+                </div>
+            </div>
+		</section>
+
+		<section id="section3" class="table-container">
+			<table id="tablaActividades">
+				<thead>
+					<tr>
+						<th>Nombre del trabajador</th>
+						<th>Dìas trabajados</th>
+						<th>Semana</th>
+						<th>Actividad desarrollada</th>
+						<th>Gasolina</th>
+						<th>Datos del vehículo</th>
+						<th>Lìquidos</th>
+						<th>Compra de material</th>
+						<th>Gastos extras</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+			<div class="contTot">
+				<div class="totalTabla">
+					<label for="total">Total:</label>
+					<input type="text" id="total" name="total" class="styled-input" readonly>
+				</div>	
+			</div>
+		</section>
+
+			<div class="grupo-boton-reg">
+				<div class="boton_registrar">
+					<a href="../../../view/Agricola/Actividades/Vista_actividades.html"><button type="button" id="cancelButton" class="Boton_cancelar">Regresar</button></a>
+				</div>
+
+
+	</form>
+	</main>
+    <footer>
+        <p>Fábrica de Software del Instituto Tecnológico Superior Zacatecas Sur</p>
+    </footer>
+</body>
+<script src="../../../controller/Agricola/Actividades/js/Consulta_Tipos_Actividades.js"></script>
+
+<script src="js/Agregar_Nueva_Plaga.js"></script>
+<script src="js/Agregar_Nuevo_Herbicida.js"></script>
+<script src="js/Campos_adicionales_2.js"></script>
+<script src="../../../controller/Agricola/Actividades/js/Llenado_Campos_Visualizar_Actividades.js"></script>
+
+<script> first</script>
+</html>

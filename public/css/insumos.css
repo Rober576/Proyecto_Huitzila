@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'FuentePrincipal'; 
+    src: url('../Amethysta-Regular.ttf') format('truetype'); 
+}
+.formulario-datos2{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formulario-datos2-3{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.botones-columna {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 12px;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos para indicar texto truncado */
+}
+
+
+.totalTabla{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .totalTabla label{
+    margin-right: 10px;
+    color: #BF7E56;
+  }
+
+  .totalTabla input{
+    text-align: right;
+  }
+  
+
+
+.totalFura {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+
+.Boton_Tabla{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.tx{
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Arial';
+}
+
+.Boton_Tabla:hover{
+    background-color: #1d4d25;
+}
+input[type="number"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+button.Boton_cancelar{
+    background-color: #a77753;
+    color: rgb(255, 250, 250);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+.CentrarBoton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Botones{
+    margin: 10px;
+}
+
+.NoResizable{
+    resize: none;
+    height: 7em;
+}
+/* Estilo para el formulario y su grid */
+.formulario-colum{
+    padding: 20px 0px 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Ahora hay tres columnas */
+    gap: 20px;
+}
+.campo-obligatorio {
+    color: red; /* Color rojo para resaltar */
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    margin-left: 5px; /* Espaciado a la izquierda */
+}
+
+.centered{
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin: 0 auto; /* Establece los márgenes izquierdo y derecho automáticamente */
+        display: block; /* Asegura que el elemento sea tratado como un bloque */
+        width: fit-content;
+}
+
+.nombre_Ventana{
+    text-align: center;
+}
+.botonesEditarYEliminar{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: auto;
+    display: inline-block; 
+    white-space: nowrap; 
+}
+.botonElimyEdi{
+    background-color: #143419;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: auto;
+    display: inline-block; 
+    white-space: nowrap; 
+}
+
+.botonesEditarYEliminar:hover,.botonElimyEdi:hover{
+    background-color: #1d4d25;
+}
+th{
+    width: auto;
+    border: 1px solid #080808;
+    padding: 12px;
+    position: sticky;
+    text-align: center;
+}
+
+td,th{
+    width: calc(100% / 12);
+}
+
+/* Estilos para el contenedor de la imagen */
+.imagen-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Ancho máximo para evitar que la imagen se extienda demasiado en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilos para el envoltorio de la imagen */
+.imagen-wrapper {
+    position: relative; /* Establece el posicionamiento relativo para que la imagen se posicione correctamente */
+    padding-bottom: 100%; /* Proporción de aspecto (ratio) deseada para la imagen (aquí es 4:3) */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del envoltorio */
+}
+
+/* Estilos para la imagen dentro del envoltorio */
+.imagen-wrapper img {
+    position:absolute; /* Establece el posicionamiento absoluto para la imagen */
+    width: 100%; /* Ocupa todo el ancho disponible del envoltorio */
+    height: 100%; /* Ocupa todo el alto disponible del envoltorio */
+    object-fit: cover; /* Escala la imagen para cubrir el envoltorio manteniendo la relación de aspecto */
+    border-radius: 50px;
+    
+    padding: 30px;
+
+}
+.imagen_principal {
+    /* Establece la imagen de fondo */
+    background-image: url('../../public/Principal_Envasado.jpg');
+    background-size:cover;
+    background-repeat:repeat;
+    position: relative; 
+}
+
+.activo_en_pagina {
+    color: black; /* Cambia el color del texto */
+    position: relative; /* Establece la posición relativa para el posicionamiento absoluto del borde */
+}
+
+.activo_en_pagina:after {
+    content: ''; /* Agrega contenido generado para la franja */
+    position: absolute; /* Establece la posición absoluta */
+    bottom: 0; /* Coloca la franja en la parte inferior del elemento */
+    left: 0; /* Coloca la franja en el borde izquierdo del elemento */
+    width: 100%; /* Establece el ancho de la franja al 100% del ancho del elemento */
+    height: 5px; /* Establece la altura de la franja */
+    background-color: #a77753; /* Color de la franja */
+}
+#mensaje{
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+
+    background-color: #E9E0D1;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2)
+}
+
+.tabla_titulo {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    /* font-weight: 800; */
+}
+.table-container2 {
+    width: 100%;
+    color: #B37E56;
+    margin: 0 auto;
+    justify-content: space-between;
+    overflow-x: auto;
+}
